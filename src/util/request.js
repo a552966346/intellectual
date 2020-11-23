@@ -25,3 +25,5 @@ function requset(url, data = {}, method = 'post'){
     })
   })
 }
+
+export default requset;
