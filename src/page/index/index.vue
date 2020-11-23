@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name:'index',
   data(){
     return{
       msg:'这是测试内容'
@@ -15,6 +16,7 @@ export default {
 </script>
 
 <style scoped>
+/* scoped 样式隔离 */
   *{
     margin: 0;
     padding: 0;
