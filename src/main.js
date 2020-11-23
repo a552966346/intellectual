@@ -3,13 +3,22 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// vuex
+import store from "./store/store"
+
 
 Vue.config.productionTip = false
+
+// axios 请求封装
+import api from './util/api'
+Vue.prototype.$api = api
+
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
