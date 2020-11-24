@@ -19,8 +19,8 @@
      <!-- 登录 -->
      <div class="login_content">
        <p class="welcome_title">HI 欢迎来到<span style="color:#69a0e2">伊甸城</span></p>
-        <el-tabs v-model="activeName" @tab-click="handleClick" stretch='true'>
-          <el-tab-pane label="账户密码登录" name="first">
+        <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="stretch_status">
+          <el-tab-pane label="账户密码登录" name="passworld">
             <!-- 账号登录 -->
             <div>
               <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="demo-ruleForm">
@@ -54,9 +54,50 @@
               </div>
             </div>
           </el-tab-pane>
-          <el-tab-pane label="手机验证码登录" name="second">
+          <el-tab-pane label="手机验证码登录" name="verification">
             <!-- 验证码登录 -->
-
+             <div>
+              <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="demo-ruleForm">
+                <el-form-item prop="pass" class="login_form_item">
+                  <el-input type="text" v-model="ruleForm.username" autocomplete="off" placeholder='请输入手机号'></el-input>
+                </el-form-item>
+                <el-form-item prop="checkPass" class="login_form_item inline_st">
+                  <el-row>
+                    <el-col :span="16">
+                      <div class="grid-content">
+                          <el-input type="password" v-model="ruleForm.pass" autocomplete="off" placeholder='输入验证码'></el-input>
+                      </div>
+                    </el-col>
+                    <el-col :span="8">
+                      <div class="grid-content">
+                        <el-button type="primary" @click="getVerification" style="width:100%;height:40px;">获取验证码</el-button>
+                      </div>
+                    </el-col>
+                  </el-row>
+                </el-form-item>
+                <el-form-item>
+                    <div class="register" style="">
+                      <div>
+                        <input type="checkbox">自动登录
+                        <p>| 忘记密码</p>
+                      </div>
+                      <div>
+                        <p style="color:#69a0e2">注册账号></p>
+                      </div>
+                   </div>
+                </el-form-item>
+                <el-form-item class="login_form_item">
+                  <el-button type="primary" @click="submitForm('ruleForm')" style="width:100%;height:40px">登录</el-button>
+                </el-form-item>
+              </el-form>
+            </div>
+            <div class="party">
+              <p>第三方登录:</p>
+              <div>
+                <img src="../../../static/img/login/wx_icon.png" alt="">
+                <img src="../../../static/img/login/zfy_icon.png" alt="">
+              </div>
+            </div>
           </el-tab-pane>
         </el-tabs>
      </div>
@@ -73,14 +114,38 @@ export default {
   name:'login',
   data(){
     return{
-       ruleForm: {
-          username: '',
-          pass: '',
-          type: [],
-        },
+      // 规则校验
+      rules: {
+        username: [
+          { required: true, trigger: 'blur' }
+        ],
+        pass: [
+          { required: true, trigger: 'blur' }
+        ],
+        
+      },
+      // 是否自动撑开 （tabs）
+      stretch_status:true,
+      
+      ruleForm: {
+        username: '',
+        pass: '',
+        type: [],
+      },
+      activeName:'passworld'
       
     }
-  }
+  },
+  methods: {
+    // 手机号登录和验证码登录切换
+    handleClick(tab, event) {
+      console.log(tab, event);
+    },
+    // 获取验证码
+    getVerification(){
+
+    },
+  },
 }
 
 </script>
