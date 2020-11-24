@@ -3,12 +3,12 @@
    <div class="login_top">
       <div>
         <el-image
-        style="width: 300px; "
+        style="width: 300px;"
         src="../../../static/img/login/logo.png"
         fit="fill"></el-image>
         <div>
           <el-image
-            style="width: 20px; "
+            style="width: 20px;"
             src="../../../static/img/login/home_icon.png"
             fit="fill"></el-image>
             <p>返回伊甸城首页</p>
@@ -159,6 +159,8 @@ export default {
   }
   #login{
     height: 100%;
+    display: flex;
+    flex-direction:column;
   }
   /* 顶部 */
   .login_top{
@@ -172,7 +174,7 @@ export default {
     width: 1200px;
     justify-content: space-between;
     align-items: flex-end;
-    padding-bottom:20px ;
+    padding-bottom:20px;
   }
   .login_top>div>div{
     display: flex;
@@ -184,7 +186,8 @@ export default {
   }
   /* 中部 */
   .login_center{
-    height: 65%;
+    /* height: 65%; */
+    flex: 1;
     background-image:url('../../../static/img/login/login_bg.png');
     background-size: 100% auto;
     background-repeat: no-repeat;
@@ -232,8 +235,6 @@ export default {
   .party>div{
     padding: 10px 0;
   }
-  
-  
 /* 底部 */
 .login_bottom{
   height: 20%;
