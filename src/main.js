@@ -5,6 +5,11 @@ import App from './App'
 import router from './router'
 Vue.config.productionTip = false
 
+//全局组件
+import topsearch from './components/topsearch/topsearch.vue';
+Vue.component('v-topsearch', topsearch)
+
+
 // vuex
 import store from "./store/store"
 

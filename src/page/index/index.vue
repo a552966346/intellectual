@@ -1,6 +1,7 @@
 <template>
  <div>
-   <p>{{msg}}</p>
+  <v-topsearch></v-topsearch>
+  <p>{{msg}}</p>
  </div>
 </template>
 
