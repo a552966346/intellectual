@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/page/index/index' //主页 index @ 代表src 目录
-
+import login from '@/page/login/login'
 Vue.use(Router)
 
 export default new Router({
@@ -12,6 +12,11 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:login
     }
   ]
 })
