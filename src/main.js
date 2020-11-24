@@ -3,11 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+Vue.config.productionTip = false
+
 // vuex
 import store from "./store/store"
 
-
-Vue.config.productionTip = false
+// element ui 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 
 // axios 请求封装
 import api from './util/api'
