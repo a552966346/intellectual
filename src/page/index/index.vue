@@ -54,6 +54,7 @@
 
 <script>
 import indexpayitem from '@/components/indexpayitem/indexpayitem.vue'
+import navigation from '@/components/navigation/navigation.vue'
 export default {
   name:'index',
   data(){
@@ -86,7 +87,8 @@ export default {
     }
   },
   components:{
-    'v-indexpayitem':indexpayitem
+    'v-indexpayitem':indexpayitem,
+    'v-navigation':navigation
   }
 }
 </script>
