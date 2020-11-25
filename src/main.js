@@ -7,7 +7,9 @@ Vue.config.productionTip = false
 
 //全局组件
 import topsearch from './components/topsearch/topsearch.vue';
+import combotttom from './components/commonbottom/commonbottom.vue';
 Vue.component('v-topsearch', topsearch)
+Vue.component('v-combotttom', combotttom)
 
 
 // vuex

@@ -2,6 +2,7 @@
  <div>
   <v-topsearch></v-topsearch>
   <p>{{msg}}</p>
+  <v-combotttom></v-combotttom>
  </div>
 </template>
 
