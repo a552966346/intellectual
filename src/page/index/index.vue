@@ -11,15 +11,18 @@
   <!-- 交易中心 -->
   <div class="index_pay">
     <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :background_img_url='title_bg_url[0]'></v-comtitle>
+    <v-indexpayitem :payleft_img_url='pay_img_list[0]'></v-indexpayitem>
+    <v-indexpayitem :payleft_img_url='pay_img_list[1]'></v-indexpayitem>
+    <v-indexpayitem :payleft_img_url='pay_img_list[2]'></v-indexpayitem>
   </div>
 
   <!-- 企业服务 -->
-  <div>
+  <div class="index_enterprise">
      <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color' :background_img_url='title_bg_url[1]'></v-comtitle>
   </div>
 
   <!-- 跳蚤市场、合伙人、新闻、伊甸网 -->
-  <div>
+  <div class="index_content">
     <!-- 跳蚤市场 -->
     <div>
       <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :background_img_url='title_bg_url[2]'></v-comtitle>
@@ -49,6 +52,7 @@
 </template>
 
 <script>
+import indexpayitem from '@/components/indexpayitem/indexpayitem.vue'
 export default {
   name:'index',
   data(){
@@ -70,10 +74,18 @@ export default {
                     '../../../static/img/common/Partnership_plan.png',
                     '../../../static/img/common/Learn_about_Eden.png',
                   ],
-      
+      //交易中心组件所需  
+      pay_img_list:['../../../static/img/index/zhuanli_pay.png',
+                    '../../../static/img/index/shangbiao_pay.png',
+                    '../../../static/img/index/ruanzhu_pay.png'
+                  ],
+                  
 
       msg:'这是测试内容'
     }
+  },
+  components:{
+    'v-indexpayitem':indexpayitem
   }
 }
 </script>
@@ -84,5 +96,10 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  .index_pay{
+    background: #f6f6f6;
+    padding-bottom: 20px;
+   
   }
 </style>
