@@ -53,7 +53,11 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import indexpayitem from '@/components/indexpayitem/indexpayitem.vue'
+=======
+import navigation from '@/components/navigation/navigation.vue'
+>>>>>>> 21437f24bf6447b74302bba9aeead0ba3384e35f
 export default {
   name:'index',
   data(){
@@ -86,7 +90,11 @@ export default {
     }
   },
   components:{
+<<<<<<< HEAD
     'v-indexpayitem':indexpayitem
+=======
+    'v-navigation':navigation
+>>>>>>> 21437f24bf6447b74302bba9aeead0ba3384e35f
   }
 }
 </script>
