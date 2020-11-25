@@ -62,7 +62,7 @@ export default {
     width: 55%;
   }
   .search_text{
-    border:2px solid #187fc4 ;
+    border:2px solid #187fc4;  
     border-radius: 0;
   }
   .search_btn{
