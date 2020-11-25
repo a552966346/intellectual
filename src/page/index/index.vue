@@ -1,7 +1,49 @@
 <template>
  <div>
+  <!-- 公共搜索头部 -->
   <v-topsearch></v-topsearch>
-  <p>{{msg}}</p>
+
+  <!-- 顶部选项卡 -->
+  <div>
+
+  </div>
+
+  <!-- 交易中心 -->
+  <div class="index_pay">
+    <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :background_img_url='title_bg_url[0]'></v-comtitle>
+  </div>
+
+  <!-- 企业服务 -->
+  <div>
+     <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color' :background_img_url='title_bg_url[1]'></v-comtitle>
+  </div>
+
+  <!-- 跳蚤市场、合伙人、新闻、伊甸网 -->
+  <div>
+    <!-- 跳蚤市场 -->
+    <div>
+      <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :background_img_url='title_bg_url[2]'></v-comtitle>
+    </div>
+    <!-- 新闻 -->
+    <div>
+      <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :background_img_url='title_bg_url[3]'></v-comtitle>
+    </div>
+    <!-- 合伙人 -->
+    <div>
+      <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :background_img_url='title_bg_url[4]'></v-comtitle>
+    </div>
+    <!-- 伊甸网  -->
+    <div>
+      <v-comtitle :title="title_all[5]" :inform_title='title_text_all[5]' :background_img_url='title_bg_url[5]'></v-comtitle>
+    </div>
+  </div>
+
+  <!-- 合作平台 -->
+  <div>
+    <img src="../../../static/img/index/cooperation_img.png" alt="">
+  </div>
+
+  <!-- 公共底部 -->
   <v-combotttom></v-combotttom>
  </div>
 </template>
@@ -11,6 +53,25 @@ export default {
   name:'index',
   data(){
     return{
+      // commtitle组件传值所需
+      title_color:'#fff',
+      title_all:["交易中心",'企业服务','跳蚤市场','新闻中心','合伙人计划','了解伊甸网'],
+      title_text_all:['交易快报: 186****123,25分钟前购买了****专利',
+                      '交易快报: 186****123,25分钟前购买了****专利',
+                      '交易快报: 186****123,25分钟前购买了****专利',
+                      '交易快报: 186****123,25分钟前购买了****专利',
+                      '交易快报: 186****123,25分钟前购买了****专利',
+                      '交易快报: 186****123,25分钟前购买了****专利',
+                      ],
+      title_bg_url:['../../../static/img/common/Trading_Center.png',
+                    '../../../static/img/common/bg_text.png',
+                    '../../../static/img/common/flea_market.png',
+                    '../../../static/img/common/News_Center.png',
+                    '../../../static/img/common/Partnership_plan.png',
+                    '../../../static/img/common/Learn_about_Eden.png',
+                  ],
+      
+
       msg:'这是测试内容'
     }
   }
