@@ -12,7 +12,7 @@
               <el-option label="订单号" value="2"></el-option>
               <el-option label="用户电话" value="3"></el-option>
             </el-select>
-            <el-button type="primary" slot="append" class="search_btn">搜索</el-button>
+           <el-button type="primary" slot="append" class="search_btn">搜索</el-button>
           </el-input>
         </div>
    </div>
@@ -68,7 +68,7 @@ export default {
   .search_btn{
     width: 100px;
     background: #187fc4;
-    color: #fff;
+    color: red;
     font-size: 15px;
   }
 </style>
