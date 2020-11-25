@@ -33,5 +33,5 @@
     }
 </script>
 <style>
-    .el-menu-demo{width: 1200px;margin: 0 auto;}
+    .el-menu-demo{width: 100%;display: flex;justify-content: center;align-content: center; margin: 0 auto;}
 </style>
