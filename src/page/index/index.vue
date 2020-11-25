@@ -1,8 +1,9 @@
 <template>
  <div>
+  <!-- 顶部导航 -->
+  <v-navigation></v-navigation>
   <!-- 公共搜索头部 -->
   <v-topsearch></v-topsearch>
-
   <!-- 顶部选项卡 -->
   <div>
 
@@ -49,6 +50,7 @@
 </template>
 
 <script>
+import navigation from '@/components/navigation/navigation.vue'
 export default {
   name:'index',
   data(){
@@ -74,6 +76,9 @@ export default {
 
       msg:'这是测试内容'
     }
+  },
+  components:{
+    'v-navigation':navigation
   }
 }
 </script>
