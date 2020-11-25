@@ -1,6 +1,6 @@
 <template>
  <div id="components_topesarch">
-   <div class="topesarch">
+   <div class="topesarch" style="background-image: url(../../../static/img/common/searchtop_bg.png);">
       <el-image
         style="width: 300px; "
         src="../../../static/img/login/logo.png"
@@ -41,6 +41,9 @@ export default {
     justify-content: center;
   }
   #components_topesarch>.topesarch{
+    background-size:auto 80%;
+    background-repeat:no-repeat;
+    background-position:right bottom;
     width: 1200px;
     display: flex;
     justify-content: space-between;
