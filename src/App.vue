@@ -25,13 +25,14 @@ export default {
 
 <style>
 #app {
-  height: calc(100% - 35px);
+  height: calc(100%);
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px; */
+  overflow-x:hidden;
 }
 .common_top{
   background:#f6f6f6;
