@@ -12,14 +12,17 @@
   <!-- 交易中心 -->
   <div class="index_pay">
     <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :background_img_url='title_bg_url[0]'></v-comtitle>
-    <v-indexpayitem :payleft_img_url='pay_img_list[0]'></v-indexpayitem>
-    <v-indexpayitem :payleft_img_url='pay_img_list[1]'></v-indexpayitem>
-    <v-indexpayitem :payleft_img_url='pay_img_list[2]'></v-indexpayitem>
+    <v-indexpayitem :payleft_img_url='pay_img_list[0]' :type='false'></v-indexpayitem>
+    <v-indexpayitem :payleft_img_url='pay_img_list[1]' :type='true'></v-indexpayitem>
+    <v-indexpayitem :payleft_img_url='pay_img_list[2]' :type='true'></v-indexpayitem>
   </div>
 
   <!-- 企业服务 -->
   <div class="index_enterprise">
      <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color' :background_img_url='title_bg_url[1]'></v-comtitle>
+    <div>
+
+    </div>
   </div>
 
   <!-- 跳蚤市场、合伙人、新闻、伊甸网 -->
@@ -118,10 +121,16 @@ export default {
     padding: 0;
     box-sizing: border-box;
   }
+  /* 交易 */
   .index_pay{
     background: #f6f6f6;
     padding-bottom: 20px;
    
+  }
+  /* 企业服务 */
+  .index_enterprise{
+    background-image:url(../../../static/img/index/index_enterprise_bg.jpg) ;
+    padding: 30px;
   }
   .index_content{
     display: flex;
