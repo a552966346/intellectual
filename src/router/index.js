@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import index from '@/page/index/index' //主页 index @ 代表src 目录
 import login from '@/page/login/login'
 import copyrightChanges from '@/page/copyrightChanges/copyrightChanges'
+import service from '@/page/service/service'
 Vue.use(Router)
 
 export default new Router({
@@ -23,6 +24,11 @@ export default new Router({
       path:'/copyrightChanges',
       name:'copyrightChanges',
       component:copyrightChanges
+    },
+    {
+            path:'/service',
+            name:'service',
+            component:service
     }
   ]
 })
