@@ -21,7 +21,7 @@
   <div class="index_enterprise">
      <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color' :background_img_url='title_bg_url[1]'></v-comtitle>
     <div>
-
+      
     </div>
   </div>
 

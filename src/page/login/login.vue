@@ -11,7 +11,7 @@
             style="width: 20px;"
             src="../../../static/img/login/home_icon.png"
             fit="fill"></el-image>
-            <p>返回伊甸城首页</p>
+            <router-link to="/">返回伊甸城首页</router-link>
         </div>
       </div>
    </div>
@@ -19,16 +19,16 @@
      <!-- 登录 -->
      <div class="login_content">
        <p class="welcome_title">HI 欢迎来到<span style="color:#69a0e2">伊甸城</span></p>
-        <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="stretch_status">
+        <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="stretch_status" v-show="toggle_page">
           <el-tab-pane label="账户密码登录" name="passworld">
             <!-- 账号登录 -->
             <div>
-              <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="demo-ruleForm">
-                <el-form-item prop="pass" class="login_form_item">
-                  <el-input type="text" v-model="ruleForm.username" autocomplete="off" placeholder='请输入注册手机号/邮箱/用户名'></el-input>
+              <el-form :model="login_ruleForm" status-icon :rules="login_rules" ref="login_ruleForm" class="demo-ruleForm">
+                <el-form-item prop="username" class="login_form_item">
+                  <el-input type="text" v-model="login_ruleForm.username" autocomplete="off" placeholder='请输入注册手机号/邮箱/用户名'></el-input>
                 </el-form-item>
-                <el-form-item prop="checkPass" class="login_form_item">
-                  <el-input type="password" v-model="ruleForm.pass" autocomplete="off" placeholder='登录密码'></el-input>
+                <el-form-item prop="pass" class="login_form_item">
+                  <el-input type="password" v-model="login_ruleForm.pass" autocomplete="off" placeholder='登录密码'></el-input>
                 </el-form-item>
                 <el-form-item>
                     <div class="register" style="">
@@ -37,12 +37,12 @@
                         <p>| 忘记密码</p>
                       </div>
                       <div>
-                        <p style="color:#69a0e2">注册账号></p>
+                        <p style="color:#69a0e2;cursor:pointer;" @click="toggle_page_all">注册账号></p>
                       </div>
                    </div>
                 </el-form-item>
                 <el-form-item class="login_form_item">
-                  <el-button type="primary" @click="submitForm('ruleForm')" style="width:100%;height:40px">登录</el-button>
+                  <el-button type="primary" @click="submitForm('login_ruleForm')" style="width:100%;height:40px">登录</el-button>
                 </el-form-item>
               </el-form>
             </div>
@@ -57,15 +57,15 @@
           <el-tab-pane label="手机验证码登录" name="verification">
             <!-- 验证码登录 -->
              <div>
-              <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="demo-ruleForm">
-                <el-form-item prop="pass" class="login_form_item">
-                  <el-input type="text" v-model="ruleForm.username" autocomplete="off" placeholder='请输入手机号'></el-input>
+              <el-form :model="verification_ruleForm" status-icon :rules="verification_rules" ref="verification_ruleForm" class="demo-ruleForm">
+                <el-form-item prop="phone" class="login_form_item">
+                  <el-input type="text" v-model="verification_ruleForm.phone" autocomplete="off" placeholder='请输入手机号'></el-input>
                 </el-form-item>
-                <el-form-item prop="checkPass" class="login_form_item inline_st">
+                <el-form-item prop="authcode" class="login_form_item inline_st">
                   <el-row>
                     <el-col :span="16">
                       <div class="grid-content">
-                          <el-input type="password" v-model="ruleForm.pass" autocomplete="off" placeholder='输入验证码'></el-input>
+                          <el-input type="password" v-model="verification_ruleForm.authcode" autocomplete="off" placeholder='输入验证码'></el-input>
                       </div>
                     </el-col>
                     <el-col :span="8">
@@ -82,12 +82,12 @@
                         <p>| 忘记密码</p>
                       </div>
                       <div>
-                        <p style="color:#69a0e2">注册账号></p>
+                        <p style="color:#69a0e2;cursor:pointer;" @click="toggle_page_all">注册账号></p>
                       </div>
                    </div>
                 </el-form-item>
                 <el-form-item class="login_form_item">
-                  <el-button type="primary" @click="submitForm('ruleForm')" style="width:100%;height:40px">登录</el-button>
+                  <el-button type="primary" @click="submitForm('verification_ruleForm')" style="width:100%;height:40px">登录</el-button>
                 </el-form-item>
               </el-form>
             </div>
@@ -100,6 +100,52 @@
             </div>
           </el-tab-pane>
         </el-tabs>
+        <!-- 注册 -->
+        <div class="register_page" v-show="!toggle_page">
+          <el-form :model="register_ruleForm" status-icon :rules="register_rules" ref="register_ruleForm" class="demo-ruleForm">
+            <el-form-item prop="phone" class="login_form_item">
+              <el-input type="text" v-model="register_ruleForm.phone" autocomplete="off" placeholder='请输入手机号'>
+                <i slot="prepend" class="el-icon-mobile"></i>
+              </el-input>
+            </el-form-item>
+             <el-form-item prop="authcode" class="login_form_item inline_st">
+                  <el-row>
+                    <el-col :span="16">
+                      <div class="grid-content">
+                          <el-input type="text" v-model="register_ruleForm.authcode" autocomplete="off" placeholder='输入验证码'>
+                            <i slot="prepend" class="el-icon-key"></i>
+                          </el-input>
+                      </div>
+                    </el-col>
+                    <el-col :span="8">
+                      <div class="grid-content">
+                        <el-button type="primary" @click="getVerification" style="width:100%;height:40px;">获取验证码</el-button>
+                      </div>
+                    </el-col>
+                  </el-row>
+                </el-form-item>
+            <el-form-item prop="pass" class="login_form_item">
+              <el-input type="password" v-model="register_ruleForm.pass" autocomplete="off" placeholder='登录密码'>
+                <i slot="prepend" class="el-icon-lock"></i>
+              </el-input>
+            </el-form-item>
+            <el-form-item style="border-bottom: 1px dashed #c5c5c5;">
+                <div class="register" style="">
+                  <div>
+                    <input type="checkbox">我已阅读并同意
+                    <p style="text-decoration: underline;">服务协议、</p>
+                    <p style="text-decoration: underline;">隐私保护政策</p>
+                  </div>
+                </div>
+            </el-form-item>
+            <el-form-item class="login_form_item">
+              <el-button type="primary" @click="submitForm('register_ruleForm')" style="width:100%;height:40px">注册</el-button>
+            </el-form-item>
+          </el-form>
+          <div class="goto_login">
+            <p @click="toggle_page_all">返回登录></p>
+          </div>
+        </div>
      </div>
       <div class="register_content"></div>
    </div>
@@ -110,31 +156,67 @@
 </template>
 
 <script>
+import {validatePhone} from '@/util/rules.js'
 export default {
   name:'login',
   data(){
     return{
-      // 规则校验
-      rules: {
+      // 规则校验(账户密码登录)
+      login_rules: {
         username: [
-          { required: true, trigger: 'blur' }
+          { required: true, trigger: 'blur',message:'请输入用户名' }
         ],
         pass: [
-          { required: true, trigger: 'blur' }
+          { required: true, trigger: 'blur',message:'请输入密码' }
         ],
-        
+      },
+      // 规则校验(手机号登录)
+      verification_rules: {
+        phone: [
+          { required: true, trigger: 'blur',message:'请输入手机号'},{ validator: validatePhone, trigger: 'blur' }
+        ],
+        authcode: [
+          { required: true, trigger: 'blur',message:'请输入验证码' }
+        ],
+      },
+      // 规则校验(注册)
+      register_rules: {
+        phone: [
+          { required: true, trigger: 'blur',message:'请输入手机号' }
+        ],
+        authcode: [
+          { required: true, trigger: 'blur',message:'请输入验证码' }
+        ],
+        pass:[
+          { required: true, trigger: 'blur',message:'请输入密码' }
+        ]
       },
       // 是否自动撑开 （tabs）
       stretch_status:true,
-      
-      ruleForm: {
+      // page_toggle 变量
+      toggle_page:true,
+      // 密码登录
+      login_ruleForm: {
         username: '',
-        pass: '',
-        type: [],
+        pass: ''
+      },
+      // 验证码登录
+      verification_ruleForm:{
+        phone:'',
+        authcode:''
+      },
+      // 注册
+      register_ruleForm:{
+        phone:'',
+        authcode:'',
+        pass:''
       },
       activeName:'passworld'
       
     }
+  },
+  beforeMount(){
+    console.log(validatePhone)
   },
   methods: {
     // 手机号登录和验证码登录切换
@@ -144,6 +226,21 @@ export default {
     // 获取验证码
     getVerification(){
 
+    },
+    // 注册切换页面
+    toggle_page_all(){
+      this.toggle_page = !this.toggle_page
+    },
+    // 提交按钮表单验证
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!');
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
     },
   },
 }
@@ -161,6 +258,8 @@ export default {
     height: 100%;
     display: flex;
     flex-direction:column;
+    
+    
   }
   /* 顶部 */
   .login_top{
@@ -181,8 +280,10 @@ export default {
     justify-content: center;
     align-items: center;
   }
-  .login_top>div>div>p{
+  .login_top>div>div>a{
     padding-left: 15px;
+    text-decoration: none;
+    color:#333
   }
   /* 中部 */
   .login_center{
@@ -235,13 +336,29 @@ export default {
   .party>div{
     padding: 10px 0;
   }
-/* 底部 */
-.login_bottom{
-  height: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  color:#999
-}
+  /* 注册 */
+  .register_page{
+    border-top: 3px solid #338bec;
+    height: 300px;
+    
+  }
+  /* 返回登录 */
+  .goto_login{
+    font-size: 14px;
+    color: #338bec;
+  }
+  .goto_login>p{
+    text-align: right;
+    cursor:pointer;
+  }
+  /* 底部 */
+  .login_bottom{
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color:#999
+  }
+
 </style>

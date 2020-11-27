@@ -4,7 +4,7 @@
       <div>
         <div class="common_top_left">
           <p>hi 下午好欢迎来到伊甸城！</p>
-          <p>| <a href="" class="common_login">登录</a> | <a href="" class="common_run">免费注册</a> |</p>
+          <p>| <router-link to="/login" class="common_run">登录/注册</router-link></p>
         </div>
         <div class="common_top_right">
           <p>个人中心</p>
@@ -32,6 +32,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px; */
   overflow-x:hidden;
+  text-decoration: none;
 }
 .common_top{
   background:#f6f6f6;
@@ -50,7 +51,7 @@ export default {
 }
 .common_top_left{
   display: flex;
-  width: 30%;
+  width: 25%;
   justify-content: space-around;
 }
 .common_top_right{
@@ -60,8 +61,11 @@ export default {
 }
 .common_login{
   text-decoration:none;
+  color: #333;
 }
 .common_run{
   text-decoration:none;
+  color: #333;
+  padding-left: 20px;
 }
 </style>
