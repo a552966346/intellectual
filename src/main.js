@@ -9,15 +9,16 @@ Vue.config.productionTip = false
 import topsearch from './components/topsearch/topsearch.vue';
 import combotttom from './components/commonbottom/commonbottom.vue';
 import comtitle from './components/commontitle/commontitle.vue';
+import navigation from './components/navigation/navigation.vue'
 Vue.component('v-topsearch', topsearch)
 Vue.component('v-combotttom', combotttom)
 Vue.component('v-comtitle', comtitle)
-
+Vue.component('v-navigation', navigation)
 
 // vuex
 import store from "./store/store"
 
-// element ui 
+// element ui
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
@@ -35,4 +36,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-

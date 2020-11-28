@@ -2,40 +2,90 @@
  <div id="indexpay_item">
    <img :src="payleft_img_url" alt="">
    <div class="indexpay_right">
-     <div>
-       <p>精选商品总共<span>256</span>件</p>
-       <span>查看更多></span>
-     </div>
-     <div class="indexpay_right_list">
-        <div class="indexpay_right_item">
-          <img src="../../../static/img/index/item_img.png" alt="">
-          <p class="title_blodes">BEST</p>
-          <p><span>第三类</span>日化用品</p>
-          <p class="title_blue">￥29400~39999</p>
+      <div>
+        <p>精选商品总共<span>256</span>件</p>
+        <span>查看更多></span>
+      </div>
+      <div class="indexpay_right_list" v-if="type">
+          <div class="indexpay_right_item">
+            <img src="../../../static/img/index/item_img.png" alt="">
+            <p class="title_blodes">BEST</p>
+            <p><span>第三类</span>日化用品</p>
+            <p class="title_blue">￥29400~39999</p>
+          </div>
+          <div class="indexpay_right_item">
+            <img src="../../../static/img/index/item_img.png" alt="">
+            <p class="title_blodes">BEST</p>
+            <p><span>第三类</span>日化用品</p>
+            <p class="title_blue">￥29400~39999</p>
+          </div>
+          <div class="indexpay_right_item">
+            <img src="../../../static/img/index/item_img.png" alt="">
+            <p class="title_blodes">BEST</p>
+            <p><span>第三类</span>日化用品</p>
+            <p class="title_blue">￥29400~39999</p>
+          </div>
+          <div class="indexpay_right_item">
+            <img src="../../../static/img/index/item_img.png" alt="">
+            <p class="title_blodes">BEST</p>
+            <p><span>第三类</span>日化用品</p>
+            <p class="title_blue">￥29400~39999</p>
+          </div>
+          <div class="indexpay_right_item">
+            <img src="../../../static/img/index/item_img.png" alt="">
+            <p class="title_blodes">BEST</p>
+            <p><span>第三类</span>日化用品</p>
+            <p class="title_blue">￥29400~39999</p>
+          </div>
+      </div>
+      <div class="indexpay_right_lists" v-if="!type">
+        <div class="activie_list">
+          <span class="active">热门推荐</span>
+          <span>机械</span>
+          <span>物理</span>
+          <span>化学</span>
+          <span>电学</span>
+          <span>生活家居</span>
+          <span>固定建筑</span>
+          <span>纺织</span>
         </div>
-        <div class="indexpay_right_item">
-          <img src="../../../static/img/index/item_img.png" alt="">
-          <p class="title_blodes">BEST</p>
-          <p><span>第三类</span>日化用品</p>
-          <p class="title_blue">￥29400~39999</p>
-        </div>
-        <div class="indexpay_right_item">
-          <img src="../../../static/img/index/item_img.png" alt="">
-          <p class="title_blodes">BEST</p>
-          <p><span>第三类</span>日化用品</p>
-          <p class="title_blue">￥29400~39999</p>
-        </div>
-        <div class="indexpay_right_item">
-          <img src="../../../static/img/index/item_img.png" alt="">
-          <p class="title_blodes">BEST</p>
-          <p><span>第三类</span>日化用品</p>
-          <p class="title_blue">￥29400~39999</p>
-        </div>
-        <div class="indexpay_right_item">
-          <img src="../../../static/img/index/item_img.png" alt="">
-          <p class="title_blodes">BEST</p>
-          <p><span>第三类</span>日化用品</p>
-          <p class="title_blue">￥29400~39999</p>
+        <div class="indexpay_right_item_list">
+          <div class="indexpay_right_item_item">
+            <p class="title">一种货物自动分拣系统一种货物自动分拣系统 </p>
+            <div class="er">
+              <p>行业分类：计算、推算、计数 </p>
+              <p>发明专利</p>
+            </div>
+            <p>专利状态：已下证</p>
+            <p class="pay">售价<span> ￥ 1680.0</span></p>
+          </div>
+          <div class="indexpay_right_item_item">
+            <p class="title">一种货物自动分拣系统 </p>
+            <div class="er">
+              <p>行业分类：计算、推算、计数</p>
+              <p>发明专利</p>
+            </div>
+            <p>专利状态：已下证</p>
+            <p class="pay">售价<span> ￥ 1680.0</span></p>
+          </div>
+          <div class="indexpay_right_item_item">
+            <p class="title">一种货物自动分拣系统 </p>
+            <div class="er">
+              <p>行业分类：计算、推算、计数</p>
+              <p>发明专利</p>
+            </div>
+            <p>专利状态：已下证</p>
+            <p class="pay">售价<span> ￥ 1680.0</span></p>
+          </div>
+          <div class="indexpay_right_item_item">
+            <p class="title">一种货物自动分拣系统 </p>
+            <div class="er">
+              <p>行业分类：计算、推算、计数</p>
+              <p>发明专利</p>
+            </div>
+            <p>专利状态：已下证</p>
+            <p class="pay">售价<span> ￥ 1680.0</span></p>
+          </div>
         </div>
      </div>
    </div>
@@ -47,6 +97,7 @@ export default {
   // 组件中接受的值 
   props:{                      
       payleft_img_url:String,
+      type:Boolean,
   },
   data() {
     return {
@@ -97,6 +148,7 @@ export default {
     justify-content: space-between;
     align-content: space-between;
   }
+  
   .indexpay_right_item{
     border: 1px solid #dddddd;
     padding: 20px;
@@ -125,5 +177,78 @@ export default {
     box-shadow: 1px 1px 6px #cee4f2;
     position: relative;
     top: -3px;
+  }
+/* 分割线 */
+  .indexpay_right_lists{
+    flex: 1;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .activie_list{
+    padding: 0px 0;
+    display: flex;
+  }
+  .activie_list>span{
+    padding:3px 10px;
+    margin: 0 5px;
+  }
+  .activie_list>.active{
+    background: #4b7ef1;
+    border-radius: 30px;
+    color:#fff
+  }
+  .indexpay_right_item_list{
+    display: flex;
+    justify-content: space-between;
+    align-content:flex-start;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 15px 0;
+  }
+  .indexpay_right_item_item{
+    width: 32%;
+    padding:20px 15px;
+    border-radius: 5px;
+    border: 1px solid #dddddd;
+    font-size: 14px;
+    height: 32%;
+    margin-bottom: 1%;
+  }
+  .indexpay_right_item_item>.title{
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+  }
+  .indexpay_right_item_item>.er{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px; 
+  }
+  .indexpay_right_item_item>.er>p:first-of-type{
+    display: inline-block;
+    width: 65%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+  }
+  .indexpay_right_item_item>.er>p:last-of-type{
+    color:#187ec6;
+    width: 35%;
+    text-align: right;
+  }
+  .indexpay_right_item_item>p{
+    padding-bottom:10px;
+  }
+  .indexpay_right_item_item>p:last-of-type{
+    padding-bottom: 0;
+  }
+  .pay>span{
+    font-size: 16px;
+    color: #187ec6;
   }
 </style>
