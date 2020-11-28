@@ -55,7 +55,7 @@
                 padding: 0;
                 box-sizing: border-box;
         }
-        .consultation_all_text{width: 100%;padding: 10px 0;}
+        .consultation_all_text{width: 100%;padding: 15px 0;}
         .consultation_all {
                 width: 100%;
                 margin: 0 auto;
@@ -73,6 +73,7 @@
                 display: flex;
                 width: 100%;
                 padding: 20px 0;
+                padding-bottom: 60px;
         }
         .cen_left{
                 /* width: 30%; */
