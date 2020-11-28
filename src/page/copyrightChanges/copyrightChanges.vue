@@ -10,9 +10,7 @@
                         <div class="consultation_center">
 
                                 <!-- 左边内容 -->
-        <div class="consultation_right">
-          
-        </div>
+                                <div class="consultation_right"></div>
                                 <!-- 右边内容 -->
                                 <div class="consultation_left">
                                         <v-consultation :det="det"></v-consultation>
@@ -32,16 +30,16 @@
                                 msg: '这是测试内容',
                                 det: {
                                         src: 'http://zjgqniu.jzhxwl.com/uploads/20201121/FvQyxh_jSa7GW_EjGD4xgGidXMuU.jpg',
-          text:'伊甸�李岩',
+                                        text: '伊甸城-舒畅',
                                         arr: [{
                                                         hour: '23小时',
-                                                        text: '******购买了商�,
-                                                        type: "09�科学仪器，编�****"
+                                                        text: '******购买了商标',
+                                                        type: "09类-科学仪器，编号*****"
                                                 },
                                                 {
                                                         hour: '21小时',
-                                                        text: '******购买了商�',
-                                                        type: "09�科学仪器1，编�****"
+                                                        text: '******购买了商标1',
+                                                        type: "09类-科学仪器1，编号*****"
                                                 }
                                         ],
                                         patent: [{
@@ -62,37 +60,6 @@
                         'v-consultation': consultation
                 }
         }
-          arr:[
-            {
-              hour:'23小时',
-              text:'******购买了商�,
-              type:"09�科学仪器，编�****"
-            },
-            {
-              hour:'21小时',
-              text:'******购买了商�',
-              type:"09�科学仪器1，编�****"
-            }
-          ],
-          patent:[
-            {
-              src:'http://zjgqniu.jzhxwl.com/uploads/20201123/Fq4exNFF1hssRkCty125mSGQqFqv.jpg',
-              name:'门板涂漆装置',
-              money:'18800',
-            },
-            {
-              src:'http://zjgqniu.jzhxwl.com/uploads/20201123/Fq4exNFF1hssRkCty125mSGQqFqv.jpg',
-              name:'门板涂漆装置',
-              money:'20000',
-            }
-          ]
-        }
-      }
-    },
-    components:{
-      'v-consultation':consultation
-    }
-  }
 </script>
 
 <style scoped>
