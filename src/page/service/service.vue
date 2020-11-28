@@ -13,7 +13,7 @@
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left"></div>
                                                 <div class="cen_right">
-                                                        <v-servicer v-on:click_text="text_click"></v-servicer>
+                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor'></v-servicer>
                                                 </div>
                                         </div>
                                 </div>
@@ -30,7 +30,7 @@
                 name:'service',
                 data(){
                         return{
-
+                                iscolor:0
                         }
                 },
                 components:{
@@ -40,6 +40,8 @@
                 methods:{
                         text_click(porp){
                                 console.log(porp)
+                                this.iscolor = porp
+                                this.$el.querySelector('#text_'+porp).scrollIntoView()
                         }
                 }
         }
