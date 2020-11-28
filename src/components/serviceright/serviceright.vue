@@ -40,7 +40,6 @@
                 methods:{
                         click_text(s){
                                 this.iscolor = s
-                                if(s==3||s==5){s -= 2;}
                                 this.$el.querySelector('#text_'+s).scrollIntoView()
                         }
                 }
