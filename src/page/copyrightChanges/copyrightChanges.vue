@@ -8,9 +8,10 @@
                         <div>交易中心>版权变更</div>
                         <!-- 中间内容 -->
                         <div class="consultation_center">
-
                                 <!-- 左边内容 -->
-                                <div class="consultation_right"></div>
+                                <div class="consultation_right">
+                                        <v-process :list="list"></v-process>
+                                </div>
                                 <!-- 右边内容 -->
                                 <div class="consultation_left">
                                         <v-consultation :det="det"></v-consultation>
@@ -22,7 +23,8 @@
 </template>
 
 <script>
-        import consultation from '../../components/consultation/consultation.vue'
+        import consultation from '../../components/consultation/consultation.vue';
+        import proce from '../../components/process/process.vue';
         export default {
                 name: 'copyrightChanges',
                 data() {
@@ -53,11 +55,13 @@
                                                         money: '20000',
                                                 }
                                         ]
-                                }
+                                },
+                                list:['服务详情','申请流程','所需材料','伊甸优势','服务承诺','常见问题']
                         }
                 },
                 components: {
-                        'v-consultation': consultation
+                        'v-consultation': consultation,
+                        'v-process':proce
                 }
         }
 </script>
@@ -82,6 +86,7 @@
 
         .consultation_right {
                 flex: 1;
+                padding-right: 20px;
         }
 
         .consultation_left {
