@@ -6,45 +6,18 @@
                 </div>
                 <!-- 内容 -->
                 <div class="serviceleft_cont">
-                      <div class="serviceleft_item">
+                      <div class="serviceleft_item" v-for="(item,index) in leftdata" :key="item.id" >
                            <!-- 标题 -->
-                           <div class="serviceleft_item_title">
+                           <div class="serviceleft_item_title" >
                                 <div class="serviceleft_item_title1"></div>
-                                <div class="serviceleft_item_title2">国内专利申请</div>
+                                <div class="serviceleft_item_title2">{{item.titname}}</div>
                            </div>
                            <!-- 跳转 -->
-                           <div class="serviceleft_item_lian">
-                                <router-link to="" class="common_lian">发明专利</router-link>
-                                <router-link to="" class="common_lian">实用设计</router-link>
-                                <router-link to="" class="common_lian">外观设计</router-link>
+                           <div class="serviceleft_item_lian" v-for='(isitem,ind) in item.type' :key='isitem.id'>
+                                <router-link to="" class="common_lian">{{isitem.name}}</router-link>
                            </div>
                       </div>
-                      <div class="serviceleft_item">
-                           <!-- 标题 -->
-                           <div class="serviceleft_item_title">
-                                <div class="serviceleft_item_title1"></div>
-                                <div class="serviceleft_item_title2">涉外专利申请</div>
-                           </div>
-                           <!-- 跳转 -->
-                           <div class="serviceleft_item_lian">
-                                <router-link to="" class="common_lian">发明专利</router-link>
-                                <router-link to="" class="common_lian">实用设计</router-link>
-                                <router-link to="" class="common_lian">外观设计</router-link>
-                           </div>
-                      </div>
-                      <div class="serviceleft_item">
-                           <!-- 标题 -->
-                           <div class="serviceleft_item_title">
-                                <div class="serviceleft_item_title1"></div>
-                                <div class="serviceleft_item_title2">涉外专利申请</div>
-                           </div>
-                           <!-- 跳转 -->
-                           <div class="serviceleft_item_lian">
-                                <router-link to="" class="common_lian">发明专利</router-link>
-                                <router-link to="" class="common_lian">实用设计</router-link>
-                                <router-link to="" class="common_lian">外观设计</router-link>
-                           </div>
-                      </div>
+
                 </div>
         </div>
 </template>
@@ -53,7 +26,68 @@
         export default{
                 data(){
                         return{
-
+                                leftdata:[
+                                        {
+                                           id:1,
+                                           titname:'国内专利申请',
+                                           type:[{
+                                               id:1,
+                                               name:'发明专利'
+                                           },{
+                                              id:2,
+                                              name:'实用新型'
+                                           },{
+                                              id:3,
+                                              name:'外观设计'
+                                           }]
+                                        },{
+                                            id:2,
+                                            titname:'涉外专利申请',
+                                            type:[{
+                                                id:1,
+                                                name:'PCT国际专利申请'
+                                            },{
+                                               id:2,
+                                               name:'单独国家直接申请'
+                                            }]
+                                        },{
+                                            id:3,
+                                            titname:'商标服务',
+                                            type:[{
+                                                id:1,
+                                                name:'普通商标注册'
+                                            },{
+                                               id:2,
+                                               name:'商标变更'
+                                            },{
+                                               id:3,
+                                               name:'商标续展'
+                                            }]
+                                        },{
+                                            id:4,
+                                            titname:'版权服务',
+                                            type:[{
+                                                id:1,
+                                                name:'软件著作权登记'
+                                            },{
+                                               id:2,
+                                               name:'美术作品登记'
+                                            },{
+                                               id:3,
+                                               name:'文学作品登记'
+                                            }]
+                                        },{
+                                            id:5,
+                                            titname:'其他服务',
+                                            type:[{
+                                                id:1,
+                                                name:'企业知识产权展示'
+                                            },{
+                                               id:2,
+                                               name:'企业高企认定'
+                                            }]
+                                        }
+                                ]
                         }
                 }
         }
@@ -71,5 +105,4 @@
         /* 跳转链接 */
         .serviceleft_item_lian{display: flex;flex-direction: column;}
         .common_lian{padding-bottom: 20px;padding-left: 25px;color: #999;font-weight: bold;}
-        .serviceleft_item_lian .common_lian:last-child{padding-bottom: 0px!important;}
 </style>
