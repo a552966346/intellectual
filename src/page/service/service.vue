@@ -11,7 +11,9 @@
                                 <div class="consultation_center">
                                         <v-servicet></v-servicet>
                                         <div class="consultation_center_cen">
-                                                <div class="cen_left"></div>
+                                                <div class="cen_left">
+                                                       <v-serviceleft></v-serviceleft>
+                                                </div>
                                                 <div class="cen_right">
                                                         <v-servicer v-on:click_text="text_click"></v-servicer>
                                                 </div>
@@ -25,6 +27,7 @@
 
 <script>
         import servicetop from '../../components/servicetop/servicetop.vue'
+        import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import serviceright from '../../components/serviceright/serviceright.vue'
         export default{
                 name:'service',
@@ -35,6 +38,7 @@
                 },
                 components:{
                       'v-servicet':servicetop,
+                      'v-serviceleft':serviceleft,
                       'v-servicer':serviceright
                 },
                 methods:{
