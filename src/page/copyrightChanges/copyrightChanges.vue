@@ -9,7 +9,9 @@
       <!-- 中间内容 -->
       <div class="consultation_center">
         <!-- 左边内容 -->
-        <div class="consultation_right"></div>
+        <div class="consultation_right">
+          
+        </div>
         <!-- 右边内容 -->
         <div class="consultation_left">
           <v-consultation :det="det"></v-consultation>
@@ -29,7 +31,7 @@
         msg: '这是测试内容',
         det:{
           src:'http://zjgqniu.jzhxwl.com/uploads/20201121/FvQyxh_jSa7GW_EjGD4xgGidXMuU.jpg',
-          text:'伊甸城-舒畅',
+          text:'伊甸城-李岩',
           arr:[
             {
               hour:'23小时',
