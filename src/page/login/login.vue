@@ -191,7 +191,7 @@ export default {
           { required: true, trigger: 'blur',message:'请输入密码' }
         ]
       },
-      // 是否自动撑开 （tabs）
+      // 是否自动撑开 (tabs)
       stretch_status:true,
       // page_toggle 变量
       toggle_page:true,
@@ -258,8 +258,6 @@ export default {
     height: 100%;
     display: flex;
     flex-direction:column;
-    
-    
   }
   /* 顶部 */
   .login_top{
@@ -340,7 +338,6 @@ export default {
   .register_page{
     border-top: 3px solid #338bec;
     height: 300px;
-    
   }
   /* 返回登录 */
   .goto_login{

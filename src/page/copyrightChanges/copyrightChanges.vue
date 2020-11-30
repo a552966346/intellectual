@@ -10,6 +10,7 @@
                         <div class="consultation_center">
                                 <!-- 左边内容 -->
                                 <div class="consultation_right">
+                                        <v-apply></v-apply>
                                         <v-process :list="list"></v-process>
                                 </div>
                                 <!-- 右边内容 -->
@@ -25,6 +26,7 @@
 <script>
         import consultation from '../../components/consultation/consultation.vue';
         import proce from '../../components/process/process.vue';
+        import apply from '../../components/apply/apply.vue'
         export default {
                 name: 'copyrightChanges',
                 data() {
@@ -61,7 +63,8 @@
                 },
                 components: {
                         'v-consultation': consultation,
-                        'v-process':proce
+                        'v-process':proce,
+                        'v-apply':apply
                 }
         }
 </script>
