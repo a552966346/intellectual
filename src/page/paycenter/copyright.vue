@@ -18,7 +18,7 @@
                        <a href="#">漫画作品</a>
                        <a href="#">摄影作品</a>
                        <a href="#">软件作品</a>
-                       <a href="#">图形作品</a>  
+                       <a href="#">图形作品</a>
                     </dd>
                 </dl>
                 <dl>
@@ -56,14 +56,14 @@
                 </dl>
             </div>
         </div>
-        <!-- 产品列表 --> 
+        <!-- 产品列表 -->
         <div class="copyright_list">
             <div class="copyright_sleft">
                 <a href="#">
-                    <span>综合排序</span> 
+                    <span>综合排序</span>
                 </a>
                 <a href="#">
-                    <span>价格排序</span>    
+                    <span>价格排序</span>
                 </a>
             </div>
             <div class="copyright_sright">
@@ -75,7 +75,7 @@
                 </a>
                 <div class="copyright_jian">
                     <a href="#">
-                        <font> < </font> 
+                        <font> < </font>
                     </a>
                     <a href="#">
                         <font> > </font>
@@ -84,22 +84,7 @@
             </div>
         </div>
         <div class="copyright_product">
-           <div class="copyright_content">
-                <a class="copyright_con" href="#" v-for="(item,index) in arr" :key="index">
-                    <div class="copyright_img">
-                        <img :src="item.url" alt="">           
-                    </div>
-                    <div class="copyright_ti">
-                        <h3>{{item.text}}</h3>
-                        <img src="../../../static/img/paycenter/copyright_like.png" alt="">
-                    </div>
-                    <p>{{item.ban}}</p>
-                    <div class="copyright_price">
-                        <span>￥{{item.price}}</span>
-                        <img src="../../../static/img/paycenter/copyright_right.png" alt="">
-                    </div>
-                </a>
-            </div>
+                <copyrightOrdinary :arr='arr'></copyrightOrdinary>
         </div>
 
 
@@ -132,7 +117,7 @@
             <div class="copyright_content">
                 <a class="copyright_con" href="#" v-for="(item,index) in arr" :key="index">
                     <div class="copyright_img">
-                        <img :src="item.url" alt="">           
+                        <img :src="item.url" alt="">
                     </div>
                     <div class="copyright_ti">
                         <h3>{{item.text}}</h3>
@@ -144,19 +129,19 @@
                         <img src="../../../static/img/paycenter/copyright_right.png" alt="">
                     </div>
                 </a>
-               
+
             </div>
         </div>
         <div>
-            <v-paybottom></v-paybottom>
-        </div>   
+            <!-- <v-paybottom></v-paybottom> -->
+        </div>
       </div>
       <v-combotttom></v-combotttom>
   </div>
 </template>
 
 <script>
-import paycenterbottom from '@/components/paycenterrecommend/paycenterrecommend.vue'
+import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
 export default {
     data(){
         return{
@@ -190,12 +175,18 @@ export default {
                 text:'爱你一万年1',
                 ban:'版权分类：美术作品1',
                 price:'600033.00',
+            },
+            {
+                url:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
+                text:'爱你一万年1',
+                ban:'版权分类：美术作品1',
+                price:'600033.00',
             }
         ]
         }
     },
     components:{
-        'v-paybottom':paycenterbottom
+        copyrightOrdinary
     }
 }
 </script>
@@ -290,11 +281,7 @@ export default {
     .copyright_product{
         width: 1200px;
         margin: 0 auto;
-    }
-    .copyright_product>.copyright_content{
-        display: flex;
-        justify-content:space-between ;
-        align-items: center;
+        overflow: hidden;
     }
     .copyright_product  a{
         background-color: #fff;
@@ -372,71 +359,6 @@ export default {
         font-size: 16px;
         margin: 20px 0 30px;
     }
-    .copyright_content{
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-wrap: wrap;
-        overflow: hidden;
-    }
-    .copyright_con{
-        width: 18%;
-        background-color: rgba(245, 245, 245, 1); 
-        padding:10px;  
-        color: black;
-        text-decoration: none;
-    }
-    .copyright_img{
-        height: 210px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        background: #cccccc;
-    }
-    .copyright_img>img{
-        width: 100%;
-    }
-    .copyright_ti{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding:0 9px; 
-    }
-    .copyright_ti>img{
-        width: 15px;
-    }
-    .copyright_ti>h3{
-        font-size: 15px;
-        font-weight: 200;
-        margin: 10px 0;
-        overflow: hidden;
-        text-overflow:ellipsis;
-        white-space: nowrap;
-    }
-    .copyright_con>p{
-        font-size: 12px;
-        color: #ccc;
-        margin-bottom: 20px;
-        padding: 0 9px;
-    }
-     .copyright_price{
-        border-top: 1px solid #cecece;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 9px;
-    }
-    .copyright_price>img{
-        width: 15px;
-    }
-    .copyright_price>span{
-        font-size: 15px;
-        color:#fa7219 ;
-        font-weight: bold;
-    }
-    
-    
+
+
 </style>
