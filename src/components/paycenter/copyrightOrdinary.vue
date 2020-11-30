@@ -1,24 +1,23 @@
 <template>
-        <div class="copyright_content">
-                <div class="copyright_con"  v-for="(item,index) in arr" :key="index">
-                      <a class="" href="" >
-                              <div class="copyright_img">
-                                      <img :src="item.url" alt="">
-                              </div>
-                              <div class="copyright_ti">
-                                      <h3>{{item.text}}</h3>
-                                      <img src="../../../static/img/paycenter/copyright_like.png" alt="">
-                              </div>
-                              <p>{{item.ban}}</p>
-                              <div class="copyright_price">
-                                      <span>￥{{item.price}}</span>
-                                      <img src="../../../static/img/paycenter/copyright_right.png" alt="">
-                              </div>
-                              <div class="copyright_bargain">立即议价</div>
-                      </a>
+    <div class="copyright_content">
+        <div class="copyright_con"  v-for="(item,index) in arr" :key="index">
+            <a class="" href="" >
+                <div class="copyright_img">
+                        <img :src="item.url" alt="">
                 </div>
-
+                <div class="copyright_ti">
+                        <h3>{{item.text}}</h3>
+                        <img src="../../../static/img/paycenter/copyright_like.png" alt="">
+                </div>
+                <p>{{item.ban}}</p>
+                <div class="copyright_price">
+                        <span>￥{{item.price}}</span>
+                        <img src="../../../static/img/paycenter/copyright_right.png" alt="">
+                </div>
+                <div class="copyright_bargain">立即议价</div>
+            </a>
         </div>
+    </div>
 </template>
 
 <script>
