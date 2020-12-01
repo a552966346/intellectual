@@ -5,46 +5,63 @@
                         <!-- 导航 -->
                         <v-navigation></v-navigation>
                         <!--  -->
-                        <div>交易中心>版权变更</div>
-                        <!-- 中间内容 -->
-                        <div class="consultation_center">
-                                <v-service></v-service>
+                        <div class="consultation_all_Center">
+                                <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
+                                <!-- 中间内容 -->
+                                <div class="consultation_center">
+                                        <v-servicet></v-servicet>
+                                        <div class="consultation_center_cen">
+                                                <div class="cen_left">
+                                                        <v-serviceleft></v-serviceleft>
+                                                </div>
+                                                <div class="cen_right">
+                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor'></v-servicer>
+                                                </div>
+                                        </div>
+                                </div>
                         </div>
                 </div>
+                <div class="consultation_bottom">
+                  <img src="../../../static/img/index/cooperation_img.png" alt="">
+                </div >
                 <v-combotttom></v-combotttom>
         </div>
 </template>
 
 <script>
         import servicetop from '../../components/servicetop/servicetop.vue'
+        import serviceleft from '../../components/serviceleft/serviceleft.vue'
+        import serviceright from '../../components/serviceright/serviceright.vue'
         export default{
                 name:'service',
                 data(){
                         return{
-
+                                iscolor:0
                         }
                 },
                 components:{
-                      'v-service':servicetop
+                      'v-servicet':servicetop,
+                      'v-serviceleft':serviceleft,
+                      'v-servicer':serviceright
+                },
+                methods:{
+                        text_click(porp){
+                                console.log(porp)
+                                this.iscolor = porp
+                                this.$el.querySelector('#text_'+porp).scrollIntoView()
+                        }
                 }
-
         }
 </script>
 
 <style scoped>
-        * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-        }
-
-        .consultation_all {
-                width: 100%;
-                margin: 0 auto;
-                /* background-color: #187FC4; */
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-        }
-
+        * {margin:0;padding:0;box-sizing:border-box;}
+        .consultation_all_text {width:100%;padding:10px 0;}
+        .consultation_all {width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;background-color:#f5f5f5;}
+        .consultation_all_Center {width:1200px;background-color:#f5f5f5;}
+        .consultation_center_cen {display:flex;width:100%;padding:20px 0;}
+        .cen_left {flex:1;padding-right:20px;}
+        .cen_right { flex:3;box-shadow:1px 1px 10px 2px #ccc;}
+        .consultation_bottom{width: 100%;}
+        .consultation_bottom>img{width: 100%;}
 </style>

@@ -40,14 +40,7 @@
       </div>
       <div class="indexpay_right_lists" v-if="!type">
         <div class="activie_list">
-          <span class="active">热门推荐</span>
-          <span>机械</span>
-          <span>物理</span>
-          <span>化学</span>
-          <span>电学</span>
-          <span>生活家居</span>
-          <span>固定建筑</span>
-          <span>纺织</span>
+          <span :class="{active:active==index}" v-for="(text,index) in text" :key = "index" @click="active_top(index)">{{text.name}}</span>
         </div>
         <div class="indexpay_right_item_list">
           <div class="indexpay_right_item_item">
@@ -94,16 +87,22 @@
 
 <script>
 export default {
-  // 组件中接受的值 
-  props:{                      
+  // 组件中接受的值
+  props:{
       payleft_img_url:String,
       type:Boolean,
   },
   data() {
     return {
-      
+	text:[{name:'热门推荐'},{name:'机械'},{name:'物理'},{name:'化学'},{name:'电学'},{name:'生活家居'},{name:'固定建筑'},{name:'纺织'}],
+        active:0
     }
   },
+  methods:{
+        active_top(s){
+                this.active = s;
+        }
+  }
 }
 </script>
 
@@ -148,7 +147,7 @@ export default {
     justify-content: space-between;
     align-content: space-between;
   }
-  
+
   .indexpay_right_item{
     border: 1px solid #dddddd;
     padding: 20px;
@@ -227,7 +226,7 @@ export default {
   .indexpay_right_item_item>.er{
     display: flex;
     justify-content: space-between;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
   }
   .indexpay_right_item_item>.er>p:first-of-type{
     display: inline-block;

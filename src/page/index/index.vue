@@ -97,7 +97,7 @@ export default {
                     '../../../static/img/common/Partnership_plan.png',
                     '../../../static/img/common/Learn_about_Eden.png',
                   ],
-      //交易中心组件所需  
+      //交易中心组件所需
       pay_img_list:['../../../static/img/index/zhuanli_pay.png',
                     '../../../static/img/index/shangbiao_pay.png',
                     '../../../static/img/index/ruanzhu_pay.png'
