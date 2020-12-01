@@ -5,7 +5,7 @@ import login from '@/page/login/login'
 import copyrightChanges from '@/page/copyrightChanges/copyrightChanges'
 import service from '@/page/service/service'
 import copyright from '@/page/paycenter/copyright'
-import knowledgepledge from '@/page/Knowledgepledge/Knowledgepledge'
+import knowledgepledge from '@/page/knowledgepledge/knowledgepledge'
 Vue.use(Router)
 
 export default new Router({
