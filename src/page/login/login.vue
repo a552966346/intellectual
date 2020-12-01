@@ -156,7 +156,7 @@
 </template>
 
 <script>
-import {validatePhone} from '@/util/rules.js'
+import {validatePhone,validatePassword} from '@/util/rules.js'
 export default {
   name:'login',
   data(){
@@ -164,10 +164,10 @@ export default {
       // 规则校验(账户密码登录)
       login_rules: {
         username: [
-          { required: true, trigger: 'blur',message:'请输入用户名' }
+          { required: true, trigger: 'blur',message:'请输入用户名' },{ min:6,max:18,trigger:'blur',message:'账号为6-18位'}
         ],
         pass: [
-          { required: true, trigger: 'blur',message:'请输入密码' }
+          { required: true, trigger: 'blur',message:'请输入密码'},{ min:8,max:16 ,trigger:'blur',message:'密码为8-16位'}
         ],
       },
       // 规则校验(手机号登录)
@@ -176,19 +176,19 @@ export default {
           { required: true, trigger: 'blur',message:'请输入手机号'},{ validator: validatePhone, trigger: 'blur' }
         ],
         authcode: [
-          { required: true, trigger: 'blur',message:'请输入验证码' }
+          { required: true, trigger: 'blur',message:'请输入验证码'},{ min:4,max:6 ,trigger:'blur',message:'验证码错误'}
         ],
       },
       // 规则校验(注册)
       register_rules: {
         phone: [
-          { required: true, trigger: 'blur',message:'请输入手机号' }
+          { required: true, trigger: 'blur',message:'请输入手机号'},{ validator: validatePhone, trigger: 'blur' }
         ],
         authcode: [
-          { required: true, trigger: 'blur',message:'请输入验证码' }
+          { required: true, trigger: 'blur',message:'请输入验证码'},{ min:4,max:6 ,trigger:'blur',message:'验证码错误'}
         ],
         pass:[
-          { required: true, trigger: 'blur',message:'请输入密码' }
+          { required: true, trigger: 'blur',message:'请输入密码' },{ validator: validatePassword, trigger: 'blur' }
         ]
       },
       // 是否自动撑开 （tabs）

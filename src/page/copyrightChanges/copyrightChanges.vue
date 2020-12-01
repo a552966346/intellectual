@@ -8,7 +8,6 @@
                         <div>交易中心>版权变更</div>
                         <!-- 中间内容 -->
                         <div class="consultation_center">
-
                                 <!-- 左边内容 -->
                                 <div class="consultation_right"></div>
                                 <!-- 右边内容 -->
