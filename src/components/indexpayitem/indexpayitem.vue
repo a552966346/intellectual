@@ -40,7 +40,7 @@
       </div>
       <div class="indexpay_right_lists" v-if="!type">
         <div class="activie_list">
-          <span :class="{active:active==index}"v-for="(text,index) in text" :key = "index" @click="active_top(index)">{{text.name}}</span>
+          <span :class="{active:active==index}" v-for="(text,index) in text" :key = "index" @click="active_top(index)">{{text.name}}</span>
         </div>
         <div class="indexpay_right_item_list">
           <div class="indexpay_right_item_item">
@@ -101,7 +101,6 @@ export default {
   methods:{
         active_top(s){
                 this.active = s;
-                
         }
   }
 }

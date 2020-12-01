@@ -31,7 +31,20 @@ export function validateTelphone(rule, value,callback) {
     callback();
   }else {
     if ((!reg.test(value)) && value != '') {
-      callback(new Error('请输入正确的固定电话）'));
+      callback(new Error('请输入正确的固定电话'));
+    } else {
+      callback();
+    }
+  }
+}
+// 密码验证
+export function validatePassword(rule, value,callback) {
+  const reg =/(?=.*[0-9])(?=.*[a-z]).{8,16}/;
+  if(value==''||value==undefined||value==null){
+    callback();
+  }else {
+    if ((!reg.test(value)) && value != '') {
+      callback(new Error('输入必须包含数字、字母并且长度为8-16位'));
     } else {
       callback();
     }
