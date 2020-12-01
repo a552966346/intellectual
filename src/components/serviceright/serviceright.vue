@@ -35,8 +35,8 @@
         .serviceright_center{flex: 1;}
         .center_text{padding-bottom:20px ;}
         .center_text>p{display: flex;align-items: center;padding: 10px 20px;}
-         .center_text>p>img{width: auto;}
-         .center_text>p>span{padding-left: 5px;font-size: 16px;margin: auto 0;}
-         .center_text img{width: 100%;}
-         .iscolor{color: #1780C2!important;}
+        .center_text>p>img{width: auto;}
+        .center_text>p>span{padding-left: 5px;font-size: 16px;margin: auto 0;}
+        .center_text img{width: 100%;}
+        .iscolor{color: #1780C2!important;}
 </style>
