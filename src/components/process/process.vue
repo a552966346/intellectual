@@ -10,7 +10,8 @@
                                         <div>服务详情</div>
                                 </div>
                                 <div class="process_wan">
-                                        <img src="https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2747364614,2411895227&fm=26&gp=0.jpg" alt="">
+                                        <img src="https://dss3.bdstatic.com
+                                        70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2747364614,2411895227&fm=26&gp=0.jpg" alt="">
                                 </div>
                         </div>
                 </div>

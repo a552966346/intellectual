@@ -2,7 +2,7 @@
   <div class="Publictitle_all">
     <div class="Publictitle_title">
       <div class="Publictitle_title_left">
-        <!-- <img src="./img/liasons_common_group_title.png" alt="" /> -->
+          <!-- <img src="../../../static/img/common/apply_form.png" alt=""> -->
       </div>
       <div class="Publictitle_title_right">
         <p style="font-size: 25px; padding-left: 15px">版权变更</p>
@@ -40,8 +40,19 @@
           国家商标局备案机构，请放心交易
         </p>
       </div>
-      <div class="Publictitle_body_down"></div>
+      <div class="Publictitle_body_down">
+        <!-- 底部内容待填充 -->
+        <div class="Publictitle_body_down_left">
+          <div>即买即用</div>
+          <div>签署合同</div>
+          <div>确认后收款</div>
+          <div>支持线下</div>
+          <div>担保交易</div>
+        </div>
+        <div class="Publictitle_body_down_text">商标局备案机构，请放心交易</div>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -143,10 +154,10 @@ button {
 }
 .Publictitle_body {
   border-bottom: 2px dashed #eeeeee;
-  display: flex;
+  /* display: flex; */
 }
 .Publictitle_body > div {
-  width: 50%;
+  width: 100%;
   padding: 20px;
   display: flex;
 }
@@ -162,4 +173,25 @@ button {
     padding: 2px 12px
 }
 button:focus{outline: none;}
+.Publictitle_body_down{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.Publictitle_body_down_left{
+  width: 70%;
+  display: flex;
+}
+.Publictitle_body_down>div>div{
+  color: #f5f5f5;
+  opacity: 0.5;
+  font-size: 14px;
+  padding-right: 70px;
+}
+.Publictitle_body_down_text{
+  color: #f5f5f5;
+  opacity: 0.5;
+  font-size: 14px;
+  flex: 1;
+}
 </style>
