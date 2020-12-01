@@ -56,7 +56,7 @@
                 </dl>
             </div>
         </div>
-        <!-- 产品列表 -->
+        <!-- 排序-->
         <div class="copyright_list">
             <div class="copyright_sleft">
                 <a href="#">
@@ -83,10 +83,17 @@
                 </div>
             </div>
         </div>
+        <!-- |产品列表 -->
         <div class="copyright_product">
 
             <copyrightOrdinary :arr='arr'></copyrightOrdinary>
         </div>
+
+        <!-- 页数 -->
+        <div class="copyright_page">
+           <copyrightPage></copyrightPage>
+        </div>
+ 
 
 
 
@@ -108,6 +115,7 @@
 
 <script>
 import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
+import copyrightPage from '@/components/paycenter/copyrightPage.vue'
 import copyrightBottom from '@/components/paycenter/copyrightBottom.vue'
 import copyrightTop from '@/components/paycenter/copyrightTop.vue'
 export default {
@@ -150,6 +158,7 @@ export default {
     },
     components:{
         copyrightOrdinary,
+        copyrightPage,
         copyrightTop,
         copyrightBottom
     }
@@ -242,6 +251,8 @@ export default {
         margin: 13px 2.5px;
         float: left;
     }
+    /* 页数 */
+  
     /* 心仪版权 */
     .copyright_product{
         width: 1200px;
