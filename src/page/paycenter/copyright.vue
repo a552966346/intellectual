@@ -57,52 +57,13 @@
             </div>
         </div>
         <!-- 排序-->
-        <div class="copyright_list">
-            <div class="copyright_sleft">
-                <a href="#">
-                    <span>综合排序</span>
-                </a>
-                <a href="#">
-                    <span>价格排序</span>
-                </a>
-            </div>
-            <div class="copyright_sright">
-                <a class="copyright_on" href="#">
-                    <img src="../../../static/img/paycenter/copyright_on.png" alt="">
-                </a>
-                <a class="copyright_menu" href="#">
-                    <img src="../../../static/img/paycenter/copyright_menu.png" alt="">
-                </a>
-                <div class="copyright_jian">
-                    <a href="#">
-                        <font> ＜ </font>
-                    </a>
-                    <a href="#">
-                        <font> ＞ </font>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- |产品列表 -->
-        <div class="copyright_product">
-
+        <div>
             <copyrightOrdinary :arr='arr'></copyrightOrdinary>
         </div>
 
-        <!-- 页数 -->
-        <div class="copyright_page">
-           <copyrightPage></copyrightPage>
-        </div>
- 
-
-
-
-
-
 
         <!-- 猜你喜欢 -->
-        <div class="copyright_like">
-            <copyrightTop :titles="msg"></copyrightTop>
+        <div>
             <copyrightBottom :arr='arr'></copyrightBottom> 
         </div>
         <div>
@@ -115,12 +76,11 @@
 
 <script>
 import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
-import copyrightPage from '@/components/paycenter/copyrightPage.vue'
 import copyrightBottom from '@/components/paycenter/copyrightBottom.vue'
-import copyrightTop from '@/components/paycenter/copyrightTop.vue'
 export default {
     data(){
         return{
+            text:"共14页",
             msg:"没有找到您心仪的版权？",
             arr:[
             {
@@ -158,8 +118,6 @@ export default {
     },
     components:{
         copyrightOrdinary,
-        copyrightPage,
-        copyrightTop,
         copyrightBottom
     }
 }
@@ -199,69 +157,6 @@ export default {
     a{
         text-decoration: none;
         color: black;
-    }
-    /* 排序 */
-    .copyright_list{
-        width: 1200px;
-        height: 50px;
-        background: #fff;
-        margin: 20px auto 10px auto;
-        overflow: hidden;
-    }
-    .copyright_list a{
-        display: block;
-        float: left;
-        font-size: 14px;
-        color: #666666;
-        line-height: 50px;
-        border-right: 1px solid #cecece;
-        width: 120px;
-        text-align: center
-    }
-    .copyright_list span{
-        background: url(../../../static/img/paycenter/copyright_desc.png)
-            no-repeat  right center;
-        color: #5c8cd6;
-        padding: 0 10px;
-    }
-    .copyright_sright{
-        float: right;
-        height: 50px;
-        border-left: 1px solid #eee;
-        margin-left: 10px;
-    }
-    .copyright_on>img{
-        width: 13px;
-    }
-    .copyright_jian{
-        float: right;
-        height: 50px;
-        padding: 0 10px;
-    }
-    .copyright_jian a{
-        color: #999;
-        display: block;
-        width: 22px;
-        height: 22px;
-        border: 1px solid #e2e2e2;
-        background: #fff;
-        text-align: center;
-        line-height: 22px;
-        cursor: pointer;
-        margin: 13px 2.5px;
-        float: left;
-    }
-    /* 页数 */
-  
-    /* 心仪版权 */
-    .copyright_product{
-        width: 1200px;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-    .copyright_product  a{
-        background-color: #fff;
-        margin: 10px 0;
     }
     .copyright_pay{
         background: #f6f6f6;
