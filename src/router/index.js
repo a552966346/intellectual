@@ -32,9 +32,9 @@ export default new Router({
       component:copyright
     },
     {
-            path:'/service',
-            name:'service',
-            component:service
+      path:'/service',
+      name:'service',
+      component:service
     }
   ]
 })
