@@ -31,7 +31,7 @@
         *{padding: 0;margin: 0;box-sizing: border-box;}
         .serviceright{width: 100%;display: flex;flex-direction: column;overflow: hidden;background-color: #fff;}
         .serviceright_top{display: flex;padding:20px 15px;}
-        .serviceright_top>p{padding: 10px;}
+        .serviceright_top>p{padding: 10px;cursor: pointer;}
         .serviceright_center{flex: 1;}
         .center_text{padding-bottom:20px ;}
         .center_text>p{display: flex;align-items: center;padding: 10px 20px;}
