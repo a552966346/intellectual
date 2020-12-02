@@ -1,7 +1,7 @@
 <template>
         <div class="process_all">
                 <div class="process_list">
-                        <a :class="{'active':item.active}" v-for="(item,index) in list" @click="selects(item,index)">{{item}}</a>
+                        <a :class="{'active':item.active}" v-for="(item,index) in list" @click="selects(item,index)">{{item.item}}</a>
                 </div>
                 <div>
                         <div class="process_text">
