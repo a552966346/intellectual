@@ -57,4 +57,7 @@ export default {
     color: #999;
     padding: 0 0 10px;
   }
+  .common_inform>p{
+    min-height: 24px;
+  }
 </style>
