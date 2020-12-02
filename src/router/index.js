@@ -38,11 +38,11 @@ export default new Router({
             name: 'service',
             component: service
         },
-        // {
-        //     path: '/knowledgepledge',
-        //     name: 'knowledgepledge',
-        //     component: knowledgepledge
-        // },
+        {
+            path: '/knowledgepledge',
+            name: 'knowledgepledge',
+            component: knowledgepledge
+        },
         {
             path: '/servecenter',
             name: 'servecenter',

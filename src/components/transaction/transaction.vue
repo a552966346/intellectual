@@ -1,0 +1,278 @@
+<template>
+  <div class="Publictitle_all">
+    <div class="Publictitle_title">
+      <div class="Publictitle_title_left">
+        <!-- <img src="../../../static/img/common/apply_form.png" alt=""> -->
+      </div>
+      <div class="Publictitle_title_right">
+        <p style="font-size: 25px; padding-left: 15px">发明专利申请</p>
+        <div class="Publictitle_title_text1">
+          <p class="p_text1">
+            发明专利指对产品，方法或者其改进所提出的技术方案，相较于实用新型，外观设计，发明专利的法律状态最为稳定且技术价值最高。
+          </p>
+        </div>
+        <div class="sertype">
+          <div>服务类型：</div>
+          <div class="sertypeone">
+            <div>标准</div>
+            <div>授权保险</div>
+          </div>
+        </div>
+        <div class="mon">
+          <div>费用减缓：</div>
+          <div class="monone">
+            <div>减缓85%</div>
+            <div>减缓70%</div>
+            <div>无减缓</div>
+          </div>
+        </div>
+        <div class="tiptext">完善更多专利信息，可尽快安排技术专家查新撰写</div>
+        <div class="applybtn">
+          <div>
+            <div>服务费用：</div>
+            <div>￥xxxx</div>
+          </div>
+          <div>
+            <div>国知局费用：</div>
+            <div>￥560</div>
+            <div>xxxxxxxxxxxxxxxxxxxxx</div>
+          </div>
+          <div>
+            <div>费用合计：</div>
+            <div>￥3000</div>
+          </div>
+          <div>
+            <button>确认申请</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {};
+  },
+  
+};
+</script>
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.Publictitle_all {
+  width: 100%;
+}
+
+.Publictitle_title {
+  display: flex;
+}
+
+.p_text1 {
+  padding: 15px;
+  color: #8a8b8d;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.price {
+  padding: 30px 10px;
+  background-color: #f0eeef;
+  margin-top: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.price > span:nth-child(1) {
+  color: #8a8b8d;
+  text-align: center;
+}
+
+.price > span:nth-child(2) {
+  color: red;
+  font-size: 30px;
+}
+
+.tel_num {
+  line-height: 40px;
+  margin-top: 10px;
+  display: flex;
+}
+
+.pop {
+  line-height: 40px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.Publictitle_title > div {
+  width: 50%;
+  padding: 30px;
+}
+
+.tips {
+  margin-top: 20px;
+  margin-left: 80px;
+}
+
+.tips > p {
+  width: 100%;
+  font-size: 8px;
+  text-align: center;
+  color: #8a8b8d;
+  letter-spacing: 1px;
+}
+
+.Publictitle_title_text1 {
+  background-color: #f3f6ff;
+  margin-top: 20px;
+}
+
+.input_span {
+  padding-left: 15px;
+  width: 80px;
+  text-align: center;
+  color: #8a8b8d;
+}
+
+.Publictitle_title_left img {
+  width: 100%;
+}
+
+.sertype {
+  display: flex;
+  margin-top: 20px;
+}
+
+.mon {
+  display: flex;
+  margin-top: 20px;
+}
+
+.sertype > div:nth-child(1) {
+  width: 90px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8d8d8d;
+}
+
+.sertypeone {
+  display: flex;
+}
+.sertypeone > div:nth-child(1) {
+  border: 1px solid #989898;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  font-size: 16px;
+  letter-spacing: 3px;
+  margin-right: 30px;
+  color: #8d8d8d;
+
+}
+.sertypeone > div:nth-child(2) {
+  border: 1px solid #989898;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  width: 80px;
+  letter-spacing: 3px;
+  color: #8d8d8d;
+
+}
+.monone {
+  display: flex;
+}
+
+.mon > div:nth-child(1) {
+  width: 90px;
+  height: 40px;
+  padding: 13px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #8d8d8d;
+
+}
+
+.monone > div:nth-child(1) {
+  border: 1px solid #989898;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  font-size: 16px;
+  margin-right: 30px;
+  color: #8d8d8d;
+
+}
+
+.monone > div:nth-child(2) {
+  border: 1px solid #989898;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  width: 80px;
+  margin-right: 30px;
+  color: #8d8d8d;
+
+}
+
+.monone > div:nth-child(3) {
+  border: 1px solid #989898;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  font-size: 16px;
+  color: #8d8d8d;
+
+}
+
+.tiptext {
+  padding: 15px 0;
+  padding-left: 20px;
+  color: #8d8d8d;
+
+}
+
+.applybtn {
+  border: 1px solid #187fc4;
+  padding: 15px;
+  background-color: #f4f6ff;
+}
+
+.applybtn > div {
+  display: flex;
+  padding: 15px 0;
+  color: #8d8d8d;
+
+}
+
+.applybtn > div > button {
+  outline-style: none;
+  border: none;
+  background-color: #187fc4;
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #fff;
+}
+</style>

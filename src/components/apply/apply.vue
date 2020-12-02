@@ -108,7 +108,7 @@ input:focus{outline: none;}
 }
 .tips{
     margin-top: 20px; 
-    margin-left: 80px
+    margin-left: 80px;
 }
 .tips>p{
     width: 100%;
@@ -154,7 +154,6 @@ button {
 }
 .Publictitle_body {
   border-bottom: 2px dashed #eeeeee;
-  /* display: flex; */
 }
 .Publictitle_body > div {
   width: 100%;
