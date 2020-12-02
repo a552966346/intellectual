@@ -1,5 +1,6 @@
 <template>
-    <div class="copyright_like">
+    <div class="copyright_bottms">
+        <div class="copyright_like">
         <div class="copyright_title">
             <div class="copyright_copy">
                 <h2>没有找到您心仪的版权？</h2>
@@ -40,6 +41,7 @@
              </div> 
         </div>
     </div>
+    </div>
 </template>
 
 <script>
@@ -57,7 +59,10 @@ export default {
 
 
 <style scoped>
-
+.copyright_bottms{
+        background-color: #f6f6f6;
+        padding-bottom: 20px;
+    }
 .copyright_title{
     width: 100%;
     position: relative;

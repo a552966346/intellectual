@@ -105,6 +105,7 @@
         <div>
             <copyrightBottom :arr='arr'></copyrightBottom> 
         </div>
+     
       </div>
       <v-combotttom></v-combotttom>
   </div>
@@ -189,6 +190,7 @@ export default {
         box-sizing: border-box;
         text-decoration: none;
     }
+    
     .copyright_pay{
         background: #f6f6f6;
     }
