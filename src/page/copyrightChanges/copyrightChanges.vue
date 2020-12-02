@@ -82,7 +82,6 @@
         .consultation_all {
                 max-width: 1200px;
                 margin: 0 auto;
-                background-color: #187FC4;
         }
 
         .consultation_center {
