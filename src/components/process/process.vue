@@ -1,10 +1,10 @@
 <template>
         <div class="process_all">
                 <div class="process_list">
-                        <a :href="'#process_text'+index" :class="{'active':active==index}" v-for="(item,index) in list" @click="selects(index)">{{item.name}}</a>
+                        <a :href="'#process_text'+index" :class="{'active':active==index}" v-for="(item,index) in list" :key="index" @click="selects(index)">{{item.name}}</a>
                 </div>
                 <div>
-                        <div class="process_text" v-for="(item,index) in service" :id="'process_text'+index">
+                        <div class="process_text" v-for="(item,index) in service" :key="index" :id="'process_text'+index">
                                 <div class="process_fle" id="process_ti">
                                         <img src="../../../static/img/process/process_xiao.png" alt="">
                                         <div>{{item.name}}</div>

@@ -10,7 +10,8 @@
                         <div class="consultation_center">
                                 <!-- 左边内容 -->
                                 <div class="consultation_right">
-                                        <v-apply></v-apply>
+                                        <!-- <v-apply></v-apply> -->
+                                        <v-transaction></v-transaction>
                                         <v-process :list="list" :service="service"></v-process>
                                 </div>
                                 <!-- 右边内容 -->
@@ -27,6 +28,7 @@
         import consultation from '../../components/consultation/consultation.vue';
         import proce from '../../components/process/process.vue';
         import apply from '../../components/apply/apply.vue'
+        import transaction from '../../components/transaction/transaction.vue'
         export default {
                 name: 'copyrightChanges',
                 data() {
@@ -58,7 +60,14 @@
                                                 }
                                         ]
                                 },
-                                 list:[                                        {name:'服务详情'},                                        {name:'申请流程'},                                        {name:'所需材料'},                                        {name:'伊甸优势'},                                        {name:'服务承诺'},                                        {name:'常见问题'}                                ],
+                                 list:[
+                                        {name:'服务详情'},
+                                        {name:'申请流程'},
+                                        {name:'所需材料'},
+                                        {name:'伊甸优势'},
+                                        {name:'服务承诺'},
+                                        {name:'常见问题'}
+                                ],
                                 service:[
                                         {
                                                 name:'服务详情',
@@ -91,7 +100,8 @@
                 components: {
                         'v-consultation': consultation,
                         'v-process':proce,
-                        'v-apply':apply
+                        'v-apply':apply,
+                        'v-transaction':transaction
                 }
         }
 </script>
@@ -107,7 +117,6 @@
         .consultation_all {
                 max-width: 1200px;
                 margin: 0 auto;
-                background-color: #187FC4;
         }
 
         .consultation_center {

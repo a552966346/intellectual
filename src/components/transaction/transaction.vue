@@ -11,11 +11,18 @@
             发明专利指对产品，方法或者其改进所提出的技术方案，相较于实用新型，外观设计，发明专利的法律状态最为稳定且技术价值最高。
           </p>
         </div>
+        <!-- 外观设计专利申请 隐藏项 -->
         <div class="sertype">
           <div>服务类型：</div>
           <div class="sertypeone">
-            <div>标准</div>
-            <div>授权保险</div>
+            <div
+              :class="{ active: active == index }"
+              v-for="(item, index) in option1"
+              :key="index"
+              @click="select(index)"
+            >
+              {{ item.name }}
+            </div>
           </div>
         </div>
         <div class="mon">
@@ -26,7 +33,12 @@
             <div>无减缓</div>
           </div>
         </div>
-        <div class="tiptext">完善更多专利信息，可尽快安排技术专家查新撰写</div>
+        <div class="tip">
+          <div class="tiptext">
+            完善更多专利信息，可尽快安排技术专家查新撰写
+          </div>
+          <a href="">点击完善</a>
+        </div>
         <div class="applybtn">
           <div>
             <div>服务费用：</div>
@@ -53,9 +65,17 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      active: 0,
+      option1: [{ name: "标准" }, { name: "授权保险" }],
+    };
   },
-  
+  methods: {
+    select(num) {
+      this.active = num;
+      console.log(this.active);
+    },
+  },
 };
 </script>
 <style scoped>
@@ -64,6 +84,10 @@ export default {
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
+}
+.active {
+  background-color: #187fc4;
+  color: #fff !important;
 }
 
 .Publictitle_all {
@@ -146,20 +170,15 @@ input:focus {
 .Publictitle_title_left img {
   width: 100%;
 }
-
+/* 外观设计专利申请 隐藏项 */
 .sertype {
-  display: flex;
-  margin-top: 20px;
-}
-
-.mon {
   display: flex;
   margin-top: 20px;
 }
 
 .sertype > div:nth-child(1) {
   width: 90px;
-  height: 40px;
+  height: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -170,7 +189,7 @@ input:focus {
   display: flex;
 }
 .sertypeone > div:nth-child(1) {
-  border: 1px solid #989898;
+  border: 1px solid #187fc4;
   border-radius: 6px;
   display: flex;
   justify-content: center;
@@ -178,12 +197,11 @@ input:focus {
   width: 80px;
   font-size: 16px;
   letter-spacing: 3px;
-  margin-right: 30px;
+  margin-right: 15px;
   color: #8d8d8d;
-
 }
 .sertypeone > div:nth-child(2) {
-  border: 1px solid #989898;
+  border: 1px solid #187fc4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -191,7 +209,10 @@ input:focus {
   width: 80px;
   letter-spacing: 3px;
   color: #8d8d8d;
-
+}
+.mon {
+  display: flex;
+  margin-top: 20px;
 }
 .monone {
   display: flex;
@@ -199,14 +220,13 @@ input:focus {
 
 .mon > div:nth-child(1) {
   width: 90px;
-  height: 40px;
+  height: 28px;
   padding: 13px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 16px;
   color: #8d8d8d;
-
 }
 
 .monone > div:nth-child(1) {
@@ -217,9 +237,8 @@ input:focus {
   align-items: center;
   width: 80px;
   font-size: 16px;
-  margin-right: 30px;
+  margin-right: 15px;
   color: #8d8d8d;
-
 }
 
 .monone > div:nth-child(2) {
@@ -229,9 +248,8 @@ input:focus {
   align-items: center;
   border-radius: 6px;
   width: 80px;
-  margin-right: 30px;
+  margin-right: 15px;
   color: #8d8d8d;
-
 }
 
 .monone > div:nth-child(3) {
@@ -243,14 +261,22 @@ input:focus {
   width: 80px;
   font-size: 16px;
   color: #8d8d8d;
-
+}
+.tip {
+  display: flex;
 }
 
+.tip > a {
+  font-size: 14px;
+  padding: 15px 0;
+  padding-left: 20px;
+  color: #187fc4;
+}
 .tiptext {
+  font-size: 14px;
   padding: 15px 0;
   padding-left: 20px;
   color: #8d8d8d;
-
 }
 
 .applybtn {
@@ -263,7 +289,6 @@ input:focus {
   display: flex;
   padding: 15px 0;
   color: #8d8d8d;
-
 }
 
 .applybtn > div > button {
@@ -274,5 +299,9 @@ input:focus {
   border-radius: 6px;
   font-size: 16px;
   color: #fff;
+}
+.triangle {
+  width: 5px;
+  height: 5px;
 }
 </style>

@@ -10,6 +10,17 @@
           <p class="p_text1">
             版权登记后需更改登记信息，应向版权局申请变更，1~2个月完成审核并发证。本项业务的实施单位为伊甸城代理事务所（普通合伙）。
           </p>
+          <!-- 维权赔付添加项 -->
+          <!-- <div class="dbed">
+            <div>
+              担保额度
+            </div>
+            <div class="dbed_mon">
+              <div>30万</div>
+              <div>60万</div>
+              <div>100万</div>
+            </div>
+          </div> -->
         </div>
         <div class="price">
           <span>价格：</span>
@@ -193,4 +204,52 @@ button:focus{outline: none;}
   font-size: 14px;
   flex: 1;
 }
+/* 维权赔付添加项 */
+/* .dbed{
+  display: flex;
+  padding: 20px 15px;
+}
+.dbed:nth-child(1){
+  width: 90px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8d8d8d;
+}
+.dbed_mon:nth-child(1){
+  border: 1px solid #989898;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  font-size: 16px;
+  letter-spacing: 3px;
+  margin-right: 15px;
+  color: #8d8d8d;
+}
+.dbed_mon:nth-child(2){
+  border: 1px solid #989898;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  font-size: 16px;
+  letter-spacing: 3px;
+  margin-right: 15px;
+  color: #8d8d8d;
+}
+.dbed_mon:nth-child(3){
+  border: 1px solid #989898;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: #8d8d8d;
+} */
 </style>
