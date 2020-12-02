@@ -10,9 +10,8 @@
                         <div class="consultation_center">
                                 <!-- 左边内容 -->
                                 <div class="consultation_right">
-                                        <!-- <v-apply></v-apply> -->
-                                        <v-transaction></v-transaction>
-                                        <v-process :list="list"></v-process>
+                                        <v-apply></v-apply>
+                                        <v-process :list="list" :service="service"></v-process>
                                 </div>
                                 <!-- 右边内容 -->
                                 <div class="consultation_left">
@@ -27,11 +26,10 @@
 <script>
         import consultation from '../../components/consultation/consultation.vue';
         import proce from '../../components/process/process.vue';
-        // import apply from '../../components/apply/apply.vue'
-        import transaction from '../../components/transaction/transaction.vue'
+        import apply from '../../components/apply/apply.vue'
         export default {
                 name: 'copyrightChanges',
-                data(){
+                data() {
                         return {
                                 msg: '这是测试内容',
                                 det: {
@@ -60,14 +58,40 @@
                                                 }
                                         ]
                                 },
-                                 list:[                                        {name:'服务详情'},                                        {name:'申请流程'},                                        {name:'所需材料'},                                        {name:'伊甸优势'},                                        {name:'服务承诺'},                                        {name:'常见问题'}                                ]
+                                 list:[                                        {name:'服务详情'},                                        {name:'申请流程'},                                        {name:'所需材料'},                                        {name:'伊甸优势'},                                        {name:'服务承诺'},                                        {name:'常见问题'}                                ],
+                                service:[
+                                        {
+                                                name:'服务详情',
+                                                img:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1730713693,2130926401&fm=26&gp=0.jpg'
+                                        },
+                                        {
+                                                name:'申请流程',
+                                                img:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1730713693,2130926401&fm=26&gp=0.jpg'
+                                        },
+                                        {
+                                                name:'所需材料',
+                                                img:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1730713693,2130926401&fm=26&gp=0.jpg'
+                                        },
+                                        {
+                                                name:'伊甸优势',
+                                                img:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1730713693,2130926401&fm=26&gp=0.jpg'
+                                        },
+                                        {
+                                                name:'服务承诺',
+                                                img:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1730713693,2130926401&fm=26&gp=0.jpg'
+                                        },
+                                        {
+                                                name:'常见问题',
+                                                img:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1730713693,2130926401&fm=26&gp=0.jpg'
+                                        }
+                                ]
+
                         }
                 },
                 components: {
                         'v-consultation': consultation,
                         'v-process':proce,
-                        // 'v-apply':apply
-                        'v-transaction':transaction
+                        'v-apply':apply
                 }
         }
 </script>
@@ -79,9 +103,11 @@
                 padding: 0;
                 box-sizing: border-box;
         }
+
         .consultation_all {
                 max-width: 1200px;
                 margin: 0 auto;
+                background-color: #187FC4;
         }
 
         .consultation_center {

@@ -1,17 +1,16 @@
 <template>
         <div class="process_all">
                 <div class="process_list">
-                        <a :class="{'active':item.active}" v-for="(item,index) in list" @click="selects(item,index)">{{item.item}}</a>
+                        <a :href="'#process_text'+index" :class="{'active':active==index}" v-for="(item,index) in list" @click="selects(index)">{{item.name}}</a>
                 </div>
                 <div>
-                        <div class="process_text">
+                        <div class="process_text" v-for="(item,index) in service" :id="'process_text'+index">
                                 <div class="process_fle" id="process_ti">
                                         <img src="../../../static/img/process/process_xiao.png" alt="">
-                                        <div>服务详情</div>
+                                        <div>{{item.name}}</div>
                                 </div>
                                 <div class="process_wan">
-                                        <img src="https://dss3.bdstatic.com
-                                        70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2747364614,2411895227&fm=26&gp=0.jpg" alt="">
+                                        <img :src="item.img" alt="">
                                 </div>
                         </div>
                 </div>
@@ -24,23 +23,18 @@
           name: 'process',
           data() {
             return {
-                active: false,
+                active: 0,
             }
           },
           methods:{
-                  selects(item,index) {
-          　　　　　　this.$nextTick(function () {
-          　　　　　　　　this.list.forEach(function (item) {
-          　　　　　　　　　　Vue.set(item,'active',false);
-          console.log(item,"111")
-          　　　　　　　　});
-          　　　　　　　　Vue.set(item,'active',true);
-          　　　　　　});
-          　　　　}
+                selects(num){
+                        this.active = num
+                }
           },
           props:{
             det:Object,
-            list:Array
+            list:Array,
+            service:Array
           }
         }
 </script>
