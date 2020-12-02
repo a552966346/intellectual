@@ -5,7 +5,8 @@ import login from '@/page/login/login'
 import copyrightChanges from '@/page/copyrightChanges/copyrightChanges'
 import service from '@/page/service/service'
 import copyright from '@/page/paycenter/copyright'
-import knowledgepledge from '@/page/Knowledgepledge/Knowledgepledge'
+// import knowledgepledge from '@/page/Knowledgepledge/Knowledgepledge'
+import servecenter from '@/page/servecenter/servecenter' //服务中心
 Vue.use(Router)
 
 export default new Router({
@@ -37,10 +38,15 @@ export default new Router({
             name: 'service',
             component: service
         },
+        // {
+        //     path: '/knowledgepledge',
+        //     name: 'knowledgepledge',
+        //     component: knowledgepledge
+        // },
         {
-            path: '/knowledgepledge',
-            name: 'knowledgepledge',
-            component: knowledgepledge
+            path: '/servecenter',
+            name: 'servecenter',
+            component: servecenter
         }
     ]
 })
