@@ -190,9 +190,9 @@ export default {
     font-weight: bold;
 }
 .copyright_like{
-        width: 1200px;
-        background-color: #fff;
-        margin: 0px auto;
-        padding: 30px 0 0;
+    width: 1200px;
+    background-color: #fff;
+    margin: 0px auto;
+    padding: 30px 0 0;
 }
 </style>
