@@ -1,6 +1,6 @@
 <template>
     <div >
-        <div class="copyright_list">
+        <!-- <div class="copyright_list">
             <div class="copyright_sleft">
                 <a href="#">
                     <span>综合排序</span>
@@ -25,7 +25,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="copyright_product">
             <div class="copyright_content">
                 <div class="copyright_con"  v-for="(item,index) in arr" :key="index">
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class="copyright_page">
+       <!-- <div class="copyright_page">
             <span>共十四页</span>
             <button class="copyright_prev">首页</button>
             <button class="copyright_prev">上一页</button>
@@ -66,7 +66,7 @@
                 页
             </span>
             <button>确定</button>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -240,7 +240,7 @@
     padding: 5px 10px;
     margin-right: 8px;
     background: #fff;
-    border: 1px solid #f0f0f0; 
+    border: 1px solid #f0f0f0;
     outline: none;
 }
 .copyright_page input{
