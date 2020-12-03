@@ -200,7 +200,7 @@ input:focus {
 
 .sertypeone {
   display: flex;
-  cursor: default;
+  cursor: pointer;
 }
 
 .sertypeone > div:nth-child(1) {
@@ -222,7 +222,6 @@ input:focus {
   align-items: center;
   border-radius: 6px;
   width: 80px;
-  letter-spacing: 3px;
   color: #8d8d8d;
 }
 .mon {
@@ -231,7 +230,7 @@ input:focus {
 }
 .monone {
   display: flex;
-  cursor: default;
+  cursor: pointer;
 }
 
 .mon > div:nth-child(1) {
@@ -320,5 +319,4 @@ input:focus {
   width: 5px;
   height: 5px;
 } */
-
 </style>
