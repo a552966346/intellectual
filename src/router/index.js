@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import index from '@/page/index/index' //主页 index @ 代表src 目录
 import login from '@/page/login/login'
 import copyrightChanges from '@/page/copyrightChanges/copyrightChanges'
+import tradingCenter from '@/page/tradingCenter/tradingCenter'
 import service from '@/page/service/service'
 import copyright from '@/page/paycenter/copyright'
 import patent from '@/page/paycenter/patent'
@@ -28,6 +29,11 @@ export default new Router({
             path: '/copyrightChanges',
             name: 'copyrightChanges',
             component: copyrightChanges
+        },
+        {
+            path: '/tradingCenter',
+            name: 'tradingcenter',
+            component: tradingCenter
         },
         {
             path: '/paycenter/copyright',
