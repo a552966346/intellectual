@@ -54,19 +54,18 @@
                                         <div class="copyright_lines"></div>
                                 </div>
                                 <div class="copyright_gd">
-                                        <div class="copyright_content" v-for="(item, index) in copyrightList" :key="index">
-                                                <div class="copyright_title">
-                                                        <span>23小时</span>
-                                                        <p>*********</p>
-                                                </div>
-                                                <div class="copyright_box">
-                                                        <ul class="copyright_list" :class="{copyright_top:animate}">
-                                                                <li>
-                                                                        <span>{{item.sort}}</span>
-                                                                        <span>-</span>
-                                                                        <span class="copyright_hui"> {{item.name}}</span>
-                                                                        <span>编号</span>
-                                                                        <span class="copyright_hui"> {{item.amount}}</span>
+                                        <div class="marquee">
+                                                <div class="marquee_box">
+                                                        <ul class="marquee_list" :class="{marquee_top:animate}">
+                                                                <li v-for="(item, index) in marqueeList" class="marquee_item">
+                                                                        <div class="marquee_itemtop">
+                                                                                <span>{{item.amount}}</span>
+                                                                                <span> {{item.name}}购买了专利</span>
+                                                                        </div>
+                                                                        <div class="marquee_itembottom">
+                                                                                <span> {{item.machine}}</span>
+                                                                                <span>编号{{item.number}}</span>
+                                                                        </div>
                                                                 </li>
                                                         </ul>
                                                 </div>
@@ -81,7 +80,6 @@
         export default {
                 data() {
                         return {
-                                animate: false,
                                 patenscree: [{
                                                 head: '行业分类',
                                                 childlist: [{
@@ -158,28 +156,43 @@
                                         },
                                 ],
                                 screetext: [],
-                                copyrightList: [{
-                                                sort: '09类',
-                                                name: '科学仪器',
-                                                amount: '****'
+                                animate: false,
+                                marqueeList: [{
+                                                name: '开心果',
+                                                machine: '09类科学仪器',
+                                                amount: '10小时',
+                                                number:'0000001'
                                         },
                                         {
-                                                sort: '09类',
-                                                name: '科学仪器',
-                                                amount: '****'
+                                                name: '芒果干',
+                                               machine: '09类科学仪器',
+                                                amount: '5小时',
+                                                number:'0000001'
+                                        },
+                                        {
+                                                name: '草莓干',
+                                                machine: '09类科学仪器',
+                                                amount: '5小时',
+                                                number:'0000001'
+                                        },
+                                        {
+                                                name: '无核白葡萄干 ',
+                                                machine: '09类科学仪器',
+                                                amount: '5小时',
+                                                number:'0000001'
                                         }
-                                ],
+                                ]
                         }
                 },
                 created: function() {
-                        setInterval(this.showcopyright, 2000)
+                        setInterval(this.showMarquee, 2000)
                 },
                 methods: {
-                        showcopyright: function() {
+                        showMarquee: function() {
                                 this.animate = true;
                                 setTimeout(() => {
-                                        this.copyrightList.push(this.copyrightList[0]);
-                                        this.copyrightList.shift();
+                                        this.marqueeList.push(this.marqueeList[0]);
+                                        this.marqueeList.shift();
                                         this.animate = false;
                                 }, 500)
                         },
@@ -339,77 +352,75 @@
         }
 
         .copyright_gd {
-                width: 220px;
+                width: 100%;
                 padding: 10px;
                 background: #fff;
         }
 
-        .copyright_content {
-                width: 200px;
-                color: #3A3A3A;
-                background-color: #f6f6f6;
-                display: flex;
-                box-sizing: border-box;
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 10px;
+        * {
+                margin: 0;
+                padding: 0;
         }
 
-        .copyright_title {
-                height: 30px;
-                font-size: 14px;
-                align-items: center
-        }
-
-        .copyright_title span {
-                padding: 2px;
-                border-radius: 10px;
-                background-color: #197ec6;
-                color: #fff;
-                margin: 0 12px;
-        }
-
-        .copyright_title p {
-                display: inline-block;
-                padding-top: 8px;
-        }
-
-        .copyright_box {
+        .marquee_box {
                 display: block;
                 position: relative;
                 width: 100%;
-                height: 30px;
+                height: 120px;
                 overflow: hidden;
         }
 
-        .copyright_list {
+        .marquee_list {
+                width: 100%;
                 display: block;
                 position: absolute;
                 top: 0;
                 left: 0;
         }
 
-        .copyright_top {
+        .marquee_top {
                 transition: all 0.5s;
-                margin-top: -30px;
+                margin-top: -60px
         }
 
-        .copyright_list li {
-                height: 30px;
+        .marquee_list li {
+                height: 60px;
                 line-height: 30px;
-                font-size: 14px;
-                padding-left: 10px;
+                font-size: 12px;
+                padding-left: 20px;
+                display: flex;
+                box-sizing: border-box;
         }
 
-        .copyright_list li span {
+        .marquee_list li span {
                 padding: 0 2px;
+                display: flex;
+                box-sizing: border-box;
         }
 
-        .copyright_list span {
-                color: #cecece;
+        .red {
+                color: #FF0101;
         }
 
-        .copyright_hui {
-                color: #cecece;
+        .marquee_item {
+                background-color: #f6f6f6;
+                display: flex;
+                flex-direction: column;
+        }
+
+        .marquee_itemtop,
+        .marquee_itembottom {
+                display: flex;
+                align-items: center;
+        }
+
+        .marquee_itemtop span:nth-child(1) {
+                background-color: #187fc2;
+                border-radius: 15px;
+                line-height: 20px;
+                height: 20px;
+                padding: 0 5px;
+                color: #fff;
+                margin-right: 5px;
         }
 </style>
