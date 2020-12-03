@@ -197,7 +197,7 @@ export default {
     /* 版权分类 */
     .copyright_sort{
         width: 1200px;
-        margin: 0 auto;
+        margin: 25px auto 15px;
         display: flex;
     }
     .copyright_select{
@@ -217,13 +217,13 @@ export default {
         text-align: center;
         color: #464646;
         font-size: 14px;
-        line-height: 26px;
+        line-height: 40px;
         font-weight: 700;
         vertical-align: center;
     }
     .copyright_select dl dd{
-        width: 845px;
-        line-height: 24px;
+        width: 847px;
+        line-height: 53px;
         padding: 6px 0;
         background: #fff;
         display: inline-block;
@@ -263,7 +263,6 @@ export default {
     }
     .copyright_select dl:last-child{
         background: #fff;
-        height: 50px;
         line-height: 45px;
     }
     font{
