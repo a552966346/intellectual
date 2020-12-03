@@ -5,6 +5,7 @@ import login from '@/page/login/login'
 import copyrightChanges from '@/page/copyrightChanges/copyrightChanges'
 import service from '@/page/service/service'
 import copyright from '@/page/paycenter/copyright'
+import patent from '@/page/paycenter/patent'
 import knowledgepledge from '@/page/knowledgepledge/knowledgepledge'
 import servecenter from '@/page/servecenter/servecenter' //服务中心
 Vue.use(Router)
@@ -32,6 +33,11 @@ export default new Router({
             path: '/paycenter/copyright',
             name: 'copyright',
             component: copyright
+        },
+        {
+            path: '/paycenter/patent',  //专利
+            name: 'patent',
+            component: patent
         },
         {
             path: '/service',
