@@ -3,7 +3,7 @@
                 <v-topsearch></v-topsearch>
                 <v-navigation></v-navigation>
                 <div class="patent_pay">
-                        <img src="../../../static/img/paycenter/copyright_top.png" alt="">
+                        <img src="../../../static/img/paycenter/patent_bg.png" alt="">
                         <!-- 分类 -->
                         <patentscreen></patentscreen>
                         <!-- 排序-->
