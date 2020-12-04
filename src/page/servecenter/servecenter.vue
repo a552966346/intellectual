@@ -80,7 +80,7 @@
                                         <p><button>立即办理</button><button>查看详情</button></p>
                                 </div>
                                 <div class="servecenter_center_sb_right">
-                                        <div class="sb_right_lie" v-for="(item,index) in sb_right_lie">
+                                        <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="index">
                                                 <p>{{item.name}}</p>
                                                 <p>(<span>{{item.text}}</span>)</p>
                                                 <p><span>{{item.money}}元起</span><img :src="item.img" alt=""></p>
@@ -103,7 +103,7 @@
                                         <p><button>联系客服</button><button>查看详情</button></p>
                                 </div>
                                 <div class="servecenter_center_zl_right">
-                                        <div class="zl_right_lie" v-for="(item,index) in zl_right_lie">
+                                        <div class="zl_right_lie" v-for="(item,index) in zl_right_lie" :key="index">
                                                 <img :src="item.img" alt="">
                                                 <div>
                                                 <span>{{item.name}}</span>
@@ -129,11 +129,11 @@
                                                 </div>
                                                 <p><button>联系客服</button><button>查看详情</button></p>
                                         </div>
-                                        <div class="fu_cen_right_lie" v-for='(item,index) in fu_cen_right_lie'  @mouseover="mouseOver(index)"
+                                        <div class="fu_cen_right_lie" v-for='(item,index) in fu_cen_right_lie' :key="index"  @mouseover="mouseOver(index)"
       @mouseleave="mouseLeave">
                                                 <img :src="item.img" alt="" :class="{active_o:active==index}">
                                                 <div class="right_lie_cent"  :class="{active_t:active==index}">
-                                                        <p><img :src="item.imgage" alt="" v-show="!(index == active)"><img :src="item.imgage2" alt=""v-show="index == active"><span>{{item.name}}</span></p>
+                                                        <p><img :src="item.imgage" alt="" v-show="!(index == active)"><img :src="item.imgage2" v-show="index == active"><span>{{item.name}}</span></p>
                                                         <p>{{item.text}}</p>
                                                         <p>{{item.money}}元</p>
                                                         <p v-show="active==index"><button>立即办理</button></p>
@@ -153,7 +153,7 @@
                                         </div>
                                 </div>
                                 <div class="servecenter_center_qy_right">
-                                        <div class="qy_right_lie" v-for="(item,index) in qy_right_lie">
+                                        <div class="qy_right_lie" v-for="(item,index) in qy_right_lie" :key="index">
                                                 <img :src="item.img" alt="">
                                                 <div>
                                                         <img :src="item.image" alt="">
