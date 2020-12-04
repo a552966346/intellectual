@@ -28,9 +28,14 @@
         <div class="mon">
           <div>费用减缓：</div>
           <div class="monone">
-            <div>减缓85%</div>
-            <div>减缓70%</div>
-            <div>无减缓</div>
+            <div
+              :class="{ activeone: change == index }"
+              v-for="(item, index) in option2"
+              :key="index"
+              @click="selects(index)"
+            >
+              {{ item.data }}
+            </div>
           </div>
         </div>
         <div class="tip">
@@ -66,15 +71,20 @@
 export default {
   data() {
     return {
+      change: 0,
       active: 0,
       option1: [{ name: "标准" }, { name: "授权保险" }],
+      option2: [{ data: "减缓85%" }, { data: "减缓70%" }, { data: "无减缓" }],
     };
   },
   methods: {
     select(num) {
       this.active = num;
-      console.log(this.active);
     },
+    selects(num2) {
+      this.change = num2;
+    },
+    
   },
 };
 </script>
@@ -88,6 +98,9 @@ export default {
 .active {
   background-color: #187fc4;
   color: #fff !important;
+}
+.activeone {
+  border:1px solid #187fc4 !important;
 }
 
 .Publictitle_all {
@@ -187,7 +200,9 @@ input:focus {
 
 .sertypeone {
   display: flex;
+  cursor: pointer;
 }
+
 .sertypeone > div:nth-child(1) {
   border: 1px solid #187fc4;
   border-radius: 6px;
@@ -207,7 +222,6 @@ input:focus {
   align-items: center;
   border-radius: 6px;
   width: 80px;
-  letter-spacing: 3px;
   color: #8d8d8d;
 }
 .mon {
@@ -216,6 +230,7 @@ input:focus {
 }
 .monone {
   display: flex;
+  cursor: pointer;
 }
 
 .mon > div:nth-child(1) {
@@ -300,8 +315,8 @@ input:focus {
   font-size: 16px;
   color: #fff;
 }
-.triangle {
+/* .triangle {
   width: 5px;
   height: 5px;
-}
+} */
 </style>
