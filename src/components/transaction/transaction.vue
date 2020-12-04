@@ -2,7 +2,7 @@
   <div class="Publictitle_all">
     <div class="Publictitle_title">
       <div class="Publictitle_title_left">
-        <!-- <img src="../../../static/img/common/apply_form.png" alt=""> -->
+        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2583035764,1571388243&fm=26&gp=0.jpg" alt="">
       </div>
       <div class="Publictitle_title_right">
         <p style="font-size: 25px; padding-left: 15px">发明专利申请</p>
@@ -17,7 +17,7 @@
           <div class="sertypeone">
             <div
               :class="{ active: active == index }"
-              
+
               v-for="(item, index) in option1"
               :key="index"
               @click="select(index)"
@@ -36,7 +36,7 @@
               @click="selects(index)"
             >
               {{ item.data }}
-              <div><img src="../../../static/img/transaction/transaction_tip.png" alt=""></div>
+              <div :class="{show:change == index,aa:flag}"><img src="../../../static/img/transaction/transaction_tip.png" alt=""></div>
             </div>
           </div>
         </div>
@@ -76,6 +76,7 @@ export default {
       change: 0,
       active: 0,
       hid: 0,
+      flag:true,
       option1: [{ name: "标准" }, { name: "授权保险" }],
       option2: [{ data: "减缓85%" }, { data: "减缓70%" }, { data: "无减缓" }],
       imgages:[{img: ""}]
@@ -97,6 +98,12 @@ export default {
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
+}
+.aa{
+        display: none;
+}
+.show{
+        display: block;
 }
 .active {
   background-color: #187fc4;
@@ -213,7 +220,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  padding: 5px 15px;
   font-size: 16px;
   letter-spacing: 3px;
   margin-right: 15px;
@@ -225,7 +232,7 @@ input:focus {
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  width: 100px;
+  padding: 5px 15px;
   color: #8d8d8d;
 }
 .mon {
@@ -258,39 +265,18 @@ input:focus {
   color: #8d8d8d;
 }
 
-.monone > div:nth-child(1) {
+.monone > div{
   border: 1px solid #989898;
   border-radius: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  padding: 5px 15px;
   font-size: 16px;
   margin-right: 15px;
   color: #8d8d8d;
 }
 
-.monone > div:nth-child(2) {
-  border: 1px solid #989898;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 6px;
-  width: 100px;
-  margin-right: 15px;
-  color: #8d8d8d;
-}
-
-.monone > div:nth-child(3) {
-  border: 1px solid #989898;
-  border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  font-size: 16px;
-  color: #8d8d8d;
-}
 .tip {
   display: flex;
 }

@@ -2,7 +2,7 @@
   <div class="Publictitle_all">
     <div class="Publictitle_title">
       <div class="Publictitle_title_left">
-          <!-- <img src="../../../static/img/common/apply_form.png" alt=""> -->
+          <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2699863970,3643884691&fm=26&gp=0.jpg" alt="">
       </div>
       <div class="Publictitle_title_right">
         <p style="font-size: 25px; padding-left: 15px">版权变更</p>
