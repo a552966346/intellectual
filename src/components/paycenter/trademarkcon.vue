@@ -124,7 +124,6 @@ export default {
     .trademark_list a{
         text-decoration: none;
         color: black;
-        /* background-color: #fff; */
     }
     .trademark_list li>a:first-child{
         display: block;

@@ -29,7 +29,7 @@
         name: 'copyrightOrdinary',
         data() {
                 return {
-                      arr: [{
+        arr: [{
                 url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
                 text: '爱你一万年5',
                 ban: '版权分类：美术作品5',

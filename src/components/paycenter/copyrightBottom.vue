@@ -87,8 +87,8 @@ export default {
 
 <style scoped>
 .copyright_bottms{
-        background-color: #f6f6f6;
-        padding-bottom: 20px;
+    background-color: #f6f6f6;
+    padding-bottom: 20px;
     }
 .copyright_title{
     width: 100%;
