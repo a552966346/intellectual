@@ -3,7 +3,7 @@
                 <v-topsearch></v-topsearch>
                 <v-navigation></v-navigation>
                 <div class="patent_pay">
-                        <img src="../../../static/img/paycenter/copyright_top.png" alt="">
+                        <img src="../../../static/img/paycenter/patent_bg.png" alt="">
                         <!-- 分类 -->
                         <patentscreen></patentscreen>
                         <!-- 排序-->
@@ -20,7 +20,7 @@
                                         </div>
                                 </div>
                         </div>
-                        <copyrightOrdinary :arr='arr' ></copyrightOrdinary>
+                        <patentcon></patentcon>
                         <div class="copyright_page">
                             <span>共十四页</span>
                             <button class="copyright_prev">首页</button>
@@ -53,45 +53,46 @@
 </template>
 
 <script>
-        import patentscreen from '@/components/paycenter/patentscreen.vue'; //专利筛选组件
-        import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
-        import copyrightBottom from '@/components/paycenter/copyrightBottom.vue'
+import patentscreen from '@/components/paycenter/patentscreen.vue'; //专利筛选组件
+import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
+import copyrightBottom from '@/components/paycenter/copyrightBottom.vue'
+import patentcon from '../../components/paycenter/patentcon.vue';
         export default {
                 data() {
                         return {
                                 sortnumber:1,           //左侧边排序切换
                                 listsortnum:1,             //右侧 列表形式排序
-                                arr: [{
-                                                url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
-                                                text: '爱你一万年5',
-                                                ban: '版权分类：美术作品5',
-                                                price: '6000123.00',
-                                        },
-                                        {
-                                                url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
-                                                text: '爱你一万年4',
-                                                ban: '版权分类：美术作品4',
-                                                price: '6000222.00',
-                                        },
-                                        {
-                                                url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
-                                                text: '爱你一万年3',
-                                                ban: '版权分类：美术作品3',
-                                                price: '6000333.00',
-                                        },
-                                        {
-                                                url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
-                                                text: '爱你一万年2',
-                                                ban: '版权分类：美术作品2',
-                                                price: '600033.00',
-                                        },
-                                        {
-                                                url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
-                                                text: '爱你一万年1',
-                                                ban: '版权分类：美术作品1',
-                                                price: '600033.00',
-                                        }
-                                ]
+                                // arr: [{
+                                //                 url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
+                                //                 text: '爱你一万年5',
+                                //                 ban: '版权分类：美术作品5',
+                                //                 price: '6000123.00',
+                                //         },
+                                //         {
+                                //                 url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
+                                //                 text: '爱你一万年4',
+                                //                 ban: '版权分类：美术作品4',
+                                //                 price: '6000222.00',
+                                //         },
+                                //         {
+                                //                 url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
+                                //                 text: '爱你一万年3',
+                                //                 ban: '版权分类：美术作品3',
+                                //                 price: '6000333.00',
+                                //         },
+                                //         {
+                                //                 url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
+                                //                 text: '爱你一万年2',
+                                //                 ban: '版权分类：美术作品2',
+                                //                 price: '600033.00',
+                                //         },
+                                //         {
+                                //                 url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
+                                //                 text: '爱你一万年1',
+                                //                 ban: '版权分类：美术作品1',
+                                //                 price: '600033.00',
+                                //         }
+                                // ]
                         }
                 },
                 methods: {
@@ -105,7 +106,8 @@
                 components: {
                         copyrightOrdinary,
                         copyrightBottom,
-                        patentscreen
+                        patentscreen,
+                        patentcon
                 }
         }
 </script>

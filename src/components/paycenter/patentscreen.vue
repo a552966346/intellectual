@@ -5,7 +5,7 @@
                                 <div class="patenscree_lefthead">{{item.head}}</div>
                                 <div class="patenscree_leftcontent">
                                         <span>不限</span>
-                                        <span v-for="(second,index) in item.childlist" @click="choosecon(second.name)">{{second.name}}</span>
+                                        <span v-for="(second,index) in item.childlist" @click="choosecon(second.name)" :key="index">{{second.name}}</span>
                                         <div class="patenscree_leftprice" v-if="index==4">
                                                 <input type="text">&nbsp;元&nbsp;-&nbsp;<input type="text">&nbsp;元<button>确定</button>
                                         </div>
@@ -40,7 +40,7 @@
                                 <div class="patenscree_lefthead">筛选条件</div>
                                 <div class="patenscree_leftcontent">
                                         <p @click="choosenull">清空筛选条件</p>
-                                        <span v-for="(item,index) in screetext">{{item}}</span>
+                                        <span v-for="(item,index) in screetext" :key="index">{{item}}</span>
                                 </div>
                         </div>
                 </div>
@@ -57,7 +57,7 @@
                                         <div class="marquee">
                                                 <div class="marquee_box">
                                                         <ul class="marquee_list" :class="{marquee_top:animate}">
-                                                                <li v-for="(item, index) in marqueeList" class="marquee_item">
+                                                                <li v-for="(item, index) in marqueeList" class="marquee_item" :key="index">
                                                                         <div class="marquee_itemtop">
                                                                                 <span>{{item.amount}}</span>
                                                                                 <span> {{item.name}}购买了专利</span>
@@ -311,7 +311,7 @@
         }
 
         .copyright_active>img {
-                width: 220px;
+                width: 240px;
         }
 
         .copyright_bg {

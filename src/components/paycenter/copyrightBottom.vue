@@ -48,20 +48,47 @@
 export default {
     data(){
         return{
+             arr: [{
+                url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
+                text: '爱你一万年5',
+                ban: '版权分类：美术作品5',
+                price: '6000123.00',
+        },
+        {
+                url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
+                text: '爱你一万年4',
+                ban: '版权分类：美术作品4',
+                price: '6000222.00',
+        },
+        {
+                url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
+                text: '爱你一万年3',
+                ban: '版权分类：美术作品3',
+                price: '6000333.00',
+        },
+        {
+                url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
+                text: '爱你一万年2',
+                ban: '版权分类：美术作品2',
+                price: '600033.00',
+        },
+        {
+                url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
+                text: '爱你一万年1',
+                ban: '版权分类：美术作品1',
+                price: '600033.00',
         }
-    },
-    props:{
-        arr:Array,
+]
+        }
     }
-
 }
 </script>
 
 
 <style scoped>
 .copyright_bottms{
-        background-color: #f6f6f6;
-        padding-bottom: 20px;
+    background-color: #f6f6f6;
+    padding-bottom: 20px;
     }
 .copyright_title{
     width: 100%;
