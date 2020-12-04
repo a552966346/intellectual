@@ -18,8 +18,8 @@
 		                    <span class="trademark_price"><label>￥</label>{{item.price}}</span>
 		                    <img src="../../../static/img/paycenter/copyright_right.png" alt="">
 		                </p>
-		            </a>
-		            <div class="trademark_kefu" href="#">立即议价</div>
+                        <div class="trademark_kefu" href="#">立即议价</div>
+		            </a>    
 		        </li>
 		    </ul>	
     </div>
@@ -188,7 +188,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 9px;
+        padding: 10px 9px;
     }
     .trademark_p3>span{
         font-size: 15px;

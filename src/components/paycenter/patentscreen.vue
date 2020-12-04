@@ -311,7 +311,7 @@
         }
 
         .copyright_active>img {
-                width: 220px;
+                width: 240px;
         }
 
         .copyright_bg {

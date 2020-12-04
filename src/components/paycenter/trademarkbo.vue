@@ -18,8 +18,8 @@
 		                    <span class="trademark_price"><label>￥</label>{{item.price}}</span>
 		                    <img src="../../../static/img/paycenter/copyright_right.png" alt="">
 		                </p>
+                        <div class="trademark_kefu" href="#">立即议价</div>
 		            </a>
-		            <div class="trademark_kefu" href="#">立即议价</div>
 		        </li>
 		    </ul>	
     </div>
@@ -37,15 +37,6 @@ export default {
 						title:'[43类]映卉苑',
 						desc:'住所代理（旅馆、供膳寄宿处）,备办宴席,快餐馆,自助餐厅,茶馆,酒吧服务,餐馆,饭店,提供野营场地设施,出租椅子、桌子、桌布和玻璃器皿',
 						price:'1.27万',
-						color:['rgb(230, 92, 92)','rgb(246, 139, 108)','rgb(246, 189, 108)','rgb(126, 152, 205)','rgb(197, 120, 209)'],
-						bgcolor:'rgb(230, 92, 92)',
-					},
-					{
-						id:'222222',
-						img:'https://brandimg.sudoyu.com//data/svg/1/white/43/EVAPOSSP_43.svg',
-						title:'[43类]映卉苑12',
-						desc:'住所代理（旅馆、供膳寄宿处）,备办宴席,快餐馆,自助餐厅,茶馆,酒吧服务,餐馆,饭店,提供野营场地设施,出租椅子、桌子、桌布和玻璃器皿12',
-						price:'1.8万',
 						color:['rgb(230, 92, 92)','rgb(246, 139, 108)','rgb(246, 189, 108)','rgb(126, 152, 205)','rgb(197, 120, 209)'],
 						bgcolor:'rgb(230, 92, 92)',
 					},
@@ -106,6 +97,8 @@ export default {
     .trademark_content{
         width: 1200px;
         margin: 0 auto;
+        background-color: #f6f6f6;
+        padding-bottom: 20px;
     }
     .trademark_list {
         display: flex;
@@ -188,7 +181,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 9px;
+        padding: 10px 9px;
     }
     .trademark_p3>span{
         font-size: 15px;

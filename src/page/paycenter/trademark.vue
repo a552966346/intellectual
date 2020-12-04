@@ -63,6 +63,7 @@
         </span>
         <button>确定</button>
       </div>
+      <trademarkbo></trademarkbo>
     </div>
     <v-combotttom></v-combotttom>
   </div>
@@ -72,6 +73,7 @@
 import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
 import patentscreen from '@/components/paycenter/patentscreen.vue'
 import trademarkcon from '@/components/paycenter/trademarkcon.vue'
+import trademarkbo from '@/components/paycenter/trademarkbo.vue'
 export default {
     
     data(){
@@ -92,7 +94,8 @@ export default {
     components:{
         copyrightOrdinary,
         patentscreen,
-        trademarkcon
+        trademarkcon,
+        trademarkbo
     }
 }
 </script>
