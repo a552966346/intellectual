@@ -17,6 +17,7 @@
           <div class="sertypeone">
             <div
               :class="{ active: active == index }"
+              
               v-for="(item, index) in option1"
               :key="index"
               @click="select(index)"
@@ -29,12 +30,13 @@
           <div>费用减缓：</div>
           <div class="monone">
             <div
-              :class="{ activeone: change == index }"
+              :class="{ activeone: change == index, imghid :hid == index }"
               v-for="(item, index) in option2"
               :key="index"
               @click="selects(index)"
             >
               {{ item.data }}
+              <div><img src="../../../static/img/transaction/transaction_tip.png" alt=""></div>
             </div>
           </div>
         </div>
@@ -73,8 +75,10 @@ export default {
     return {
       change: 0,
       active: 0,
+      hid: 0,
       option1: [{ name: "标准" }, { name: "授权保险" }],
       option2: [{ data: "减缓85%" }, { data: "减缓70%" }, { data: "无减缓" }],
+      imgages:[{img: ""}]
     };
   },
   methods: {
@@ -84,7 +88,6 @@ export default {
     selects(num2) {
       this.change = num2;
     },
-    
   },
 };
 </script>
@@ -99,6 +102,7 @@ export default {
   background-color: #187fc4;
   color: #fff !important;
 }
+
 .activeone {
   border:1px solid #187fc4 !important;
 }
@@ -209,7 +213,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
+  width: 100px;
   font-size: 16px;
   letter-spacing: 3px;
   margin-right: 15px;
@@ -221,7 +225,7 @@ input:focus {
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  width: 80px;
+  width: 100px;
   color: #8d8d8d;
 }
 .mon {
@@ -231,6 +235,16 @@ input:focus {
 .monone {
   display: flex;
   cursor: pointer;
+}
+.monone > div {
+  position: relative;
+}
+.monone > div>div img{
+  position: absolute;
+  width: 18%;
+  height: 60%;
+  top: 0;
+  right: 0;
 }
 
 .mon > div:nth-child(1) {
@@ -250,7 +264,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
+  width: 100px;
   font-size: 16px;
   margin-right: 15px;
   color: #8d8d8d;
@@ -262,7 +276,7 @@ input:focus {
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  width: 80px;
+  width: 100px;
   margin-right: 15px;
   color: #8d8d8d;
 }
@@ -273,7 +287,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
+  width: 100px;
   font-size: 16px;
   color: #8d8d8d;
 }
