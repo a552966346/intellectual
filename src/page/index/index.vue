@@ -1,10 +1,12 @@
 <template>
  <div>
-  <!-- 顶部导航 -->
-  <v-navigation></v-navigation>
+
   <!-- 公共搜索头部 -->
   <v-topsearch></v-topsearch>
-  <!-- 顶部选项卡 -->
+    <!-- 顶部导航 -->
+  <v-navigation></v-navigation>
+    <!-- 顶部选项卡 -->
+  <v-banner></v-banner>
   <div>
 
   </div>
@@ -21,7 +23,6 @@
   <div class="index_enterprise">
      <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color' :background_img_url='title_bg_url[1]'></v-comtitle>
     <div>
-      
     </div>
   </div>
 
@@ -76,6 +77,7 @@
 <script>
 import indexpayitem from '@/components/indexpayitem/indexpayitem.vue'
 import navigation from '@/components/navigation/navigation.vue'
+import banner from '@/components/banner/banner.vue'
 export default {
   name:'index',
   data(){
@@ -109,7 +111,8 @@ export default {
   },
   components:{
     'v-indexpayitem':indexpayitem,
-    'v-navigation':navigation
+    'v-navigation':navigation,
+    'v-banner':banner
   }
 }
 </script>

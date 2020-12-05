@@ -19,7 +19,6 @@ const store = new Vuex.Store({
       state.count+=n
       // return state.count
     },
-    
   }
 })
 

@@ -10,8 +10,7 @@
                         <div class="consultation_center">
                                 <!-- 左边内容 -->
                                 <div class="consultation_right">
-                                        <!-- <v-apply></v-apply> -->
-                                        <v-transaction></v-transaction>
+                                        <v-apply></v-apply>
                                         <v-process :list="list" :service="service"></v-process>
                                 </div>
                                 <!-- 右边内容 -->
@@ -20,6 +19,7 @@
                                 </div>
                         </div>
                 </div>
+                1
                 <v-combotttom></v-combotttom>
         </div>
 </template>
@@ -28,9 +28,8 @@
         import consultation from '../../components/consultation/consultation.vue';
         import proce from '../../components/process/process.vue';
         import apply from '../../components/apply/apply.vue'
-        import transaction from '../../components/transaction/transaction.vue'
         export default {
-                name: 'copyrightChanges',
+                name: 'tradingcenter',
                 data() {
                         return {
                                 msg: '这是测试内容',
@@ -101,7 +100,6 @@
                         'v-consultation': consultation,
                         'v-process':proce,
                         'v-apply':apply,
-                        'v-transaction':transaction
                 }
         }
 </script>
