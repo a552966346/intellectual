@@ -15,7 +15,7 @@
                                                         <v-serviceleft></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right">
-                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor'></v-servicer>
+                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor' :toptext ='toptext'></v-servicer>
                                                 </div>
                                         </div>
                                 </div>
@@ -36,7 +36,8 @@
                 name:'service',
                 data(){
                         return{
-                                iscolor:0
+                                iscolor:0,
+                                toptext:[{text:'高企认定好处',id:1},{text:'服务流程',id:2},{text:'认定条件',id:3},{text:'申请资料',id:4},{text:'常见问题',id:5},{text:'典型案列',id:6}],
                         }
                 },
                 components:{
