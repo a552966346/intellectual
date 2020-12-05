@@ -32,7 +32,8 @@
                     </div>
                     <div class="r1_top_money money1">
                         <p>账户余额</p>
-                        <span>0.00元</span> <br/>
+                        <span>0.00元</span>
+                        <el-button size="mini" plain>提现</el-button> <br/>
                         <a href="#">查看详情</a>
                     </div>
                     <div class="r1_top_money money2">
@@ -263,7 +264,7 @@ a {
 }
 .user_left li{
     height: 54px;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid rgba(0,0,0,0.16);
     text-align: center;
     line-height: 54px;
 }
@@ -387,6 +388,7 @@ a {
 .collection_content_item img{
     display: block;
     margin: 0 auto 5px;
+    width: 100%;
    
 }
 .collection_content_item .span_r{
@@ -394,12 +396,14 @@ a {
 }
 .collection_content_item p{
     font-size: 10px;
-    line-height: 17px;
-    text-align: center;
+    line-height: 19px;
+    text-align: left;
+    color: #a3a3a3;
 }
 .collection_content_item_cc{
     font-size: 12px;
     color: #4b7ef1;
+    line-height: 19px;
 }
 .collection_content_item_ccc span:last-of-type{
     color: #a3a3a3;
