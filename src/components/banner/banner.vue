@@ -133,25 +133,234 @@
                     <div class="banner_muts">
                         <div class="banner_mutsop">{{meset[1]}}</div>
                         <div class="banner_mucet">
+                            <div class="banner_muq">
+                                <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[0]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                        {{msqtx[0]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[0]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[1]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[1]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[1]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[2]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[2]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[2]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[3]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[3]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[3]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[4]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                        {{msqtx[4]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[4]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[5]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[5]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[5]}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="banner_muts">
                         <div class="banner_mutsop">{{meset[2]}}</div>
                         <div class="banner_mucet">
+                            <div class="banner_muq">
+                                <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[0]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                        {{msqtx[0]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[0]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[1]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[1]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[1]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[2]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[2]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[2]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[3]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[3]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[3]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[4]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                        {{msqtx[4]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[4]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[5]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[5]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[5]}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="banner_muts">
                         <div class="banner_mutsop">{{meset[3]}}</div>
                         <div class="banner_mucet">
+                            <div class="banner_muq">
+                                <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[0]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                        {{msqtx[0]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[0]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[1]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[1]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[1]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[2]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[2]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[2]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[3]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[3]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[3]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[4]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                        {{msqtx[4]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[4]}}
+                                    </div>
+                                </div>
+                                 <div class="banner_muqblk">
+                                    <div class="banner_muqimg">
+                                        <img :src="bantwimg[5]" alt="">
+                                    </div>
+                                    <div class="banner_muqfz">
+                                         {{msqtx[5]}}
+                                    </div>
+                                    <div class="banner_muqmn">
+                                        {{msmin[5]}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </el-tab-pane>
             <el-tab-pane :label="label_all[2]+banfz[2]" name="three" :key="'three'">
                 <div class="baner_tp">{{message[0]}}</div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="baner_wfct">
+                    <div class="baner_wdmblk">
+                        <img :src="banotimg[0]" alt="">
+                    </div>
+                    <div class="baner_wdmblk">
+                        <img :src="banotimg[1]" alt="">
+                    </div>
+                </div>
             </el-tab-pane>
              <div class="baner_ft">
                     <div class="searchbox">
@@ -186,7 +395,11 @@
                     '../../../static/img/index/bannertwsx.png'
                 ],
                 msqtx:['商标注册','无忧注册','商标转让','商标续展','商标变更','许可备案'],
-                msmin:['￥800/元','￥1600/元','￥700/元','￥700/元','￥350/元','￥350/元']
+                msmin:['￥800/元','￥1600/元','￥700/元','￥700/元','￥350/元','￥350/元'],
+                banotimg:[
+                    '../../../static/img/index/bannerobon.png',
+                    '../../../static/img/index/bannerobtw.png'
+                ]
             }
         }
     }
@@ -225,6 +438,9 @@
     .banner_muqblk{height: 100px;width: 80px;display: flex;justify-content: center;align-items: center;flex-direction: column;}
     .banner_mucet{width: 100%; height: 80%; display: flex;}
     .banner_muq{width: 100%; height: 100%; display: flex;justify-content: space-around;align-items: center;flex-direction: row;flex-wrap: wrap;}
-    .banner_muqimg{width: 100%;height: 60%;}
-    .banner_muqimg img{width: 100%;height: 100%;}
+    .banner_muqimg{width: 100%;height: 40%;display: flex;justify-content: center;align-items: center;}
+    .banner_muqimg img{width: 55%;height: 80%;}
+    .baner_wfct{width: 90%;height: 65%;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
+    .baner_wdmblk{width: 48%;height: 100%;display: flex;justify-content: center;align-items: center;}
+    .baner_wdmblk img{width: 100%;height: 100%;}
 </style>
