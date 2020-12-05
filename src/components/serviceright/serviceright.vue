@@ -1,7 +1,7 @@
 <template>
         <div class="serviceright">
                 <div class="serviceright_top">
-                        <p v-for="(item,index) in toptext" :key='item.id' @click="$emit('click_text',index)" :class="{iscolor:index==iscolor}">{{item.text}}</p>
+                        <p v-for="(item,index) in toptext" :key='item.id' @click="text_click(index)" :class="{iscolor:index==iscolor}">{{item.text}}</p>
                 </div>
                 <div class="serviceright_center">
                         <div class="center_text" :id="txt+index" v-for="(item,index) in toptext">
@@ -16,14 +16,21 @@
         export default{
                 data(){
                         return{
-                                toptext:[{text:'高企认定好处',id:1},{text:'服务流程',id:2},{text:'认定条件',id:3},{text:'申请资料',id:4},{text:'常见问题',id:5},{text:'典型案列',id:6}],
                                 txt:'text_',
 
                         }
                 },
                 props:{
-                        iscolor:0
+                        iscolor:0,
+                        toptext:''
+                },
+                methods:{
+                        text_click(porp){
+                                console.log(porp)
+                                this.iscolor = porp
+                                this.$el.querySelector('#text_'+porp).scrollIntoView()
                 }
+             }
         }
 </script>
 
