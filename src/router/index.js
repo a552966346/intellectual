@@ -10,6 +10,7 @@ import patent from '@/page/paycenter/patent'
 import trademark from '@/page/paycenter/trademark'
 import knowledgepledge from '@/page/knowledgepledge/knowledgepledge'
 import servecenter from '@/page/servecenter/servecenter' //服务中心
+import usercenter from '@/page/usercenter/usercenter'
 Vue.use(Router)
 
 export default new Router({
