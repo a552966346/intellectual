@@ -42,12 +42,12 @@ export default new Router({
             component: copyright
         },
         {
-            path: '/paycenter/patent',  //专利
+            path: '/paycenter/patent', //专利
             name: 'patent',
             component: patent
         },
         {
-            path: '/paycenter/trademark',  //商标
+            path: '/paycenter/trademark', //商标
             name: 'trademark',
             component: trademark
         },
@@ -60,6 +60,11 @@ export default new Router({
             path: '/knowledgepledge',
             name: 'knowledgepledge',
             component: knowledgepledge
+        },
+        {
+            path: '/usercenter',
+            name: 'usercenter',
+            component: usercenter
         },
         {
             path: '/servecenter',
