@@ -16,6 +16,9 @@ import userindex from '@/page/usercenter/index' //个人中心主页
 import userbuy from '@/page/usercenter/buyperson' //个人我是买家
 import test from '@/page/test/test' //测试页面
 import activity from '@/page/activity/activity' //测试页面
+import about from '@/page/about/about' //关于我们
+import navcter from '@/components/navcter/navcter' //关于我们
+import navctertw from '@/components/navcter/navctertw' //关于我们
 
 Vue.use(Router)
 
@@ -99,6 +102,18 @@ export default new Router({
                 path: '/servecenter',
                 name: 'servecenter',
                 component: servecenter
-        }
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: about,
+            children: [{
+                path: '/',
+                component: navcter,
+            }, {
+                path: '/about/navctertw',
+                component: navctertw,
+            }]
+        },
     ]
 })
