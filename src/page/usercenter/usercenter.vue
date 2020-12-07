@@ -21,7 +21,9 @@
                 <li><a href="#"><img class="left_b" src="../../../static/img/usercenter/mycontract_active.png" alt="">我的合同</a></li>
             </ul>
         </div>
-        <router-view></router-view>
+        <div class="user_right">
+            <router-view></router-view>
+        </div>
         
        
     </div>
@@ -43,13 +45,17 @@ a {
 }
 .user{
     display: flex;
-    height: 100%;
+    height: 95%;
 }
 /* .user_left */
 .user .user_left{
     flex: 0 0 200px;
     height: 100%;    
     box-shadow: 2px 1px 1px rgba(0,0,0,0.16);
+}
+.user_right{
+    flex: 1; 
+    overflow: hidden;
 }
 .img_logo{
     background: url('../../../static/img/usercenter/logo.png') 0 0 no-repeat;

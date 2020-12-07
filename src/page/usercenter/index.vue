@@ -198,23 +198,22 @@ a {
     text-decoration: none;
 }
 .main{
-    flex: 1;
     display: flex; 
     /* justify-content: space-between; */
     margin: 40px 3% 0;
-    width: 100%; 
+    width: 93%; 
 }
 .main_r{
     /* width: 355px; */
     flex: 0 0 34%;
     margin-left: 3%;
     max-width: 363px;
-    /* min-width: 350px; */
+    min-width: 350px;
 
 }
 .main_l{
     flex: 1;
-    width: 57%;
+    width: 47%;
 
 }
 
@@ -408,7 +407,6 @@ a {
     height: 64px;
     line-height: 64px;
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
     width: 100%;
 }
@@ -421,7 +419,7 @@ a {
     border-radius: 8px;
     margin-right: 20px;
 }
-..r2_top_item:last-of-type{
+.r2_top_item:last-of-type{
     margin-right: 0px;
 }
 .r2_top_item img{
@@ -429,6 +427,7 @@ a {
     vertical-align: middle;
 }
 .r2_top_item span{
+    padding-l: 5px;
     text-align: center;
 }
 .order{
