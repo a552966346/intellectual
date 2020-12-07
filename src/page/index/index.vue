@@ -22,7 +22,48 @@
   <!-- 企业服务 -->
   <div class="index_enterprise">
      <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color' :background_img_url='title_bg_url[1]'></v-comtitle>
-    <div>
+    <div class="index_enterpriseasd">
+       <div class="index_enterpriseasdwron" >
+         <div class="index_entesdwr">
+           企业服务
+         </div>
+          <div class="index_entesdwrqw">
+           致力于小微企业提供数字金融服务
+         </div>
+         <div class="index_entesdwrqwas">
+           <div>立即咨询></div>
+         </div>
+       </div>
+       <div class="index_enterpriseasdwrtw">
+         <div class="index_entwkjk">
+         </div>
+         <div class="index_entwkjkas">
+           <div class="index_cmetk">
+             知识产权贯标
+           </div>
+           <div class="index_cmetkaw">
+             享受政府资助最高30万
+           </div>
+           <div class="index_cmetkaqw">
+             查看详情
+           </div>
+         </div>
+       </div>
+       <div class="index_enterpriseasdwrtr">
+         <div class="index_entwkjkr">
+         </div>
+         <div class="index_entwkjkas">
+           <div class="index_cmetk">
+             知识产权贯标
+           </div>
+           <div class="index_cmetkaw">
+             享受政府资助最高30万
+           </div>
+           <div class="index_cmetkaqw">
+             查看详情
+           </div>
+         </div>
+       </div>
     </div>
   </div>
 
@@ -104,8 +145,6 @@ export default {
                     '../../../static/img/index/shangbiao_pay.png',
                     '../../../static/img/index/ruanzhu_pay.png'
                   ],
-                  
-
       msg:'这是测试内容'
     }
   },
@@ -190,4 +229,15 @@ export default {
   .index_left_swiper{
     padding: 25px 0; 
   }
+  .index_enterpriseasd{width: 1240px;height: 420px;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
+  .index_enterpriseasdwron{border: 20px solid #fff; width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbaon.png);background-size: cover;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 3%; color: #fff;}
+  .index_enterpriseasdwrtw{border: 20px solid #fff; width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatw.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
+  .index_enterpriseasdwrtr{border: 20px solid #fff; width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatr.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
+  .index_entesdwr{font-size: 30px;font-weight: bold;}
+  .index_entesdwrqwas{border: 1px solid #fff;padding: 3%;border-radius: 8px;}
+  .index_entwkjk{width: 100%;height: 140px;background-image: url(../../../static/img/index/index_banrtwstw.png);background-size: cover;}
+  .index_entwkjkr{width: 100%;height: 140px;background-image: url(../../../static/img/index/index_benarwst.png);background-size: cover;}
+  .index_entwkjkas{width: 100%;flex: 1;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 2%; color: #fff;padding: 0 30px;}
+  .index_cmetk{font-size: 24px; font-weight: bold;}
+  .index_cmetkaqw{border: 1px solid #fff;padding: 10px;font-size: 14px;}
 </style>
