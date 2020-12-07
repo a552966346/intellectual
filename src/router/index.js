@@ -14,6 +14,7 @@ import usercenter from '@/page/usercenter/usercenter' //个人中心
 import userindex from '@/page/usercenter/index' //个人中心主页
 import userbuy from '@/page/usercenter/buyperson' //个人我是买家
 import test from '@/page/test/test' //测试页面
+import activity from '@/page/activity/activity' //测试页面
 
 Vue.use(Router)
 
@@ -25,6 +26,11 @@ export default new Router({
             path: '/',
             name: 'index',
             component: index
+        },
+        {  //活动专区
+            path: '/activity',
+            name: 'activity',
+            component: activity
         },
         {
             path: '/login',
