@@ -189,7 +189,7 @@ export default {
     width: 100px;
 }
 .flex-item h4{
-    color: #333;
+    color: #177ec4;
     font-size: 22px;
     line-height: 80px;
 }
@@ -289,7 +289,7 @@ export default {
     margin: 40px auto;
 }
 .flex3-item h4{
-    color: #0062d1;
+    color:#1a73d5;
     font-size: 20px;
 }
 
