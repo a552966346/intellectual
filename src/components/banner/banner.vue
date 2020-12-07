@@ -10,13 +10,14 @@
                         </div>
                         <div class="banner_mucet">
                             <div class="banner_mucetlft">
-                                <div>{{message[1]}}</div>
-                                <div>{{message[2]}}</div>
-                                <a href="">{{message[3]}}</a>
+                                <div>{{message[3]}}</div>
+                                <div>{{message[4]}}</div>
+                                <a href="">{{message[4]}}</a>
                             </div>
                             <div class="banner_mucetret">
-                                <div>{{message[4]}}</div>
-                                <div>{{message[5]}}</div>
+                                <div>{{message[6]}}</div>
+                                <div>{{message[7]}}</div>
+                                <div></div>
                             </div>
                         </div>
                     </div>
@@ -26,13 +27,14 @@
                         </div>
                         <div class="banner_mucet">
                             <div class="banner_mucetlft">
-                                <div>{{message[1]}}</div>
-                                <div>{{message[2]}}</div>
-                                <a href="">{{message[3]}}</a>
+                                <div>{{message[3]}}</div>
+                                <div>{{message[4]}}</div>
+                                <a href="">{{message[5]}}</a>
                             </div>
                             <div class="banner_mucetret">
-                                <div>{{message[4]}}</div>
-                                <div>{{message[5]}}</div>
+                                <div>{{message[6]}}</div>
+                                <div>{{message[7]}}</div>
+                                <div></div>
                             </div>
                         </div>
                     </div>
@@ -42,20 +44,21 @@
                         </div>
                         <div class="banner_mucet">
                             <div class="banner_mucetlft">
-                                <div>{{message[1]}}</div>
-                                <div>{{message[2]}}</div>
-                                <a href="">{{message[3]}}</a>
+                                <div>{{message[3]}}</div>
+                                <div>{{message[4]}}</div>
+                                <a href="">{{message[5]}}</a>
                             </div>
                             <div class="banner_mucetret">
-                                <div>{{message[4]}}</div>
-                                <div>{{message[5]}}</div>
+                                <div>{{message[6]}}</div>
+                                <div>{{message[7]}}</div>
+                                <div></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </el-tab-pane>
             <el-tab-pane :label="label_all[1]+banfz[1]" name="second" :key="'second'">
-                <div class="baner_tp">{{message[0]}}</div>
+                <div class="baner_tp">{{message[1]}}</div>
                 <div class="baner_cetq">
                     <div class="banner_muts">
                         <div class="banner_mutsop">{{meset[0]}}</div>
@@ -352,7 +355,7 @@
                 </div>
             </el-tab-pane>
             <el-tab-pane :label="label_all[2]+banfz[2]" name="three" :key="'three'">
-                <div class="baner_tp">{{message[0]}}</div>
+                <div class="baner_tp">{{message[2]}}</div>
                 <div class="baner_wfct">
                     <div class="baner_wdmblk">
                         <img :src="banotimg[0]" alt="">
@@ -379,7 +382,7 @@
                 activeName: 'first',
                 label_all:["交易中心","服务中心","金融中心"],
                 banfz:["汇聚优质资源，交易安心","助力您的企业高速成长","助力您的企业高速成长"],
-                message:["立足无形资产交易，布局企业一站式服务，全职律师跟保障","服装鞋帽>","日化>","查看更多>","医药用品>","机械设备>"],
+                message:["立足无形资产交易，布局企业一站式服务，全职律师跟保障","立足无形资产交易，布局企业一站式服务，全职律师跟保障","致力于更多微小企业提供数字金融服务","服装鞋帽>","日化>","查看更多>","医药用品>","机械设备>"],
                 banimg:[
                     '../../../static/img/index/banner_cteon.png',
                     '../../../static/img/index/banner_ctetw.png',
@@ -392,7 +395,13 @@
                     '../../../static/img/index/bannertwtr.png',
                     '../../../static/img/index/bannertwfh.png',
                     '../../../static/img/index/bannertwfv.png',
-                    '../../../static/img/index/bannertwsx.png'
+                    '../../../static/img/index/bannertwsx.png',
+                    '../../../static/img/index/bannersctr.png',
+                    '../../../static/img/index/bannertrtr.png',
+                    '../../../static/img/index/bannerscni.png',
+                    '../../../static/img/index/bannerscfv.png',
+                    '../../../static/img/index/bannertrtw.png',
+                    '../../../static/img/index/bannersctn.png'
                 ],
                 msqtx:['商标注册','无忧注册','商标转让','商标续展','商标变更','许可备案'],
                 msmin:['￥800/元','￥1600/元','￥700/元','￥700/元','￥350/元','￥350/元'],
@@ -439,8 +448,9 @@
     .banner_mucet{width: 100%; height: 80%; display: flex;}
     .banner_muq{width: 100%; height: 100%; display: flex;justify-content: space-around;align-items: center;flex-direction: row;flex-wrap: wrap;}
     .banner_muqimg{width: 100%;height: 40%;display: flex;justify-content: center;align-items: center;}
-    .banner_muqimg img{width: 55%;height: 80%;}
+    .banner_muqimg img{height: 80%;}
     .baner_wfct{width: 90%;height: 65%;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
     .baner_wdmblk{width: 48%;height: 100%;display: flex;justify-content: center;align-items: center;}
     .baner_wdmblk img{width: 100%;height: 100%;}
+    .banner_mucetret{height: 80%;display: flex;justify-content: space-around;align-items: center;flex-direction: column;}
 </style>

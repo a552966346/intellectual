@@ -1,7 +1,7 @@
 <template>
         <div class="serviceright">
                 <div class="serviceright_top">
-                        <p v-for="(item,index) in toptext" :key='item.id' @click="text_click(index)" :class="{iscolor:index==iscolor}">{{item.text}}</p>
+                        <p v-for="(item,index,) in toptext" :key='item.id' @click="text_click(index)" :class="{iscolor:index==iscolor}">{{item.text}}</p>
                 </div>
                 <div class="serviceright_center">
                         <div class="center_text" :id="txt+index" v-for="(item,index) in toptext">
