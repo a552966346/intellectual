@@ -8,7 +8,8 @@ import service from '@/page/service/service'
 import copyright from '@/page/paycenter/copyright'
 import patent from '@/page/paycenter/patent'
 import trademark from '@/page/paycenter/trademark'
-import knowledgepledge from '@/page/knowledgepledge/knowledgepledge'
+import knowledgepledge from '@/page/knowledgepledge/knowledgepledge' //知识质押
+import knowledgefunds from '@/page/knowledgefunds/knowledgefunds' //知识基金
 import servecenter from '@/page/servecenter/servecenter' //服务中心
 import usercenter from '@/page/usercenter/usercenter' //个人中心
 import userindex from '@/page/usercenter/index' //个人中心主页
@@ -64,6 +65,11 @@ export default new Router({
             path: '/knowledgepledge',
             name: 'knowledgepledge',
             component: knowledgepledge
+        },
+        {
+            path: '/knowledgefunds',
+            name: 'knowledgefunds',
+            component: knowledgefunds
         },
         {
             path: '/usercenter',
