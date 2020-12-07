@@ -19,11 +19,53 @@
        <div>
          <p>油画作品展示</p>
          <p>GALLERY</p>
+         <div class="line"></div>
          <p>装饰性艺术是人类古老的艺术展现手法之一，她与人类生活密切相关，在现代技术日益发展的今天，装饰性艺术日益丰富和流行，在人们生活、工作、娱乐的各个方面，无不体现着装饰性艺术的魅力，装饰性</p>
          <p>01.</p>
        </div>
        <div>
          <img src="../../../static/img/activity/example_item_img.png" alt="">
+       </div>
+     </div>
+     <!-- 其它作品推荐 -->
+     <div class="other_works">
+       <p>其他作品展示</p>
+       <div>
+         <img src="" alt="">
+         <img src="" alt="">
+       </div>
+       <div>
+
+       </div>
+     </div>
+     <!-- 交易流程 -->
+     <div class="transaction_flow">
+       <p>交易流程</p>
+       <div class="transaction_flow_title">
+         <p>OTHER CASES</p>
+         <div class="line"></div>
+       </div>
+       <div class="transaction_flow_content">
+         <div @mouseleave='mouse_leave(0)' @mouseover="mouse_over(0)">
+           <img :src="transaction_imglist[0]" alt="">
+           <h3>查阅作品</h3>
+           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
+         </div>
+         <div>
+           <img :src="transaction_imglist[1]" alt="">
+           <h3>查阅作品</h3>
+           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
+         </div>
+         <div>
+           <img :src="transaction_imglist[2]" alt="">
+           <h3>查阅作品</h3>
+           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
+         </div>
+         <div>
+           <img :src="transaction_imglist[3]" alt="">
+           <h3>查阅作品</h3>
+           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
+         </div>
        </div>
      </div>
    </div>
@@ -35,9 +77,41 @@
 export default {
   data(){
     return{
-
+      transaction_imglist:[
+        '../../../static/img/activity/cy_icon.png',
+        '../../../static/img/activity/dd_icon.png',
+        '../../../static/img/activity/qd_icon.png',
+        '../../../static/img/activity/yy_icon.png'
+      ]
     }
-  }
+  },
+  methods: {
+    mouse_leave(index){
+      if(index == 0){
+        var srt_url = '../../../static/img/activity/cy_icon.png'
+      }else if(index == 1){
+        var srt_url = '../../../static/img/activity/dd_icon.png'
+      }else if(index==2){
+        var srt_url = '../../../static/img/activity/qd_icon.png'
+      }else{
+        var srt_url = '../../../static/img/activity/yy_icon.png'
+      }
+      this.transaction_imglist[index]=srt_url;
+    },
+    mouse_over(index){
+      if(index == 0){
+        var srt_url = '../../../static/img/activity/cy_icon_active.png'
+      }else if(index == 1){
+        var srt_url = '../../../static/img/activity/dd_icon_active.png'
+      }else if(index==2){
+        var srt_url = '../../../static/img/activity/qd_icon_active.png'
+      }else{
+        var srt_url = '../../../static/img/activity/yy_icon_active.png'
+      }
+      this.transaction_imglist[index]=srt_url;
+    }
+  },
+  
 }
 
 </script>
@@ -52,6 +126,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.line{
+  width:120px;
+  border-bottom: 2px solid #000;
 }
 .activity_recommend{
   width:100%;
@@ -106,14 +184,58 @@ export default {
   font-size: 28px;
   padding: 20px 0;
 }
-.painting_example>div>p:nth-child(3){
+.painting_example>div>p:nth-child(4){
   font-size: 15px;
   margin-left:120px;
   line-height: 25px;
   color: #676767;
   padding: 20px 0;
 }
-.painting_example>div>p:nth-child(4){
+.painting_example>div>p:nth-child(5){
   font-size: 26px;
+}
+/* 其它作品 */
+.other_works{
+  width: 1200px;
+}
+.other_works>p{
+  font-size: 34px;
+}
+/* 交易流程 */
+.transaction_flow{
+  width: 1200px;
+}
+.transaction_flow>p{
+  font-size: 34px;
+}
+.transaction_flow_title{
+  font-size: 26px;
+}
+.transaction_flow_title>p{
+  padding: 20px 0;
+}
+.transaction_flow_content{
+  display:flex;
+  align-items: center;
+  padding: 30px 0;
+}
+.transaction_flow_content>div{
+  flex: 1;
+  margin:0 1%;
+  padding:30px 25px 60px;
+  font-size: 14px;
+}
+.transaction_flow_content>div:hover{
+  background: #187fc4;
+  color:#fff
+}
+.transaction_flow_content>div>img{
+  width: 60px;
+  padding:30px 0 ;
+}
+.transaction_flow_content>div>h3{
+  font-size: 25px;
+  font-weight: normal;
+  padding: 20px 0;
 }
 </style>
