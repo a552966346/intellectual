@@ -9,7 +9,13 @@
                                 <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet></v-servicet>
+                                        <v-servicet >
+                                               <!-- <template v-slot:topall>
+                                                        <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
+                                                        <div class="slot_bord">11111111</div>
+                                                        <div class="money">￥<h2>398</h2>元起</div>
+                                                </template> -->
+                                        </v-servicet>
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left">
                                                         <v-serviceleft></v-serviceleft>
@@ -46,10 +52,8 @@
                       'v-servicer':serviceright
                 },
                 methods:{
-                        text_click(porp){
-                                console.log(porp)
-                                this.iscolor = porp
-                                this.$el.querySelector('#text_'+porp).scrollIntoView()
+                        text_click(){
+                                console.log(111)
                         }
                 }
         }
@@ -65,4 +69,5 @@
         .cen_right { flex:3;box-shadow:1px 1px 10px 2px #ccc;}
         .consultation_bottom{width: 100%;}
         .consultation_bottom>img{width: 100%;}
+        .money{display: flex;align-items: center;color: #D30102;}
 </style>

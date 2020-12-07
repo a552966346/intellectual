@@ -13,6 +13,7 @@ import servecenter from '@/page/servecenter/servecenter' //服务中心
 import usercenter from '@/page/usercenter/usercenter' //个人中心
 import userindex from '@/page/usercenter/index' //个人中心主页
 import userbuy from '@/page/usercenter/buyperson' //个人我是买家
+import test from '@/page/test/test' //测试页面
 
 Vue.use(Router)
 
@@ -78,9 +79,14 @@ export default new Router({
             }]
         },
         {
-            path: '/servecenter',
-            name: 'servecenter',
-            component: servecenter
+            path: '/test',
+            name: 'test',
+            component: test
+        },
+        {
+                path: '/servecenter',
+                name: 'servecenter',
+                component: servecenter
         }
     ]
 })

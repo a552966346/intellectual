@@ -10,11 +10,11 @@
                                         <p>指导和帮助企业进一步强化知识产权创造、运用、管理和保护，增强自主创新能力。</p>
                                 </div>
                                 <div class="topall_center">
-                                        <p>服务费：<span>￥1000</span></p>
-                                        <div>
+                                        <div class="solt"><slot name="topall"><p>服务费：<span>￥1000</span></p></slot></div>
+                                        <div class="inp">
                                                 <p>联系电话：</p><input type="tel">
                                         </div>
-                                        <div>
+                                        <div class="inp">
                                                 <p>联系人：</p><input type="text">
                                         </div>
                                 </div>
@@ -74,11 +74,12 @@
        .text_top>h2 {padding:5px 0;color:#555;}
        .text_top>p {padding:10px;color:#A7A7A7;background-color:#F3F6FF;}
        .topall_center {padding:5px 0;margin:20px 0;}
-       .topall_center>p {background:url(../../../static/img/index/index_enterprise_bg.jpg)no-repeat;background-size:cover;font-size:15px;color:#ccc;padding:15px 5px;}
-       .topall_center>p>span {padding-left:20px;font-size:20px;color:#D94A4B;}
-       .topall_center>div {width:100%;padding:10px 0;display:flex;}
-       .topall_center>div>p {font-size:14px;color:#aaa;width:15%;display:flex;/* justify-content:center;*/                align-items:center;}
-       .topall_center input {margin-left:20px;padding:5px;height:30px;width:250px;outline:none;}
+       .solt{background:url(../../../static/img/index/index_enterprise_bg.jpg)no-repeat;background-size:cover;padding:15px 5px;}
+       .solt>p {font-size:15px;color:#ccc;}
+       .solt>p>span {padding-left:20px;font-size:20px;color:#D94A4B;}
+       .inp {width:100%;padding:10px 0;display:flex;}
+       .inp>p {font-size:14px;color:#aaa;width:15%;display:flex;/* justify-content:center;*/                align-items:center;}
+       .inp input {margin-left:20px;padding:5px;height:30px;width:250px;outline:none;}
        .topall_bottom {display:flex;margin:10px 0;}
        .bottom_left {display:flex;padding:2px;background-color:#1780C2;align-items:center;height:60px;width:170px;border-radius:5px;overflow:hidden;}
        .left_left {flex:2;display:flex;}
