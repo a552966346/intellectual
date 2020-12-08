@@ -20,6 +20,7 @@ import activity from '@/page/activity/activity' //测试页面
 import about from '@/page/about/about' //关于我们
 import navcter from '@/components/navcter/navcter' //关于我们
 import navctertw from '@/components/navcter/navctertw' //关于我们
+import transfer from '@/page/transfer/transfer'
 
 Vue.use(Router)
 
@@ -120,6 +121,11 @@ export default new Router({
                 path: '/about/navctertw',
                 component: navctertw,
             }]
+        },
+        {
+            path: '/transfer',
+            name: 'transfer',
+            component: transfer
         },
     ]
 })
