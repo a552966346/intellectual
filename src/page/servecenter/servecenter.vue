@@ -25,7 +25,7 @@
                                                                         <p>优质品牌，祝您前行</p>
                                                                         <img src="../../../static/img/common/Learn_about_Eden.png"
                                                                                 alt="">
-                                                                        <div>立即抢购 <div></div>
+                                                                        <div>立即抢购 <i class="el-icon-caret-right"></i>
                                                                         </div>
                                                                 </div>
                                                         </div>
@@ -501,14 +501,6 @@
                 font-size: 13px;
                 display: flex;
                 align-items: center;
-        }
-
-        .top_cen_cen_btm>div:last-child>div>div:nth-child(3)>div {
-                height: 10px;
-                width: 10px;
-                background-color: #111;
-                margin-left: 5px;
-                clip-path: polygon(0 0%, 50% 50%, 0% 100%);
         }
 
         .top_cen_right {
