@@ -33,7 +33,10 @@
     }
 </script>
 <style>
-	.navigation_all{width: 100%;}
-    .el-menu-demo{width: 100%;display: flex;justify-content: center;align-content: center; margin: 0 auto;}
-    .el-menu-item{padding: 0 75px;}
+	.navigation_all{width: 100%;background-color:#187fc4}
+    .el-menu-demo{width: 1200px;display: flex;align-content: center; margin: 0 auto;}
+    .el-menu--horizontal>.el-menu-item{
+        flex: 1;
+        text-align: center;
+    }
 </style>

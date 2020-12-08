@@ -182,7 +182,7 @@ export default {
 .trademark_line>p{
     text-align: center;
     color: #ccc;
-    font-size: 16px;
+    font-size: 15px;
     margin: 20px 0 30px;
 }
 .trademark_content{
