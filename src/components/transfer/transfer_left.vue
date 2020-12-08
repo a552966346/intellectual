@@ -3,7 +3,7 @@
                 <div class="transfer_left_top">
                         <div v-for="(item,index) in transfer_left_top" :class="{xuanzhong:active==index}" @click="shaixuan(index)">
                                 <p>{{item.name}}</p>
-                                <img src="../../../static/img/transfer/transfer_xia.png" alt="">
+                                <i class="el-icon-bottom transfer_sorticon"></i>
                         </div>
                 </div>
                 <div class="transfer_left_center">
@@ -47,7 +47,7 @@
                                                         <div><img src="../../../static/img/transfer/transfer_zhuanf.png"
                                                                         alt=""></div>
                                                         <button>
-                                                                <img src="../../../static/img/service/service_kefu.png"
+                                                                <img src="../../../static/img/transfer/transfer_kefu.png"
                                                                         alt="">
                                                                 <p>联系客服</p>
                                                         </button>
@@ -128,8 +128,10 @@
                 font-size: 14px;
         }
 
-        .transfer_left_top>div>img {
+        .transfer_left_top>div>i {
                 height: 15px;
+                color: #ccc;
+                margin-left: 5px;
                 background-color: #ddd;
         }
 
@@ -138,7 +140,8 @@
                 font-weight: bold;
         }
 
-        .xuanzhong>img {
+        .xuanzhong>i {
+                color: #0184FE !important;
                 background-color: #EDF3FF !important;
         }
 
@@ -197,7 +200,7 @@
 
         .text_leixin_left {
                 display: flex;
-                width: 70%;
+                width: 73%;
         }
 
         .text_leixin_left>div>p {
@@ -209,6 +212,7 @@
         }
 
         .text_leixin_left>div>p:nth-child(2) {
+                padding: 5px 0;
                 color: #555;
         }
 
@@ -236,6 +240,7 @@
 
         .text_leixin_right {
                 display: flex;
+                width: 27%;
                 align-items: center;
         }
 
@@ -244,6 +249,7 @@
                 margin-right: 10px;
                 display: flex;
                 align-items: center;
+
                 justify-content: center;
                 padding: 5px;
         }
@@ -256,13 +262,20 @@
         .text_leixin_right>button {
                 display: flex;
                 align-items: center;
-                padding: 5px 20px;
+                width: 120px;
+                color: #117BC1;
+                font-size: 15px ;
+                font-weight: bold;
+                justify-content: center;
+                padding: 10px 0;
                 border: none;
+                outline: none;
                 background-color: #F1F5FE;
         }
 
         .text_leixin_right>button>img {
-                width: 25px;
-                height: 25px;
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
         }
 </style>
