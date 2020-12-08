@@ -112,16 +112,27 @@
                </div>
              </div>
              <div>
-               <p>敬请期待...</p>
-               <p>▬→</p>
-               <div class="export"></div>
+               <p>敬请期待...</p>               
              </div>
+             <p class="export"></p>
+             <p>▬→</p>
            </div>
          </div>
          <div class="activity_zone_right">
             <el-carousel :interval="4000" type="card" height="500px">
               <el-carousel-item v-for="item in 4" :key="item">
-                <h3 class="medium">{{ item }}</h3>
+                <!-- <h3 class="medium">{{ item }}</h3> -->
+                <h4>报名</h4>
+                <p>报名参加2020年伊甸城-圣诞节艺术</p>
+                <h5>参与时间</h5>
+                <div class="time">
+                  2020年11月20日-2020年11月30日
+                </div>
+                <h5>联系方式</h5>
+                <div class="tel">0354-2057888</div>
+                <div class="activity_zone_right_img">
+                  <img src="../../../static/img/activity/lunbotubutton.png" alt="">
+                </div>
               </el-carousel-item>
             </el-carousel>
          </div>
@@ -360,16 +371,23 @@ export default {
 .activity_left_bottom>div:hover .activity_left_bottom_none{
   display: block;
 }
-.activity_left_bottom>div:nth-child(6){
+.activity_left_bottom{
   position: relative;
   overflow: hidden;
 }
-.export{
+.activity_left_bottom>p{
+   position: absolute;
+   bottom: 5px;
+   right: 8px;
+   color: #fff;
+   font-size: 20px;
+   cursor: pointer;
+}
+.activity_left_bottom .export{
   background-color: #4270e0;
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  position: absolute;
   bottom: -15px;
   right: -8px;
 }
@@ -391,13 +409,18 @@ export default {
 }
 
 /* 轮播图 */
- .el-carousel__item h3 {
+  .el-carousel__item{
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+  }
+ /* .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
     opacity: 0.75;
     line-height: 200px;
     margin: 0;
-  }
+  } */
   
   .el-carousel__item:nth-child(2n) {
     background-color: #fff;
@@ -407,8 +430,53 @@ export default {
   
   .el-carousel__item:nth-child(2n+1) {
     background-color: #fff;
-     border-radius: 10px;
+    border-radius: 10px;
     border: 1px solid #ccc;
   }
+  .activity_zone_right h4{
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 200%;
+    opacity: 0.85;
+  }
+  .activity_zone_right p{
+    color: #7c7c7c;
+    font-size: 16px;
+    letter-spacing: 2px;
+    line-height: 200%;
+    margin: 2% 0;
+  }
+  .activity_zone_right h5{
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 200%;
+    opacity: 0.85;
+    margin-top: 7%;
+  }
+  .activity_zone_right .time{
+    padding-bottom: 5%;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 200%;
+    color: #8c8c8c;
+    border-bottom: 1px solid #eee;
+  }
+  .activity_zone_right .tel{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 300%;
+    color: #557fe2;
+    /* margin-bottom: 10%; */
+  }
+  .activity_zone_right_img{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .activity_zone_right_img img{
+    width: 70%;
+  }
+    
 
 </style>
