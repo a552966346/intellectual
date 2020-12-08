@@ -52,5 +52,5 @@
         .transfer_all{width: 1200px;background-color: #fff;}
         .transfer_cen{width: 100%;display: flex;border-top: 20px solid #f5f5f5;border-bottom: 20px solid #f5f5f5;}
         .transfer_cen_left{flex: 8;border-right: 10px solid #EBEFF3;}
-        .transfer_cen_right{flex: 3;}
+        .transfer_cen_right{flex: 2;}
 </style>

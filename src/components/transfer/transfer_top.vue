@@ -278,6 +278,7 @@
 
         .top_title {
                 display: flex;
+                border-top:20px solid #f5f5f5 ;
                 border-bottom: 20px solid #f5f5f5;
                 padding: 10px;
         }
@@ -288,7 +289,7 @@
                 display: flex;
                 align-items: center;
         }
-
+        .top_title>div:last-child{border: none;}
         .top_titlexiang>img {
                 height: 20px;
         }

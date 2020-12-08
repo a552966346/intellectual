@@ -3,7 +3,7 @@
                 <div class="transfer_left_top">
                         <div v-for="(item,index) in transfer_left_top" :class="{xuanzhong:active==index}" @click="shaixuan(index)">
                                 <p>{{item.name}}</p>
-                                <img src="../../../static/img/transfer/transfer_xia.png" alt="">
+                                <i class="el-icon-bottom transfer_sorticon"></i>
                         </div>
                 </div>
                 <div class="transfer_left_center">
@@ -128,8 +128,10 @@
                 font-size: 14px;
         }
 
-        .transfer_left_top>div>img {
+        .transfer_left_top>div>i {
                 height: 15px;
+                color: #ccc;
+                margin-left: 5px;
                 background-color: #ddd;
         }
 
@@ -138,7 +140,8 @@
                 font-weight: bold;
         }
 
-        .xuanzhong>img {
+        .xuanzhong>i {
+                color: #0184FE !important;
                 background-color: #EDF3FF !important;
         }
 
