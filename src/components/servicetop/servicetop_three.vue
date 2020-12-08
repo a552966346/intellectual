@@ -6,7 +6,7 @@
                 <div class="topHeader">
                     <p>一种下料机</p>
                     <p><span>更新时间：2020-03-06 &nbsp;17:29:03</span><span>专利号：201410369182X&nbsp;<span>复制</span></span></p>
-                </div>
+                </div>  
             </div>
         </div>
     </div>
