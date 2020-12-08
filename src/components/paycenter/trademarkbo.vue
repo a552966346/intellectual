@@ -3,7 +3,7 @@
        <div class="trademark_like">
         <div class="trademark_title">
             <div class="trademark_copy">
-                <h2>没有找到您心仪的版权？</h2>
+                <h2>没有找到您心仪的商标？</h2>
                 <a href="#">
                     <p>联系客服帮您找</p>
                 </a>
@@ -13,7 +13,7 @@
                 </a>
             </div>
             <div class="trademark_dash">
-                <p>猜中您喜欢的版权有点难度呢，马上联系客服为你推荐更多版权</p>
+                <p>猜中您喜欢的商标有点难度呢，马上联系客服为你推荐更多商标</p>
             </div>
             <div class="trademark_line">
                 <div class="trademark_left"></div>
