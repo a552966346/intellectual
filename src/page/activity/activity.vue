@@ -51,20 +51,62 @@
            <h3>查阅作品</h3>
            <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
          </div>
-         <div>
+         <div @mouseleave='mouse_leave(1)' @mouseover="mouse_over(1)">
            <img :src="transaction_imglist[1]" alt="">
            <h3>查阅作品</h3>
            <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
          </div>
-         <div>
+         <div @mouseleave='mouse_leave(2)' @mouseover="mouse_over(2)">
            <img :src="transaction_imglist[2]" alt="">
            <h3>查阅作品</h3>
            <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
          </div>
-         <div>
+         <div @mouseleave='mouse_leave(3)' @mouseover="mouse_over(3)">
            <img :src="transaction_imglist[3]" alt="">
            <h3>查阅作品</h3>
            <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
+         </div>
+       </div>
+     </div>
+     <!-- 活动专区 -->
+     <div class="activity_prefecture">
+       <div>
+         <div class="activity_zone_left">
+           <p>活动专区</p>
+           <p>ACTIVITY ZONE</p>
+           <div class="white_line"></div>
+           <div class="activity_left_bottom">
+             <div>
+               <p>视频</p>
+               <p>▬→</p>
+             </div>
+             <div>
+               <p>油画</p>
+               <p>▬→</p>
+             </div>
+             <div>
+               <p>摄影作品</p>
+               <p>▬→</p>
+             </div>
+             <div>
+               <p>设计作品</p>
+               <p>▬→</p>
+             </div>
+             <div>
+               <p>雕塑作品</p>
+               <p>▬→</p>
+             </div>
+             <div>
+               <p>敬请期待...</p>
+             </div>
+           </div>
+         </div>
+         <div class="activity_zone_right">
+            <el-carousel :interval="4000" type="card" height="500px">
+              <el-carousel-item v-for="item in 4" :key="item">
+                <h3 class="medium">{{ item }}</h3>
+              </el-carousel-item>
+            </el-carousel>
          </div>
        </div>
      </div>
@@ -96,7 +138,7 @@ export default {
       }else{
         var srt_url = '../../../static/img/activity/yy_icon.png'
       }
-      this.transaction_imglist[index]=srt_url;
+      this.$set(this.transaction_imglist,index,srt_url)
     },
     mouse_over(index){
       if(index == 0){
@@ -108,7 +150,7 @@ export default {
       }else{
         var srt_url = '../../../static/img/activity/yy_icon_active.png'
       }
-      this.transaction_imglist[index]=srt_url;
+      this.$set(this.transaction_imglist,index,srt_url)
     }
   },
   
@@ -130,6 +172,11 @@ export default {
 .line{
   width:120px;
   border-bottom: 2px solid #000;
+}
+.white_line{
+  width:120px;
+  border-bottom: 2px solid #fff;
+  padding: 20px 0;
 }
 .activity_recommend{
   width:100%;
@@ -238,4 +285,84 @@ export default {
   font-weight: normal;
   padding: 20px 0;
 }
+/* 活动专区 */
+.activity_prefecture{
+  width: 100%;
+  background-image: url(../../../static/img/activity/activtiy_bg.png);
+  background-size: cover;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.activity_prefecture>div{
+  height: 80%;
+  width: 80%;
+  display: flex;
+}
+.activity_zone_left{
+  color:#fff;
+  font-size: 28px;
+  width: 50%;
+}
+.activity_zone_left>p:first-of-type{
+  font-size: 44px;
+  padding: 15px 0;
+}
+.activity_zone_left>.activity_left_bottom{
+  margin-top: 40px;
+  /* height: 60%; */
+  width: 100%;
+  background: #fff;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.activity_left_bottom>div{
+  width: 33.3%;
+  height: 160px;
+  border-right: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.activity_left_bottom>div>p{
+  color: #676767;
+  font-size: 20px;
+  
+}
+.activity_left_bottom>div:nth-child(3),.activity_left_bottom>div:nth-child(6){
+  border-right: none;
+}
+.activity_left_bottom>div:nth-child(4),.activity_left_bottom>div:nth-child(5),.activity_left_bottom>div:nth-child(6){
+  border-bottom: none;
+}
+.activity_zone_right{
+  flex: 1;
+  padding: 30px 40px;
+}
+
+/* 轮播图 */
+ .el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
+  }
+  
+  .el-carousel__item:nth-child(2n) {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #fff;
+     border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+
 </style>
