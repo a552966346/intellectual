@@ -78,6 +78,7 @@ a {
 .left_b{
     margin-right: 10px;
     display: inline-block;
+    visibility: visible;
 }
 .user_left li a {
     color: #666;

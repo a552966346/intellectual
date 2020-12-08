@@ -79,25 +79,42 @@
              <div>
                <p>视频</p>
                <p>▬→</p>
+               <div class="activity_left_bottom_none">
+                  <img src="../../../static/img/activity/activity_oilpainting.png" alt="">
+               </div>
              </div>
              <div>
                <p>油画</p>
                <p>▬→</p>
+               <div class="activity_left_bottom_none">
+                  <img src="../../../static/img/activity/activity_oilpainting.png" alt="">
+               </div>
              </div>
              <div>
                <p>摄影作品</p>
                <p>▬→</p>
+               <div class="activity_left_bottom_none">
+                  <img src="../../../static/img/activity/activity_oilpainting.png" alt="">
+               </div>
              </div>
              <div>
                <p>设计作品</p>
                <p>▬→</p>
+               <div class="activity_left_bottom_none">
+                  <img src="../../../static/img/activity/activity_oilpainting.png" alt="">
+               </div>
              </div>
              <div>
                <p>雕塑作品</p>
                <p>▬→</p>
+               <div class="activity_left_bottom_none">
+                  <img src="../../../static/img/activity/activity_oilpainting.png" alt="">
+               </div>
              </div>
              <div>
                <p>敬请期待...</p>
+               <p>▬→</p>
+               <div class="export"></div>
              </div>
            </div>
          </div>
@@ -327,7 +344,36 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
+.activity_left_bottom_none{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.activity_left_bottom_none img{
+  width: 100%;
+  height: 160px;
+
+}
+.activity_left_bottom>div:hover .activity_left_bottom_none{
+  display: block;
+}
+.activity_left_bottom>div:nth-child(6){
+  position: relative;
+  overflow: hidden;
+}
+.export{
+  background-color: #4270e0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -15px;
+  right: -8px;
+}
+
 .activity_left_bottom>div>p{
   color: #676767;
   font-size: 20px;
