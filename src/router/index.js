@@ -8,6 +8,7 @@ import service from '@/page/service/service'
 import copyright from '@/page/paycenter/copyright'
 import patent from '@/page/paycenter/patent'
 import trademark from '@/page/paycenter/trademark'
+import technology from '@/page/technologytransfer/technology'
 import knowledgepledge from '@/page/knowledgepledge/knowledgepledge' //知识质押
 import knowledgefunds from '@/page/knowledgefunds/knowledgefunds' //知识基金
 import servecenter from '@/page/servecenter/servecenter' //服务中心
@@ -16,6 +17,10 @@ import userindex from '@/page/usercenter/index' //个人中心主页
 import userbuy from '@/page/usercenter/buyperson' //个人我是买家
 import test from '@/page/test/test' //测试页面
 import activity from '@/page/activity/activity' //测试页面
+import about from '@/page/about/about' //关于我们
+import navcter from '@/components/navcter/navcter' //关于我们
+import navctertw from '@/components/navcter/navctertw' //关于我们
+import transfer from '@/page/transfer/transfer'
 
 Vue.use(Router)
 
@@ -64,6 +69,11 @@ export default new Router({
             component: trademark
         },
         {
+            path: '/technologytransfer/technology', //技术转移
+            name: 'technology',
+            component: technology
+        },
+        {
             path: '/service',
             name: 'service',
             component: service
@@ -99,6 +109,23 @@ export default new Router({
                 path: '/servecenter',
                 name: 'servecenter',
                 component: servecenter
-        }
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: about,
+            children: [{
+                path: '/',
+                component: navcter,
+            }, {
+                path: '/about/navctertw',
+                component: navctertw,
+            }]
+        },
+        {
+            path: '/transfer',
+            name: 'transfer',
+            component: transfer
+        },
     ]
 })
