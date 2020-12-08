@@ -260,6 +260,7 @@
                 justify-content: center;
                 align-items: center;
         }
+        /* 按钮 */
         .rfooter{
                 display: flex;
         }

@@ -80,6 +80,7 @@
        .inp {width:100%;padding:10px 0;display:flex;}
        .inp>p {font-size:14px;color:#aaa;width:15%;display:flex;/* justify-content:center;*/                align-items:center;}
        .inp input {margin-left:20px;padding:5px;height:30px;width:250px;outline:none;}
+         /* 按钮 */
        .topall_bottom {display:flex;margin:10px 0;}
        .bottom_left {display:flex;padding:2px;background-color:#1780C2;align-items:center;height:60px;width:170px;border-radius:5px;overflow:hidden;}
        .left_left {flex:2;display:flex;}
