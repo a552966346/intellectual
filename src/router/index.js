@@ -7,8 +7,7 @@ import tradingCenter from '@/page/tradingCenter/tradingCenter'
 import service from '@/page/service/service'
 import copyright from '@/page/paycenter/copyright'
 import patent from '@/page/paycenter/patent'
-import trademark from '@/page/paycenter/trademark'
-import technology from '@/page/technologytransfer/technology'
+import trademark from '@/page/paycenter/trademark'//交易中心
 import knowledgepledge from '@/page/knowledgepledge/knowledgepledge' //知识质押
 import knowledgefunds from '@/page/knowledgefunds/knowledgefunds' //知识基金
 import servecenter from '@/page/servecenter/servecenter' //服务中心
@@ -67,11 +66,6 @@ export default new Router({
             path: '/paycenter/trademark', //商标
             name: 'trademark',
             component: trademark
-        },
-        {
-            path: '/technologytransfer/technology', //技术转移
-            name: 'technology',
-            component: technology
         },
         {
             path: '/service',
