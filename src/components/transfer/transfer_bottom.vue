@@ -172,6 +172,9 @@ export default {
 .transfer_bottom h3{
     font-size: 15px;
     margin: 10px 0;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .transfer_con{
     display: flex;
