@@ -1,6 +1,6 @@
 <template>
     <div class="trademark_content">
-          <ul class="trademark_list" id="app">
+          <ul class="trademark_list">
 		        <li class="color1" v-for="(item,index) in arrList" :key="index+'list'" >
 		            <a class="trademark_pro" href="#" >
 		                <div class="trademark_colors"  :style="{background:item.bgcolor}">
@@ -104,7 +104,7 @@ export default {
 
 <style scoped>
     .trademark_content{
-        width: 1200px;
+        max-width: 1200px;
         margin: 0 auto;
     }
     .trademark_list {

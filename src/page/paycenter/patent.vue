@@ -158,7 +158,7 @@ import patentcon from '../../components/paycenter/patentcon.vue';
             background: #fff;
             padding: 20px 30px;
             text-align: left;
-            width: 1200px;
+            max-width: 1200px;
             margin:10px auto 30px;
             line-height: 29px;
             font-size: 14px;

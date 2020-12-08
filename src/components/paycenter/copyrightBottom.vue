@@ -150,7 +150,7 @@ export default {
 .copyright_line>p{
     text-align: center;
     color: #ccc;
-    font-size: 16px;
+    font-size: 15px;
     margin: 20px 0 30px;
 }
 .copyright_bpro{
@@ -222,7 +222,7 @@ export default {
     font-weight: bold;
 }
 .copyright_like{
-    width: 1200px;
+    max-width: 1200px;
     background-color: #fff;
     margin: 0px auto;
     padding: 30px 0 0;
