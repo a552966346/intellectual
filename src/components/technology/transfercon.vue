@@ -5,14 +5,6 @@
                     <span :class="{sortactive:this.sortnumber==1}" @click="comsort(1)">综合排序<i class="el-icon-bottom transfer_sorticon"></i></span>
                     <span :class="{sortactive:this.sortnumber==2}" @click="comsort(2)">浏览热度<i class="el-icon-bottom transfer_sorticon"></i></span>
                     <span :class="{sortactive:this.sortnumber==3}" @click="comsort(3)">发布时间<i class="el-icon-bottom transfer_sorticon"></i></span>
-                    <!-- <div class="transfer_sortright">
-                            <div :class="{transfer_sortitem:true,sortactive:this.listsortnum==1}" @click="listsort(1)"><i class="el-icon-s-grid"></i></div>
-                            <div :class="{transfer_sortitem:true,sortactive:this.listsortnum==2}" @click="listsort(2)"><i class="el-icon-s-unfold"></i></div>
-                            <div class="transfer_sortpage">
-                                <div><i class="el-icon-arrow-left"></i></div>
-                                <div><i class="el-icon-arrow-right"></i></div>
-                            </div>
-                    </div> -->
             </div>
             <div class="transfer_other"  v-for="(item,index) in arr" :key="index">
                 <div class="transfer_img">
@@ -21,20 +13,28 @@
                 <div class="transfer_txt">
                     <h3>液体位置控制器</h3>
                     <div class="transfer_fen" >
-                        <div class="transfer_sha">
-                            <p><span>行业分类</span></p>
-                            <p><span>应用领域</span></p>   
-                            <p><span>技术类型</span></p>   
-                            <p><span>成熟程度</span></p>   
-                            <p><span>交易方式</span></p>
-                        </div>
-                        <div class="transfer_xia">
-                            <p><span>其他</span></p>
-                            <p><span>其他</span></p>
-                            <p><span>实用新型专利</span></p>
-                            <p><span>不限</span></p> 
-                            <p><span>不限</span></p>
-                        </div>    
+                        <ul>
+                            <li>
+                                <p style="color: #ccc;">行业分类</p>
+                                <p>其他</p> 
+                            </li>
+                            <li>
+                                 <p style="color: #ccc;">应用领域</p>
+                                 <p>其他</p> 
+                            </li>
+                            <li>
+                                 <p style="color: #ccc;">技术类型</p>
+                                 <p>实用新型专利</p> 
+                            </li>
+                            <li>
+                                 <p style="color: #ccc;">成熟程度</p>
+                                 <p>不限</p> 
+                            </li>
+                            <li style="border:none;">
+                                 <p style="color: #ccc;">交易方式</p>
+                                 <p>不限</p> 
+                            </li>
+                        </ul>
                     </div>
                         <div class="transfer_price">交易价格 <span>面议</span> </div>
                 </div>
@@ -84,8 +84,8 @@
                 <div class="transfer_cheng">
                     <p>相关成果推荐 <span>更多</span><img src="../../../static/img/technologytransfer/transfer_right.png" alt=""> </p>
                 </div>
-                <a class="transfer_pro" href="#" v-for="(item,index) in arrlist" :key="index">
-                    <div class="transfer_more">
+                <a class="transfer_pro" href="#">
+                    <div class="transfer_more"  v-for="(item,index) in arrlist" :key="index">
                         <div class="transfer_zhao">
                             <img src="https://cdn.yuzhua.com/data/upload/2020-03-16/5e6f46dc89e29.gif" alt="">
                         </div>
@@ -130,6 +130,12 @@
                 text: '爱你一万年3',
                 ban: '版权分类：美术作品3',
                 price: '6000333.00',
+        },
+        {
+                url: 'https://cdn.yuzhua.com/data/upload/2020-03-16/5e6f46dc89e29.gif',
+                text: '爱你一万年2',
+                ban: '版权分类：美术作品2',
+                price: '600033.00',
         },
         {
                 url: 'https://cdn.yuzhua.com/data/upload/2020-03-16/5e6f46dc89e29.gif',
@@ -204,13 +210,14 @@
 }
 /* 左边的内容 */
 .transfer_pro{
+    width: 230px;
     text-decoration: none;
     color: black;
 }
-.transfer_pro:hover .transfer_foo{
+.transfer_more:hover .transfer_foo{
     display: block;
 }
-.transfer_pro:hover .transfer_jia{
+.transfer_more:hover .transfer_jia{
     display: none;
 }
 .transfer_con{
@@ -245,28 +252,28 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
-.transfer_sha{
-    color: #ccc;
-    font-size: 14px;
+ul{
     display: flex;
-    justify-content: space-around;
+     width: 100%;
 }
-.transfer_xia{
-    color: black;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.transfer_txt p{
+li{
+    flex: 1;
     border-right: 1px solid #e0e0e0;
-    width: 89px;
+    list-style: none;
 }
-.transfer_txt span{
-    padding-left: 5px;  
+li{ 
+    font-size: 14px;
+    margin-left: 2px;
+    text-align: center;
+}
+li>p{
+    width: 88px;
+    text-align: left;
+    padding-left: 1px;
+}
+li>p:first-child{
+    margin-bottom: 5px;
 }
 .transfer_price{
     margin-top: 16px;
@@ -280,7 +287,7 @@
 }
 .transfer_right{
     flex: 4;
-    margin-left: 35px;
+    margin-left: 25px;
 }
 .transfer_xiao{
     width: 100%;
@@ -351,7 +358,7 @@
     width: 15px;
 }
 .transfer_more{
-    width: 230px;
+    height: 264px;
     background-color: #fff;
     padding: 15px;
 }

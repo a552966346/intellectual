@@ -117,7 +117,7 @@ export default {
 
 <style scoped>
 .trademark_like{
-    width: 1200px;
+    max-width: 1200px;
     background-color: #fff;
     margin: 0px auto;
     padding: 30px 0 0;
