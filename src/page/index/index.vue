@@ -70,9 +70,28 @@
   <!-- 跳蚤市场、合伙人、新闻、伊甸网 -->
   <div class="index_content">
     <!-- 跳蚤市场 -->
-    <!-- <div>
+    <div>
       <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :background_img_url='title_bg_url[2]'></v-comtitle>
-    </div> -->
+        <div class="index_online">
+          <div class="index_block" v-for="(index,item) in list" :key="item">
+            <div class="index_bvlx"> 
+                {{item.title}}
+            </div>
+            <div class="index_bvlxa">
+                {{item.titcet}}
+            </div>
+            <div class="index_bale">
+              <div class="index_asq">
+                {{item.miney}}
+              </div>
+              <div class="idnex_aqx">
+                {{item.listimg}}
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
     <!-- 新闻 -->
     <div>
       <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :background_img_url='title_bg_url[3]'></v-comtitle>
@@ -145,7 +164,21 @@ export default {
                     '../../../static/img/index/shangbiao_pay.png',
                     '../../../static/img/index/ruanzhu_pay.png'
                   ],
-      msg:'这是测试内容'
+      msg:'这是测试内容',
+      list:[
+        {index:1,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
+        {index:2,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
+        {index:3,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
+        {index:4,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
+        {index:5,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
+        {index:6,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
+        {index:7,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
+        {index:8,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
+        {index:9,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
+        {index:10,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
+        {index:11,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
+        {index:12,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'}
+      ]
     }
   },
   components:{
@@ -240,4 +273,6 @@ export default {
   .index_entwkjkas{width: 100%;flex: 1;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 2%; color: #fff;padding: 0 30px;}
   .index_cmetk{font-size: 24px; font-weight: bold;}
   .index_cmetkaqw{border: 1px solid #fff;padding: 10px;font-size: 14px;}
+  .index_online{width:1200px;height: 570px;background-color: #ccc;display: flex; align-items: baseline; flex-wrap: wrap;}
+  .index_block{width:300px;height: 185px;background-color: #fff;display:flex;justify-content: baseline;align-items: center;}
 </style>
