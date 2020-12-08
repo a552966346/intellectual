@@ -143,7 +143,7 @@ export default {
 .transfer_line>p{
     text-align: center;
     color: #ccc;
-    font-size: 16px;
+    font-size: 15px;
     margin: 20px 0 30px;
 }
 .transfer_bpro{
@@ -156,7 +156,6 @@ export default {
     width: 20%;
     padding:20px;
     color: black;
-    /* margin-left: -1%; */
     background-color: #f5f5f5;
     margin: 0 0 25px;
 }
