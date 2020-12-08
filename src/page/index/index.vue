@@ -73,24 +73,27 @@
     <div>
       <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :background_img_url='title_bg_url[2]'></v-comtitle>
         <div class="index_online">
-          <div class="index_block" v-for="(index,item) in list" :key="item">
-            <div class="index_bvlx"> 
-                {{item.title}}
+          <div :class="index.index == 12?'index_blokk':'index_block'"  v-for="(index,item) in list" :key="item" >
+            <div :class="index.index == 12?'index_bvlax':'index_bvlx'"> 
+                {{index.title}}
             </div>
-            <div class="index_bvlxa">
-                {{item.titcet}}
+            <div :class="index.index == 12?'index_bvxxa':'index_bvlxa'">
+                {{index.titcet}}
             </div>
             <div class="index_bale">
-              <div class="index_asq">
-                {{item.miney}}
+              <div :class="index.index == 12?'index_aeq':'index_asq'">
+                {{index.miney}}
               </div>
               <div class="idnex_aqx">
-                {{item.listimg}}
+                <img :src='index.listimg' alt="">
               </div>
             </div>
+              <div class="index_qza" v-show="index.index == 1?'listshow':''">
+                <div class="index_mwt">{{index.btntit}}</div>
+                <div class="index_qwz">{{index.btntitw}}</div>
+              </div>
           </div>
         </div>
-      
     </div>
     <!-- 新闻 -->
     <div>
@@ -165,19 +168,20 @@ export default {
                     '../../../static/img/index/ruanzhu_pay.png'
                   ],
       msg:'这是测试内容',
+      listshow:true,
       list:[
-        {index:1,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
-        {index:2,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
-        {index:3,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
-        {index:4,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
-        {index:5,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
-        {index:6,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
-        {index:7,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
-        {index:8,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
-        {index:9,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
-        {index:10,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
-        {index:11,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'},
-        {index:12,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'',btntit:'联系客服',btntitw:'查看详情'}
+        {index:1,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'../../../static/img/index/index_icon.png',btntit:'联系客服',btntitw:'查看详情'},
+        {index:2,title:'作品2',titcet:'普通担保35-45个工作日，成功率高...',miney:'798.00元', listimg:'../../../static/img/index/index_ictw.png'},
+        {index:3,title:'作品3',titcet:'普通担保35-45个工作日，成功率高...',miney:'798.00元', listimg:'../../../static/img/index/index_ictr.png'},
+        {index:4,title:'作品4',titcet:'普通担保35-45个工作日，成功率高...',miney:'798.00元', listimg:'../../../static/img/index/index_icfh.png'},
+        {index:5,title:'作品5',titcet:'普通担保35-45个工作日，成功率高...',miney:'798.00元', listimg:'../../../static/img/index/index_iceg.png'},
+        {index:6,title:'作品6',titcet:'普通担保35-45个工作日，成功率高...',miney:'3000.00元', listimg:'../../../static/img/index/index_icsv.png'},
+        {index:7,title:'作品7',titcet:'普通担保35-45个工作日，成功率高...',miney:'898.00元', listimg:'../../../static/img/index/index_icsx.png'},
+        {index:8,title:'作品8',titcet:'普通担保35-45个工作日，成功率高...',miney:'698.00元', listimg:'../../../static/img/index/index_icfv.png'},
+        {index:9,title:'作品9',titcet:'普通担保35-45个工作日，成功率高...',miney:'1500.00元', listimg:'../../../static/img/index/index_icni.png'},
+        {index:10,title:'作品10',titcet:'普通担保35-45个工作日，成功率高...',miney:'3000.00元', listimg:'../../../static/img/index/index_ictn.png'},
+        {index:11,title:'作品11',titcet:'普通担保35-45个工作日，成功率高...',miney:'1000.00元', listimg:'../../../static/img/index/index_icttn.png'},
+        {index:12,title:'专业版权服务顾问',titcet:'COPYRIGHTSERVICES',miney:'立即咨询'}
       ]
     }
   },
@@ -273,6 +277,17 @@ export default {
   .index_entwkjkas{width: 100%;flex: 1;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 2%; color: #fff;padding: 0 30px;}
   .index_cmetk{font-size: 24px; font-weight: bold;}
   .index_cmetkaqw{border: 1px solid #fff;padding: 10px;font-size: 14px;}
-  .index_online{width:1200px;height: 570px;background-color: #ccc;display: flex; align-items: baseline; flex-wrap: wrap;}
-  .index_block{width:300px;height: 185px;background-color: #fff;display:flex;justify-content: baseline;align-items: center;}
+  .index_online{width:1200px;height: 570px;display: flex; align-items: baseline; flex-wrap: wrap;padding-top: 4px;}
+  .index_block{width:295px;height: 185px;background-color: #fff;display:flex;justify-content: baseline;align-items: center;flex-direction: column;margin: 0 2.5px 0 2.5px;box-shadow:1px 1px 7px #ccc;}
+  .index_blokk{width:295px;height: 185px;background-image: url(../../../static/img/index/index_icws.png);background-size: cover; display:flex;justify-content: baseline;align-items: center;flex-direction: column;margin: 0 2.5px 0 2.5px;box-shadow:1px 1px 7px #ccc;}
+  .index_bvlx{width: 100%;height: 50px;padding: 20px 16px 0;font-weight: bold;}
+  .index_bvlax{width: 100%;height: 50px;padding: 20px 16px 0;font-weight: bold;color: #fff;}
+  .index_bvlxa{font-size: 16px;color: #989495;}
+  .index_bale{width: 100%;height: 50px;display: flex;justify-content: space-between;align-items: center;flex-direction: row;margin-top: 20px;padding: 0 20px;}
+  .index_asq{color: red;font-weight: bold;}
+  .index_aeq{color: #fff;font-weight: bold; padding: 5px 15px;border: 2px solid #fff;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;}
+  .index_qza{width: 100%;flex: 1;display: flex;justify-content: center;align-items: center;flex-direction: row;}
+  .index_mwt{display: flex;justify-content: center;align-items: center;background-color: #ff8800;width: 50%;height: 100%;color: #fff;}
+  .index_qwz{display: flex;justify-content: center;align-items: center;border: 2px solid #ff8800; width: 50%;height: 100%;color: #ff8800;}
+  .index_bvxxa{font-size: 16px;width: 100%;padding-left: 18px;color: #ccc;}
 </style>
