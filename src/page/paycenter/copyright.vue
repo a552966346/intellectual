@@ -136,7 +136,7 @@ export default {
                 font-size: 19px;
         }
         .patent_sortpage{
-               width: 100px;
+                 width: 100px;
                 border-left: 1px solid #f1f1f1;
                 display: flex;
                 justify-content: center;
