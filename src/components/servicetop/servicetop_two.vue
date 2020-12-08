@@ -2,7 +2,7 @@
         <div id="serviceTop">
                 <div class="topAll">
                         <div class="left">
-                                <img src="" alt="">
+                                <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1182890981,2248614031&fm=26&gp=0.jpg" alt="">
                         </div>
                         <div class="right">
                                 <div class="rHeader">实用新型专利申请</div>
@@ -55,16 +55,16 @@
                                                                         <span>-</span>
                                                                 </div>
                                                         </div>
-                                                        
+
                                                         <div class="car">
                                                                 <div>加入购物车</div>
                                                                 <div>
-                                                                        <span>---</span><span></span><span>---</span>
+                                                                        <p>---<span>></span>---</p>
                                                                 </div>
                                                         </div>
                                                 </div>
                                                 <div class="rfooterRight">
-                                                        <img src="" alt="">
+                                                        <img src="../../../static/img/service/service_kefu.png" alt="">
                                                         <span>咨询客服</span>
                                                 </div>
                                         </div>
@@ -95,8 +95,13 @@
                 display: flex;
         }
         .left{
-                flex: 1.2;
-                background: orange;
+                flex: 2;
+                display: flex;
+                align-items: flex-start;
+        }
+        .left>img{
+                width: 100%;
+                height: 90%;
         }
         .right{
                 flex: 3;
@@ -131,7 +136,7 @@
         .rServiceType>span,.costSlow>span{
                 display: inline-block;
                 margin-right: 20px;
-                height: 100%;  
+                height: 100%;
         }
         .rServiceType>span:nth-child(2),.rServiceType>span:nth-child(3),.costSlow>span:nth-child(2),.costSlow>span:nth-child(3),.costSlow>span:nth-child(4){
                 text-align: center;
@@ -187,7 +192,7 @@
         .complete>span:nth-child(3){
                 color:#177dc5;
                 margin-left: 15px;
-        }       
+        }
         .rBottom{
                 height: 205px;
                 width: 100%;
@@ -196,14 +201,14 @@
                 color: #676767;
                 font-size: 14px;
                 background: #f3f6ff;
-                
-        }    
+
+        }
         .rBottom>.btoCostOne{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 height: 32px;
-                
+
                 /* text-indent: 0.1em; */
         }
         .rBottom>.btoCostOne span{
@@ -280,7 +285,7 @@
                 align-items: center;
                 color: #187fc4;
                 background: #fff;
-                
+
         }
         .rfooter>.rfooterLeft>.num>div:nth-child(2){
                  background: #fff;
@@ -312,7 +317,7 @@
                 color: #fdfffe;
                 background: #187fc4;
         }
-        
+
         .rfooter>.rfooterRight{
                 width: 172px;
                 height: 58px;
@@ -325,4 +330,9 @@
                 font-size: 16px;
                 color: #feffff;
         }
+        .rfooter>.rfooterRight>img{
+                width: 40px;
+        }
+        .car>div>p{display: flex;align-items: center;justify-content: center;padding: 3px 0;}
+        .car>div>p>span{display: flex;align-items: center;justify-content: center;border: 1px solid #fff;border-radius: 50%;padding: 0 3px;font-size: 11px;}
 </style>
