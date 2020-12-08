@@ -16,7 +16,7 @@
                 </div>
          <div class="transfer_all">
                 <div class="transfer_left">
-                        <div class="transfer_leftrow" v-for="(item,index) in transfer" :key="index">
+                        <div class="transfer_leftrow" v-for="(item,index) in patenscree" :key="index">
                                 <div class="transfer_lefthead">{{item.head}}</div>
                                 <div class="transfer_leftcontent">
                                         <span>不限</span>
@@ -64,87 +64,96 @@
 </template>
 
 <script>
-        export default {
-                data() {
-                        return {
-                                transfer: [{
-                                                head: '行业分类',
-                                                childlist: [{
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        }
-                                                ]
-                                        }, {
-                                                head: '是否独家',
-                                                childlist: [{
-                                                                name: '独家'
-                                                        },
-                                                        {
-                                                                name: '非独家'
-                                                        }
-                                                ]
-                                        },
-                                        {
-                                                head: '专利类型',
-                                                childlist: [{
-                                                                name: '发明专利'
-                                                        },
-                                                        {
-                                                                name: '实用新型'
-                                                        },
-                                                        {
-                                                                name: '外观设计'
-                                                        }
-                                                ]
-                                        }, {
-                                                head: '是否特价',
-                                                childlist: [{
-                                                                name: '非特价商品'
-                                                        },
-                                                        {
-                                                                name: '特价商品'
-                                                        }
-                                                ]
-                                        }, {
-                                                head: '出售价格',
-                                                childlist: [{
-                                                                name: '3000以下'
-                                                        },
-                                                        {
-                                                                name: '3000-1万'
-                                                        },
-                                                        {
-                                                                name: '1万-3万'
-                                                        },
-                                                        {
-                                                                name: '3万以上'
-                                                        }
-                                                ]
-                                        },
-                                ],
-                        }
+export default {
+data() {
+        return {
+        patenscree: [{
+                        head: '行业分类',
+                        childlist: [{
+                                        name: '农业牧业'
+                                },
+                                {
+                                        name: '农业牧业'
+                                },
+                                {
+                                        name: '农业牧业'
+                                },
+                                {
+                                        name: '农业牧业'
+                                },
+                                {
+                                        name: '农业牧业'
+                                },
+                                {
+                                        name: '农业牧业'
+                                },
+                                {
+                                        name: '农业牧业'
+                                },
+                                {
+                                        name: '农业牧业'
+                                }
+                        ]
+                }, {
+                        head: '是否独家',
+                        childlist: [{
+                                        name: '独家'
+                                },
+                                {
+                                        name: '非独家'
+                                }
+                        ]
                 },
+                {
+                        head: '专利类型',
+                        childlist: [{
+                                        name: '发明专利'
+                                },
+                                {
+                                        name: '实用新型'
+                                },
+                                {
+                                        name: '外观设计'
+                                }
+                        ]
+                }, {
+                        head: '是否特价',
+                        childlist: [{
+                                        name: '非特价商品'
+                                },
+                                {
+                                        name: '特价商品'
+                                }
+                        ]
+                }, {
+                        head: '出售价格',
+                        childlist: [{
+                                        name: '3000以下'
+                                },
+                                {
+                                        name: '3000-1万'
+                                },
+                                {
+                                        name: '1万-3万'
+                                },
+                                {
+                                        name: '3万以上'
+                                }
+                        ]
+                },
+        ],
+        screetext: []
         }
+},
+methods: {
+        choosecon(name) {
+                this.screetext.push(name)
+        },
+        choosenull() {
+                this.screetext = []
+        }
+}
+}
 </script>
 
 <style scoped>

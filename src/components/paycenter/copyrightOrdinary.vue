@@ -68,7 +68,7 @@
 <style scoped>
 /* 心仪版权 */
 .copyright_product{
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -129,7 +129,7 @@
     margin-bottom: 20px;
     padding: 0 9px;
 }
-    .copyright_price{
+.copyright_price{
     border-top: 1px solid #cecece;
     display: flex;
     justify-content: space-between;
