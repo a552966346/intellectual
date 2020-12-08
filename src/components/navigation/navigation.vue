@@ -35,4 +35,5 @@
 <style>
 	.navigation_all{width: 100%;}
     .el-menu-demo{width: 100%;display: flex;justify-content: center;align-content: center; margin: 0 auto;}
+    .el-menu-item{padding: 0 75px;}
 </style>
