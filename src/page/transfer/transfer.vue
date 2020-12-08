@@ -22,6 +22,7 @@
                                                 <v-transferrig></v-transferrig>
                                         </div>
                                 </div>
+                                <v-transferbottom></v-transferbottom>
                         </div>
                </div>
                <v-combotttom></v-combotttom>
@@ -32,6 +33,7 @@
         import transfer_top from  '../../components/transfer/transfer_top.vue'
         import transfer_left from  '../../components/transfer/transfer_left.vue'
         import transfer_right from  '../../components/transfer/transfer_right.vue'
+        import transfer_bottom from  '../../components/transfer/transfer_bottom.vue'
         export default{
                 data(){
                         return{
@@ -41,7 +43,8 @@
                 components:{
                        'v-transfertop': transfer_top,
                        'v-transferleft': transfer_left,
-                       'v-transferrig': transfer_right
+                       'v-transferrig': transfer_right,
+                       'v-transferbottom': transfer_bottom,
                 }
         }
 </script>

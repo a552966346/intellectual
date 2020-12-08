@@ -12,7 +12,7 @@
                         个人中心
                     </router-link>
                 </li>
-                <li> <router-link to="/usercenter/userbuy"><img class="left_b" src="../../../static/img/usercenter/buyperson.png" alt="">我是买家</router-link></li>
+                <li><router-link to="/usercenter/userbuy"><img class="left_b" src="../../../static/img/usercenter/buyperson.png" alt="">我是买家</router-link></li>
                 <li><a href="#"><img class="left_b" src="../../../static/img/usercenter/shopperson.png" alt="">我是卖家</a></li>
                 <li><a href="#"><img class="left_b" src="../../../static/img/usercenter/zjmanage.png" alt="">资金管理</a></li>
                 <li><a href="#" class="imgs"><img class="left_b" src="../../../static/img/usercenter/tel.png" alt="">投诉与咨询</a></li>
@@ -78,6 +78,7 @@ a {
 .left_b{
     margin-right: 10px;
     display: inline-block;
+    visibility: visible;
 }
 .user_left li a {
     color: #666;

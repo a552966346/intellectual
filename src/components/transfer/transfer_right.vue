@@ -2,7 +2,7 @@
         <div id="transfer_right">
                 <div class="transfer_recommend">
                     <div class="transfer_cheng">
-                        <p>相关成果推荐 <span>更多<img src="../../../static/img/technologytransfer/transfer_right.png" alt=""></span> </p>
+                        <p>相关成果推荐 <span>更多<img src="../../../static/img/transfer/transfer_right.png" alt=""></span> </p>
                     </div>
                     <a class="transfer_pro" href="#">
                         <div class="transfer_more">
@@ -17,7 +17,7 @@
                             <div class="transfer_foo">
                                 <div class="transfer_ask">
                                     <p>咨询客服 </p>
-                                    <font style="background-color:#00a3bf;"><img src="../../../static/img/technologytransfer/transfer_tou.png" alt=""> </font>
+                                    <font style="background-color:#00a3bf;"><img src="../../../static/img/transfer/transfer_tou.png" alt=""> </font>
                                 </div>
                             </div>
                         </div>
