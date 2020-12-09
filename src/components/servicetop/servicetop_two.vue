@@ -9,13 +9,13 @@
                                 <div class="rHeadercont">实用新型专利又称小发明或小专利，是对通常是指对产品的形状、构造或者结合其所提出的适于实用的新的技术方案。授权周期短，实用性强。</div>
                                 <div class="rServiceType">
                                         <span>服务类型：</span>
-                                        <span>标准</span>
+                                        <span class="rServiceTypeActive">标准</span>
                                         <span>授权保险</span>
                                         <span class="rightCommon">?</span>
                                 </div>
                                 <div class="costSlow">
                                         <span>费用减缓：</span>
-                                        <span>减缓85%</span>
+                                        <span class="costLowActive">减缓85%</span>
                                         <span>减缓70%</span>
                                         <span>无减缓</span>
                                         <span class="rightCommon">?</span>
@@ -26,25 +26,27 @@
                                         <span>点击完善</span>
                                 </p>
                                 <div class="rBottom">
-                                        <div class="btoCostOne">
-                                                <div class="btoOneLeft">
-                                                        <span>服务费用：</span>
-                                                        <span>￥1999</span>
+                                        <div class="bottom">
+                                                <div class="bottomLeft">
+                                                        <div>
+                                                                <span>服务费用：</span>
+                                                                <span>￥1999</span>
+                                                        </div>
+                                                        <div>
+                                                                <span>国知局费用：</span>
+                                                                <span>￥75</span>
+                                                                <span>（实用新型：申请费：￥75）</span>
+                                                        </div>
+                                                        <div>
+                                                                <span>费用合计：</span>
+                                                                <span>￥2074</span>
+                                                        </div>
                                                 </div>
-                                                <div class="btoOneRight">
+                                                <div class="bottomRight">
                                                         <input type="checkbox">
                                                         <span>官费自缴</span>
                                                         <span class="rightCommon">?</span>
                                                 </div>
-                                        </div>
-                                        <div class="btoCostTwo">
-                                                <span>国知局费用：</span>
-                                                <span>￥75</span>
-                                                <span>（实用新型：申请费：￥75）</span>
-                                        </div>
-                                        <div class="btoCostAll">
-                                                <span>费用合计：</span>
-                                                <span>￥2074</span>
                                         </div>
                                         <div class="rfooter">
                                                 <div class="rfooterLeft">
@@ -89,8 +91,6 @@
         }
         .topAll{
                 width: 100%;
-                height: 520px;
-                /* background: pink; */
                 padding: 20px;
                 display: flex;
         }
@@ -126,7 +126,7 @@
                 width: 100%;
                 height: 40px;
                 font-size: 13px;
-                color: #8d8d8d;
+                /* color: #8d8d8d; */
                 display: flex;
                 align-items: center;
         }
@@ -145,13 +145,14 @@
                 font-size: 14px;
                 border-radius: 2px;
         }
-        .rServiceType>span:nth-child(2){
-                background: #187fc4;
-                color: #fefeff;
-        }
-        .rServiceType>span:nth-child(3),.costSlow>span:nth-child(2){
+        .rServiceType>span:nth-child(2),.rServiceType>span:nth-child(3){
                 border: 1px solid #187fc4;
                 color: #187fc4;
+        }
+        /* 服务类型点击效果 */
+        .rServiceTypeActive{
+                background: #187fc4;
+                color: #fefeff !important;
         }
         .right .rightCommon{
                 width: 23px;
@@ -167,10 +168,15 @@
         .costSlow>span:nth-child(1),.rServiceType>span:nth-child(1){
                 line-height: 40px;
         }
-        .costSlow>span:nth-child(3),.costSlow>span:nth-child(4){
+        .costSlow>span:nth-child(2),.costSlow>span:nth-child(3),.costSlow>span:nth-child(4){
                 border: 1px solid #989898;
                 color: #989898;
         }
+        /* 费用减缓点击效果 */
+        .costLowActive{
+                border: 1px solid #187fc4 !important;
+        } 
+        /* 完善信息 */
         .complete{
                 height:60px;
                 display: flex;
@@ -193,67 +199,46 @@
                 color:#177dc5;
                 margin-left: 15px;
         }
-        .rBottom{
-                height: 205px;
-                width: 100%;
-                border: 1px solid #187fc4;
-                padding: 17px 26px 0 26px;
-                color: #676767;
-                font-size: 14px;
-                background: #f3f6ff;
-
-        }
-        .rBottom>.btoCostOne{
+        /* 底部费用合计 */
+        .rBottom>.bottom{
                 display: flex;
-                flex-direction: row;
                 justify-content: space-between;
-                height: 32px;
-
-                /* text-indent: 0.1em; */
         }
-        .rBottom>.btoCostOne span{
-                display: inline-block;
+        .bottomLeft>div{
+                padding-bottom: 10px;
         }
-        .rBottom>.btoCostOne>.btoOneLeft>span:nth-child(1){
+        .bottomLeft>div>span:nth-child(2){
+                color: red;
+        }
+        .bottomLeft>div:nth-child(1),.bottomLeft>div:nth-child(3){
                 text-indent: 14px;
         }
-        .rBottom>.btoCostOne>.btoOneLeft>span:nth-child(2){
-                color: #fe0000;
+        .bottomLeft>div:nth-child(2)>span:nth-child(3){
+                margin-left: 10px;
         }
-        .rBottom>.btoCostOne>.btoOneRight{
+        .bottom>.bottomRight{
                 display: flex;
                 width: 98px;
                 height: 22px;
                 justify-content: center;
                 align-items: center;
         }
-        .rBottom>.btoCostOne>.btoOneRight>span{
+        .bottom>.bottomRight>span{
                 margin-left: 2px;
         }
-        .rBottom>.btoCostOne>.btoOneRight>input{
+        .bottom>.bottomRight>input{
                 height: 13;
                 width: 13px;
                 border-radius: 2px;
         }
-        .rBottom>.btoCostTwo{
-                margin-bottom:16px;
-        }
-        .rBottom>.btoCostTwo>span{
-                display: inline-block;
-        }
-        .rBottom>.btoCostTwo>span:nth-child(2){
-                 color: #fe0000;
-                 margin-right: 26px;
-        }
-        .rBottom>.btoCostAll>span:nth-child(1){
-                display: inline-block;
-                text-indent: 14px;
-        }
-        .rBottom>.btoCostAll{
-                margin-bottom: 20px;
-        }
-        .rBottom>.btoCostAll>span:nth-child(2){
-                color: #fe0000;
+        .rBottom{
+                width: 100%;
+                border: 1px solid #187fc4;
+                padding: 17px 26px 17px 26px;
+                color: #676767;
+                font-size: 14px;
+                background: #f3f6ff;
+
         }
         .rightCommon{
                 display: flex!important;;
