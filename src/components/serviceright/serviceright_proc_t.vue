@@ -4,7 +4,7 @@
                  <v-comtitle title="业务介绍" inform_title=''></v-comtitle>
                 <div class="proc_t">
                         <div class="proc_t_left">
-                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=697615793,2302697672&fm=11&gp=0.jpg" alt="">
+                                <img src="../../../static/img/service/serviceright_pos_t.png" alt="">
                         </div>
                         <div class="proc_t_right">
                                 <p><span>注册商标的好处</span></p>
@@ -38,7 +38,7 @@
                 /* align-items: center; */
         }
         .proc_t_left{
-                flex: 1;
+                flex: 2;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -47,13 +47,13 @@
                 width: 90%;
         }
         .proc_t_right{
-                flex: 1;
+                flex:3;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
         }
         .proc_t_right>p{
-                color: #ccc;
+                  color: #ccc;
                 font-size: 15px;
                 display: flex;
                 align-items: center;
