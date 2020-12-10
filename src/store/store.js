@@ -8,7 +8,8 @@ const store = new Vuex.Store({
   // 公共变量
   // this.$store.state.xxx
   state: {
-    count: 0
+    count: 0,
+    activeIndex:'/'
   },
   // 公共方法
   // this.$store.commint('方法名','参数')

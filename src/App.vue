@@ -7,7 +7,7 @@
           <p>| <router-link to="/login" class="common_run">登录/注册</router-link></p>
         </div>
         <div class="common_top_right">
-          <p>个人中心</p>
+          <router-link to="/usercenter">个人中心</router-link>
           <p>购物车</p>
           <p>免费咨询热线：0354-2057888</p>
         </div>
@@ -58,6 +58,11 @@ export default {
   display: flex;
   width: 40%;
   justify-content: space-between;
+  
+}
+.common_top_right>a{
+  text-decoration: none;
+  color: #333;
 }
 .common_login{
   text-decoration:none;
