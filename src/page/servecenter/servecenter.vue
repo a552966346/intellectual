@@ -7,8 +7,9 @@
                         <div class="servecenter_top" style="background-image: url(../../../static/img/service/servecenter_banner.png);">
                                 <div class="servecenter_top_cen">
                                         <div class="top_cen_left">
-                                                <div class="top_cen_left_lei" v-for="(item, index) in top_lei" :key="index"><img
-                                                                :src="item.img" alt="">
+                                                <div class="top_cen_left_lei" v-for="(item, index) in top_lei" :key="index"@mouseover="activeover(index)" @mouseleave = "activeleave" :class="{left_lei_bj:isactive==index}">
+                                                        <img :src="item.img" alt="" v-show="isactive != index">
+                                                        <img :src="item.imgs" alt="" v-show="isactive == index">
                                                         <p>{{item.name}}</p>
                                                 </div>
                                         </div>
@@ -33,15 +34,15 @@
                                         </div>
                                         <div class="top_cen_right">
                                                 <div class="top_cen_right_ban">
-                                                        <img src="../../../static/img/service/servecenter_banner.png"
+                                                        <img src="../../../static/img/service/servecneter_rig_banner.png"
                                                                 alt="">
                                                 </div>
                                                 <div class="top_cen_right_cen">
-                                                        <div class="inp"><img src="" alt=""><input type="text"
+                                                        <div class="inp"><img src="../../../static/img/service/servecenter_hy.png" alt=""><input type="text"
                                                                         placeholder="请填写您的行业"></div>
-                                                        <div class="inp"><img src="" alt=""><input type="text"
+                                                        <div class="inp"><img src="../../../static/img/service/servecenter_ys.png" alt=""><input type="text"
                                                                         placeholder="请选择您的预算区间"></div>
-                                                        <div class="inp"><img src="" alt=""><input type="text"
+                                                        <div class="inp"><img src="../../../static/img/service/servecenter_sj.png" alt=""><input type="text"
                                                                         placeholder="请输入您的手机号"></div>
                                                         <button>马上获取商标信息</button>
                                                 </div>
@@ -174,6 +175,7 @@
                 data() {
                         return {
                               active:'false',
+                              isactive:'',
                                 title_color: '#fff',
                                 title_all: ["商标服务", '专利服务', '版权服务', '企业服务'],
                                 title_text_all: ['交易快报: 186****123,25分钟前购买了****专利',
@@ -188,19 +190,24 @@
                                 ],
                                 top_lei: [{
                                         name: '商标服务',
-                                        img: ''
+                                        img: '../../../static/img/service/servecenter_m1.png',
+                                        imgs:'../../../static/img/service/servecenter_m1_h.png'
                                 }, {
                                         name: '专利服务',
-                                        img: ''
+                                        img: '../../../static/img/service/servecenter_m3.png',
+                                        imgs:'../../../static/img/service/servecenter_m3_h.png'
                                 }, {
                                         name: '版权服务',
-                                        img: ''
+                                        img: '../../../static/img/service/servecenter_m4.png',
+                                        imgs:'../../../static/img/service/servecenter_m4_h.png'
                                 }, {
                                         name: '企业服务',
-                                        img: ''
+                                        img: '../../../static/img/service/servecenter_m5.png',
+                                        imgs:'../../../static/img/service/servecenter_m5_h.png'
                                 }, {
                                         name: '联系客服',
-                                        img: ''
+                                        img: '../../../static/img/service/servecenter_m6.png',
+                                        imgs:'../../../static/img/service/servecenter_m6_h.png'
                                 }, ],
                                 btm_xiang: [{
                                         name: '服装鞋帽',
@@ -365,6 +372,12 @@
                         }
                 },
                 methods:{
+                        activeover(e){
+                                this.isactive = e
+                        },
+                        activeleave(e){
+                                this.isactive =''
+                        },
                         mouseOver(e){
                                 console.log(1111)
                                 this.active= e
@@ -421,10 +434,13 @@
                 font-size: 15px;
                 font-weight: bold;
         }
-
+        .left_lei_bj{
+                background-color:#fff;
+                color:#409EFF;
+        }
         .top_cen_left_lei>img {
-                height: 35px;
-                width: 35px;
+                /* height: 30px; */
+                width: 30px;
         }
 
         .top_cen_cen {
@@ -541,7 +557,7 @@
 
         .inp>img {
                 height: 20px;
-                width: 20px;
+                /* width: 10px; */
         }
 
         .inp>input {
@@ -978,6 +994,7 @@
          .servecenter_center_qy{
                  width: 1200px;
                  display: flex;
+                 height: 380px;
                  /* background-color: #fff; */
                  padding: 20px 0;
          }
@@ -991,7 +1008,7 @@
          .servecenter_center_qy_left>div{
                  background: url(../../../static/img/service/servecenter_center_qy_left.png)no-repeat 0,0;
                  background-size: 100% 100%;
-                 padding: 220px 15px 80px 15px;
+                 height: 100%;
          }
          .servecenter_center_qy_left>div>button{
                  padding: 10px 30px;
@@ -1000,6 +1017,9 @@
                  border-radius: 5px;
                  background: rgba(0,0,0,0);
                  outline: none;
+                 position: relative;
+                 top: 180px;
+                 left: 30px;
          }
          .servecenter_center_qy_right{
                  flex: 15;
@@ -1013,11 +1033,11 @@
          }
          .qy_right_lie>img{
                  width: 100%;
-                 height: 40%;
+                 height: 35%;
          }
          .qy_right_lie>div{
                  background-color: #f5f5f5;
-                 height: 60%;
+                 height: 65%;
                  display: flex;
                  flex-direction: column;
                  align-items: center;
