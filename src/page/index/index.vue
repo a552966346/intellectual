@@ -25,13 +25,13 @@
     <div class="index_enterpriseasd">
        <div class="index_enterpriseasdwron" >
          <div class="index_entesdwr">
-           企业服务
+           {{sever[0]}}
          </div>
           <div class="index_entesdwrqw">
-           致力于小微企业提供数字金融服务
+           {{severtw[0]}}
          </div>
          <div class="index_entesdwrqwas">
-           <div>立即咨询></div>
+           {{severtr[0]}}
          </div>
        </div>
        <div class="index_enterpriseasdwrtw">
@@ -39,13 +39,13 @@
          </div>
          <div class="index_entwkjkas">
            <div class="index_cmetk">
-             知识产权贯标
+            {{sever[1]}}
            </div>
            <div class="index_cmetkaw">
-             享受政府资助最高30万
+            {{severtw[1]}}
            </div>
            <div class="index_cmetkaqw">
-             查看详情
+            {{severtr[1]}}
            </div>
          </div>
        </div>
@@ -54,13 +54,13 @@
          </div>
          <div class="index_entwkjkas">
            <div class="index_cmetk">
-             知识产权贯标
+             {{sever[2]}}
            </div>
            <div class="index_cmetkaw">
-             享受政府资助最高30万
+             {{severtw[2]}}
            </div>
            <div class="index_cmetkaqw">
-             查看详情
+            {{severtr[2]}}
            </div>
          </div>
        </div>
@@ -95,13 +95,83 @@
           </div>
         </div>
     </div>
-    <!-- 新闻 -->
+    <!-- 新闻中心 -->
     <div>
       <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :background_img_url='title_bg_url[3]'></v-comtitle>
+      <div id="index_box">
+          <ul class="index_ulon">
+              <li v-for="(item,index) in tabtit" :class="{active:index == num}" @click="tab(index)" :key="index">
+                  {{item}}
+              </li>
+          </ul>
+          <ul class="index_ultw">
+              <li v-for="(mian,index) in tabmain" v-show="index == num" :key="index">
+                  <div class="index_ulxwon">
+                    <div class="index_url">
+                    </div>
+                    <div class="index_urlw">
+                      <div class="index_urlq">
+                        产权转让全程监护
+                      </div>
+                      <div class="index_urlz">
+                        <p>国家知识产权局公告-第二八六号</p> 
+                        <p>根据《中华人民共和国专利法》第三十九和第四十条的规定，国家知识产权局将修改专利证书及专利证书副本。现将有关事宜公告如下：证书及专利证书副本。</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="index_ulxwtw">
+                    <div class="index_ulxwtwbk" v-for="(index,item) in selist" :key="item">
+                        <div class="index_ulxwtwbklt">
+                          <div class="index_ulxwas">
+                            {{index.selon}}
+                          </div>
+                          <div class="index_ulxwasq">
+                            {{index.seltw}}
+                          </div>
+                        </div>
+                        <div class="index_ulxwtwbkrt">
+                          <div class="idnex_ulxwtas">
+                            {{index.seltr}}
+                          </div>
+                          <div class="idnex_ulxwtasq">
+                            {{index.selfv}}
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="index_ulxwtr">
+                    <div class="index_ulxwsq">
+                      <div class="index_ulxwsqlt"></div>
+                      <div class="index_ulxwsqrt">
+                        <div>产权转让全程监督</div>
+                        <div>国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...</div>
+                        <div>发布时间：2020.08.26</div>
+                      </div>
+                    </div>
+                    <div class="index_ulxwsqk">
+                      <div class="index_ulxwsqkz" v-for="(index,item) in nulist" :key="item">
+
+                      </div>
+                    </div>
+                  </div>
+              </li>
+          </ul>
+      </div>
     </div>
     <!-- 合伙人 -->
     <div>
       <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :background_img_url='title_bg_url[4]'></v-comtitle>
+      <div class="index_partner">
+        <div :class="index.index == 1?'index_partblok':'index_partblak'"  v-for="(index,item) in parlist" :key="item" >
+          <div class="index_parsimg">
+            <img :src="index.parimg" alt="">
+          </div>
+          <div class="index_parscet">
+            <div :class=" index.index == 1?'index_parszeq':'index_parsze' ">{{index.paron}}</div>
+            <div class="index_parszet">{{index.partw}}</div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- 伊甸网  -->
     <div class="index_about">
@@ -113,7 +183,7 @@
           <div class="index_left_swiper">
             <el-carousel :interval="4000" type="card" height="200px">
               <el-carousel-item v-for="item in 6" :key="item">
-                <h3 class="medium">{{ item }}</h3>
+                <h3 class="medium">{{item}}</h3>
               </el-carousel-item>
             </el-carousel>
           </div>
@@ -168,6 +238,9 @@ export default {
                     '../../../static/img/index/ruanzhu_pay.png'
                   ],
       msg:'这是测试内容',
+      sever:["企业服务","知识产权贯标","知识产权贯标"],
+      severtw:["致力于小微企业提供数字金融服务","享受政府资助最高30万","享受政府资助最高30万"],
+      severtr:["立即咨询","查看详情","查看详情"],
       listshow:true,
       list:[
         {index:1,title:'作品1',titcet:'普通担保35-45个工作日，成功率高...',miney:'398.00元', listimg:'../../../static/img/index/index_icon.png',btntit:'联系客服',btntitw:'查看详情'},
@@ -182,7 +255,31 @@ export default {
         {index:10,title:'作品10',titcet:'普通担保35-45个工作日，成功率高...',miney:'3000.00元', listimg:'../../../static/img/index/index_ictn.png'},
         {index:11,title:'作品11',titcet:'普通担保35-45个工作日，成功率高...',miney:'1000.00元', listimg:'../../../static/img/index/index_icttn.png'},
         {index:12,title:'专业版权服务顾问',titcet:'COPYRIGHTSERVICES',miney:'立即咨询'}
+      ],
+      parlist:[
+        {index:1,parimg:'',paron:'免费为您定制方案',partw:'了解更多>'},
+        {index:2,parimg:'',paron:'01',partw:'成为代理商'},
+        {index:3,parimg:'',paron:'02',partw:'提交客户商机'},
+        {index:4,parimg:'',paron:'03',partw:'伊甸城知产服务'},
+        {index:5,parimg:'',paron:'04',partw:'获得利润分成'},
+      ],
+      tabtit: ["公司新闻", "行业新闻", "政策新闻"],
+      tabmain: ["内容一", "内容二", "内容三"],
+      num: 0,
+      selist:[
+        {index:1,selon:'2020.08',seltw:'25',seltr:'产权转让全程监护',selfv:'国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...'},
+        {index:2,selon:'2020.08',seltw:'25',seltr:'产权转让全程监护',selfv:'国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...'},
+        {index:3,selon:'2020.08',seltw:'25',seltr:'产权转让全程监护',selfv:'国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...'},
+        {index:4,selon:'2020.08',seltw:'25',seltr:'产权转让全程监护',selfv:'国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...'}
+      ],
+      nulist:[
+        {index:1},{index:2},{index:3}
       ]
+    }
+  },
+  methods: {
+    tab(index) {
+        this.num = index;
     }
   },
   components:{
@@ -204,7 +301,6 @@ export default {
   .index_pay{
     background: #f6f6f6;
     padding-bottom: 20px;
-   
   }
   /* 企业服务 */
   .index_enterprise{
@@ -289,5 +385,35 @@ export default {
   .index_qza{width: 100%;flex: 1;display: flex;justify-content: center;align-items: center;flex-direction: row;}
   .index_mwt{display: flex;justify-content: center;align-items: center;background-color: #ff8800;width: 50%;height: 100%;color: #fff;}
   .index_qwz{display: flex;justify-content: center;align-items: center;border: 2px solid #ff8800; width: 50%;height: 100%;color: #ff8800;}
-  .index_bvxxa{font-size: 16px;width: 100%;padding-left: 18px;color: #ccc;}
+  .index_bvxxa{font-size: 16px;width: 100%;padding-left: 18px;color: rgb(88, 80, 80);}
+  .index_partner{width: 1200px;height: 425px;background-color: #f6f6f6f6;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
+  .index_partblok{width: 265px;height: 395px;background-color:#fff;display: flex;flex-direction: column;}
+  .index_partblak{width: 215px;height: 395px;background-color:#fff;display: flex;flex-direction: column;}
+  .index_parsimg{width: 100%;height: 60%;background-color: brown;}
+  .index_parscet{flex: 1;display: flex;justify-content: space-evenly;align-items: center;flex-direction: column;color: #147fc5;}
+  .index_parsze{font-size: 40px;border-bottom: 2px solid #147fc5;}
+  .index_parszeq{font-size: 16px; background-image: linear-gradient(#fb963a, #f25630);padding: 10px 15px;color: #fff;font-weight: bold;border-bottom-left-radius: 25px;border-bottom-right-radius: 25px;border-top-left-radius: 25px;border-top-right-radius: 25px;}
+  #index_box{width: 1200px;height: 505px;background-color: #ccc;}
+  .index_ulon {overflow:hidden;display: flex;justify-content: center;align-content: center;}
+  .index_ulon li {float:left;margin:0 10px;cursor:pointer;width:115px;height:35px;border-top-left-radius: 25px;border-top-right-radius: 25px;border-bottom-left-radius: 25px;border-bottom-right-radius: 25px;display: flex;justify-content: center;align-items: center;}
+  .index_ultw li {height: 470px;display: flex;justify-content: space-between;}
+  .active{background-color: #187fc4;color: #fff;}
+  .index_ulxwon{width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;}
+  .index_ulxwtw{width: 350px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;}
+  .index_ulxwtr{width: 430px;height: 100%;background-color: tomato;}
+  .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
+  .index_urlw{flex: 1;display: flex;justify-content: space-evenly;align-content: center;flex-direction: column;}
+  .index_urlq{font-size: 24px;}
+  .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
+  .index_ulxwtwbklt{width: 77px;height:100%;display:flex;justify-content: center;align-content: center;flex-direction: column; border-right: 1px solid #ccc;}
+  .index_ulxwtwbkrt{flex: 1;height: 100%;display:flex;justify-content: center;align-content: center;flex-direction: column;}
+  .index_ulxwas{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;}
+  .index_ulxwasq{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;}
+  .idnex_ulxwtas{width: 100%;height: 30px;display: flex;justify-content: flex-start;align-content: center;}
+  .idnex_ulxwtasq{width: 100%;display: flex;justify-content: center;align-content: center;}
+  .index_ulxwsq{width: 100%;height: 150px;background-color: wheat;display: flex;justify-content: center;align-items: center;}
+  .index_ulxwsqlt{width: 45%;height: 100%;background-image: url(../../../static/img/index/index_mset.png);background-size: cover;}
+  .index_ulxwsqrt{flex: 1; height: 100%;display: flex;justify-content: space-evenly;align-items: flex-start;flex-direction: column;}
+  .index_ulxwsqk{flex: 1;display: flex;justify-content: space-evenly;align-items: flex-start;flex-direction: column;}
+  .index_ulxwsqkz{width: 100%;height: 95px;}
 </style>
