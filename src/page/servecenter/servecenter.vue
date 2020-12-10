@@ -24,7 +24,7 @@
                                                         <div class="btm_xiang" v-for="(item,index) in btm_xiang" :style="{'background-image':'url('+item.img+')'}"
                                                                 :key="index" @mouseover="btnover(index)" @mouseleave = "btnleave" :class="{btm_xiang_two:isbtn==index}">
                                                                 <p v-show="!(isbtn==index)">{{item.name}}</p>
-                                                                <p v-show="!(isbtn==index)"ss>{{item.nub}}类</p>
+                                                                <p v-show="!(isbtn==index)">{{item.nub}}类</p>
                                                                 <span  v-show="isbtn==index">30类</span>
                                                                 <div  v-show="isbtn==index">
                                                                         <p>优质品牌，祝您前行</p>
@@ -203,7 +203,7 @@
                                         name: '专利服务',
                                         img: '../../../static/img/service/servecenter_m3.png',
                                         imgs:'../../../static/img/service/servecenter_m3_h.png',
-                                        arr:["普通商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
+                                        arr:["专利商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
                                 }, {
                                         name: '版权服务',
                                         img: '../../../static/img/service/servecenter_m4.png',
@@ -388,12 +388,9 @@
                 },
                 methods:{
                         activeover(index){
-                                console.log(index)
                                 this.isactive = index
                         },
                         activeleave(e){
-                                console.log(e)
-                                this.isactive =''
                         },
                         btnover(e){
                                 this.isbtn = e
