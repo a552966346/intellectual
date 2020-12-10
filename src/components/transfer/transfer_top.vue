@@ -18,9 +18,9 @@
                                         </div>
                                         <div class="center_lei_right">
                                                 <div @click="xuanze(text.id,index,text.name)" v-for="(text,nubs) in item.lei" :key="nubs">
-                                                        <p :class="{color:id[index]==text.id}">{{text.name}}</p>
+                                                        <p :class="{color:iscolor[index]==text.id}">{{text.name}}</p>
                                                         <img src="../../../static/img/transfer/transfer_dh.png" alt=""
-                                                                v-show="id[index]==text.id">
+                                                                v-show="iscolor[index]==text.id">
                                                 </div>
                                         </div>
                                 </div>
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="center_lei_right">
                                         <button @click="qinchu">清除全部</button>
-                                        <span v-for="(item,index) in text_sx" :key="index">{{item}}</span>
+                                        <span v-for="(item,index) in text_sx" :key="index" v-if="item!='不限'">{{item}}</span>
                                 </div>
                         </div>
                 </div>
@@ -239,7 +239,7 @@
                                                 ]
                                         }
                                 ],
-                                id: [1, 1, 1, 1, 1, 1],
+                                iscolor: [1, 1, 1, 1, 1, 1],
                                 text_sx: [],
                         }
 
@@ -250,14 +250,18 @@
 
                 methods: {
                         xuanze(s, i, t) {
-                                this.id[i]=s;
-                                // this.text_sx[i] = t
+                                this.iscolor[i]=s;
+                                if(t =="不限" ){
+                                     this.$set(this.text_sx,i,null)   
+                                }else{
                                 this.$set(this.text_sx,i,t) 
-                                // console.log(this.text_sx)
+                                }
+                                console.log(this.text_sx)
+                               
                         },
                         qinchu() {
                                 this.text_sx = []
-                                this.id =[1, 1, 1, 1, 1, 1]
+                                this.iscolor =[1, 1, 1, 1, 1, 1]
                         }
                 }
         }
@@ -366,7 +370,7 @@
 }
 
 .center_lei_right>span {
-        padding-right: 10px;
+        padding-left:15px;
         display: flex;
         align-items: center;
 }
