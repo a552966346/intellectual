@@ -149,8 +149,13 @@
                       </div>
                     </div>
                     <div class="index_ulxwsqk">
-                      <div class="index_ulxwsqkz" v-for="(index,item) in nulist" :key="item">
-
+                      <div class="index_ulxwsqkz" v-for="(must,item) in nulist" :key="item">
+                        <div class="index_ulwsaq">
+                          {{must.title}}
+                        </div>
+                        <div class="index_ulwsapq">
+                          {{must.center}}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -163,7 +168,7 @@
       <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :background_img_url='title_bg_url[4]'></v-comtitle>
       <div class="index_partner">
         <div :class="index.index == 1?'index_partblok':'index_partblak'"  v-for="(index,item) in parlist" :key="item" >
-          <div class="index_parsimg">
+          <div :class="index.index == 1?'index_parsnimg':'index_parsimg'">
             <img :src="index.parimg" alt="">
           </div>
           <div class="index_parscet">
@@ -258,10 +263,10 @@ export default {
       ],
       parlist:[
         {index:1,parimg:'',paron:'免费为您定制方案',partw:'了解更多>'},
-        {index:2,parimg:'',paron:'01',partw:'成为代理商'},
-        {index:3,parimg:'',paron:'02',partw:'提交客户商机'},
-        {index:4,parimg:'',paron:'03',partw:'伊甸城知产服务'},
-        {index:5,parimg:'',paron:'04',partw:'获得利润分成'},
+        {index:2,parimg:'../../../static/img/index/index_partnertw.png',paron:'01',partw:'成为代理商'},
+        {index:3,parimg:'../../../static/img/index/index_partnertr.png',paron:'02',partw:'提交客户商机'},
+        {index:4,parimg:'../../../static/img/index/index_partnerfh.png',paron:'03',partw:'伊甸城知产服务'},
+        {index:5,parimg:'../../../static/img/index/index_partnerfv.png',paron:'04',partw:'获得利润分成'},
       ],
       tabtit: ["公司新闻", "行业新闻", "政策新闻"],
       tabmain: ["内容一", "内容二", "内容三"],
@@ -273,7 +278,9 @@ export default {
         {index:4,selon:'2020.08',seltw:'25',seltr:'产权转让全程监护',selfv:'国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...'}
       ],
       nulist:[
-        {index:1},{index:2},{index:3}
+        {index:1,title:'山西省知识产权战略纲要',center:'为全面贯彻落实国家知识产权战略，推进我省国家资源型经济转型综合配套改革试验区...'},
+        {index:2,title:'山西省人民政府关于新形势下推进知识产...',center:'各市、县人民政府，省人民政府各委、办、厅、局：为深入贯彻落实《国务院关于新形势下加快知...》'},
+        {index:3,title:'山西省专利实施和保护条例',center:'（2001年11月25日山西省第九届人民代表大会常务委员会第二十六次会议通过 2014年...）'}
       ]
     }
   },
@@ -387,33 +394,40 @@ export default {
   .index_qwz{display: flex;justify-content: center;align-items: center;border: 2px solid #ff8800; width: 50%;height: 100%;color: #ff8800;}
   .index_bvxxa{font-size: 16px;width: 100%;padding-left: 18px;color: rgb(88, 80, 80);}
   .index_partner{width: 1200px;height: 425px;background-color: #f6f6f6f6;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
-  .index_partblok{width: 265px;height: 395px;background-color:#fff;display: flex;flex-direction: column;}
+  .index_partblok{width: 265px;height: 395px;display: flex;flex-direction: column;background-image: url(../../../static/img/index/index_partneron.png);background-size: cover;}
   .index_partblak{width: 215px;height: 395px;background-color:#fff;display: flex;flex-direction: column;}
-  .index_parsimg{width: 100%;height: 60%;background-color: brown;}
+  .index_parsimg{width: 100%;height: 60%;}
+  .index_parsnimg{width: 100%;height: 60%;visibility: hidden;}
+  .index_parsimg img{width: 100%;height: 100%;}
   .index_parscet{flex: 1;display: flex;justify-content: space-evenly;align-items: center;flex-direction: column;color: #147fc5;}
   .index_parsze{font-size: 40px;border-bottom: 2px solid #147fc5;}
   .index_parszeq{font-size: 16px; background-image: linear-gradient(#fb963a, #f25630);padding: 10px 15px;color: #fff;font-weight: bold;border-bottom-left-radius: 25px;border-bottom-right-radius: 25px;border-top-left-radius: 25px;border-top-right-radius: 25px;}
-  #index_box{width: 1200px;height: 505px;background-color: #ccc;}
-  .index_ulon {overflow:hidden;display: flex;justify-content: center;align-content: center;}
+  #index_box{width: 1200px;height: 505px;}
+  .index_ulonimo{width: 10px;text-align: right;}
+  .index_ulon {overflow:hidden;display: flex;justify-content: center;align-content: center;padding-bottom: 10px;}
+  .index_ulonim{text-align: right;}
   .index_ulon li {float:left;margin:0 10px;cursor:pointer;width:115px;height:35px;border-top-left-radius: 25px;border-top-right-radius: 25px;border-bottom-left-radius: 25px;border-bottom-right-radius: 25px;display: flex;justify-content: center;align-items: center;}
   .index_ultw li {height: 470px;display: flex;justify-content: space-between;}
   .active{background-color: #187fc4;color: #fff;}
-  .index_ulxwon{width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;}
+  .index_ulxwon{width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;padding: 15px;}
   .index_ulxwtw{width: 350px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;}
-  .index_ulxwtr{width: 430px;height: 100%;background-color: tomato;}
+  .index_ulxwtr{width: 430px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;background-color: #fff;}
   .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
   .index_urlw{flex: 1;display: flex;justify-content: space-evenly;align-content: center;flex-direction: column;}
   .index_urlq{font-size: 24px;}
   .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
-  .index_ulxwtwbklt{width: 77px;height:100%;display:flex;justify-content: center;align-content: center;flex-direction: column; border-right: 1px solid #ccc;}
-  .index_ulxwtwbkrt{flex: 1;height: 100%;display:flex;justify-content: center;align-content: center;flex-direction: column;}
-  .index_ulxwas{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;}
-  .index_ulxwasq{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;}
+  .index_ulxwtwbklt{width: 77px;height:100%;display:flex;justify-content: center;align-content: center;flex-direction: column;}
+  .index_ulxwtwbkrt{flex: 1;height: 100%;display:flex;justify-content: center;align-content: center;flex-direction: column;padding: 15px;}
+  .index_ulxwas{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;border-right: 1px solid #ccc;}
+  .index_ulxwasq{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;border-right: 1px solid #ccc;}
   .idnex_ulxwtas{width: 100%;height: 30px;display: flex;justify-content: flex-start;align-content: center;}
   .idnex_ulxwtasq{width: 100%;display: flex;justify-content: center;align-content: center;}
-  .index_ulxwsq{width: 100%;height: 150px;background-color: wheat;display: flex;justify-content: center;align-items: center;}
-  .index_ulxwsqlt{width: 45%;height: 100%;background-image: url(../../../static/img/index/index_mset.png);background-size: cover;}
-  .index_ulxwsqrt{flex: 1; height: 100%;display: flex;justify-content: space-evenly;align-items: flex-start;flex-direction: column;}
-  .index_ulxwsqk{flex: 1;display: flex;justify-content: space-evenly;align-items: flex-start;flex-direction: column;}
-  .index_ulxwsqkz{width: 100%;height: 95px;}
+  .index_ulxwsq{width: 100%;height: 150px;display: flex;justify-content: center;align-items: center;}
+  .index_ulxwsqlt{width: 40%;height: 70%;margin-left: 5%; background-image: url(../../../static/img/index/index_mset.png);background-size: cover;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;}
+  .index_ulxwsqrt{flex: 1; height: 100%;display: flex;justify-content: space-evenly;align-items: flex-start;flex-direction: column;padding: 15px;}
+  .index_ulxwsqk{flex: 1;display: flex;justify-content: space-evenly;align-items: flex-start;flex-direction: column;padding: 20px;}
+  .index_ulxwsqkz{width: 100%;height: 90px;background-color: #f8f8f8;display: flex;justify-content: space-around;align-items: center;flex-direction: column;}
+  .index_ulwsaq{width: 100%;height: 45px;display: flex;justify-content: flex-start;align-items: center;}
+  .index_ulwsapq{width: 100%; flex: 1;display: flex;justify-content: flex-start;align-items: center;}
+  .index_ulxwsqk .index_ulxwsqkz:nth-child(2){margin: 10px 0;}
 </style>
