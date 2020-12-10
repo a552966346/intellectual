@@ -16,13 +16,11 @@
                                         <div class="top_cen_cen">
                                                 <div class="top_cen_cen_btm">
                                                         <div class="btm_xiang" v-for="(item,index) in btm_xiang" :style="{'background-image':'url('+item.img+')'}"
-                                                                :key="index">
-                                                                <p>{{item.name}}</p>
-                                                                <p>{{item.nub}}类</p>
-                                                        </div>
-                                                        <div class="btm_xiang" :style="{'background-image':'url('+img+')'}">
-                                                                <span>30类</span>
-                                                                <div>
+                                                                :key="index" @mouseover="btnover(index)" @mouseleave = "btnleave" :class="{btm_xiang_two:isbtn==index}">
+                                                                <p v-show="!(isbtn==index)">{{item.name}}</p>
+                                                                <p v-show="!(isbtn==index)"ss>{{item.nub}}类</p>
+                                                                <span  v-show="isbtn==index">30类</span>
+                                                                <div  v-show="isbtn==index">
                                                                         <p>优质品牌，祝您前行</p>
                                                                         <img src="../../../static/img/common/Learn_about_Eden.png"
                                                                                 alt="">
@@ -30,6 +28,7 @@
                                                                         </div>
                                                                 </div>
                                                         </div>
+
                                                 </div>
                                         </div>
                                         <div class="top_cen_right">
@@ -176,6 +175,7 @@
                         return {
                               active:'false',
                               isactive:'',
+                              isbtn:'',
                                 title_color: '#fff',
                                 title_all: ["商标服务", '专利服务', '版权服务', '企业服务'],
                                 title_text_all: ['交易快报: 186****123,25分钟前购买了****专利',
@@ -225,8 +225,12 @@
                                         name: '服装鞋帽',
                                         nub: '20',
                                        img: '../../../static/img/service/servecenter_s4.png'
+                                },
+                                {
+                                        name: '服装鞋帽',
+                                        nub: '20',
+                                      img: '../../../static/img/service/servecenter_s5.png',
                                 }],
-                                img: '../../../static/img/service/servecenter_s5.png',
                                 o_cen_lie: [{
                                                 name: "商标注册",
                                                 money: '390',
@@ -378,6 +382,12 @@
                         activeleave(e){
                                 this.isactive =''
                         },
+                        btnover(e){
+                                this.isbtn = e
+                        },
+                        btnleave(e){
+                                this.isbtn 
+                        },
                         mouseOver(e){
                                 console.log(1111)
                                 this.active= e
@@ -455,7 +465,7 @@
                 width: 80%;
                 height: 23%;
                 cursor: pointer;
-                background-color: #F5F1FF;
+                background-color: #fff;
         }
 
         .btm_xiang {
@@ -463,7 +473,6 @@
                   background-size: auto;
                 background-repeat: no-repeat;
                 background-position: right bottom;
-                background-color: rgb(245,241,255,0.5);
         }
 
         .btm_xiang>p:nth-child(1) {
@@ -486,24 +495,23 @@
                 font-size: 14px;
         }
 
-        .top_cen_cen_btm>div:last-child {
-                flex: 4;
-        }
 
-        .top_cen_cen_btm>div:last-child {
+
+        .btm_xiang_two {
+                flex: 4;
                 display: flex;
                 flex-direction: column;
                 align-items: baseline;
         }
 
-        .top_cen_cen_btm>div:last-child>span:nth-child(1) {
+        .btm_xiang_two>span{
                 background-color: #A17FEF;
                 padding: 2px 20px 1px 5px;
                 color: #fff;
                 border-bottom-right-radius: 70%;
         }
 
-        .top_cen_cen_btm>div:last-child>div {
+        .btm_xiang_two>div {
                 padding: 20px 5px;
                 flex: 1;
                 display: flex;
@@ -511,12 +519,12 @@
                 justify-content: space-between;
         }
 
-        .top_cen_cen_btm>div:last-child>div>p:nth-child(1) {
+        .btm_xiang_two>div>p:nth-child(1) {
                 color: #666;
                 font-size: 15px;
         }
 
-        .top_cen_cen_btm>div:last-child>div>div:nth-child(3) {
+        .btm_xiang_two>div>div:nth-child(3) {
                 color: #666;
                 font-size: 13px;
                 display: flex;
