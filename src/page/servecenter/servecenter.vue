@@ -440,7 +440,7 @@
         }
         .top_cen_left_lei>img {
                 /* height: 30px; */
-                width: 30px;
+                width: 25px;
         }
 
         .top_cen_cen {
