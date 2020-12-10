@@ -6,6 +6,7 @@
                         <!-- 服务中心头部导航 -->
                         <div class="servecenter_top" style="background-image: url(../../../static/img/service/servecenter_banner.png);">
                                 <div class="servecenter_top_cen">
+                                        
                                         <div class="top_cen_left">
                                                 <div class="top_cen_left_lei" v-for="(item, index) in top_lei" :key="index"@mouseover="activeover(index)" @mouseleave = "activeleave" :class="{left_lei_bj:isactive==index}">
                                                         <img :src="item.img" alt="" v-show="isactive != index">
@@ -13,6 +14,11 @@
                                                         <p>{{item.name}}</p>
                                                 </div>
                                         </div>
+                                        <div class="top_cen_right_box" >
+                                                        <ul v-for="(item, index) in top_lei" v-show="isactive == index">
+                                                                <li v-for="(isitem,index) in item.arr" >{{isitem}}</li>
+                                                        </ul>
+                                                </div>
                                         <div class="top_cen_cen">
                                                 <div class="top_cen_cen_btm">
                                                         <div class="btm_xiang" v-for="(item,index) in btm_xiang" :style="{'background-image':'url('+item.img+')'}"
@@ -191,23 +197,28 @@
                                 top_lei: [{
                                         name: '商标服务',
                                         img: '../../../static/img/service/servecenter_m1.png',
-                                        imgs:'../../../static/img/service/servecenter_m1_h.png'
+                                        imgs:'../../../static/img/service/servecenter_m1_h.png',
+                                        arr:["普通商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
                                 }, {
                                         name: '专利服务',
                                         img: '../../../static/img/service/servecenter_m3.png',
-                                        imgs:'../../../static/img/service/servecenter_m3_h.png'
+                                        imgs:'../../../static/img/service/servecenter_m3_h.png',
+                                        arr:["普通商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
                                 }, {
                                         name: '版权服务',
                                         img: '../../../static/img/service/servecenter_m4.png',
-                                        imgs:'../../../static/img/service/servecenter_m4_h.png'
+                                        imgs:'../../../static/img/service/servecenter_m4_h.png',
+                                        arr:["普通商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
                                 }, {
                                         name: '企业服务',
                                         img: '../../../static/img/service/servecenter_m5.png',
-                                        imgs:'../../../static/img/service/servecenter_m5_h.png'
+                                        imgs:'../../../static/img/service/servecenter_m5_h.png',
+                                        arr:["普通商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
                                 }, {
                                         name: '联系客服',
                                         img: '../../../static/img/service/servecenter_m6.png',
-                                        imgs:'../../../static/img/service/servecenter_m6_h.png'
+                                        imgs:'../../../static/img/service/servecenter_m6_h.png',
+                                        arr:["普通商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
                                 }, ],
                                 btm_xiang: [{
                                         name: '服装鞋帽',
@@ -376,10 +387,12 @@
                         }
                 },
                 methods:{
-                        activeover(e){
-                                this.isactive = e
+                        activeover(index){
+                                console.log(index)
+                                this.isactive = index
                         },
                         activeleave(e){
+                                console.log(e)
                                 this.isactive =''
                         },
                         btnover(e){
@@ -391,12 +404,12 @@
                         mouseOver(e){
                                 console.log(1111)
                                 this.active= e
-
+                                
                         },
                         mouseLeave(e){
                             this.active = 'false'
-
-                        },
+                            
+                        }
 
                 }
         }
@@ -432,7 +445,7 @@
         }
 
         .top_cen_left {
-                flex: 1;
+                flex: 2;
         }
 
         .top_cen_left_lei {
@@ -452,7 +465,23 @@
                 /* height: 30px; */
                 width: 25px;
         }
-
+        .top_cen_right_box{
+                flex: 2;
+        }
+        .top_cen_right_box>ul{
+                list-style: none;
+                background-color: #fff;
+                padding: 10px 20px;
+                color: #bababa;
+                font-size: 15px;
+                /* display: none; */
+        }
+        .top_cen_right_box li{
+                padding-bottom: 5px;
+        }
+        .top_cen_right_box li:hover{
+                color: #409EFF;
+        }
         .top_cen_cen {
                 display: flex;
                 justify-content: flex-end;
@@ -462,7 +491,7 @@
 
         .top_cen_cen_btm {
                 display: flex;
-                width: 80%;
+                width: 100%;
                 height: 23%;
                 cursor: pointer;
                 background-color: #fff;
