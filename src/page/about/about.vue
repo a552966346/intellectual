@@ -9,7 +9,7 @@
             <img src="../../../static/img/about/about_banter.png" alt="altText">
         </div>
             <!--内容 -->
-        <el-container style="padding:2px 0">
+        <el-container style="padding:1px 0">
                 <el-aside width="201px" style="border-right:1px solid rgba(230,230,230)">
                     <el-menu :default-openeds="['1', '3']">
                     <el-submenu index="1">
