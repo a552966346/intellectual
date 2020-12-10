@@ -31,8 +31,9 @@
      <div class="other_works">
        <p>其他作品展示</p>
        <div>
-         <img src="" alt="">
-         <img src="" alt="">
+         <!-- <img src="" alt="">
+         <img src="" alt=""> -->
+         <v-otherwords></v-otherwords>
        </div>
        <div>
 
@@ -144,6 +145,7 @@
 </template>
 
 <script>
+import otherwords from '../../components/activity/otherwords.vue'
 export default {
   data(){
     return{
@@ -181,6 +183,9 @@ export default {
       this.$set(this.transaction_imglist,index,srt_url)
     }
   },
+  components:{
+    'v-otherwords':otherwords
+  }
   
 }
 
