@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="servecenter_center_o_cen">
                                         <div class="o_cen_lie" v-for="(item,index) in o_cen_lie" :key="index">
-                                                <div class="o_cen_lie_bg" :style="{'background-image':'url('+item.bgimg+')'}">
+                                                <div class="o_cen_lie_bg" :style="{'background-image':'url('+item.bgimg+')'}" style="background-repeat: no-repeat;">
                                                         <p>{{item.name}}</p>
                                                         <p>专业一对一服务</p>
                                                 </div>
@@ -212,21 +212,21 @@
                                 btm_xiang: [{
                                         name: '服装鞋帽',
                                         nub: '20',
-                                        img: ''
+                                        img: '../../../static/img/service/servecenter_s1.png'
                                 }, {
                                         name: '服装鞋帽',
                                         nub: '20',
-                                        img: ''
+                                        img: '../../../static/img/service/servecenter_s2.png'
                                 }, {
                                         name: '服装鞋帽',
                                         nub: '20',
-                                        img: ''
+                                       img: '../../../static/img/service/servecenter_s3.png'
                                 }, {
                                         name: '服装鞋帽',
                                         nub: '20',
-                                        img: ''
+                                       img: '../../../static/img/service/servecenter_s4.png'
                                 }],
-                                img: '',
+                                img: '../../../static/img/service/servecenter_s5.png',
                                 o_cen_lie: [{
                                                 name: "商标注册",
                                                 money: '390',
@@ -455,11 +455,15 @@
                 width: 80%;
                 height: 23%;
                 cursor: pointer;
-                background-color: #fff;
+                background-color: #F5F1FF;
         }
 
         .btm_xiang {
                 flex: 3;
+                  background-size: auto;
+                background-repeat: no-repeat;
+                background-position: right bottom;
+                background-color: rgb(245,241,255,0.5);
         }
 
         .btm_xiang>p:nth-child(1) {
@@ -508,12 +512,12 @@
         }
 
         .top_cen_cen_btm>div:last-child>div>p:nth-child(1) {
-                color: #ccc;
+                color: #666;
                 font-size: 15px;
         }
 
         .top_cen_cen_btm>div:last-child>div>div:nth-child(3) {
-                color: #ddd;
+                color: #666;
                 font-size: 13px;
                 display: flex;
                 align-items: center;
@@ -548,7 +552,7 @@
 
         .inp {
                 background-color: #D0E6F4;
-                padding: 5px;
+                padding: 8px;
                 display: flex;
                 border-radius: 5px;
                 margin-bottom: 15px;
@@ -556,7 +560,7 @@
         }
 
         .inp>img {
-                height: 20px;
+                height: 15px;
                 /* width: 10px; */
         }
 
