@@ -23,8 +23,8 @@
             <el-menu-item index="/knowledgefunds">知识产权基金</el-menu-item>
         </el-submenu>
         <el-menu-item index="/transfer">技术转移</el-menu-item>
-        <el-menu-item index="5">跳蚤市场</el-menu-item>
-        <el-menu-item index="6">新闻中心</el-menu-item>
+        <!-- <el-menu-item index="5">跳蚤市场</el-menu-item>-->
+        <el-menu-item index="/about">关于我们</el-menu-item> 
         </el-menu>
     </div>
 </template>
