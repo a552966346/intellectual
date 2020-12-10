@@ -8,7 +8,7 @@
                 </div>
                 <div class="top_center">
                         <div class="top_center_lei" >
-                                <div class="top_center_all"v-for="(item,index) in top_center_lei" :key="index">
+                                <div class="top_center_all" v-for="(item,index) in top_center_lei" :key="index">
                                         <div class="center_lei_left">
                                                 <div>
                                                         <img :src="item.img" alt="">
@@ -17,12 +17,11 @@
 
                                         </div>
                                         <div class="center_lei_right">
-                                                <div @click="xuanze(text.id,index,text.name)" v-for="text in item.lei">
+                                                <div @click="xuanze(text.id,index,text.name)" v-for="(text,nubs) in item.lei" :key="nubs">
                                                         <p :class="{color:id[index]==text.id}">{{text.name}}</p>
                                                         <img src="../../../static/img/transfer/transfer_dh.png" alt=""
                                                                 v-show="id[index]==text.id">
                                                 </div>
-
                                         </div>
                                 </div>
                         </div>
@@ -34,14 +33,14 @@
                                         </div>
                                 </div>
                                 <div class="center_lei_right">
-                                        <span v-for="item in text_sx">{{item}}</span>
                                         <button @click="qinchu">清除全部</button>
+                                        <span v-for="(item,index) in text_sx" :key="index">{{item}}</span>
                                 </div>
                         </div>
                 </div>
         </div>
 </template>
-
+ 
 <script>
         export default {
                 data() {
@@ -252,8 +251,9 @@
                 methods: {
                         xuanze(s, i, t) {
                                 this.id[i]=s;
-                                  this.$set(this.text_sx,i,t)
-                                console.log(this.text_sx)
+                                // this.text_sx[i] = t
+                                this.$set(this.text_sx,i,t) 
+                                // console.log(this.text_sx)
                         },
                         qinchu() {
                                 this.text_sx = []

@@ -5,7 +5,7 @@
                                 <div class="patenscree_lefthead">{{item.head}}</div>
                                 <div class="patenscree_leftcontent">
                                         <span>不限</span>
-                                        <span v-for="(second,index) in item.childlist" @click="choosecon(second.name)" :key="index">{{second.name}}</span>
+                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item.childlist" @click="choosecon(index,nubs,second.name,)" :key="second.id">{{second.name}}</span>
                                         <div class="patenscree_leftprice" v-if="index==4">
                                                 <input type="text">&nbsp;元&nbsp;-&nbsp;<input type="text">&nbsp;元<button>确定</button>
                                         </div>
@@ -78,133 +78,168 @@
 </template>
 
 <script>
-        export default {
-                data() {
-                        return {
-                                patenscree: [{
-                                                head: '行业分类',
-                                                childlist: [{
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        },
-                                                        {
-                                                                name: '农业牧业'
-                                                        }
-                                                ]
-                                        }, {
-                                                head: '是否独家',
-                                                childlist: [{
-                                                                name: '独家'
-                                                        },
-                                                        {
-                                                                name: '非独家'
-                                                        }
-                                                ]
+export default {
+        data() {
+                return {
+                        iscolor:[],
+                        patenscree: [{
+                                id:1,
+                                head: '行业分类',
+                                childlist: [{
+                                                name: '农业牧业',
+                                                id:1
                                         },
                                         {
-                                                head: '专利类型',
-                                                childlist: [{
-                                                                name: '发明专利'
-                                                        },
-                                                        {
-                                                                name: '实用新型'
-                                                        },
-                                                        {
-                                                                name: '外观设计'
-                                                        }
-                                                ]
-                                        }, {
-                                                head: '是否特价',
-                                                childlist: [{
-                                                                name: '非特价商品'
-                                                        },
-                                                        {
-                                                                name: '特价商品'
-                                                        }
-                                                ]
-                                        }, {
-                                                head: '出售价格',
-                                                childlist: [{
-                                                                name: '3000以下'
-                                                        },
-                                                        {
-                                                                name: '3000-1万'
-                                                        },
-                                                        {
-                                                                name: '1万-3万'
-                                                        },
-                                                        {
-                                                                name: '3万以上'
-                                                        }
-                                                ]
-                                        },
-                                ],
-                                screetext: [],
-                                animate: false,
-                                marqueeList: [{
-                                                name: '开心果',
-                                                machine: '09类科学仪器',
-                                                amount: '10小时',
-                                                number:'0000001'
+                                                name: '农业牧业',
+                                                id:2
                                         },
                                         {
-                                                name: '芒果干',
-                                               machine: '09类科学仪器',
-                                                amount: '5小时',
-                                                number:'0000001'
+                                                name: '农业牧业',
+                                                id:3
                                         },
                                         {
-                                                name: '草莓干',
-                                                machine: '09类科学仪器',
-                                                amount: '5小时',
-                                                number:'0000001'
+                                                name: '农业牧业',
+                                                id:4
                                         },
                                         {
-                                                name: '无核白葡萄干 ',
-                                                machine: '09类科学仪器',
-                                                amount: '5小时',
-                                                number:'0000001'
+                                                name: '农业牧业',
+                                                id:5
+                                        },
+                                        {
+                                                name: '农业牧业',
+                                                id:6
+                                        },
+                                        {
+                                                name: '农业牧业',
+                                                id:7
+                                        },
+                                        {
+                                                name: '农业牧业',
+                                                id:8
                                         }
                                 ]
-                        }
-                },
-                created: function() {
-                        setInterval(this.showMarquee, 2000)
-                },
-                methods: {
-                        showMarquee: function() {
-                                this.animate = true;
-                                setTimeout(() => {
-                                        this.marqueeList.push(this.marqueeList[0]);
-                                        this.marqueeList.shift();
-                                        this.animate = false;
-                                }, 500)
+                        }, {
+                                id:2,
+                                head: '是否独家',
+                                childlist: [{
+                                                name: '独家',
+                                                id:1
+                                        },
+                                        {
+                                                name: '非独家',
+                                                id:2
+                                        }
+                                ]
+                        },{
+                                id:3,
+                                head: '专利类型',
+                                childlist: [{
+                                                name: '发明专利',
+                                                id:1
+                                        },
+                                        {
+                                                name: '实用新型',
+                                                id:2
+                                        },
+                                        {
+                                                name: '外观设计',
+                                                id:3
+                                        }
+                                ]
+                        }, {
+                                id:4,
+                                head: '是否特价',
+                                childlist: [{
+                                                name: '非特价商品',
+                                                id:1
+                                        },
+                                        {
+                                                name: '特价商品',
+                                                id:2
+                                        }
+                                ]
+                        }, {
+                                id:5,
+                                head: '出售价格',
+                                childlist: [{
+                                                name: '3000以下',
+                                                id:1
+                                        },
+                                        {
+                                                name: '3000-1万',
+                                                id:2
+                                        },
+                                        {
+                                                name: '1万-3万',
+                                                id:3
+                                        },
+                                        {
+                                                name: '3万以上',
+                                                id:4
+                                        }
+                                ],
                         },
-                        choosecon(name) {
-                                this.screetext.push(name)
+                ],
+                screetext: [],
+                animate: false,
+                marqueeList: [{
+                                name: '开心果',
+                                machine: '09类科学仪器',
+                                amount: '10小时',
+                                number:'0000001'
                         },
-                        choosenull() {
-                                this.screetext = []
+                        {
+                                name: '芒果干',
+                                machine: '09类科学仪器',
+                                amount: '5小时',
+                                number:'0000001'
+                        },
+                        {
+                                name: '草莓干',
+                                machine: '09类科学仪器',
+                                amount: '5小时',
+                                number:'0000001'
+                        },
+                        {
+                                name: '无核白葡萄干',
+                                machine: '09类科学仪器',
+                                amount: '5小时',
+                                number:'0000001'
                         }
+                        ]
+                }
+        },
+        created: function() {
+                setInterval(this.showMarquee, 2000)
+        },
+        methods: {
+        //         onclick(index) {
+        //         console.log(index)
+        //         //将点击的元素的索引赋值给bian变量
+
+        //         this.isactive = index
+        //     },
+                showMarquee: function() {
+                        this.animate = true;
+                        setTimeout(() => {
+                                this.marqueeList.push(this.marqueeList[0]);
+                                this.marqueeList.shift();
+                                this.animate = false;
+                        }, 500)
+                },
+                choosecon(index,nubs,name) {
+                        this.iscolor[index] = nubs
+                        console.log(name)
+                        this.$set(this.screetext,index,name) 
+                        console.log(this.screetext)
+
+                },
+                choosenull() {
+                        this.iscolor = []
+                        this.screetext = []
                 }
         }
+}
 </script>
 
 <style scoped>
@@ -257,7 +292,7 @@
                 color: #1881c5;
                 font-weight: bold;
         }
-
+        .addclass{color: #1881c5 !important;}
         .patenscree_leftprice {
                 position: absolute;
                 right: 15px;
@@ -381,7 +416,7 @@
 
         .marquee_top {
                 transition: all 0.5s;
-                margin-top: -60px
+                margin-top: -60px;
         }
 
         .marquee_list li {
@@ -414,7 +449,11 @@
                 display: flex;
                 align-items: center;
         }
-
+        .marquee_itemtop span{
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+        }
         .marquee_itemtop span:nth-child(1) {
                 background-color: #187fc2;
                 border-radius: 15px;
@@ -423,5 +462,8 @@
                 padding: 0 5px;
                 color: #fff;
                 margin-right: 5px;
+        }
+        .color{
+                color: #2385c7!important;
         }
 </style>
