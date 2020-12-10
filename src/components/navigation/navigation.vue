@@ -2,7 +2,7 @@
     <div class="navigation_all">
         <el-menu
         theme="dark"
-        :default-active="this.$store.state.activeIndex"
+        :default-active="$route.path"
         class="el-menu-demo"
         router mode="horizontal"
         @select="handleSelect"
@@ -37,7 +37,6 @@
         },
         methods:{
             handleSelect(key,keyPath){
-                this.$store.state.activeIndex = key
                 console.log(key,keyPath);
             }
         }
