@@ -9,12 +9,29 @@
                                 <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :qiye="title">
-                                               <!-- <template v-slot:topall>
+                                        <v-servicet :qiye="title" :isShow="isShow">
+                                               <template v-slot:topall>
                                                         <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
-                                                        <div class="slot_bord">11111111</div>
+                                                        <div class="slot_bord">
+                                                                <div>
+                                                                        <span>50工作日</span>
+                                                                        <span>￥398/件</span>
+                                                                </div>
+                                                                <div>
+                                                                        <span>50工作日</span>
+                                                                        <span>￥398/件</span>
+                                                                </div>
+                                                                <div>
+                                                                        <span>50工作日</span>
+                                                                        <span>￥398/件</span>
+                                                                </div>
+                                                                <div>
+                                                                        <span>50工作日</span>
+                                                                        <span>￥398/件</span>
+                                                                </div>
+                                                        </div>
                                                         <div class="money">￥<h2>398</h2>元起</div>
-                                                </template> -->
+                                                </template>
                                         </v-servicet>
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left">
@@ -42,7 +59,8 @@
                 name:'service',
                 data(){
                         return{
-                                title:'企业知识产贯标',
+                                title:'软件著作登记',
+                                isShow:false,
                                 iscolor:0,
                                 toptext:[{text:'高企认定好处',id:1,nub:0},{text:'服务流程',id:2,nub:1},{text:'认定条件',id:3,nub:0},{text:'申请资料',id:4,nub:0},{text:'常见问题',id:5,nub:0},{text:'典型案列',id:6,nub:0}],
                         }
@@ -52,6 +70,7 @@
                       'v-serviceleft':serviceleft,
                       'v-servicer':serviceright
                 },
+
                 methods:{
                         text_click(){
                                 console.log(111)
@@ -70,5 +89,10 @@
         .cen_right { flex:3;box-shadow:1px 1px 10px 2px #ccc;}
         .consultation_bottom{width: 100%;}
         .consultation_bottom>img{width: 100%;}
+        .slot_bord{display: flex;padding: 10px 0;}
+        .slot_bord>div{flex: 1;display: flex;}
+         .slot_bord>div>span{padding: 2px 5px;font-size: 13px;}
+        .slot_bord>div>span:nth-child(1){background-color: #0265D3;color: #fff;}
+        .slot_bord>div>span:nth-child(2){background-color: #fff;color: #0265D3;border: 1px solid #0265D3;}
         .money{display: flex;align-items: center;color: #D30102;}
 </style>

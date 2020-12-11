@@ -6,7 +6,7 @@
             </div>
             <div class="topRight">
                 <div class="topHeader">
-                    <h3>一种下料机</h3>
+                    <h3>{{title}}</h3>
                     <p><span>更新时间：2020-03-06 &nbsp;17:29:03</span><span>专利号：201410369182X&nbsp;<span>复制</span></span></p>
                 </div>
                 <div class="topBody">
@@ -74,6 +74,9 @@ export default{
                 return{
                         nub:1
                 }
+        },
+        props:{
+                title:''
         }
 }
 </script>
@@ -87,6 +90,7 @@ export default{
          width: 100%;
         padding: 20px;
         display: flex;
+        background-color: #fff;
     }
     .topLeft{
         flex: 2;

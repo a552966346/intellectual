@@ -9,7 +9,7 @@
                                 <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :qiye="title">
+                                        <v-servicet :title="title">
                                                <!-- <template v-slot:topall>
                                                         <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
                                                         <div class="slot_bord">11111111</div>
@@ -35,14 +35,14 @@
 </template>
 
 <script>
-        import servicetop from '../../components/servicetop/servicetop.vue'
+        import servicetop from '../../components/servicetop/servicetop_four.vue'
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import serviceright from '../../components/serviceright/serviceright.vue'
         export default{
                 name:'service',
                 data(){
                         return{
-                                title:'企业知识产贯标',
+                                title:'PCT申请',
                                 iscolor:0,
                                 toptext:[{text:'高企认定好处',id:1,nub:0},{text:'服务流程',id:2,nub:1},{text:'认定条件',id:3,nub:0},{text:'申请资料',id:4,nub:0},{text:'常见问题',id:5,nub:0},{text:'典型案列',id:6,nub:0}],
                         }

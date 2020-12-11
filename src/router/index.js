@@ -5,6 +5,10 @@ import login from '@/page/login/login'
 import copyrightChanges from '@/page/copyrightChanges/copyrightChanges'
 import tradingCenter from '@/page/tradingCenter/tradingCenter'
 import service from '@/page/service/service'
+import service_zzdj from '@/page/service_zzdj/service_zzdj'
+import service_zlsq from '@/page/service_zlsq/service_zlsq'
+import service_xlj from '@/page/service_xlj/service_xlj'
+import service_pct from '@/page/service_pct/service_pct'
 import copyright from '@/page/paycenter/copyright'
 import patent from '@/page/paycenter/patent'
 import trademark from '@/page/paycenter/trademark'//交易中心
@@ -71,6 +75,26 @@ export default new Router({
             path: '/service',
             name: 'service',
             component: service
+        },
+        {
+               path: '/service_zzdj',
+               name: 'service_zzdj',
+               component: service_zzdj
+        },
+        {
+               path: '/service_zlsq',
+               name: 'service_zlsq',
+               component: service_zlsq
+        },
+        {
+               path: '/service_xlj',
+               name: 'service_xlj',
+               component: service_xlj
+        },
+        {
+               path: '/service_pct',
+               name: 'service_pct',
+               component: service_pct
         },
         {
             path: '/knowledgepledge',
