@@ -6,7 +6,7 @@
                         <!-- 服务中心头部导航 -->
                         <div class="servecenter_top" style="background-image: url(../../../static/img/service/servecenter_banner.png);">
                                 <div class="servecenter_top_cen">
-                                        
+
                                         <div class="top_cen_left">
                                                 <div class="top_cen_left_lei" v-for="(item, index) in top_lei" :key="index"@mouseover="activeover(index)" @mouseleave = "activeleave" :class="{left_lei_bj:isactive==index}">
                                                         <img :src="item.img" alt="" v-show="isactive != index">
@@ -14,12 +14,21 @@
                                                         <p>{{item.name}}</p>
                                                 </div>
                                         </div>
-                                        <div class="top_cen_right_box" >
-                                                        <ul v-for="(item, index) in top_lei" v-show="isactive == index">
-                                                                <li v-for="(isitem,index) in item.arr" >{{isitem}}</li>
-                                                        </ul>
+                                        <div class="top_cen_right_box">
+                                                <div v-for="(item, index) in top_lei" v-show="isactive == index&&item.arr!=''">
+                                                        <div v-for="(isitem,index) in item.arr">
+                                                                <p><img src="" alt=""><span>{{isitem.name}}</span></p>
+                                                                <span v-for="toitem in isitem.xiaomu">{{toitem}}</span>
+                                                        </div>
                                                 </div>
+
+                                        </div>
                                         <div class="top_cen_cen">
+                                                <div class="top_cen_cen_text">
+                                                        <h1>专利服务,保护创新</h1>
+                                                        <p>激发创造力，保护知识产权权益</p>
+                                                        <button>了解详情</button>
+                                                </div>
                                                 <div class="top_cen_cen_btm">
                                                         <div class="btm_xiang" v-for="(item,index) in btm_xiang" :style="{'background-image':'url('+item.img+')'}"
                                                                 :key="index" @mouseover="btnover(index)" @mouseleave = "btnleave" :class="{btm_xiang_two:isbtn==index}">
@@ -50,6 +59,20 @@
                                                         <div class="inp"><img src="../../../static/img/service/servecenter_sj.png" alt=""><input type="text"
                                                                         placeholder="请输入您的手机号"></div>
                                                         <button>马上获取商标信息</button>
+                                                </div>
+                                                <div class="top_cen_right_cen_up">
+                                                        <div>
+                                                                <h3>13512059</h3>
+                                                                <p>今日交易指数</p>
+                                                        </div>
+                                                </div>
+                                                <div class="top_cen_right_cen_bottom">
+                                                        <img src="" alt="">
+                                                        <div>
+                                                                <p>你好欢迎来到一点网</p>
+                                                                <p>151****3585</p>
+                                                                <button>退出登录</button>
+                                                        </div>
                                                 </div>
                                         </div>
                                 </div>
@@ -198,27 +221,105 @@
                                         name: '商标服务',
                                         img: '../../../static/img/service/servecenter_m1.png',
                                         imgs:'../../../static/img/service/servecenter_m1_h.png',
-                                        arr:["普通商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
+                                        arr:[{
+                                                img:'../../../static/img/service/servecenter_m1.png',
+                                                name:'03类-日化用品',
+                                                xiaomu:['化妆品','香水','洗面奶']
+                                        },
+                                        {
+                                                img:'../../../static/img/service/servecenter_m1.png',
+                                                name:'05类-日化用品',
+                                                xiaomu:['化妆品','香水','洗面奶']
+                                        },
+                                        {
+                                                img:'../../../static/img/service/servecenter_m1.png',
+                                                name:'07类-日化用品',
+                                                xiaomu:['化妆品','香水','洗面奶']
+                                        }]
                                 }, {
                                         name: '专利服务',
                                         img: '../../../static/img/service/servecenter_m3.png',
                                         imgs:'../../../static/img/service/servecenter_m3_h.png',
-                                        arr:["专利商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
+                                       arr:[{
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'03类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       },
+                                       {
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'05类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       },
+                                       {
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'07类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       },
+                                       {
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'07类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       }, {
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'07类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       },
+                                       {
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'07类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       },
+                                       {
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'07类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       },
+
+                                       ],
+
                                 }, {
                                         name: '版权服务',
                                         img: '../../../static/img/service/servecenter_m4.png',
                                         imgs:'../../../static/img/service/servecenter_m4_h.png',
-                                        arr:["普通商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
+                                       arr:[{
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'03类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       },
+                                       {
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'05类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       },
+                                       {
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'07类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       }]
                                 }, {
                                         name: '企业服务',
                                         img: '../../../static/img/service/servecenter_m5.png',
                                         imgs:'../../../static/img/service/servecenter_m5_h.png',
-                                        arr:["普通商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
+                                       arr:[{
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'03类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       },
+                                       {
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'05类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       },
+                                       {
+                                               img:'../../../static/img/service/servecenter_m1.png',
+                                               name:'07类-日化用品',
+                                               xiaomu:['化妆品','香水','洗面奶']
+                                       }]
                                 }, {
                                         name: '联系客服',
                                         img: '../../../static/img/service/servecenter_m6.png',
                                         imgs:'../../../static/img/service/servecenter_m6_h.png',
-                                        arr:["普通商标注册","商标变更","商标更正","商标宽展","商标许可备案","商标续展"]
+                                        arr:''
                                 }, ],
                                 btm_xiang: [{
                                         name: '服装鞋帽',
@@ -396,16 +497,16 @@
                                 this.isbtn = e
                         },
                         btnleave(e){
-                                this.isbtn 
+                                this.isbtn
                         },
                         mouseOver(e){
                                 console.log(1111)
                                 this.active= e
-                                
+
                         },
                         mouseLeave(e){
                             this.active = 'false'
-                            
+
                         }
 
                 }
@@ -442,7 +543,7 @@
         }
 
         .top_cen_left {
-                flex: 2;
+                flex: 1.5;
         }
 
         .top_cen_left_lei {
@@ -463,32 +564,79 @@
                 width: 25px;
         }
         .top_cen_right_box{
-                flex: 2;
+                flex: 2.2;
         }
-        .top_cen_right_box>ul{
+        .top_cen_right_box>div{
                 list-style: none;
                 background-color: #fff;
-                padding: 10px 20px;
-                color: #bababa;
+                padding: 5px ;
                 font-size: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 /* display: none; */
         }
-        .top_cen_right_box li{
-                padding-bottom: 5px;
+         .top_cen_right_box>div>div:last-child{
+                 border: none;
+         }
+        .top_cen_right_box>div>div{
+                text-align: center;
+                /* height: 12.5%; */
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
         }
-        .top_cen_right_box li:hover{
-                color: #409EFF;
+        .top_cen_right_box>div>div>p{
+                color: #666;
+                padding-bottom: 5px;
+                display: flex;
+                align-items: center;
+        }
+        .top_cen_right_box>div>div>p>img{
+                width: 10px;
+                margin-right: 5px;
+        }
+        .top_cen_right_box>div>div>span{
+                color: #ccc;
+                padding-right: 5px ;
+        }
+        .top_cen_right_box>div>div>span:hover{
+                color: #409EFF !important;
+
         }
         .top_cen_cen {
                 display: flex;
                 justify-content: flex-end;
-                align-items: flex-end;
+                align-items: center;
+                flex-direction: column;
                 flex: 9;
         }
-
+        .top_cen_cen_text{
+                height: 77%;
+                width: 100%;
+                display: flex;
+                padding: 40px  20px 0  20px;
+                /* align-items: center; */
+                justify-content: center;
+                flex-direction: column;
+                align-items: flex-start;
+                color: #fff;
+        }
+        .top_cen_cen_text>h1{
+                font-weight: 500;
+        }
+        .top_cen_cen_text>p{
+                padding: 10px 0;
+        }
+         .top_cen_cen_text>button{
+                 margin-top: 20px;
+                 border: 1px solid #fff;
+                 background-color: rgb(0,0,0,0);
+                 color: #fff;
+                 padding: 5px 15px;
+         }
         .top_cen_cen_btm {
                 display: flex;
-                width: 100%;
+                width: 96%;
                 height: 23%;
                 cursor: pointer;
                 background-color: #fff;
@@ -534,7 +682,8 @@
                 background-color: #A17FEF;
                 padding: 2px 20px 1px 5px;
                 color: #fff;
-                border-bottom-right-radius: 70%;
+                /* border-bottom-right-radius: 70%; */
+                border-radius: 0 0 30px 0;
         }
 
         .btm_xiang_two>div {
@@ -568,7 +717,7 @@
         }
 
         .top_cen_right_ban {
-                height: 100px;
+                height: 17%;
         }
 
         .top_cen_right_ban>img {
@@ -577,8 +726,9 @@
         }
 
         .top_cen_right_cen {
+                height: 43%;
                 flex: 1;
-                padding: 20px 20px 40px 20px;
+                padding: 20px ;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -633,7 +783,54 @@
                 color: #fff;
                 border-radius: 30px;
         }
+        .top_cen_right_cen_up{
+                height: 20%;
+                padding: 20px;
+                background-color: #fff;
+        }
+        .top_cen_right_cen_up>div{
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+        }
+        .top_cen_right_cen_up>div{
 
+        }
+        .top_cen_right_cen_bottom{
+                height: 18%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #D6ECFA;
+                border-radius: 0  0 5px 5px;
+        }
+        .top_cen_right_cen_bottom>img{
+                width: 25px;
+                border-radius: 50%;
+        }
+        .top_cen_right_cen_bottom>div{
+                padding-left: 10px;
+                line-height: 2;
+        }
+        .top_cen_right_cen_bottom>div>p:nth-child(1){
+                font-size: 13px;
+                color: #555;
+        }
+        .top_cen_right_cen_bottom>div>p:nth-child(2){
+                font-size: 11px;
+                color: #ccc;
+        }
+        .top_cen_right_cen_bottom>div>button{
+                border: 1px solid #72BDE8;
+                color: #72BDE8;
+                font-size: 15px;
+                border-radius: 15px;
+                padding: 2px 10px;
+                background-color: #fff;
+        }
         .servecenter_center_o {
                 flex: 1;
                 width: 1200px;
