@@ -13,7 +13,8 @@
                                         <div class="xiang_title">
                                                 <p>液体位置控制器</p>
                                                 <div>
-                                                        <p><img src="../../../static/img/transfer/transfer_eye.png" alt=""><span>49</span></p>
+                                                        <p><img src="../../../static/img/transfer/transfer_eye.png" alt=""></p>
+                                                        <span>49</span>
                                                         <p>发布时间：2020-11-16 19:52:17</p>
                                                 </div>
                                         </div>
@@ -79,7 +80,7 @@
                                 }],
                                 active: 0,
                                 nub: '',
-                                currentPage:1
+                                currentPage:1  //数据数量
                         }
                 },
                 methods: {
@@ -182,7 +183,8 @@
         }
 
         .xiang_title>div img {
-                height: 12px;
+                height: 20px;
+                padding-bottom: 2px;
         }
 
         .xiang_title>div p {
@@ -190,7 +192,10 @@
                 color: #aaa;
                 margin-left: 10px;
         }
-
+        .xiang_title>div span {
+                font-size: 12px;
+                color: #aaa;
+        }
         .left_xinag_text_leixin {
                 display: flex;
                 justify-content: space-between;

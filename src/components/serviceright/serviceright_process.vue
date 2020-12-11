@@ -18,7 +18,7 @@
                                 </div>
                                 <div class="process_cen_center">
                                         <div class="cen_center_lie">
-                                                <img src="" alt="">
+                                                <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1160601342,3492929116&fm=26&gp=0.jpg" alt="">
                                                 <div class="cen_center_lie_right">
                                                         <span>
                                                                 <div></div>
@@ -43,7 +43,7 @@
                                                 </div>
                                         </div>
                                         <div class="cen_center_lie">
-                                                <img src="" alt="">
+                                                <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3703990512,1304638862&fm=26&gp=0.jpg" alt="">
                                                 <div class="cen_center_lie_right">
                                                         <span>
                                                                 <div></div>
@@ -95,32 +95,35 @@
         }
 
         .process_all {
-                background-color: #7381A4;
-                height: 50%;
                 width: 100%;
-                position: absolute;
 
         }
 
+
         .process_top {
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            background-color: #7381A4;
+            height: 350px;
+            width: 100%;
                 padding: 30px 0;
         }
 
         .process_top>img {
                 width: 100%;
-                height: 100px;
                 margin:  15px 0;
         }
 
         .process_cen {
-                width: 90%;
+                width: 98%;
                 position: relative;
                 z-index: 9999;
                 background-color: #fff;
-                padding: 15px 10px;
+                padding: 20px 15px;
                 border-radius: 5px;
                 box-shadow: 5px 5px 5px #ccc;
                 margin: 0 auto;
+                top: -100px;
         }
 
         .process_cen_top {
@@ -160,7 +163,7 @@
         }
 
         .cen_center_lie>img {
-                flex: 2;
+                width: 50%;
                 position: relative;
                 z-index: 999;
         }
@@ -173,7 +176,7 @@
 
         .cen_center_lie_right>span {
                 color: #777;
-                font-size: 15px;
+                font-size: 13px;
                 width: 100%;
                 border-bottom: 1px solid #ddd;
                 padding: 10px 0;

@@ -11,10 +11,10 @@
                                 </div>
                                 <div class="topall_center">
                                         <div class="solt"><slot name="topall"><p>服务费：<span>￥1000</span></p></slot></div>
-                                        <div class="inp">
+                                        <div class="inp" v-show="isShow !=''">
                                                 <p>联系电话：</p><input type="tel">
                                         </div>
-                                        <div class="inp">
+                                        <div class="inp"  v-show="isShow !=''">
                                                 <p>联系人：</p><input type="text">
                                         </div>
                                 </div>
@@ -45,9 +45,16 @@
         export default {
                 data() {
                         return {
-                                qiye: '企业知识产贯标',
+                                // qiye: '企业知识产贯标',
                                 nub: 1
                         }
+                },
+                props:{
+                        qiye:'',
+                        isShow:''
+                },
+                mounted() {
+
                 },
                 methods: {
                         but1() {

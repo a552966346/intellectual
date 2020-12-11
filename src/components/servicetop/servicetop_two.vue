@@ -88,6 +88,7 @@
         #serviceTop{
                 width: 1200px;
                 margin: 0 auto;
+                background-color: #fff;
         }
         .topAll{
                 width: 100%;

@@ -6,7 +6,7 @@
             </div>
             <div class="topRight">
                 <div class="topHeader">
-                    <p>PCT申请</p>
+                    <p>{{title}}</p>
                     <p>PCT是世界知识产权组织管辖下的有关专利的国际条约，通过PCT途径可以向多个国家申请专利。</p>
                 </div>
                 <div class="topSelect">
@@ -26,7 +26,7 @@
                                     <span>费用合计：</span>
                                     <span>￥9800</span>
                             </div>
-                            
+
                     </div>
                     <div class="rfooter">
                             <div class="rfooterLeft">
@@ -56,7 +56,16 @@
     </div>
 </template>
 <script>
+export default{
+	data(){
+		return{
 
+		}
+	},
+	props:{
+		title:''
+	}
+}
 </script>
 <style >
     *{
@@ -65,10 +74,11 @@
     box-sizing: border-box;
 }
 #pctTop{
-    width: 100%; 
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
     display: flex;
+    background-color: #fff;
 }
 .topLeft{
     flex: 1.2;
@@ -85,7 +95,7 @@
     font-size: 22px;
     letter-spacing: 2px;
     color: #2f2f2f;
-    
+
 }
 .topHeader>p:nth-child(2){
     font-size: 13px;
@@ -94,7 +104,7 @@
     background: #f3f6ff;
     margin-top: 10px;
     color: #898a8e;
-   
+
 }
 .topSelect{
     padding: 30px 0;

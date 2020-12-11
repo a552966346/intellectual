@@ -35,7 +35,7 @@
 </template>
 
 <script>
-        import servicetop from '../../components/servicetop/servicetop.vue'
+        import servicetop from '../../components/servicetop/servicetop_two.vue'
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import serviceright from '../../components/serviceright/serviceright.vue'
         export default{

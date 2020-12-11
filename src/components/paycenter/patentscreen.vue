@@ -72,8 +72,7 @@
                                         </div>
                                 </div>
                         </div>
-                </div>
-                
+                </div>   
         </div>
 </template>
 
@@ -213,12 +212,6 @@ export default {
                 setInterval(this.showMarquee, 2000)
         },
         methods: {
-        //         onclick(index) {
-        //         console.log(index)
-        //         //将点击的元素的索引赋值给bian变量
-
-        //         this.isactive = index
-        //     },
                 showMarquee: function() {
                         this.animate = true;
                         setTimeout(() => {
