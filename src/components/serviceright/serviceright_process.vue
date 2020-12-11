@@ -18,7 +18,7 @@
                                 </div>
                                 <div class="process_cen_center">
                                         <div class="cen_center_lie">
-                                                <img src="" alt="">
+                                                <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1160601342,3492929116&fm=26&gp=0.jpg" alt="">
                                                 <div class="cen_center_lie_right">
                                                         <span>
                                                                 <div></div>
@@ -43,7 +43,7 @@
                                                 </div>
                                         </div>
                                         <div class="cen_center_lie">
-                                                <img src="" alt="">
+                                                <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3703990512,1304638862&fm=26&gp=0.jpg" alt="">
                                                 <div class="cen_center_lie_right">
                                                         <span>
                                                                 <div></div>
@@ -160,7 +160,7 @@
         }
 
         .cen_center_lie>img {
-                flex: 2;
+                width: 50%;
                 position: relative;
                 z-index: 999;
         }

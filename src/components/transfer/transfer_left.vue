@@ -80,7 +80,7 @@
                                 }],
                                 active: 0,
                                 nub: '',
-                                currentPage:1
+                                currentPage:1  //数据数量
                         }
                 },
                 methods: {
