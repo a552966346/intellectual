@@ -35,6 +35,7 @@ export default new Router({
             path: '/',
             name: 'index',
             component: index
+            
         },
         {  //活动专区
             path: '/activity',
@@ -67,7 +68,7 @@ export default new Router({
             component: patent
         },
         {
-            path: '/paycenter/trademark', //商标
+            path: '/transaction', //交易中心
             name: 'trademark',
             component: trademark
         },
@@ -97,12 +98,12 @@ export default new Router({
                component: service_pct
         },
         {
-            path: '/knowledgepledge',
+            path: '/financialcentre',//金融中心
             name: 'knowledgepledge',
             component: knowledgepledge
         },
         {
-            path: '/knowledgefunds',
+            path: '/knowledgefunds', //金融中心
             name: 'knowledgefunds',
             component: knowledgefunds
         },
@@ -124,7 +125,7 @@ export default new Router({
             component: test
         },
         {
-                path: '/servecenter',
+                path: '/servicecenter', //服务中心
                 name: 'servecenter',
                 component: servecenter
         },

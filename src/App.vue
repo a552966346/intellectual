@@ -18,7 +18,8 @@
 </template>
 <script>
 export default {
-   name: 'App'
+   name: 'App',
+   
   }
 </script>
 
@@ -58,7 +59,7 @@ export default {
   display: flex;
   width: 40%;
   justify-content: space-between;
-  
+
 }
 .common_top_right>a{
   text-decoration: none;

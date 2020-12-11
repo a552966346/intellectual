@@ -1,4 +1,5 @@
 import requestAll from './request.js'
+console.log(requestAll)
 // 本地后台地址
 const baseUrl = '/dev-api';
 // 第三方地址 如：高德 腾讯 天气api等接口
@@ -6,7 +7,7 @@ const webUrl = '/dsf-api';
 // 存放所有请求
 const api={
     /*
-      请求实例: 
+      请求实例:
       参数根据接口需要定义
         getBanner(test_one,test_two){
             // 参数
@@ -15,7 +16,7 @@ const api={
                 option:test_two
             }
             return requestAll.requset(baseUrl + '/index/index/volunteerlist', data);
-        }, 
+        },
     */
     /*
     * 会员登录注册
@@ -217,7 +218,7 @@ const api={
       return requestAll.requset(baseUrl + '/api/service/details', data);
     },
 
-    
+
 
 
 
@@ -229,7 +230,7 @@ const api={
     }
     return requestAll.requset(baseUrl + '/index/index/volunteerlist', data);
   },
-  
+
 }
 
 export default api;

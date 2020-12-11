@@ -7,13 +7,13 @@
        <p>{{support}}</p>
      </div>
      <div class="bottom_right_item">
-       <div>
-         <p>新手指引</p>
-         <li>注册登录</li>
-         <li>忘记密码</li>
-         <li>关于合同</li>
+       <div v-for="(item,index) in text" :key="index">
+         <p>{{item.name}}</p>
+         <li v-for="children in item.children" :key="children.id">{{children.name}}</li>
+         <!-- <li>忘记密码</li>
+         <li>关于合同</li> -->
        </div>
-       <div>
+       <!-- <div>
          <p>业务指导</p>
          <li>技术交底书</li>
          <li>关于费用</li>
@@ -31,7 +31,7 @@
          <li>维权投诉</li>
          <li>退款说明</li>
          <li>发票管理</li>
-       </div>
+       </div> -->
      </div>
    </div>
    <div class="commonbottom_bottom">
@@ -46,8 +46,16 @@ export default {
     return{
       address:'地址:山西晋中市定阳路1100号 (职工医学院对面)',
       support:'技术支持:晋中华迅网路技术股份有限公司',
-      records:'备案号'
+      records:'备案号',
+      text:''
     }
+  },
+  beforeMount() {
+          this.$api.getbottom()
+          .then(res=>{
+                 console.log(res)
+                 this.text = res.data
+          })
   }
 }
 

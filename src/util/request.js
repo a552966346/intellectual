@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-/* 请求封装 
+/* 请求封装
 * url : 请求地址
 * data : 请求附带参数
 * method : 请求方式 默认为post方式 如果需要使用get方式传入method 参数
@@ -25,4 +25,6 @@ function requset(url, data = {}, method = 'post'){
     })
   })
 }
-export default requset;
+export default {
+  requset: requset
+}
