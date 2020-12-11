@@ -87,6 +87,8 @@ export default {
 
 <style scoped>
 .copyright_bottms{
+    max-width: 1200px;
+    margin: 0 auto;
     background-color: #f6f6f6;
     padding-bottom: 20px;
     }
@@ -224,7 +226,6 @@ export default {
 .copyright_like{
     max-width: 1200px;
     background-color: #fff;
-    margin: 0px auto;
     padding: 30px 0 0;
 }
 </style>

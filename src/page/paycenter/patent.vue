@@ -43,10 +43,7 @@
                         </div>
 
                         <!-- 猜你喜欢 -->
-                        <div>
-                                <!-- <copyrightBottom :arr='arr'></copyrightBottom> -->
-                        </div>
-
+                        <patentbottom></patentbottom>
                 </div>
                 <v-combotttom></v-combotttom>
         </div>
@@ -55,7 +52,7 @@
 <script>
 import patentscreen from '@/components/paycenter/patentscreen.vue'; //专利筛选组件
 import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
-import copyrightBottom from '@/components/paycenter/copyrightBottom.vue'
+import patentbottom from '@/components/paycenter/patentbottom.vue'
 import patentcon from '../../components/paycenter/patentcon.vue';
         export default {
                 data() {
@@ -74,7 +71,7 @@ import patentcon from '../../components/paycenter/patentcon.vue';
                 },
                 components: {
                         copyrightOrdinary,
-                        copyrightBottom,
+                        patentbottom,
                         patentscreen,
                         patentcon
                 }
