@@ -12,7 +12,7 @@
                         <el-menu-item index="/">首页</el-menu-item>
                         <el-submenu :index='item.type' v-for="(item,nubs) in  this.$store.state.navbarlist" v-if="item.children.length !=0" :key="nubs">
                                 <template slot="title">{{item.name}}</template>
-                                <el-menu-item v-for="(isitem,isnub) in item.children" :index="'/'+item.type+'?id='+isitem.id">{{isitem.name}}</el-menu-item>
+                                <el-menu-item v-for="(isitem,isnub) in item.children" :index="'/'+isitem.keywords+'?id='+isitem.id">{{isitem.name}}</el-menu-item>
                         </el-submenu>
                         <el-menu-item :index="'/'+item.type" v-for="(item,nubs) in  this.$store.state.navbarlist" v-if="item.children.length ==0" :key="nubs">{{item.name}}</el-menu-item>
 
@@ -26,7 +26,16 @@
                                 data: '' // 导航栏
                         };
                 },
-
+                created(){
+                        this.$api.getnavbar()
+                                .then(res => {
+                                        console.log(res)
+                                        this.$store.state.navbarlist = res.data
+                                })
+                                .catch(err => {
+                                        console.log(err)
+                                })
+                        },
                 methods: {
 
                          handleSelect(key,keyPath){

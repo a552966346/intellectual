@@ -8,13 +8,14 @@ const store = new Vuex.Store({
   // 公共变量
   // this.$store.state.xxx
   state: {
-    count: 0
+    count: 0,
+    navbarlist:[]
   },
   // 公共方法
   // this.$store.commint('方法名','参数')
   mutations: {
     increment (state,n) {
-      console.log(state.count)// 0 
+      console.log(state.count)// 0
       console.log(n) // 6
       state.count+=n
       // return state.count
