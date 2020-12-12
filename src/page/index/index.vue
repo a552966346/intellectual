@@ -74,7 +74,7 @@
       <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :background_img_url='title_bg_url[2]'></v-comtitle>
         <div class="index_online">
           <div :class="index.index == 12?'index_blokk':'index_block'"  v-for="(index,item) in list" :key="item" >
-            <div :class="index.index == 12?'index_bvlax':'index_bvlx'"> 
+            <div :class="index.index == 12?'index_bvlax':'index_bvlx'">
                 {{index.title}}
             </div>
             <div :class="index.index == 12?'index_bvxxa':'index_bvlxa'">
@@ -114,7 +114,7 @@
                         产权转让全程监护
                       </div>
                       <div class="index_urlz">
-                        <p>国家知识产权局公告-第二八六号</p> 
+                        <p>国家知识产权局公告-第二八六号</p>
                         <p>根据《中华人民共和国专利法》第三十九和第四十条的规定，国家知识产权局将修改专利证书及专利证书副本。现将有关事宜公告如下：证书及专利证书副本。</p>
                       </div>
                     </div>
@@ -284,6 +284,7 @@ export default {
       ]
     }
   },
+
   methods: {
     tab(index) {
         this.num = index;
@@ -358,16 +359,16 @@ export default {
     line-height: 200px;
     margin: 0;
   }
-  
+
   .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
-  
+
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
   .index_left_swiper{
-    padding: 25px 0; 
+    padding: 25px 0;
   }
   .index_enterpriseasd{width: 1240px;height: 420px;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
   .index_enterpriseasdwron{border: 20px solid #fff; width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbaon.png);background-size: cover;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 3%; color: #fff;}

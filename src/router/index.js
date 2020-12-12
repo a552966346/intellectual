@@ -11,7 +11,7 @@ import service_xlj from '@/page/service_xlj/service_xlj'
 import service_pct from '@/page/service_pct/service_pct'
 import copyright from '@/page/paycenter/copyright'
 import patent from '@/page/paycenter/patent'
-import trademark from '@/page/paycenter/trademark'//交易中心
+import trademark from '@/page/paycenter/trademark'//商标转让
 import knowledgepledge from '@/page/knowledgepledge/knowledgepledge' //知识质押
 import knowledgefunds from '@/page/knowledgefunds/knowledgefunds' //知识基金
 import servecenter from '@/page/servecenter/servecenter' //服务中心
@@ -35,7 +35,6 @@ export default new Router({
             path: '/',
             name: 'index',
             component: index
-            
         },
         {  //活动专区
             path: '/activity',
@@ -58,32 +57,32 @@ export default new Router({
             component: tradingCenter
         },
         {
-            path: '/paycenter/copyright',
+            path: '/copyright', //版权转让
             name: 'copyright',
             component: copyright
         },
         {
-            path: '/paycenter/patent', //专利
+            path: '/patents', //专利转让
             name: 'patent',
             component: patent
         },
         {
-            path: '/transaction', //交易中心
+            path: '/trademarks', //商标转让
             name: 'trademark',
             component: trademark
         },
         {
-            path: '/service',
+            path: '/trademark',//商标注册类型
             name: 'service',
             component: service
         },
         {
-               path: '/service_zzdj',
+               path: '/copyrightregister',
                name: 'service_zzdj',
                component: service_zzdj
         },
         {
-               path: '/service_zlsq',
+               path: '/patent',
                name: 'service_zlsq',
                component: service_zlsq
         },
@@ -93,17 +92,17 @@ export default new Router({
                component: service_xlj
         },
         {
-               path: '/service_pct',
+               path: '/consultant ',
                name: 'service_pct',
                component: service_pct
         },
         {
-            path: '/financialcentre',//金融中心
+            path: '/financing',//产权质押
             name: 'knowledgepledge',
             component: knowledgepledge
         },
         {
-            path: '/knowledgefunds', //金融中心
+            path: '/property', //产权基金
             name: 'knowledgefunds',
             component: knowledgefunds
         },
@@ -125,7 +124,7 @@ export default new Router({
             component: test
         },
         {
-                path: '/servicecenter', //服务中心
+                path: '/serve', //服务中心
                 name: 'servecenter',
                 component: servecenter
         },
