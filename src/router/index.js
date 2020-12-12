@@ -24,6 +24,7 @@ import about from '@/page/about/about' //关于我们
 import navcter from '@/components/navcter/navcter' //关于我们
 import navctertw from '@/components/navcter/navctertw' //关于我们
 import transfer from '@/page/transfer/transfer'
+import technology from '@/page/technology/technology' //技术转移
 
 Vue.use(Router)
 
@@ -144,6 +145,11 @@ export default new Router({
             path: '/transfer',
             name: 'transfer',
             component: transfer
+        },
+        {
+            path: '/technology',
+            name: 'technology',
+            component: technology
         },
     ]
 })
