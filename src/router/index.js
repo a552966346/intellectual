@@ -73,27 +73,27 @@ export default new Router({
             component: trademark
         },
         {
-            path: '/trademark',//商标注册类型
+            path: '/serve',//其他服务
             name: 'service',
             component: service
         },
         {
-               path: '/copyrightregister',
+               path: '/copyrightregister',//著作登记
                name: 'service_zzdj',
                component: service_zzdj
         },
         {
-               path: '/patent',
+               path: '/trademark',//专利申请
                name: 'service_zlsq',
                component: service_zlsq
         },
         {
-               path: '/service_xlj',
+               path: '/patent',         //下料机
                name: 'service_xlj',
                component: service_xlj
         },
         {
-               path: '/consultant ',
+               path: '/consultant ',    //涉外
                name: 'service_pct',
                component: service_pct
         },

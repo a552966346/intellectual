@@ -22,7 +22,7 @@
                                                         <div v-show="isactive_two == index &&item.children.length != 0" v-for="(item, index) in top_lei" :key="item.id">
                                                                 <div v-for="(isitem,index) in item.children">
                                                                         <!-- <p><img src="" alt=""><span>{{isitem.name}}</span></p> -->
-                                                                        <p>{{isitem.name}}</p>
+                                                                        <p @click="running(item.keywords,isitem.id)">{{isitem.name}}</p>
                                                                 </div>
                                                         </div>
 
@@ -334,6 +334,15 @@
                                         this.title_all[i] = data[i].name
                                 }
                         },
+                        running(key,id){
+                                console.log(key,id)
+                               this.$router.push({
+                                        path:key,
+                                        query:{
+                                                id:id
+                                        }
+                                })
+                        }
                 }
         }
 </script>
