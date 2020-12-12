@@ -53,7 +53,6 @@ export default {
   beforeMount() {
           this.$api.getbottom()
           .then(res=>{
-                 console.log(res)
                  this.text = res.data
           })
   }

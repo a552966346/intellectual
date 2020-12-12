@@ -124,7 +124,7 @@ export default new Router({
             component: test
         },
         {
-                path: '/serve', //服务中心
+                path: '/servicecenter', //服务中心
                 name: 'servecenter',
                 component: servecenter
         },
