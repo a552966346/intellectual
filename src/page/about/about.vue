@@ -1,17 +1,22 @@
 <template>
     <div class="about_all">
-            <!-- 公共搜索头部 -->
         <v-topsearch></v-topsearch>
-            <!-- 顶部导航 -->
         <v-navigation></v-navigation>
-            <!--banner -->
         <div class="about_banner">
             <img src="../../../static/img/about/about_banter.png" alt="altText">
         </div>
-            <!--内容 -->
+        <!--:default-openeds="['1']"-->
         <el-container style="padding:1px 0">
-                <el-aside width="201px" style="border-right:1px solid rgba(230,230,230)">
-                    <el-menu :default-openeds="['1', '3']">
+                <el-aside width="201px" style="border-right:1px solid rgba(230,230,230);">
+                    <el-menu
+                    collapse-transition
+                    :default-active="$route.path"
+                    class="aside-menu-test"
+                    active-text-color="#FF6666"
+                    text-color="#000"
+                    router
+                    :collapse="collapse"
+                    >
                     <el-submenu index="1">
                         <template slot="title">关于我们</template>
                         <el-menu-item-group router='true'>
@@ -41,19 +46,15 @@
                 </el-aside>
                 <router-view/>
             </el-container>
-        <!-- 公共底部 -->
         <v-combotttom></v-combotttom>
     </div>
-
 </template>
-
 <script>
 import navcter from '@/components/navcter/navcter.vue'
 import navctertw from '@/components/navcter/navctertw.vue'
    export default {
     data() {
-      return {
-
+      return {  
       }
     },
     methods:{
@@ -84,4 +85,8 @@ import navctertw from '@/components/navcter/navctertw.vue'
 .about_cet {display: flex;justify-content: center;align-items: center;flex-direction: column;}
 .el-menu{border-right: none !important;}
 .about_cet p:first-child{font-size: 24px;display: flex;justify-content: center;align-items: center;}
+.el-menu-item .is-active{border-bottom-color: none !important;}
+.el-menu-item:hover{color: #1787FB !important;text-decoration: underline;}
+.el-menu-item{border-bottom: none !important;}
+.el-menu-item.is-active{border-bottom: none !important;}
 </style>
