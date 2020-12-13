@@ -10,11 +10,11 @@
                            <!-- 标题 -->
                            <div class="serviceleft_item_title" >
                                 <div class="serviceleft_item_title1"></div>
-                                <div class="serviceleft_item_title2">{{item.titname}}</div>
+                                <div class="serviceleft_item_title2">{{item.name}}</div>
                            </div>
                            <!-- 跳转 -->
-                           <div class="serviceleft_item_lian" v-for='(isitem,ind) in item.type' :key='isitem.id'>
-                                <router-link to="" class="common_lian">{{isitem.name}}</router-link>
+                           <div class="serviceleft_item_lian" v-for='(isitem,ind) in item.children' :key='isitem.id' @click="run(isitem.id)">
+                                <router-link :to="{path:'isserve',query:{ id:isitem.id}}" class="common_lian" :class="{font_color:isid==isitem.id}" >{{isitem.name}}</router-link>
                            </div>
                       </div>
 
@@ -27,67 +27,25 @@
                 data(){
                         return{
                                 leftdata:[
-                                        {
-                                           id:1,
-                                           titname:'国内专利申请',
-                                           type:[{
-                                               id:1,
-                                               name:'发明专利'
-                                           },{
-                                              id:2,
-                                              name:'实用新型'
-                                           },{
-                                              id:3,
-                                              name:'外观设计'
-                                           }]
-                                        },{
-                                            id:2,
-                                            titname:'涉外专利申请',
-                                            type:[{
-                                                id:1,
-                                                name:'PCT国际专利申请'
-                                            },{
-                                               id:2,
-                                               name:'单独国家直接申请'
-                                            }]
-                                        },{
-                                            id:3,
-                                            titname:'商标服务',
-                                            type:[{
-                                                id:1,
-                                                name:'普通商标注册'
-                                            },{
-                                               id:2,
-                                               name:'商标变更'
-                                            },{
-                                               id:3,
-                                               name:'商标续展'
-                                            }]
-                                        },{
-                                            id:4,
-                                            titname:'版权服务',
-                                            type:[{
-                                                id:1,
-                                                name:'软件著作权登记'
-                                            },{
-                                               id:2,
-                                               name:'美术作品登记'
-                                            },{
-                                               id:3,
-                                               name:'文学作品登记'
-                                            }]
-                                        },{
-                                            id:5,
-                                            titname:'其他服务',
-                                            type:[{
-                                                id:1,
-                                                name:'企业知识产权展示'
-                                            },{
-                                               id:2,
-                                               name:'企业高企认定'
-                                            }]
-                                        }
-                                ]
+
+                                ],
+
+                        }
+                },
+                props:{
+                          isid:''
+                },
+                mounted() {
+                        this.$api.severcategory()
+                        .then(res=>{
+                                console.log(res)
+                                this.leftdata = res.data
+                        })
+                },
+                methods:{
+                        run(id){
+                                console.log(id)
+                                this.$emit("running",id)
                         }
                 }
         }
@@ -105,4 +63,5 @@
         /* 跳转链接 */
         .serviceleft_item_lian{display: flex;flex-direction: column;}
         .common_lian{padding-bottom: 20px;padding-left: 25px;color: #999;font-weight: bold;}
+        .font_color{color: #1a7fc3!important;}
 </style>

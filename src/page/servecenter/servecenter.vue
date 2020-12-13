@@ -119,14 +119,14 @@
                         <div class="servecenter_center_sb">
                                 <div class="servecenter_center_sb_left">
                                        <p>{{sb_right_lie_o.name}}</p>
-                                        <p v-html="sb_right_lie_o.content"></p>
+                                        <p>{{sb_right_lie_o.sketch}}</p>
                                         <p>{{sb_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                         <p><button>立即办理</button><button>查看详情</button></p>
                                 </div>
                                 <div class="servecenter_center_sb_right">
                                         <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="item.id" v-if="index != 0">
                                                 <p>{{item.name}}</p>
-                                               <p v-html="item.content"></p>
+                                               <p>{{item.sketch}}</p>
                                                 <p><span>{{item.fee}}元起</span><img :src="'http://intellectual.jzhxwl.com'+item.breviary_image" alt=""></p>
                                         </div>
                                 </div>
@@ -142,7 +142,7 @@
                         <div class="servecenter_center_zl">
                                 <div class="servecenter_center_zli_left">
                                         <p>{{ zl_right_lie_o.name}}</p>
-                                        <p v-html="zl_right_lie_o.content"></p>
+                                        <p >{{zl_right_lie_o.sketch}}</p>
                                         <p>{{zl_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                         <p><button>联系客服</button><button>查看详情</button></p>
                                 </div>
@@ -151,7 +151,7 @@
                                                 <img :src="'http://intellectual.jzhxwl.com'+item.breviary_image" alt="">
                                                 <div>
                                                         <span>{{item.name}}</span>
-                                                        <span v-html="item.content"></span>
+                                                        <span>{{item.sketch}}</span>
                                                 </div>
                                                 <p><span>{{item.fee}}元起</span></p>
                                                 <button>查看详情</button>
@@ -168,7 +168,7 @@
                                         <div class="fu_cen_left">
                                                 <div >
                                                         <p>{{fu_cen_right_lie_o.name}}</p>
-                                                        <p v-html="fu_cen_right_lie_o.content"></p>
+                                                        <p>{{fu_cen_right_lie_o.sketch}}</p>
                                                         <p>{{fu_cen_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                                 </div>
                                                 <p><button>联系客服</button><button>查看详情</button></p>
@@ -180,7 +180,7 @@
                                                         <p><img :src="'http://intellectual.jzhxwl.com'+item.breviary_image" alt="" ><!-- v-show="!(index == active)" -->
                                                         <!-- <img :src="'http://intellectual.jzhxwl.com'+item.images_text[1]" v-show="index == active"> -->
                                                         <span>{{item.name}}</span></p>
-                                                        <p v-html="item.content"></p>
+                                                        <p>{{item.sketch}}</p>
                                                         <p >{{item.fee}}元</p>
                                                         <p v-show="active==index"><button>立即办理</button></p>
                                                 </div>
@@ -196,7 +196,7 @@
                                 <div class="servecenter_center_qy_left">
                                         <div>
                                                 <p>{{qy_right_lie_o.name}}</p>
-                                                <p v-html="qy_right_lie_o.content"></p>
+                                                <p>{{qy_right_lie_o.sketch}}</p>
                                                 <p>{{qy_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                                 <button>立即咨询&nbsp;&nbsp;></button>
                                         </div>
@@ -207,7 +207,7 @@
                                                 <div>
                                                         <img :src="'http://intellectual.jzhxwl.com'+item.breviary_image" alt="">
                                                         <p>{{item.name}}</p>
-                                                        <p v-html="item.content"></p>
+                                                        <p>{{item.sketch}}</p>
                                                         <button>查看详情</button>
                                                 </div>
                                         </div>

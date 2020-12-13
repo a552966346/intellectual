@@ -5,6 +5,7 @@ import login from '@/page/login/login'
 import copyrightChanges from '@/page/copyrightChanges/copyrightChanges'
 import tradingCenter from '@/page/tradingCenter/tradingCenter'
 import service from '@/page/service/service'
+import service_ptsb from '@/page/service_ptsb/service_ptsb'
 import service_zzdj from '@/page/service_zzdj/service_zzdj'
 import service_zlsq from '@/page/service_zlsq/service_zlsq'
 import service_xlj from '@/page/service_xlj/service_xlj'
@@ -78,22 +79,27 @@ export default new Router({
             component: service
         },
         {
+            path: '/isserve',//普通商标
+            name: 'service_ptsb',
+            component: service_ptsb
+        },
+        {
                path: '/copyrightregister',//著作登记
                name: 'service_zzdj',
                component: service_zzdj
         },
         {
-               path: '/trademark',//专利申请
+               path: '/patent',//专利申请
                name: 'service_zlsq',
                component: service_zlsq
         },
         {
-               path: '/patent',         //下料机
+               path: '/service_xlj',         //下料机
                name: 'service_xlj',
                component: service_xlj
         },
         {
-               path: '/consultant ',    //涉外
+               path: '/consultant',    //涉外
                name: 'service_pct',
                component: service_pct
         },

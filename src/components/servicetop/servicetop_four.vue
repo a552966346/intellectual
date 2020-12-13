@@ -6,8 +6,8 @@
             </div>
             <div class="topRight">
                 <div class="topHeader">
-                    <p>{{title}}</p>
-                    <p>PCT是世界知识产权组织管辖下的有关专利的国际条约，通过PCT途径可以向多个国家申请专利。</p>
+                    <p>{{top_data.name}}</p>
+                    <p v-html="top_data.content"></p>
                 </div>
                 <div class="topSelect">
                     <select name="" id="">
@@ -24,7 +24,7 @@
                     <div class="btoCostOne">
                             <div class="btoOneLeft">
                                     <span>费用合计：</span>
-                                    <span>￥9800</span>
+                                    <span>￥{{top_data.fee}}</span>
                             </div>
 
                     </div>
@@ -63,7 +63,8 @@ export default{
 		}
 	},
 	props:{
-		title:''
+		title:'',
+                top_data:''
 	}
 }
 </script>

@@ -20,6 +20,14 @@ const store = new Vuex.Store({
       state.count+=n
       // return state.count
     },
+    service_top(id){
+
+            // this.$api.severdetiles(id)
+            // .then(res=>{
+            //         console.log(res.data)
+            //         this.top_data = res.data
+            // })
+    }
   }
 })
 

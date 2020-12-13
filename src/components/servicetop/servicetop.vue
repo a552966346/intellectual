@@ -2,15 +2,15 @@
         <div id="servicetop">
                 <div class="topall">
                         <div class="topall_img">
-                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=192655212,4161260789&fm=26&gp=0.jpg">
+                                <img :src="'http://intellectual.jzhxwl.com'+image">
                         </div>
                         <div class="topall_text">
                                 <div class="text_top">
-                                        <h2>{{qiye}}</h2>
-                                        <p>指导和帮助企业进一步强化知识产权创造、运用、管理和保护，增强自主创新能力。</p>
+                                        <h2>{{top_data.name}}</h2>
+                                        <p >{{top_data.sketch}}</p>
                                 </div>
                                 <div class="topall_center">
-                                        <div class="solt"><slot name="topall"><p>服务费：<span>￥1000</span></p></slot></div>
+                                        <div class="solt"><slot name="topall"><p>服务费：<span>￥{{top_data.fee}}</span></p></slot></div>
                                         <div class="inp" v-show="isShow !=''">
                                                 <p>联系电话：</p><input type="tel">
                                         </div>
@@ -50,7 +50,8 @@
                         }
                 },
                 props:{
-                        qiye:'',
+                        image:'',
+                        top_data:'',
                         isShow:''
                 },
                 mounted() {
@@ -75,8 +76,8 @@
         * {margin:0;padding:0;box-sizing:border-box;}
        #servicetop {width:1200px;background-color:#fff;box-shadow:1px 1px 10px 2px #ccc;}
        .topall {display:flex;width:100%;}
-       .topall_img {flex:2;padding:20px;}
-       .topall_img>img {width:100%;height:100%;}
+       .topall_img {flex:2;padding:20px;display: flex;justify-content: center;}
+       .topall_img>img {height:400px;width: 100%;}
        .topall_text {flex:3;padding:20px;}
        .text_top>h2 {padding:5px 0;color:#555;}
        .text_top>p {padding:10px;color:#A7A7A7;background-color:#F3F6FF;}

@@ -6,8 +6,8 @@
             </div>
             <div class="topRight">
                 <div class="topHeader">
-                    <h3>{{title}}</h3>
-                    <p><span>更新时间：2020-03-06 &nbsp;17:29:03</span><span>专利号：201410369182X&nbsp;<span>复制</span></span></p>
+                    <h3>{{top_data.name}}</h3>
+                    <p><span>更新时间：{{top_data.creatime_text}}</span><span>专利号：201410369182X&nbsp;<span>复制</span></span></p>
                 </div>
                 <div class="topBody">
                         <div class="topBody_lei">
@@ -76,7 +76,8 @@ export default{
                 }
         },
         props:{
-                title:''
+                title:'',
+                top_data:''
         }
 }
 </script>
