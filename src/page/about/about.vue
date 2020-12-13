@@ -57,6 +57,10 @@ import navctertw from '@/components/navcter/navctertw.vue'
       return {  
       }
     },
+    beforeMount() {
+        
+        this.$store.commit('increment',6)
+    },
     methods:{
         handleOpen(key, keyPath) {
             console.log(key, keyPath);

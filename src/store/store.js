@@ -12,9 +12,9 @@ const store = new Vuex.Store({
     navbarlist:[]
   },
   // 公共方法
-  // this.$store.commint('方法名','参数')
+  // this.$store.commit('方法名','参数')
   mutations: {
-    increment (state,n) {
+    increment(state,n) {
       console.log(state.count)// 0
       console.log(n) // 6
       state.count+=n
