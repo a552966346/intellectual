@@ -2,10 +2,11 @@
         <div class="patenscree_all">
                 <div class="patenscree_left">
                         <div class="patenscree_leftrow" v-for="(item,index) in patenscree" :key="index">
-                                <div class="patenscree_lefthead">{{item.head}}</div>
+                                <div class="patenscree_lefthead">{{item[0]}}</div>
                                 <div class="patenscree_leftcontent">
-                                        <span>不限</span>
-                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item.childlist" @click="choosecon(index,nubs,second.name,)" :key="second.id">{{second.name}}</span>
+
+                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[1]" @click="choosecon(index,nubs,second.name,)" :key="nubs" v-if="second !=''">{{second}}</span>
+                                        <span v-else>不限</span>
                                         <div class="patenscree_leftprice" v-if="index==4">
                                                 <input type="text">&nbsp;元&nbsp;-&nbsp;<input type="text">&nbsp;元<button>确定</button>
                                         </div>
@@ -14,46 +15,17 @@
                         <div class="patenscree_leftrow">
                                 <div class="patenscree_lefthead">其他条件</div>
                                 <div class="patenscree_leftother">
-                                        <div class="patenscree_leftdrop">
+                                        <div class="patenscree_leftdrop" v-for="(item,index) in data_two">
                                                 <el-dropdown>
                                                         <span class="el-dropdown-link">
-                                                                是否独家<i class="el-icon-arrow-down el-icon--right"></i>
+                                                                {{item[0]}}<i class="el-icon-arrow-down el-icon--right"></i>
                                                         </span>
                                                         <el-dropdown-menu slot="dropdown" class="patenscree_leftdropmenu">
-                                                                <el-dropdown-item>独家</el-dropdown-item>
+                                                                <el-dropdown-item v-for='(isitem,nubs) in item[1]'>{{isitem}}</el-dropdown-item>
                                                         </el-dropdown-menu>
                                                 </el-dropdown>
                                         </div>
-                                        <div class="patenscree_leftdrop">
-                                                <el-dropdown>
-                                                        <span class="el-dropdown-link">
-                                                                组合类型<i class="el-icon-arrow-down el-icon--right"></i>
-                                                        </span>
-                                                        <el-dropdown-menu slot="dropdown">
-                                                                <el-dropdown-item>类型</el-dropdown-item>
-                                                        </el-dropdown-menu>
-                                                </el-dropdown>
-                                        </div>
-                                          <div class="patenscree_leftdrop">
-                                                <el-dropdown>
-                                                        <span class="el-dropdown-link">
-                                                                字符长度<i class="el-icon-arrow-down el-icon--right"></i>
-                                                        </span>
-                                                        <el-dropdown-menu slot="dropdown">
-                                                                <el-dropdown-item>1字符</el-dropdown-item>
-                                                        </el-dropdown-menu>
-                                                </el-dropdown>
-                                        </div>
-                                          <div class="patenscree_leftdrop">
-                                                <el-dropdown>
-                                                        <span class="el-dropdown-link">
-                                                                注册年限<i class="el-icon-arrow-down el-icon--right"></i>
-                                                        </span>
-                                                        <el-dropdown-menu slot="dropdown">
-                                                                <el-dropdown-item>1年</el-dropdown-item>
-                                                        </el-dropdown-menu>
-                                                </el-dropdown>
-                                        </div>
+
                                         <input type="text" value="输入名称搜索商标">
                                         <span class="patentscreen_search">搜索</span>
                                 </div>
@@ -94,7 +66,7 @@
                                         </div>
                                 </div>
                         </div>
-                </div>   
+                </div>
         </div>
 </template>
 
@@ -103,104 +75,7 @@ export default {
         data() {
                 return {
                         iscolor:[],
-                        patenscree: [{
-                                id:1,
-                                head: '行业分类',
-                                childlist: [{
-                                                name: '农业牧业',
-                                                id:1
-                                        },
-                                        {
-                                                name: '农业牧业',
-                                                id:2
-                                        },
-                                        {
-                                                name: '农业牧业',
-                                                id:3
-                                        },
-                                        {
-                                                name: '农业牧业',
-                                                id:4
-                                        },
-                                        {
-                                                name: '农业牧业',
-                                                id:5
-                                        },
-                                        {
-                                                name: '农业牧业',
-                                                id:6
-                                        },
-                                        {
-                                                name: '农业牧业',
-                                                id:7
-                                        },
-                                        {
-                                                name: '农业牧业',
-                                                id:8
-                                        }
-                                ]
-                        }, {
-                                id:2,
-                                head: '是否独家',
-                                childlist: [{
-                                                name: '独家',
-                                                id:1
-                                        },
-                                        {
-                                                name: '非独家',
-                                                id:2
-                                        }
-                                ]
-                        },{
-                                id:3,
-                                head: '专利类型',
-                                childlist: [{
-                                                name: '发明专利',
-                                                id:1
-                                        },
-                                        {
-                                                name: '实用新型',
-                                                id:2
-                                        },
-                                        {
-                                                name: '外观设计',
-                                                id:3
-                                        }
-                                ]
-                        }, {
-                                id:4,
-                                head: '是否特价',
-                                childlist: [{
-                                                name: '非特价商品',
-                                                id:1
-                                        },
-                                        {
-                                                name: '特价商品',
-                                                id:2
-                                        }
-                                ]
-                        }, {
-                                id:5,
-                                head: '出售价格',
-                                childlist: [{
-                                                name: '3000以下',
-                                                id:1
-                                        },
-                                        {
-                                                name: '3000-1万',
-                                                id:2
-                                        },
-                                        {
-                                                name: '1万-3万',
-                                                id:3
-                                        },
-                                        {
-                                                name: '3万以上',
-                                                id:4
-                                        }
-                                ],
-                        },
-                ],
+                        patenscree: [],
                 screetext: [],
                 animate: false,
                 marqueeList: [{
@@ -227,11 +102,20 @@ export default {
                                 amount: '5小时',
                                 number:'0000001'
                         }
-                        ]
+                        ],
+                        data_two:''
                 }
         },
         created: function() {
                 setInterval(this.showMarquee, 2000)
+        },
+        mounted(){
+                this.$api.gettrademarkcondition()
+                .then(res=>{
+                        console.log(res)
+                        this.patenscree = res.data.data_one
+                        this.data_two = res.data.data_two
+                })
         },
         methods: {
                 showMarquee: function() {
@@ -245,7 +129,7 @@ export default {
                 choosecon(index,nubs,name) {
                         this.iscolor[index] = nubs
                         console.log(name)
-                        this.$set(this.screetext,index,name) 
+                        this.$set(this.screetext,index,name)
                         console.log(this.screetext)
 
                 },
@@ -345,7 +229,7 @@ export default {
                 padding: 16px 8px 0;
                 border-right: 1px solid #ccc;
         }
-        
+
 
         .patenscree_leftcontent p {
                 height: 25px;

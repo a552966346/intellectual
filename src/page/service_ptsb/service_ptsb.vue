@@ -47,7 +47,7 @@
                                 top_data:'',
                                 id:'',
                                 image:'',
-                                toptext:[{text:'高企认定好处',id:1,nub:0},{text:'服务流程',id:2,nub:1},{text:'认定条件',id:3,nub:0},{text:'申请资料',id:4,nub:0},{text:'常见问题',id:5,nub:0},{text:'典型案列',id:6,nub:0}],
+                                toptext:[{text:'服务优势',id:1,nub:0},{text:'服务流程',id:2,nub:1},{text:'常见问题',id:3,nub:0},{text:'典型案列',id:4,nub:0}],
                         }
                 },
                 components:{

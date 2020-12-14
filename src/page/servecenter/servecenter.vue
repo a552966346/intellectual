@@ -11,8 +11,8 @@
                                                 <div class="top_cen_left_lei" v-for="(item, index) in top_lei" :key="item.id"
 
                                                         @mouseover="activeover(index)" @mouseleave="activeleave" :class="{left_lei_bj:isactive==index}">
-                                                        <img :src="'http://intellectual.jzhxwl.com'+item.img[0]" alt="" v-show="isactive != index">
-                                                        <img :src="'http://intellectual.jzhxwl.com'+item.img[1]" alt="" v-show="isactive == index">
+                                                        <img :src=" item.img[0]" alt="" v-show="isactive != index">
+                                                        <img :src=" item.img[1]" alt="" v-show="isactive == index">
                                                         <p>{{item.name}}</p>
                                                 </div>
                                         </div>
@@ -106,7 +106,7 @@
                                                 </div>
                                                 <div class="o_cen_lie_img">
                                                         <p>{{item.fee}}元起</p>
-                                                        <img :src="'http://intellectual.jzhxwl.com'+item.breviary_image" alt="">
+                                                        <img :src=" item.breviary_image" alt="">
                                                 </div>
                                         </div>
                                 </div>
@@ -127,7 +127,7 @@
                                         <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="item.id" v-if="index != 0">
                                                 <p>{{item.name}}</p>
                                                <p>{{item.sketch}}</p>
-                                                <p><span>{{item.fee}}元起</span><img :src="'http://intellectual.jzhxwl.com'+item.breviary_image" alt=""></p>
+                                                <p><span>{{item.fee}}元起</span><img :src=" item.breviary_image" alt=""></p>
                                         </div>
                                 </div>
                         </div>
@@ -148,7 +148,7 @@
                                 </div>
                                 <div class="servecenter_center_zl_right">
                                         <div class="zl_right_lie" v-for="(item,index) in zl_right_lie" :key="item.id" v-if="index != 0">
-                                                <img :src="'http://intellectual.jzhxwl.com'+item.breviary_image" alt="">
+                                                <img :src=" item.breviary_image" alt="">
                                                 <div>
                                                         <span>{{item.name}}</span>
                                                         <span>{{item.sketch}}</span>
@@ -175,10 +175,10 @@
                                         </div>
                                         <div class="fu_cen_right_lie" v-for='(item,index) in fu_cen_right_lie' :key="item.id"   v-if="index != 0"
                                                 @mouseover="mouseOver(index)" @mouseleave="mouseLeave">
-                                                <img :src="'http://intellectual.jzhxwl.com'+item.images_text[0]" alt="" :class="{active_o:active==index}">
+                                                <img :src=" item.images_text[0]" alt="" :class="{active_o:active==index}">
                                                 <div class="right_lie_cent" :class="{active_t:active==index}">
-                                                        <p><img :src="'http://intellectual.jzhxwl.com'+item.breviary_image" alt="" ><!-- v-show="!(index == active)" -->
-                                                        <!-- <img :src="'http://intellectual.jzhxwl.com'+item.images_text[1]" v-show="index == active"> -->
+                                                        <p><img :src="item.breviary_image" alt="" ><!-- v-show="!(index == active)" -->
+                                                        <!-- <img :src=" item.images_text[1]" v-show="index == active"> -->
                                                         <span>{{item.name}}</span></p>
                                                         <p>{{item.sketch}}</p>
                                                         <p >{{item.fee}}元</p>
@@ -203,9 +203,9 @@
                                 </div>
                                 <div class="servecenter_center_qy_right">
                                         <div class="qy_right_lie" v-for="(item,index) in qy_right_lie" :key="item.id" v-if="index != 0">
-                                                <img :src="'http://intellectual.jzhxwl.com'+item.images_text[0]" alt="">
+                                                <img :src=" item.images_text[0]" alt="">
                                                 <div>
-                                                        <img :src="'http://intellectual.jzhxwl.com'+item.breviary_image" alt="">
+                                                        <img :src=" item.breviary_image" alt="">
                                                         <p>{{item.name}}</p>
                                                         <p>{{item.sketch}}</p>
                                                         <button>查看详情</button>

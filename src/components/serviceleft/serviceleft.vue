@@ -44,7 +44,6 @@
                 },
                 methods:{
                         run(id){
-                                console.log(id)
                                 this.$emit("running",id)
                         }
                 }

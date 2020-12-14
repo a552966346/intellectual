@@ -216,7 +216,7 @@ export default {
     }
   },
   beforeMount(){
-    console.log(validatePhone)
+    // console.log(validatePhone)
   },
   methods: {
     // 手机号登录和验证码登录切换

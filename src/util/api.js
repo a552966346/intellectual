@@ -217,6 +217,9 @@ const api={
       }
       return requestAll.requset(baseUrl + '/api/service/details', data);
     },
+        severproblem(){
+                return requestAll.requset(baseUrl + '/api/index/advantage');
+        },
     /*
     * 关于我们
     */
