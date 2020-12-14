@@ -21,7 +21,7 @@
                                                         <v-serviceleft :isid="id" @running="running"></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right">
-                                                        <v-servicer  :iscolor='iscolor' :toptext ='toptext'></v-servicer>
+                                                        <v-servicer :toptext ='toptext' :right_data ='right_data'></v-servicer>
                                                 </div>
                                         </div>
                                 </div>
@@ -43,11 +43,11 @@
                 data(){
                         return{
                                 title:'企业知识产贯标',
-                                iscolor:0,
                                 top_data:'',
                                 id:'',
                                 image:'',
-                                toptext:[{text:'服务优势',id:1,nub:0},{text:'服务流程',id:2,nub:1},{text:'常见问题',id:3,nub:0},{text:'典型案列',id:4,nub:0}],
+                                right_data:[],
+                                toptext:[],
                         }
                 },
                 components:{
@@ -70,8 +70,10 @@
                         isgets(id){
                                 this.$api.severdetiles(id)
                                 .then(res=>{
-                                        console.log(res.data)
                                         this.top_data = res.data
+                                        this.right_data = res.data.content.split(',')
+                                        this.toptext = res.data.contenttitle.split(',')
+                                        this.toptext.push("常见问题","典型案例")
                                         this.image = res.data.images_text[0]
                                 })
                         }

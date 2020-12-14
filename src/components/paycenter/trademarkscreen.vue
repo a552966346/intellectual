@@ -4,9 +4,8 @@
                         <div class="patenscree_leftrow" v-for="(item,index) in patenscree" :key="index">
                                 <div class="patenscree_lefthead">{{item[0]}}</div>
                                 <div class="patenscree_leftcontent">
-
-                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[1]" @click="choosecon(index,nubs,second)" :key="nubs" v-if="second !=''">{{second}}</span>
-                                        <span v-else>不限</span>
+                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]" @click="choosecon(index,nubs,item[1],second)" :key="nubs" v-if="second ==''">不限</span>
+                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]" @click="choosecon(index,nubs,item[1],second)" :key="nubs" v-if="second !=''">{{second}}</span>
                                         <div class="patenscree_leftprice" v-if="index==4">
                                                 <input type="text">&nbsp;元&nbsp;-&nbsp;<input type="text">&nbsp;元<button>确定</button>
                                         </div>
@@ -16,10 +15,11 @@
                                 <div class="patenscree_lefthead">其他条件</div>
                                 <div class="patenscree_leftother">
                                         <div class="patenscree_leftdrop" v-for="(item,index) in  data_two">
-                                                 <el-select v-model="value[index]" :placeholder="item[0]" >
+                                                 <el-select v-model="value[index]" :placeholder="item[0]" @change="ischange(item[1],index)">
                                                         <el-option
-                                                        v-for="(isitem,nubs) in item[1]"
+                                                        v-for="(isitem,nubs) in item[2]"
                                                         :key="nubs"
+                                                        v-if="isitem != 0"
                                                         :label="isitem"
                                                         :value="nubs">
                                                         </el-option>
@@ -35,8 +35,8 @@
                                 <div class="patenscree_lefthead">筛选条件</div>
                                 <div class="patenscree_leftcontent">
                                         <p @click="choosenull">清空筛选条件</p>
-                                        <span v-for="(item,index) in screetext" :key="index">{{item}}</span>
-                                        
+                                        <span v-for="(item,index) in screetext" :key="index"  v-if="item != null || item != undefined">{{item}}</span>
+
                                 </div>
                         </div>
                 </div>
@@ -107,6 +107,7 @@ export default {
                         ],
                         data_two:'',
                         value:[],
+                        id:{}
 
                 }
         },
@@ -130,11 +131,18 @@ export default {
                                 this.animate = false;
                         }, 500)
                 },
-                choosecon(index,nubs,name) {
+                choosecon(index,nubs,item,name) {
                         this.iscolor[index] = nubs
-                        console.log(name)
+                        console.log(item)
+                        // console.log(name)
+                        this.$set(this.id,item,nubs)
                         this.$set(this.screetext,index,name)
-                        console.log(this.screetext)
+                        // console.log(this.screetext)
+                        this.$emit('choosecon',this.id)
+                },
+                ischange(item,index){
+                         this.$set(this.id,item,this.value[index])
+                         this.$emit('ischange',this.id)
                 },
                 choosenull() {
                         this.iscolor = []
@@ -190,10 +198,10 @@ export default {
                 cursor: pointer;
         }
 
-        .patenscree_leftcontent span:nth-child(1) {
+        /* .patenscree_leftcontent span:nth-child(1) {
                 color: #1881c5;
                 font-weight: bold;
-        }
+        } */
         .addclass{color: #1881c5 !important;}
         .patenscree_leftprice {
                 position: absolute;
