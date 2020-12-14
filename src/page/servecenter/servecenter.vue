@@ -99,8 +99,8 @@
                                 </div>
                                 <div class="servecenter_center_o_cen">
                                         <div class="o_cen_lie" v-for="(item,index) in o_cen_lie" :key="index">
-                                                <div class="o_cen_lie_bg" :style="{'background-image':'url('+item.bgimg+')'}"
-                                                        style="background-repeat: no-repeat;">
+                                                <div class="o_cen_lie_bg"
+                                                        style="background-repeat: no-repeat;"><!-- :style="{'background-image':'url('+item.bgimg+')'}" -->
                                                         <p>{{item.name}}</p>
                                                         <p>专业一对一服务</p>
                                                 </div>
@@ -124,7 +124,7 @@
                                         <p><button>立即办理</button><button>查看详情</button></p>
                                 </div>
                                 <div class="servecenter_center_sb_right">
-                                        <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="item.id" v-if="index != 0">
+                                        <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="item.id" v-if="index != 0&&sb_right_lie.length !=1">
                                                 <p>{{item.name}}</p>
                                                <p>{{item.sketch}}</p>
                                                 <p><span>{{item.fee}}元起</span><img :src=" item.breviary_image" alt=""></p>
@@ -147,7 +147,7 @@
                                         <p><button>联系客服</button><button>查看详情</button></p>
                                 </div>
                                 <div class="servecenter_center_zl_right">
-                                        <div class="zl_right_lie" v-for="(item,index) in zl_right_lie" :key="item.id" v-if="index != 0">
+                                        <div class="zl_right_lie" v-for="(item,index) in zl_right_lie" :key="item.id" v-if="index != 0&&zl_right_lie.length !=1">
                                                 <img :src=" item.breviary_image" alt="">
                                                 <div>
                                                         <span>{{item.name}}</span>
@@ -173,7 +173,7 @@
                                                 </div>
                                                 <p><button>联系客服</button><button>查看详情</button></p>
                                         </div>
-                                        <div class="fu_cen_right_lie" v-for='(item,index) in fu_cen_right_lie' :key="item.id"   v-if="index != 0"
+                                        <div class="fu_cen_right_lie" v-for='(item,index) in fu_cen_right_lie' :key="item.id"   v-if="index != 0&&fu_cen_right_lie.length !=1"
                                                 @mouseover="mouseOver(index)" @mouseleave="mouseLeave">
                                                 <img :src=" item.images_text[0]" alt="" :class="{active_o:active==index}">
                                                 <div class="right_lie_cent" :class="{active_t:active==index}">
@@ -202,7 +202,7 @@
                                         </div>
                                 </div>
                                 <div class="servecenter_center_qy_right">
-                                        <div class="qy_right_lie" v-for="(item,index) in qy_right_lie" :key="item.id" v-if="index != 0">
+                                        <div class="qy_right_lie" v-for="(item,index) in qy_right_lie" :key="item.id" v-if="index != 0&&qy_right_lie.length !=1">
                                                 <img :src=" item.images_text[0]" alt="">
                                                 <div>
                                                         <img :src=" item.breviary_image" alt="">
@@ -227,7 +227,7 @@
                                 isactive: 0,
                                 isbtn: '',
                                 title_color: '#fff',
-                                title_all: ["商标服务", '专利服务', '版权服务', '企业服务'],
+                                title_all: [],
                                 title_text_all: ['交易快报: 186****123,25分钟前购买了****专利',
                                         '交易快报: 186****123,25分钟前购买了****专利',
                                         '交易快报: 186****123,25分钟前购买了****专利',
@@ -275,22 +275,6 @@
                         }
                 },
                 beforeMount() {
-                        this.$api.severindex()  //服务中心
-                        .then(res=>{
-                                console.log(res)
-                                this.$nextTick(function(){
-                                        this.o_cen_lie = res.data.hot_server    //热门服务
-                                        this.sb_right_lie = res.data.server_data39      //商标服务
-                                        this.sb_right_lie_o = res.data.server_data39[0]
-                                        this.zl_right_lie = res.data.server_data40
-                                        this.zl_right_lie_o = res.data.server_data40[0]
-                                        this.fu_cen_right_lie =res.data.server_data45
-                                        this.fu_cen_right_lie_o = res.data.server_data45[0]
-                                        this.qy_right_lie = res.data.server_data46
-                                        this.qy_right_lie_o = res.data.server_data46[0]
-                                })
-
-                        })
                         this.$api.severcategory()
                         .then(res=>{
                                 console.log(res)
@@ -301,6 +285,31 @@
                                 })
 
                         })
+                       this.$api.severindex()  //服务中心
+                         .then(res=>{
+                                 console.log(res)
+                                 this.$nextTick(function(){
+                                         this.o_cen_lie = res.data.hot_server    //热门服务
+                                         this.sb_right_lie = res.data.server_data39      //商标服务
+                                         if(res.data.server_data39.length != 0){
+                                                 this.sb_right_lie_o = res.data.server_data39[0]
+                                         }
+                                         this.zl_right_lie = res.data.server_data40
+                                         if(res.data.server_data40.length != 0){
+                                                this.zl_right_lie_o = res.data.server_data40[0]
+                                         }
+                                         this.fu_cen_right_lie =res.data.server_data45
+                                         if(res.data.server_data45.length != 0){
+                                                 this.fu_cen_right_lie_o = res.data.server_data45[0]
+                                         }
+                                         this.qy_right_lie = res.data.server_data46
+                                         if(res.data.server_data46.length != 0){
+                                                  this.qy_right_lie_o = res.data.server_data46[0]
+                                         }
+
+                                 })
+
+                         })
                 },
                 methods: {
                         activeover(index) {
@@ -785,12 +794,16 @@
         .servecenter_center_sb {
                 width: 1200px;
                 display: flex;
+                height: 350px;
         }
 
         .servecenter_center_sb_left {
                 background: url(../../../static/img/service/servecenter_center_sb_left.png)no-repeat 0, 0;
                 flex: 1;
-                padding: 150px 20px 50px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding-bottom: 50px ;
                 background-size: cover;
                 margin-right: 10px;
 
@@ -806,7 +819,7 @@
         .servecenter_center_sb_left>p {
                 color: #fff;
                 line-height: 3.5;
-                letter-spacing: 2px;
+                letter-spacing: 4px;
         }
 
         .servecenter_center_sb_left>p:nth-child(1) {

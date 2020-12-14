@@ -22,28 +22,28 @@
             </div>
         </div>
           <ul class="trademark_list">
-		        <li class="color1" v-for="(item,index) in arrList" :key="index+'list'" >
+		        <li class="color1" v-for="(item,index) in listdata" :key="index+'list'" >
 		            <a class="trademark_pro" href="#" >
 		                <div class="trademark_colors"  :style="{background:item.bgcolor}">
-		                    <img :src="item.img">
+		                    <img :src="item.images_text[0]">
 		                    <div class="trademark_selector">
 		                        <div class="trademark_coloritem" :style="{background: m}" v-for="(m,i) in item.color" @click="colorbtn(m,i,index)" :key="m"></div>
 		                    </div>
 		                </div>
 		                <p class="trademark_p1">
-		                    <span>{{item.title}}</span>
+		                    <span>{{item.name}}</span>
 		                    <img src="../../../static/img/paycenter/copyright_like.png" alt="">
 		                </p>
-		                <p class="trademark_p2">{{item.desc}}</p>
+		                <p class="trademark_p2">{{item.categoryid_text}}</p>
 		                <p class="trademark_p3">
-		                    <span class="trademark_price"><label>￥</label>{{item.price}}</span>
+		                    <span class="trademark_price"><label>￥</label>{{item.fee}}</span>
 		                    <img src="../../../static/img/paycenter/copyright_right.png" alt="">
 		                </p>
                         <div class="trademark_kefu" href="#">立即议价</div>
 		            </a>
 		        </li>
 		    </ul>
-        </div>	
+        </div>
     </div>
 </template>
 
@@ -51,56 +51,13 @@
 export default {
     data(){
         return{
-            currentId:'111111', 
-				arrList:[           
-					{
-						id:'111111',
-						img:'https://brandimg.sudoyu.com//data/svg/1/white/43/EVAPOSSP_43.svg',
-						title:'[43类]映卉苑',
-						desc:'住所代理（旅馆、供膳寄宿处）,备办宴席,快餐馆,自助餐厅,茶馆,酒吧服务,餐馆,饭店,提供野营场地设施,出租椅子、桌子、桌布和玻璃器皿',
-						price:'1.27万',
-						color:['rgb(230, 92, 92)','rgb(246, 139, 108)','rgb(246, 189, 108)','rgb(126, 152, 205)','rgb(197, 120, 209)'],
-						bgcolor:'rgb(230, 92, 92)',
-					},
-					{
-						id:'222222',
-						img:'https://brandimg.sudoyu.com//data/svg/1/white/43/EVAPOSSP_43.svg',
-						title:'[43类]映卉苑12',
-						desc:'住所代理（旅馆、供膳寄宿处）,备办宴席,快餐馆,自助餐厅,茶馆,酒吧服务,餐馆,饭店,提供野营场地设施,出租椅子、桌子、桌布和玻璃器皿12',
-						price:'1.8万',
-						color:['rgb(230, 92, 92)','rgb(246, 139, 108)','rgb(246, 189, 108)','rgb(126, 152, 205)','rgb(197, 120, 209)'],
-						bgcolor:'rgb(230, 92, 92)',
-					},
-					{
-						id:'222222',
-						img:'https://brandimg.sudoyu.com//data/svg/1/white/43/EVAPOSSP_43.svg',
-						title:'[43类]映卉苑12',
-						desc:'住所代理（旅馆、供膳寄宿处）,备办宴席,快餐馆,自助餐厅,茶馆,酒吧服务,餐馆,饭店,提供野营场地设施,出租椅子、桌子、桌布和玻璃器皿12',
-						price:'1.8万',
-						color:['rgb(230, 92, 92)','rgb(246, 139, 108)','rgb(246, 189, 108)','rgb(126, 152, 205)','rgb(197, 120, 209)'],
-						bgcolor:'rgb(230, 92, 92)',
-					},
-					{
-						id:'222222',
-						img:'https://brandimg.sudoyu.com//data/svg/1/white/43/EVAPOSSP_43.svg',
-						title:'[43类]映卉苑12',
-						desc:'住所代理（旅馆、供膳寄宿处）,备办宴席,快餐馆,自助餐厅,茶馆,酒吧服务,餐馆,饭店,提供野营场地设施,出租椅子、桌子、桌布和玻璃器皿12',
-						price:'1.8万',
-						color:['rgb(230, 92, 92)','rgb(246, 139, 108)','rgb(246, 189, 108)','rgb(126, 152, 205)','rgb(197, 120, 209)'],
-						bgcolor:'rgb(230, 92, 92)',
-					},
-					{
-						id:'222222',
-						img:'https://brandimg.sudoyu.com//data/svg/1/white/43/EVAPOSSP_43.svg',
-						title:'[43类]映卉苑12',
-						desc:'住所代理（旅馆、供膳寄宿处）,备办宴席,快餐馆,自助餐厅,茶馆,酒吧服务,餐馆,饭店,提供野营场地设施,出租椅子、桌子、桌布和玻璃器皿12',
-						price:'1.8万',
-						color:['rgb(230, 92, 92)','rgb(246, 139, 108)','rgb(246, 189, 108)','rgb(126, 152, 205)','rgb(197, 120, 209)'],
-						bgcolor:'rgb(230, 92, 92)',
-					}
-				],
+            currentId:'111111',
+
 			}
 		  },
+                  props:{
+                          listdata:''
+                  },
 		  methods:{
 		  	/*
 		  	* m-----当前选中的颜色
@@ -248,7 +205,7 @@ export default {
     margin: 10px 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;	
+    align-items: center;
 }
 .trademark_p1>img{
     width: 15px;

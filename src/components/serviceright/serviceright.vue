@@ -1,31 +1,32 @@
 <template>
         <div class="serviceright">
                 <div class="serviceright_top">
-                        <p v-for="(item,index,) in toptext" :key='item.id' @click="text_click(index)" :class="{iscolor:index==iscolor}">{{item.text}}</p>
+                        <p v-for="(item,index,) in toptext" :key='item.id' @click="text_click(index)" :class="{iscolor:index==iscolor}">{{item}}</p>
                 </div>
                 <div class="serviceright_center">
-                        <!-- <div class="center_text" :id="txt+index" v-for="(item,index) in toptext">
-                                <p v-show="item.nub !=1"><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span>{{item.text}}</span></p>
-                                <img :src="item.img" alt=""v-show="item.nub !=1">
-                                 <div><v-process  v-show="item.nub==1"></v-process></div>
-                        </div> -->
-                        <div class="center_text" id="txt0" >
+                        <div class="center_text" :id="txt+index" v-for="(item,index) in right_data">
+                                <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span>{{toptext[index]}}</span></p>
+                                <!-- <img :src="item.img" alt=""> -->
+                                <p v-html="item"></p>
+                                 <!-- <div><v-process  v-show="item.nub==1"></v-process></div> -->
+                        </div>
+                         <!-- <div class="center_text" id="txt0" >
                                 <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span>服务优势</span></p>
                                <p v-html="advantage"></p>
-                                 <!-- <div><v-process  v-show="item.nub==1"></v-process></div> -->
+                                 <div><v-process  v-show="item.nub==1"></v-process></div>
                         </div>
                         <div class="center_text" id="txt1" >
                                 <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span>服务流程</span></p>
                                 <img :src="advantage" alt="">
-                                 <!-- <div><v-process  v-show="item.nub==1"></v-process></div> -->
-                        </div>
-                        <div class="center_text" id="txt2">
+                                 <div><v-process  v-show="item.nub==1"></v-process></div>
+                        </div> -->
+                        <div class="center_text" :id="txt+(right_data.length)">
                                 <p ><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span>常见问题</span></p>
-                                <!-- <img src="" alt=""> -->
+                                <img src="" alt="">
                                 <p v-for="(item,index) in question"><span>问题：{{item.question}}</span><span>回复：{{item.answer}}</span></p>
                                  <!-- <div><v-process  v-show="item.nub==1"></v-process></div> -->
                         </div>
-                        <div class="center_text" id="txt3">
+                        <div class="center_text" :id="txt+(right_data.length+1)">
                                 <p ><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span>典型案例</span></p>
                                 <img src="" alt="">
                                  <!-- <div><v-process  v-show="item.nub==1"></v-process></div> -->
@@ -39,12 +40,14 @@
                 data(){
                         return{
                                 advantage:'',
-                                question:''
+                                question:'',
+                                txt:'text_',
+                                 iscolor:0,
                         }
                 },
                 props:{
-                        iscolor:0,
-                        toptext:''
+                        toptext:'',
+                        right_data:''
                 },
                 mounted() {
                         this.$api.severproblem()
@@ -56,8 +59,9 @@
                 },
                 methods:{
                         text_click(porp){
+
                                 this.iscolor = porp
-                                this.$el.querySelector('#txt'+porp).scrollIntoView()
+                               this.$el.querySelector('#text_'+porp).scrollIntoView()
                 }
              },
              components:{

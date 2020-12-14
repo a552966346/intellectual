@@ -5,7 +5,7 @@
     <div class="copyright_pay">
       <img src="../../../static/img/paycenter/trademark_bg.png" alt="" />
       <!-- 分类 -->
-      <trademarkscreen></trademarkscreen>
+      <trademarkscreen @choosecon="choosecon" @ischange = "ischange"></trademarkscreen>
       <!-- 排序-->
       <div class="patent_sort">
         <span :class="{ sortactive: this.sortnumber == 1 }" @click="comsort(1)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
@@ -24,30 +24,20 @@
           </div>
         </div>
       </div>
-      <trademarkcon></trademarkcon>
+      <trademarkcon :iscent="iscent"></trademarkcon>
       <div class="copyright_page">
-        <span>共十四页</span>
-        <button class="copyright_prev">首页</button>
-        <button class="copyright_prev">上一页</button>
-        <button class="copyright_btn">1</button>
-        <button class="copyright_btn">2</button>
-        <button class="copyright_btn">3</button>
-        <button class="copyright_btn">4</button>
-        <button class="copyright_btn">5</button>
-        <span>....</span>
-        <button class="copyright_btn">14</button>
-        <button class="next">下一页</button>
-        <button class="last">尾页</button>
-        <span>
-          到第
-          <input type="text" />
-          页
-        </span>
-        <button>确定</button>
+           <el-pagination
+             @size-change="handleSizeChange"
+             @current-change="handleCurrentChange"
+             :page-size="10"
+             layout="prev, pager, next, jumper"
+             :total="istotal">
+           </el-pagination>
+            <!-- :current-page.sync="currentPage3" -->  <!-- 当前业数 -->
       </div>
-      <trademarkbo></trademarkbo>
+      <trademarkbo :listdata = "listdata"></trademarkbo>
     </div>
-    <v-combotttom></v-combotttom>
+    <v-combotttom ></v-combotttom>
   </div>
 </template>
 
@@ -57,13 +47,22 @@ import trademarkscreen from '@/components/paycenter/trademarkscreen.vue'
 import trademarkcon from '@/components/paycenter/trademarkcon.vue'
 import trademarkbo from '@/components/paycenter/trademarkbo.vue'
 export default {
-    
+
     data(){
         return{
              sortnumber:1,           //左侧边排序切换
             listsortnum:1,             //右侧 列表形式排序
+            id:{},//筛选条件
+            iscent:[],
+            color:['rgb(230, 92, 92)','rgb(246, 139, 108)','rgb(246, 189, 108)','rgb(126, 152, 205)','rgb(197, 120, 209)'],
+            bgcolor:'rgb(230, 92, 92)',
+            istotal:0,
+            listdata:[]
         }
-    
+
+    },
+    mounted() {
+            this.ispost()
     },
       methods: {
                 comsort(index){
@@ -71,7 +70,40 @@ export default {
                 },
                 listsort(index){
                         this.listsortnum=index
+                },
+                choosecon(id){
+                        this.id = id
+                        this.ispost(this.id)
+                },
+                ischange(id){
+                       this.id = id
+                       this.ispost(this.id)
+                },
+                ispost(id){
+                        this.$api.gettrademarklist(id)
+                        .then(res=>{
+                                console.log(res)
+                                this.iscent = res.data.lists.data
+                                this.listdata = res.data.youlike
+                                this.istotal = res.data.lists.data.length
+                                for(let i=0;i<this.istotal;i++){
+                                        this.iscent[i].color = this.color
+                                        this.iscent[i].bgcolor =this.bgcolor
+                                }
+                                for(let i=0;i< res.data.youlike.length;i++){
+                                        this.listdata[i].color = this.color
+                                        this.listdata[i].bgcolor =this.bgcolor
+                                }
+                                console.log(this.iscent)
+                        })
+                },
+                handleSizeChange(){
+
+                },
+                handleCurrentChange(){
+
                 }
+
                 },
     components:{
         copyrightOrdinary,
