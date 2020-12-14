@@ -15,19 +15,40 @@
                         <div class="patenscree_leftrow">
                                 <div class="patenscree_lefthead">其他条件</div>
                                 <div class="patenscree_leftother">
-                                        <div class="patenscree_leftdrop" v-for="(item,index) in data_two">
-                                                <el-dropdown>
-                                                        <span class="el-dropdown-link">
-                                                                {{item[0]}}<i class="el-icon-arrow-down el-icon--right"></i>
-                                                        </span>
-                                                        <el-dropdown-menu slot="dropdown" class="patenscree_leftdropmenu">
-                                                                <el-dropdown-item v-for='(isitem,nubs) in item[1]'>{{isitem}}</el-dropdown-item>
-                                                        </el-dropdown-menu>
-                                                </el-dropdown>
+                                        <div class="patenscree_leftdrop" v-for="(item,index) in  data_two">
+                                                 <el-select v-model="value" :placeholder="item[0]" >
+                                                        <el-option
+                                                        v-for="(isitem,nubs) in item[1]"
+                                                        :key="nubs"
+                                                        :label="isitem"
+                                                        :value="nubs">
+                                                        </el-option>
+                                                    </el-select>
                                         </div>
-
-                                        <input type="text" value="输入名称搜索商标">
-                                        <span class="patentscreen_search">搜索</span>
+                                         <!-- <!-- <div class="patenscree_leftdrop">
+                                                 <el-select v-model="value" :placeholder="组合类型" >
+                                                        <el-option
+                                                        v-for="(isitem,nubs) in data_two[1]"
+                                                        :key="nubs"
+                                                        :label="isitem"
+                                                        :value="nubs">
+                                                        </el-option>
+                                                    </el-select>
+                                        </div> -->
+                                         <!-- <div class="patenscree_leftdrop">
+                                                 <el-select v-model="value" :placeholder="字符长度" >
+                                                        <el-option
+                                                        v-for="(isitem,nubs) in item[1]"
+                                                        :key="nubs"
+                                                        :label="isitem"
+                                                        :value="nubs">
+                                                        </el-option>
+                                                    </el-select>
+                                        </div> -->
+                                        <div class="patenscree_leftdrop">
+                                            <input type="text" value="输入名称搜索商标">
+                                            <span class="patentscreen_search">搜索</span>
+                                        </div>
                                 </div>
                         </div>
                         <div class="patenscree_leftrow">
@@ -103,7 +124,10 @@ export default {
                                 number:'0000001'
                         }
                         ],
-                        data_two:''
+                        data_two:'',
+                        value0:'',
+                        value1:'',
+                        value2:''
                 }
         },
         created: function() {
@@ -225,9 +249,9 @@ export default {
 
         .patenscree_leftdrop {
                 cursor: pointer;
-                width: 110px;
                 padding: 16px 8px 0;
-                border-right: 1px solid #ccc;
+                display: flex;
+                flex: 1;
         }
 
 
@@ -371,7 +395,6 @@ export default {
             margin-left: 10px;
         }
         input{
-            width: 220px;
             border: 2px solid #187fc4;
             color: #ccc;
             line-height: 25px;
@@ -382,8 +405,9 @@ export default {
         .patentscreen_search{
             color: #fff;
             background-color: #187fc4;
-            padding: 15px;
-            text-align: center;
+            width: 50px;
+            display: flex;
+            justify-content: center;
             letter-spacing: 4px;
             align-items: center;
         }
