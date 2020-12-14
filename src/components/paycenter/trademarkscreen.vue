@@ -5,7 +5,7 @@
                                 <div class="patenscree_lefthead">{{item[0]}}</div>
                                 <div class="patenscree_leftcontent">
 
-                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[1]" @click="choosecon(index,nubs,second.name,)" :key="nubs" v-if="second !=''">{{second}}</span>
+                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[1]" @click="choosecon(index,nubs,second)" :key="nubs" v-if="second !=''">{{second}}</span>
                                         <span v-else>不限</span>
                                         <div class="patenscree_leftprice" v-if="index==4">
                                                 <input type="text">&nbsp;元&nbsp;-&nbsp;<input type="text">&nbsp;元<button>确定</button>
@@ -16,7 +16,7 @@
                                 <div class="patenscree_lefthead">其他条件</div>
                                 <div class="patenscree_leftother">
                                         <div class="patenscree_leftdrop" v-for="(item,index) in  data_two">
-                                                 <el-select v-model="value" :placeholder="item[0]" >
+                                                 <el-select v-model="value[index]" :placeholder="item[0]" >
                                                         <el-option
                                                         v-for="(isitem,nubs) in item[1]"
                                                         :key="nubs"
@@ -56,6 +56,7 @@
                                 <div class="patenscree_leftcontent">
                                         <p @click="choosenull">清空筛选条件</p>
                                         <span v-for="(item,index) in screetext" :key="index">{{item}}</span>
+                                        
                                 </div>
                         </div>
                 </div>
@@ -125,9 +126,8 @@ export default {
                         }
                         ],
                         data_two:'',
-                        value0:'',
-                        value1:'',
-                        value2:''
+                        value:[],
+
                 }
         },
         created: function() {
@@ -155,7 +155,6 @@ export default {
                         console.log(name)
                         this.$set(this.screetext,index,name)
                         console.log(this.screetext)
-
                 },
                 choosenull() {
                         this.iscolor = []
