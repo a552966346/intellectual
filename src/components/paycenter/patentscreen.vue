@@ -15,7 +15,7 @@
                                 <div class="patenscree_lefthead">其他条件</div>
                                 <div class="patenscree_leftother">
                                         <div class="patenscree_leftdrop">
-                                                 <el-select v-model="value" :placeholder="请选择" >
+                                                 <el-select v-model="value" placeholder="请选择" >
                                                         <el-option
                                                         v-for="item in options"
                                                         :key="item.value"
@@ -25,7 +25,7 @@
                                                     </el-select>
                                         </div>
                                         <div class="patenscree_leftdrop">
-                                                 <el-select v-model="value" :placeholder="请选择" >
+                                                 <el-select v-model="value" placeholder="请选择" >
                                                         <el-option
                                                         v-for="item in options"
                                                         :key="item.value"
