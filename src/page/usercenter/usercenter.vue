@@ -13,9 +13,9 @@
                     </router-link>
                 </li>
                 <li><router-link to="/usercenter/userbuy"><img class="left_b" src="../../../static/img/usercenter/buyperson.png" alt="">我是买家</router-link></li>
-                <li><a href="#"><img class="left_b" src="../../../static/img/usercenter/shopperson.png" alt="">我是卖家</a></li>
-                <li><a href="#"><img class="left_b" src="../../../static/img/usercenter/zjmanage.png" alt="">资金管理</a></li>
-                <li><a href="#" class="imgs"><img class="left_b" src="../../../static/img/usercenter/tel.png" alt="">投诉与咨询</a></li>
+                <li><router-link to="/usercenter/usershop"><img class="left_b" src="../../../static/img/usercenter/shopperson.png" alt="">我是卖家</router-link></li>
+                <li><router-link to="/usercenter/usermanage"><img class="left_b" src="../../../static/img/usercenter/zjmanage.png" alt="">资金管理</router-link></li>
+                <li><router-link to="/usercenter/usertel" class="imgs"><img class="left_b" src="../../../static/img/usercenter/tel.png" alt="">投诉与咨询</router-link></li>
                 <li><a href="#"><img class="left_b" src="../../../static/img/usercenter/id.png" alt="">账号设置</a></li>
                 <li><a href="#"><img class="left_b" src="../../../static/img/usercenter/user_message.png" alt="">全部消息</a></li>
                 <li><a href="#"><img class="left_b" src="../../../static/img/usercenter/mycontract_active.png" alt="">我的合同</a></li>
@@ -45,7 +45,7 @@ a {
 }
 .user{
     display: flex;
-    height: 95%;
+    height: 96%;
 }
 /* .user_left */
 .user .user_left{

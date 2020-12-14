@@ -12,13 +12,16 @@ import service_xlj from '@/page/service_xlj/service_xlj'
 import service_pct from '@/page/service_pct/service_pct'
 import copyright from '@/page/paycenter/copyright'
 import patent from '@/page/paycenter/patent'
-import trademark from '@/page/paycenter/trademark'//商标转让
+import trademark from '@/page/paycenter/trademark' //商标转让
 import knowledgepledge from '@/page/knowledgepledge/knowledgepledge' //知识质押
 import knowledgefunds from '@/page/knowledgefunds/knowledgefunds' //知识基金
 import servecenter from '@/page/servecenter/servecenter' //服务中心
 import usercenter from '@/page/usercenter/usercenter' //个人中心
 import userindex from '@/page/usercenter/index' //个人中心主页
 import userbuy from '@/page/usercenter/buyperson' //个人我是买家
+import usershop from '@/page/usercenter/shopperson' //个人我是卖家
+import usermanage from '@/page/usercenter/zjmanage' //个人资金管理
+import usertel from '@/page/usercenter/tel' //个人资金管理
 import test from '@/page/test/test' //测试页面
 import activity from '@/page/activity/activity' //测试页面
 import about from '@/page/about/about' //关于我们
@@ -38,7 +41,7 @@ export default new Router({
             name: 'index',
             component: index
         },
-        {  //活动专区
+        { //活动专区
             path: '/activity',
             name: 'activity',
             component: activity
@@ -74,37 +77,37 @@ export default new Router({
             component: trademark
         },
         {
-            path: '/serve',//其他服务
+            path: '/serve', //其他服务
             name: 'service',
             component: service
         },
         {
-            path: '/isserve',//普通商标
+            path: '/isserve', //普通商标
             name: 'service_ptsb',
             component: service_ptsb
         },
         {
-               path: '/copyrightregister',//著作登记
-               name: 'service_zzdj',
-               component: service_zzdj
+            path: '/copyrightregister', //著作登记
+            name: 'service_zzdj',
+            component: service_zzdj
         },
         {
-               path: '/patent',//专利申请
-               name: 'service_zlsq',
-               component: service_zlsq
+            path: '/patent', //专利申请
+            name: 'service_zlsq',
+            component: service_zlsq
         },
         {
-               path: '/service_xlj',         //下料机
-               name: 'service_xlj',
-               component: service_xlj
+            path: '/service_xlj', //下料机
+            name: 'service_xlj',
+            component: service_xlj
         },
         {
-               path: '/consultant',    //涉外
-               name: 'service_pct',
-               component: service_pct
+            path: '/consultant', //涉外
+            name: 'service_pct',
+            component: service_pct
         },
         {
-            path: '/financing',//产权质押
+            path: '/financing', //产权质押
             name: 'knowledgepledge',
             component: knowledgepledge
         },
@@ -123,6 +126,15 @@ export default new Router({
             }, {
                 path: '/usercenter/userbuy',
                 component: userbuy,
+            }, {
+                path: '/usercenter/usershop',
+                component: usershop,
+            }, {
+                path: '/usercenter/usermanage',
+                component: usermanage,
+            }, {
+                path: '/usercenter/usertel',
+                component: usertel,
             }]
         },
         {
@@ -131,9 +143,9 @@ export default new Router({
             component: test
         },
         {
-                path: '/servicecenter', //服务中心
-                name: 'servecenter',
-                component: servecenter
+            path: '/servicecenter', //服务中心
+            name: 'servecenter',
+            component: servecenter
         },
         {
             path: '/about',

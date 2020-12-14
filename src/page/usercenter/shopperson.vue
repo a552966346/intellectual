@@ -1,65 +1,89 @@
 <template>
-    <div class="buyperson">
-        <div class="buy_top">
-            我是买家/我的购买订单
+    <div class="shopperson">
+        <div class="shop_top">
+            <div class="top_text">我是卖家/我出售的商标</div>
+
+            <div class="top_shopcar">
+                <img src="../../../static/img/usercenter/shopcar.png" alt="">
+                <span>我要出售</span> 
+            </div>
         </div>
-        <div class="buy_con">
+        <div class="shop_con">
             <ul class="con_t">
-                <li class="con_t_item">全部订单</li>
-                <li class="con_t_item">未付款订单</li>
-                <li class="con_t_item">已预约的订单</li>
-                <li class="con_t_item">交接中的订单</li>
-                <li class="con_t_item">已完成的订单</li>
+                <li class="con_t_item">出售商标</li>
+                <li class="con_t_item">出售专利</li>
+                <li class="con_t_item">出售版权</li>
+                <li class="con_t_item">技术转让</li>
                 <li class="con_t_search">
                     <div class="t_sea">
-                        <input type="text" placeholder="请输入您要查找的订单号">
+                        <input type="text" placeholder="请输入您要查找的商品编号或注册号">
                         <div class="search">搜索</div>
                     </div>
                 
                 </li>
             </ul>
             <ul class="con_b">
-                <li class="con_b_item">订单详情</li>
-                <li class="con_b_item">数量</li>
+                <li class="con_b_item">商品</li>
+                <li class="con_b_item">出售信息</li>
                 <li class="con_b_item">价格</li>
-                <li class="con_b_item">订单状态</li>
-                <li class="con_b_item">订单操作</li>
-                <li class="con_b_item">客服信息</li>
+                <li class="con_b_item">发布时间</li>
+                <li class="con_b_item">当前状态</li>
+                <li class="con_b_item">商品操作</li>
             </ul>
             <div class="content">
                 <div class="content_c">
-                    <img src="../../../static/img/usercenter/order.png" alt=""><span>您还没有订单，去逛逛吧~</span> 
+                    <img src="../../../static/img/usercenter/nomessage.png" alt="">
+                    <p>没有看到您的商品信息。</p>
+                    <p>如果您有商品，您可以去<a href="#">登记出售信息</a></p>
                 </div>
             </div>
             
         </div> 
-        
     </div>
 </template>
 <script>
-export default {
+export default{
     data(){
         return{
-
-        }
-    }
+            msg:'这是测试内容',
+            tabPosition: 'left'
+              }
+   },
 }
 </script>
-<style>
-.buyperson{
+<style scoped>
+.shopperson{
     width: 100%;
     height: 100%;
     padding: 30px 30px 0;
 }
-.buy_top{
+.shop_top{
     color: #919191;
     background-color: #fff;
-    font-size: 14px;
-    padding: 15px;
     border: 1px solid #efefef;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
 }
-.buy_con{
+.top_text{
+    font-size: 14px;
+    padding: 15px;
+}
+.top_shopcar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 108px;
+    margin: 4px;
+    background-color:#1b7fc3;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 5px;
+}
+.top_shopcar img{
+    margin-right: 8px;
+}
+.shop_con{
     background-color: #fff;
     font-size: 14px;
     padding: 10px;
@@ -73,7 +97,7 @@ export default {
 }
 .con_t_item {
     background-color: #f9f9f9;
-    width: 115px;
+    width: 145px;
     height: 35px;
     display: flex;
     justify-content: center;
@@ -96,10 +120,10 @@ export default {
 .t_sea{
     display: flex;
     align-items: center;
-    width: 230px;  
-   
 }
 .t_sea input{
+    width: 220px;
+    display: flex;
     font-size: 10px;
     border: 1px solid #efefef;
     border-radius: 5px 0 0 5px;
@@ -143,14 +167,19 @@ export default {
 .content_c{
    text-align: center;
    vertical-align:middle;
-  
-   /* padding: 26px; */
+   font-size: 16px;
+   color: #5f5f5f;
+   line-height: 1.5;
+}
+.content_c p:nth-of-type(2){
+    font-size: 12px;
 }
 .content_c  img{
     vertical-align:middle;
-  
+    margin-bottom: 10px;
 }
-.content_c span{
-    font-size: 14px;
+.content_c a{
+    color: #1c7fc3;
+    text-decoration: none;
 }
 </style>
