@@ -459,4 +459,7 @@ export default {
         .color{
                 color: #2385c7!important;
         }
+        ul{
+                padding:0 5px;
+        }
 </style>

@@ -503,4 +503,7 @@ export default {
             letter-spacing: 4px;
             align-items: center;
         }
+        ul{
+            padding:0 5px;
+        }
 </style>
