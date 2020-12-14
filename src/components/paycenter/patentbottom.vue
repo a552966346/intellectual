@@ -35,7 +35,7 @@
                         </div>
                         <div class="patent_bargain">立即议价</div>
                 </a>
-             </div> 
+             </div>
         </div>
     </div>
 </div>
@@ -82,6 +82,9 @@ export default {
         }
         ]
         }
+    },
+    props:{
+            listdata:''
     }
 }
 </script>

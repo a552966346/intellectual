@@ -29,16 +29,15 @@
            <el-pagination
              @size-change="handleSizeChange"
              @current-change="handleCurrentChange"
-
              :page-size="10"
              layout="prev, pager, next, jumper"
              :total="istotal">
            </el-pagination>
             <!-- :current-page.sync="currentPage3" -->  <!-- 当前业数 -->
       </div>
-      <trademarkbo></trademarkbo>
+      <trademarkbo :listdata = "listdata"></trademarkbo>
     </div>
-    <v-combotttom></v-combotttom>
+    <v-combotttom ></v-combotttom>
   </div>
 </template>
 
@@ -57,7 +56,8 @@ export default {
             iscent:[],
             color:['rgb(230, 92, 92)','rgb(246, 139, 108)','rgb(246, 189, 108)','rgb(126, 152, 205)','rgb(197, 120, 209)'],
             bgcolor:'rgb(230, 92, 92)',
-            istotal:0
+            istotal:0,
+            listdata:[]
         }
 
     },
@@ -84,10 +84,15 @@ export default {
                         .then(res=>{
                                 console.log(res)
                                 this.iscent = res.data.lists.data
+                                this.listdata = res.data.youlike
                                 this.istotal = res.data.lists.data.length
                                 for(let i=0;i<this.istotal;i++){
                                         this.iscent[i].color = this.color
                                         this.iscent[i].bgcolor =this.bgcolor
+                                }
+                                for(let i=0;i< res.data.youlike.length;i++){
+                                        this.listdata[i].color = this.color
+                                        this.listdata[i].bgcolor =this.bgcolor
                                 }
                                 console.log(this.iscent)
                         })
