@@ -12,36 +12,16 @@
                     collapse-transition
                     :default-active="$route.path"
                     class="aside-menu-test"
-                    active-text-color="#FF6666"
                     text-color="#000"
                     router
                     :collapse="collapse"
                     >
-                    <el-submenu index="1">
-                        <template slot="title">关于我们</template>
-                        <el-menu-item-group router='true'>
-                        <el-menu-item index="/about" @click="goTo('/about')">伊甸城简介</el-menu-item>
-                        <el-menu-item index="/about/navctertw" @click="goTo('/about/navctertw')">行业动态</el-menu-item>
-                        <el-menu-item index="1-3">联系我们</el-menu-item>
-                        <el-menu-item index="1-4">加入我们</el-menu-item>
-                        </el-menu-item-group>
-                    </el-submenu>
-                    <el-submenu index="2">
-                        <template slot="title">帮助中心</template>
-                        <el-menu-item-group>
-                        <el-menu-item index="2-1">保密协议</el-menu-item>
-                        <el-menu-item index="2-2">用户协议</el-menu-item>
-                        <el-menu-item index="2-3">违约责任</el-menu-item>
-                        </el-menu-item-group>
-                    </el-submenu>
-                    <el-submenu index="3">
-                        <template slot="title">在线交易</template>
-                        <el-menu-item-group>
-                        <el-menu-item index="3-1">全额退费</el-menu-item>
-                        <el-menu-item index="3-2">支付方式</el-menu-item>
-                        <el-menu-item index="3-3">发票管理</el-menu-item>
-                        </el-menu-item-group>
-                    </el-submenu>
+                        <el-submenu :index="index" v-for='(item,index) in list_data' :key="index">
+                            <template slot="title">{{item.name}}</template>
+                            <el-menu-item-group router='true'>
+                            <el-menu-item index="/about" @click="goTo('/about')" v-for="(items,index) in item.children">{{items.name}}</el-menu-item>
+                            </el-menu-item-group>
+                        </el-submenu>
                     </el-menu>
                 </el-aside>
                 <router-view/>
@@ -54,12 +34,19 @@ import navcter from '@/components/navcter/navcter.vue'
 import navctertw from '@/components/navcter/navctertw.vue'
    export default {
     data() {
-      return {  
+      return { 
+          list_data:[],//左侧分类数据
+
       }
     },
     beforeMount() {
-        
-        this.$store.commit('increment',6)
+        this.$api.getaboutcat()
+        .then(res=>{
+            console.log(res)
+            if(res.code==1){
+                this.list_data = res.data 
+            }
+        })
     },
     methods:{
         handleOpen(key, keyPath) {

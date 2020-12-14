@@ -217,9 +217,20 @@ const api={
       }
       return requestAll.requset(baseUrl + '/api/service/details', data);
     },
-
-
-
+    /*
+    * 关于我们
+    */
+    // 关于我们分类数据 】
+    getaboutcat(){
+      return requestAll.requset(baseUrl + '/api/aboutus/category');
+    },
+    // 关于我们详情
+    getaboutdetiles(id){
+      data={
+        id:id
+      }
+      return requestAll.requset(baseUrl + '/api/aboutus/details', data);
+    },
 
 
   // 测试请求
