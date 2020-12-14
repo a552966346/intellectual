@@ -25,26 +25,6 @@
                                                         </el-option>
                                                     </el-select>
                                         </div>
-                                         <!-- <!-- <div class="patenscree_leftdrop">
-                                                 <el-select v-model="value" :placeholder="组合类型" >
-                                                        <el-option
-                                                        v-for="(isitem,nubs) in data_two[1]"
-                                                        :key="nubs"
-                                                        :label="isitem"
-                                                        :value="nubs">
-                                                        </el-option>
-                                                    </el-select>
-                                        </div> -->
-                                         <!-- <div class="patenscree_leftdrop">
-                                                 <el-select v-model="value" :placeholder="字符长度" >
-                                                        <el-option
-                                                        v-for="(isitem,nubs) in item[1]"
-                                                        :key="nubs"
-                                                        :label="isitem"
-                                                        :value="nubs">
-                                                        </el-option>
-                                                    </el-select>
-                                        </div> -->
                                         <div class="patenscree_leftdrop">
                                             <input type="text" value="输入名称搜索商标">
                                             <span class="patentscreen_search">搜索</span>

@@ -15,24 +15,24 @@
                                 <div class="patenscree_lefthead">其他条件</div>
                                 <div class="patenscree_leftother">
                                         <div class="patenscree_leftdrop">
-                                                <el-dropdown>
-                                                        <span class="el-dropdown-link">
-                                                                交易类型<i class="el-icon-arrow-down el-icon--right"></i>
-                                                        </span>
-                                                        <el-dropdown-menu slot="dropdown" class="patenscree_leftdropmenu">
-                                                                <el-dropdown-item>交易类型1</el-dropdown-item>
-                                                        </el-dropdown-menu>
-                                                </el-dropdown>
+                                                 <el-select v-model="value" :placeholder="请选择" >
+                                                        <el-option
+                                                        v-for="item in options"
+                                                        :key="item.value"
+                                                        :label="item.label"
+                                                        :value="item.value">
+                                                        </el-option>
+                                                    </el-select>
                                         </div>
                                         <div class="patenscree_leftdrop">
-                                                <el-dropdown>
-                                                        <span class="el-dropdown-link">
-                                                                专利状态<i class="el-icon-arrow-down el-icon--right"></i>
-                                                        </span>
-                                                        <el-dropdown-menu slot="dropdown">
-                                                                <el-dropdown-item>专利状态1</el-dropdown-item>
-                                                        </el-dropdown-menu>
-                                                </el-dropdown>
+                                                 <el-select v-model="value" :placeholder="请选择" >
+                                                        <el-option
+                                                        v-for="item in options"
+                                                        :key="item.value"
+                                                        :label="item.label"
+                                                        :value="item.value">
+                                                        </el-option>
+                                                    </el-select>
                                         </div>
                                 </div>
                         </div>
@@ -205,8 +205,16 @@ export default {
                                 amount: '5小时',
                                 number:'0000001'
                         }
-                        ]
-                }
+                        ],
+                options: [{
+                                value: '选项1',
+                                label: '独家'
+                                }, {
+                                value: '选项2',
+                                label: '非独家'
+                                }],
+                                value: ''
+                        }
         },
         created: function() {
                 setInterval(this.showMarquee, 2000)
@@ -314,15 +322,16 @@ export default {
 
         .patenscree_leftother {
                 flex: 1;
-                padding: 15px;
                 display: flex;
         }
 
         .patenscree_leftdrop {
                 cursor: pointer;
-                width: 150px;
-                padding-right: 20px;
+                padding: 16px 8px 0;
+                display: flex;
+                width: 135px;
         }
+
 
         .patenscree_leftcontent p {
                 height: 25px;
