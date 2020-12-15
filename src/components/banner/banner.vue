@@ -1,7 +1,7 @@
 <template>
         <div class="bnner" id="banner">
                 <div class="bnner_all">
-                      <el-tabs type="border-card" v-model="activeName" class="banner_switch">
+                      <el-tabs type="border-card" v-model="activeName" class="banner_switch" >
                               <!-- 交易中心 -->
                               <el-tab-pane :label="paycenter.name+paycenter.keys" name="first" :key="'first'" class="baner_trade">
                                       <!-- 交易中心标题 -->

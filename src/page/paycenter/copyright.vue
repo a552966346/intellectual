@@ -5,7 +5,7 @@
       <div class="copyright_pay">
         <img src="../../../static/img/paycenter/copyright_top.png" alt="">
         <!-- 分类 -->
-         <patentscreen></patentscreen>
+         <patentscreen :zlTop="zlTop" :iscolor="iscolor" @choosenull="choosenull" @choosecon="choosecon"></patentscreen>
         <!-- 排序-->
         <div>
             <div class="patent_sort">
@@ -21,33 +21,23 @@
                         </div>
                 </div>
         </div>
-        <copyrightOrdinary></copyrightOrdinary>
+        <copyrightOrdinary :iscent="iscent"></copyrightOrdinary>
         <div class="copyright_page">
-            <span>共十四页</span>
-            <button class="copyright_prev">首页</button>
-            <button class="copyright_prev">上一页</button>
-            <button class="copyright_btn">1</button>
-            <button class="copyright_btn">2</button>
-            <button class="copyright_btn">3</button>
-            <button class="copyright_btn">4</button>
-            <button class="copyright_btn">5</button>
-            <span>....</span>
-            <button class="copyright_btn">14</button>
-            <button class="next">下一页</button>
-            <button class="last">尾页</button>
-            <span>
-                到第
-                <input type="text">
-                页
-            </span>
-            <button>确定</button>
+           <el-pagination
+             @size-change="handleSizeChange"
+             @current-change="handleCurrentChange"
+             :page-size="10"
+             layout="prev, pager, next, jumper"
+             :total="istotal">
+           </el-pagination>
+
         </div>
         </div>
 
 
         <!-- 猜你喜欢 -->
         <div>
-            <copyrightBottom></copyrightBottom>
+            <copyrightBottom :listdata="listdata"></copyrightBottom>
         </div>
 
       </div>
@@ -64,9 +54,27 @@ export default {
         return{
              sortnumber:1,           //左侧边排序切换
             listsortnum:1,             //右侧 列表形式排序
-            id:{}
+            id:{},
+            iscent:[],           //列表
+            listdata:[],        //猜你喜欢
+            istotal:0,         //总条数
+            zlTop:[],           //筛选
+            iscolor:[]
         }
 
+    },
+    mounted() {
+            this.$api.getCopyrightcondition()
+            .then(res=>{
+                    console.log(res)
+                    this.zlTop = res.data
+                    for(let i=0;i<res.data.length;i++){
+                            this.iscolor[i] = 0
+                    }
+
+            })
+            this.ispost()
+            console.log(this.iscent)
     },
       methods: {
                 comsort(index){
@@ -85,6 +93,34 @@ export default {
                 },
                 listsort(index){
                         this.listsortnum=index
+                },
+                // 筛选
+                choosecon(id){
+                        console.log(id)
+                        this.ispost(id)
+                },
+                //清空
+                choosenull(){
+                        console.log(this.zlTop)
+                        for(let i=0;i<this.zlTop.length;i++){
+                                this.iscolor[i] = 0
+                        }
+                        this.ispost()
+                },
+               ispost(id){
+                        this.$api.getCopyrightlist(id)
+                        .then(res=>{
+                                console.log(res)
+                                this.iscent = res.data.lists.data
+                                this.listdata = res.data.youlike
+                                this.istotal = res.data.lists.data.length
+                        })
+                },
+                handleSizeChange(){
+
+                },
+                handleCurrentChange(){
+
                 }
                 },
     components:{

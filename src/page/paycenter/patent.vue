@@ -94,7 +94,9 @@ import patentcon from '../../components/paycenter/patentcon.vue';
                         },
                         //清空
                         choosenull(){
-                                this.iscolor = [0,0,0,0,0]
+                                for(let i=0;i<this.zlTop.length;i++){
+                                        this.iscolor[i] = 0
+                                }
                                 this.ispost()
                         },
                         //列表请求
@@ -106,6 +108,7 @@ import patentcon from '../../components/paycenter/patentcon.vue';
                                         this.iscent = res.data.lists.data
                                         // 猜你喜欢
                                         this.listdata = res.data.youlike
+                                        this.istotal = res.data.lists.data.length
                                 })
                         },
                         handleSizeChange(){

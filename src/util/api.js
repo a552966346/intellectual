@@ -121,19 +121,7 @@ const api={
     * 知识产权交易(版权交易)
     */
     // 版权列表
-    getCopyrightlist(category_id,meanstype,is_exclusive,region,affiliating,chronology,scope,condition,sell){
-      let data ={
-        category_id:category_id,
-        meanstype:meanstype,
-        is_exclusive:is_exclusive,
-        is_exclusive:is_exclusive,
-        region:region,
-        affiliating:affiliating,
-        chronology:chronology,
-        scope:scope,
-        condition:condition,
-        sell:sell
-      }
+    getCopyrightlist(data){
       return requestAll.requset(baseUrl + '/api/Copyright/copyright_list',data);
     },
     // 版权列筛选数据
