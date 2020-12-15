@@ -19,7 +19,7 @@
                         <el-submenu :index="index" v-for='(item,index) in list_data' :key="index">
                             <template slot="title">{{item.name}}</template>
                             <el-menu-item-group router='true'>
-                            <el-menu-item index="/about" @click="goTo('/about')" v-for="(items,index) in item.children">{{items.name}}</el-menu-item>
+                            <el-menu-item index="/about" @click="goTo('/about')" v-for="(items,indes) in item.children" :key="indes">{{items.name}}</el-menu-item>
                             </el-menu-item-group>
                         </el-submenu>
                     </el-menu>
@@ -43,6 +43,7 @@ import navctertw from '@/components/navcter/navctertw.vue'
         this.$api.getaboutcat()
         .then(res=>{
             console.log(res)
+            console.log(123456)
             if(res.code==1){
                 this.list_data = res.data 
             }
@@ -79,5 +80,5 @@ import navctertw from '@/components/navcter/navctertw.vue'
 .el-menu-item .is-active{border-bottom-color: none !important;}
 .el-menu-item:hover{color: #1787FB !important;text-decoration: underline;}
 .el-menu-item{border-bottom: none !important;}
-.el-menu-item.is-active{border-bottom: none !important;}
+.el-menu-item.is-active{border-bottom: none !important;text-decoration:none;}
 </style>
