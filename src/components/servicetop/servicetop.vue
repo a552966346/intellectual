@@ -2,7 +2,11 @@
         <div id="servicetop">
                 <div class="topall">
                         <div class="topall_img">
-                                <img :src="'http://intellectual.jzhxwl.com'+image">
+                                <el-carousel trigger="click" height="300px">
+                                      <el-carousel-item v-for="(item,index) in image" :key="index">
+                                        <img :src="item" alt="">
+                                      </el-carousel-item>
+                                    </el-carousel>
                         </div>
                         <div class="topall_text">
                                 <div class="text_top">
@@ -77,7 +81,12 @@
        #servicetop {width:1200px;background-color:#fff;box-shadow:1px 1px 10px 2px #ccc;}
        .topall {display:flex;width:100%;}
        .topall_img {flex:2;padding:20px;display: flex;justify-content: center;}
-       .topall_img>img {height:400px;width: 100%;}
+       .el-carousel {width: 100%;height: 100%;}
+      .el-carousel__item{width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;}
+      .el-carousel__item>img{
+              width: 50%;
+              height: 50%;
+      }
        .topall_text {flex:3;padding:20px;}
        .text_top>h2 {padding:5px 0;color:#555;}
        .text_top>p {padding:10px;color:#A7A7A7;background-color:#F3F6FF;}

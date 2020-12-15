@@ -25,9 +25,12 @@
 		        <li class="color1" v-for="(item,index) in listdata" :key="index+'list'" >
 		            <a class="trademark_pro" href="#" >
 		                <div class="trademark_colors"  :style="{background:item.bgcolor}">
-		                    <img :src="item.images_text[0]">
+                                        <div class="trademark_sele">
+                                                <img :src="item.images_text[0]">
+                                        </div>
+
 		                    <div class="trademark_selector">
-		                        <div class="trademark_coloritem" :style="{background: m}" v-for="(m,i) in item.color" @click="colorbtn(m,i,index)" :key="m"></div>
+		                        <div class="trademark_coloritem" :style="{background: m}" v-for="(m,i) in color" @click="colorbtn(m,i,index)" :key="m"></div>
 		                    </div>
 		                </div>
 		                <p class="trademark_p1">
@@ -52,7 +55,7 @@ export default {
     data(){
         return{
             currentId:'111111',
-
+                 color:['rgb(230, 92, 92)','rgb(246, 139, 108)','rgb(246, 189, 108)','rgb(126, 152, 205)','rgb(197, 120, 209)'],
 			}
 		  },
                   props:{
@@ -65,8 +68,11 @@ export default {
 		  	* index----最外面数组 当前选中的下标
 		  	* */
 			colorbtn(m,i,index){
-				this.$set(this.arrList[index],'bgcolor',m);
-				this.arrList[index];
+                                // console.log(m)
+				this.$set(this.listdata[index],'bgcolor',m);
+                                 this.$forceUpdate();
+                                // console.log(this.listdata[index])
+				this.listdata[index];
 			}
 		  }
 }
@@ -180,9 +186,18 @@ export default {
 .trademark_list li:hover .trademark_p2{
     display: none;
 }
-.trademark_colors >img{
+.trademark_colors{
+        height: 235px;
+}
+.trademark_sele >img{
     max-width: 210px;
     max-height: 210px;
+}
+.trademark_sele{
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 }
 .trademark_selector{
     width: 100%;

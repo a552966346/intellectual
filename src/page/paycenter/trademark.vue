@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <trademarkcon :iscent="iscent"></trademarkcon>
+      <trademarkcon :iscent="iscent" @colorbtn="colorbtn"></trademarkcon>
       <div class="copyright_page">
            <el-pagination
              @size-change="handleSizeChange"
@@ -54,7 +54,7 @@ export default {
             listsortnum:1,             //右侧 列表形式排序
             id:{},//筛选条件
             iscent:[],
-            color:['rgb(230, 92, 92)','rgb(246, 139, 108)','rgb(246, 189, 108)','rgb(126, 152, 205)','rgb(197, 120, 209)'],
+
             bgcolor:'rgb(230, 92, 92)',
             istotal:0,
             listdata:[]
@@ -68,6 +68,7 @@ export default {
                 comsort(index){
                         this.sortnumber=index
                 },
+
                 listsort(index){
                         this.listsortnum=index
                 },
@@ -75,10 +76,12 @@ export default {
                         this.id = id
                         this.ispost(this.id)
                 },
+                // 分类筛选
                 ischange(id){
                        this.id = id
                        this.ispost(this.id)
                 },
+                // 请求列表
                 ispost(id){
                         this.$api.gettrademarklist(id)
                         .then(res=>{
@@ -87,15 +90,17 @@ export default {
                                 this.listdata = res.data.youlike
                                 this.istotal = res.data.lists.data.length
                                 for(let i=0;i<this.istotal;i++){
-                                        this.iscent[i].color = this.color
                                         this.iscent[i].bgcolor =this.bgcolor
                                 }
                                 for(let i=0;i< res.data.youlike.length;i++){
-                                        this.listdata[i].color = this.color
                                         this.listdata[i].bgcolor =this.bgcolor
                                 }
                                 console.log(this.iscent)
                         })
+                },
+                // 选择颜色
+                colorbtn(color,index){
+
                 },
                 handleSizeChange(){
 

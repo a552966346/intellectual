@@ -45,7 +45,7 @@
                                 title:'企业知识产贯标',
                                 top_data:'',
                                 id:'',
-                                image:'',
+                                image:[],
                                 right_data:[],
                                 toptext:[],
                         }
@@ -74,7 +74,7 @@
                                         this.right_data = res.data.content.split(',')
                                         this.toptext = res.data.contenttitle.split(',')
                                         this.toptext.push("常见问题","典型案例")
-                                        this.image = res.data.images_text[0]
+                                        this.image = res.data.images_text
                                 })
                         }
                 }

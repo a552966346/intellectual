@@ -10,9 +10,9 @@
                        text-color="#fff"
                        active-text-color="#ffd04b">
                         <el-menu-item index="/">首页</el-menu-item>
-                        <el-submenu :index='item.type' v-for="(item,nubs) in  this.$store.state.navbarlist" v-if="item.children.length !=0&&item.name != '服务中心'" :key="item.id">
+                        <el-submenu :index='item.type' v-for="(item,id) in  this.$store.state.navbarlist" v-if="item.children.length !=0&&item.name != '服务中心'" :key="id">
                                 <template slot="title">{{item.name}}</template>
-                                <el-menu-item v-for="(isitem,isnub) in item.children" :index="'/'+isitem.keywords+'?id='+isitem.id">{{isitem.name}}</el-menu-item>
+                                <el-menu-item v-for="(isitem,isnub) in item.children" :index="'/'+isitem.keywords+'?id='+isitem.id" :key="isnub">{{isitem.name}}</el-menu-item>
                         </el-submenu>
                         <el-menu-item :index="'/'+item.type" v-for="(item,nubs) in  this.$store.state.navbarlist" v-if="item.children.length ==0||item.name == '服务中心'" :key="nubs">{{item.name}}</el-menu-item>
 
