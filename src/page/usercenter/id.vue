@@ -4,12 +4,10 @@
             <div class="top_text">账号设置/实名认证</div>
         </div>
         <ul class="id_con">
-            <li  class="con_t_item">
-                <button>个人实名认证</button>       
-            </li >
-            <li  class="con_t_item">
-                <button>企业实名认证</button>    
-            </li>
+           
+                <button class="con_t_item">个人实名认证</button>       
+          
+                <button class="con_t_item">企业实名认证</button>    
             <li class="t_right">
                     <button>联系认证客服</button>
             </li>
@@ -113,7 +111,7 @@ export default{
 .id{
     width: 100%;
     height: 100%;
-    padding: 30px 30px 0;
+    padding: 10px 30px;
 }
 .id_top{
     color: #919191;
@@ -157,10 +155,11 @@ export default{
 }
 
 
-.con_t_item:nth-of-type(1)  button{
+.con_t_item:nth-of-type(1) {
     background-color: #1a7fc3;
+    color: #fff;
 }
-.con_t_item:nth-of-type(2)  button{
+.con_t_item:nth-of-type(2) {
     background-color: #eeeeee;
     color: #878787;
 }
@@ -204,7 +203,6 @@ export default{
     justify-content: center;
     align-items: center;
     font-size: 15px;
-    background-color: pink;
 }
 .center_b>div{
     margin-top: 15px;

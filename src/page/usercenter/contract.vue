@@ -9,13 +9,10 @@
         </div>
         <div class="contract_con">
             <ul class="con_t">
-                <li class="con_t_search">
-                    
-                        <div class="search">搜索</div>
-                        <input type="text" placeholder="关键词：合同名称、合同编号、订单/商品编号">
-                        <button type="danger" size="mini">查询</button>
-                        <button type="primary" size="mini">清空</button>         
-                </li>
+                <div class="searchc">搜索</div>
+                <input type="text" placeholder="关键词：合同名称、合同编号、订单/商品编号">
+                <button type="danger" size="mini">查询</button>
+                <button type="primary" size="mini">清空</button>         
             </ul>
             <ul class="con_b">
                 <li class="con_b_item">合同名称</li>
@@ -50,7 +47,7 @@ export default{
 .contract{
     width: 100%;
     height: 100%;
-    padding: 30px 30px 0;
+    padding: 10px 30px ;
 }
 .contract_top{
     color: #919191;
@@ -91,15 +88,12 @@ export default{
     border: 1px solid #f2f2f2;
     background-color: #f9f9f9;
     padding: 5px;
-}
-
-.con_t_search{
     display: flex;
     align-items: center;
 }
 
-.con_t_search input{
-    width: 31%;
+.contract_con  input{
+    width: 30%;
     height: 30px;
     display: flex;
     font-size: 10px;
@@ -109,7 +103,7 @@ export default{
     color: #bbb;
     
 }
-.search{
+.contract_con .con_t .searchc{
     width: 70px;
     height: 25px;
     font-size: 16px;
@@ -118,7 +112,7 @@ export default{
     justify-content: center;
     align-items: center;
 }
-.con_t_search button{
+.contract_con .con_t button{
     margin-left: 10px;
     color: #fff;
     border: none;
@@ -126,10 +120,10 @@ export default{
     border-radius: 3px;
     font-size: 14px;
 }
-.con_t_search button:first-of-type{
+.contract_con .con_t button:first-of-type{
     background-color: #e4404b;
 }
-.con_t_search button:last-of-type{
+.contract_con .con_t button:last-of-type{
     background-color: #1a7fc3;
 }
 
