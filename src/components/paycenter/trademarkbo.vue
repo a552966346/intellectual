@@ -68,9 +68,10 @@ export default {
 		  	* index----最外面数组 当前选中的下标
 		  	* */
 			colorbtn(m,i,index){
-                                console.log(m)
+                                // console.log(m)
 				this.$set(this.listdata[index],'bgcolor',m);
-                                console.log(this.listdata[index])
+                                 this.$forceUpdate();
+                                // console.log(this.listdata[index])
 				this.listdata[index];
 			}
 		  }

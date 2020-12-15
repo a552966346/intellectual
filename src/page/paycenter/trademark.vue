@@ -76,10 +76,12 @@ export default {
                         this.id = id
                         this.ispost(this.id)
                 },
+                // 分类筛选
                 ischange(id){
                        this.id = id
                        this.ispost(this.id)
                 },
+                // 请求列表
                 ispost(id){
                         this.$api.gettrademarklist(id)
                         .then(res=>{
@@ -96,13 +98,9 @@ export default {
                                 console.log(this.iscent)
                         })
                 },
+                // 选择颜色
                 colorbtn(color,index){
-                        console.log(this.iscent[index])
-                        console.log(color,index)
-                        // this.iscent[index].bgcolor = color
-                        this.$set(this.iscent[index],'bgcolor',color)
-                        this.$forceUpdate(); 
-                        console.log(this.iscent[index])
+
                 },
                 handleSizeChange(){
 
