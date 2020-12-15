@@ -9,7 +9,7 @@
                                 <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :title="title">
+                                        <v-servicet :title="title" :top_data="top_data" :image="image">
                                                <!-- <template v-slot:topall>
                                                         <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
                                                         <div class="slot_bord">11111111</div>
@@ -18,10 +18,10 @@
                                         </v-servicet>
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left">
-                                                        <v-serviceleft></v-serviceleft>
+                                                        <v-serviceleft  ></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right">
-                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor' :toptext ='toptext'></v-servicer>
+                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor' :toptext ='toptext' :right_data="right_data"></v-servicer>
                                                 </div>
                                         </div>
                                 </div>
@@ -44,7 +44,12 @@
                         return{
                                 title:'一种下料机',
                                 iscolor:0,
-                                toptext:[{text:'高企认定好处',id:1,nub:0},{text:'服务流程',id:2,nub:1},{text:'认定条件',id:3,nub:0},{text:'申请资料',id:4,nub:0},{text:'常见问题',id:5,nub:0},{text:'典型案列',id:6,nub:0}],
+                                image:[],
+                                id:'',
+                                top_data:[],
+                                right_data:[],
+                                toptext:[],
+                                
                         }
                 },
                 components:{
@@ -52,9 +57,24 @@
                       'v-serviceleft':serviceleft,
                       'v-servicer':serviceright
                 },
+                mounted() {
+                        this.id = this.$route.query.id
+                        this.ispost(this.id)
+                },
                 methods:{
                         text_click(){
                                 console.log(111)
+                        },
+                        ispost(id){
+                                this.$api.gettrademarkdetiles(id)
+                                .then(res=>{
+                                        console.log(res)
+                                        this.top_data = res.data
+                                        this.right_data = res.data.content.split(',')
+                                        this.toptext = res.data.contenttitle.split(',')
+                                        this.toptext.push("常见问题","典型案例")
+                                        this.image = res.data.images_text
+                                })
                         }
                 }
         }

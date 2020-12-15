@@ -5,12 +5,12 @@
     <div class="copyright_pay">
       <img src="../../../static/img/paycenter/trademark_bg.png" alt="" />
       <!-- 分类 -->
-      <trademarkscreen @choosecon="choosecon" @ischange = "ischange"></trademarkscreen>
+      <trademarkscreen @choosecon="choosecon" @ischange = "ischange" @choosenull="choosenull" :patenscree="patenscree" :data_two="data_two" :iscolor="iscolor"></trademarkscreen>
       <!-- 排序-->
       <div class="patent_sort">
-        <span :class="{ sortactive: this.sortnumber == 1 }" @click="comsort(1)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
-        <span :class="{ sortactive: this.sortnumber == 2 }" @click="comsort(2)">发布时间<i class="el-icon-bottom patent_sorticon"></i></span>
-        <span :class="{ sortactive: this.sortnumber == 3 }" @click="comsort(3)">价格排序<i class="el-icon-bottom patent_sorticon"></i></span>
+        <span :class="{ sortactive: this.sortnumber == 0 }" @click="comsort(0)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
+        <span :class="{ sortactive: this.sortnumber == 1 }" @click="comsort(1)">发布时间<i class="el-icon-bottom patent_sorticon"></i></span>
+        <span :class="{ sortactive: this.sortnumber == 2 }" @click="comsort(2)">价格排序<i class="el-icon-bottom patent_sorticon"></i></span>
         <div class="patent_sortright">
           <div :class="{patent_sortitem: true,sortactive: this.listsortnum == 1,}" @click="listsort(1)">
             <i class="el-icon-s-grid"></i>
@@ -50,11 +50,13 @@ export default {
 
     data(){
         return{
-             sortnumber:1,           //左侧边排序切换
+             sortnumber:0,           //左侧边排序切换
             listsortnum:1,             //右侧 列表形式排序
             id:{},//筛选条件
             iscent:[],
-
+            patenscree:[],
+            iscolor:[],
+            data_two:[],
             bgcolor:'rgb(230, 92, 92)',
             istotal:0,
             listdata:[]
@@ -62,21 +64,43 @@ export default {
 
     },
     mounted() {
+            this.$api.gettrademarkcondition()
+            .then(res=>{
+                    console.log(res)
+                    this.patenscree = res.data.data_one
+                    for(let i =0;i<res.data.data_one.length;i++){
+                            this.iscolor[i] = 0
+                    }
+                    this.data_two = res.data.data_two
+            })
             this.ispost()
     },
       methods: {
                 comsort(index){
                         this.sortnumber=index
+                        if(index == 1){
+                                this.$set(this.id,"creatime","desc")
+                                this.$set(this.id,"feeorder","")
+                                this.ispost(this.id)
+                        }else if(index == 2){
+                                this.$set(this.id,"feeorder","desc")
+                                this.$set(this.id,"creatime","")
+                                this.ispost(this.id)
+                        }else{
+                                 this.ispost()
+                        }
+                        
                 },
 
                 listsort(index){
                         this.listsortnum=index
                 },
+                // 分类筛选
                 choosecon(id){
                         this.id = id
                         this.ispost(this.id)
                 },
-                // 分类筛选
+                // 下拉筛选
                 ischange(id){
                        this.id = id
                        this.ispost(this.id)
@@ -97,6 +121,12 @@ export default {
                                 }
                                 console.log(this.iscent)
                         })
+                },
+                //清空筛选
+                choosenull(){
+                        this.iscolor = [0,0,0,0]
+                        this.screetext = []
+                        this.ispost()
                 },
                 // 选择颜色
                 colorbtn(color,index){

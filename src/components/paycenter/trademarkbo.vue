@@ -23,7 +23,7 @@
         </div>
           <ul class="trademark_list">
 		        <li class="color1" v-for="(item,index) in listdata" :key="index+'list'" >
-		            <a class="trademark_pro" href="#" >
+		            <router-link class="trademark_pro"  :to="{path:'/service_xlj',query:{ id:item.id}}">
 		                <div class="trademark_colors"  :style="{background:item.bgcolor}">
                                         <div class="trademark_sele">
                                                 <img :src="item.images_text[0]">
@@ -43,7 +43,7 @@
 		                    <img src="../../../static/img/paycenter/copyright_right.png" alt="">
 		                </p>
                         <div class="trademark_kefu" href="#">立即议价</div>
-		            </a>
+		            </router-link>
 		        </li>
 		    </ul>
         </div>

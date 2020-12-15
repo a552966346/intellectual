@@ -47,9 +47,9 @@
 
         <!-- 猜你喜欢 -->
         <div>
-            <copyrightBottom></copyrightBottom> 
+            <copyrightBottom></copyrightBottom>
         </div>
-     
+
       </div>
       <v-combotttom></v-combotttom>
   </div>
@@ -64,12 +64,24 @@ export default {
         return{
              sortnumber:1,           //左侧边排序切换
             listsortnum:1,             //右侧 列表形式排序
+            id:{}
         }
-    
+
     },
       methods: {
                 comsort(index){
                         this.sortnumber=index
+                        if(index == 1){
+                                this.$set(this.id,"creatime","desc")
+                                this.$set(this.id,"feeorder","")
+                                this.ispost(this.id)
+                        }else if(index == 2){
+                                this.$set(this.id,"feeorder","desc")
+                                this.$set(this.id,"creatime","")
+                                this.ispost(this.id)
+                        }else{
+                                 this.ispost()
+                        }
                 },
                 listsort(index){
                         this.listsortnum=index
@@ -89,7 +101,7 @@ export default {
         box-sizing: border-box;
         text-decoration: none;
     }
-    
+
     .copyright_pay{
         background: #f6f6f6;
     }

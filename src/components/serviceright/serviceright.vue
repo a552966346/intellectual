@@ -1,11 +1,11 @@
 <template>
         <div class="serviceright">
                 <div class="serviceright_top">
-                        <p v-for="(item,index,) in toptext" :key='item.id' @click="text_click(index)" :class="{iscolor:index==iscolor}">{{item}}</p>
+                        <p v-for="(item,index,) in toptext" :key='item.id' @click="text_click(index)" :class="{iscolor:index==iscolor}" v-html="item"></p>
                 </div>
                 <div class="serviceright_center">
                         <div class="center_text" :id="txt+index" v-for="(item,index) in right_data">
-                                <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span>{{toptext[index]}}</span></p>
+                                <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span v-html="toptext[index]"></span></p>
                                 <!-- <img :src="item.img" alt=""> -->
                                 <p v-html="item"></p>
                                  <!-- <div><v-process  v-show="item.nub==1"></v-process></div> -->
@@ -59,7 +59,6 @@
                 },
                 methods:{
                         text_click(porp){
-
                                 this.iscolor = porp
                                this.$el.querySelector('#text_'+porp).scrollIntoView()
                 }

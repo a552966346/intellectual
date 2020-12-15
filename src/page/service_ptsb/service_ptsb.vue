@@ -70,11 +70,15 @@
                         isgets(id){
                                 this.$api.severdetiles(id)
                                 .then(res=>{
-                                        this.top_data = res.data
-                                        this.right_data = res.data.content.split(',')
-                                        this.toptext = res.data.contenttitle.split(',')
-                                        this.toptext.push("常见问题","典型案例")
-                                        this.image = res.data.images_text
+                                        if(res.code){
+                                                this.top_data = res.data
+                                                this.right_data = res.data.content.split(',')
+                                                this.toptext = res.data.contenttitle.split(',')
+                                                this.toptext.push("常见问题","典型案例")
+                                                this.image = res.data.images_text
+                                        }else{
+                                                alert("暂无数据")
+                                        }
                                 })
                         }
                 }

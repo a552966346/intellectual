@@ -24,10 +24,10 @@
                                 </div>
                                 <div class="topall_bottom">
                                         <div class="bottom_left">
-                                                <div class="left_left">
+                                                <!-- <div class="left_left">
                                                         <span>{{nub}}</span>
                                                         <span><button @click="but1">+</button><button @click="but2">-</button></span>
-                                                </div>
+                                                </div> -->
                                                 <div class="left_but">
                                                         <button>加入购物车<p>--<span>></span>--</p></button>
                                                 </div>

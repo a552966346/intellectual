@@ -84,15 +84,7 @@ const api={
      * combination 组合
      * strlenlength 字符长度
      */
-    gettrademarklist(category_id,hot,fee,is_exclusive,combination,strlenlength){
-      let data = {
-        category_id:category_id,
-        hot:hot,
-        fee:fee,
-        is_exclusive:is_exclusive,
-        combination:combination,
-        strlenlength:strlenlength
-      }
+    gettrademarklist(data){
       return requestAll.requset(baseUrl + '/api/trademark/trademark_list', data);
     },
     // 商标筛选数据
@@ -110,19 +102,12 @@ const api={
     * 知识产权交易(专利交易)
     */
     // 中心专利数据列表
-    getPatentslist(category_id,patenttype,fee,condition,strlenlength,sell){
-      let data = {
-        category_id:category_id,
-        patenttype:patenttype,
-        condition:condition,
-        fee:fee,
-        sell:sell,
-        strlenlength:strlenlength
-      }
+    getPatentslist(data){
+
       return requestAll.requset(baseUrl + '/api/Patents/patents_list',data);
     },
     // 专利筛选列表
-    getPatentscondition(){
+    getPatentsconditions(){
       return requestAll.requset(baseUrl + '/api/patents/patents_condition');
     },
     // 专利详情

@@ -1,46 +1,42 @@
 <template>
         <div class="patenscree_all">
                 <div class="patenscree_left">
-                        <div class="patenscree_leftrow" v-for="(item,index) in patenscree" :key="index">
-                                <div class="patenscree_lefthead">{{item.head}}</div>
+                        <div class="patenscree_leftrow" v-for="(item,index) in zlTop" :key="index">
+                                <div class="patenscree_lefthead">{{item[0]}}</div>
                                 <div class="patenscree_leftcontent">
-                                        <span>不限</span>
-                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item.childlist" @click="choosecon(index,nubs,second.name,)" :key="second.id">{{second.name}}</span>
+                                        <span :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]"
+                                                @click="choosecon(index,nubs,item[1],second)" :key="second.id" v-if="second ==''">不限</span>
+                                        <span :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]"
+                                                @click="choosecon(index,nubs,item[1],second)" :key="second.id" v-if="second !=''">{{second}}</span>
                                         <div class="patenscree_leftprice" v-if="index==4">
                                                 <input type="text">&nbsp;元&nbsp;-&nbsp;<input type="text">&nbsp;元<button>确定</button>
                                         </div>
                                 </div>
                         </div>
-                        <div class="patenscree_leftrow">
+                        <!-- <div class="patenscree_leftrow">
                                 <div class="patenscree_lefthead">其他条件</div>
                                 <div class="patenscree_leftother">
                                         <div class="patenscree_leftdrop">
-                                                 <el-select v-model="value" placeholder="请选择" >
-                                                        <el-option
-                                                        v-for="item in options"
-                                                        :key="item.value"
-                                                        :label="item.label"
-                                                        :value="item.value">
+                                                <el-select v-model="value" placeholder="请选择">
+                                                        <el-option v-for="item in options" :key="item.value" :label="item.label"
+                                                                :value="item.value">
                                                         </el-option>
-                                                    </el-select>
+                                                </el-select>
                                         </div>
                                         <div class="patenscree_leftdrop">
-                                                 <el-select v-model="value" placeholder="请选择" >
-                                                        <el-option
-                                                        v-for="item in options"
-                                                        :key="item.value"
-                                                        :label="item.label"
-                                                        :value="item.value">
+                                                <el-select v-model="value" placeholder="请选择">
+                                                        <el-option v-for="item in options" :key="item.value" :label="item.label"
+                                                                :value="item.value">
                                                         </el-option>
-                                                    </el-select>
+                                                </el-select>
                                         </div>
                                 </div>
-                        </div>
+                        </div> -->
                         <div class="patenscree_leftrow">
                                 <div class="patenscree_lefthead">筛选条件</div>
                                 <div class="patenscree_leftcontent">
                                         <p @click="choosenull">清空筛选条件</p>
-                                        <span v-for="(item,index) in screetext" :key="index">{{item}}</span>
+                                        <span v-for="(item,index) in screetext" :key="index" v-if="item != null || item != undefined">{{item}}</span>
                                 </div>
                         </div>
                 </div>
@@ -57,7 +53,8 @@
                                         <div class="marquee">
                                                 <div class="marquee_box">
                                                         <ul class="marquee_list" :class="{marquee_top:animate}">
-                                                                <li v-for="(item, index) in marqueeList" class="marquee_item" :key="index">
+                                                                <li v-for="(item, index) in marqueeList" class="marquee_item"
+                                                                        :key="index">
                                                                         <div class="marquee_itemtop">
                                                                                 <span>{{item.amount}}</span>
                                                                                 <span> {{item.name}}购买了专利</span>
@@ -72,175 +69,81 @@
                                         </div>
                                 </div>
                         </div>
-                </div>   
+                </div>
         </div>
 </template>
 
 <script>
-export default {
-        data() {
-                return {
-                        iscolor:[],
-                        patenscree: [{
-                                id:1,
-                                head: '行业分类',
-                                childlist: [{
-                                                name: '农业牧业',
-                                                id:1
+        export default {
+                data() {
+                        return {
+                                screetext: [],
+                                animate: false,
+                                marqueeList: [{
+                                                name: '开心果',
+                                                machine: '09类科学仪器',
+                                                amount: '10小时',
+                                                number: '0000001'
                                         },
                                         {
-                                                name: '农业牧业',
-                                                id:2
+                                                name: '芒果干',
+                                                machine: '09类科学仪器',
+                                                amount: '5小时',
+                                                number: '0000001'
                                         },
                                         {
-                                                name: '农业牧业',
-                                                id:3
+                                                name: '草莓干',
+                                                machine: '09类科学仪器',
+                                                amount: '5小时',
+                                                number: '0000001'
                                         },
                                         {
-                                                name: '农业牧业',
-                                                id:4
-                                        },
-                                        {
-                                                name: '农业牧业',
-                                                id:5
-                                        },
-                                        {
-                                                name: '农业牧业',
-                                                id:6
-                                        },
-                                        {
-                                                name: '农业牧业',
-                                                id:7
-                                        },
-                                        {
-                                                name: '农业牧业',
-                                                id:8
-                                        }
-                                ]
-                        }, {
-                                id:2,
-                                head: '是否独家',
-                                childlist: [{
-                                                name: '独家',
-                                                id:1
-                                        },
-                                        {
-                                                name: '非独家',
-                                                id:2
-                                        }
-                                ]
-                        },{
-                                id:3,
-                                head: '专利类型',
-                                childlist: [{
-                                                name: '发明专利',
-                                                id:1
-                                        },
-                                        {
-                                                name: '实用新型',
-                                                id:2
-                                        },
-                                        {
-                                                name: '外观设计',
-                                                id:3
-                                        }
-                                ]
-                        }, {
-                                id:4,
-                                head: '是否特价',
-                                childlist: [{
-                                                name: '非特价商品',
-                                                id:1
-                                        },
-                                        {
-                                                name: '特价商品',
-                                                id:2
-                                        }
-                                ]
-                        }, {
-                                id:5,
-                                head: '出售价格',
-                                childlist: [{
-                                                name: '3000以下',
-                                                id:1
-                                        },
-                                        {
-                                                name: '3000-1万',
-                                                id:2
-                                        },
-                                        {
-                                                name: '1万-3万',
-                                                id:3
-                                        },
-                                        {
-                                                name: '3万以上',
-                                                id:4
+                                                name: '无核白葡萄干',
+                                                machine: '09类科学仪器',
+                                                amount: '5小时',
+                                                number: '0000001'
                                         }
                                 ],
-                        },
-                ],
-                screetext: [],
-                animate: false,
-                marqueeList: [{
-                                name: '开心果',
-                                machine: '09类科学仪器',
-                                amount: '10小时',
-                                number:'0000001'
-                        },
-                        {
-                                name: '芒果干',
-                                machine: '09类科学仪器',
-                                amount: '5小时',
-                                number:'0000001'
-                        },
-                        {
-                                name: '草莓干',
-                                machine: '09类科学仪器',
-                                amount: '5小时',
-                                number:'0000001'
-                        },
-                        {
-                                name: '无核白葡萄干',
-                                machine: '09类科学仪器',
-                                amount: '5小时',
-                                number:'0000001'
-                        }
-                        ],
-                options: [{
-                                value: '选项1',
-                                label: '独家'
+                                options: [{
+                                        value: '选项1',
+                                        label: '独家'
                                 }, {
-                                value: '选项2',
-                                label: '非独家'
+                                        value: '选项2',
+                                        label: '非独家'
                                 }],
-                                value: ''
+                                value: '',
+                                id:{}
                         }
-        },
-        created: function() {
-                setInterval(this.showMarquee, 2000)
-        },
-        methods: {
-                showMarquee: function() {
-                        this.animate = true;
-                        setTimeout(() => {
-                                this.marqueeList.push(this.marqueeList[0]);
-                                this.marqueeList.shift();
-                                this.animate = false;
-                        }, 500)
                 },
-                choosecon(index,nubs,name) {
-                        this.iscolor[index] = nubs
-                        console.log(name)
-                        this.$set(this.screetext,index,name) 
-                        console.log(this.screetext)
-
+                props: {
+                        zlTop: '',
+                        iscolor:''
                 },
-                choosenull() {
-                        this.iscolor = []
-                        this.screetext = []
+                created: function() {
+                        setInterval(this.showMarquee, 2000)
+                },
+                methods: {
+                        showMarquee: function() {
+                                this.animate = true;
+                                setTimeout(() => {
+                                        this.marqueeList.push(this.marqueeList[0]);
+                                        this.marqueeList.shift();
+                                        this.animate = false;
+                                }, 500)
+                        },
+                       choosecon(index,nubs,item,name) {
+                               this.iscolor[index] = nubs
+                               console.log(item)
+                               this.$set(this.id,item,nubs)
+                               this.$set(this.screetext,index,name)
+                               this.$emit('choosecon',this.id)
+                       },
+                        choosenull() {
+                                this.screetext = []
+                                this.$emit('choosenull')
+                        }
                 }
         }
-}
 </script>
 
 <style scoped>
@@ -256,9 +159,12 @@ export default {
                 width: 78.5%;
                 background-color: #fff;
                 font-size: 15px;
+                display: flex;
+                flex-direction: column;
         }
 
         .patenscree_leftrow {
+                flex: 1;
                 display: flex;
                 border-bottom: 1px dashed #e9e7f2;
         }
@@ -289,11 +195,12 @@ export default {
                 cursor: pointer;
         }
 
-        .patenscree_leftcontent span:nth-child(1) {
-                color: #1881c5;
-                font-weight: bold;
+
+
+        .addclass {
+                color: #1881c5 !important;
         }
-        .addclass{color: #1881c5 !important;}
+
         .patenscree_leftprice {
                 position: absolute;
                 right: 15px;
@@ -451,11 +358,13 @@ export default {
                 display: flex;
                 align-items: center;
         }
-        .marquee_itemtop span{
+
+        .marquee_itemtop span {
                 overflow: hidden;
-                text-overflow:ellipsis;
+                text-overflow: ellipsis;
                 white-space: nowrap;
         }
+
         .marquee_itemtop span:nth-child(1) {
                 background-color: #187fc2;
                 border-radius: 15px;
@@ -465,10 +374,12 @@ export default {
                 color: #fff;
                 margin-right: 5px;
         }
-        .color{
-                color: #2385c7!important;
+
+        .color {
+                color: #2385c7 !important;
         }
-        ul{
-                padding:0 5px;
+
+        ul {
+                padding: 0 5px;
         }
 </style>

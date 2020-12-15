@@ -803,7 +803,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
-                padding-bottom: 50px ;
+                padding:0 0 15px 15px ;
                 background-size: cover;
                 margin-right: 10px;
 

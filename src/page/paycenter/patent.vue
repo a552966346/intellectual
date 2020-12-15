@@ -5,7 +5,7 @@
                 <div class="patent_pay">
                         <img src="../../../static/img/paycenter/patent_bg.png" alt="">
                         <!-- 分类 -->
-                        <patentscreen></patentscreen>
+                        <patentscreen :zlTop = "zlTop" :iscolor="iscolor" @choosecon="choosecon" @choosenull="choosenull"></patentscreen>
                         <!-- 排序-->
                         <div class="patent_sort">
                                 <span :class="{sortactive:this.sortnumber==1}" @click="comsort(1)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
@@ -20,30 +20,19 @@
                                         </div>
                                 </div>
                         </div>
-                        <patentcon></patentcon>
+                        <patentcon :iscent="iscent"></patentcon>
                         <div class="copyright_page">
-                            <span>共十四页</span>
-                            <button class="copyright_prev">首页</button>
-                            <button class="copyright_prev">上一页</button>
-                            <button class="copyright_btn">1</button>
-                            <button class="copyright_btn">2</button>
-                            <button class="copyright_btn">3</button>
-                            <button class="copyright_btn">4</button>
-                            <button class="copyright_btn">5</button>
-                            <span>....</span>
-                            <button class="copyright_btn">14</button>
-                            <button class="next">下一页</button>
-                            <button class="last">尾页</button>
-                            <span>
-                                到第
-                                <input type="text">
-                                页
-                            </span>
-                            <button>确定</button>
+                           <el-pagination
+                             @size-change="handleSizeChange"
+                             @current-change="handleCurrentChange"
+                             :page-size="10"
+                             layout="prev, pager, next, jumper"
+                             :total="istotal">
+                           </el-pagination>
                         </div>
 
                         <!-- 猜你喜欢 -->
-                        <patentbottom></patentbottom>
+                        <patentbottom :listdata="listdata"></patentbottom>
                 </div>
                 <v-combotttom></v-combotttom>
         </div>
@@ -59,14 +48,71 @@ import patentcon from '../../components/paycenter/patentcon.vue';
                         return {
                                 sortnumber:1,           //左侧边排序切换
                                 listsortnum:1,             //右侧 列表形式排序
+                                zlTop:[],
+                                iscolor:[],
+                                istotal:0,              //默认页数
+                                listdata:[]             ,//总条数
+                                iscent:[],
+                                listdata:[],
+                                id:{}
                         }
+                },
+                mounted() {
+                        this.$api.getPatentsconditions()   //专利筛选
+                        .then(res=>{
+                                console.log(res)
+                                this.zlTop = res.data
+                                for(let i=0;i<res.data.length;i++){
+                                        this.iscolor[i] = 0
+                                }
+                                this.ispost(this.id)
+                                // console.log(this.iscent)
+                        })
                 },
                 methods: {
                         comsort(index){
                                 this.sortnumber=index
+                                if(index == 1){
+                                        this.$set(this.id,"creatime","desc")
+                                        this.$set(this.id,"feeorder","")
+                                        this.ispost(this.id)
+                                }else if(index == 2){
+                                        this.$set(this.id,"feeorder","desc")
+                                        this.$set(this.id,"creatime","")
+                                        this.ispost(this.id)
+                                }else{
+                                         this.ispost()
+                                }
                         },
                         listsort(index){
                                 this.listsortnum=index
+                        },
+                        //筛选
+                        choosecon(id){
+                                console.log(id)
+                                this.ispost(id)
+                        },
+                        //清空
+                        choosenull(){
+                                this.iscolor = [0,0,0,0,0]
+                                this.ispost()
+                        },
+                        //列表请求
+                        ispost(id){
+                                this.$api.getPatentslist(id)
+                                .then(res=>{
+                                        console.log(res)
+                                        // 列表
+                                        this.iscent = res.data.lists.data
+                                        // 猜你喜欢
+                                        this.listdata = res.data.youlike
+                                })
+                        },
+                        handleSizeChange(){
+
+                        },
+                        handleCurrentChange(){
+
                         }
                 },
                 components: {

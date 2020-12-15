@@ -76,9 +76,7 @@
 export default {
         data() {
                 return {
-                        iscolor:[],
-                        patenscree: [],
-                screetext: [],
+                screetext: [],          //筛选条件
                 animate: false,
                 marqueeList: [{
                                 name: '开心果',
@@ -105,23 +103,20 @@ export default {
                                 number:'0000001'
                         }
                         ],
-                        data_two:'',
-                        value:[],
-                        id:{}
+                        value:[],       //下拉框值
+                        id:{}           //筛选参数
 
                 }
+        },
+        props:{
+                iscolor:'',
+                patenscree: '',
+                data_two:'',
         },
         created: function() {
                 setInterval(this.showMarquee, 2000)
         },
-        mounted(){
-                this.$api.gettrademarkcondition()
-                .then(res=>{
-                        console.log(res)
-                        this.patenscree = res.data.data_one
-                        this.data_two = res.data.data_two
-                })
-        },
+
         methods: {
                 showMarquee: function() {
                         this.animate = true;
@@ -134,19 +129,19 @@ export default {
                 choosecon(index,nubs,item,name) {
                         this.iscolor[index] = nubs
                         console.log(item)
-                        // console.log(name)
                         this.$set(this.id,item,nubs)
                         this.$set(this.screetext,index,name)
-                        // console.log(this.screetext)
                         this.$emit('choosecon',this.id)
                 },
                 ischange(item,index){
                          this.$set(this.id,item,this.value[index])
                          this.$emit('ischange',this.id)
                 },
+                // 清空筛选条件
                 choosenull() {
-                        this.iscolor = []
+                       this.value=[]
                         this.screetext = []
+                        this.$emit('choosenull')
                 }
         }
 }
