@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="store1">
-                        <input class="input store" type="text" placeholder="网店">
+                        <input class="input store" type="text" placeholder="网店"><img src="../../../static/img/usercenter/arrow.png" alt="">
                     </div>
                     
                     <textarea name="" id="" cols="30" rows="10" placeholder="您可以在这里填写您对伊甸的各方面不满的地方"></textarea>
@@ -60,7 +60,7 @@ export default{
 .tel{
     width: 100%;
     height: 100%;
-    padding: 30px 30px 0;
+    padding: 10px 30px ;
 }
 .tel_top{
     color: #919191;
@@ -177,9 +177,15 @@ export default{
 }
 .store{
     width: 100%;
-    background-image: url('../../../static/img/usercenter/arrow.png');
-    background-repeat: no-repeat;
-    background-position: 690px 17px;
+   
+}
+.store1{
+    position: relative;
+}
+.store1 img{
+    position: absolute;
+    top: 37px;
+    right: 11px;
 }
 .in2{
     display: flex;

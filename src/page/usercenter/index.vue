@@ -200,7 +200,7 @@ a {
 .main{
     display: flex; 
     /* justify-content: space-between; */
-    margin: 40px 3% 0;
+    margin: 20px 3% 0;
     width: 93%; 
 }
 .main_r{
