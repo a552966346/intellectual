@@ -171,7 +171,7 @@ const api={
       let data ={
         id:id
       }
-      return requestAll.requset(baseUrl + '/api/technology/lists',data);
+      return requestAll.requset(baseUrl + '/api/technology/details',data);
     },
     /*
     * 页面底部数据
