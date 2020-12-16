@@ -3,7 +3,7 @@
       <v-topsearch></v-topsearch>
       <v-navigation></v-navigation>
       <div class="copyright_pay">
-        <img src="../../../static/img/paycenter/copyright_top.png" alt="">
+        <img :src="banner" alt="">
         <!-- 分类 -->
          <patentscreen :zlTop="zlTop" :iscolor="iscolor" @choosenull="choosenull" @choosecon="choosecon"></patentscreen>
         <!-- 排序-->
@@ -59,22 +59,26 @@ export default {
             listdata:[],        //猜你喜欢
             istotal:0,         //总条数
             zlTop:[],           //筛选
-            iscolor:[]
+            iscolor:[],
+            banner:'../../../static/img/paycenter/copyright_top.png'
         }
 
     },
     mounted() {
             this.$api.getCopyrightcondition()
             .then(res=>{
-                    console.log(res)
                     this.zlTop = res.data
                     for(let i=0;i<res.data.length;i++){
                             this.iscolor[i] = 0
                     }
 
             })
+            this.$api.getCopyrightvertisement()
+            .then(res=>{
+                    console.log(res)
+                    this.banner = res.data.images
+            })
             this.ispost()
-            console.log(this.iscent)
     },
       methods: {
                 comsort(index){
@@ -96,12 +100,10 @@ export default {
                 },
                 // 筛选
                 choosecon(id){
-                        console.log(id)
                         this.ispost(id)
                 },
                 //清空
                 choosenull(){
-                        console.log(this.zlTop)
                         for(let i=0;i<this.zlTop.length;i++){
                                 this.iscolor[i] = 0
                         }
@@ -110,7 +112,6 @@ export default {
                ispost(id){
                         this.$api.getCopyrightlist(id)
                         .then(res=>{
-                                console.log(res)
                                 this.iscent = res.data.lists.data
                                 this.listdata = res.data.youlike
                                 this.istotal = res.data.lists.data.length

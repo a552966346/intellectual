@@ -46,6 +46,21 @@ const api={
       }
       return requestAll.requset(baseUrl + '/api/user/mobilelogin', data);
     },
+    //验证码获取
+    userverification(nub){
+            let data = {
+                    id : nub
+            }
+             return requestAll.requset(baseUrl + '/api/user/captcha_src',data);
+    },
+    //登录广告
+    uservertisement(){
+            return requestAll.requset(baseUrl + '/api/banner/userlogon');
+    },
+    //注册广告
+    userregistervertisement(){
+            return requestAll.requset(baseUrl + '/api/banner/userregister');
+    },
     /*
     * 首页
     */
@@ -98,6 +113,10 @@ const api={
       }
       return requestAll.requset(baseUrl + '/api/Trademark/details',data);
     },
+    //商标广告
+    gettrademarkadvertisement(){
+      return requestAll.requset(baseUrl + '/api/banner/trademark');
+    },
     /*
     * 知识产权交易(专利交易)
     */
@@ -117,6 +136,10 @@ const api={
       }
       return requestAll.requset(baseUrl + '/api/Patents/details',data);
     },
+    getPatentsadvertisement(){
+            return requestAll.requset(baseUrl + '/api/banner/patents');
+    },
+    //专利广告
     /*
     * 知识产权交易(版权交易)
     */
@@ -128,19 +151,15 @@ const api={
     getCopyrightcondition(){
       return requestAll.requset(baseUrl + '/api/Copyright/copyright_condition');
     },
+    //版权广告
+    getCopyrightvertisement(){
+            return requestAll.requset(baseUrl + '/api/banner/copyright');
+    },
     /*
     * 技术转让
     */
     // 技术转移列表
-    gettechnologylist(category_id,territory,type,maturity,means,fee){
-      let data ={
-        category_id:category_id,
-        territory:territory,
-        type:type,
-        maturity:maturity,
-        means:means,
-        fee:fee
-      }
+    gettechnologylist(data){
       return requestAll.requset(baseUrl + '/api/technology/lists',data);
     },
     // 技术转移筛选条件

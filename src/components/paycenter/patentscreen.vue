@@ -135,11 +135,15 @@
                                this.iscolor[index] = nubs
                                console.log(item)
                                this.$set(this.id,item,nubs)
-                               this.$set(this.screetext,index,name)
+                              if(name =="不限" ){
+                                    this.$set(this.screetext,index,null)
+                               }else{
+                              this.$set(this.screetext,index,name)
+                               }
                                this.$emit('choosecon',this.id)
                        },
                         choosenull() {
-                                this.screetext = []
+                                this.screetext =[]
                                 this.$emit('choosenull')
                         }
                 }

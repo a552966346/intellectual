@@ -121,7 +121,7 @@
                                        <p>{{sb_right_lie_o.name}}</p>
                                         <p>{{sb_right_lie_o.sketch}}</p>
                                         <p>{{sb_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
-                                        <p><button>立即办理</button><button>查看详情</button></p>
+                                        <p><button @click="but_bl">立即办理</button><button @click="but_xq(sb_right_lie_o.category_id)">查看详情</button></p>
                                 </div>
                                 <div class="servecenter_center_sb_right">
                                         <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="item.id" v-if="index != 0&&sb_right_lie.length !=1">
@@ -144,7 +144,7 @@
                                         <p>{{ zl_right_lie_o.name}}</p>
                                         <p >{{zl_right_lie_o.sketch}}</p>
                                         <p>{{zl_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
-                                        <p><button>联系客服</button><button>查看详情</button></p>
+                                        <p><button @click="but_bl">联系客服</button><button @click="but_xq(zl_right_lie_o.category_id)">查看详情</button></p>
                                 </div>
                                 <div class="servecenter_center_zl_right">
                                         <div class="zl_right_lie" v-for="(item,index) in zl_right_lie" :key="item.id" v-if="index != 0&&zl_right_lie.length !=1">
@@ -154,7 +154,7 @@
                                                         <span>{{item.sketch}}</span>
                                                 </div>
                                                 <p><span>{{item.fee}}元起</span></p>
-                                                <button>查看详情</button>
+                                                <button @click="but_xq(item.category_id)">查看详情</button>
                                         </div>
                                 </div>
                         </div>
@@ -171,7 +171,7 @@
                                                         <p>{{fu_cen_right_lie_o.sketch}}</p>
                                                         <p>{{fu_cen_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                                 </div>
-                                                <p><button>联系客服</button><button>查看详情</button></p>
+                                                <p><button @click="but_bl">联系客服</button><button @click="but_xq(zl_right_lie_o.category_id)">查看详情</button></p>
                                         </div>
                                         <div class="fu_cen_right_lie" v-for='(item,index) in fu_cen_right_lie' :key="item.id"   v-if="index != 0&&fu_cen_right_lie.length !=1"
                                                 @mouseover="mouseOver(index)" @mouseleave="mouseLeave">
@@ -182,7 +182,7 @@
                                                         <span>{{item.name}}</span></p>
                                                         <p>{{item.sketch}}</p>
                                                         <p >{{item.fee}}元</p>
-                                                        <p v-show="active==index"><button>立即办理</button></p>
+                                                        <p v-show="active==index"><button @click="but_xq(item.category_id)">立即办理</button></p>
                                                 </div>
 
                                         </div>
@@ -198,7 +198,7 @@
                                                 <p>{{qy_right_lie_o.name}}</p>
                                                 <p>{{qy_right_lie_o.sketch}}</p>
                                                 <p>{{qy_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
-                                                <button>立即咨询&nbsp;&nbsp;></button>
+                                                <button @click="but_bl">立即咨询&nbsp;&nbsp;></button>
                                         </div>
                                 </div>
                                 <div class="servecenter_center_qy_right">
@@ -208,7 +208,7 @@
                                                         <img :src=" item.breviary_image" alt="">
                                                         <p>{{item.name}}</p>
                                                         <p>{{item.sketch}}</p>
-                                                        <button>查看详情</button>
+                                                        <button @click="but_xq(item.category_id)">查看详情</button>
                                                 </div>
                                         </div>
                                 </div>
@@ -343,6 +343,7 @@
                                         this.title_all[i] = data[i].name
                                 }
                         },
+                        //服务详情跳转
                         running(key,id){
                                 console.log(key,id)
                                this.$router.push({
@@ -351,7 +352,19 @@
                                                 id:id
                                         }
                                 })
-                        }
+                        },
+                        but_xq(id){
+                                this.$router.push({
+                                         path:'/isserve',
+                                         query:{
+                                                 id:id
+                                         }
+                                 })
+                        },
+                       but_bl(){
+
+                        },
+
                 }
         }
 </script>
@@ -1020,6 +1033,7 @@
         .fu_cen_left {
                 background: url(../../../static/img/service/fu_cen_left.png)no-repeat 0, 0;
                 /* flex: 7; */
+                height: 350px;
                 width: 25%;
                 padding: 50px 25px 50px 25px;
                 background-size: 100% 100%;

@@ -15,11 +15,12 @@
         </div>
       </div>
    </div>
-   <div class="login_center">
+   <div class="login_center" :style="{backgroundImage:'url('+bgimage+')'}">
+
      <!-- 登录 -->
      <div class="login_content">
        <p class="welcome_title">HI 欢迎来到<span style="color:#69a0e2">伊甸城</span></p>
-        <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="stretch_status" v-show="toggle_page">
+        <el-tabs v-model="activeName"  :stretch="stretch_status" v-show="toggle_page">
           <el-tab-pane label="账户密码登录" name="passworld">
             <!-- 账号登录 -->
             <div>
@@ -42,7 +43,7 @@
                    </div>
                 </el-form-item>
                 <el-form-item class="login_form_item">
-                  <el-button type="primary" @click="submitForm('login_ruleForm')" style="width:100%;height:40px">登录</el-button>
+                  <el-button type="primary" :plain="true" @click="submitForm('login_ruleForm')" style="width:100%;height:40px">登录</el-button>
                 </el-form-item>
               </el-form>
             </div>
@@ -54,8 +55,7 @@
               </div>
             </div>
           </el-tab-pane>
-          <el-tab-pane label="手机验证码登录" name="verification">
-            <!-- 验证码登录 -->
+          <!-- <el-tab-pane label="手机验证码登录" name="verification">
              <div>
               <el-form :model="verification_ruleForm" status-icon :rules="verification_rules" ref="verification_ruleForm" class="demo-ruleForm">
                 <el-form-item prop="phone" class="login_form_item">
@@ -70,7 +70,8 @@
                     </el-col>
                     <el-col :span="8">
                       <div class="grid-content">
-                        <el-button type="primary" @click="getVerification" style="width:100%;height:40px;">获取验证码</el-button>
+                        <el-button type="primary" @click="getVerification" style="width:100%;height:40px;" v-if="html==''">获取验证码</el-button>
+                        <div v-else ><img :src="html" alt="" @click="getVerification"></div>
                       </div>
                     </el-col>
                   </el-row>
@@ -98,7 +99,7 @@
                 <img src="../../../static/img/login/zfy_icon.png" alt="">
               </div>
             </div>
-          </el-tab-pane>
+          </el-tab-pane> -->
         </el-tabs>
         <!-- 注册 -->
         <div class="register_page" v-show="!toggle_page">
@@ -119,7 +120,8 @@
                     </el-col>
                     <el-col :span="8">
                       <div class="grid-content">
-                        <el-button type="primary" @click="getVerification" style="width:100%;height:40px;">获取验证码</el-button>
+                        <el-button type="primary" @click="getVerification" style="width:100%;height:40px;" v-if="html==''">获取验证码</el-button>
+                        <div v-else><img :src="html" alt="" @click="getVerification" ></div>
                       </div>
                     </el-col>
                   </el-row>
@@ -132,7 +134,7 @@
             <el-form-item style="border-bottom: 1px dashed #c5c5c5;">
                 <div class="register" style="">
                   <div>
-                    <input type="checkbox">我已阅读并同意
+                    <input type="checkbox" v-model="check">我已阅读并同意
                     <p style="text-decoration: underline;">服务协议、</p>
                     <p style="text-decoration: underline;">隐私保护政策</p>
                   </div>
@@ -211,31 +213,104 @@ export default {
         authcode:'',
         pass:''
       },
-      activeName:'passworld'
-      
+      activeName:'passworld',
+      bgimage:require('../../../static/img/login/login_bg.png'),
+      html:'',
+      check:false
     }
   },
-  beforeMount(){
+  mounted(){
     // console.log(validatePhone)
+    this.isusepost()
   },
   methods: {
     // 手机号登录和验证码登录切换
-    handleClick(tab, event) {
-      console.log(tab, event);
-    },
+    // handleClick(tab, event) {
+    //   console.log(tab, event);
+    //    this.activeName = tab.name
+    //       console.log( this.activeName);
+    // },
     // 获取验证码
     getVerification(){
-
+              var text = Math.random();
+        this.$api.userverification(text)
+        .then(res=>{
+                console.log(res)
+                this.html = res.data
+                console.log(this.html)
+        })
     },
     // 注册切换页面
     toggle_page_all(){
       this.toggle_page = !this.toggle_page
+      if(this.toggle_page){
+                this.isusepost()
+      }else{
+              this.isrightpost()
+      }
+    },
+    //登录广告
+    isusepost(){
+            this.$api.uservertisement()
+            .then(res=>{
+                    console.log(res)
+                    this.bgimage = res.data.images
+            })
+    },
+    //注册广告
+    isrightpost(){
+            this.$api.userregistervertisement()
+            .then(res=>{
+                    console.log(res)
+                     this.bgimage = res.data.images
+            })
     },
     // 提交按钮表单验证
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!');
+                if(this.toggle_page){
+
+                        console.log(this.login_ruleForm.username,this.login_ruleForm.pass)
+                        this.$api.userlogin(this.login_ruleForm.username,this.login_ruleForm.pass)
+                        .then(res=>{
+                                console.log(res)
+                                if(res.code == 1){
+                                        this.$route.push({
+                                                path:'/'
+                                        })
+                                }else{
+                                      this.$message({
+                                        message: res.msg,
+                                        center: true,
+                                        type: 'error'
+                                      });
+                                }
+                        })
+                }else{
+                        if(this.check){
+                            this.$api.userregister(this.register_ruleForm.phone,this.register_ruleForm.pass,this.register_ruleForm.authcode)
+                            .then(res=>{
+                                    console.log(res)
+                                    if(res.code == 1){
+                                            this.$route.push({
+                                                    path:'/'
+                                            })
+                                    }else{
+                                          this.$message({
+                                            message: res.msg,
+                                            center: true,
+                                            type: 'error'
+                                          });
+                                    }
+                            })
+                        }else{
+                             this.$message({
+                               message: '请仔细阅读协议',
+                               center: true,
+                             });
+                        }
+                }
         } else {
           console.log('error submit!!');
           return false;
@@ -287,7 +362,7 @@ export default {
   .login_center{
     /* height: 65%; */
     flex: 1;
-    background-image:url('../../../static/img/login/login_bg.png');
+
     background-size: 100% auto;
     background-repeat: no-repeat;
     display: flex;
@@ -318,6 +393,10 @@ export default {
     border-radius: 5px;
     padding: 30px;
     width: 360px;
+  }
+  .grid-content img{
+          width: 100%;
+          height: 40px;
   }
   .login_form_item{
     padding: 10px 0;

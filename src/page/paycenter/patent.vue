@@ -3,7 +3,7 @@
                 <v-topsearch></v-topsearch>
                 <v-navigation></v-navigation>
                 <div class="patent_pay">
-                        <img src="../../../static/img/paycenter/patent_bg.png" alt="">
+                        <img :src="banner" alt="">
                         <!-- 分类 -->
                         <patentscreen :zlTop = "zlTop" :iscolor="iscolor" @choosecon="choosecon" @choosenull="choosenull"></patentscreen>
                         <!-- 排序-->
@@ -54,7 +54,8 @@ import patentcon from '../../components/paycenter/patentcon.vue';
                                 listdata:[]             ,//总条数
                                 iscent:[],
                                 listdata:[],
-                                id:{}
+                                id:{},
+                                banner:'../../../static/img/paycenter/patent_bg.png'
                         }
                 },
                 mounted() {
@@ -62,11 +63,15 @@ import patentcon from '../../components/paycenter/patentcon.vue';
                         .then(res=>{
                                 console.log(res)
                                 this.zlTop = res.data
-                                for(let i=0;i<res.data.length;i++){
-                                        this.iscolor[i] = 0
-                                }
+                                this.iscolor = []
                                 this.ispost(this.id)
                                 // console.log(this.iscent)
+                        })
+                        //广告
+                        this.$api.getPatentsadvertisement()
+                        .then(res=>{
+                                console.log(res)
+                                this.banner = res.data.images
                         })
                 },
                 methods: {
@@ -94,9 +99,7 @@ import patentcon from '../../components/paycenter/patentcon.vue';
                         },
                         //清空
                         choosenull(){
-                                for(let i=0;i<this.zlTop.length;i++){
-                                        this.iscolor[i] = 0
-                                }
+                                this.iscolor = []
                                 this.ispost()
                         },
                         //列表请求

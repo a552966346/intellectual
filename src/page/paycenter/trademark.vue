@@ -3,7 +3,7 @@
     <v-topsearch></v-topsearch>
     <v-navigation></v-navigation>
     <div class="copyright_pay">
-      <img src="../../../static/img/paycenter/trademark_bg.png" alt="" />
+      <img :src="banner" alt="" />
       <!-- 分类 -->
       <trademarkscreen @choosecon="choosecon" @ischange = "ischange" @choosenull="choosenull" :patenscree="patenscree" :data_two="data_two" :iscolor="iscolor"></trademarkscreen>
       <!-- 排序-->
@@ -59,7 +59,8 @@ export default {
             data_two:[],
             bgcolor:'rgb(230, 92, 92)',
             istotal:0,
-            listdata:[]
+            listdata:[],
+            banner:'../../../static/img/paycenter/trademark_bg.png'
         }
 
     },
@@ -68,10 +69,13 @@ export default {
             .then(res=>{
                     console.log(res)
                     this.patenscree = res.data.data_one
-                    for(let i =0;i<res.data.data_one.length;i++){
-                            this.iscolor[i] = 0
-                    }
+                    this.iscolor = []
                     this.data_two = res.data.data_two
+            })
+            this.$api.gettrademarkadvertisement()
+            .then(res=>{
+                    console.log(res)
+                    this.banner = res.data.images
             })
             this.ispost()
     },
@@ -89,7 +93,7 @@ export default {
                         }else{
                                  this.ispost()
                         }
-                        
+
                 },
 
                 listsort(index){
@@ -124,7 +128,7 @@ export default {
                 },
                 //清空筛选
                 choosenull(){
-                        this.iscolor = [0,0,0,0]
+                        this.iscolor = []
                         this.screetext = []
                         this.ispost()
                 },

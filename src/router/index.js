@@ -172,12 +172,12 @@ export default new Router({
             }]
         },
         {
-            path: '/transfer',
+            path: '/technology', //技术转让筛选
             name: 'transfer',
             component: transfer
         },
         {
-            path: '/technology',
+            path: '/name',
             name: 'technology',
             component: technology
         },
