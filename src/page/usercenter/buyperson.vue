@@ -26,8 +26,8 @@
                 <li class="con_b_item">订单操作</li>
                 <li class="con_b_item">客服信息</li>
             </ul>
-            <div class="content">
-                <div class="content_c">
+            <div class="b_content">
+                <div class="b_content_c">
                     <img src="../../../static/img/usercenter/order.png" alt=""><span>您还没有订单，去逛逛吧~</span> 
                 </div>
             </div>
@@ -42,7 +42,7 @@ export default {
         return{
 
         }
-    }
+    },
 }
 </script>
 <style>
@@ -119,8 +119,6 @@ export default {
 .con_b{
     margin-top: 20px;
     height: 35px;
-    border-radius: 5px;
-    border: 1px solid #efefef;
     display: flex;
     justify-content: space-around;
     color: #b7b7b7;
@@ -130,7 +128,7 @@ export default {
     justify-content: center;
     align-items: center;
 }
-.content{
+.b_content{
     height: 300px;
     margin-top: 15px;
     display: flex;
@@ -140,17 +138,17 @@ export default {
     justify-content: center;
 }
 
-.content_c{
+.b_content_c{
    text-align: center;
    vertical-align:middle;
   
    /* padding: 26px; */
 }
-.content_c  img{
+.b_content_c  img{
     vertical-align:middle;
   
 }
-.content_c span{
+.b_content_c span{
     font-size: 14px;
 }
 </style>

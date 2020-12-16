@@ -51,7 +51,7 @@ export default{
     data(){
         return{
             msg:'这是测试内容',
-            tabPosition: 'left'
+            teloption:[]
               }
    },
 }
