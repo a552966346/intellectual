@@ -6,9 +6,9 @@
                                         <!-- <a href="#"> -->
                                                 <a href="#">
                                                 <div class="patent_img">
-                                                        <!-- <a href="#"> -->
+                                                        
                                                         <img :src="item.images_text[0]" alt="">
-                                                        <!-- </a> -->
+                                                       
                                                         <span>{{item.categoryid_text}}</span>
                                                 </div>
                                                 </a>

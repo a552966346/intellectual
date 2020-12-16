@@ -23,18 +23,20 @@
         </div>
         <div class="patent_bpro">
             <div class="patent_bottom" v-for="(item,index) in listdata" :key="item.id">
-                <a  href="#" >
+                <!-- <a  href="#" > -->
+                        <a  href="#" >
                         <div class="patent_img">
                             <img :src="item.images_text[0]" alt="">
                             <span>{{item.categoryid_text}}</span>
                         </div>
+                        </a>
                         <p>{{item.name}}</p>
                         <div class="patent_price">
                             <span>￥{{item.fee}}</span>
                             <p>{{item.categoryid_text}}</p>
                         </div>
                         <div class="patent_bargain">立即议价</div>
-                </a>
+                <!-- </a> -->
              </div>
         </div>
     </div>

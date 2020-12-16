@@ -23,10 +23,12 @@
                         </div>
                         <div class="copyright_bpro">
                                 <div class="copyright_bottom" v-for="(item,index) in listdata" :key="item.id">
-                                        <a href="#">
+                                        <!-- <a href="#"> -->
+                                                <a href="#">
                                                 <div class="copyright_img1">
                                                         <img :src="item.images_text[0]" alt="">
                                                 </div>
+                                                </a>
                                                 <div class="copyright_text">
                                                         <h3>{{item.name}}</h3>
                                                         <img src="../../../static/img/paycenter/copyright_like.png" alt="">
@@ -38,7 +40,7 @@
                                                                 alt="">
                                                 </div>
                                                 <div class="copyright_quick">立即议价</div>
-                                        </a>
+                                        <!-- </a> -->
                                 </div>
                         </div>
                 </div>

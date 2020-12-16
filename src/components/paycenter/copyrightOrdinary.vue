@@ -3,10 +3,12 @@
                 <div class="copyright_product">
                         <div class="copyright_content">
                                 <div class="copyright_con" v-for="(item,index) in iscent" :key="index">
-                                        <a href="#">
+                                        <!-- <a href="#"> -->
+                                                <a href="#">
                                                 <div class="copyright_img">
                                                         <img :src="item.images_text[0]" alt="">
                                                 </div>
+                                                </a> 
                                                 <div class="copyright_ti">
                                                         <h3>{{item.name}}</h3>
                                                         <img src="../../../static/img/paycenter/copyright_like.png" alt="">
@@ -18,7 +20,7 @@
                                                                 alt="">
                                                 </div>
                                                 <div class="copyright_bargain">立即议价</div>
-                                        </a>
+                                        <!-- </a> -->
                                 </div>
                         </div>
                 </div>
