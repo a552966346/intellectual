@@ -6,16 +6,16 @@
                 <v-navigation></v-navigation>
                 <!-- 顶部选项卡 -->
                 <v-banner></v-banner>
-                <div>
-
-                </div>
-
                 <!-- 交易中心 -->
                 <div class="index_pay">
+                        <!--交易中心标题-->
                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :background_img_url='title_bg_url[0]'></v-comtitle>
+                        <!-- 三块内容 -->
                         <v-indexpayitem :payleft_img_url='pay_img_list[0]' :type='false'></v-indexpayitem>
                         <v-indexpayitem :payleft_img_url='pay_img_list[1]' :type='true'></v-indexpayitem>
                         <v-indexpayitem :payleft_img_url='pay_img_list[2]' :type='true'></v-indexpayitem>
+
+                        <v-indexpayitem :hot='hot'></v-indexpayitem>
                 </div>
 
                 <!-- 企业服务 -->
@@ -225,8 +225,11 @@
                 name: 'index',
                 data() {
                         return {
+                                //交易中心的热门推荐
+                                hot:[],
                                 // commtitle组件传值所需
                                 title_color: '#fff',
+                                // 标题
                                 title_all: ["交易中心", '企业服务', '跳蚤市场', '新闻中心', '合伙人计划', '了解伊甸网'],
                                 title_text_all: ['交易快报: 186****123,25分钟前购买了****专利',
                                         '交易快报: 186****123,25分钟前购买了****专利',
@@ -242,7 +245,7 @@
                                         '../../../static/img/common/Partnership_plan.png',
                                         '../../../static/img/common/Learn_about_Eden.png',
                                 ],
-                                //交易中心组件所需
+                                //交易中心组件所需侧边图片
                                 pay_img_list: ['../../../static/img/index/zhuanli_pay.png',
                                         '../../../static/img/index/shangbiao_pay.png',
                                         '../../../static/img/index/ruanzhu_pay.png'
@@ -419,7 +422,17 @@
                                 ]
                         }
                 },
-
+                mounted() {
+                        this.$api.getidnexdeal()
+                        .then(res=>{
+                                console.log('专利交易')
+                                 console.log(res)
+                                // console.log(res.data)
+                                this.hot=res.data.hot;
+                                // console.log(this.hot)
+                                console.log('专利交易')
+                        })
+                },
                 methods: {
                         tab(index) {
                                 this.num = index;
@@ -430,598 +443,90 @@
                         'v-navigation': navigation,
                         'v-banner': banner
                 }
+
+
         }
 </script>
 
 <style scoped>
-        /* scoped 样式隔离 */
-        * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-        }
-
-        /* 交易 */
-        .index_pay {
-                background: #f6f6f6;
-                padding-bottom: 20px;
-        }
-
-        /* 企业服务 */
-        .index_enterprise {
-                background-image: url(../../../static/img/index/index_enterprise_bg.jpg);
-                padding: 30px;
-        }
-
-        .index_content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                background: #f6f6f6;
-                padding: 25px 0;
-        }
-
-        .index_about {
-                width: 1200px;
-        }
-
-        .index_about_content {
-                display: flex;
-        }
-
-        .index_left_content {
-                padding: 30px;
-                background: #fff;
-                margin-right: 30px;
-        }
-
-        .index_left_content>h3 {
-                padding: 10px 0;
-        }
-
-        .index_left_content>p {
-                font-size: 14px;
-                line-height: 25px;
-        }
-
-        .index_right_content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-        }
-
-        .index_right_content>img {
-                margin-bottom: 20px;
-        }
-
-        .index_right_content>img:last-of-type {
-                margin-bottom: 0;
-        }
-
-        /* 轮播图 */
-        .el-carousel__item h3 {
-                color: #475669;
-                font-size: 14px;
-                opacity: 0.75;
-                line-height: 200px;
-                margin: 0;
-        }
-
-        .el-carousel__item:nth-child(2n) {
-                background-color: #99a9bf;
-        }
-
-        .el-carousel__item:nth-child(2n+1) {
-                background-color: #d3dce6;
-        }
-
-        .index_left_swiper {
-                padding: 25px 0;
-        }
-
-        .index_enterpriseasd {
-                width: 1240px;
-                height: 420px;
-                margin: 0 auto;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-direction: row;
-        }
-
-        .index_enterpriseasdwron {
-                border: 20px solid #fff;
-                width: 400px;
-                height: 380px;
-                background-image: url(../../../static/img/index/index_twbaon.png);
-                background-size: cover;
-                display: flex;
-                justify-content: space-around;
-                align-items: flex-start;
-                flex-direction: column;
-                padding: 3%;
-                color: #fff;
-        }
-
-        .index_enterpriseasdwrtw {
-                border: 20px solid #fff;
-                width: 400px;
-                height: 380px;
-                background-image: url(../../../static/img/index/index_twbatw.png);
-                background-size: cover;
-                display: flex;
-                justify-content: space-between;
-                flex-direction: column;
-        }
-
-        .index_enterpriseasdwrtr {
-                border: 20px solid #fff;
-                width: 400px;
-                height: 380px;
-                background-image: url(../../../static/img/index/index_twbatr.png);
-                background-size: cover;
-                display: flex;
-                justify-content: space-between;
-                flex-direction: column;
-        }
-
-        .index_entesdwr {
-                font-size: 30px;
-                font-weight: bold;
-        }
-
-        .index_entesdwrqwas {
-                border: 1px solid #fff;
-                padding: 3%;
-                border-radius: 8px;
-        }
-
-        .index_entwkjk {
-                width: 100%;
-                height: 140px;
-                background-image: url(../../../static/img/index/index_banrtwstw.png);
-                background-size: cover;
-        }
-
-        .index_entwkjkr {
-                width: 100%;
-                height: 140px;
-                background-image: url(../../../static/img/index/index_benarwst.png);
-                background-size: cover;
-        }
-
-        .index_entwkjkas {
-                width: 100%;
-                flex: 1;
-                display: flex;
-                justify-content: space-around;
-                align-items: flex-start;
-                flex-direction: column;
-                padding: 2%;
-                color: #fff;
-                padding: 0 30px;
-        }
-
-        .index_cmetk {
-                font-size: 24px;
-                font-weight: bold;
-        }
-
-        .index_cmetkaqw {
-                border: 1px solid #fff;
-                padding: 10px;
-                font-size: 14px;
-        }
-
-        .index_online {
-                width: 1200px;
-                height: 570px;
-                display: flex;
-                align-items: baseline;
-                flex-wrap: wrap;
-                padding-top: 4px;
-        }
-
-        .index_block {
-                width: 295px;
-                height: 185px;
-                background-color: #fff;
-                display: flex;
-                justify-content: baseline;
-                align-items: center;
-                flex-direction: column;
-                margin: 0 2.5px 0 2.5px;
-                box-shadow: 1px 1px 7px #ccc;
-        }
-
-        .index_blokk {
-                width: 295px;
-                height: 185px;
-                background-image: url(../../../static/img/index/index_icws.png);
-                background-size: cover;
-                display: flex;
-                justify-content: baseline;
-                align-items: center;
-                flex-direction: column;
-                margin: 0 2.5px 0 2.5px;
-                box-shadow: 1px 1px 7px #ccc;
-        }
-
-        .index_bvlx {
-                width: 100%;
-                height: 50px;
-                padding: 20px 16px 0;
-                font-weight: bold;
-        }
-
-        .index_bvlax {
-                width: 100%;
-                height: 50px;
-                padding: 20px 16px 0;
-                font-weight: bold;
-                color: #fff;
-        }
-
-        .index_bvlxa {
-                font-size: 16px;
-                color: #989495;
-        }
-
-        .index_bale {
-                width: 100%;
-                height: 50px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-direction: row;
-                margin-top: 20px;
-                padding: 0 20px;
-        }
-
-        .index_asq {
-                color: red;
-                font-weight: bold;
-        }
-
-        .index_aeq {
-                color: #fff;
-                font-weight: bold;
-                padding: 5px 15px;
-                border: 2px solid #fff;
-                border-top-left-radius: 5px;
-                border-top-right-radius: 5px;
-                border-bottom-left-radius: 5px;
-                border-bottom-right-radius: 5px;
-        }
-
-        .index_qza {
-                width: 100%;
-                flex: 1;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row;
-        }
-
-        .index_mwt {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: #ff8800;
-                width: 50%;
-                height: 100%;
-                color: #fff;
-        }
-
-        .index_qwz {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border: 2px solid #ff8800;
-                width: 50%;
-                height: 100%;
-                color: #ff8800;
-        }
-
-        .index_bvxxa {
-                font-size: 16px;
-                width: 100%;
-                padding-left: 18px;
-                color: rgb(88, 80, 80);
-        }
-
-        .index_partner {
-                width: 1200px;
-                height: 425px;
-                background-color: #f6f6f6f6;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-direction: row;
-        }
-
-        .index_partblok {
-                width: 265px;
-                height: 395px;
-                display: flex;
-                flex-direction: column;
-                background-image: url(../../../static/img/index/index_partneron.png);
-                background-size: cover;
-        }
-
-        .index_partblak {
-                width: 215px;
-                height: 395px;
-                background-color: #fff;
-                display: flex;
-                flex-direction: column;
-        }
-
-        .index_parsimg {
-                width: 100%;
-                height: 60%;
-        }
-
-        .index_parsnimg {
-                width: 100%;
-                height: 60%;
-                visibility: hidden;
-        }
-
-        .index_parsimg img {
-                width: 100%;
-                height: 100%;
-        }
-
-        .index_parscet {
-                flex: 1;
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                flex-direction: column;
-                color: #147fc5;
-        }
-
-        .index_parsze {
-                font-size: 40px;
-                border-bottom: 2px solid #147fc5;
-        }
-
-        .index_parszeq {
-                font-size: 16px;
-                background-image: linear-gradient(#fb963a, #f25630);
-                padding: 10px 15px;
-                color: #fff;
-                font-weight: bold;
-                border-bottom-left-radius: 25px;
-                border-bottom-right-radius: 25px;
-                border-top-left-radius: 25px;
-                border-top-right-radius: 25px;
-        }
-
-        #index_box {
-                width: 1200px;
-                height: 505px;
-        }
-
-        .index_ulonimo {
-                width: 10px;
-                text-align: right;
-        }
-
-        .index_ulon {
-                overflow: hidden;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                padding-bottom: 10px;
-        }
-
-        .index_ulonim {
-                text-align: right;
-        }
-
-        .index_ulon li {
-                float: left;
-                margin: 0 10px;
-                cursor: pointer;
-                width: 115px;
-                height: 35px;
-                border-top-left-radius: 25px;
-                border-top-right-radius: 25px;
-                border-bottom-left-radius: 25px;
-                border-bottom-right-radius: 25px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-        }
-
-        .index_ultw li {
-                height: 470px;
-                display: flex;
-                justify-content: space-between;
-        }
-
-        .active {
-                background-color: #187fc4;
-                color: #fff;
-        }
-
-        .index_ulxwon {
-                width: 350px;
-                height: 100%;
-                background-color: #fff;
-                display: flex;
-                flex-direction: column;
-                padding: 15px;
-        }
-
-        .index_ulxwtw {
-                width: 350px;
-                height: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-content: center;
-                flex-direction: column;
-        }
-
-        .index_ulxwtr {
-                width: 430px;
-                height: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-content: center;
-                flex-direction: column;
-                background-color: #fff;
-        }
-
-        .index_url {
-                width: 100%;
-                height: 235px;
-                background-image: url(../../../static/img/index/index_nesinon.png);
-                background-size: cover;
-        }
-
-        .index_urlw {
-                flex: 1;
-                display: flex;
-                justify-content: space-evenly;
-                align-content: center;
-                flex-direction: column;
-        }
-
-        .index_urlq {
-                font-size: 24px;
-        }
-
-        .index_ulxwtwbk {
-                width: 100%;
-                height: 100px;
-                background-color: #fff;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                flex-direction: row;
-        }
-
-        .index_ulxwtwbklt {
-                width: 77px;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                flex-direction: column;
-        }
-
-        .index_ulxwtwbkrt {
-                flex: 1;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                flex-direction: column;
-                padding: 15px;
-        }
-
-        .index_ulxwas {
-                width: 100%;
-                height: 30px;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                border-right: 1px solid #ccc;
-        }
-
-        .index_ulxwasq {
-                width: 100%;
-                height: 30px;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                border-right: 1px solid #ccc;
-        }
-
-        .idnex_ulxwtas {
-                width: 100%;
-                height: 30px;
-                display: flex;
-                justify-content: flex-start;
-                align-content: center;
-        }
-
-        .idnex_ulxwtasq {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-        }
-
-        .index_ulxwsq {
-                width: 100%;
-                height: 150px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-        }
-
-        .index_ulxwsqlt {
-                width: 40%;
-                height: 70%;
-                margin-left: 5%;
-                background-image: url(../../../static/img/index/index_mset.png);
-                background-size: cover;
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
-        }
-
-        .index_ulxwsqrt {
-                flex: 1;
-                height: 100%;
-                display: flex;
-                justify-content: space-evenly;
-                align-items: flex-start;
-                flex-direction: column;
-                padding: 15px;
-        }
-
-        .index_ulxwsqk {
-                flex: 1;
-                display: flex;
-                justify-content: space-evenly;
-                align-items: flex-start;
-                flex-direction: column;
-                padding: 20px;
-        }
-
-        .index_ulxwsqkz {
-                width: 100%;
-                height: 90px;
-                background-color: #f8f8f8;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                flex-direction: column;
-        }
-
-        .index_ulwsaq {
-                width: 100%;
-                height: 45px;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-        }
-
-        .index_ulwsapq {
-                width: 100%;
-                flex: 1;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-        }
-
-        .index_ulxwsqk .index_ulxwsqkz:nth-child(2) {
-                margin: 10px 0;
-        }
+      /* scoped 样式隔离*/
+      *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
+      /* 交易*/
+      .index_pay{background: #f6f6f6;padding: 20px 0px;}
+      /* 企业服务*/
+      .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bg.jpg);padding: 30px;}
+      .index_content{display: flex;flex-direction: column;align-items: center;background: #f6f6f6;padding: 25px 0;}
+      .index_about{width: 1200px;}
+      .index_about_content{display: flex;}
+      .index_left_content{padding: 30px;background: #fff;margin-right: 30px;}
+      .index_left_content>h3{padding: 10px 0;}
+      .index_left_content>p{font-size: 14px;line-height: 25px;}
+      .index_right_content{display: flex;flex-direction: column;align-items: center;}
+      .index_right_content>img{margin-bottom: 20px;}
+      .index_right_content>img:last-of-type{margin-bottom: 0;}
+      /* 轮播图*/.el-carousel__item h3{color: #475669;font-size: 14px;opacity: 0.75;line-height: 200px;margin: 0;}
+      .el-carousel__item:nth-child(2n){background-color: #99a9bf;}
+      .el-carousel__item:nth-child(2n+1){background-color: #d3dce6;}
+      .index_left_swiper{padding: 25px 0;}
+      .index_enterpriseasd{width: 1240px;height: 420px;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
+      .index_enterpriseasdwron{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbaon.png);background-size: cover;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 3%;color: #fff;}
+      .index_enterpriseasdwrtw{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatw.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
+      .index_enterpriseasdwrtr{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatr.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
+      .index_entesdwr{font-size: 30px;font-weight: bold;}
+      .index_entesdwrqwas{border: 1px solid #fff;padding: 3%;border-radius: 8px;}
+      .index_entwkjk{width: 100%;height: 140px;background-image: url(../../../static/img/index/index_banrtwstw.png);background-size: cover;}
+      .index_entwkjkr{width: 100%;height: 140px;background-image: url(../../../static/img/index/index_benarwst.png);background-size: cover;}
+      .index_entwkjkas{width: 100%;flex: 1;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 2%;color: #fff;padding: 0 30px;}
+      .index_cmetk{font-size: 24px;font-weight: bold;}
+      .index_cmetkaqw{border: 1px solid #fff;padding: 10px;font-size: 14px;}
+      .index_online{width: 1200px;height: 570px;display: flex;align-items: baseline;flex-wrap: wrap;padding-top: 4px;}
+      .index_block{width: 295px;height: 185px;background-color: #fff;display: flex;justify-content: baseline;align-items: center;flex-direction: column;margin: 0 2.5px 0 2.5px;box-shadow: 1px 1px 7px #ccc;}
+      .index_blokk{width: 295px;height: 185px;background-image: url(../../../static/img/index/index_icws.png);background-size: cover;display: flex;justify-content: baseline;align-items: center;flex-direction: column;margin: 0 2.5px 0 2.5px;box-shadow: 1px 1px 7px #ccc;}
+      .index_bvlx{width: 100%;height: 50px;padding: 20px 16px 0;font-weight: bold;}
+      .index_bvlax{width: 100%;height: 50px;padding: 20px 16px 0;font-weight: bold;color: #fff;}
+      .index_bvlxa{font-size: 16px;color: #989495;}
+      .index_bale{width: 100%;height: 50px;display: flex;justify-content: space-between;align-items: center;flex-direction: row;margin-top: 20px;padding: 0 20px;}
+      .index_asq{color: red;font-weight: bold;}
+      .index_aeq{color: #fff;font-weight: bold;padding: 5px 15px;border: 2px solid #fff;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;}
+      .index_qza{width: 100%;flex: 1;display: flex;justify-content: center;align-items: center;flex-direction: row;}
+      .index_mwt{display: flex;justify-content: center;align-items: center;background-color: #ff8800;width: 50%;height: 100%;color: #fff;}
+      .index_qwz{display: flex;justify-content: center;align-items: center;border: 2px solid #ff8800;width: 50%;height: 100%;color: #ff8800;}
+      .index_bvxxa{font-size: 16px;width: 100%;padding-left: 18px;color: rgb(88, 80, 80);}
+      .index_partner{width: 1200px;height: 425px;background-color: #f6f6f6f6;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
+      .index_partblok{width: 265px;height: 395px;display: flex;flex-direction: column;background-image: url(../../../static/img/index/index_partneron.png);background-size: cover;}
+      .index_partblak{width: 215px;height: 395px;background-color: #fff;display: flex;flex-direction: column;}
+      .index_parsimg{width: 100%;height: 60%;}
+      .index_parsnimg{width: 100%;height: 60%;visibility: hidden;}
+      .index_parsimg img{width: 100%;height: 100%;}
+      .index_parscet{flex: 1;display: flex;justify-content: space-evenly;align-items: center;flex-direction: column;color: #147fc5;}
+      .index_parsze{font-size: 40px;border-bottom: 2px solid #147fc5;}
+      .index_parszeq{font-size: 16px;background-image: linear-gradient(#fb963a, #f25630);padding: 10px 15px;color: #fff;font-weight: bold;border-bottom-left-radius: 25px;border-bottom-right-radius: 25px;border-top-left-radius: 25px;border-top-right-radius: 25px;}
+      #index_box{width: 1200px;height: 505px;}
+      .index_ulonimo{width: 10px;text-align: right;}
+      .index_ulon{overflow: hidden;display: flex;justify-content: center;align-content: center;padding-bottom: 10px;}
+      .index_ulonim{text-align: right;}
+      .index_ulon li{float: left;margin: 0 10px;cursor: pointer;width: 115px;height: 35px;border-top-left-radius: 25px;border-top-right-radius: 25px;border-bottom-left-radius: 25px;border-bottom-right-radius: 25px;display: flex;justify-content: center;align-items: center;}
+      .index_ultw li{height: 470px;display: flex;justify-content: space-between;}
+      .active{background-color: #187fc4;color: #fff;}
+      .index_ulxwon{width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;padding: 15px;}
+      .index_ulxwtw{width: 350px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;}
+      .index_ulxwtr{width: 430px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;background-color: #fff;}
+      .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
+      .index_urlw{flex: 1;display: flex;justify-content: space-evenly;align-content: center;flex-direction: column;}
+      .index_urlq{font-size: 24px;}
+      .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
+      .index_ulxwtwbklt{width: 77px;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;}
+      .index_ulxwtwbkrt{flex: 1;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding: 15px;}
+      .index_ulxwas{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;border-right: 1px solid #ccc;}
+      .index_ulxwasq{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;border-right: 1px solid #ccc;}
+      .idnex_ulxwtas{width: 100%;height: 30px;display: flex;justify-content: flex-start;align-content: center;}
+      .idnex_ulxwtasq{width: 100%;display: flex;justify-content: center;align-content: center;}
+      .index_ulxwsq{width: 100%;height: 150px;display: flex;justify-content: center;align-items: center;}
+      .index_ulxwsqlt{width: 40%;height: 70%;margin-left: 5%;background-image: url(../../../static/img/index/index_mset.png);background-size: cover;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;}
+      .index_ulxwsqrt{flex: 1;height: 100%;display: flex;justify-content: space-evenly;align-items: flex-start;flex-direction: column;padding: 15px;}
+      .index_ulxwsqk{flex: 1;display: flex;justify-content: space-evenly;align-items: flex-start;flex-direction: column;padding: 20px;}
+      .index_ulxwsqkz{width: 100%;height: 90px;background-color: #f8f8f8;display: flex;justify-content: space-around;align-items: center;flex-direction: column;}
+      .index_ulwsaq{width: 100%;height: 45px;display: flex;justify-content: flex-start;align-items: center;}
+      .index_ulwsapq{width: 100%;flex: 1;display: flex;justify-content: flex-start;align-items: center;}
+      .index_ulxwsqk .index_ulxwsqkz:nth-child(2){margin: 10px 0;}
 </style>

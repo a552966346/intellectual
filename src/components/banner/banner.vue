@@ -3,7 +3,7 @@
                 <div class="bnner_all">
                       <el-tabs type="border-card" v-model="activeName" class="banner_switch" >
                               <!-- 交易中心 -->
-                              <el-tab-pane :label="paycenter.name+paycenter.keys" name="first" :key="'first'" class="baner_trade">
+                              <el-tab-pane :label="paycenter.name+' '+paycenter.keys" name="first" :key="'first'" class="baner_trade">
                                       <!-- 交易中心标题 -->
                                       <div class="baner_commontop">{{paycenter.keys_tow}}</div>
                                       <!-- 交易中心内容 -->
@@ -29,7 +29,7 @@
                                       </div>
                               </el-tab-pane>
                               <!-- 服务中心 -->
-                              <el-tab-pane :label="severcenter.name+severcenter.keys" name="second" :key="'second'">
+                              <el-tab-pane :label="severcenter.name+' '+severcenter.keys" name="second" :key="'second'">
                                       <!-- 服务中心标题 -->
                                       <div class="baner_commontop">{{severcenter.keys_tow}}</div>
                                       <!-- 服务中心选项卡内容 -->
@@ -55,7 +55,7 @@
                                       </div>
                               </el-tab-pane>
                               <!-- 金融中心 -->
-                              <el-tab-pane :label="jinrongcenter.name+jinrongcenter.keys" name="three" :key="'three'">
+                              <el-tab-pane :label="jinrongcenter.name+' '+jinrongcenter.keys" name="three" :key="'three'">
                                       <!-- 金融中心标题 -->
                                       <div class="baner_commontop">{{jinrongcenter.keys_tow}}</div>
                                        <!-- 金融中心选项卡内容 -->

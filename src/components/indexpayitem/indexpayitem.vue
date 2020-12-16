@@ -1,11 +1,16 @@
 <template>
+ <!-- 首页交易中心 -->
  <div id="indexpay_item">
+   <!-- 左侧图片 -->
    <img :src="payleft_img_url" alt="">
+   <!-- 右侧内容 -->
    <div class="indexpay_right">
+      <!-- 查看更多 -->
       <div>
         <p>精选商品总共<span>256</span>件</p>
         <span>查看更多></span>
       </div>
+      <!-- 商品交易/软著交易 -->
       <div class="indexpay_right_list" v-if="type">
           <div class="indexpay_right_item">
             <img src="../../../static/img/index/item_img.png" alt="">
@@ -38,9 +43,10 @@
             <p class="title_blue">￥29400~39999</p>
           </div>
       </div>
+      <!-- 专利交易 -->
       <div class="indexpay_right_lists" v-if="!type">
         <div class="activie_list">
-          <span :class="{active:active==index}" v-for="(text,index) in text" :key = "index" @click="active_top(index)">{{text.name}}</span>
+          <span  :class="{active:active==index}" v-for="(text,index) in hot" :key = "index" @click="active_top(index)">{{text.name}}</span>
         </div>
         <div class="indexpay_right_item_list">
           <div class="indexpay_right_item_item">
@@ -82,6 +88,7 @@
         </div>
      </div>
    </div>
+
  </div>
 </template>
 
@@ -89,8 +96,9 @@
 export default {
   // 组件中接受的值
   props:{
-      payleft_img_url:String,
-      type:Boolean,
+      payleft_img_url:String,//左侧图片
+      type:Boolean,//
+      hot:'',//交易中心的热门推荐
   },
   data() {
     return {
@@ -98,6 +106,7 @@ export default {
         active:0
     }
   },
+
   methods:{
         active_top(s){
                 this.active = s;
