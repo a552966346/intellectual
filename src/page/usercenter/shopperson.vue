@@ -9,33 +9,67 @@
             </div>
         </div>
         <div class="shop_con">
-            <ul class="con_t">
-                <li class="con_t_item">出售商标</li>
-                <li class="con_t_item">出售专利</li>
-                <li class="con_t_item">出售版权</li>
-                <li class="con_t_item">技术转让</li>
-                <li class="con_t_search">
-                    <div class="t_sea">
-                        <input type="text" placeholder="请输入您要查找的商品编号或注册号">
-                        <div class="search">搜索</div>
+            <ul class="s_con_t">
+                <li class="s_con_t_item selltrademark">出售商标</li>
+                <li class="s_con_t_item sellpatent">出售专利</li>
+                <li class="s_con_t_item sellcopyright">出售版权</li>
+                <li class="s_con_t_item technologytransfer">技术转让</li>
+                <li class="s_con_t_search">
+                    <div class="s_t_sea">
+                        <input type="s_text" placeholder="请输入您要查找的商品编号或注册号">
+                        <div class="s_search">搜索</div>
                     </div>
                 
                 </li>
             </ul>
-            <ul class="con_b">
-                <li class="con_b_item">商品</li>
-                <li class="con_b_item">出售信息</li>
-                <li class="con_b_item">价格</li>
-                <li class="con_b_item">发布时间</li>
-                <li class="con_b_item">当前状态</li>
-                <li class="con_b_item">商品操作</li>
+            <ul class="s_con_b">
+                <li class="s_con_b_item">商品</li>
+                <li class="s_con_b_item">出售信息</li>
+                <li class="s_con_b_item">价格</li>
+                <li class="s_con_b_item">发布时间</li>
+                <li class="s_con_b_item">当前状态</li>
+                <li class="s_con_b_item">商品操作</li>
             </ul>
-            <div class="content">
-                <div class="content_c">
+            <div class="s_content">
+                <div class="s_content_c">
                     <img src="../../../static/img/usercenter/nomessage.png" alt="">
                     <p>没有看到您的商品信息。</p>
                     <p>如果您有商品，您可以去<a href="#">登记出售信息</a></p>
-                </div>
+                </div>    
+            </div>
+            <div class="s_content_d">
+                    <ul class="s_con_b selltrademark1">
+                        <li class="s_con_b_item">1</li>
+                        <li class="s_con_b_item">2</li>
+                        <li class="s_con_b_item">3</li>
+                        <li class="s_con_b_item">4</li>
+                        <li class="s_con_b_item">5</li>
+                        <li class="s_con_b_item">6</li>
+                    </ul>
+                    <ul class="s_con_b sellpatent1">
+                        <li class="s_con_b_item">1</li>
+                        <li class="s_con_b_item">2</li>
+                        <li class="s_con_b_item">3</li>
+                        <li class="s_con_b_item">4</li>
+                        <li class="s_con_b_item">5</li>
+                        <li class="s_con_b_item">6</li>
+                    </ul>
+                    <ul class="s_con_b sellcopyright1">
+                        <li class="s_con_b_item">1</li>
+                        <li class="s_con_b_item">2</li>
+                        <li class="s_con_b_item">3</li>
+                        <li class="s_con_b_item">4</li>
+                        <li class="s_con_b_item">5</li>
+                        <li class="s_con_b_item">6</li>
+                    </ul>
+                    <ul class="s_con_b technologytransfer1">
+                        <li class="s_con_b_item">1</li>
+                        <li class="s_con_b_item">2</li>
+                        <li class="s_con_b_item">3</li>
+                        <li class="s_con_b_item">4</li>
+                        <li class="s_con_b_item">5</li>
+                        <li class="s_con_b_item">6</li>
+                    </ul>
             </div>
             
         </div> 
@@ -48,7 +82,15 @@ export default{
             msg:'这是测试内容',
             tabPosition: 'left'
               }
-   },
+    },
+    mounted() {
+            this.$api.getsellerCategory()
+            .then(res=>{
+                    console.log(res)
+                    this.data=res.data
+                    
+            })
+    },
 }
 </script>
 <style scoped>
@@ -91,11 +133,11 @@ export default{
     border: 1px solid #efefef;
     border-radius: 5px;
 }
-.con_t{
+.s_con_t{
     display: flex;
     border-bottom: 1px solid #efefef;
 }
-.con_t_item {
+.s_con_t_item {
     background-color: #f9f9f9;
     width: 145px;
     height: 35px;
@@ -105,23 +147,23 @@ export default{
     border: 1px solid #efefef;
     color: #949494;
 }
-.con_t_item:hover{
+.s_con_t_item:hover{
     background-color: #fff;
     color: #696969;
     border-top: 2px solid #1b7fc3;
 }
 
-.con_t_search{
+.s_con_t_search{
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
-.t_sea{
+.s_t_sea{
     display: flex;
     align-items: center;
 }
-.t_sea input{
+.s_t_sea input{
     width: 220px;
     display: flex;
     font-size: 10px;
@@ -129,7 +171,7 @@ export default{
     border-radius: 5px 0 0 5px;
     padding: 5px 10px ;
 }
-.search{
+.s_search{
     width: 50px;
     height: 25px;
     font-size: 14px;
@@ -140,46 +182,68 @@ export default{
     border-radius: 0 5px  5px 0;
 }
 
-.con_b{
+.s_con_b{
     margin-top: 20px;
     height: 35px;
-    border-radius: 5px;
-    border: 1px solid #efefef;
+    /* border-radius: 5px;
+    border: 1px solid #efefef; */
     display: flex;
     justify-content: space-around;
     color: #b7b7b7;
 }
-.con_b_item{
+.s_content_d{
+    /* display: none; */
+
+}
+
+/* .s_con_t>.selltrademark:hover   .s_content_d>ul:nth-of-type(1),
+.s_con_t>.sellpatent:hover   .s_content_d>ul:nth-of-type(2),
+.s_con_t>.sellcopyright:hover   .s_content_d>ul:nth-of-type(3), */
+.s_con_t>.technologytransfer:hover   .s_content_d>ul:nth-of-type(4){
+    display: none;
+}
+
+.s_con_b_item{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.content{
+.s_content{
     height: 300px;
     margin-top: 15px;
     display: flex;
-    align-items: center;
     text-align: center;
     vertical-align:middle;
     justify-content: center;
+    display: none;
 }
 
-.content_c{
+
+.s_content_c{
    text-align: center;
    vertical-align:middle;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
    font-size: 16px;
    color: #5f5f5f;
    line-height: 1.5;
+   
 }
-.content_c p:nth-of-type(2){
+.s_content_c p:nth-of-type(2){
     font-size: 12px;
 }
-.content_c  img{
+.s_content_c  img{
     vertical-align:middle;
     margin-bottom: 10px;
 }
-.content_c a{
+.s_content_c a{
     color: #1c7fc3;
     text-decoration: none;
+}
+
+.s_content_d>.con_b{
+    border: none;
 }
 </style>
