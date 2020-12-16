@@ -128,9 +128,13 @@ export default {
                 },
                 choosecon(index,nubs,item,name) {
                         this.iscolor[index] = nubs
+                        if(name =="不限" ){
+                             this.$set(this.screetext,index,null)
+                        }else{
+                       this.$set(this.screetext,index,name)
+                        }
                         console.log(item)
                         this.$set(this.id,item,nubs)
-                        this.$set(this.screetext,index,name)
                         this.$emit('choosecon',this.id)
                 },
                 ischange(item,index){
@@ -140,7 +144,7 @@ export default {
                 // 清空筛选条件
                 choosenull() {
                        this.value=[]
-                        this.screetext = []
+                         this.screetext = []
                         this.$emit('choosenull')
                 }
         }

@@ -21,7 +21,7 @@
                                                         <p v-else>非独家</p>
                                                 </div>
                                                 <div>
-                                                        <p>应用领域</p>
+                                                        <p>组合</p>
                                                         <p v-if="top_data.combination == 1">中文</p>
                                                         <p v-else-if="top_data.combination == 2">英文</p>
                                                         <p v-else-if="top_data.combination ==3">中文+英文</p>
@@ -35,7 +35,7 @@
                                                         <p v-else-if="top_data.combination == 11">中文+英文+图形</p>
                                                 </div>
                                                 <div>
-                                                        <p>组合</p>
+                                                        <p>行业分类</p>
                                                         <p>{{top_data.categoryid_text}}</p>
                                                 </div>
                                                 <div v-if="top_data.nationality !=''">

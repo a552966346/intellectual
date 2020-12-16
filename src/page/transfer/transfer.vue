@@ -13,10 +13,10 @@
                         <v-navigation></v-navigation>
                         <img src="../../../static/img/transfer/transfer_banner.png" alt="">
                         <div class="transfer_all">
-                                <v-transfertop></v-transfertop>
+                                <v-transfertop :top_data="top_data" :iscolor ='iscolor' @xuanze="xuanze" @qinchu="qinchu"></v-transfertop>
                                 <div class="transfer_cen">
                                         <div class="transfer_cen_left">
-                                                <v-transferleft></v-transferleft>
+                                                <v-transferleft :left_data="left_data" :nub='nub' @shaixuan ="shaixuan"></v-transferleft>
                                         </div>
                                         <div class="transfer_cen_right">
                                                 <v-transferrig></v-transferrig>
@@ -37,7 +37,50 @@
         export default{
                 data(){
                         return{
-
+                                top_data:[],
+                                iscolor:[],
+                                left_data:[],
+                                nub:0,
+                                id:[],
+                        }
+                },
+                mounted() {
+                        this.$api.gettechnologycondition()
+                        .then(res=>{
+                                console.log(res)
+                                this.top_data = res.data
+                                this.ispost()
+                        })
+                },
+                methods:{
+                        shaixuan(index){
+                                console.log(index)
+                                if(index == 1){
+                                        this.$set(this.id,"creatime","desc")
+                                        this.$set(this.id,"feeorder","")
+                                        this.ispost(this.id)
+                                }else if(index == 2){
+                                        this.$set(this.id,"feeorder","desc")
+                                        this.$set(this.id,"creatime","")
+                                        this.ispost(this.id)
+                                }else{
+                                         this.ispost()
+                                }
+                        },
+                        xuanze(id){
+                                this.ispost(id)
+                        },
+                        ispost(id){
+                                this.$api.gettechnologylist(id)
+                                .then(res=>{
+                                        console.log(res)
+                                        this.left_data = res.data.data
+                                        this.nub = res.data.data.length
+                                })
+                        },
+                        qinchu(){
+                                this.iscolor = []
+                              this.ispost()
                         }
                 },
                 components:{

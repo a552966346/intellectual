@@ -7,39 +7,57 @@
                         </div>
                 </div>
                 <div class="transfer_left_center">
-                        <div class="left_xiang">
-                                <img src="" alt="">
+                        <div class="left_xiang" v-for="(item,index) in left_data" :key="item.id">
+                                <img :src="item.images_text[0]" alt="">
                                 <div class="left_xiang_text">
                                         <div class="xiang_title">
-                                                <p>液体位置控制器</p>
+                                                <p>{{item.name}}</p>
                                                 <div>
                                                         <p><img src="../../../static/img/transfer/transfer_eye.png" alt=""></p>
                                                         <span>49</span>
-                                                        <p>发布时间：2020-11-16 19:52:17</p>
+                                                        <p>发布时间：{{item.creatime_text}}</p>
                                                 </div>
                                         </div>
                                         <div class="left_xinag_text_leixin">
                                                 <div class="text_leixin_left">
                                                         <div>
                                                                 <p>行业分类</p>
-                                                                <p>其他</p>
+                                                                <p>{{item.categoryid_text}}</p>
                                                         </div>
                                                         <div>
                                                                 <p>应用领域</p>
-                                                                <p>其他</p>
+                                                               <p v-if="item.territory == 0">高技术服务</p>
+                                                               <p v-else-if="item.territory == 1">建筑业</p>
+                                                               <p v-else-if="item.territory==2">新材料</p>
+                                                               <p v-else-if="item.territory == 3">新能源与节能</p>
+                                                               <p v-else-if="item.territory == 4">环境与资源</p>
+                                                               <p v-else-if="item.territory == 5">现代农业</p>
+                                                               <p v-else-if="item.territory == 6">生物与新医药</p>
+                                                               <p v-else-if="item.territory == 7">航天航空</p>
+                                                                <p v-else-if="item.territory == 8">其他</p>
                                                         </div>
                                                         <div>
                                                                 <p>技术类型</p>
-                                                                <p>实用新型专利</p>
+                                                                <p v-if="item.type == 0">非专利</p>
+                                                                <p v-else-if="item.type == 1">发明专利</p>
+                                                                <p v-else-if="item.type==2">实用新型专利</p>
+                                                                <p v-else-if="item.type == 3">外观专利</p>
+                                                                <p v-else-if="item.type == 4">版权</p>
                                                         </div>
 
                                                         <div>
-                                                                <p>行业分类</p>
-                                                                <p>不限</p>
+                                                                <p>成熟程度</p>
+                                                                <p v-if="item.maturity == 0">正在研发</p>
+                                                                <p v-else-if="item.maturity == 1">已有样品</p>
+                                                                <p v-else-if="item.maturity==2">通过小试</p>
+                                                                <p v-else-if="item.maturity == 3">通过中试</p>
+                                                                <p v-else-if="item.maturity == 4">可以量产</p>
                                                         </div>
                                                         <div>
-                                                                <p>行业分类</p>
-                                                                <p>完全转让</p>
+                                                                <p>交易方式</p>
+                                                                <p v-if="item.means == 0">完全转让</p>
+                                                                <p v-else-if="item.means == 1">许可转让</p>
+                                                                <p v-else-if="item.means==2">技术入股</p>
                                                         </div>
                                                 </div>
                                                 <div class="text_leixin_right">
@@ -54,7 +72,7 @@
                                                         </button>
                                                 </div>
                                         </div>
-                                        <p>交易价格<span>面议</span></p>
+                                        <p>交易价格<span>{{item.fee}}</span></p>
                                 </div>
                         </div>
                         <div class="transfer_left_center_bottom">
@@ -79,13 +97,17 @@
                                         name: '发布时间'
                                 }],
                                 active: 0,
-                                nub: '',
                                 currentPage:1  //数据数量
                         }
+                },
+                props:{
+                        left_data:'',
+                        nub: 0,
                 },
                 methods: {
                         shaixuan(index) {
                                 this.active = index
+                                this.$emit('shaixuan',index)
                         },
                         handleSizeChange(val) {
                                 console.log(`每页 ${val} 条`);

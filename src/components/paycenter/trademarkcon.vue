@@ -2,12 +2,13 @@
         <div class="trademark_content">
                 <ul class="trademark_list">
                         <li class="color1" v-for="(item,index) in iscent" :key="index+'list'">
-                                <router-link class="trademark_pro" :to="{path:'/service_xlj',query:{ id:item.id}}">
+                                <!-- <router-link class="trademark_pro" :to="{path:'/service_xlj',query:{ id:item.id}}"> -->
                                         <div class="trademark_colors" :style="{background:item.bgcolor}">
+                                                <router-link class="trademark_pro" :to="{path:'/service_xlj',query:{ id:item.id}}">
                                                 <div class="trademark_sele">
                                                         <img :src="item.images_text[0]">
                                                 </div>
-
+                                                </router-link>
                                                 <div class="trademark_selector">
                                                         <div class="trademark_coloritem" :style="{background: m}" v-for="(m,i) in color"
                                                                 @click="colorbtn(m,i,index)" :key="m"></div>
@@ -23,7 +24,7 @@
                                                 <img src="../../../static/img/paycenter/copyright_right.png" alt="">
                                         </p>
                                         <div class="trademark_kefu" href="#">立即议价</div>
-                                </router-link>
+                                <!-- </router-link> -->
                         </li>
                 </ul>
         </div>

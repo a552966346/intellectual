@@ -8,19 +8,24 @@
                 </div>
                 <div class="top_center">
                         <div class="top_center_lei" >
-                                <div class="top_center_all" v-for="(item,index) in top_center_lei" :key="index">
+                                <div class="top_center_all" v-for="(item,index) in top_data" :key="index">
                                         <div class="center_lei_left">
                                                 <div>
-                                                        <img :src="item.img" alt="">
-                                                        <p>{{item.names}}</p>
+                                                        <img :src="item[2]" alt="">
+                                                        <p>{{item[0]}}</p>
                                                 </div>
 
                                         </div>
                                         <div class="center_lei_right">
-                                                <div @click="xuanze(text.id,index,text.name)" v-for="(text,nubs) in item.lei" :key="nubs">
-                                                        <p :class="{color:iscolor[index]==text.id}">{{text.name}}</p>
+                                                <div @click="xuanze(nubs,item[1],index,text)" v-for="(text,nubs) in item[3]" :key="nubs" v-if="text ==''">
+                                                        <p :class="{color:iscolor[index]===nubs}">不限</p>
                                                         <img src="../../../static/img/transfer/transfer_dh.png" alt=""
-                                                                v-show="iscolor[index]==text.id">
+                                                                v-show="iscolor[index]===nubs">
+                                                </div>
+                                                <div @click="xuanze(nubs,item[1],index,text)" v-for="(text,nubs) in item[3]" :key="nubs" v-if="text !=''">
+                                                        <p :class="{color:iscolor[index]===nubs}">{{text}}</p>
+                                                        <img src="../../../static/img/transfer/transfer_dh.png" alt=""
+                                                                v-show="iscolor[index]===nubs">
                                                 </div>
                                         </div>
                                 </div>
@@ -40,7 +45,7 @@
                 </div>
         </div>
 </template>
- 
+
 <script>
         export default {
                 data() {
@@ -62,206 +67,42 @@
                                         name: '为您解决烦忧-24小时在线',
                                         nub: '专业顾问'
                                 }],
-                                top_center_lei: [{
-                                                id: 1,
-                                                names: '行业分类',
-                                                img: '../../../static/img/transfer/transfer_fl.png',
-                                                lei: [{
-                                                                name: '不限',
-                                                                id: 1
-                                                        },
-                                                        {
-                                                                name: '农林牧业',
-                                                                id: 2
-                                                        }
-                                                ]
-                                        },
-                                        {
-                                                id: 2,
-                                                names: '应用领域',
-                                                img: '../../../static/img/transfer/transfer_yy.png',
-                                                lei: [{
-                                                                name: '不限',
-                                                                id: 1
-                                                        },
-                                                        {
-                                                                name: '高技术服务',
-                                                                id: 2
-                                                        },
-                                                        {
-                                                                name: '建筑业',
-                                                                id: 3
-                                                        },
-                                                        {
-                                                                name: '新材料',
-                                                                id: 4
-                                                        },
-                                                        {
-                                                                name: '新能源与节能',
-                                                                id: 5
-                                                        },
-                                                        {
-                                                                name: '资源与环境',
-                                                                id: 6
-                                                        },
-                                                        {
-                                                                name: '现代农业',
-                                                                id: 7
-                                                        },
-                                                        {
-                                                                name: '生物与新药',
-                                                                id: 8
-                                                        },
-                                                        {
-                                                                name: '资源与环境',
-                                                                id: 9
-                                                        },
-                                                        {
-                                                                name: '航空港航天',
-                                                                id: 10
-                                                        },
-                                                        {
-                                                                name: '其他',
-                                                                id: 11
-                                                        }
-                                                ]
-                                        }, {
-                                                id: 3,
-                                                names: '技术类新',
-                                                img: '../../../static/img/transfer/transfer_yy.png',
-                                                lei: [{
-                                                                name: '不限',
-                                                                id: 1
-                                                        },
-                                                        {
-                                                                name: '非专利',
-                                                                id: 2
-                                                        },
-                                                        {
-                                                                name: '发明专利',
-                                                                id: 3
-                                                        },
-                                                        {
-                                                                name: '实用性专利',
-                                                                id: 4
-                                                        },
-                                                        {
-                                                                name: '外观专利',
-                                                                id: 5
-                                                        },
-                                                        {
-                                                                name: '版权',
-                                                                id: 6
-                                                        }
-                                                ]
-                                        }, {
-                                                id: 4,
-                                                names: '成熟程度',
-                                                img: '../../../static/img/transfer/transfer_yy.png',
-                                                lei: [{
-                                                                name: '不限',
-                                                                id: 1
-                                                        },
-                                                        {
-                                                                name: '正在研发',
-                                                                id: 2
-                                                        },
-                                                        {
-                                                                name: '已有样品',
-                                                                id: 3
-                                                        },
-                                                        {
-                                                                name: '通过小试',
-                                                                id: 4
-                                                        },
-                                                        {
-                                                                name: '通过中试',
-                                                                id: 5
-                                                        },
-                                                        {
-                                                                name: '可以量产',
-                                                                id: 6
-                                                        }
-                                                ]
-                                        }, {
-                                                id: 5,
-                                                names: '交易方式',
-                                                img: '../../../static/img/transfer/transfer_yy.png',
-                                                lei: [{
-                                                                name: '不限',
-                                                                id: 1
-                                                        },
-                                                        {
-                                                                name: '完全转让',
-                                                                id: 2
-                                                        },
-                                                        {
-                                                                name: '许可转让',
-                                                                id: 3
-                                                        },
-                                                        {
-                                                                name: '技术入股',
-                                                                id: 4
-                                                        }
-                                                ]
-                                        }, {
-                                                id: 6,
-                                                names: '交易价格',
-                                                img: '../../../static/img/transfer/transfer_yy.png',
-                                                lei: [{
-                                                                name: '不限',
-                                                                id: 1
-                                                        },
-                                                        {
-                                                                name: '1-10万',
-                                                                id: 2
-                                                        },
-                                                        {
-                                                                name: '10-50万',
-                                                                id: 3
-                                                        },
-                                                        {
-                                                                name: '50-100万',
-                                                                id: 4
-                                                        },
-                                                        {
-                                                                name: '100-500万',
-                                                                id: 5
-                                                        },
-                                                        {
-                                                                name: '100-1000万',
-                                                                id: 6
-                                                        },
-                                                        {
-                                                                name: '1000万以上',
-                                                                id: 7
-                                                        }
-                                                ]
-                                        }
-                                ],
-                                iscolor: [1, 1, 1, 1, 1, 1],
                                 text_sx: [],
+                                id:[]
                         }
 
+                },
+                props:{
+                        top_data:'',
+                        iscolor:''
                 },
                 mounted() {
 
                 },
 
                 methods: {
-                        xuanze(s, i, t) {
+                        /*
+                          s ---- 选择项目id
+                          i ----类型索引
+                          t  ---- 选中项目名
+                          */
+                        xuanze(s, item,i, t) {
                                 this.iscolor[i]=s;
+                                console.log(this.iscolor)
                                 if(t =="不限" ){
-                                     this.$set(this.text_sx,i,null)   
+                                     this.$set(this.text_sx,i,null)
                                 }else{
-                                this.$set(this.text_sx,i,t) 
+                                this.$set(this.text_sx,i,t)
                                 }
                                 console.log(this.text_sx)
-                               
+                                this.$set(this.id,item,s)
+                                this.$emit('xuanze',this.id)
+
                         },
+                        // 清空
                         qinchu() {
                                 this.text_sx = []
-                                this.iscolor =[1, 1, 1, 1, 1, 1]
+                                this.$emit('qinchu')
                         }
                 }
         }
