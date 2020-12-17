@@ -10,12 +10,12 @@
                 <div class="index_pay">
                         <!--交易中心标题-->
                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :background_img_url='title_bg_url[0]'></v-comtitle>
-                        <!-- 三块内容 -->
-                        <v-indexpayitem :payleft_img_url='pay_img_list[0]' :type='false'></v-indexpayitem>
-                        <v-indexpayitem :payleft_img_url='pay_img_list[1]' :type='true'></v-indexpayitem>
-                        <v-indexpayitem :payleft_img_url='pay_img_list[2]' :type='true'></v-indexpayitem>
-
-                        <v-indexpayitem :hot='hot'></v-indexpayitem>
+                        <!-- 专利交易 -->
+                        <v-indexpayitem :payleft_img_url='pay_img_list[0]' :type='false' :hot='hot' :transaction='transaction' :num='num1+""'></v-indexpayitem>
+                        <!-- 商标交易 -->
+                        <v-indexpayitem :payleft_img_url='pay_img_list[1]' :type='true' :trade='trade' :num='num2+""'></v-indexpayitem>
+                        <!-- 软著交易 -->
+                        <v-indexpayitem :payleft_img_url='pay_img_list[2]' :type='true' :trade='soft' :num='num3+""'></v-indexpayitem>
                 </div>
 
                 <!-- 企业服务 -->
@@ -225,12 +225,17 @@
                 name: 'index',
                 data() {
                         return {
-                                //交易中心的热门推荐
-                                hot:[],
-                                // commtitle组件传值所需
-                                title_color: '#fff',
-                                // 标题
-                                title_all: ["交易中心", '企业服务', '跳蚤市场', '新闻中心', '合伙人计划', '了解伊甸网'],
+                                // 交易中心
+                                num1:'',//交易中心数量
+                                num2:'',//商标交易数量
+                                num3:'',//软著交易数量
+                                hot:[],//交易中心的热门推荐
+                                transaction:[],//交易中心的块内容
+                                trade:[],//商标交易的块内容
+                                soft:[],//软著交易的块内容
+                                title_color: '#fff', // commtitle组件传值所需
+                                title_all: ["交易中心", '企业服务', '跳蚤市场', '新闻中心', '合伙人计划', '了解伊甸网'], // 所有标题
+                                // 标题下的介绍
                                 title_text_all: ['交易快报: 186****123,25分钟前购买了****专利',
                                         '交易快报: 186****123,25分钟前购买了****专利',
                                         '交易快报: 186****123,25分钟前购买了****专利',
@@ -238,6 +243,7 @@
                                         '交易快报: 186****123,25分钟前购买了****专利',
                                         '交易快报: 186****123,25分钟前购买了****专利',
                                 ],
+                                // 标题的背景图片
                                 title_bg_url: ['../../../static/img/common/Trading_Center.png',
                                         '../../../static/img/common/bg_text.png',
                                         '../../../static/img/common/flea_market.png',
@@ -250,7 +256,8 @@
                                         '../../../static/img/index/shangbiao_pay.png',
                                         '../../../static/img/index/ruanzhu_pay.png'
                                 ],
-                                msg: '这是测试内容',
+                                // 企业服务
+                                // msg: '这是测试内容',
                                 sever: ["企业服务", "知识产权贯标", "知识产权贯标"],
                                 severtw: ["致力于小微企业提供数字金融服务", "享受政府资助最高30万", "享受政府资助最高30万"],
                                 severtr: ["立即咨询", "查看详情", "查看详情"],
@@ -425,12 +432,22 @@
                 mounted() {
                         this.$api.getidnexdeal()
                         .then(res=>{
-                                console.log('专利交易')
-                                 console.log(res)
-                                // console.log(res.data)
+                                console.log(res,'专利交易')
                                 this.hot=res.data.hot;
-                                // console.log(this.hot)
-                                console.log('专利交易')
+                                this.transaction=res.data.transaction;
+                                this.num1=res.data.count;
+                        })
+                        this.$api.getindexbrand()
+                        .then(res=>{
+                                console.log(res,'商标交易')
+                                this.trade=res.data.transaction;
+                                this.num2=res.data.count;
+                        })
+                        this.$api.getidnexsoft()
+                        .then(res=>{
+                                console.log(res,'软著交易')
+                                this.soft=res.data.transaction;
+                                this.num3=res.data.count;
                         })
                 },
                 methods: {

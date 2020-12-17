@@ -76,6 +76,10 @@ const api={
     getidnexdeal(){
       return requestAll.requset(baseUrl + '/api/index/transaction61');
     },
+    // 首页软著交易数据
+    getidnexsoft(){
+      return requestAll.requset(baseUrl + '/api/index/transaction62');
+    },
     // 首页新闻中心
     getindexnew(){
       return requestAll.requset(baseUrl + '/api/index/news');
