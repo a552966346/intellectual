@@ -118,8 +118,7 @@
                         console.log(11)
                         this.$api.getindextop()
                         .then(res=>{
-                                 console.log(res)
-                                console.log(res.data)
+                                 console.log(res,'首页banner图')
                                 this.paycenter = res.data[0];//交易中心
                                 this.severcenter = res.data[1];//服务中心
                                 this.jinrongcenter = res.data[2];//金融中心

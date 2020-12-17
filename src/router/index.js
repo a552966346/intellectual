@@ -31,7 +31,6 @@ import test from '@/page/test/test' //测试页面
 import activity from '@/page/activity/activity' //测试页面
 import about from '@/page/about/about' //关于我们
 import navcter from '@/components/navcter/navcter' //关于我们
-import navctertw from '@/components/navcter/navctertw' //关于我们
 import transfer from '@/page/transfer/transfer'
 import technology from '@/page/technology/technology' //技术转移
 import yuan from '@/page/yuan/yuan' //技术转移
@@ -178,15 +177,12 @@ export default new Router({
             component: servecenter
         },
         {
-            path: '/about',
+            path: '/aboutus',
             name: 'about',
             component: about,
             children: [{
-                path: '/',
+                path: '/aboutus',
                 component: navcter,
-            }, {
-                path: '/about/navctertw',
-                component: navctertw,
             }]
         },
         {
