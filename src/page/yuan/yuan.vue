@@ -1,134 +1,106 @@
 <template>
-    <div class="user">
+<div class="user">
         
         <div class="user_left">
             <div class="img_logo">
             </div>
-            <ul class="con">
-                <li class="con_c">
-                    <router-link to="/usercenter" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/home.png" alt="">
-                        个人中心
-                    </router-link>
-                </li>
-                <li class="con_c"  @click="isshow">
-                    <router-link to="/usercenter/userbuy" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/buyperson.png" alt="">我是买家
-                        <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
-                    </router-link>
-                    <ul class="items" v-show="showis">
+            <div class="left_center">
+                <el-collapse v-model="activeName" accordion>
+                  <el-collapse-item  title="个人中心" name="1"></el-collapse-item>
+                  <el-collapse-item title="我是买家" name="2">
+                    <div>
+                      <ul class="items">
                         <li>我的商标<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>全部订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>未付款订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>已预订订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>交接中订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>已完成订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                    </ul>
-                </li>
-                <li>
-                    <router-link to="/usercenter/usershop" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/shopperson.png" alt="">我是卖家
-                        <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
-                    </router-link>
-                    <ul class="items">
-                        <li>出售知识产权<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>出售商标<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>出售专利<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>出售版权<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>技术转让<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                    </ul>
-                </li>
-                <li>
-                    <router-link to="/usercenter/usermanage" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/zjmanage.png" alt="">资金管理
-                        <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
-                    </router-link>
-                    <ul class="items">
+                      </ul>
+                    </div>
+                  </el-collapse-item>
+                  <el-collapse-item title="我是卖家" name="3">
+                    <div>
+                        <ul class="items">
+                            <li>出售知识产权<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                            <li>出售商标<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                            <li>出售专利<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                            <li>出售版权<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                            <li>技术转让<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                        </ul>
+                    </div>
+                  </el-collapse-item>
+                  <el-collapse-item title="资金管理" name="4">
+                    <div>
+                      <ul class="items">
                         <li>我的账号<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>我要提现<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>资金明细<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>我的押金<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>发票索取<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>绑定银行卡<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                    </ul>
-                </li>
-                <li>
-                    <router-link to="/usercenter/usertel" class="imgs item">
-                        <img class="left_b" src="../../../static/img/usercenter/tel.png" alt="">投诉与咨询
-                        <img class="icon icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt="">
-                    </router-link>
-                    <ul class="items">
+                      </ul>
+                    </div>
+                  </el-collapse-item>
+                  <el-collapse-item title="投诉与咨询" name="5">
+                    <div>
+                      <ul class="items">
                         <li>我要投诉建议<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>真假客户验证<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>举报假客服<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                    </ul>
-                </li>
-                <li>
-                    <router-link to="/usercenter/userid" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/id.png" alt="">账号设置
-                        <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
-                    </router-link>
-                    <ul class="items">
+                      </ul>
+                    </div>
+                  </el-collapse-item>
+                  <el-collapse-item title="账号设置" name="6">
+                    <div>
+                      <ul class="items">
                         <li>实名认证<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>修改手机号<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>修改登录密码<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>个人信息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>收货地址<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>我的邮箱<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                    </ul>
-                </li>
-                <li>
-                    <router-link to="/usercenter/usermessage" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/user_message.png" alt="">全部消息
-                        <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
-                    </router-link>
-                    <ul class="items">
+                      </ul>
+                    </div>
+                  </el-collapse-item>
+                  <el-collapse-item title="全部消息" name="7">
+                    <div>
+                      <ul class="items">
                         <li>全部消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>未读消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>已读消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                    </ul>
-                </li>
-                <li>
-                    <router-link to="/usercenter/usercontract" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/mycontract_active.png" alt="">我的合同
-                        <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
-                    </router-link>
-                    <ul class="items">
+                      </ul>
+                    </div>
+                  </el-collapse-item>
+                  <el-collapse-item title="我的合同" name="8">
+                    <div>
+                      <ul class="items">
                         <li>全部订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>未付款订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>已预订订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>交接中订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>已完成订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+                      </ul>
+                    </div>
+                  </el-collapse-item>
+                </el-collapse>    
+            </div>
+        </div>  
         <div class="user_right">
             <router-view></router-view>
-        </div>
-        
-       
-    </div>
+        </div>    
+</div>                
 </template>
 <script>
-export default {
-     data(){
-        return{
-            msg:'这是测试内容',
-            tabPosition: 'left',
-            showis:true
-              }
-   },
-   methods:{
-       isshow(){
-           console.log(111111)
-           this.showis = !this.showis
-       }
-   }
-}
+  export default {
+    data() {
+      return {
+        activeName: '1'
+      };
+    }
+  }
 </script>
 <style scoped>
-
 a {
     text-decoration: none;
 }
@@ -164,21 +136,28 @@ a {
     height: 124px;
     /* vertical-align:top; */
 }
-.user_left>ul {
-    padding: auto;
+.el-collapse-item__header {
+    height: 54px;
+    line-height: 54px;
+    padding-left: 20px;
+    color: #666;  
+    border-bottom: 1px solid #EBEEF5;
+    font-size: 16px;
 }
-.user_left>ul>li{
+.el-collapse-item__content {
+    padding-bottom: 0;
+    height: 54px;
+    
+}
+
+/* .user_left>ul>li{
     /* height: 54px; */
-    border-bottom: 1px solid rgba(0,0,0,0.16);
+    /* border-bottom: 1px solid rgba(0,0,0,0.16);
     text-align: center;
     line-height: 54px;
     position: relative;
-}
-.user_left .item{
-    height: 54px;
-    color: #666;   
-    
-}
+} */ 
+
 .icon{
     position: absolute;
     right: 2px;
@@ -205,24 +184,6 @@ a {
 .user_left .item:focus{
     color: #1a7fc5;
 }
-.item:focus  .icon{
-    translate: 0.2s;
-    transform: rotate(90deg);
-    right: 10px;
-}
-.item:focus  .icon_b{
-    translate: 0.2s;
-    transform: rotate(90deg);
-    right: -30px;
-}
-/* .items>li{
-    max-height: 0;
-    opacity: 0;
-}
-.item:target {
-    max-height: auto;
-    opacity: 1;
-} */
 .imgs{
     position: relative;
     left:8px;
@@ -248,10 +209,6 @@ a {
     top: 5px;
     width: 13%;
 }
-
-
-
-
 
 
 </style>

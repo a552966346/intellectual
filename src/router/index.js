@@ -22,7 +22,7 @@ import userbuy from '@/page/usercenter/buyperson' //个人我是买家
 import usershop from '@/page/usercenter/shopperson' //个人我是卖家
 import usermanage from '@/page/usercenter/zjmanage' //个人资金管理
 import usertel from '@/page/usercenter/tel' //个人资金管理
-import userid from '@/page/usercenter/id' //个人
+import userid from '@/page/usercenter/id' //个人账号设置
 import usermessage from '@/page/usercenter/message' //个人全部信息
 import usercontract from '@/page/usercenter/contract' //个人我的合同
 import test from '@/page/test/test' //测试页面
@@ -32,6 +32,7 @@ import navcter from '@/components/navcter/navcter' //关于我们
 import navctertw from '@/components/navcter/navctertw' //关于我们
 import transfer from '@/page/transfer/transfer'
 import technology from '@/page/technology/technology' //技术转移
+import yuan from '@/page/yuan/yuan' //技术转移
 
 Vue.use(Router)
 
@@ -43,6 +44,11 @@ export default new Router({
             path: '/',
             name: 'index',
             component: index
+        },
+        {
+            path: '/yuan',
+            name: 'yuan',
+            component: yuan
         },
         { //活动专区
             path: '/activity',
@@ -120,7 +126,7 @@ export default new Router({
             component: knowledgefunds
         },
         {
-            path: '/usercenter',
+            path: '/usercenter', //个人中心
             name: 'usercenter',
             component: usercenter,
             children: [{
