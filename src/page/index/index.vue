@@ -110,54 +110,64 @@
                                                 <div v-for="(item,index) in news" v-if="index == num">
                                                     <li>
                                                             <div class="index_ulxwon" v-for="(item1,index) in item.news" v-if="index==0">
-                                                                    <div class="index_url"></div>
-                                                                    <div class="index_urlw">
-                                                                            <div class="index_urlq">
-                                                                                   {{item1.title}}
+                                                                    <router-link to="">
+                                                                            <div class="index_url"></div>
+                                                                            <div class="index_urlw">
+                                                                                    <router-link to="">
+                                                                                            <div class="index_urlq">
+                                                                                                   {{item1.title}}
+                                                                                            </div>
+                                                                                            <div class="index_urlz">
+                                                                                                    <p>{{item1.desc}}</p>
+                                                                                                    <p v-html="item1.content">{{item1.content}}</p>
+                                                                                            </div>
+                                                                                    </router-link>
                                                                             </div>
-                                                                            <div class="index_urlz">
-                                                                                    <p>{{item1.desc}}</p>
-                                                                                    <p v-html="item1.content">{{item1.content}}</p>
-                                                                            </div>
-                                                                    </div>
+                                                                    </router-link>
                                                             </div>
                                                             <div class="index_ulxwtw" >
                                                                     <div class="index_ulxwtwbk" v-for="(item1,index) in item.news" v-if="(index>0)&&(index<5)" :key="item1">
-                                                                            <div class="index_ulxwtwbklt">
-                                                                                    <div class="index_ulxwas">
-                                                                                             {{item1.title}}
-                                                                                    </div>
-                                                                                    <div class="index_ulxwasq">
-                                                                                            {{index.seltw}}
-                                                                                    </div>
-                                                                            </div>
-                                                                            <div class="index_ulxwtwbkrt">
-                                                                                    <div class="idnex_ulxwtas">
-                                                                                            {{index.seltr}}
-                                                                                    </div>
-                                                                                    <div class="idnex_ulxwtasq">
-                                                                                            {{index.selfv}}
-                                                                                    </div>
-                                                                            </div>
+                                                                        <router-link to="">
+                                                                                <div class="index_ulxwtwbklt">
+                                                                                        <div class="index_ulxwas">
+                                                                                                 {{item1.title}}
+                                                                                        </div>
+                                                                                        <div class="index_ulxwasq">
+                                                                                                {{index.seltw}}
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="index_ulxwtwbkrt">
+                                                                                        <div class="idnex_ulxwtas">
+                                                                                                {{index.seltr}}
+                                                                                        </div>
+                                                                                        <div class="idnex_ulxwtasq">
+                                                                                                {{index.selfv}}
+                                                                                        </div>
+                                                                                </div>
+                                                                        </router-link>
                                                                     </div>
                                                             </div>
                                                             <div class="index_ulxwtr">
                                                                     <div class="index_ulxwsq"  v-for="(item1,index) in item.news" v-if="index==5" :key="item1">
-                                                                            <div class="index_ulxwsqlt"></div>
-                                                                            <div class="index_ulxwsqrt">
-                                                                                    <div>产权转让全程监督</div>
-                                                                                    <div>国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...</div>
-                                                                                    <div>发布时间：2020.08.26</div>
-                                                                            </div>
+                                                                            <router-link to="">
+                                                                                   <div class="index_ulxwsqlt"></div>
+                                                                                   <div class="index_ulxwsqrt">
+                                                                                           <div>产权转让全程监督</div>
+                                                                                           <div>国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...</div>
+                                                                                           <div>发布时间：2020.08.26</div>
+                                                                                   </div> 
+                                                                            </router-link>
                                                                     </div>
                                                                     <div class="index_ulxwsqk">
                                                                             <div class="index_ulxwsqkz"  v-for="(item1,index) in item.news" v-if="(index>5)&&(index<8)" :key="item1">
-                                                                                    <div class="index_ulwsaq">
-                                                                                            {{must.title}}
-                                                                                    </div>
-                                                                                    <div class="index_ulwsapq">
-                                                                                            {{must.center}}
-                                                                                    </div>
+                                                                                <router-link to="">
+                                                                                        <div class="index_ulwsaq">
+                                                                                                {{must.title}}
+                                                                                        </div>
+                                                                                        <div class="index_ulwsapq">
+                                                                                                {{must.center}}
+                                                                                        </div>
+                                                                                </router-link>
                                                                             </div>
                                                                     </div>
                                                             </div>
@@ -597,8 +607,8 @@
       .index_ulxwtr{width: 430px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;background-color: #fff;}
       .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
       .index_urlw{flex: 1;display: flex;align-content: center;flex-direction: column;}
-      .index_urlq{font-size: 24px;padding-top: 20px;padding-bottom: 10px;}
-      .index_urlz p{line-height: 25px;}
+      .index_urlq{font-size: 24px;padding-top: 20px;padding-bottom: 10px;color: #333;}
+      .index_urlz p{line-height: 25px;color: #333;}
       .index_urlz p:nth-child(2){word-break: break-all;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}
       .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
       .index_ulxwtwbklt{width: 77px;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;}
