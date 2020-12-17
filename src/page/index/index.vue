@@ -100,17 +100,6 @@
                         <div>
                                 <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :background_img_url='title_bg_url[3]'></v-comtitle>
                                 <div id="index_box">
-                                        <!-- <el-tabs v-model="activeName" @tab-click="">
-                                            <el-tab-pane label="用户管理" name="first">
-                                                    用户管理
-                                            </el-tab-pane>
-                                            <el-tab-pane label="配置管理" name="second">
-                                                    配置管理
-                                            </el-tab-pane>
-                                            <el-tab-pane label="角色管理" name="third">
-                                                    角色管理
-                                            </el-tab-pane>
-                                        </el-tabs> -->
                                         <ul class="index_ulon">
                                                 <li v-for="(item,index) in news" :class="{active:index == num}"
                                                         @click="tab(index)" :key="index">
@@ -118,11 +107,10 @@
                                                 </li>
                                         </ul>
                                         <ul class="index_ultw">
-                                                <div v-for="(item,index) in news">
-                                                    <li v-for="(item1,index) in item.news" v-show="index == num" :key="index">
-                                                            <div class="index_ulxwon">
-                                                                    <div class="index_url">
-                                                                    </div>
+                                                <div v-for="(item,index) in news" v-if="index == num">
+                                                    <li>
+                                                            <div class="index_ulxwon" v-for="(item1,index) in item.news" v-if="index==0">
+                                                                    <div class="index_url"></div>
                                                                     <div class="index_urlw">
                                                                             <div class="index_urlq">
                                                                                    {{item1.title}}
@@ -133,12 +121,11 @@
                                                                             </div>
                                                                     </div>
                                                             </div>
-                                                            <div class="index_ulxwtw">
-                                                                    <div class="index_ulxwtwbk" v-for="(index,item) in selist"
-                                                                            :key="item">
+                                                            <div class="index_ulxwtw" >
+                                                                    <div class="index_ulxwtwbk" v-for="(item1,index) in item.news" v-if="(index>0)&&(index<5)" :key="item1">
                                                                             <div class="index_ulxwtwbklt">
                                                                                     <div class="index_ulxwas">
-                                                                                            {{index.selon}}
+                                                                                             {{item1.title}}
                                                                                     </div>
                                                                                     <div class="index_ulxwasq">
                                                                                             {{index.seltw}}
@@ -155,7 +142,7 @@
                                                                     </div>
                                                             </div>
                                                             <div class="index_ulxwtr">
-                                                                    <div class="index_ulxwsq">
+                                                                    <div class="index_ulxwsq"  v-for="(item1,index) in item.news" v-if="index==5" :key="item1">
                                                                             <div class="index_ulxwsqlt"></div>
                                                                             <div class="index_ulxwsqrt">
                                                                                     <div>产权转让全程监督</div>
@@ -164,8 +151,7 @@
                                                                             </div>
                                                                     </div>
                                                                     <div class="index_ulxwsqk">
-                                                                            <div class="index_ulxwsqkz" v-for="(must,item) in nulist"
-                                                                                    :key="item">
+                                                                            <div class="index_ulxwsqkz"  v-for="(item1,index) in item.news" v-if="(index>5)&&(index<8)" :key="item1">
                                                                                     <div class="index_ulwsaq">
                                                                                             {{must.title}}
                                                                                     </div>
@@ -610,9 +596,10 @@
       .index_ulxwtw{width: 350px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;}
       .index_ulxwtr{width: 430px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;background-color: #fff;}
       .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
-      .index_urlw{flex: 1;display: flex;justify-content: space-evenly;align-content: center;flex-direction: column;}
-      .index_urlq{font-size: 24px;}
-      .index_urlz p:nth-child(2){word-break: break-all;}
+      .index_urlw{flex: 1;display: flex;align-content: center;flex-direction: column;}
+      .index_urlq{font-size: 24px;padding-top: 20px;padding-bottom: 10px;}
+      .index_urlz p{line-height: 25px;}
+      .index_urlz p:nth-child(2){word-break: break-all;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}
       .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
       .index_ulxwtwbklt{width: 77px;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;}
       .index_ulxwtwbkrt{flex: 1;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding: 15px;}
