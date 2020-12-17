@@ -89,7 +89,10 @@ const api={
     */
     // 金融中心详情
     getfinancialdetiles(id){
-      return requestAll.requset(baseUrl + '/api/financial/details');
+      let data ={
+        id:id
+      }
+      return requestAll.requset(baseUrl + '/api/financial/details',data);
     },
     /*
     * 知识产权交易(商标交易)
