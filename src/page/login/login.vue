@@ -120,8 +120,7 @@
                     </el-col>
                     <el-col :span="8">
                       <div class="grid-content">
-                        <el-button type="primary" @click="getVerification" style="width:100%;height:40px;" v-if="html==''">获取验证码</el-button>
-                        <div v-else><img :src="html" alt="" @click="getVerification" ></div>
+                        <div><img :src="'http://intellectual.jzhxwl.com/captcha.html?r='+html" alt="" @click="getVerification" ></div>
                       </div>
                     </el-col>
                   </el-row>
@@ -222,6 +221,7 @@ export default {
   mounted(){
     // console.log(validatePhone)
     this.isusepost()
+    this.getVerification()
   },
   methods: {
     // 手机号登录和验证码登录切换
@@ -232,13 +232,8 @@ export default {
     // },
     // 获取验证码
     getVerification(){
-              var text = Math.random();
-        this.$api.userverification(text)
-        .then(res=>{
-                console.log(res)
-                this.html = res.data
-                console.log(this.html)
-        })
+               this.html = Math.random();
+
     },
     // 注册切换页面
     toggle_page_all(){
@@ -254,7 +249,9 @@ export default {
             this.$api.uservertisement()
             .then(res=>{
                     console.log(res)
-                    this.bgimage = res.data.images
+                    if(res.data.images != "" || res.data.images != undefined || res.data.images !=null){
+                             this.bgimage = res.data.images
+                    }
             })
     },
     //注册广告

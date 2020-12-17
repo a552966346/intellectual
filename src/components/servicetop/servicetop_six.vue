@@ -16,35 +16,17 @@
                                 <div class="topBody">
                                         <div class="topBody_lei">
                                                 <div>
-                                                        <p>是否独家</p>
-                                                        <p v-if="top_data.is_exclusive==1">独家</p>
-                                                        <p v-else>非独家</p>
-                                                </div>
-                                                <div>
-                                                        <p>组合</p>
-                                                        <p v-if="top_data.combination == 1">中文</p>
-                                                        <p v-else-if="top_data.combination == 2">英文</p>
-                                                        <p v-else-if="top_data.combination ==3">中文+英文</p>
-                                                        <p v-else-if="top_data.combination == 4">图像</p>
-                                                        <p v-else-if="top_data.combination == 5">图像+中文</p>
-                                                        <p v-else-if="top_data.combination == 6">组合</p>
-                                                        <p v-else-if="top_data.combination == 7">数字</p>
-                                                        <p v-else-if="top_data.combination == 8">拼英</p>
-                                                        <p v-else-if="top_data.combination == 9">英文+图像</p>
-                                                        <p v-else-if="top_data.combination == 10">英文+拼音</p>
-                                                        <p v-else-if="top_data.combination == 11">中文+英文+图形</p>
-                                                </div>
-                                                <div>
                                                         <p>行业分类</p>
                                                         <p>{{top_data.categoryid_text}}</p>
                                                 </div>
-                                                <div v-if="top_data.nationality !=''">
-                                                        <p>国籍</p>
-                                                        <p>{{top_data.nationality}}</p>
+                                                <div>
+                                                        <p>专利类型</p>
+                                                       <p >{{top_data.patenttype}}</p>
+
                                                 </div>
-                                                <div v-if="top_data.strlenlength != 0">
-                                                        <p>长度</p>
-                                                        <p>{{top_data.strlenlength}}</p>
+                                                <div>
+                                                        <p>专利状态</p>
+                                                        <p >{{top_data.condition}}</p>
                                                 </div>
                                         </div>
                                         <div class="topBody_money">
@@ -52,7 +34,7 @@
                                                 <div class="topBody_money_text">
                                                         <h1>{{top_data.fee}}</h1>
                                                         <div>
-                                                                <span><img src="" alt="">38</span>
+                                                                <span><img src="" alt="">{{top_data.clicks}}</span>
                                                                 <span><img src="" alt="">分享</span>
                                                                 <span><img src="" alt="">收藏</span>
                                                         </div>

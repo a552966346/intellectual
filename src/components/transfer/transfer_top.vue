@@ -68,7 +68,7 @@
                                         nub: '专业顾问'
                                 }],
                                 text_sx: [],
-                                id:[]
+                                id:{}
                         }
 
                 },
@@ -88,13 +88,11 @@
                           */
                         xuanze(s, item,i, t) {
                                 this.iscolor[i]=s;
-                                console.log(this.iscolor)
                                 if(t =="不限" ){
                                      this.$set(this.text_sx,i,null)
                                 }else{
                                 this.$set(this.text_sx,i,t)
                                 }
-                                console.log(this.text_sx)
                                 this.$set(this.id,item,s)
                                 this.$emit('xuanze',this.id)
 

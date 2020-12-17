@@ -8,15 +8,11 @@
                 </div>
                 <div class="transfer_left_center">
                         <div class="left_xiang" v-for="(item,index) in left_data" :key="item.id">
-                                <img :src="item.images_text[0]" alt="">
+                                <router-link :to="'/service_xlj_two?id='+item.id">
+                                <img class="left_xiang_img" :src="item.images_text[0]" alt="">
                                 <div class="left_xiang_text">
                                         <div class="xiang_title">
                                                 <p>{{item.name}}</p>
-                                                <div>
-                                                        <p><img src="../../../static/img/transfer/transfer_eye.png" alt=""></p>
-                                                        <span>49</span>
-                                                        <p>发布时间：{{item.creatime_text}}</p>
-                                                </div>
                                         </div>
                                         <div class="left_xinag_text_leixin">
                                                 <div class="text_leixin_left">
@@ -60,19 +56,28 @@
                                                                 <p v-else-if="item.means==2">技术入股</p>
                                                         </div>
                                                 </div>
-                                                <div class="text_leixin_right">
-                                                        <div><img src="../../../static/img/transfer/transfer_xin.png"
-                                                                        alt=""></div>
-                                                        <div><img src="../../../static/img/transfer/transfer_zhuanf.png"
-                                                                        alt=""></div>
-                                                        <button>
-                                                                <img src="../../../static/img/transfer/transfer_kefu.png"
-                                                                        alt="">
-                                                                <p>联系客服</p>
-                                                        </button>
-                                                </div>
+
                                         </div>
                                         <p>交易价格<span>{{item.fee}}</span></p>
+                                </div>
+                                </router-link>
+                                <div class="left_xiang_right">
+                                        <div class="left_xiang_right_title">
+                                                <p><img src="../../../static/img/transfer/transfer_eye.png" alt=""></p>
+                                                <span>49</span>
+                                                <p>发布时间：{{item.creatime_text}}</p>
+                                        </div>
+                                        <div class="text_leixin_right">
+                                                <div><img src="../../../static/img/transfer/transfer_xin.png"
+                                                                alt=""></div>
+                                                <div><img src="../../../static/img/transfer/transfer_zhuanf.png"
+                                                                alt=""></div>
+                                                <button>
+                                                        <img src="../../../static/img/transfer/transfer_kefu.png"
+                                                                alt="">
+                                                        <p>联系客服</p>
+                                                </button>
+                                        </div>
                                 </div>
                         </div>
                         <div class="transfer_left_center_bottom">
@@ -178,8 +183,13 @@
                 align-items: center;
                 border-bottom: 10px solid #f5f5f5;
         }
-
-        .left_xiang>img {
+        .left_xiang>a{
+                display: flex;
+                width: 90%;
+                text-decoration: none;
+                align-items: center;
+        }
+        .left_xiang_img {
                 height: 100px;
                 width: 100px;
         }
@@ -198,26 +208,14 @@
         .xiang_title>p {
                 font-size: 18px;
                 font-weight: bold;
+                color: #000;
         }
 
         .xiang_title>div {
                 display: flex;
         }
 
-        .xiang_title>div img {
-                height: 20px;
-                padding-bottom: 2px;
-        }
 
-        .xiang_title>div p {
-                font-size: 12px;
-                color: #aaa;
-                margin-left: 10px;
-        }
-        .xiang_title>div span {
-                font-size: 12px;
-                color: #aaa;
-        }
         .left_xinag_text_leixin {
                 display: flex;
                 justify-content: space-between;
@@ -267,7 +265,7 @@
 
         .text_leixin_right {
                 display: flex;
-                width: 27%;
+                /* width: 27%; */
                 align-items: center;
         }
 
@@ -304,5 +302,34 @@
                 width: 20px;
                 height: 20px;
                 margin-right: 5px;
+        }
+        .left_xiang_right{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+        }
+        .left_xiang_right_title{
+                display: flex;
+        }
+        .left_xiang_right_title img {
+                height: 20px;
+                padding-bottom: 2px;
+                display: flex;
+                align-items: center;
+        }
+
+        .left_xiang_right_title p {
+                line-height: 4;
+                font-size: 12px;
+                color: #aaa;
+                margin-left: 10px;
+                display: flex;
+                align-items: center;
+        }
+        .left_xiang_right_title span {
+                font-size: 12px;
+                color: #aaa;
+                display: flex;
+                align-items: center;
         }
 </style>

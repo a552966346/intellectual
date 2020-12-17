@@ -41,20 +41,18 @@
                                 iscolor:[],
                                 left_data:[],
                                 nub:0,
-                                id:[],
+                                id:{},
                         }
                 },
                 mounted() {
                         this.$api.gettechnologycondition()
                         .then(res=>{
-                                console.log(res)
                                 this.top_data = res.data
                                 this.ispost()
                         })
                 },
                 methods:{
                         shaixuan(index){
-                                console.log(index)
                                 if(index == 1){
                                         this.$set(this.id,"creatime","desc")
                                         this.$set(this.id,"feeorder","")
@@ -68,12 +66,12 @@
                                 }
                         },
                         xuanze(id){
-                                this.ispost(id)
+                                this.id = id
+                                this.ispost(this.id)
                         },
                         ispost(id){
                                 this.$api.gettechnologylist(id)
                                 .then(res=>{
-                                        console.log(res)
                                         this.left_data = res.data.data
                                         this.nub = res.data.data.length
                                 })

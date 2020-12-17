@@ -11,40 +11,48 @@
                         <div class="topRight">
                                 <div class="topHeader">
                                         <h3>{{top_data.name}}</h3>
-                                        <p><span>创建时间：{{top_data.creatime_text}}</span>|<span>专利号：{{top_data.number}}&nbsp;<!-- <span>复制</span> --></span>|<span>申请时间：{{top_data.application_text}}</span>|<span>注册年限：{{top_data.yearsnumber_text}}</span></p>
+                                        <p><span>创建时间：{{top_data.creatime_text}}</span></p>
                                 </div>
                                 <div class="topBody">
                                         <div class="topBody_lei">
                                                 <div>
-                                                        <p>是否独家</p>
-                                                        <p v-if="top_data.is_exclusive==1">独家</p>
-                                                        <p v-else>非独家</p>
-                                                </div>
-                                                <div>
-                                                        <p>组合</p>
-                                                        <p v-if="top_data.combination == 1">中文</p>
-                                                        <p v-else-if="top_data.combination == 2">英文</p>
-                                                        <p v-else-if="top_data.combination ==3">中文+英文</p>
-                                                        <p v-else-if="top_data.combination == 4">图像</p>
-                                                        <p v-else-if="top_data.combination == 5">图像+中文</p>
-                                                        <p v-else-if="top_data.combination == 6">组合</p>
-                                                        <p v-else-if="top_data.combination == 7">数字</p>
-                                                        <p v-else-if="top_data.combination == 8">拼英</p>
-                                                        <p v-else-if="top_data.combination == 9">英文+图像</p>
-                                                        <p v-else-if="top_data.combination == 10">英文+拼音</p>
-                                                        <p v-else-if="top_data.combination == 11">中文+英文+图形</p>
-                                                </div>
-                                                <div>
                                                         <p>行业分类</p>
                                                         <p>{{top_data.categoryid_text}}</p>
                                                 </div>
-                                                <div v-if="top_data.nationality !=''">
-                                                        <p>国籍</p>
-                                                        <p>{{top_data.nationality}}</p>
+                                                <div>
+                                                        <p>应用领域</p>
+                                                       <p v-if="top_data.territory == 0">高技术服务</p>
+                                                       <p v-else-if="top_data.territory == 1">建筑业</p>
+                                                       <p v-else-if="top_data.territory==2">新材料</p>
+                                                       <p v-else-if="top_data.territory == 3">新能源与节能</p>
+                                                       <p v-else-if="top_data.territory == 4">环境与资源</p>
+                                                       <p v-else-if="top_data.territory == 5">现代农业</p>
+                                                       <p v-else-if="top_data.territory == 6">生物与新医药</p>
+                                                       <p v-else-if="top_data.territory == 7">航天航空</p>
+                                                        <p v-else-if="top_data.territory == 8">其他</p>
                                                 </div>
-                                                <div v-if="top_data.strlenlength != 0">
-                                                        <p>长度</p>
-                                                        <p>{{top_data.strlenlength}}</p>
+                                                <div>
+                                                        <p>技术类型</p>
+                                                        <p v-if="top_data.type == 0">非专利</p>
+                                                        <p v-else-if="top_data.type == 1">发明专利</p>
+                                                        <p v-else-if="top_data.type==2">实用新型专利</p>
+                                                        <p v-else-if="top_data.type == 3">外观专利</p>
+                                                        <p v-else-if="top_data.type == 4">版权</p>
+                                                </div>
+
+                                                <div>
+                                                        <p>成熟程度</p>
+                                                        <p v-if="top_data.maturity == 0">正在研发</p>
+                                                        <p v-else-if="top_data.maturity == 1">已有样品</p>
+                                                        <p v-else-if="top_data.maturity==2">通过小试</p>
+                                                        <p v-else-if="top_data.maturity == 3">通过中试</p>
+                                                        <p v-else-if="top_data.maturity == 4">可以量产</p>
+                                                </div>
+                                                <div>
+                                                        <p>交易方式</p>
+                                                        <p v-if="top_data.means == 0">完全转让</p>
+                                                        <p v-else-if="top_data.means == 1">许可转让</p>
+                                                        <p v-else-if="top_data.means==2">技术入股</p>
                                                 </div>
                                         </div>
                                         <div class="topBody_money">
@@ -52,7 +60,7 @@
                                                 <div class="topBody_money_text">
                                                         <h1>{{top_data.fee}}</h1>
                                                         <div>
-                                                                <span><img src="" alt="">38</span>
+                                                                <span><img src="" alt="">{{top_data.clicks}}</span>
                                                                 <span><img src="" alt="">分享</span>
                                                                 <span><img src="" alt="">收藏</span>
                                                         </div>
