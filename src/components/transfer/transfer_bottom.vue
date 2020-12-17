@@ -22,15 +22,17 @@
             </div>
         </div>
         <div class="transfer_bpro">
-            <div class="transfer_bottom" v-for="(item,index) in arr" :key="index">
-                <div class="transfer_rig">
-                    <img :src="item.url" alt="">
-                    <h3>{{item.text}}</h3>
-                    <div class="transfer_con">
-                        <p>{{item.price}}</p>
-                        <span>{{item.new}}</span>
-                    </div>
-                </div> 
+            <div class="transfer_bottom" v-for="(item,index) in botm_data" :key="item.id">
+                 <router-link  :to="'/service_xlj_two?id='+item.id">
+                        <div class="transfer_rig">
+                            <img :src="item.images_text[0]" alt="">
+                            <h3>{{item.name}}</h3>
+                            <div class="transfer_con">
+                                <p>{{item.fee}}</p>
+                                <span>{{item.categoryid_text}}</span>
+                            </div>
+                        </div>
+                </router-link>
              </div>
         </div>
     </div>
@@ -73,6 +75,9 @@ export default {
              }
             ]
         }
+    },
+    props:{
+            botm_data:''
     }
 }
 </script>
@@ -153,23 +158,31 @@ export default {
     }
 
 .transfer_bottom{
+    height: 260px;
     width: 20%;
     padding:20px;
     color: black;
     background-color: #f5f5f5;
     margin: 0 0 25px;
 }
+.transfer_bottom>a{
+        text-decoration: none;
+}
 .transfer_bpro .transfer_bottom:last-child .transfer_rig{
     border: none;
 }
 .transfer_rig{
     border-right: 1px solid #ccc;
+    height: 90%;
     width: 206px;
 }
 .transfer_bottom img{
-    max-width: 185px; 
+        height: 80%;
+        width: 100%;
+    max-width: 185px;
 }
 .transfer_bottom h3{
+    color: #000;
     font-size: 15px;
     margin: 10px 0;
     overflow: hidden;

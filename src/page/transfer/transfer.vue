@@ -22,7 +22,7 @@
                                                 <v-transferrig></v-transferrig>
                                         </div>
                                 </div>
-                                <v-transferbottom></v-transferbottom>
+                                <v-transferbottom :botm_data="botm_data"></v-transferbottom>
                         </div>
                </div>
                <v-combotttom></v-combotttom>
@@ -40,6 +40,7 @@
                                 top_data:[],
                                 iscolor:[],
                                 left_data:[],
+                                botm_data:[],
                                 nub:0,
                                 id:{},
                         }
@@ -72,7 +73,9 @@
                         ispost(id){
                                 this.$api.gettechnologylist(id)
                                 .then(res=>{
-                                        this.left_data = res.data.data
+                                        console.log(res)
+                                        this.left_data = res.data.lists.data
+                                        this.botm_data = res.data.youlike
                                         this.nub = res.data.data.length
                                 })
                         },

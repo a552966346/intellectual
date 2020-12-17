@@ -49,6 +49,7 @@
                                 top_data:[],
                                 right_data:[],
                                 toptext:[],
+                                question:[]
 
                         }
                 },

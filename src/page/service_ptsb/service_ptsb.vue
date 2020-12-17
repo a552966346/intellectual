@@ -21,7 +21,7 @@
                                                         <v-serviceleft :isid="id" @running="running"></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right">
-                                                        <v-servicer :toptext ='toptext' :right_data ='right_data'></v-servicer>
+                                                        <v-servicer :toptext ='toptext' :right_data ='right_data' :question ="question"></v-servicer>
                                                 </div>
                                         </div>
                                 </div>
@@ -48,6 +48,7 @@
                                 image:[],
                                 right_data:[],
                                 toptext:[],
+                                question:[]
                         }
                 },
                 components:{
@@ -71,11 +72,13 @@
                                 this.$api.severdetiles(id)
                                 .then(res=>{
                                         if(res.code){
-                                                this.top_data = res.data
-                                                this.right_data = res.data.content.split(',')
-                                                this.toptext = res.data.contenttitle.split(',')
+                                                console.log(res)
+                                                this.top_data = res.data.data
+                                                this.right_data = res.data.data.content.split(',')
+                                                this.toptext = res.data.data.contenttitle.split(',')
+                                                this.question = res.data.question
                                                 this.toptext.push("常见问题","典型案例")
-                                                this.image = res.data.images_text
+                                                this.image = res.data.data.images_text
                                         }else{
                                                 alert("暂无数据")
                                         }

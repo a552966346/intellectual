@@ -49,6 +49,7 @@
                                 top_data:[],
                                 right_data:[],
                                 toptext:[],
+                                question:[]
 
                         }
                 },
@@ -69,11 +70,12 @@
                                 this.$api.gettechnologydetiles(id)
                                 .then(res=>{
                                         console.log(res)
-                                        this.top_data = res.data
-                                        this.right_data = res.data.content.split(',')
-                                        this.toptext = res.data.contenttitle.split(',')
-                                        this.toptext.push("常见问题","典型案例")
-                                        this.image = res.data.images_text
+                                       this.top_data = res.data.data
+                                       this.right_data = res.data.data.content.split(',')
+                                       this.toptext = res.data.data.contenttitle.split(',')
+                                       this.question = res.data.question
+                                       this.toptext.push("常见问题","典型案例")
+                                       this.image = res.data.data.images_text
                                 })
                         }
                 }

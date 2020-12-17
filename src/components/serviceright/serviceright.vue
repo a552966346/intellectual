@@ -20,11 +20,11 @@
                                 <img :src="advantage" alt="">
                                  <div><v-process  v-show="item.nub==1"></v-process></div>
                         </div> -->
-                        <div class="center_text" :id="txt+(right_data.length)">
+                       <div class="center_text" :id="txt+(right_data.length)">
                                 <p ><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span>常见问题</span></p>
                                 <img src="" alt="">
                                 <p v-for="(item,index) in question"><span>问题：{{item.question}}</span><span>回复：{{item.answer}}</span></p>
-                                 <!-- <div><v-process  v-show="item.nub==1"></v-process></div> -->
+
                         </div>
                         <div class="center_text" :id="txt+(right_data.length+1)">
                                 <p ><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span>典型案例</span></p>
@@ -40,21 +40,21 @@
                 data(){
                         return{
                                 advantage:'',
-                                question:'',
+                                // question:'',
                                 txt:'text_',
                                  iscolor:0,
                         }
                 },
                 props:{
                         toptext:'',
-                        right_data:''
+                        right_data:'',
+                        question:''
                 },
                 mounted() {
                         this.$api.severproblem()
                         .then(res=>{
                                 console.log(res)
                                this.advantage = res.data.advantage
-                               this.question = res.data.question
                         })
                 },
                 methods:{

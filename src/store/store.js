@@ -9,7 +9,9 @@ const store = new Vuex.Store({
   // this.$store.state.xxx
   state: {
     count: 0,
-    navbarlist:[]
+    navbarlist:[],
+    user:'',
+    token:''
   },
   // 公共方法
   // this.$store.commit('方法名','参数')
@@ -22,12 +24,8 @@ const store = new Vuex.Store({
     },
     service_top(id){
 
-            // this.$api.severdetiles(id)
-            // .then(res=>{
-            //         console.log(res.data)
-            //         this.top_data = res.data
-            // })
-    }
+    },
+
   }
 })
 
