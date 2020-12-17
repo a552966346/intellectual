@@ -127,7 +127,7 @@
                 }
         }
 </script>
-<style scoped>
+<style>
         a:link{text-decoration: none;}
         input, button{border: 0;outline: none;background: none;}
         input{font-family: 微软雅黑, Microsoft YaHei, \5FAE\8F6F\96C5\9ED1;font-size: 12px;}
@@ -147,8 +147,8 @@
         .searchbox a.btn i{position: absolute;width: 24px;height: 19px;left: 50%;top: 50%;margin-left: -12px;margin-top: -9.5px;background: url(../../../static/img/index/sys_icon.png) no-repeat -40px -0px;}
        /* 选项卡切换头部 */
         .banner_switch{width: 100%;flex: 1;height: 0;}
-       .el-tabs__nav{width: 100%;display: flex;}
-        .el-tabs__nav>div{flex: 1;width: 0;height: 60px;display: flex;align-items: center;justify-content: center;border-left-color: #DCDFE6!important;}
+       .bnner .el-tabs__nav{width: 100%;display: flex;}
+        .bnner .el-tabs__nav>div{flex: 1;width: 0;height: 60px;display: flex;align-items: center;justify-content: center;border-left-color: #DCDFE6!important;}
         /* 选中效果 */
        .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{height: 60px!important;display: flex;justify-content: center;align-items: center;}
 
