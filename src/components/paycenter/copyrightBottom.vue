@@ -23,12 +23,13 @@
                         </div>
                         <div class="copyright_bpro">
                                 <div class="copyright_bottom" v-for="(item,index) in listdata" :key="item.id">
-                                        <!-- <a href="#"> -->
+                                        <div class="copyright_txt">
                                                 <a href="#">
                                                 <div class="copyright_img1">
                                                         <img :src="item.images_text[0]" alt="">
                                                 </div>
                                                 </a>
+                                                <a href="#" class="copyright_active">
                                                 <div class="copyright_text">
                                                         <h3>{{item.name}}</h3>
                                                         <img src="../../../static/img/paycenter/copyright_like.png" alt="">
@@ -40,7 +41,8 @@
                                                                 alt="">
                                                 </div>
                                                 <div class="copyright_quick">立即议价</div>
-                                        <!-- </a> -->
+                                                </a>
+                                        </div>
                                 </div>
                         </div>
                 </div>
@@ -159,22 +161,23 @@
                 margin-bottom: 10px;
         }
 
-        .copyright_bottom>a {
+        .copyright_bottom .copyright_txt {
                 width: 100%;
-                text-decoration: none;
-                color: #000;
                 display: inline-block;
         }
-
-        .copyright_bottom>a:hover .copyright_quick {
+        .copyright_active{
+                text-decoration: none;
+                color: #000;    
+        }
+        .copyright_bottom .copyright_active:hover .copyright_quick {
                 display: block;
         }
 
-        .copyright_bottom>a:hover p {
+        .copyright_bottom .copyright_active:hover p {
                 display: none;
         }
 
-        .copyright_bottom>a:hover .copyright_prices {
+        .copyright_bottom .copyright_active:hover .copyright_prices {
                 border: none;
         }
 

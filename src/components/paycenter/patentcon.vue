@@ -3,7 +3,7 @@
                 <div class="patent_product">
                         <div class="patent_content">
                                 <div class="patent_con" v-for="(item,index) in iscent" :key="item.id">
-                                        <!-- <a href="#"> -->
+                                        <div class="patent_txts">
                                                 <router-link :to="'/service_xlj_three?id='+item.id">
                                                 <div class="patent_img">
 
@@ -12,13 +12,15 @@
                                                         <span>{{item.categoryid_text}}</span>
                                                 </div>
                                                 </router-link>
+                                                <a href="#" class="patent_active">
                                                 <p>{{item.name}}</p>
                                                 <div class="patent_price">
                                                         <span>￥{{item.fee}}</span>
                                                         <p>{{item.categoryid_text}}</p>
                                                 </div>
                                                 <div class="patent_bargain">立即议价</div>
-                                        <!-- </a> -->
+                                                </a>
+                                        </div>
                                 </div>
                         </div>
                 </div>
@@ -65,17 +67,19 @@
                 margin-bottom: 10px;
         }
 
-        .patent_con>a {
-                text-decoration: none;
-                color: #000;
+        .patent_con .patent_txts{
+                width: 100%;
                 display: inline-block;
         }
-
-        .patent_con>a:hover .patent_bargain {
+        .patent_active{
+                text-decoration: none;
+                color: #000;
+        }
+        .patent_con .patent_active:hover .patent_bargain {
                 display: block;
         }
 
-        .patent_con>a:hover .patent_price {
+        .patent_con .patent_active:hover .patent_price {
                 display: none;
         }
 
@@ -85,7 +89,7 @@
                 color: #fff;
                 border-radius: 5px;
                 text-align: center;
-                padding: 8px 0;
+                padding: 10px 0;
         }
 
         .patent_img {
@@ -96,6 +100,7 @@
                 overflow: hidden;
                 position: relative;
                 margin: 0 10px;
+                margin-top: 10px;
         }
 
         .patent_img>span {
@@ -113,6 +118,7 @@
 
         .patent_img img {
                 width: 100%;
+                height: 100%;
         }
 
         .patent_con p {

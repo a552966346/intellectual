@@ -23,20 +23,22 @@
         </div>
         <div class="patent_bpro">
             <div class="patent_bottom" v-for="(item,index) in listdata" :key="item.id">
-                <!-- <a  href="#" > -->
+                <div class="patent_txts" >
                         <router-link :to="'/service_xlj_three?id='+item.id">
                         <div class="patent_img">
                             <img :src="item.images_text[0]" alt="">
                             <span>{{item.categoryid_text}}</span>
                         </div>
                         </router-link>
+                        <a href="#" class="patent_active">
                         <p>{{item.name}}</p>
                         <div class="patent_price">
                             <span>￥{{item.fee}}</span>
                             <p>{{item.categoryid_text}}</p>
                         </div>
                         <div class="patent_bargain">立即议价</div>
-                <!-- </a> -->
+                        </a>
+                </div>
              </div>
         </div>
     </div>
@@ -92,6 +94,9 @@ export default {
 </script>
 
 <style scoped>
+*{
+    box-sizing: border-box;
+}
 .patent_bottms{
     max-width: 1200px;
     margin: 0 auto;
@@ -175,10 +180,11 @@ export default {
     margin-left: 10px;
     margin-bottom: 10px;
 }
-.patent_bottom>a{text-decoration: none;color: #000;display: inline-block;}
-.patent_bottom>a:hover .patent_bargain{display: block;}
-.patent_bottom>a:hover .patent_price{display: none;}
-.patent_bargain{display: none;background-color: #2b3d63;color: #fff;border-radius: 5px;text-align: center;padding: 8px 0;}
+/* .patent_bottom>a{text-decoration: none;color: #000;display: inline-block;} */
+.patent_bottom .patent_active:hover .patent_bargain{display: block;}
+.patent_bottom .patent_active:hover .patent_price{display: none;}
+.patent_bargain{display: none;background-color: #2b3d63;color: #fff;border-radius: 5px;text-align: center;padding: 10px 0;}
+.patent_active{text-decoration: none;color: #000;}
 .patent_img{
     height: 210px;
     display: flex;
@@ -201,6 +207,7 @@ export default {
 }
 .patent_img>img{
     width: 100%;
+    height: 100%;
 }
 .patent_bottom p{
     font-size: 14px;

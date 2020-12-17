@@ -3,12 +3,13 @@
                 <div class="copyright_product">
                         <div class="copyright_content">
                                 <div class="copyright_con" v-for="(item,index) in iscent" :key="index">
-                                        <!-- <a href="#"> -->
-                                                <a href="#">
+                                        <div class="copyright_txt">
+                                                <router-link  :to="'/service_xlj_four?id='+item.id">
                                                 <div class="copyright_img">
                                                         <img :src="item.images_text[0]" alt="">
                                                 </div>
-                                                </a> 
+                                                </router-link> 
+                                                <a href="#" class="copyright_active">
                                                 <div class="copyright_ti">
                                                         <h3>{{item.name}}</h3>
                                                         <img src="../../../static/img/paycenter/copyright_like.png" alt="">
@@ -20,7 +21,8 @@
                                                                 alt="">
                                                 </div>
                                                 <div class="copyright_bargain">立即议价</div>
-                                        <!-- </a> -->
+                                                </a>
+                                        </div>
                                 </div>
                         </div>
                 </div>
@@ -70,22 +72,23 @@
                 margin-bottom: 10px;
         }
 
-        .copyright_con>a {
+        .copyright_con>.copyright_txt {
                 width: 100%;
-                text-decoration: none;
-                color: #000;
                 display: inline-block;
         }
-
-        .copyright_con>a:hover .copyright_bargain {
+        .copyright_active{
+                text-decoration: none;
+                color: #000;
+        }
+        .copyright_con .copyright_active:hover .copyright_bargain {
                 display: block;
         }
 
-        .copyright_con>a:hover p {
+        .copyright_con .copyright_active:hover p {
                 display: none;
         }
 
-        .copyright_con>a:hover .copyright_price {
+        .copyright_con .copyright_active:hover .copyright_price {
                 border: none;
         }
 
