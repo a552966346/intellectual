@@ -115,17 +115,25 @@ export default{
     },
     mounted() {
             // 卖家   商标订单
-            getuserTrademarkOrder() {
-                return requestAll.requset(baseUrl + '/api/Userorder/trademark_order');
-            },
+            this.$api.getuserTrademarkOrder()
+            .then(res=>{
+                    this.traOrder = res.data
+                    
+
+            })
             // 卖家   专利订单
-            getuserorderPatentsOrder() {
-                return requestAll.requset(baseUrl + '/api/Userorder/patents_order');
-            },
+            this.$api.getuserPatentsOrder()
+            .then(res=>{
+                    this.patOrder = res.data
+                    
+
+            })
             // 卖家   版权订单
-            getuserorderCopyrightOrder() {
-                return requestAll.requset(baseUrl + '/api/Userorder/copyright_order');
-            },
+            this.$api.getuserCopyrightOrder()
+            .then(res=>{
+                    this.copOrder = res.data
+
+            })
     },
     methods: {
       handleClick(tab, event) {

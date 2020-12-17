@@ -185,11 +185,11 @@ const api = {
         return requestAll.requset(baseUrl + '/api/Userorder/trademark_order');
     },
     // 卖家   专利订单
-    getuserorderPatentsOrder() {
+    getuserPatentsOrder() {
         return requestAll.requset(baseUrl + '/api/Userorder/patents_order');
     },
     // 卖家   版权订单
-    getuserorderCopyrightOrder() {
+    getuserCopyrightOrder() {
         return requestAll.requset(baseUrl + '/api/Userorder/copyright_order');
     },
 
