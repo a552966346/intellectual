@@ -5,7 +5,6 @@
         <div class="about_banner">
             <img src="../../../static/img/about/about_banter.png" alt="altText">
         </div>
-        <!--:default-openeds="['1']"-->
         <el-container style="padding:1px 0">
                 <el-aside width="201px" style="border-right:1px solid rgba(230,230,230);">
                     <el-menu
@@ -13,43 +12,51 @@
                     :default-active="$route.path"
                     class="aside-menu-test"
                     text-color="#000"
-                    router
-                    :collapse="collapse"
+                    :router="true"
                     >
-                        <el-submenu :index="index" v-for='(item,index) in list_data' :key="index">
-                            <template slot="title">{{item.name}}</template>
-                            <el-menu-item-group router='true'>
-                            <el-menu-item index="/about" @click="goTo('/about')" v-for="(items,indes) in item.children" :key="indes">{{items.name}}</el-menu-item>
-                            </el-menu-item-group>
-                        </el-submenu>
+                    <el-submenu :index="index+''" v-for='(item,index) in list_data' :key="index">
+                        <template slot="title">{{item.name}}</template>
+                        <el-menu-item-group router='true'>
+                        <el-menu-item :index="'/'+item.type +'?id='+item.id+'ids'+items.id"   @click="ispost(items.id)"   v-for="(items,indes) in item.children" :key="indes">{{items.name}}</el-menu-item>
+                        </el-menu-item-group>
+                    </el-submenu>
                     </el-menu>
                 </el-aside>
-                <router-view/>
+                <v-navcter :right_data="right_data"  :id="id"></v-navcter>
+                <!-- <router-view/> -->
             </el-container>
         <v-combotttom></v-combotttom>
     </div>
 </template>
 <script>
 import navcter from '@/components/navcter/navcter.vue'
-import navctertw from '@/components/navcter/navctertw.vue'
    export default {
     data() {
       return { 
-          list_data:[],//左侧分类数据
-
-      }
+        list_data:[],//左侧分类数据  :index="'/'+item.type +'?id='+item.id+'ids'+items.id" @click="goTo('/'+item.type +'?id='+item.id+'?ids'+items.id)"  @click="ispost(items.id)"
+        right_data:[],
+        id:''
+        }
+    },
+     mounted(){
+        var url = window.location.href;
+        var id = url.split('ids')[1]; 
     },
     beforeMount() {
+        var router_path = this.$route.path;
         this.$api.getaboutcat()
         .then(res=>{
             console.log(res)
-            console.log(123456)
             if(res.code==1){
                 this.list_data = res.data 
             }
         })
+        .catch(err => {
+            console.log(err)
+        })
     },
     methods:{
+        items(){},
         handleOpen(key, keyPath) {
             console.log(key, keyPath);
         },
@@ -57,12 +64,22 @@ import navctertw from '@/components/navcter/navctertw.vue'
             console.log(key, keyPath);
         },
         goTo(path) {
-            this.$router.replace(path);
+            this.$router.go(path);
+        },
+        // 请求列表
+        ispost(id){
+            this.id = id
+            console.log(id);
+            this.right_data = [];
+            this.$api.getaboutdetiles(id)
+            .then(res=>{
+                console.log(res);
+                 this.right_data = res.data
+            })
         }
     },
     components:{
-    'v-navcter':navcter,
-    'v-navcter':navctertw,
+    'v-navcter':navcter
     }
   };
 </script>

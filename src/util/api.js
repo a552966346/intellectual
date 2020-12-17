@@ -225,7 +225,7 @@ const api={
     },
     // 关于我们详情
     getaboutdetiles(id){
-      data={
+     let data={
         id:id
       }
       return requestAll.requset(baseUrl + '/api/aboutus/details', data);
