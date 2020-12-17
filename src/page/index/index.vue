@@ -100,70 +100,84 @@
                         <div>
                                 <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :background_img_url='title_bg_url[3]'></v-comtitle>
                                 <div id="index_box">
+                                        <!-- <el-tabs v-model="activeName" @tab-click="">
+                                            <el-tab-pane label="用户管理" name="first">
+                                                    用户管理
+                                            </el-tab-pane>
+                                            <el-tab-pane label="配置管理" name="second">
+                                                    配置管理
+                                            </el-tab-pane>
+                                            <el-tab-pane label="角色管理" name="third">
+                                                    角色管理
+                                            </el-tab-pane>
+                                        </el-tabs> -->
                                         <ul class="index_ulon">
-                                                <li v-for="(item,index) in tabtit" :class="{active:index == num}"
+                                                <li v-for="(item,index) in news" :class="{active:index == num}"
                                                         @click="tab(index)" :key="index">
-                                                        {{item}}
+                                                        {{item.name}}
                                                 </li>
                                         </ul>
                                         <ul class="index_ultw">
-                                                <li v-for="(mian,index) in tabmain" v-show="index == num" :key="index">
-                                                        <div class="index_ulxwon">
-                                                                <div class="index_url">
-                                                                </div>
-                                                                <div class="index_urlw">
-                                                                        <div class="index_urlq">
-                                                                                产权转让全程监护
-                                                                        </div>
-                                                                        <div class="index_urlz">
-                                                                                <p>国家知识产权局公告-第二八六号</p>
-                                                                                <p>根据《中华人民共和国专利法》第三十九和第四十条的规定，国家知识产权局将修改专利证书及专利证书副本。现将有关事宜公告如下：证书及专利证书副本。</p>
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-                                                        <div class="index_ulxwtw">
-                                                                <div class="index_ulxwtwbk" v-for="(index,item) in selist"
-                                                                        :key="item">
-                                                                        <div class="index_ulxwtwbklt">
-                                                                                <div class="index_ulxwas">
-                                                                                        {{index.selon}}
-                                                                                </div>
-                                                                                <div class="index_ulxwasq">
-                                                                                        {{index.seltw}}
-                                                                                </div>
-                                                                        </div>
-                                                                        <div class="index_ulxwtwbkrt">
-                                                                                <div class="idnex_ulxwtas">
-                                                                                        {{index.seltr}}
-                                                                                </div>
-                                                                                <div class="idnex_ulxwtasq">
-                                                                                        {{index.selfv}}
-                                                                                </div>
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-                                                        <div class="index_ulxwtr">
-                                                                <div class="index_ulxwsq">
-                                                                        <div class="index_ulxwsqlt"></div>
-                                                                        <div class="index_ulxwsqrt">
-                                                                                <div>产权转让全程监督</div>
-                                                                                <div>国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...</div>
-                                                                                <div>发布时间：2020.08.26</div>
-                                                                        </div>
-                                                                </div>
-                                                                <div class="index_ulxwsqk">
-                                                                        <div class="index_ulxwsqkz" v-for="(must,item) in nulist"
-                                                                                :key="item">
-                                                                                <div class="index_ulwsaq">
-                                                                                        {{must.title}}
-                                                                                </div>
-                                                                                <div class="index_ulwsapq">
-                                                                                        {{must.center}}
-                                                                                </div>
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-                                                </li>
+                                                <div v-for="(item,index) in news">
+                                                    <li v-for="(item1,index) in item.news" v-show="index == num" :key="index">
+                                                            <div class="index_ulxwon">
+                                                                    <div class="index_url">
+                                                                    </div>
+                                                                    <div class="index_urlw">
+                                                                            <div class="index_urlq">
+                                                                                   {{item1.title}}
+                                                                            </div>
+                                                                            <div class="index_urlz">
+                                                                                    <p>{{item1.desc}}</p>
+                                                                                    <p v-html="item1.content">{{item1.content}}</p>
+                                                                            </div>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="index_ulxwtw">
+                                                                    <div class="index_ulxwtwbk" v-for="(index,item) in selist"
+                                                                            :key="item">
+                                                                            <div class="index_ulxwtwbklt">
+                                                                                    <div class="index_ulxwas">
+                                                                                            {{index.selon}}
+                                                                                    </div>
+                                                                                    <div class="index_ulxwasq">
+                                                                                            {{index.seltw}}
+                                                                                    </div>
+                                                                            </div>
+                                                                            <div class="index_ulxwtwbkrt">
+                                                                                    <div class="idnex_ulxwtas">
+                                                                                            {{index.seltr}}
+                                                                                    </div>
+                                                                                    <div class="idnex_ulxwtasq">
+                                                                                            {{index.selfv}}
+                                                                                    </div>
+                                                                            </div>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="index_ulxwtr">
+                                                                    <div class="index_ulxwsq">
+                                                                            <div class="index_ulxwsqlt"></div>
+                                                                            <div class="index_ulxwsqrt">
+                                                                                    <div>产权转让全程监督</div>
+                                                                                    <div>国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...</div>
+                                                                                    <div>发布时间：2020.08.26</div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="index_ulxwsqk">
+                                                                            <div class="index_ulxwsqkz" v-for="(must,item) in nulist"
+                                                                                    :key="item">
+                                                                                    <div class="index_ulwsaq">
+                                                                                            {{must.title}}
+                                                                                    </div>
+                                                                                    <div class="index_ulwsapq">
+                                                                                            {{must.center}}
+                                                                                    </div>
+                                                                            </div>
+                                                                    </div>
+                                                            </div>
+                                                    </li>
+                                                </div>
+
                                         </ul>
                                 </div>
                         </div>
@@ -190,32 +204,31 @@
                                 <div class="index_about1">
                                         <div class="index_about_content">
                                                 <div class="index_left_content">
-                                                        <h3>伊甸城介绍</h3>
-                                                        <div v-html="brief" class="index_left_content_intro">{{brief}}</div>
+                                                        <router-link to="">
+                                                             <h3>伊甸城介绍</h3>
+                                                             <div v-html="brief" class="index_left_content_intro">{{brief}}</div>
+                                                        </router-link>
                                                         <div class="swiper-container">
                                                                   <div class="swiper-wrapper">
-                                                                      <div class="swiper-slide">
-                                                                           <img src="../../../static/img/index/index_intro_swiper.png" alt="">
-                                                                      </div>
-                                                                      <div class="swiper-slide">
-                                                                           <img src="../../../static/img/index/index_intro_swiper.png" alt="">
-                                                                      </div>
-                                                                     <div class="swiper-slide">
-                                                                          <img src="../../../static/img/index/index_intro_swiper.png" alt="">
-                                                                     </div>
+                                                                     <!-- <div class="swiper-slide" v-for="(item,index) in introimage">
+                                                                           <img :src="item" alt="">
+                                                                      </div> -->
+
+                                                                        <div class="swiper-slide">
+                                                                              <img src="../../../static/img/index/index_intro_swiper.png" alt="">
+                                                                         </div>
+                                                                         <div class="swiper-slide">
+                                                                              <img src="../../../static/img/index/index_intro_swiper.png" alt="">
+                                                                         </div>
+                                                                         <div class="swiper-slide" >
+                                                                              <img src="../../../static/img/index/index_intro_swiper.png" alt="">
+                                                                         </div>
                                                                   </div>
                                                                   <!-- <div class="swiper-pagination"></div> -->
                                                                   <div class="swiper-button-prev"></div>
                                                                   <div class="swiper-button-next"></div>
-
                                                         </div>
-                                                        <!-- <div class="index_left_swiper">
-                                                                <el-carousel :interval="4000" type="card" height="200px">
-                                                                        <el-carousel-item v-for="item in 6" :key="item">
-                                                                                <h3 class="medium">{{item}}</h3>
-                                                                        </el-carousel-item>
-                                                                </el-carousel>
-                                                        </div> -->
+
                                                 </div>
                                                 <div class="index_right_content">
                                                         <img src="../../../static/img/index/about_right_one.png" alt="">
@@ -229,12 +242,10 @@
 
                         </div>
                 </div>
-
                 <!-- 合作平台 -->
                 <div>
-                        <img src="../../../static/img/index/cooperation_img.png" alt="">
+                      <img src="../../../static/img/index/cooperation_img.png" alt="">
                 </div>
-
                 <!-- 公共底部 -->
                 <v-combotttom></v-combotttom>
         </div>
@@ -405,7 +416,8 @@
                                         },
                                 ],
                                 // 新闻中心
-                                tabtit: ["公司新闻", "行业新闻", "政策新闻"],
+                                news:[],
+                                // tabtit: ["公司新闻", "行业新闻", "政策新闻"],
                                 tabmain: ["内容一", "内容二", "内容三"],
                                 num: 0,
                                 selist: [{
@@ -455,7 +467,7 @@
                                 ],
                                 // 伊甸网
                                 brief:'',
-
+                                introimage:[]
                         }
                 },
                 mounted() {
@@ -492,7 +504,7 @@
                         this.$api.getindexnew()
                         .then(res=>{
                                 console.log(res,'新闻中心')
-                                // this.soft=res.data.transaction;
+                                this.news=res.data;
                                 // this.num3=res.data.count;
                         })
                         this.$api.getydbrief()
@@ -525,31 +537,30 @@
        a:hover{text-decoration: none;}
       /* 交易*/
       .index_pay{background: #f6f6f6;padding: 20px 0px;}
-      /* 企业服务*/
-      .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bg.jpg);padding: 30px;padding-top: 10px;}
-      .index_content{display: flex;flex-direction: column;align-items: center;background: #f6f6f6;padding: 25px 0;}
+
+
 
       /* 伊甸网简介*/
       .index_about{width: 100%;}
       .index_about1{width: 100%;background-image: url(../../../static/img/index/index_intro_bg.png);padding: 30px 0px;}
       .index_about_content{width: 1200px;margin: 0 auto;display: flex;overflow: hidden;}
       .index_left_content{padding: 30px;background: #fff;margin-right: 20px;flex: 1;width: 0;display: flex;flex-direction: column;}
-      .index_left_content>h3{padding: 10px 0;}
-      .index_left_content_intro{font-size: 14px;line-height: 25px;display: -webkit-box;-webkit-box-orient: vertical;
--webkit-line-clamp: 4;overflow: hidden;}
+      .index_left_content h3{padding: 10px 0;color: #333;}
+      .index_left_content_intro{font-size: 14px;line-height: 25px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}
        .index_left_content .index_left_content_intro p{margin-top: 0px!important;}
       .index_right_content{display: flex;flex-direction: column;align-items: center;}
       .index_right_content>img{margin-bottom: 20px;}
       .index_right_content>img:last-of-type{margin-bottom: 0;}
        /* 伊甸网简介轮播图 */
-       .swiper-container{flex:1;height: 0;}
+       .swiper-container{flex:1;height: 0;padding: 20px 0px;}
+       .swiper-wrapper{width: 100%;height: 100%;}
+      /* .swiper-slide{width: 31.3333%;height: 100%;margin: 0% 1%;} */
+       /* .swiper-slide img{width: 100%;height: 100%;} */
+       /* .swiper-slide:nth-child(3n+3){margin-right: 0%!important;} */
 
 
-      /* 轮播图*/
-      .el-carousel__item h3{color: #475669;font-size: 14px;opacity: 0.75;line-height: 200px;margin: 0;}
-      .el-carousel__item:nth-child(2n){background-color: #99a9bf;}
-      .el-carousel__item:nth-child(2n+1){background-color: #d3dce6;}
-      .index_left_swiper{padding: 25px 0;}
+      /* 企业服务*/
+      .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bg.jpg);padding: 30px;padding-top: 10px;}
       .index_enterpriseasd{width: 1240px;height: 420px;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
       .index_enterpriseasdwron{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbaon.png);background-size: cover;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 3%;color: #fff;}
       .index_enterpriseasdwrtw{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatw.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
@@ -561,6 +572,9 @@
       .index_entwkjkas{width: 100%;flex: 1;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 2%;color: #fff;padding: 0 30px;}
       .index_cmetk{font-size: 24px;font-weight: bold;}
       .index_cmetkaqw{border: 1px solid #fff;padding: 10px;font-size: 14px;}
+
+      /* 跳蚤市场 */
+      .index_content{display: flex;flex-direction: column;align-items: center;background: #f6f6f6;padding: 25px 0;}
       .index_online{width: 1200px;height: 570px;display: flex;align-items: baseline;flex-wrap: wrap;padding-top: 4px;}
       .index_block{width: 295px;height: 185px;background-color: #fff;display: flex;justify-content: baseline;align-items: center;flex-direction: column;margin: 0 2.5px 0 2.5px;box-shadow: 1px 1px 7px #ccc;}
       .index_blokk{width: 295px;height: 185px;background-image: url(../../../static/img/index/index_icws.png);background-size: cover;display: flex;justify-content: baseline;align-items: center;flex-direction: column;margin: 0 2.5px 0 2.5px;box-shadow: 1px 1px 7px #ccc;}
@@ -584,6 +598,8 @@
       .index_parsze{font-size: 40px;border-bottom: 2px solid #147fc5;}
       .index_parszeq{font-size: 16px;background-image: linear-gradient(#fb963a, #f25630);padding: 10px 15px;color: #fff;font-weight: bold;border-bottom-left-radius: 25px;border-bottom-right-radius: 25px;border-top-left-radius: 25px;border-top-right-radius: 25px;}
       #index_box{width: 1200px;height: 505px;}
+
+      /* 新闻中心 */
       .index_ulonimo{width: 10px;text-align: right;}
       .index_ulon{overflow: hidden;display: flex;justify-content: center;align-content: center;padding-bottom: 10px;}
       .index_ulonim{text-align: right;}
@@ -596,6 +612,7 @@
       .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
       .index_urlw{flex: 1;display: flex;justify-content: space-evenly;align-content: center;flex-direction: column;}
       .index_urlq{font-size: 24px;}
+      .index_urlz p:nth-child(2){word-break: break-all;}
       .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
       .index_ulxwtwbklt{width: 77px;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;}
       .index_ulxwtwbkrt{flex: 1;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding: 15px;}
