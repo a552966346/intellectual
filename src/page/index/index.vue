@@ -184,26 +184,49 @@
                                 </div>
                         </div>
                         <!-- 伊甸网  -->
+
                         <div class="index_about">
                                 <v-comtitle :title="title_all[5]" :inform_title='title_text_all[5]' :background_img_url='title_bg_url[5]'></v-comtitle>
-                                <div class="index_about_content">
-                                        <div class="index_left_content">
-                                                <h3>伊甸城介绍</h3>
-                                                <p>伊甸城（山西）信息技术有限公司于2016年06月12日成立。法定代表人马志士,公司经营范围包括：技术推广、技术服务、技术开发、技术转让、技术咨询；软件开发；企业管理咨询；设计、制作、代理、发布广告；会议服务；承办展览展示活动；数据处理（数据处理中的银行卡中心、PUE值在1.5以上的云计算数据中心除外）；销售电子产品等。</p>
-                                                <div class="index_left_swiper">
-                                                        <el-carousel :interval="4000" type="card" height="200px">
-                                                                <el-carousel-item v-for="item in 6" :key="item">
-                                                                        <h3 class="medium">{{item}}</h3>
-                                                                </el-carousel-item>
-                                                        </el-carousel>
+                                <div class="index_about1">
+                                        <div class="index_about_content">
+                                                <div class="index_left_content">
+                                                        <h3>伊甸城介绍</h3>
+                                                        <div v-html="brief" class="index_left_content_intro">{{brief}}</div>
+                                                        <div class="swiper-container">
+                                                                  <div class="swiper-wrapper">
+                                                                      <div class="swiper-slide">
+                                                                           <img src="../../../static/img/index/index_intro_swiper.png" alt="">
+                                                                      </div>
+                                                                      <div class="swiper-slide">
+                                                                           <img src="../../../static/img/index/index_intro_swiper.png" alt="">
+                                                                      </div>
+                                                                     <div class="swiper-slide">
+                                                                          <img src="../../../static/img/index/index_intro_swiper.png" alt="">
+                                                                     </div>
+                                                                  </div>
+                                                                  <!-- <div class="swiper-pagination"></div> -->
+                                                                  <div class="swiper-button-prev"></div>
+                                                                  <div class="swiper-button-next"></div>
+
+                                                        </div>
+                                                        <!-- <div class="index_left_swiper">
+                                                                <el-carousel :interval="4000" type="card" height="200px">
+                                                                        <el-carousel-item v-for="item in 6" :key="item">
+                                                                                <h3 class="medium">{{item}}</h3>
+                                                                        </el-carousel-item>
+                                                                </el-carousel>
+                                                        </div> -->
+                                                </div>
+                                                <div class="index_right_content">
+                                                        <img src="../../../static/img/index/about_right_one.png" alt="">
+                                                        <img src="../../../static/img/index/about_right_two.png" alt="">
+                                                        <img src="../../../static/img/index/about_right_three.png" alt="">
                                                 </div>
                                         </div>
-                                        <div class="index_right_content">
-                                                <img src="../../../static/img/index/about_right_one.png" alt="">
-                                                <img src="../../../static/img/index/about_right_two.png" alt="">
-                                                <img src="../../../static/img/index/about_right_three.png" alt="">
-                                        </div>
+
                                 </div>
+
+
                         </div>
                 </div>
 
@@ -218,6 +241,7 @@
 </template>
 
 <script>
+        import Swiper from 'swiper';
         import indexpayitem from '@/components/indexpayitem/indexpayitem.vue'
         import navigation from '@/components/navigation/navigation.vue'
         import banner from '@/components/banner/banner.vue'
@@ -257,10 +281,10 @@
                                         '../../../static/img/index/ruanzhu_pay.png'
                                 ],
                                 // 企业服务
-                                // msg: '这是测试内容',
                                 sever: ["企业服务", "知识产权贯标", "知识产权贯标"],
                                 severtw: ["致力于小微企业提供数字金融服务", "享受政府资助最高30万", "享受政府资助最高30万"],
                                 severtr: ["立即咨询", "查看详情", "查看详情"],
+                                // 跳蚤市场
                                 listshow: true,
                                 list: [{
                                                 index: 1,
@@ -348,6 +372,7 @@
                                                 miney: '立即咨询'
                                         }
                                 ],
+                                //合伙人计划
                                 parlist: [{
                                                 index: 1,
                                                 parimg: '',
@@ -379,6 +404,7 @@
                                                 partw: '获得利润分成'
                                         },
                                 ],
+                                // 新闻中心
                                 tabtit: ["公司新闻", "行业新闻", "政策新闻"],
                                 tabmain: ["内容一", "内容二", "内容三"],
                                 num: 0,
@@ -426,10 +452,24 @@
                                                 title: '山西省专利实施和保护条例',
                                                 center: '（2001年11月25日山西省第九届人民代表大会常务委员会第二十六次会议通过 2014年...）'
                                         }
-                                ]
+                                ],
+                                // 伊甸网
+                                brief:'',
+
                         }
                 },
                 mounted() {
+                         new Swiper ('.swiper-container', {
+                                loop: true,
+                                slidesPerView: 3,
+                                spaceBetween: 30,
+                                // 如果需要分页器
+                                // pagination: '.swiper-pagination',
+                                // 如果需要前进后退按钮
+                                nextButton: '.swiper-button-next',
+                                prevButton: '.swiper-button-prev',
+
+                            })
                         this.$api.getidnexdeal()
                         .then(res=>{
                                 console.log(res,'专利交易')
@@ -448,6 +488,19 @@
                                 console.log(res,'软著交易')
                                 this.soft=res.data.transaction;
                                 this.num3=res.data.count;
+                        })
+                        this.$api.getindexnew()
+                        .then(res=>{
+                                console.log(res,'新闻中心')
+                                // this.soft=res.data.transaction;
+                                // this.num3=res.data.count;
+                        })
+                        this.$api.getydbrief()
+                        .then(res=>{
+                                console.log(res,'伊甸网')
+                                this.brief=res.data.brief;
+                                this.introimage=res.data.images;
+                                // this.num3=res.data.count;
                         })
                 },
                 methods: {
@@ -468,20 +521,31 @@
 <style scoped>
       /* scoped 样式隔离*/
       *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
+
       /* 交易*/
       .index_pay{background: #f6f6f6;padding: 20px 0px;}
       /* 企业服务*/
-      .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bg.jpg);padding: 30px;}
+      .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bg.jpg);padding: 30px;padding-top: 10px;}
       .index_content{display: flex;flex-direction: column;align-items: center;background: #f6f6f6;padding: 25px 0;}
-      .index_about{width: 1200px;}
-      .index_about_content{display: flex;}
-      .index_left_content{padding: 30px;background: #fff;margin-right: 30px;}
+
+      /* 伊甸网简介*/
+      .index_about{width: 100%;}
+      .index_about1{width: 100%;background-image: url(../../../static/img/index/index_intro_bg.png);padding: 30px 0px;}
+      .index_about_content{width: 1200px;margin: 0 auto;display: flex;overflow: hidden;}
+      .index_left_content{padding: 30px;background: #fff;margin-right: 20px;flex: 1;width: 0;display: flex;flex-direction: column;}
       .index_left_content>h3{padding: 10px 0;}
-      .index_left_content>p{font-size: 14px;line-height: 25px;}
+      .index_left_content_intro{font-size: 14px;line-height: 25px;display: -webkit-box;-webkit-box-orient: vertical;
+-webkit-line-clamp: 4;overflow: hidden;}
+       .index_left_content .index_left_content_intro p{margin-top: 0px!important;}
       .index_right_content{display: flex;flex-direction: column;align-items: center;}
       .index_right_content>img{margin-bottom: 20px;}
       .index_right_content>img:last-of-type{margin-bottom: 0;}
-      /* 轮播图*/.el-carousel__item h3{color: #475669;font-size: 14px;opacity: 0.75;line-height: 200px;margin: 0;}
+       /* 伊甸网简介轮播图 */
+       .swiper-container{flex:1;height: 0;}
+
+
+      /* 轮播图*/
+      .el-carousel__item h3{color: #475669;font-size: 14px;opacity: 0.75;line-height: 200px;margin: 0;}
       .el-carousel__item:nth-child(2n){background-color: #99a9bf;}
       .el-carousel__item:nth-child(2n+1){background-color: #d3dce6;}
       .index_left_swiper{padding: 25px 0;}
