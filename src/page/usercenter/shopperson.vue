@@ -2,43 +2,55 @@
     <div class="shopperson">
         <div class="shop_top">
             <div class="top_text">我是卖家/我出售的商标</div>
-
             <div class="top_shopcar">
                 <img src="../../../static/img/usercenter/shopcar.png" alt="">
                 <span>我要出售</span> 
             </div>
+            
         </div>
         <div class="shop_con">
-            <ul class="s_con_t">
-                <li class="s_con_t_item selltrademark">出售商标</li>
-                <li class="s_con_t_item sellpatent">出售专利</li>
-                <li class="s_con_t_item sellcopyright">出售版权</li>
-                <li class="s_con_t_item technologytransfer">技术转让</li>
-                <li class="s_con_t_search">
-                    <div class="s_t_sea">
-                        <input type="s_text" placeholder="请输入您要查找的商品编号或注册号">
-                        <div class="s_search">搜索</div>
-                    </div>
+            <div class="s_t_sea">
+                    <input type="s_text" placeholder="请输入您要查找的商品编号或注册号">
+                    <div class="s_search">搜索</div>
+            </div>
+            <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
                 
-                </li>
-            </ul>
-            <ul class="s_con_b">
-                <li class="s_con_b_item">商品</li>
-                <li class="s_con_b_item">出售信息</li>
-                <li class="s_con_b_item">价格</li>
-                <li class="s_con_b_item">发布时间</li>
-                <li class="s_con_b_item">当前状态</li>
-                <li class="s_con_b_item">商品操作</li>
-            </ul>
-            <div class="s_content">
-                <div class="s_content_c">
+              <el-tab-pane label="出售商标" name="first">
+                <ul class="s_con_b">
+                    <li class="s_con_b_item">商品</li>
+                    <li class="s_con_b_item">出售信息</li>
+                    <li class="s_con_b_item">价格</li>
+                    <li class="s_con_b_item">发布时间</li>
+                    <li class="s_con_b_item">当前状态</li>
+                    <li class="s_con_b_item">商品操作</li>
+                </ul>
+                
+                <div class="s_content">
+                  <div class="s_content_c">
                     <img src="../../../static/img/usercenter/nomessage.png" alt="">
                     <p>没有看到您的商品信息。</p>
                     <p>如果您有商品，您可以去<a href="#">登记出售信息</a></p>
-                </div>    
-            </div>
-            <div class="s_content_d">
-                    <ul class="s_con_b selltrademark1">
+                  </div>    
+                </div>
+              </el-tab-pane>
+              <el-tab-pane label="出售专利" name="second">
+                <ul class="s_con_b">
+                    <li class="s_con_b_item">商品</li>
+                    <li class="s_con_b_item">出售信息</li>
+                    <li class="s_con_b_item">价格</li>
+                    <li class="s_con_b_item">发布时间</li>
+                    <li class="s_con_b_item">当前状态</li>
+                    <li class="s_con_b_item">商品操作</li>
+                </ul>
+                 <ul class="s_con_b selltrademark1">
+                        <li class="s_con_b_item">1</li>
+                        <li class="s_con_b_item">2</li>
+                        <li class="s_con_b_item">3</li>
+                        <li class="s_con_b_item">4</li>
+                        <li class="s_con_b_item">5</li>
+                        <li class="s_con_b_item">6</li>
+                  </ul> 
+                  <ul class="s_con_b sellpatent1">
                         <li class="s_con_b_item">1</li>
                         <li class="s_con_b_item">2</li>
                         <li class="s_con_b_item">3</li>
@@ -46,31 +58,49 @@
                         <li class="s_con_b_item">5</li>
                         <li class="s_con_b_item">6</li>
                     </ul>
-                    <ul class="s_con_b sellpatent1">
+              </el-tab-pane>
+              <el-tab-pane label="出售版权" name="third">
+                <ul class="s_con_b">
+                    <li class="s_con_b_item">商品</li>
+                    <li class="s_con_b_item">出售信息</li>
+                    <li class="s_con_b_item">价格</li>
+                    <li class="s_con_b_item">发布时间</li>
+                    <li class="s_con_b_item">当前状态</li>
+                    <li class="s_con_b_item">商品操作</li>
+                </ul>
+                <ul class="s_con_b sellcopyright1">
                         <li class="s_con_b_item">1</li>
                         <li class="s_con_b_item">2</li>
                         <li class="s_con_b_item">3</li>
                         <li class="s_con_b_item">4</li>
                         <li class="s_con_b_item">5</li>
                         <li class="s_con_b_item">6</li>
-                    </ul>
-                    <ul class="s_con_b sellcopyright1">
+                </ul>
+              </el-tab-pane>
+              <el-tab-pane label="技术转让" name="fourth">
+                <ul class="s_con_b">
+                    <li class="s_con_b_item">商品</li>
+                    <li class="s_con_b_item">出售信息</li>
+                    <li class="s_con_b_item">价格</li>
+                    <li class="s_con_b_item">发布时间</li>
+                    <li class="s_con_b_item">当前状态</li>
+                    <li class="s_con_b_item">商品操作</li>
+                </ul>
+                <ul class="s_con_b technologytransfer1">
                         <li class="s_con_b_item">1</li>
                         <li class="s_con_b_item">2</li>
                         <li class="s_con_b_item">3</li>
                         <li class="s_con_b_item">4</li>
                         <li class="s_con_b_item">5</li>
                         <li class="s_con_b_item">6</li>
-                    </ul>
-                    <ul class="s_con_b technologytransfer1">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">4</li>
-                        <li class="s_con_b_item">5</li>
-                        <li class="s_con_b_item">6</li>
-                    </ul>
-            </div>
+                </ul>
+                  
+              </el-tab-pane>  
+            </el-tabs>
+            
+            
+                
+            
             
         </div> 
     </div>
@@ -80,17 +110,29 @@ export default{
     data(){
         return{
             msg:'这是测试内容',
-            tabPosition: 'left'
+            activeName: 'first'
               }
     },
     mounted() {
-            this.$api.getsellerCategory()
-            .then(res=>{
-                    console.log(res)
-                    this.data=res.data
-                    
-            })
+            // 卖家   商标订单
+            getuserTrademarkOrder() {
+                return requestAll.requset(baseUrl + '/api/Userorder/trademark_order');
+            },
+            // 卖家   专利订单
+            getuserorderPatentsOrder() {
+                return requestAll.requset(baseUrl + '/api/Userorder/patents_order');
+            },
+            // 卖家   版权订单
+            getuserorderCopyrightOrder() {
+                return requestAll.requset(baseUrl + '/api/Userorder/copyright_order');
+            },
     },
+    methods: {
+      handleClick(tab, event) {
+        console.log(tab, event);
+      }
+    },
+    
 }
 </script>
 <style scoped>
@@ -132,6 +174,8 @@ export default{
     margin-top: 20px;
     border: 1px solid #efefef;
     border-radius: 5px;
+    position: relative;
+
 }
 .s_con_t{
     display: flex;
@@ -153,15 +197,14 @@ export default{
     border-top: 2px solid #1b7fc3;
 }
 
-.s_con_t_search{
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
+
 .s_t_sea{
     display: flex;
     align-items: center;
+    width: 280px;
+    position: absolute;
+    top: 14px;
+    right: 0;
 }
 .s_t_sea input{
     width: 220px;
@@ -185,23 +228,11 @@ export default{
 .s_con_b{
     margin-top: 20px;
     height: 35px;
-    /* border-radius: 5px;
-    border: 1px solid #efefef; */
     display: flex;
     justify-content: space-around;
     color: #b7b7b7;
 }
-.s_content_d{
-    /* display: none; */
 
-}
-
-/* .s_con_t>.selltrademark:hover   .s_content_d>ul:nth-of-type(1),
-.s_con_t>.sellpatent:hover   .s_content_d>ul:nth-of-type(2),
-.s_con_t>.sellcopyright:hover   .s_content_d>ul:nth-of-type(3), */
-.s_con_t>.technologytransfer:hover   .s_content_d>ul:nth-of-type(4){
-    display: none;
-}
 
 .s_con_b_item{
     display: flex;
@@ -215,7 +246,6 @@ export default{
     text-align: center;
     vertical-align:middle;
     justify-content: center;
-    display: none;
 }
 
 

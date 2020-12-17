@@ -1,30 +1,29 @@
 <template>
     <div class="main">
-        <div class="main_l">
+        <div class="main_l" >
                 <!-- 名字 -->
-                <div class="r1_top">
+                <div class="r1_top"  >
                     <div class="r1_top_tou">
-                        <img src="../../../static/img/usercenter/tou.png" alt="">
+                        <img :src="userIn.avatar">
                     </div>
                     <div class="r1_top_name">
-                        <h4>夏娃<img src="../../../static/img/usercenter/woman.png" alt=""></h4>
+                        <h4>{{userIn.username}} <img src="../../../static/img/usercenter/woman.png" alt=""></h4>
                         <p>晋中市华迅网络科技股份有限公司</p>
                     </div>
                     <div class="r1_top_money money1">
                         <p>账户余额</p>
-                        <span>0.00元</span>
-                        <!-- <input size="mini" plain>提现 <br/> -->
+                        <span>{{userIn.money}}元</span>
                         <input class="money1_button" type="button" value="提现">
                         <br> <a href="#">查看详情</a>
                     </div>
                     <div class="r1_top_money money2">
                         <p>冻结资金</p>
-                        <span>0.00元</span> <br/>
+                        <span>{{userIn.frozen}}元</span> <br/>
                         <a href="#">查看详情</a>
                     </div>
                     <div class="r1_top_money money3">
                         <p>押金</p>
-                        <span>0.00元</span>
+                        <span>{{userIn.pledge}}元</span>
                     </div>
                 </div>
                 <!-- 3个图 -->
@@ -188,8 +187,24 @@
 export default {
     data(){
         return{
-
+            userIn:[
+                {frozen:0.00},
+                {pledge:0.00}
+            ]//用户信息
         }
+    },
+    mounted(){
+        this.$api.getuserIndex()
+            .then(res=>{
+                console.log(res);
+                     this.userIn = res.data
+                     console.log(res.data)
+                     
+                    // for(let i=0;i<res.data.length;i++){
+                    //         this.iscolor[i] = 0
+                    // }
+
+            })
     },
 }
 </script>
@@ -274,8 +289,11 @@ a {
     -webkit-box-orient:vertical;
     overflow:hidden;
     text-overflow:ellipsis;
+    white-space: normal !important;
+    word-wrap: break-word;
     
 }
+
 .notice_content_c div a{
     color: #87a5f5;
 }
@@ -356,6 +374,13 @@ a {
     position: absolute;
     top: 26px;
     left: 15px;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.r1_top_tou img{
+    width: 100%;
 }
 
 .r1_top_name{
@@ -432,7 +457,7 @@ a {
 }
 .order{
     margin-top: 20px;
-    height: 136px;
+    min-height: 136px;
     border-radius: 8px;
     border: 1px solid rgba(0,0,0,0.16);
     /* width: 100%; */

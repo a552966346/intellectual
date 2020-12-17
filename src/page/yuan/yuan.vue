@@ -64,7 +64,7 @@
                     </div>
                   </el-collapse-item>
                   <el-collapse-item title="全部消息" name="7">
-                    <div>
+                    <div class="el-collapse-item__content">
                       <ul class="items">
                         <li>全部消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>未读消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
@@ -87,7 +87,47 @@
             </div>
         </div>  
         <div class="user_right">
-            <router-view></router-view>
+          <div class="r">
+          
+            <div class="s_t_sea">
+                <input type="s_text" placeholder="请输入您要查找的商品编号或注册号">
+                <div class="s_search">搜索</div>
+            </div>
+              
+            <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+              <el-tab-pane label="用户管理" name="first" class=" el-tabs__item is-top" background-color="#000">
+                <div class="s_details"></div>
+                  <ul class="s_con_b selltrademark1">
+                          <li class="s_con_b_item">1</li>
+                          <li class="s_con_b_item">2</li>
+                          <li class="s_con_b_item">3</li>
+                          <li class="s_con_b_item">4</li>
+                          <li class="s_con_b_item">5</li>
+                          <li class="s_con_b_item">6</li>
+                  </ul> 
+                <div class="s_content">
+                  <div class="s_content_c">
+                    <img src="../../../static/img/usercenter/nomessage.png" alt="">
+                    <p>没有看到您的商品信息。</p>
+                    <p>如果您有商品，您可以去<a href="#">登记出售信息</a></p>
+                  </div>    
+                </div>
+              </el-tab-pane>
+              <el-tab-pane label="配置管理" name="second">
+                 <ul class="s_con_b selltrademark1">
+                        <li class="s_con_b_item">1</li>
+                        <li class="s_con_b_item">2</li>
+                        <li class="s_con_b_item">3</li>
+                        <li class="s_con_b_item">4</li>
+                        <li class="s_con_b_item">5</li>
+                        <li class="s_con_b_item">6</li>
+                  </ul> 
+              </el-tab-pane>
+              <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+              <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+              
+            </el-tabs>
+          </div>
         </div>    
 </div>                
 </template>
@@ -95,8 +135,28 @@
   export default {
     data() {
       return {
-        activeName: '1'
-      };
+        activeName: '1',
+        activeName: 'first'
+      }
+    },
+     methods: {
+      handleClick(tab, event) {
+        console.log(tab, event);
+      },
+    },
+    mounted() {
+
+            this.$api.getCopyrightcondition()
+                  .then(res=>{
+                          this.zlTop = res.data
+                          let i=res.data.length
+                          if(i = 0){
+                                  this.iscolor[i] = 0
+                          }else{
+
+                          }
+
+                  })
     }
   }
 </script>
@@ -107,6 +167,44 @@ a {
 .user{
     display: flex;
     height: 96%;
+}
+.el-tabs--card>.el-tabs__header{
+  background: #000 !important;
+}
+
+.el-tabs__nav {
+  background-color: pink!important;
+}
+el-tabs>>>.el-tab-pane{
+  background-color:  pink;
+}
+/* 搜素框 */
+
+.s_t_sea{
+    width: 280px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+.s_t_sea input{
+    width: 220px;
+    display: flex;
+    font-size: 10px;
+    border: 1px solid #efefef;
+    border-radius: 5px 0 0 5px;
+    padding: 5px 10px ;
+}
+.s_search{
+    width: 50px;
+    height: 25px;
+    font-size: 14px;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 5px  5px 0;
 }
 /* .user_left */
 .user{
@@ -128,36 +226,70 @@ a {
     bottom: 0;
     left: 201px;
     overflow-y: auto;
-    /* overflow: hidden; */
 }
+/* 各项内容 */
+.s_con_b{
+    margin-top: 20px;
+    height: 35px;
+    /* border-radius: 5px;
+    border: 1px solid #efefef; */
+    display: flex;
+    justify-content: space-around;
+    color: #b7b7b7;
+}
+
+
+.s_con_b_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 没有订单 */
+.s_content{
+    height: 300px;
+    display: flex;
+    text-align: center;
+    vertical-align:middle;
+    justify-content: center;
+        margin-top: 15px;
+
+}
+
+
+.s_content_c{
+   text-align: center;
+   vertical-align:middle;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   font-size: 16px;
+   color: #5f5f5f;
+   line-height: 1.5;
+   
+}
+.s_content_c p:nth-of-type(2){
+    font-size: 12px;
+}
+.s_content_c  img{
+    vertical-align:middle;
+    margin-bottom: 10px;
+}
+.s_content_c a{
+    color: #1c7fc3;
+    text-decoration: none;
+}
+
+
+
+/* 左侧 */
 .img_logo{
     background: url('../../../static/img/usercenter/logo.png') 0 0 no-repeat;
     background-position: center;
     height: 124px;
     /* vertical-align:top; */
 }
-.el-collapse-item__header {
-    height: 54px;
-    line-height: 54px;
-    padding-left: 20px;
-    color: #666;  
-    border-bottom: 1px solid #EBEEF5;
-    font-size: 16px;
-}
-.el-collapse-item__content {
-    padding-bottom: 0;
-    height: 54px;
-    
-}
-
-/* .user_left>ul>li{
-    /* height: 54px; */
-    /* border-bottom: 1px solid rgba(0,0,0,0.16);
-    text-align: center;
-    line-height: 54px;
-    position: relative;
-} */ 
-
 .icon{
     position: absolute;
     right: 2px;
@@ -205,10 +337,21 @@ a {
 
 .items>li img{
     position: absolute;
-    right: 2px;
-    top: 5px;
-    width: 13%;
+    right: 4px;
+    top: 8px;
+    width: 8%;
 }
+
+
+
+/* .user_left>ul>li{
+    /* height: 54px; */
+    /* border-bottom: 1px solid rgba(0,0,0,0.16);
+    text-align: center;
+    line-height: 54px;
+    position: relative;
+} */ 
+
 
 
 </style>

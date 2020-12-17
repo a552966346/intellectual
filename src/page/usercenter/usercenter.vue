@@ -11,9 +11,9 @@
                         个人中心
                     </router-link>
                 </li>
-                <li class="con_c"  @click="isshow">
-                    <router-link to="/usercenter/userbuy" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/buyperson.png" alt="">我是买家
+                <li class="con_c"  v-on:click.self="isshow">
+                    <router-link to="/usercenter/userbuy" class="item"  >
+                        <img class="left_b" src="../../../static/img/usercenter/buyperson.png" alt="" v-on:click.self="isshow">我是买家
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis">
@@ -25,25 +25,24 @@
                         <li>已完成订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li>
+                <li  @click.stop="isshow_two">
                     <router-link to="/usercenter/usershop" class="item">
                         <img class="left_b" src="../../../static/img/usercenter/shopperson.png" alt="">我是卖家
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
-                    <ul class="items">
-                        <li>出售知识产权<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                    <ul class="items" v-show="showis_two">
                         <li>出售商标<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>出售专利<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>出售版权<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>技术转让<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li>
+                <li @click.stop="isshow_three">
                     <router-link to="/usercenter/usermanage" class="item">
                         <img class="left_b" src="../../../static/img/usercenter/zjmanage.png" alt="">资金管理
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
-                    <ul class="items">
+                    <ul class="items" v-show="showis_three">
                         <li>我的账号<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>我要提现<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>资金明细<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
@@ -52,23 +51,23 @@
                         <li>绑定银行卡<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li>
+                <li @click.stop="isshow_four">
                     <router-link to="/usercenter/usertel" class="imgs item">
                         <img class="left_b" src="../../../static/img/usercenter/tel.png" alt="">投诉与咨询
                         <img class="icon icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
-                    <ul class="items">
+                    <ul class="items" v-show="showis_four">
                         <li>我要投诉建议<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>真假客户验证<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>举报假客服<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li>
+                <li @click.stop="isshow_five">
                     <router-link to="/usercenter/userid" class="item">
                         <img class="left_b" src="../../../static/img/usercenter/id.png" alt="">账号设置
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
-                    <ul class="items">
+                    <ul class="items" v-show="showis_five">
                         <li>实名认证<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>修改手机号<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>修改登录密码<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
@@ -77,23 +76,23 @@
                         <li>我的邮箱<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li>
+                <li @click.stop="isshow_six">
                     <router-link to="/usercenter/usermessage" class="item">
                         <img class="left_b" src="../../../static/img/usercenter/user_message.png" alt="">全部消息
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
-                    <ul class="items">
+                    <ul class="items" v-show="showis_six">
                         <li>全部消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>未读消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>已读消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li>
+                <li @click.stop="isshow_seve">
                     <router-link to="/usercenter/usercontract" class="item">
                         <img class="left_b" src="../../../static/img/usercenter/mycontract_active.png" alt="">我的合同
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
-                    <ul class="items">
+                    <ul class="items" v-show="showis_seve">
                         <li>全部订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>未付款订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                         <li>已预订订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
@@ -116,13 +115,79 @@ export default {
         return{
             msg:'这是测试内容',
             tabPosition: 'left',
-            showis:true
+            showis:false,
+            showis_two:false,
+            showis_three:false,
+            showis_four:false,
+            showis_five:false,
+            showis_six:false,
+            showis_seve:false,
               }
    },
    methods:{
        isshow(){
-           console.log(111111)
            this.showis = !this.showis
+           this.showis_two = false
+           this.showis_three = false
+            this.showis_four = false
+            this.showis_five = false
+            this.showis_six = false
+            this.showis_seve = false
+       },
+       isshow_two(){
+           this.showis = false
+            this.showis_two = !this.showis_two
+            this.showis_three = false
+            this.showis_four = false
+            this.showis_five = false
+            this.showis_six = false
+            this.showis_seve = false
+       },
+       isshow_three(){
+           this.showis = false
+           this.showis_two = false
+           this.showis_three = !this.showis_three
+            this.showis_four = false
+            this.showis_five = false
+            this.showis_six = false
+            this.showis_seve = false
+
+       },
+       isshow_four(){
+           this.showis = false
+           this.showis_two = false
+           this.showis_three = false
+            this.showis_four = !this.showis_four
+            this.showis_five = false
+            this.showis_six = false
+            this.showis_seve = false
+       },
+       isshow_five(){
+           this.showis = false
+           this.showis_two = false
+           this.showis_three = false
+            this.showis_four = false
+            this.showis_five = !this.showis_five
+            this.showis_six = false
+            this.showis_seve = false
+       },
+       isshow_six(){
+           this.showis = false
+           this.showis_two = false
+           this.showis_three = false
+            this.showis_four = false
+            this.showis_five = false
+            this.showis_six = !this.showis_six
+            this.showis_seve = false
+       },
+       isshow_seve(){
+           this.showis = false
+           this.showis_two = false
+           this.showis_three = false
+            this.showis_four = false
+            this.showis_five = false
+            this.showis_six = false
+            this.showis_seve = !this.showis_seven
        }
    }
 }
