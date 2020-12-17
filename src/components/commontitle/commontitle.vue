@@ -38,6 +38,7 @@ export default {
     background-size: auto 45%;
     background-repeat: no-repeat;
     background-position: center bottom;
+    padding: 20px 0px;
   }
   .commontitle{
     display: flex;

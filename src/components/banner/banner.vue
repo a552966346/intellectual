@@ -118,8 +118,7 @@
                         console.log(11)
                         this.$api.getindextop()
                         .then(res=>{
-                                 console.log(res)
-                                console.log(res.data)
+                                 console.log(res,'首页banner图')
                                 this.paycenter = res.data[0];//交易中心
                                 this.severcenter = res.data[1];//服务中心
                                 this.jinrongcenter = res.data[2];//金融中心
@@ -148,8 +147,8 @@
         .searchbox a.btn i{position: absolute;width: 24px;height: 19px;left: 50%;top: 50%;margin-left: -12px;margin-top: -9.5px;background: url(../../../static/img/index/sys_icon.png) no-repeat -40px -0px;}
        /* 选项卡切换头部 */
         .banner_switch{width: 100%;flex: 1;height: 0;}
-       .el-tabs__nav{width: 100%;display: flex;}
-        .el-tabs__nav>div{flex: 1;width: 0;height: 60px;display: flex;align-items: center;justify-content: center;border-left-color: #DCDFE6!important;}
+       .bnner .el-tabs__nav{width: 100%;display: flex;}
+        .bnner .el-tabs__nav>div{flex: 1;width: 0;height: 60px;display: flex;align-items: center;justify-content: center;border-left-color: #DCDFE6!important;}
         /* 选中效果 */
        .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{height: 60px!important;display: flex;justify-content: center;align-items: center;}
 

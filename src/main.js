@@ -23,6 +23,9 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+// 引入swiper
+import 'swiper/dist/css/swiper.css';
+
 // axios 请求封装
 import api from './util/api'
 Vue.prototype.$api = api

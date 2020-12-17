@@ -20,10 +20,10 @@
      <!-- 登录 -->
      <div class="login_content">
        <p class="welcome_title">HI 欢迎来到<span style="color:#69a0e2">伊甸城</span></p>
-        <el-tabs v-model="activeName"  :stretch="stretch_status" v-show="toggle_page">
-          <el-tab-pane label="账户密码登录" name="passworld">
+        <!-- <el-tabs v-model="activeName"  :stretch="stretch_status" v-show="toggle_page"> -->
+          <el-tab-pane label="账户密码登录" name="passworld"  v-show="toggle_page">
             <!-- 账号登录 -->
-            <div>
+            <div style="border-top:3px solid #338bec;">
               <el-form :model="login_ruleForm" status-icon :rules="login_rules" ref="login_ruleForm" class="demo-ruleForm">
                 <el-form-item prop="username" class="login_form_item">
                   <el-input type="text" v-model="login_ruleForm.username" autocomplete="off" placeholder='请输入注册手机号/邮箱/用户名'></el-input>
@@ -100,7 +100,7 @@
               </div>
             </div>
           </el-tab-pane> -->
-        </el-tabs>
+        <!-- </el-tabs> -->
         <!-- 注册 -->
         <div class="register_page" v-show="!toggle_page">
           <el-form :model="register_ruleForm" status-icon :rules="register_rules" ref="register_ruleForm" class="demo-ruleForm">
@@ -218,10 +218,13 @@ export default {
       check:false
     }
   },
+  beforeMount() {
+              this.getVerification()
+  },
   mounted(){
     // console.log(validatePhone)
     this.isusepost()
-    this.getVerification()
+
   },
   methods: {
     // 手机号登录和验证码登录切换
@@ -233,7 +236,6 @@ export default {
     // 获取验证码
     getVerification(){
                this.html = Math.random();
-
     },
     // 注册切换页面
     toggle_page_all(){
@@ -273,7 +275,7 @@ export default {
                         .then(res=>{
                                 console.log(res)
                                 if(res.code == 1){
-                                        this.$route.push({
+                                        this.$router.push({
                                                 path:'/'
                                         })
                                 }else{
@@ -290,7 +292,7 @@ export default {
                             .then(res=>{
                                     console.log(res)
                                     if(res.code == 1){
-                                            this.$route.push({
+                                            this.$router.push({
                                                     path:'/'
                                             })
                                     }else{
@@ -299,6 +301,7 @@ export default {
                                             center: true,
                                             type: 'error'
                                           });
+                                          // this.getVerification()
                                     }
                             })
                         }else{

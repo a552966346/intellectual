@@ -10,23 +10,22 @@
             <!-- <img class="ktitle" src="../../../static/img/knowledgepledge/Product_recommendation.png" alt=""> -->
             <div class="pro_rem_1 ">
                 <img src="../../../static/img/knowledgepledge/pro_rec_2.png" alt="">
-                <h2>小企业知识产权质押债</h2>
-                <p>向小企业法人发放的，以质押人依法可转让的专利权、著作权。商标权质押作为主要的担保方式，用于满足借款企业正常流动资金周转的人民币担保贷款。</p>
+                <h2>{{konwlist.name}}</h2>
+                <p>{{konwlist.desc}}</p>
                 <ul class="pro_rem_2">
-                    <li><div></div>区域：山西</li>
-                    <li><div></div>质押物：知识产权</li>
-                    <li><div></div>产品模式：多种形式</li>                    
+                    <li><div></div>区域：{{konwlist.province_text+konwlist.city_text}}</li>
+                    <li><div></div>质押物：{{konwlist.hypothecate}}</li>
+                    <li><div></div>产品模式：{{konwlist.pattern}}</li>                    
                 </ul>
                 <ul class="pro_rem_2">
-                    <li><div></div>期限：1年</li>
-                    <li><div></div>额度：最高200万元</li>
-                    <li><div></div>银行：中国工商银行</li>
+                    <li><div></div>期限：{{konwlist.deadline}}</li>
+                    <li><div></div>额度：{{konwlist.quota}}</li>
+                    <li><div></div>银行：{{konwlist.bank_text}}</li>
                 </ul>
             </div>
             <div class="button">
                 <el-button type="primary" style="width:154px">立即申请</el-button>   <el-button type="primary " plain style="width:154px">在线咨询</el-button>     
             </div>
-
         </div>
         <!-- 基本条件 -->
         <div class="basic container">
@@ -101,18 +100,28 @@ export default {
     data(){
         return{
             // comtitle组件传值所需
+            id:'',
             title_color:'#1a82c2',
             title_color1:'#fff',
             title_all:["产品推荐",'基本条件','服务流程','投资领域'],
             title_text_all:[,,,'海量投资领域推荐'],
             title_bg_url:['../../../static/img/knowledgepledge/Product_recommendation.png',
-                          '../../../static/img/knowledgepledge/Basic_conditions.png',
-                          '../../../static/img/knowledgepledge/Application_process.png',
-                          '../../../static/img/knowledgepledge/Investment_field.png',
+                            '../../../static/img/knowledgepledge/Basic_conditions.png',
+                            '../../../static/img/knowledgepledge/Application_process.png',
+                            '../../../static/img/knowledgepledge/Investment_field.png',
                         ],
-            msg:'这是测试内容'
-              }
+            konwlist:[]
+            }
+           
    },
+   beforeMount(id){
+       this.konwlist = [];
+        this.$api.getfinancialdetiles(1)
+        .then(res=>{
+            console.log(res)
+            this.konwlist = res.data
+        })
+   }
 }
 </script>
 <style scoped>

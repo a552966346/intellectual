@@ -76,6 +76,10 @@ const api = {
     getidnexdeal() {
         return requestAll.requset(baseUrl + '/api/index/transaction61');
     },
+    // 首页软著交易数据
+    getidnexsoft(){
+      return requestAll.requset(baseUrl + '/api/index/transaction62');
+    },
     // 首页新闻中心
     getindexnew() {
         return requestAll.requset(baseUrl + '/api/index/news');
@@ -84,8 +88,16 @@ const api = {
      * 金融中心
      */
     // 金融中心详情
+<<<<<<< HEAD
     getfinancialdetiles(id) {
         return requestAll.requset(baseUrl + '/api/financial/details');
+=======
+    getfinancialdetiles(id){
+      let data ={
+        id:id
+      }
+      return requestAll.requset(baseUrl + '/api/financial/details',data);
+>>>>>>> 0edd0629f242dd5e9cec926dc20086947025c813
     },
     /*
      * 知识产权交易(商标交易)
@@ -240,11 +252,19 @@ const api = {
         return requestAll.requset(baseUrl + '/api/aboutus/category');
     },
     // 关于我们详情
+<<<<<<< HEAD
     getaboutdetiles(id) {
         data = {
             id: id
         }
         return requestAll.requset(baseUrl + '/api/aboutus/details', data);
+=======
+    getaboutdetiles(id){
+     let data={
+        id:id
+      }
+      return requestAll.requset(baseUrl + '/api/aboutus/details', data);
+>>>>>>> 0edd0629f242dd5e9cec926dc20086947025c813
     },
 
 
