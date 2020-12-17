@@ -521,7 +521,8 @@
 <style scoped>
       /* scoped 样式隔离*/
       *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
-
+       a{text-decoration: none;}
+       a:hover{text-decoration: none;}
       /* 交易*/
       .index_pay{background: #f6f6f6;padding: 20px 0px;}
       /* 企业服务*/
