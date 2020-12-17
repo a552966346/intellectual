@@ -128,7 +128,7 @@
                 }
         }
 </script>
-<style>
+<style scoped>
         a:link{text-decoration: none;}
         input, button{border: 0;outline: none;background: none;}
         input{font-family: 微软雅黑, Microsoft YaHei, \5FAE\8F6F\96C5\9ED1;font-size: 12px;}
