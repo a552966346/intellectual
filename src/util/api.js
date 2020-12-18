@@ -162,6 +162,13 @@ const api = {
     getCopyrightvertisement() {
         return requestAll.requset(baseUrl + '/api/banner/copyright');
     },
+    // 版权详情
+    getCopyrightconditions(id) {
+        let data = {
+            id: id
+        }
+        return requestAll.requset(baseUrl + '/api/Copyright/details',data);
+    },
     /*
      * 技术转让
      */
@@ -199,6 +206,8 @@ const api = {
     getuserCopyrightOrder() {
         return requestAll.requset(baseUrl + '/api/Userorder/copyright_order');
     },
+    // 账号设置  收货地址
+ 
 
     /*
      * 页面底部数据

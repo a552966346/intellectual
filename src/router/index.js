@@ -11,6 +11,7 @@ import service_zlsq from '@/page/service_zlsq/service_zlsq'
 import service_xlj from '@/page/service_xlj/service_xlj'
 import service_xlj_two from '@/page/service_xlj/service_xlj_two'
 import service_xlj_three from '@/page/service_xlj/service_xlj_three'
+import service_xlj_four from '@/page/service_xlj/service_xlj_four'
 import service_pct from '@/page/service_pct/service_pct'
 import copyright from '@/page/paycenter/copyright'
 import patent from '@/page/paycenter/patent'
@@ -120,6 +121,11 @@ export default new Router({
             path: '/service_xlj_three', //下料机
             name: 'service_xlj_three',
             component: service_xlj_three
+        },
+        {
+            path: '/service_xlj_four', //下料机
+            name: 'service_xlj_four',
+            component: service_xlj_four
         },
         {
             path: '/consultant', //涉外

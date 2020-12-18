@@ -194,7 +194,6 @@
                                 </div>
                         </div>
                         <!-- 伊甸网  -->
-
                         <div class="index_about">
                                 <v-comtitle :title="title_all[5]" :inform_title='title_text_all[5]' :background_img_url='title_bg_url[5]'></v-comtitle>
                                 <div class="index_about1">
@@ -205,22 +204,11 @@
                                                              <div v-html="brief" class="index_left_content_intro">{{brief}}</div>
                                                         </router-link>
                                                         <div class="swiper-container">
-                                                                  <div class="swiper-wrapper">
-                                                                     <!-- <div class="swiper-slide" v-for="(item,index) in introimage">
-                                                                           <img :src="item" alt="">
-                                                                      </div> -->
-
-                                                                        <div class="swiper-slide">
-                                                                              <img src="../../../static/img/index/index_intro_swiper.png" alt="">
-                                                                         </div>
-                                                                         <div class="swiper-slide">
-                                                                              <img src="../../../static/img/index/index_intro_swiper.png" alt="">
-                                                                         </div>
-                                                                         <div class="swiper-slide" >
-                                                                              <img src="../../../static/img/index/index_intro_swiper.png" alt="">
-                                                                         </div>
+                                                                 <div class="swiper-wrapper">
+                                                                        <div class="swiper-slide" v-for="(item,index) in introimage">
+                                                                                <img :src="item" alt="">
+                                                                        </div>
                                                                   </div>
-                                                                  <!-- <div class="swiper-pagination"></div> -->
                                                                   <div class="swiper-button-prev"></div>
                                                                   <div class="swiper-button-next"></div>
                                                         </div>
@@ -248,7 +236,6 @@
 </template>
 
 <script>
-        import Swiper from 'swiper';
         import indexpayitem from '@/components/indexpayitem/indexpayitem.vue'
         import navigation from '@/components/navigation/navigation.vue'
         import banner from '@/components/banner/banner.vue'
@@ -470,6 +457,7 @@
                          new Swiper ('.swiper-container', {
                                 loop: true,
                                 slidesPerView: 3,
+                                observer:true,
                                 spaceBetween: 30,
                                 // 如果需要分页器
                                 // pagination: '.swiper-pagination',

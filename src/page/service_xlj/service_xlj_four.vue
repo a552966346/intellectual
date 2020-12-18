@@ -66,12 +66,12 @@
                                 console.log(111)
                         },
                         ispost(id){
-                                this.$api.getPatentscondition(id)
+                                this.$api.getCopyrightconditions(id)
                                 .then(res=>{
                                         console.log(res)
-                                        this.top_data = res.data
-                                        this.right_data = res.data.content.split(',')
-                                        this.toptext = res.data.contenttitle.split(',')
+                                        this.top_data = res.data.data
+                                        this.right_data = res.data.data.content.split(',')
+                                        this.toptext = res.data.data.contenttitle.split(',')
                                         this.toptext.push("常见问题","典型案例")
                                         this.image = res.data.images_text
                                         switch(res.data.patenttype){
