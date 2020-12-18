@@ -76,7 +76,7 @@
                                         console.log(res)
                                         this.left_data = res.data.lists.data
                                         this.botm_data = res.data.youlike
-                                        this.nub = res.data.data.length
+                                        this.nub = res.data.lists.data.length
                                 })
                         },
                         qinchu(){

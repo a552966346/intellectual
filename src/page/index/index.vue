@@ -15,7 +15,7 @@
                         <!-- 商标交易 -->
                         <v-indexpayitem :payleft_img_url='pay_img_list[1]' :type='true' :trade='trade' :num='num2+""'></v-indexpayitem>
                         <!-- 软著交易 -->
-                        <v-indexpayitem :payleft_img_url='pay_img_list[2]' :type='true' :trade='soft' :num='num3+""'></v-indexpayitem>
+                        <v-indexpayitem :payleft_img_url='pay_img_list[2]' :type='true' :istrades='soft' :num='num3+""'></v-indexpayitem>
                 </div>
 
                 <!-- 企业服务 -->
@@ -155,7 +155,7 @@
                                                                                            <div>产权转让全程监督</div>
                                                                                            <div>国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...</div>
                                                                                            <div>发布时间：2020.08.26</div>
-                                                                                   </div> 
+                                                                                   </div>
                                                                             </router-link>
                                                                     </div>
                                                                     <div class="index_ulxwsqk">

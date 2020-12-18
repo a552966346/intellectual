@@ -9,14 +9,24 @@
                         <div>
                                 <p>精选商品总共<span>{{num}}</span>件</p>
                                 <span>
-                                        <router-link to="" style="color: #333;">查看更多></router-link>
+                                        <router-link to="/patents" style="color: #333;">查看更多></router-link>
                                 </span>
                         </div>
                         <!-- 商品交易/软著交易 -->
                         <div class="indexpay_right_list" v-if="type">
-                                <div class="indexpay_right_item" v-for="(item,index) in trade">
-                                        <router-link to="">
-                                                <img :src="item.image" alt="">
+                                <div class="indexpay_right_item"  v-for="(item,index) in trade" :key="item.id">
+                                        <router-link :to="'service_xlj?id='+item.id">
+                                                <img :src="item.images_text[0]" alt="">
+                                                <p class="title_blodes">{{item.name}}</p>
+                                                <p>{{item.summarize}}</p>
+                                                <p class="title_blue">￥{{item.fee}}</p>
+                                        </router-link>
+                                </div>
+                        </div>
+                        <div class="indexpay_right_list" v-if="type">
+                                <div class="indexpay_right_item" v-for="(item,index) in istrade" :key="item.id">
+                                        <router-link :to="'service_xlj_four?id='+item.id">
+                                                <img :src="item.images_text[0]" alt="">
                                                 <p class="title_blodes">{{item.name}}</p>
                                                 <p>{{item.summarize}}</p>
                                                 <p class="title_blue">￥{{item.fee}}</p>
@@ -31,7 +41,7 @@
                                 </div>
                                 <div class="indexpay_right_item_list">
                                         <div class="indexpay_right_item_item" v-for="(item,index) in transaction">
-                                                <router-link to="">
+                                                <router-link :to="'service_xlj_three?id='+item.id">
                                                         <p class="title">{{item.name}}</p>
                                                         <div class="er">
                                                                 <p>行业分类：{{item.categoryid_text}}</p>
@@ -58,6 +68,7 @@
                         transaction:Array,//交易中心的块内容
                         trade:Array,//商标交易的块内容
                         num:String,//三块的数量
+                        istrade:Array
                 },
                 data() {
                         return {

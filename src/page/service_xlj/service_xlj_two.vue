@@ -21,7 +21,7 @@
                                                         <v-serviceleft  ></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right">
-                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor' :toptext ='toptext' :right_data="right_data"></v-servicer>
+                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor' :toptext ='toptext' :right_data="right_data" :question="question"></v-servicer>
                                                 </div>
                                         </div>
                                 </div>

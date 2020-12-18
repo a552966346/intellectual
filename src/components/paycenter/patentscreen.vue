@@ -4,8 +4,8 @@
                         <div class="patenscree_leftrow" v-for="(item,index) in zlTop" :key="index">
                                 <div class="patenscree_lefthead">{{item[0]}}</div>
                                 <div class="patenscree_leftcontent">
-                                        <span :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]"
-                                                @click="choosecon(index,nubs,item[1],second)" :key="second.id" v-if="second ==''">不限</span>
+                                        <span :class="{color:iscolor[index] ==  null}"
+                                                @click="choosecon(index,null,item[1],null)" >不限</span>
                                         <span :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]"
                                                 @click="choosecon(index,nubs,item[1],second)" :key="second.id" v-if="second !=''">{{second}}</span>
                                         <div class="patenscree_leftprice" v-if="index==4">
@@ -133,7 +133,7 @@
                         },
                        choosecon(index,nubs,item,name) {
                                this.iscolor[index] = nubs
-                               console.log(item)
+                               console.log(nubs)
                                this.$set(this.id,item,nubs)
                               if(name =="不限" ){
                                     this.$set(this.screetext,index,null)

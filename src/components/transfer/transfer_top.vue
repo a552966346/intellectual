@@ -1,11 +1,11 @@
 <template>
         <div id="transfer_top_all">
-                <div class="top_title">
+                <!-- <div class="top_title">
                         <div class="top_titlexiang" v-for="(item,index) in top_all_titlexiang">
                                 <img :src="item.img" alt="">
                                 <p>{{item.name}}<span>{{item.nub}}</span></p>
                         </div>
-                </div>
+                </div> -->
                 <div class="top_center">
                         <div class="top_center_lei" >
                                 <div class="top_center_all" v-for="(item,index) in top_data" :key="index">
@@ -17,16 +17,21 @@
 
                                         </div>
                                         <div class="center_lei_right">
-                                                <div @click="xuanze(nubs,item[1],index,text)" v-for="(text,nubs) in item[3]" :key="nubs" v-if="text ==''">
-                                                        <p :class="{color:iscolor[index]===nubs}">不限</p>
+                                                <div @click="xuanze(undefined,item[1],index,undefined)">
+                                                        <p  :class="{color:iscolor[index]===undefined}">不限</p>
+                                                        <img src="../../../static/img/transfer/transfer_dh.png" alt=""
+                                                                v-show="iscolor[index] ===undefined">
+                                                </div>
+                                                <div @click="xuanze(nubs,item[1],index,text)" v-for="(text,nubs) in item[3]" :key="nubs" v-if="text !=''">
+                                                        <p :class="{color:iscolor[index]===nubs}" >{{text}}</p>
                                                         <img src="../../../static/img/transfer/transfer_dh.png" alt=""
                                                                 v-show="iscolor[index]===nubs">
                                                 </div>
-                                                <div @click="xuanze(nubs,item[1],index,text)" v-for="(text,nubs) in item[3]" :key="nubs" v-if="text !=''">
+                                                <!-- <div @click="xuanze(nubs,item[1],index,text)" v-for="(text,nubs) in item[3]" :key="nubs" v-if="text !=''">
                                                         <p :class="{color:iscolor[index]===nubs}">{{text}}</p>
                                                         <img src="../../../static/img/transfer/transfer_dh.png" alt=""
                                                                 v-show="iscolor[index]===nubs">
-                                                </div>
+                                                </div> -->
                                         </div>
                                 </div>
                         </div>
@@ -87,6 +92,7 @@
                           t  ---- 选中项目名
                           */
                         xuanze(s, item,i, t) {
+                                
                                 this.iscolor[i]=s;
                                 if(t =="不限" ){
                                      this.$set(this.text_sx,i,null)
