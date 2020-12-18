@@ -10,16 +10,15 @@
                         </div>
                         <div class="topRight">
                                 <div class="topHeader">
-                                        <h3>{{top_data.name}}</h3>
-                                        <p><span>创建时间：{{top_data.creatime_text}}</span></p>
+                                        <!-- <h3>{{top_data.name}}</h3>
+                                        <p><span>创建时间：{{top_data.creatime_text}}</span></p> -->
                                 </div>
                                 <div class="topBody">
                                         <div class="topBody_lei">
                                                 <div>
-                                                        <p>行业分类</p>
                                                         <p>{{top_data.categoryid_text}}</p>
                                                 </div>
-                                                <div>
+                                                <!-- <div>
                                                         <p>应用领域</p>
                                                        <p v-if="top_data.territory == 0">高技术服务</p>
                                                        <p v-else-if="top_data.territory == 1">建筑业</p>
@@ -38,21 +37,28 @@
                                                         <p v-else-if="top_data.type==2">实用新型专利</p>
                                                         <p v-else-if="top_data.type == 3">外观专利</p>
                                                         <p v-else-if="top_data.type == 4">版权</p>
-                                                </div>
-
+                                                </div> -->
                                                 <div>
-                                                        <p>成熟程度</p>
+                                                        <p>{{top_data.meanstype}}</p>
+                                                        <p v-if="top_data.means == 0">完全转让</p>
+                                                        <p v-else-if="top_data.means == 1">许可转让</p>
+                                                        <p v-else-if="top_data.means==2">技术入股</p>
+                                                </div>
+                                                 <div>
+                                                        <p>{{top_data.is_exclusive}}</p>
                                                         <p v-if="top_data.maturity == 0">正在研发</p>
                                                         <p v-else-if="top_data.maturity == 1">已有样品</p>
                                                         <p v-else-if="top_data.maturity==2">通过小试</p>
                                                         <p v-else-if="top_data.maturity == 3">通过中试</p>
                                                         <p v-else-if="top_data.maturity == 4">可以量产</p>
                                                 </div>
-                                                <div>
-                                                        <p>交易方式</p>
-                                                        <p v-if="top_data.means == 0">完全转让</p>
-                                                        <p v-else-if="top_data.means == 1">许可转让</p>
-                                                        <p v-else-if="top_data.means==2">技术入股</p>
+                                                 <div>
+                                                        <p>{{top_data.region}}</p>
+                                                        <p v-if="top_data.maturity == 0">正在研发</p>
+                                                        <p v-else-if="top_data.maturity == 1">已有样品</p>
+                                                        <p v-else-if="top_data.maturity==2">通过小试</p>
+                                                        <p v-else-if="top_data.maturity == 3">通过中试</p>
+                                                        <p v-else-if="top_data.maturity == 4">可以量产</p>
                                                 </div>
                                         </div>
                                         <div class="topBody_money">
