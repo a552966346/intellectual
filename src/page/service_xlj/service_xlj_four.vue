@@ -66,7 +66,7 @@
                                 console.log(111)
                         },
                         ispost(id){
-                                this.$api.getPatentscondition(id)
+                                this.$api.getCopyrightconditions(id)
                                 .then(res=>{
                                         console.log(res)
                                         this.top_data = res.data
