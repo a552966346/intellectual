@@ -38,22 +38,29 @@ import navcter from '@/components/navcter/navcter.vue'
         id:''
         }
     },
-     mounted(){
-        var url = window.location.href;
-        var id = url.split('ids')[1]; 
-    },
-    beforeMount() {
+    beforeMount(){
         var router_path = this.$route.path;
         this.$api.getaboutcat()
         .then(res=>{
-            console.log(res)
             if(res.code==1){
                 this.list_data = res.data 
+                this.ispost(res.data[0].children[0].id);
+            }else{
+                this.$message({
+                showClose: true,
+                message: '暂无数据！'
+                });
             }
         })
         .catch(err => {
             console.log(err)
         })
+
+                
+    },
+    mounted(){
+        var url = window.location.href;
+        var id = url.split('ids')[1]; 
     },
     methods:{
         items(){},
