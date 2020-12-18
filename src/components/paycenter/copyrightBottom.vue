@@ -24,11 +24,11 @@
                         <div class="copyright_bpro">
                                 <div class="copyright_bottom" v-for="(item,index) in listdata" :key="item.id">
                                         <div class="copyright_txt">
-                                                <a href="#">
+                                                <router-link :to="'/service_xlj_four?id='+item.id">
                                                 <div class="copyright_img1">
                                                         <img :src="item.images_text[0]" alt="">
                                                 </div>
-                                                </a>
+                                                </router-link>
                                                 <a href="#" class="copyright_active">
                                                 <div class="copyright_text">
                                                         <h3>{{item.name}}</h3>
