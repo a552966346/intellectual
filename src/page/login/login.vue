@@ -32,7 +32,7 @@
                                                         <el-form-item>
                                                                 <div class="register" style="">
                                                                         <div>
-                                                                                <input type="checkbox">自动登录
+                                                                                <input type="checkbox" v-model="automatic">自动登录
                                                                                 <p>| 忘记密码</p>
                                                                         </div>
                                                                         <div>
@@ -290,7 +290,8 @@
                                 activeName: 'passworld',
                                 bgimage: require('../../../static/img/login/login_bg.png'),
                                 html: '',
-                                check: false
+                                check: false,
+                                automatic:false
                         }
                 },
                 beforeMount() {
@@ -342,6 +343,7 @@
                         },
                         // 提交按钮表单验证
                         submitForm(formName) {
+                                 let that = this
                                 this.$refs[formName].validate((valid) => {
                                         if (valid) {
                                                 if (this.toggle_page) {
@@ -353,10 +355,12 @@
                                                                 .then(res => {
                                                                         console.log(res)
                                                                         if (res.code == 1) {
-                                                                                this.$store.state.user = res.data.userinfo.username
-                                                                                 this.$store.state.token = res.data.userinfo.token       //token存储
-                                                                                  localStorage['token']=JSON.stringify(res.data.userinfo.token)
-                                                                                  localStorage['name']=JSON.stringify(res.data.userinfo.username)
+                                                                                if(that.automatic){
+                                                                                        localStorage['user']=JSON.stringify(res.data.userinfo)
+                                                                                }else{
+                                                                                        sessionStorage['user']=JSON.stringify(res.data.userinfo)
+                                                                                }
+                                                                                 this.$store.state.user = res.data.userinfo       //token存储
                                                                                 this.$router.push({
                                                                                         path: '/'
                                                                                 })
@@ -371,6 +375,7 @@
                                                                 })
                                                 } else {
                                                         if (this.check) {
+
                                                                 this.$api.userregister(this.register_ruleForm
                                                                                 .phone, this.register_ruleForm
                                                                                 .pass, this.register_ruleForm
@@ -378,10 +383,8 @@
                                                                         .then(res => {
                                                                                 console.log(res)
                                                                                 if (res.code ==1) {
-                                                                                         this.$store.state.user = res.data.username  //用户名存储
-                                                                                         this.$store.state.token = res.data.token       //token存储
-                                                                                         localStorage['token']=JSON.stringify(res.data.token)
-                                                                                         localStorage['name']=JSON.stringify(res.data.username)
+                                                                                         sessionStorage['user']=JSON.stringify(res.data)
+                                                                                         this.$store.state.user = res.data  //用户
                                                                                         this.$router
                                                                                                 .push({
                                                                                                         path: '/'

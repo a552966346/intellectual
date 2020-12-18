@@ -12,14 +12,14 @@
                 <span :class="{sortactive:this.sortnumber==1}" @click="comsort(1)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
                 <span :class="{sortactive:this.sortnumber==2}" @click="comsort(2)">发布时间<i class="el-icon-bottom patent_sorticon"></i></span>
                 <span :class="{sortactive:this.sortnumber==3}" @click="comsort(3)">价格排序<i class="el-icon-bottom patent_sorticon"></i></span>
-                <div class="patent_sortright">
+               <!-- <div class="patent_sortright">
                         <div :class="{patent_sortitem:true,sortactive:this.listsortnum==1}" @click="listsort(1)"><i class="el-icon-s-grid"></i></div>
                         <div :class="{patent_sortitem:true,sortactive:this.listsortnum==2}" @click="listsort(2)"><i class="el-icon-s-unfold"></i></div>
                         <div class="patent_sortpage">
                             <div><i class="el-icon-arrow-left"></i></div>
                             <div><i class="el-icon-arrow-right"></i></div>
                         </div>
-                </div>
+                </div> -->
         </div>
         <copyrightOrdinary :iscent="iscent"></copyrightOrdinary>
         <div class="copyright_page">

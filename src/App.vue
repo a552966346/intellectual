@@ -4,8 +4,8 @@
       <div>
         <div class="common_top_left">
           <p>hi 下午好欢迎来到伊甸城！</p>
-          <p v-if=" this.$store.state.token == ''|| this.$store.state.token==null || this.$store.state.token==undefined">| <router-link to="/login" class="common_run" >登录/注册</router-link></p>
-          <p v-else>| <router-link to="/usercenter" class="common_run" >欢迎您:{{this.$store.state.user}}</router-link></p>
+          <p v-if=" this.$store.state.user.token== ''||  this.$store.state.user.token==null ||  this.$store.state.user.token==undefined">| <router-link to="/login" class="common_run" >登录/注册</router-link></p>
+          <p v-else>| <router-link to="/usercenter" class="common_run" >欢迎您:{{this.$store.state.user.username}}</router-link></p>
         </div>
         <div class="common_top_right">
           <router-link to="/usercenter">个人中心</router-link>
@@ -22,14 +22,15 @@ export default {
    name: 'App',
    data(){
            return{
+                   user:{}
            }
    },
         beforeMount(){
+                 this.$store.state.user =  JSON.parse(sessionStorage.getItem('user'))
                  if(this.$store.state.token == ''|| this.$store.state.token==null || this.$store.state.token==undefined){
-                         this.$store.state.token = localStorage.getItem('token')
-                         this.$store.state.user =  localStorage.getItem('name')
+                         this.$store.state.user =  JSON.parse(localStorage.getItem('user'))
                  }
-
+                 console.log(this.$store.state.user)
         }
   }
 </script>

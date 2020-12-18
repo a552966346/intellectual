@@ -7,7 +7,7 @@
                         <div class="center_text" :id="txt+index" v-for="(item,index) in right_data">
                                 <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span v-html="toptext[index]"></span></p>
                                 <!-- <img :src="item.img" alt=""> -->
-                                <p v-html="item"></p>
+                                <p v-html="item" style="text-indent: 2em;"></p>
                                  <!-- <div><v-process  v-show="item.nub==1"></v-process></div> -->
                         </div>
                          <!-- <div class="center_text" id="txt0" >
@@ -22,13 +22,15 @@
                         </div> -->
                        <div class="center_text" :id="txt+(right_data.length)">
                                 <p ><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span>常见问题</span></p>
-                                <img src="" alt="">
-                                <p v-for="(item,index) in question"><span>问题：{{item.question}}</span><span>回复：{{item.answer}}</span></p>
-
+                                <!-- <img src="" alt=""> -->
+                                <div v-for="(item,index) in question">
+                                        <p style="font-weight: bold;color: #222;">{{index+1}}、{{item.question}}</p>
+                                        <p>{{item.answer}}</p>
+                                </div>
                         </div>
                         <div class="center_text" :id="txt+(right_data.length+1)">
                                 <p ><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span>典型案例</span></p>
-                                <img src="" alt="">
+                                <div v-html="advantage"></div>
                                  <!-- <div><v-process  v-show="item.nub==1"></v-process></div> -->
                         </div>
                 </div>
@@ -75,16 +77,30 @@
         .serviceright_top{display: flex;padding:20px 15px;}
         .serviceright_top>p{padding: 10px;cursor: pointer;}
         .serviceright_center{flex: 1;display: flex;flex-direction: column;}
-        .center_text{padding-bottom:20px ;flex: 1;}
-        .center_text>p{display: flex;align-items: center;padding: 10px 20px;}
-        .center_text>p>img{width: auto;}
-        .center_text>p>span{padding-left: 5px;font-size: 16px;margin: auto 0;width: 50%;}
+        .center_text{padding:10px 20px ;flex: 1;}
+        .center_text>p,.center_text>div{
+                padding-bottom: 10px;
+        }
+        .center_text>div>p:nth-child(1){
+                text-indent: 1em;
+        }
+        .center_text>div>p:nth-child(2){
+                text-indent: 3em;
+                font-size: 15px;
+        }
+        .center_text>div>p>img{
+                /* width: 100%; */
+                height: 350px;
+        }
+        /* .center_text>p{display: flex;align-items: center;padding: 10px 20px;} */
+        /* .center_text>p>img{width: auto;} */
+        .center_text>p>span{padding-left: 5px;font-size: 16px;margin: auto 0;width: 50%;font-weight: bold;}
         .center_text>div{width: 100%;border-radius: 10px;}
         .center_text img{width: 100%;}
         .iscolor{color: #1780C2!important;}
         .center_text img{width: auto;}
-        .center_text>p:nth-child(2) img{
+        /* .center_text>p:nth-child(2) img{
                 width: 100%;
                 height: 350px;
-        }
+        } */
 </style>

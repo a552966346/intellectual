@@ -1,9 +1,11 @@
 <template>
     <div class="user">
-        
+
         <div class="user_left">
-            <div class="img_logo">
-            </div>
+                <router-link to="/">
+                        <div class="img_logo">
+                        </div>
+                </router-link>
             <ul class="con">
                 <li class="con_c">
                     <router-link to="/usercenter" class="item">
@@ -105,8 +107,8 @@
         <div class="user_right">
             <router-view></router-view>
         </div>
-        
-       
+
+
     </div>
 </template>
 <script>
@@ -203,18 +205,18 @@ a {
 }
 /* .user_left */
 .user{
-    height: 100%;    
+    height: 100%;
 }
  .user_left{
     width:200px;
-    height: 100%;    
+    height: 100%;
     position: fixed;
     top: 35px;
     left: 0;
     box-shadow: 2px 1px 1px rgba(0,0,0,0.16);
 }
 .user_right{
-    flex: 1; 
+    flex: 1;
     position: fixed;
     top: 54px;
     right: 0;
@@ -241,8 +243,8 @@ a {
 }
 .user_left .item{
     height: 54px;
-    color: #666;   
-    
+    color: #666;
+
 }
 .icon{
     position: absolute;
@@ -301,7 +303,7 @@ a {
     display: block;
     padding-left: 73px;
     height: 34px;
-    color: #666; 
+    color: #666;
     line-height: 34px;
     text-align: left;
     position: relative;

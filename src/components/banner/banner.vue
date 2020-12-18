@@ -61,7 +61,9 @@
                                        <!-- 金融中心选项卡内容 -->
                                       <div class="baner_jinrongcenter_bot">
                                               <div class="baner_jinrongcenter_picbot" v-for="(item,index) in banotimg">
-                                                      <img :src="banotimg[index]" alt="">
+                                                      <router-link :to="'/'+item.keywords">
+                                                              <img :src="item.img" alt="">
+                                                      </router-link>
                                               </div>
                                       </div>
                               </el-tab-pane>
@@ -109,8 +111,14 @@
                                 ],
                                 msmin: ['￥800/元', '￥1600/元', '￥700/元', '￥700/元', '￥350/元', '￥350/元'],
                                 banotimg: [
-                                        '../../../static/img/index/bannerobon.png',
-                                        '../../../static/img/index/bannerobtw.png'
+                                       {img: '../../../static/img/index/bannerobon.png',
+                                       keywords:"financing"
+                                       },
+                                       {
+                                           img: '../../../static/img/index/bannerobtw.png' ,
+                                           keywords:"property"
+                                       }
+
                                 ]
                         }
                 },

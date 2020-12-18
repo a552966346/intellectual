@@ -10,8 +10,7 @@ const store = new Vuex.Store({
   state: {
     count: 0,
     navbarlist:[],
-    user:'',
-    token:''
+    user:{},
   },
   // 公共方法
   // this.$store.commit('方法名','参数')

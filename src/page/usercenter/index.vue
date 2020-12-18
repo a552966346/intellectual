@@ -30,15 +30,15 @@
                 <div class="r2_top">
                     <div class="r2_top_item">
                         <img src="../../../static/img/usercenter/safe.png" alt="">
-                        <span>安全设置</span> 
+                        <span>安全设置</span>
                     </div>
                     <div class="r2_top_item">
                         <img src="../../../static/img/usercenter/money.png" alt="">
-                        <span>资金明细</span> 
+                        <span>资金明细</span>
                     </div>
                     <div class="r2_top_item">
                         <img src="../../../static/img/usercenter/contract.png" alt="">
-                        <span>我的合同</span> 
+                        <span>我的合同</span>
                     </div>
 
                 </div>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="order_content">
                         <div class="order_content_c">
-                            <img src="../../../static/img/usercenter/order.png" alt=""><span>您还没有订单，去逛逛吧~</span> 
+                            <img src="../../../static/img/usercenter/order.png" alt=""><span>您还没有订单，去逛逛吧~</span>
                         </div>
 
                     </div>
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-        </div> 
+        </div>
         <div class="main_r">
                     <!-- 公告 -->
                     <div class="notice">
@@ -79,10 +79,10 @@
                             <div class="mynotice">
                                 伊甸公告
                             </div>
-                        </div>   
+                        </div>
                         <ul class="notice_content">
                             <li>
-                               
+
                                 <img src="../../../static/img/usercenter/gg.png" alt="">
                                 <div class="notice_content_c">
                                     <h4>山西省知识产权战略纲要</h4>
@@ -93,19 +93,7 @@
                                         <a href="#">[详情]</a>
                                     </div>
                                 </div>
-                            
-                            </li>
-                            <li>
-                                <img src="../../../static/img/usercenter/gg.png" alt="">
-                                <div class="notice_content_c">
-                                    <h4>山西省知识产权战略纲要</h4>
-                                    <div>
-                                        <p>
-                                            为全面贯彻落实国家知识产权战略，推进我省国家资源型经济转型综合配置改革试验区建设，大力提升知识产权创造推进我省国家资源型经济转型综合
-                                        </p>
-                                        <a href="#">[详情]</a> 
-                                    </div>
-                                </div>
+
                             </li>
                             <li>
                                 <img src="../../../static/img/usercenter/gg.png" alt="">
@@ -117,9 +105,21 @@
                                         </p>
                                         <a href="#">[详情]</a>
                                     </div>
-                                </div>                        
+                                </div>
                             </li>
-                        </ul> 
+                            <li>
+                                <img src="../../../static/img/usercenter/gg.png" alt="">
+                                <div class="notice_content_c">
+                                    <h4>山西省知识产权战略纲要</h4>
+                                    <div>
+                                        <p>
+                                            为全面贯彻落实国家知识产权战略，推进我省国家资源型经济转型综合配置改革试验区建设，大力提升知识产权创造推进我省国家资源型经济转型综合
+                                        </p>
+                                        <a href="#">[详情]</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                     <!-- 收藏 -->
                     <div class="collection">
@@ -127,7 +127,7 @@
                             <div class="mycollection">
                                 收藏的服务
                             </div>
-                        </div>   
+                        </div>
                         <div class="collection_content">
                             <div class="collection_content_item">
                                 <img src="../../../static/img/usercenter/collection.png" alt="">
@@ -137,7 +137,7 @@
                                     <div class="collection_content_item_ccc">
                                         <span>100%</span><span>好评</span> <br>
                                     </div>
-                                    
+
                                 </div>
                                 <el-button type="primary" class="button" size="medium">立即办理</el-button>
                             </div>
@@ -149,7 +149,7 @@
                                     <div class="collection_content_item_ccc">
                                         <span>100%</span><span>好评</span> <br>
                                     </div>
-                                    
+
                                 </div>
                                 <el-button type="primary" class="button" size="medium">立即办理</el-button>
                             </div>
@@ -161,7 +161,7 @@
                                     <div class="collection_content_item_ccc">
                                         <span>100%</span><span>好评</span> <br>
                                     </div>
-                                    
+
                                 </div>
                                 <el-button type="primary" class="button" size="medium">立即办理</el-button>
                             </div>
@@ -173,12 +173,12 @@
                                     <div class="collection_content_item_ccc">
                                         <span>100%</span><span>好评</span> <br>
                                     </div>
-                                    
+
                                 </div>
                                 <el-button type="primary" class="button" size="medium">立即办理</el-button>
-                            </div>                       
-                            
-                        </div> 
+                            </div>
+
+                        </div>
                     </div>
         </div>
     </div>
@@ -194,17 +194,7 @@ export default {
         }
     },
     mounted(){
-        this.$api.getuserIndex()
-            .then(res=>{
-                console.log(res);
-                     this.userIn = res.data
-                     console.log(res.data)
-                     
-                    // for(let i=0;i<res.data.length;i++){
-                    //         this.iscolor[i] = 0
-                    // }
-
-            })
+           this.userIn =   this.$store.state.user
     },
 }
 </script>
@@ -213,10 +203,10 @@ a {
     text-decoration: none;
 }
 .main{
-    display: flex; 
+    display: flex;
     /* justify-content: space-between; */
     margin: 20px 3% 0;
-    width: 93%; 
+    width: 93%;
 }
 .main_r{
     /* width: 355px; */
@@ -259,7 +249,7 @@ a {
     border-bottom: 1px solid #b7b7b7;
     flex: 1;
     display: flex;
-    
+
 }
 .notice_content li img{
     width: 50%;
@@ -278,10 +268,10 @@ a {
 }
 .notice_content_c div{
     font-size: 4px;
-    color: #b7b7b7;   
+    color: #b7b7b7;
     line-height: 17px;
     letter-spacing: 3px;
-    
+
 }
 .notice_content_c div p{
     display:-webkit-box;
@@ -291,7 +281,7 @@ a {
     text-overflow:ellipsis;
     white-space: normal !important;
     word-wrap: break-word;
-    
+
 }
 
 .notice_content_c div a{
@@ -326,7 +316,7 @@ a {
     margin: 6px 0;
     border: 1px solid rgba(0,0,0,0.16);
     width: 48%;
-   
+
 }
 .collection_content_item_cc {
     display: flex;
@@ -336,7 +326,7 @@ a {
     display: block;
     margin: 0 auto 5px;
     width: 100%;
-   
+
 }
 .collection_content_item .span_r{
     justify-content: space-between;
@@ -407,7 +397,7 @@ a {
     line-height: 23px;
 }
 .r1_top_money span {
-    font-size: 14px;    
+    font-size: 14px;
 }
 .r1_top_money a{
     color: #2878d8;
@@ -497,12 +487,12 @@ a {
 .order_content_c{
    text-align: center;
    vertical-align:middle;
-  
+
    /* padding: 26px; */
 }
 .order_content_c  img{
     vertical-align:middle;
-  
+
 }
 .order_content_c span{
     font-size: 14px;

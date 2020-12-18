@@ -11,7 +11,7 @@
         <span :class="{ sortactive: this.sortnumber == 0 }" @click="comsort(0)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
         <span :class="{ sortactive: this.sortnumber == 1 }" @click="comsort(1)">发布时间<i class="el-icon-bottom patent_sorticon"></i></span>
         <span :class="{ sortactive: this.sortnumber == 2 }" @click="comsort(2)">价格排序<i class="el-icon-bottom patent_sorticon"></i></span>
-        <div class="patent_sortright">
+       <!-- <div class="patent_sortright">
           <div :class="{patent_sortitem: true,sortactive: this.listsortnum == 1,}" @click="listsort(1)">
             <i class="el-icon-s-grid"></i>
           </div>
@@ -22,7 +22,7 @@
             <div><i class="el-icon-arrow-left"></i></div>
             <div><i class="el-icon-arrow-right"></i></div>
           </div>
-        </div>
+        </div> -->
       </div>
       <trademarkcon :iscent="iscent" @colorbtn="colorbtn"></trademarkcon>
       <div class="copyright_page">

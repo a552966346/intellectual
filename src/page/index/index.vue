@@ -199,7 +199,7 @@
                                 <div class="index_about1">
                                         <div class="index_about_content">
                                                 <div class="index_left_content">
-                                                        <router-link to="">
+                                                        <router-link to="/aboutus">
                                                              <h3>伊甸城介绍</h3>
                                                              <div v-html="brief" class="index_left_content_intro">{{brief}}</div>
                                                         </router-link>

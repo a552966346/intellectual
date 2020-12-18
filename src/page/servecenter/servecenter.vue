@@ -74,9 +74,9 @@
                                                         <div class="top_cen_right_cen_bottom">
                                                                 <img src="" alt="">
                                                                 <div>
-                                                                        <p>你好欢迎来到一点网</p>
-                                                                        <p>151****3585</p>
-                                                                        <button>退出登录</button>
+                                                                        <p>你好欢迎来到伊甸网</p>
+                                                                        <p>{{phone}}</p>
+                                                                        <button @click="tuichu">退出登录</button>
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -272,16 +272,17 @@
                                 zl_right_lie_o:[],      //专利申请
                                 fu_cen_right_lie_o:[],  //涉外专利
                                 qy_right_lie_o:[],      //版权登记
+                                phone:''        //右侧个人信息
                         }
                 },
                 beforeMount() {
+                        this.phone = this.$store.state.user.nickname
                         this.$api.severcategory()
                         .then(res=>{
                                 console.log(res)
                                 this.$nextTick(function(){
                                         this.top_lei = res.data
                                         this.each(res.data)
-
                                 })
 
                         })
@@ -364,7 +365,11 @@
                        but_bl(){
 
                         },
-
+                        tuichu(){
+                                this.phone =''
+                                this.$store.state.user = {}
+                                sessionStorage['user'] = ''
+                        }
                 }
         }
 </script>
