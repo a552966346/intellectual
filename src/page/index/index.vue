@@ -9,7 +9,7 @@
                 <!-- 交易中心 -->
                 <div class="index_pay">
                         <!--交易中心标题-->
-                        <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :background_img_url='title_bg_url[0]'></v-comtitle>
+                        <v-comtitle :title="title_all[0]"  :background_img_url='title_bg_url[0]'></v-comtitle>
                         <!-- 专利交易 -->
                         <v-indexpayitem :payleft_img_url='pay_img_list[0]' :type='false' :hot='hot' :transaction='transaction' :num='num1+""'></v-indexpayitem>
                         <!-- 商标交易 -->
@@ -20,7 +20,7 @@
 
                 <!-- 企业服务 -->
                 <div class="index_enterprise">
-                        <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'
+                        <v-comtitle :title="title_all[1]"  :color='title_color'
                                 :background_img_url='title_bg_url[1]'></v-comtitle>
                         <div class="index_enterpriseasd">
                                 <div class="index_enterpriseasdwron">
@@ -71,7 +71,7 @@
                 <div class="index_content">
                         <!-- 跳蚤市场 -->
                         <div>
-                                <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :background_img_url='title_bg_url[2]'></v-comtitle>
+                                <v-comtitle :title="title_all[2]"  :background_img_url='title_bg_url[2]'></v-comtitle>
                                 <div class="index_online">
                                         <div :class="index.index == 12?'index_blokk':'index_block'" v-for="(index,item) in list"
                                                 :key="item">
@@ -98,7 +98,7 @@
                         </div>
                         <!-- 新闻中心 -->
                         <div>
-                                <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :background_img_url='title_bg_url[3]'></v-comtitle>
+                                <v-comtitle :title="title_all[3]"  :background_img_url='title_bg_url[3]'></v-comtitle>
                                 <div id="index_box">
                                         <ul class="index_ulon">
                                                 <li v-for="(item,index) in news" :class="{active:index == num}"
@@ -179,7 +179,7 @@
                         </div>
                         <!-- 合伙人 -->
                         <div>
-                                <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :background_img_url='title_bg_url[4]'></v-comtitle>
+                                <v-comtitle :title="title_all[4]"  :background_img_url='title_bg_url[4]'></v-comtitle>
                                 <div class="index_partner">
                                         <div :class="index.index == 1?'index_partblok':'index_partblak'" v-for="(index,item) in parlist"
                                                 :key="item">
@@ -195,7 +195,7 @@
                         </div>
                         <!-- 伊甸网  -->
                         <div class="index_about">
-                                <v-comtitle :title="title_all[5]" :inform_title='title_text_all[5]' :background_img_url='title_bg_url[5]'></v-comtitle>
+                                <v-comtitle :title="title_all[5]"  :background_img_url='title_bg_url[5]'></v-comtitle>
                                 <div class="index_about1">
                                         <div class="index_about_content">
                                                 <div class="index_left_content">
@@ -254,13 +254,13 @@
                                 title_color: '#fff', // commtitle组件传值所需
                                 title_all: ["交易中心", '企业服务', '跳蚤市场', '新闻中心', '合伙人计划', '了解伊甸网'], // 所有标题
                                 // 标题下的介绍
-                                title_text_all: ['交易快报: 186****123,25分钟前购买了****专利',
-                                        '交易快报: 186****123,25分钟前购买了****专利',
-                                        '交易快报: 186****123,25分钟前购买了****专利',
-                                        '交易快报: 186****123,25分钟前购买了****专利',
-                                        '交易快报: 186****123,25分钟前购买了****专利',
-                                        '交易快报: 186****123,25分钟前购买了****专利',
-                                ],
+                                // title_text_all: ['交易快报: 186****123,25分钟前购买了****专利',
+                                //         '交易快报: 186****123,25分钟前购买了****专利',
+                                //         '交易快报: 186****123,25分钟前购买了****专利',
+                                //         '交易快报: 186****123,25分钟前购买了****专利',
+                                //         '交易快报: 186****123,25分钟前购买了****专利',
+                                //         '交易快报: 186****123,25分钟前购买了****专利',
+                                // ],
                                 // 标题的背景图片
                                 title_bg_url: ['../../../static/img/common/Trading_Center.png',
                                         '../../../static/img/common/bg_text.png',
