@@ -21,7 +21,7 @@
                                                         <v-serviceleft  ></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right">
-                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor' :toptext ='toptext' :right_data="right_data"></v-servicer>
+                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor' :toptext ='toptext' :right_data="right_data" :question="question"></v-servicer>
                                                 </div>
                                         </div>
                                 </div>
@@ -49,7 +49,7 @@
                                 top_data:[],
                                 right_data:[],
                                 toptext:[],
-
+                                question:[]
                         }
                 },
                 components:{
@@ -70,10 +70,11 @@
                                 .then(res=>{
                                         console.log(res)
                                         this.top_data = res.data.data
+                                         this.question = res.data.question
                                         this.right_data = res.data.data.content.split(',')
                                         this.toptext = res.data.data.contenttitle.split(',')
                                         this.toptext.push("常见问题","典型案例")
-                                        this.image = res.data.images_text
+                                        this.image = res.data.data.images_text
                                         switch(res.data.patenttype){
                                                 case 1 :this.top_data.patenttype ='发明专利'; break;
                                                 case 2 : this.top_data.patenttype ='实用新型'; break;

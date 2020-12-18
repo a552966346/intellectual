@@ -92,7 +92,7 @@
                           t  ---- 选中项目名
                           */
                         xuanze(s, item,i, t) {
-                                
+
                                 this.iscolor[i]=s;
                                 if(t =="不限" ){
                                      this.$set(this.text_sx,i,null)
@@ -203,9 +203,8 @@
 
 .center_lei_right>div {
         display: flex;
-        width: 11%;
         align-items: center;
-        padding: 5px 0;
+        padding: 5px 15px;
 }
 
 .center_lei_right>div>img {

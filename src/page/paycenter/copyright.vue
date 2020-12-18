@@ -68,9 +68,6 @@ export default {
             this.$api.getCopyrightcondition()
             .then(res=>{
                     this.zlTop = res.data
-                    for(let i=0;i<res.data.length;i++){
-                            this.iscolor[i] = 0
-                    }
 
             })
             this.$api.getCopyrightvertisement()

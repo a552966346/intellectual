@@ -4,15 +4,15 @@
                 <!-- 左侧图片 -->
                 <img :src="payleft_img_url" alt="">
                 <!-- 右侧内容 -->
-                <div class="indexpay_right">
+                <!-- 商标交易 -->
+                <div class="indexpay_right" v-if="trade">
                         <!-- 查看更多 -->
                         <div>
                                 <p>精选商品总共<span>{{num}}</span>件</p>
                                 <span>
-                                        <router-link to="/patents" style="color: #333;">查看更多></router-link>
+                                        <router-link to="/trademarks" style="color: #333;">查看更多></router-link>
                                 </span>
                         </div>
-                        <!-- 商品交易/软著交易 -->
                         <div class="indexpay_right_list" v-if="type">
                                 <div class="indexpay_right_item"  v-for="(item,index) in trade" :key="item.id">
                                         <router-link :to="'service_xlj?id='+item.id">
@@ -23,8 +23,18 @@
                                         </router-link>
                                 </div>
                         </div>
-                        <div class="indexpay_right_list" v-if="type">
-                                <div class="indexpay_right_item" v-for="(item,index) in istrade" :key="item.id">
+                </div>
+                <!-- 版权交易 -->
+                <div class="indexpay_right" v-if="istrades">
+                        <!-- 查看更多 -->
+                        <div>
+                                <p>精选商品总共<span>{{num}}</span>件</p>
+                                <span>
+                                        <router-link to="/copyright" style="color: #333;">查看更多></router-link>
+                                </span>
+                        </div>
+                        <div class="indexpay_right_list" >
+                                <div class="indexpay_right_item" v-for="(item,index) in istrades" :key="item.id">
                                         <router-link :to="'service_xlj_four?id='+item.id">
                                                 <img :src="item.images_text[0]" alt="">
                                                 <p class="title_blodes">{{item.name}}</p>
@@ -33,8 +43,17 @@
                                         </router-link>
                                 </div>
                         </div>
-                        <!-- 专利交易 -->
-                        <div class="indexpay_right_lists" v-if="!type">
+                </div>
+                <!-- 专利交易 -->
+                <div class="indexpay_right" v-if="hot">
+                        <!-- 查看更多 -->
+                        <div>
+                                <p>精选商品总共<span>{{num}}</span>件</p>
+                                <span>
+                                        <router-link to="/patents" style="color: #333;">查看更多></router-link>
+                                </span>
+                        </div>
+                        <div class="indexpay_right_lists" >
                                 <div class="activie_list">
                                         <span :class="{active:active==index}" v-for="(item,index) in hot" :key="index"
                                                 @click="active_top(index)">{{item.name}}</span>
@@ -68,7 +87,7 @@
                         transaction:Array,//交易中心的块内容
                         trade:Array,//商标交易的块内容
                         num:String,//三块的数量
-                        istrade:Array
+                        istrades:Array
                 },
                 data() {
                         return {

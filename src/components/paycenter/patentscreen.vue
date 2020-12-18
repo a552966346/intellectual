@@ -4,8 +4,8 @@
                         <div class="patenscree_leftrow" v-for="(item,index) in zlTop" :key="index">
                                 <div class="patenscree_lefthead">{{item[0]}}</div>
                                 <div class="patenscree_leftcontent">
-                                        <span :class="{color:iscolor[index] ==  null}"
-                                                @click="choosecon(index,null,item[1],null)" >不限</span>
+                                        <span :class="{color:iscolor[index] ==  undefined}"
+                                                @click="choosecon(index,undefined,item[1],undefined)" >不限</span>
                                         <span :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]"
                                                 @click="choosecon(index,nubs,item[1],second)" :key="second.id" v-if="second !=''">{{second}}</span>
                                         <div class="patenscree_leftprice" v-if="index==4">
@@ -121,6 +121,7 @@
                 },
                 created: function() {
                         setInterval(this.showMarquee, 2000)
+                        console.log(this.iscolor)
                 },
                 methods: {
                         showMarquee: function() {
@@ -193,12 +194,11 @@
         }
 
         .patenscree_leftcontent span {
-                width: 12.5%;
+                /* width: 12.5%; */
                 color: #666;
-                padding-bottom: 10px;
+                padding: 5px 15px;
                 cursor: pointer;
         }
-
 
 
         .addclass {
