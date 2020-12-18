@@ -367,8 +367,8 @@
                         },
                         tuichu(){
                                 this.phone =''
-                                this.$store.state.user = {}
-                                sessionStorage['user'] = ''
+                                this.$store.state.user = null
+                                sessionStorage['user'] = null
                         }
                 }
         }

@@ -4,7 +4,7 @@
       <div>
         <div class="common_top_left">
           <p>hi 下午好欢迎来到伊甸城！</p>
-          <p v-if=" this.$store.state.user.token== ''||  this.$store.state.user.token==null ||  this.$store.state.user.token==undefined">| <router-link to="/login" class="common_run" >登录/注册</router-link></p>
+          <p v-if=" this.$store.state.user== ''||  this.$store.state.user==null ||  this.$store.state.user==undefined">| <router-link to="/login" class="common_run" >登录/注册</router-link></p>
           <p v-else>| <router-link to="/usercenter" class="common_run" >欢迎您:{{this.$store.state.user.username}}</router-link></p>
         </div>
         <div class="common_top_right">
