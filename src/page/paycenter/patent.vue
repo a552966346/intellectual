@@ -55,15 +55,18 @@ import patentcon from '../../components/paycenter/patentcon.vue';
                                 iscent:[],
                                 listdata:[],
                                 id:{},
-                                banner:'../../../static/img/paycenter/patent_bg.png'
+                                banner:'../../../static/img/paycenter/patent_bg.png',
+                                category_id:''
                         }
                 },
-                mounted() {
+                beforeMount() {
+                       this.category_id = this.$route.query.id
+                        this.$set(this.id,"category_id",this.category_id)
                         this.$api.getPatentsconditions()   //专利筛选
                         .then(res=>{
                                 console.log(res)
                                 this.zlTop = res.data
-                                this.iscolor = []
+                                 this.$set(this.iscolor,0,this.$route.query.id)
                                 this.ispost(this.id)
                                 // console.log(this.iscent)
                         })
@@ -77,11 +80,11 @@ import patentcon from '../../components/paycenter/patentcon.vue';
                 methods: {
                         comsort(index){
                                 this.sortnumber=index
-                                if(index == 1){
+                                if(index == 2){
                                         this.$set(this.id,"creatime","desc")
                                         this.$set(this.id,"feeorder","")
                                         this.ispost(this.id)
-                                }else if(index == 2){
+                                }else if(index == 3){
                                         this.$set(this.id,"feeorder","desc")
                                         this.$set(this.id,"creatime","")
                                         this.ispost(this.id)

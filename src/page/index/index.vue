@@ -475,25 +475,25 @@
                         })
                         this.$api.getindexbrand()
                         .then(res=>{
-                                console.log(res,'商标交易')
+                                // console.log(res,'商标交易')
                                 this.trade=res.data.transaction;
                                 this.num2=res.data.count;
                         })
                         this.$api.getidnexsoft()
                         .then(res=>{
-                                console.log(res,'软著交易')
+                                // console.log(res,'软著交易')
                                 this.soft=res.data.transaction;
                                 this.num3=res.data.count;
                         })
                         this.$api.getindexnew()
                         .then(res=>{
-                                console.log(res,'新闻中心')
+                                // console.log(res,'新闻中心')
                                 this.news=res.data;
                                 // this.num3=res.data.count;
                         })
                         this.$api.getydbrief()
                         .then(res=>{
-                                console.log(res,'伊甸网')
+                                // console.log(res,'伊甸网')
                                 this.brief=res.data.brief;
                                 this.introimage=res.data.images;
                                 // this.num3=res.data.count;

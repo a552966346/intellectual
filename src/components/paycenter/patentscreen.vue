@@ -121,12 +121,17 @@
                 },
                 created: function() {
                         setInterval(this.showMarquee, 2000)
-                        console.log(this.iscolor)
+                },
+                mounted() {
+                        this.$nextTick(function(){
+                                this.$set(this.screetext,0,this.$route.query.name)
+                        });
                 },
                 methods: {
                         showMarquee: function() {
                                 this.animate = true;
                                 setTimeout(() => {
+
                                         this.marqueeList.push(this.marqueeList[0]);
                                         this.marqueeList.shift();
                                         this.animate = false;
@@ -134,7 +139,6 @@
                         },
                        choosecon(index,nubs,item,name) {
                                this.iscolor[index] = nubs
-                               console.log(nubs)
                                this.$set(this.id,item,nubs)
                               if(name =="不限" ){
                                     this.$set(this.screetext,index,null)

@@ -27,10 +27,10 @@ export default {
    },
         beforeMount(){
                  this.$store.state.user =  JSON.parse(sessionStorage.getItem('user'))
-                 if(this.$store.state.token == ''|| this.$store.state.token==null || this.$store.state.token==undefined){
+                 if(this.$store.state.user == ''|| this.$store.state.user==null || this.$store.state.user==undefined){
                          this.$store.state.user =  JSON.parse(localStorage.getItem('user'))
                  }
-                 console.log(this.$store.state.user)
+                 // console.log(this.$store.state.user)
         }
   }
 </script>
