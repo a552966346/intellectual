@@ -1,7 +1,7 @@
 <template>
         <!-- 左图右子 -->
         <div id="proc_t">
-                 <v-comtitle title="业务介绍" inform_title=''></v-comtitle>
+                 <!-- <v-comtitle title="业务介绍" inform_title=''></v-comtitle> -->
                 <div class="proc_t">
                         <div class="proc_t_left">
                                 <img src="../../../static/img/service/serviceright_pos_t.png" alt="">
