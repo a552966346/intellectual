@@ -66,8 +66,7 @@
                 <v-comtitle :title="title_all[1]"  :color='title_color'
                         :background_img_url='title_bg_url[1]'></v-comtitle>
                 <div class="technology_list">
-                        <v-addition></v-addition>
-
+                        <v-addition :add="addall"></v-addition>
                 </div>
 
                 <!-- 专利排行榜 -->
@@ -121,7 +120,25 @@
                                 payleft_img_url: ['../../../static/img/technology/list1.png','../../../static/img/technology/list2.png'],
                                 transfer:[],//技术转让右侧列表
                                 newneed:[],//最新需求右侧列表
+                                // 高附加值服务
+                                addall:[{
+                                        images:'../../../static/img/technology/tecservice1.png',
+                                        images1:'../../../static/img/technology/seveice.png',
+                                        title:'专利服务',
+                                        cont:'专利服务其实是知BAI知产权里边的一个服DU之一，同时也是一个重要的服务之一。'
+                                },{
+                                       images:'../../../static/img/technology/tecservice2.png',
+                                       images1:'../../../static/img/technology/seveice.png',
+                                       title:'商标服务',
+                                       cont:'服务商标与商品商标具有相同的特征与特点。区别在与服务商标意识的是服务项目，商品商标标识的是有形商品。'
+                                },{
+                                        images:'../../../static/img/technology/tecservice3.png',
+                                        images1:'../../../static/img/technology/seveice.png',
+                                        title:'金融服务',
+                                        cont:'金融服务是指金融机构运用货币交易手段融通有价物品，向金融活动参与者和顾客提供的共同受益、获得满足的活动。'
+                                }
 
+                                ]
                         }
 
                 },
