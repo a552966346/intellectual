@@ -33,6 +33,7 @@
                                 <div v-html="advantage"></div>
                                  <!-- <div><v-process  v-show="item.nub==1"></v-process></div> -->
                         </div>
+                
                 </div>
         </div>
 </template>

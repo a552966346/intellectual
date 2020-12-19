@@ -9,36 +9,47 @@
                                 <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :qiye="title" :isShow="isShow">
-                                               <template v-slot:topall>
+                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image">
+                                               <!-- <template v-slot:topall>
                                                         <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
-                                                        <div class="slot_bord">
-                                                                <div>
-                                                                        <span>50工作日</span>
-                                                                        <span>￥398/件</span>
-                                                                </div>
-                                                                <div>
-                                                                        <span>50工作日</span>
-                                                                        <span>￥398/件</span>
-                                                                </div>
-                                                                <div>
-                                                                        <span>50工作日</span>
-                                                                        <span>￥398/件</span>
-                                                                </div>
-                                                                <div>
-                                                                        <span>50工作日</span>
-                                                                        <span>￥398/件</span>
-                                                                </div>
-                                                        </div>
+                                                        <div class="slot_bord">11111111</div>
                                                         <div class="money">￥<h2>398</h2>元起</div>
-                                                </template>
+                                                </template> -->
                                         </v-servicet>
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left">
-                                                        <v-serviceleft></v-serviceleft>
+                                                        <v-serviceleft :isid="id" @running="running"></v-serviceleft>
                                                 </div>
-                                                <div class="cen_right">
-                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor' :toptext ='toptext'></v-servicer>
+                                                <div class="cen_right zzdj_cen_right">
+                                                        <!-- <v-servicer :toptext ='toptext' :right_data ='right_data' :question ="question"></v-servicer> -->
+
+                                                        <div class="zzdj_serviceright_top">
+                                                                <p>软著必要性</p>
+                                                                <p>服务流程</p>
+                                                                <p>申请材料</p>
+                                                                <p>常见问题</p>
+                                                        </div>
+                                                        <div class="zzdj_serviceright_center">
+                                                                <!-- 软著必要性 -->
+                                                                <div class="center_text" >
+                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">软著必要性</span></p>
+                                                                        <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
+                                                                </div>
+                                                                <!-- 服务流程 -->
+                                                                <div class="center_text" >
+                                                                        <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
+                                                                        <!-- 申请流程 2个图 -->
+                                                                        <v-applyprocess :app="app"></v-applyprocess>
+                                                                </div>  
+                                                                
+                                                                <!-- 常见问题 -->
+                                                                <div class="center_text" >
+                                                                        <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
+                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
+                                                                        <v-publicproblems :pub="pub"></v-publicproblems>
+                                                                </div>
+                                                        </div>
+
                                                 </div>
                                         </div>
                                 </div>
@@ -55,25 +66,96 @@
         import servicetop from '../../components/servicetop/servicetop.vue'
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import serviceright from '../../components/serviceright/serviceright.vue'
+        import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
+        import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
+
+
         export default{
                 name:'service',
                 data(){
                         return{
-                                title:'软件著作登记',
-                                isShow:false,
+
+                                title:'企业知识产贯标',
+                                top_data:'',
+                                id:'',
+                                image:[],
+                                right_data:[],
+                                toptext:[],
+                                question:[],
+                                // title_color:'#fff',
+                                title_all:["软件著作权登记的必要性","软件著作权登记流程","常见问题"],
+                                title_text_all:["","流程合理完善，让您的著作权登记更为流畅简单",""],
+                                txt:'text_',
                                 iscolor:0,
-                                toptext:[{text:'高企认定好处',id:1,nub:0},{text:'服务流程',id:2,nub:1},{text:'认定条件',id:3,nub:0},{text:'申请资料',id:4,nub:0},{text:'常见问题',id:5,nub:0},{text:'典型案列',id:6,nub:0}],
+                                app:{//申请流程 2个图   //申请流程 0个图
+                                        src:"../../../static/img/copyright/process.png" ,
+                                        top_text:"著作权变更所需资料",
+                                        top_r:"资深顾问审核资料，减少返回率，商业信息、公司信息严格保密",
+                                        arrl:[
+                                                {text: '申请书（伊甸城代准备）'},
+                                                {text: '委托书（伊甸城代准备）'},
+                                                {text: '作品创造说明 法人作品声明'},
+                                                {text: '申请人身份证正反面复印件'}
+                                        ],
+                                        arrr:[
+                                                {text: '申请书（伊甸城代准备）'},
+                                                {text: '委托书（伊甸城代准备）'},
+                                                {text: '作品创造说明 法人作品声明'},
+                                                {text: '公司营业执照副本复印件'}
+                                        ],  
+                                },
+                                pub:{//公共问题
+                                    arrq:[
+                                            {q: '哪些人可以申请软件著作权？',
+                                             a: '软件开发委托方、软件公司、开发者个人、拥有独立电商网站经营者以及运营程序控制生产的企业等都可以申请软件著作权。'},
+                                            {q: '办理著作权登记有保障吗？',
+                                             a: '登记不成功退还代理费用。'},
+                                            {q: '软件著作权保护期限是多长？',
+                                             a: '自然人的软件著作权，保护期为自然人终生及其死亡后50年；软件是合作开发的，截止于最后死亡的自然人死亡后第50年的12月31日。法人或者其他组织的软件著作权，保护期为软件发表后50年，但软件自开发完成之日起50年内未发表的，不再保护。'},
+                                            {q: '软件升级后的版本还要再登记吗？',
+                                             a:'软件功能和性能发生重大变化的升级软件，申请人如有需要，还应再登记。'},
+                                            {q: '商标和版权注册一样吗？',
+                                             a: '不一样，商标是区别同一商品（服务）的不同经营者，并表明商品（服务）质量的商标标识本身，而版权（著作权）是针对文字、音乐、艺术、科学创作等原创的保护，版权其实就是我们常说的著作权，这两者之间的客体完全不同，甚至没有直接的关联性。'}
+                                    ]
+
+                                },
                         }
                 },
                 components:{
                       'v-servicet':servicetop,
                       'v-serviceleft':serviceleft,
-                      'v-servicer':serviceright
-                },
+                      'v-servicer':serviceright,
+                      'v-applyprocess':applicationprocess,//申请流程 2个图
+                        'v-publicproblems':publicproblems,//公共问题
 
+                },
+                beforeMount() {
+                        this.id = this.$route.query.id
+                        this.$nextTick(function(){
+                             this.isgets(this.id)
+                        })
+
+                },
                 methods:{
-                        text_click(){
-                                console.log(111)
+                        running(){
+                               this.id = this.$route.query.id
+                                this.isgets(this.id)
+                        },
+                        isgets(id){
+                                this.$api.severdetiles(id)
+                                .then(res=>{
+                                        if(res.code){
+                                                console.log(res)
+                                                this.top_data = res.data.data
+                                                this.right_data = res.data.data.content.split(',')
+                                                this.toptext = res.data.data.contenttitle.split(',')
+                                                this.question = res.data.question
+                                                this.toptext.push("常见问题","典型案例")
+                                                this.image = res.data.data.images_text
+                                        }else{
+                                                alert("暂无数据")
+                                        }
+                                })
                         }
                 }
         }
@@ -89,10 +171,13 @@
         .cen_right { flex:3;box-shadow:1px 1px 10px 2px #ccc;}
         .consultation_bottom{width: 100%;}
         .consultation_bottom>img{width: 100%;}
-        .slot_bord{display: flex;padding: 10px 0;}
-        .slot_bord>div{flex: 1;display: flex;}
-         .slot_bord>div>span{padding: 2px 5px;font-size: 13px;}
-        .slot_bord>div>span:nth-child(1){background-color: #0265D3;color: #fff;}
-        .slot_bord>div>span:nth-child(2){background-color: #fff;color: #0265D3;border: 1px solid #0265D3;}
         .money{display: flex;align-items: center;color: #D30102;}
+        .zzdj_cen_right{display: flex;flex-direction: column;overflow: hidden;background-color: #fff;}
+        .zzdj_serviceright_top{display: flex;padding:20px 15px;}
+        .zzdj_serviceright_top>p{padding: 10px;cursor: pointer;}
+        .zzdj_serviceright_center{flex: 1;display: flex;flex-direction: column;}
+        .zzdj_center_text{padding:10px 20px ;flex: 1;}
+        .center_text{padding:10px 20px ;flex: 1;}
+        .center_text>p,.center_text>div{padding-bottom: 10px;}
+        .center_text>p>span{padding-left: 16px;}
 </style>

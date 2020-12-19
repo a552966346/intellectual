@@ -9,7 +9,7 @@
                                 <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :qiye="title">
+                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image">
                                                <!-- <template v-slot:topall>
                                                         <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
                                                         <div class="slot_bord">11111111</div>
@@ -18,10 +18,10 @@
                                         </v-servicet>
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left">
-                                                        <v-serviceleft></v-serviceleft>
+                                                        <v-serviceleft :isid="id" @running="running"></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right">
-                                                        <v-servicer v-on:click_text="text_click" :iscolor='iscolor' :toptext ='toptext'></v-servicer>
+                                                        <v-servicer :toptext ='toptext' :right_data ='right_data' :question ="question"></v-servicer>
                                                 </div>
                                         </div>
                                 </div>
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-        import servicetop from '../../components/servicetop/servicetop_two.vue'
+        import servicetop from '../../components/servicetop/servicetop.vue'
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import serviceright from '../../components/serviceright/serviceright.vue'
         export default{
@@ -43,8 +43,12 @@
                 data(){
                         return{
                                 title:'企业知识产贯标',
-                                iscolor:0,
-                                toptext:[{text:'高企认定好处',id:1,nub:0},{text:'服务流程',id:2,nub:1},{text:'认定条件',id:3,nub:0},{text:'申请资料',id:4,nub:0},{text:'常见问题',id:5,nub:0},{text:'典型案列',id:6,nub:0}],
+                                top_data:'',
+                                id:'',
+                                image:[],
+                                right_data:[],
+                                toptext:[],
+                                question:[]
                         }
                 },
                 components:{
@@ -52,9 +56,33 @@
                       'v-serviceleft':serviceleft,
                       'v-servicer':serviceright
                 },
+                beforeMount() {
+                        this.id = this.$route.query.id
+                        this.$nextTick(function(){
+                             this.isgets(this.id)
+                        })
+
+                },
                 methods:{
-                        text_click(){
-                                console.log(111)
+                        running(){
+                               this.id = this.$route.query.id
+                                this.isgets(this.id)
+                        },
+                        isgets(id){
+                                this.$api.severdetiles(id)
+                                .then(res=>{
+                                        if(res.code){
+                                                console.log(res)
+                                                this.top_data = res.data.data
+                                                this.right_data = res.data.data.content.split(',')
+                                                this.toptext = res.data.data.contenttitle.split(',')
+                                                this.question = res.data.question
+                                                this.toptext.push("常见问题","典型案例")
+                                                this.image = res.data.data.images_text
+                                        }else{
+                                                alert("暂无数据")
+                                        }
+                                })
                         }
                 }
         }

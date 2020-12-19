@@ -34,7 +34,6 @@ export default {
 }
 .serviceassurance_container{
     padding: 10px 20px;
-    width: 84%;
 }
 .serviceassurance_item{
     box-shadow: 2px 2px 3px 3px #e8e8f1;
@@ -51,13 +50,13 @@ export default {
     color: #1b7fc5;
     font-weight: 700;
     font-size: 22px;
-    width: 47%;
 }
 .serviceassurance_item_text{
-    margin-left: 7px;
+    margin-left: 9px;
     font-size: 18px;
     color: #4d87be;
     line-height: 1.6;
+    width: 625px;
 }
 
 </style>

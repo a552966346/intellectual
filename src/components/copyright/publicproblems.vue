@@ -43,13 +43,14 @@ export default {
     vertical-align: middle;
 }
 .publicproblems_container{
-    padding: 10px 20px;
-    width: 84%;
+    padding: 10px;
+    width: 100%;
 }
 .publicproblems_item_q,
 .publicproblems_item_a{
     display: flex;
     align-content: center;
+    font-size: 14px;
 }
 .publicproblems_item_a{
     display: flex;

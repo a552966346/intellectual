@@ -31,17 +31,16 @@ export default {
     display: flex;
     justify-content: center;
     align-content: center;
-    font-size: 15px;
 }
 .serviceassurance_table_container{
-    padding: 10px 20px;
-    width: 84%;
+    width: 100%;
+    padding: 10px ;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .serviceassurance_table_item{
-    width: 49.2%;
+    width: 49%;
     display: flex;
     flex-direction: column;
 }
@@ -65,11 +64,12 @@ export default {
 .serviceassurance_table_item_c{
     width: 100%;
     height: 50px;
-    
     margin-top: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 5px;
+    font-size: 13px;
 }
 .cl{
     background-color:#f2f6ff;

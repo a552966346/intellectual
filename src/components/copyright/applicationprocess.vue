@@ -2,7 +2,6 @@
 <!-- 申请流程 2个图-->
 <div class="applyProcess_all">
     <div class="applyProcess_container">
-        <v-comtitle :title="title_all[3]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
 
         <div class="applyProcess_img">
             <img :src="app.src" alt="">
@@ -48,19 +47,12 @@
 export default {
     data(){
         return{
-            title_color:'#fff',
-            title_all:["软件著作权登记流程","美术作品登记流程","文学作品登记流程","著作权变更流程","著作权版权转让流程"],
-            title_text_all:[
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单"
-            ]
+            
         }
     },
     props: {
         app:Object
+        
         
     }
     
@@ -69,7 +61,7 @@ export default {
 <style scoped>
 .applyProcess_all {
     width: 100%;
-    height: 570px;
+    height: 440px;
 }
 .applyProcess_container{
     background-color: #7381a4;
@@ -84,6 +76,9 @@ export default {
     height: 139px;
     background: no-repeat center;
 }
+.applyProcess_img img{
+    width: 90%;
+}
 .applyProcess_items{
     display: flex;
     justify-content: center;
@@ -95,8 +90,8 @@ export default {
 .applyProcess_item{
     background-color: #fff;
     height: 240px;
-    padding: 20px 20px;
-    width: 84%;
+    padding: 16px 16px;
+    width: 96%;
     border-radius: 5px;
     box-shadow: 1px 1px 3px 2px rgb(227 224 224);
 }
@@ -129,7 +124,7 @@ export default {
 .app_item_bottom_item_l,
 .app_item_bottom_item_r{
     display: flex;
-    width: 49%;
+    width: 49.5%;
     /* justify-content: space-between; */
 }
 .app_item_bottom_item_img{
@@ -141,7 +136,9 @@ export default {
     padding-left: 20px;
     flex: 1;
     height: 165px;
-    margin-left: -9px;
+    margin-left: -17px;
+    display: flex;
+    flex-direction: column;
 }
 li{
     list-style: none;
@@ -152,6 +149,7 @@ li{
     border-bottom: 1px solid #ede6e6;
     display: flex;
     align-items: center;
+    flex: 1;
 }
 .circle{
     width: 8px;
