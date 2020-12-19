@@ -81,7 +81,7 @@
                         :background_img_url='title_bg_url[3]'></v-comtitle>
                 <div class="technology_list">
                         <v-project :project="project"></v-project>
-                        <v-map></v-map>
+                        <v-map :contract='contract'></v-map>
                 </div>
 
                 <!-- 公共底部 -->
@@ -141,6 +141,13 @@
                                      cont:'伊甸城知识产权展示交易中心以服务高校科研院所及科创企业知识产权成果转移转化为核心，致力于建设知识产权登记、托管、挂牌、交易、转化、运营、融资、保护为一体的专业化、规范化的知识产权产业链生态平台，构建知识产权及知识产权运营及知识产权融资服务体系并探索知识产权产业化、资本化、国际化道路。',
                                      pic:['../../../static/img/index/index_intro_swiper.png','../../../static/img/index/index_intro_swiper.png','../../../static/img/index/index_intro_swiper.png']
 
+                                },
+                                // 联系方式
+                                contract:{
+                                        cont:'您好，如果有项目对接，请联系我司。',
+                                        phone:'18910769211',
+                                        email:'info@edencity.cn',
+                                        address:'山西智创城NO.4-伊甸创新创业基地知识产权展示交易中心'
                                 }
 
                         }
