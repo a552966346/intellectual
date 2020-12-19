@@ -24,26 +24,23 @@
                                                         <!-- <v-servicer :toptext ='toptext' :right_data ='right_data' :question ="question"></v-servicer> -->
 
                                                         <div class="zzdj_serviceright_top">
-                                                                <p>软著必要性</p>
-                                                                <p>服务流程</p>
-                                                                <p>申请材料</p>
-                                                                <p>常见问题</p>
+                                                                <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
                                                         </div>
                                                         <div class="zzdj_serviceright_center">
                                                                 <!-- 软著必要性 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_0">
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">软著必要性</span></p>
                                                                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
                                                                 </div>
                                                                 <!-- 服务流程 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_1">
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
                                                                         <!-- 申请流程 2个图 -->
                                                                         <v-applyprocess :app="app"></v-applyprocess>
-                                                                </div>  
-                                                                
+                                                                </div>
+
                                                                 <!-- 常见问题 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_2">
                                                                         <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
                                                                         <v-publicproblems :pub="pub"></v-publicproblems>
@@ -75,7 +72,7 @@
                 data(){
                         return{
 
-                                title:'企业知识产贯标',
+                                title:['软著必要性','服务流程','申请材料','常见问题'],
                                 top_data:'',
                                 id:'',
                                 image:[],
@@ -102,7 +99,7 @@
                                                 {text: '委托书（伊甸城代准备）'},
                                                 {text: '作品创造说明 法人作品声明'},
                                                 {text: '公司营业执照副本复印件'}
-                                        ],  
+                                        ],
                                 },
                                 pub:{//公共问题
                                     arrq:[
@@ -156,6 +153,13 @@
                                                 alert("暂无数据")
                                         }
                                 })
+                        },
+                        text_click(porp){
+                                        this.iscolor = porp
+                                        // if(porp==3){
+                                        //         porp = porp-1
+                                        // }
+                                       this.$el.querySelector('#text_'+porp).scrollIntoView()
                         }
                 }
         }
@@ -180,4 +184,5 @@
         .center_text{padding:10px 20px ;flex: 1;}
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;}
+        .iscolor{color: #0184FE;}
 </style>

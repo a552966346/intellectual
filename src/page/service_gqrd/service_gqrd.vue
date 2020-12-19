@@ -4,24 +4,29 @@
                 <div class="consultation_all">
                         <!-- 导航 -->
                         <v-navigation></v-navigation>
-                        <!--  -->
                         <div class="consultation_all_Center">
                                 <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
                                         <v-servicet :qiye="title" :top_data = 'top_data' :image="image">
-                                               <!-- <template v-slot:topall>
-                                                        <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
-                                                        <div class="slot_bord">11111111</div>
-                                                        <div class="money">￥<h2>398</h2>元起</div>
-                                                </template> -->
                                         </v-servicet>
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left">
                                                         <v-serviceleft :isid="id" @running="running"></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right">
-                                                        <v-servicer :toptext ='toptext' :right_data ='right_data' :question ="question"></v-servicer>
+                                                      <div class="serviceright">
+                                                                <div class="serviceright_top">
+                                                                        <p v-for="(item,index,) in toptext" :key='item.id' @click="text_click(index)" :class="{iscolor:index==iscolor}" v-html="item"></p>
+                                                                </div>
+                                                                <div class="serviceright_center">
+                                                                        <div class="center_text" :id="txt+index" v-for="(item,index) in right_data" :key="index">
+                                                                                <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span v-html="toptext[index]"></span></p>
+                                                                                <img :src="right_data[0]" alt="">
+                                                                        </div>
+                                                                        <v-identifyconditions :nd_data="nd_data"></v-identifyconditions>
+                                                                </div>
+                                                      </div>
                                                 </div>
                                         </div>
                                 </div>
@@ -37,7 +42,8 @@
 <script>
         import servicetop from '../../components/servicetop/servicetop.vue'
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
-        import serviceright from '../../components/serviceright/serviceright.vue'
+        import identifyconditions from '../../components/copyright/identifyconditions.vue'
+        
         export default{
                 name:'service',
                 data(){
@@ -46,15 +52,27 @@
                                 top_data:'',
                                 id:'',
                                 image:[],
-                                right_data:[],
-                                toptext:[],
-                                question:[]
+                                right_data:[
+                                        '../../../static/img/service/service_qygqrd.png'
+                                ],
+                                toptext:['高企认定好处','服务流程','认定条件','申请资料','常见问题','典型案例'],
+                                question:[],
+                                advantage:'',
+                                txt:'text_',
+                                 iscolor:0,
+                                nd_data:[
+                                        {src:"../../../static/img/copyright/ser01.png" ,
+                                        text: '申请书（伊甸城代准备）'},
+                                        {src:"../../../static/img/copyright/ser02.png" ,
+                                        text: '委托书（伊甸城代准备）'}
+                                ]
+                                
                         }
                 },
                 components:{
                       'v-servicet':servicetop,
                       'v-serviceleft':serviceleft,
-                      'v-servicer':serviceright
+                      'v-identifyconditions':identifyconditions
                 },
                 beforeMount() {
                         this.id = this.$route.query.id
@@ -62,6 +80,13 @@
                              this.isgets(this.id)
                         })
 
+                },
+                mounted() {
+                        this.$api.severproblem()
+                        .then(res=>{
+                                console.log(res)
+                               this.advantage = res.data.advantage
+                        })
                 },
                 methods:{
                         running(){
@@ -83,6 +108,11 @@
                                                 alert("暂无数据")
                                         }
                                 })
+                        },
+                        text_click(porp){
+                                console.log(231231)
+                                this.iscolor = porp
+                                this.$el.querySelector('#text_'+porp).scrollIntoView()
                         }
                 }
         }
@@ -99,4 +129,8 @@
         .consultation_bottom{width: 100%;}
         .consultation_bottom>img{width: 100%;}
         .money{display: flex;align-items: center;color: #D30102;}
+        .serviceright{width: 100%;display: flex;flex-direction: column;overflow: hidden;background-color: #fff;}
+        .serviceright_top{display: flex;padding:20px 15px;}
+        .serviceright_top>p{padding: 10px;cursor: pointer;}
+        .center_text{padding: 0 25px;}
 </style>

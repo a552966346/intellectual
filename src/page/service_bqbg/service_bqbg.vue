@@ -24,33 +24,30 @@
                                                         <!-- <v-servicer :toptext ='toptext' :right_data ='right_data' :question ="question"></v-servicer> -->
 
                                                         <div class="zzdj_serviceright_top">
-                                                                <p>服务详情</p>
-                                                                <p>申请流程</p>
-                                                                <p>服务保障</p>
-                                                                <p>常见问题</p>
+                                                               <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
                                                         </div>
                                                         <div class="zzdj_serviceright_center">
                                                                 <!-- 服务详情 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_0">
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务详情</span></p>
                                                                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
                                                                 </div>
                                                                 <!-- 申请流程 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_1">
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
                                                                         <!-- 申请流程 2个图 -->
                                                                         <v-applyprocess :app="app"></v-applyprocess>
-                                                                </div>  
+                                                                </div>
                                                                 <!-- 服务保障 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_2">
                                                                         <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务保障</span></p>
                                                                         <!-- 服务保障  123样式 -->
                                                                         <v-serviceassurance :ser="ser"></v-serviceassurance>
                                                                 </div>
-                                                                
+
                                                                 <!-- 常见问题 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_3">
                                                                         <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
                                                                         <v-publicproblems :pub="pub"></v-publicproblems>
@@ -84,14 +81,14 @@
                 data(){
                         return{
 
-                                title:'企业知识产贯标',
+                                title:['服务详情','申请流程','服务保障','常见问题'],
                                 top_data:'',
                                 id:'',
                                 image:[],
                                 right_data:[],
                                 toptext:[],
                                 question:[],
-                                // title_color:'#fff',
+                                title_color:'',
                                 title_all:["著作权变更的必要性？","著作权变更流程","服务保障","常见问题"],
                                 title_text_all:["","流程合理完善，让您的著作权登记更为流畅简单","",""],
                                 txt:'text_',
@@ -113,7 +110,7 @@
                                                 {text: '作品创造说明 法人作品声明'},
                                                 {text: '作品图样'},
                                                 {text: '公司营业执照副本复印件'}
-                                        ],  
+                                        ],
                                 },
                                 ser:{//服务保障  123样式
                                     arr:[
@@ -144,7 +141,7 @@
                                              a: '是的，版权变更对原使用地域和渠道无影响。'},
                                             {q: '办理版权变更需要提供哪些材料？',
                                              a: '如用户的营业执照和组织机构代码证等信息发生变更情况，除了基本的身份信息材料外，还需提供已变更的营业执照和组织机构代码证的复印件给八戒知识产权，并标注需要更改的信息内容。'}
-                                            
+
                                     ]
 
                                 },
@@ -187,6 +184,10 @@
                                                 alert("暂无数据")
                                         }
                                 })
+                        },
+                        text_click(porp){
+                                        this.iscolor = porp
+                                       this.$el.querySelector('#text_'+porp).scrollIntoView()
                         }
                 }
         }
@@ -211,4 +212,5 @@
         .center_text{padding:10px 20px ;flex: 1;}
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;}
+         .iscolor{color: #0184FE;}
 </style>

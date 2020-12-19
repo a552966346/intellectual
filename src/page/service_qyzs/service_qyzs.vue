@@ -10,11 +10,6 @@
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
                                         <v-servicet :qiye="title" :top_data = 'top_data' :image="image">
-                                               <!-- <template v-slot:topall>
-                                                        <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
-                                                        <div class="slot_bord">11111111</div>
-                                                        <div class="money">￥<h2>398</h2>元起</div>
-                                                </template> -->
                                         </v-servicet>
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left">

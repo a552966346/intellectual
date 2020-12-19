@@ -8,7 +8,7 @@
                         <!-- 查看更多 -->
                         <div class="indexpay_right_more">
                                 <span>
-                                        <router-link to="">查看更多></router-link>
+                                        <router-link to="technology">查看更多></router-link>
                                 </span>
                         </div>
                         <!-- 查看列表 -->

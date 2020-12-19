@@ -24,33 +24,30 @@
                                                         <!-- <v-servicer :toptext ='toptext' :right_data ='right_data' :question ="question"></v-servicer> -->
 
                                                         <div class="zzdj_serviceright_top">
-                                                                <p>服务详情</p>
-                                                                <p>申请流程</p>
-                                                                <p>服务保障</p>
-                                                                <p>常见问题</p>
+                                                                 <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
                                                         </div>
                                                         <div class="zzdj_serviceright_center">
                                                                 <!-- 服务详情 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_0">
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务详情</span></p>
                                                                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
                                                                 </div>
                                                                 <!-- 申请流程 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_1">
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
                                                                         <!-- 申请流程 2个图 -->
                                                                         <v-applyprocess :app="app"></v-applyprocess>
-                                                                </div>  
+                                                                </div>
                                                                 <!-- 服务保障 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_2">
                                                                         <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务保障</span></p>
                                                                         <!-- 服务保障  表格样式 -->
                                                                         <v-serviceassurancetable :sert="sert"></v-serviceassurancetable>
                                                                 </div>
-                                                                
+
                                                                 <!-- 常见问题 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_3">
                                                                         <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
                                                                         <v-publicproblems :pub="pub"></v-publicproblems>
@@ -84,14 +81,14 @@
                 data(){
                         return{
 
-                                title:'企业知识产贯标',
+                                title:['服务详情','申请流程','服务保障','常见问题'],
                                 top_data:'',
                                 id:'',
                                 image:[],
                                 right_data:[],
                                 toptext:[],
                                 question:[],
-                                // title_color:'#fff',
+                                title_color:'',
                                 title_all:["美术作品登记的必要性？","美术作品登记流程","服务保障","常见问题"],
                                 title_text_all:["","流程合理完善，让您的著作权登记更为流畅简单","",""],
                                 txt:'text_',
@@ -113,7 +110,7 @@
                                                 {text: '作品创造说明 法人作品声明'},
                                                 {text: '作品图样'},
                                                 {text: '公司营业执照副本复印件'}
-                                        ],  
+                                        ],
                                 },
                                 sert:{//服务保障  表格样式
                                     ltitle: '伊甸（推荐）',
@@ -122,14 +119,14 @@
                                             {text:'办理流程简单，只需要填写个人相关信息，就可坐等拿证'},
                                             {text:'专业客服人员，为你解答所有疑问，全程服务'},
                                             {text:'统一的收费标准，行业低价'},
-                                            {text:'办理加急，最快10个工作日拿证'}      
+                                            {text:'办理加急，最快10个工作日拿证'}
                                     ],
                                     arrr:[
                                             {text:'办理流程复杂，身份认证和材料提交都需要自己一手操办'},
                                             {text:'一旦填写的信息或提交的材料不准确会延长办理周期'},
                                             {text:'一般代理机构的平均费用高达1300元以上，且存在隐藏收费'},
-                                            {text:'正确提交相关材料后到颁布证书通常需要3-4个月'}      
-                                    ]       
+                                            {text:'正确提交相关材料后到颁布证书通常需要3-4个月'}
+                                    ]
                                 },
                                 pub:{//公共问题
                                     arrq:[
@@ -141,7 +138,7 @@
                                              a: '我国著作权法第三条规定的各类作品均可申请登记。包括：文字作品；口述作品；艺术作品；美术、建筑作品；摄影作品；电影作品和以类似摄制电影的方法创作的作品；设计图、地图、示意图等图形作品和模型作品；计算机软件；法律、行政法规规定的其它作品。'},
                                             {q: '版权保护期限是多长？',
                                              a: '版权保护期限，个人自其作品创作完成之日起，至作者死后第50年的12月31日止。法人或者其他组织作品自该作品发表之日起，到发表之日后第50年的12月31日止。作品始终没有发表的，自作品创作完成50年内未发表的，著作权不再保护。'}
-                                            
+
                                     ]
 
                                 },
@@ -184,6 +181,10 @@
                                                 alert("暂无数据")
                                         }
                                 })
+                        },
+                        text_click(porp){
+                                        this.iscolor = porp
+                                       this.$el.querySelector('#text_'+porp).scrollIntoView()
                         }
                 }
         }
@@ -208,4 +209,5 @@
         .center_text{padding:10px 20px ;flex: 1;}
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;}
+        .iscolor{color: #0184FE;}
 </style>
