@@ -38,7 +38,7 @@
                                                       <div class="baner_severcont_topitem">{{item.name}}</div>
                                                       <div class="baner_severcont_botitem">
                                                                 <div class="baner_botall_item" v-for="(item1,index) in item.children">
-                                                                        <router-link :to="'/isserve?id='+item1.id">
+                                                                        <router-link :to="item1.keywords+'?id='+item1.id">
                                                                                <div class="baner_botall_picitem">
                                                                                        <img :src="bantwimg[index]" alt="">
                                                                                </div>

@@ -14,7 +14,7 @@
                            </div>
                            <!-- 跳转 -->
                            <div class="serviceleft_item_lian" v-for='(isitem,ind) in item.children' :key='isitem.id' @click="run(isitem.id)">
-                                <router-link :to="{path:'isserve',query:{ id:isitem.id}}" class="common_lian" :class="{font_color:isid==isitem.id}" >{{isitem.name}}</router-link>
+                                <router-link :to="{path:isitem.keywords,query:{ id:isitem.id}}" class="common_lian" :class="{font_color:isid==isitem.id}" >{{isitem.name}}</router-link>
                            </div>
                       </div>
 
