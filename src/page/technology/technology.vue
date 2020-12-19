@@ -59,7 +59,7 @@
                 <!-- 最新需求 -->
                 <div class="technology_list">
                         <!-- <v-search :payleft_img_url="payleft_img_url"></v-search> -->
-                        <v-demand :payleft_img_url="payleft_img_url[1]"></v-demand>
+                        <v-demand :payleft_img_url="payleft_img_url[1]" :demand='newneed'></v-demand>
                 </div>
 
                 <!-- 高附加值服务 -->
@@ -120,6 +120,7 @@
                                 //技术转移侧边栏图片
                                 payleft_img_url: ['../../../static/img/technology/list1.png','../../../static/img/technology/list2.png'],
                                 transfer:[],//技术转让右侧列表
+                                newneed:[],//最新需求右侧列表
 
                         }
 
@@ -152,6 +153,13 @@
                        .then(res=>{
                                console.log(res,'技术转让')
                                this.transfer=res.data;
+                               // this.transaction=res.data.transaction;
+                               // this.num1=res.data.count;
+                       })
+                       this.$api.getnewneed()
+                       .then(res=>{
+                               console.log(res,'最新需求')
+                               this.newneed=res.data;
                                // this.transaction=res.data.transaction;
                                // this.num1=res.data.count;
                        })

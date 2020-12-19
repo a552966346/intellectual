@@ -280,6 +280,14 @@ const api = {
         }
         return requestAll.requset(baseUrl + '/api/Technology/indexmake', data);
     },
+    // 技术转移首页的最新足球
+    getnewneed() {
+        // 参数
+        let data = {
+            status: status
+        }
+        return requestAll.requset(baseUrl + '/api/Technology/newneed', data);
+    },
 
 }
 
