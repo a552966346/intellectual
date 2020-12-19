@@ -13,12 +13,12 @@
                         </div>
                         <!-- 查看列表 -->
                         <div class="indexpay_right_list">
-                                <div class="indexpay_right_item" v-for="(item,index) in transfer" @mouseenter="enter(index)" @mouseleave="leave(index)">
+                                <div class="indexpay_right_item" v-for="(item,index) in transfer" @mouseenter="enter(item.id,index)" @mouseleave="leave(index)">
                                         <img :src="item.images" alt="">
                                         <div class="indexpay_right_contitem">
-                                                <div class="indexpay_right_contitem1">
+                                                <div class="indexpay_right_contitem1"  v-show="!see[index] ">
                                                       <div class="indexpay_right_contitem1_title"> {{item.name}}</div>
-                                                      <div class="indexpay_right_contitem1_cont">
+                                                      <div class="indexpay_right_contitem1_cont" >
                                                               <span>面议</span>
                                                               <span v-if="item.type==0">非专利</span>
                                                               <span v-if="item.type==1">发明专利</span>
@@ -27,14 +27,14 @@
                                                               <span v-if="item.type==4">版权</span>
                                                       </div>
                                                 </div>
-                                                <!-- <div class="indexpay_right_contitem2" v-if="see==index">
+                                                <div class="indexpay_right_contitem2" v-show="see[index]">
                                                          <router-link to="">
                                                                 <div>
                                                                          <img src="../../../static/img/technology/detail.png" alt="">
                                                                         查看详情
                                                                 </div>
                                                          </router-link>
-                                                </div> -->
+                                                </div>
                                         </div>
 
                                 </div>
@@ -55,15 +55,16 @@
                 data() {
                         return {
                                 active: 0,
-                                see:''
+                                see:[]
                         }
                 },
                 methods: {
-                     enter(index){
-                           this.see=index;
+                     enter(id,index){
+                             console.log(id)
+                             this.$set(this.see,index,true)
                      },
                      leave(index){
-                        this.see
+                        this.$set(this.see,index,false)
                      }
                 }
         }
