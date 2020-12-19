@@ -5,8 +5,7 @@
                 <span class="about_muspan">{{right_data.title}}</span>
             </el-header>
             <div class="about_cet">
-                <h2>{{right_data.title}}</h2>
-                <p>{{right_data.content}}</p>
+                <p v-html="right_data.content"></p>
             </div>    
         </el-main>
     </el-container>
@@ -36,4 +35,7 @@ export default {
 </script>
 
 <style>
+.about_cet p{
+  font-size: 14px !important;
+}
 </style>
