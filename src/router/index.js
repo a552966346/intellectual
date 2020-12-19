@@ -303,7 +303,7 @@ export default new Router({
             component: transfer
         },
         {
-            path: '/name',
+            path: '/transfer',
             name: 'technology',
             component: technology
         },

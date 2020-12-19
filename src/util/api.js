@@ -207,7 +207,7 @@ const api = {
         return requestAll.requset(baseUrl + '/api/Userorder/copyright_order');
     },
     // 账号设置  收货地址
- 
+
 
     /*
      * 页面底部数据
@@ -271,6 +271,14 @@ const api = {
             status: status
         }
         return requestAll.requset(baseUrl + '/index/index/volunteerlist', data);
+    },
+    // 技术转移首页的技术转让
+    gettransfer() {
+        // 参数
+        let data = {
+            status: status
+        }
+        return requestAll.requset(baseUrl + '/api/Technology/indexmake', data);
     },
 
 }
