@@ -21,7 +21,7 @@
                                                               </div>
                                                               <div class="baner_tradeitem_bottom2">
                                                                    <div>
-                                                                         <router-link :to="'/'+item.keywords">查看更多></router-link>
+                                                                         <router-link :to="item.keywords">查看更多></router-link>
                                                                     </div>
                                                               </div>
                                                       </div>

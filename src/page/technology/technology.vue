@@ -49,10 +49,15 @@
                 <div class="technology_list">
                         <v-search :payleft_img_url="payleft_img_url"></v-search>
                 </div>
+                <div class="technology_list">
+                        <!-- <v-search :payleft_img_url="payleft_img_url"></v-search> -->
+                        <v-demand :payleft_img_url="payleft_img_url"></v-demand>
+                </div>
 
                 <!-- 高附加值服务 -->
                 <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color' :background_img_url='title_bg_url[1]'></v-comtitle>
                 <div class="technology_list">
+                        <v-addition></v-addition>
 
                 </div>
 
@@ -60,14 +65,15 @@
                 <!-- 专利排行榜 -->
                 <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color' :background_img_url='title_bg_url[2]'></v-comtitle>
                 <div class="technology_list">
-
+                        <v-toplist></v-toplist>
                 </div>
 
 
                 <!-- 项目对接与推荐 -->
                 <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color' :background_img_url='title_bg_url[3]'></v-comtitle>
                 <div class="technology_list">
-
+                        <v-project></v-project>
+                        <v-map></v-map>
                 </div>
 
 
@@ -80,7 +86,12 @@
 
 <script>
         import navigation from '@/components/navigation/navigation.vue';
-        import search from '@/components/technology/search.vue'
+        import search from '@/components/technology/search.vue';
+        import demand from '@/components/technology/demand.vue';
+        import addition from '@/components/technology/addition.vue';
+        import toplist from '@/components/technology/toplist.vue';
+        import project from '@/components/technology/project.vue';
+        import map from '@/components/technology/map.vue'
         export default {
           name:'technology',
           data(){
@@ -98,7 +109,9 @@
                               '../../../static/img/technology/zhuanli.png',
                               '../../../static/img/technology/xiangmuduijie.png',
                             ],
-                payleft_img_url:'../../../static/img/technology/list1.png'
+                payleft_img_url:'../../../static/img/technology/list1.png',
+                              
+                                
                 }
 
           },
@@ -109,7 +122,12 @@
           },
           components:{
             'v-navigation':navigation,
-             'v-search':search
+             'v-search':search,
+             'v-demand':demand,
+             'v-addition':addition,
+             'v-toplist':toplist,
+             'v-project':project,
+             'v-map':map
           }
         }
 </script>
