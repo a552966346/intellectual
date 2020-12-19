@@ -61,7 +61,6 @@
                         <!-- <v-search :payleft_img_url="payleft_img_url"></v-search> -->
                         <v-demand :payleft_img_url="payleft_img_url[1]" :demand='newneed'></v-demand>
                 </div>
-
                 <!-- 高附加值服务 -->
                 <v-comtitle :title="title_all[1]"  :color='title_color'
                         :background_img_url='title_bg_url[1]'></v-comtitle>
@@ -81,7 +80,7 @@
                 <v-comtitle :title="title_all[3]" :color='title_color'
                         :background_img_url='title_bg_url[3]'></v-comtitle>
                 <div class="technology_list">
-                        <v-project></v-project>
+                        <v-project :project="project"></v-project>
                         <v-map></v-map>
                 </div>
 
@@ -136,9 +135,14 @@
                                         images1:'../../../static/img/technology/seveice.png',
                                         title:'金融服务',
                                         cont:'金融服务是指金融机构运用货币交易手段融通有价物品，向金融活动参与者和顾客提供的共同受益、获得满足的活动。'
+                                }],
+                                // 项目对接与推荐
+                                project:{
+                                     cont:'伊甸城知识产权展示交易中心以服务高校科研院所及科创企业知识产权成果转移转化为核心，致力于建设知识产权登记、托管、挂牌、交易、转化、运营、融资、保护为一体的专业化、规范化的知识产权产业链生态平台，构建知识产权及知识产权运营及知识产权融资服务体系并探索知识产权产业化、资本化、国际化道路。',
+                                     pic:['../../../static/img/index/index_intro_swiper.png','../../../static/img/index/index_intro_swiper.png','../../../static/img/index/index_intro_swiper.png']
+
                                 }
 
-                                ]
                         }
 
                 },
@@ -157,15 +161,6 @@
                         'v-map': map
                 },
                 mounted(){
-                       // new Swiper ('.swiper-container', {
-                       //         loop: true,
-                       //         slidesPerView: 3,
-                       //         observer:true,
-                       //         spaceBetween: 30,
-                       //         nextButton: '.swiper-button-next',
-                       //         prevButton: '.swiper-button-prev',
-
-                       //   })
                        this.$api.gettransfer()
                        .then(res=>{
                                console.log(res,'技术转让')
