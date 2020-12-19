@@ -9,7 +9,6 @@
 
                                         <div class="top_cen_left">
                                                 <div class="top_cen_left_lei" v-for="(item, index) in top_lei" :key="item.id"
-
                                                         @mouseover="activeover(index)" @mouseleave="activeleave" :class="{left_lei_bj:isactive==index}">
                                                         <img :src=" item.img[0]" alt="" v-show="isactive != index">
                                                         <img :src=" item.img[1]" alt="" v-show="isactive == index">
@@ -22,7 +21,7 @@
                                                         <div v-show="isactive_two == index &&item.children.length != 0" v-for="(item, index) in top_lei" :key="item.id">
                                                                 <div v-for="(isitem,index) in item.children">
                                                                         <!-- <p><img src="" alt=""><span>{{isitem.name}}</span></p> -->
-                                                                        <p @click="running(item.keywords,isitem.id)">{{isitem.name}}</p>
+                                                                        <p @click="running(isitem.keywords,isitem.id)">{{isitem.name}}</p>
                                                                 </div>
                                                         </div>
 

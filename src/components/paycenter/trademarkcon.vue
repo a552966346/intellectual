@@ -108,7 +108,9 @@
         }
 
         .trademark_sele>img {
-                max-width: 210px;
+                /* max-width: 210px; */
+                width: 100%;
+                padding: 10px;
                 max-height: 210px;
         }
 

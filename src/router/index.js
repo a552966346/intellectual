@@ -116,100 +116,100 @@ export default new Router({
             component: service
         },
         {
-            path: '/patent', //发明专利
+            path: '/service_fmzl', //发明专利
             name: 'service_fmzl',
             component: service_fmzl
         },
         {
-            path: '/patent', //实用新型
+            path: '/service_syxx', //实用新型
             name: 'service_syxx',
             component: service_syxx
         },
         {
-            path: '/patent', //外观设计
+            path: '/service_wgsj', //外观设计
             name: 'service_wgsj',
             component: service_wgsj
         },
 
         {
-            path: '/isserve', //普通商标注册
+            path: '/service_ptsb', //普通商标注册
             name: 'service_ptsb',
             component: service_ptsb
         },
         {
-            path: '/isserve', //商标变更
+            path: '/service_sbbg', //商标变更
             name: 'service_sbbg',
             component: service_sbbg
         },
         {
-            path: '/isserve', //商标续展
+            path: '/service_sbxz', //商标续展
             name: 'service_sbxz',
             component: service_sbxz
         },
         {
-            path: '/isserve', //商标宽展
+            path: '/service_sbkz', //商标宽展
             name: 'service_sbkz',
             component: service_sbkz
         },
         {
-            path: '/isserve', //国标转让
+            path: '/service_gbzr', //国标转让
             name: 'service_gbzr',
             component: service_gbzr
         },
         {
-            path: '/isserve', //商标许可备案
+            path: '/service_sbxk', //商标许可备案
             name: 'service_sbxk',
             component: service_sbxk
         },
 
         {
-            path: '/isserve', //商标更正
+            path: '/service_sbgz', //商标更正
             name: 'service_sbgz',
             component: service_sbgz
         },
         {
-            path: '/copyrightregister', //著作登记
+            path: '/service_zzdj', //著作登记
             name: 'service_zzdj',
             component: service_zzdj
         },
         {
-            path: '/copyrightregister', //美术登记
+            path: '/service_msdj', //美术登记
             name: 'service_msdj',
             component: service_msdj
         },
         {
-            path: '/copyrightregister', //文学登记
+            path: '/service_wxdj', //文学登记
             name: 'service_wxdj',
             component: service_wxdj
         },
         {
-            path: '/copyrightregister', //版权变更
+            path: '/service_bqbg', //版权变更
             name: 'service_bqbg',
             component: service_bqbg
         },
         {
-            path: '/copyrightregister', //版权转让
+            path: '/service_bqzr', //版权转让
             name: 'service_bqzr',
             component: service_bqzr
         },
         {
-            path: '/patent', //专利申请
+            path: '/service_zlsq', //专利申请
             name: 'service_zlsq',
             component: service_zlsq
         },
 
         {
-            path: '/patent', //国家申请
+            path: '/service_gjsq', //国家申请
             name: 'service_gjsq',
             component: service_gjsq
         },
         {
-            path: '/patent', //企业知识
+            path: '/service_qyzs', //企业知识
             name: 'service_qyzs',
             component: service_qyzs
         },
         {
-            path: '/patent', //高企认定
+            path: '/service_gqrd', //高企认定
             name: 'service_gqrd',
             component: service_gqrd
         },
@@ -234,7 +234,7 @@ export default new Router({
             component: service_xlj_four
         },
         {
-            path: '/consultant', //涉外
+            path: '/service_pct', //涉外
             name: 'service_pct',
             component: service_pct
         },
