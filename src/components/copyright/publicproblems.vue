@@ -10,7 +10,7 @@
                 <div class="publicproblems_item_q_text" >{{item.q}} </div>
             </div>
             <div class="publicproblems_item_a">
-                <div class="publicproblems_item_a_text" >{{item.a}}</div>
+                <div class="publicproblems_item_a_text" v-html="item.a"></div>
                 <div class="publicproblems_item_a_img">
                     <img src="../../../static/img/copyright/a.png" alt="">
                 </div>
@@ -55,9 +55,12 @@ export default {
 .publicproblems_item_a{
     display: flex;
     justify-content: flex-end;
+    text-align:justify;
 }
 .publicproblems_item_q_text{
     padding-top: 14px;
+    
+    
 
 }
 .publicproblems_item_a_text{
