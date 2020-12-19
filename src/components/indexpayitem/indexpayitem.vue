@@ -13,7 +13,7 @@
                                         <router-link to="/trademarks" style="color: #333;">查看更多></router-link>
                                 </span>
                         </div>
-                        <div class="indexpay_right_list" v-if="type">
+                        <div class="indexpay_right_list">
                                 <div class="indexpay_right_item"  v-for="(item,index) in trade" :key="item.id">
                                         <router-link :to="'service_xlj?id='+item.id">
                                                 <img :src="item.images_text[0]" alt="">
@@ -64,9 +64,12 @@
                                                         <p class="title">{{item.name}}</p>
                                                         <div class="er">
                                                                 <p>行业分类：{{item.categoryid_text}}</p>
-                                                                <p>{{item.summarize}}</p>
+                                                                <p v-if="item.patenttype==1">发明专利</p>
+                                                                <p v-if="item.patenttype==2">实用新型</p>
+                                                                <p v-if="item.patenttype==3">外观设计</p>
                                                         </div>
-                                                        <p>专利状态：{{item.status}}</p>
+                                                        <p v-if="item.condition==1">专利状态：授权未下证</p>
+                                                        <p v-if="item.condition==2">专利状态：已下证</p>
                                                         <p class="pay">售价<span> ￥{{item.fee}}</span></p>
                                                 </router-link>
                                         </div>
@@ -82,12 +85,11 @@
                 // 组件中接受的值
                 props: {
                         payleft_img_url: String, //左侧图片
-                        type: Boolean, //
                         hot: Array, //交易中心的热门推荐
                         transaction:Array,//交易中心的块内容
                         trade:Array,//商标交易的块内容
                         num:String,//三块的数量
-                        istrades:Array
+                        istrades:Array//软著交易的块内容
                 },
                 data() {
                         return {

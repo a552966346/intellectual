@@ -276,7 +276,9 @@
                         }
                 },
                 beforeMount() {
-                        this.phone = this.$store.state.user.nickname
+                        if(this.$store.state.user){
+                                this.phone = this.$store.state.user.nickname
+                        }
                         this.$api.severcategory()
                         .then(res=>{
                                 console.log(res)

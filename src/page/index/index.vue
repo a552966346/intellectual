@@ -9,18 +9,18 @@
                 <!-- 交易中心 -->
                 <div class="index_pay">
                         <!--交易中心标题-->
-                        <v-comtitle :title="title_all[0]"  :background_img_url='title_bg_url[0]'></v-comtitle>
+                        <v-comtitle :title="title_all[0]"  :background_img_url='title_bg_url[0]' :inform_title="title_text_all[0]"></v-comtitle>
                         <!-- 专利交易 -->
-                        <v-indexpayitem :payleft_img_url='pay_img_list[0]' :type='false' :hot='hot' :transaction='transaction' :num='num1+""'></v-indexpayitem>
+                        <v-indexpayitem :payleft_img_url='pay_img_list[0]'  :hot='hot' :transaction='transaction' :num='num1+""'></v-indexpayitem>
                         <!-- 商标交易 -->
-                        <v-indexpayitem :payleft_img_url='pay_img_list[1]' :type='true' :trade='trade' :num='num2+""'></v-indexpayitem>
+                        <v-indexpayitem :payleft_img_url='pay_img_list[1]'  :trade='trade' :num='num2+""'></v-indexpayitem>
                         <!-- 软著交易 -->
-                        <v-indexpayitem :payleft_img_url='pay_img_list[2]' :type='true' :istrades='soft' :num='num3+""'></v-indexpayitem>
+                        <v-indexpayitem :payleft_img_url='pay_img_list[2]'  :istrades='soft' :num='num3+""'></v-indexpayitem>
                 </div>
 
                 <!-- 企业服务 -->
                 <div class="index_enterprise">
-                        <v-comtitle :title="title_all[1]"  :color='title_color'
+                        <v-comtitle :title="title_all[1]"  :color='title_color' :inform_title="title_text_all[1]"
                                 :background_img_url='title_bg_url[1]'></v-comtitle>
                         <div class="index_enterpriseasd">
                                 <div class="index_enterpriseasdwron">
@@ -70,11 +70,11 @@
                 <!-- 跳蚤市场、合伙人、新闻、伊甸网 -->
                 <div class="index_content">
                         <!-- 跳蚤市场 -->
-                        <div>
-                                <v-comtitle :title="title_all[2]"  :background_img_url='title_bg_url[2]'></v-comtitle>
+                        <div style="padding: 20px 0px;">
+                                <v-comtitle :title="title_all[2]"  :background_img_url='title_bg_url[2]' :inform_title="title_text_all[2]"></v-comtitle>
                                 <div class="index_online">
                                         <div :class="index.index == 12?'index_blokk':'index_block'" v-for="(index,item) in list"
-                                                :key="item">
+                                                :key="item" @mouseenter="enter(item)" @mouseleave="leave(item)">
                                                 <div :class="index.index == 12?'index_bvlax':'index_bvlx'">
                                                         {{index.title}}
                                                 </div>
@@ -89,7 +89,8 @@
                                                                 <img :src='index.listimg' alt="">
                                                         </div>
                                                 </div>
-                                                <div class="index_qza" v-show="index.index == 1?'listshow':''">
+                                                <!-- 文本框 -->
+                                                <div class="index_qza" v-if="seen==item">
                                                         <div class="index_mwt">{{index.btntit}}</div>
                                                         <div class="index_qwz">{{index.btntitw}}</div>
                                                 </div>
@@ -98,7 +99,7 @@
                         </div>
                         <!-- 新闻中心 -->
                         <div>
-                                <v-comtitle :title="title_all[3]"  :background_img_url='title_bg_url[3]'></v-comtitle>
+                                <v-comtitle :title="title_all[3]"  :background_img_url='title_bg_url[3]' :inform_title="title_text_all[3]"></v-comtitle>
                                 <div id="index_box">
                                         <ul class="index_ulon">
                                                 <li v-for="(item,index) in news" :class="{active:index == num}"
@@ -179,7 +180,7 @@
                         </div>
                         <!-- 合伙人 -->
                         <div>
-                                <v-comtitle :title="title_all[4]"  :background_img_url='title_bg_url[4]'></v-comtitle>
+                                <v-comtitle :title="title_all[4]"  :background_img_url='title_bg_url[4]' :inform_title="title_text_all[4]"></v-comtitle>
                                 <div class="index_partner">
                                         <div :class="index.index == 1?'index_partblok':'index_partblak'" v-for="(index,item) in parlist"
                                                 :key="item">
@@ -195,7 +196,7 @@
                         </div>
                         <!-- 伊甸网  -->
                         <div class="index_about">
-                                <v-comtitle :title="title_all[5]"  :background_img_url='title_bg_url[5]'></v-comtitle>
+                                <v-comtitle :title="title_all[5]"  :background_img_url='title_bg_url[5]' :inform_title="title_text_all[5]"></v-comtitle>
                                 <div class="index_about1">
                                         <div class="index_about_content">
                                                 <div class="index_left_content">
@@ -254,13 +255,14 @@
                                 title_color: '#fff', // commtitle组件传值所需
                                 title_all: ["交易中心", '企业服务', '跳蚤市场', '新闻中心', '合伙人计划', '了解伊甸网'], // 所有标题
                                 // 标题下的介绍
-                                // title_text_all: ['交易快报: 186****123,25分钟前购买了****专利',
-                                //         '交易快报: 186****123,25分钟前购买了****专利',
-                                //         '交易快报: 186****123,25分钟前购买了****专利',
-                                //         '交易快报: 186****123,25分钟前购买了****专利',
-                                //         '交易快报: 186****123,25分钟前购买了****专利',
-                                //         '交易快报: 186****123,25分钟前购买了****专利',
-                                // ],
+                                title_text_all: [
+                                        '交易快报: 186****123,25分钟前购买了****专利',
+                                        '致力于小微企业提供数字金融服务',
+                                        '交易快报: 186****123,25分钟前购买了****专利',
+                                        '交易快报: 186****123,25分钟前购买了****专利',
+                                        '交易快报: 186****123,25分钟前购买了****专利',
+                                        '链接高校与企业，打造智创新高地，建设山西梦工厂',
+                                ],
                                 // 标题的背景图片
                                 title_bg_url: ['../../../static/img/common/Trading_Center.png',
                                         '../../../static/img/common/bg_text.png',
@@ -279,7 +281,8 @@
                                 severtw: ["致力于小微企业提供数字金融服务", "享受政府资助最高30万", "享受政府资助最高30万"],
                                 severtr: ["立即咨询", "查看详情", "查看详情"],
                                 // 跳蚤市场
-                                listshow: true,
+                                seen:'',
+                                // listshow: true,
                                 list: [{
                                                 index: 1,
                                                 title: '作品1',
@@ -294,76 +297,97 @@
                                                 title: '作品2',
                                                 titcet: '普通担保35-45个工作日，成功率高...',
                                                 miney: '798.00元',
-                                                listimg: '../../../static/img/index/index_ictw.png'
+                                                listimg: '../../../static/img/index/index_ictw.png',
+                                                btntit: '联系客服',
+                                                btntitw: '查看详情'
                                         },
                                         {
                                                 index: 3,
                                                 title: '作品3',
                                                 titcet: '普通担保35-45个工作日，成功率高...',
                                                 miney: '798.00元',
-                                                listimg: '../../../static/img/index/index_ictr.png'
+                                                listimg: '../../../static/img/index/index_ictr.png',
+                                                btntit: '联系客服',
+                                                btntitw: '查看详情'
                                         },
                                         {
                                                 index: 4,
                                                 title: '作品4',
                                                 titcet: '普通担保35-45个工作日，成功率高...',
                                                 miney: '798.00元',
-                                                listimg: '../../../static/img/index/index_icfh.png'
+                                                listimg: '../../../static/img/index/index_icfh.png',
+                                                btntit: '联系客服',
+                                                btntitw: '查看详情'
                                         },
                                         {
                                                 index: 5,
                                                 title: '作品5',
                                                 titcet: '普通担保35-45个工作日，成功率高...',
                                                 miney: '798.00元',
-                                                listimg: '../../../static/img/index/index_iceg.png'
+                                                listimg: '../../../static/img/index/index_iceg.png',
+                                                btntit: '联系客服',
+                                                btntitw: '查看详情'
                                         },
                                         {
                                                 index: 6,
                                                 title: '作品6',
                                                 titcet: '普通担保35-45个工作日，成功率高...',
                                                 miney: '3000.00元',
-                                                listimg: '../../../static/img/index/index_icsv.png'
+                                                listimg: '../../../static/img/index/index_icsv.png',
+                                                btntit: '联系客服',
+                                                btntitw: '查看详情'
                                         },
                                         {
                                                 index: 7,
                                                 title: '作品7',
                                                 titcet: '普通担保35-45个工作日，成功率高...',
                                                 miney: '898.00元',
-                                                listimg: '../../../static/img/index/index_icsx.png'
+                                                listimg: '../../../static/img/index/index_icsx.png',
+                                                btntit: '联系客服',
+                                                btntitw: '查看详情'
                                         },
                                         {
                                                 index: 8,
                                                 title: '作品8',
                                                 titcet: '普通担保35-45个工作日，成功率高...',
                                                 miney: '698.00元',
-                                                listimg: '../../../static/img/index/index_icfv.png'
+                                                listimg: '../../../static/img/index/index_icfv.png',
+                                                btntit: '联系客服',
+                                                btntitw: '查看详情'
                                         },
                                         {
                                                 index: 9,
                                                 title: '作品9',
                                                 titcet: '普通担保35-45个工作日，成功率高...',
                                                 miney: '1500.00元',
-                                                listimg: '../../../static/img/index/index_icni.png'
+                                                listimg: '../../../static/img/index/index_icni.png',
+                                                btntit: '联系客服',
+                                                btntitw: '查看详情'
                                         },
                                         {
                                                 index: 10,
                                                 title: '作品10',
                                                 titcet: '普通担保35-45个工作日，成功率高...',
                                                 miney: '3000.00元',
-                                                listimg: '../../../static/img/index/index_ictn.png'
+                                                listimg: '../../../static/img/index/index_ictn.png',
+                                                btntit: '联系客服',
+                                                btntitw: '查看详情'
                                         },
                                         {
                                                 index: 11,
                                                 title: '作品11',
                                                 titcet: '普通担保35-45个工作日，成功率高...',
                                                 miney: '1000.00元',
-                                                listimg: '../../../static/img/index/index_icttn.png'
+                                                listimg: '../../../static/img/index/index_icttn.png',
+                                                btntit: '联系客服',
+                                                btntitw: '查看详情'
                                         },
                                         {
                                                 index: 12,
                                                 title: '专业版权服务顾问',
                                                 titcet: 'COPYRIGHTSERVICES',
-                                                miney: '立即咨询'
+                                                miney: '立即咨询',
+
                                         }
                                 ],
                                 //合伙人计划
@@ -454,7 +478,7 @@
                         }
                 },
                 mounted() {
-                         new Swiper ('.swiper-container', {
+                        new Swiper ('.swiper-container', {
                                 loop: true,
                                 slidesPerView: 3,
                                 observer:true,
@@ -466,6 +490,7 @@
                                 prevButton: '.swiper-button-prev',
 
                             })
+
                         this.$api.getidnexdeal()
                         .then(res=>{
                                 console.log(res,'专利交易')
@@ -502,7 +527,19 @@
                 methods: {
                         tab(index) {
                                 this.num = index;
+                        },
+                        enter(index){
+                                if(index<11){
+                                     console.log(index)
+                                     this.seen=index;
+                                }
+                        },
+                        leave(index){
+                                if(index<11){
+                                      this.seen='';
+                                }
                         }
+
                 },
                 components: {
                         'v-indexpayitem': indexpayitem,
@@ -525,8 +562,8 @@
 
 
       /* 伊甸网简介*/
-      .index_about{width: 100%;}
-      .index_about1{width: 100%;background-image: url(../../../static/img/index/index_intro_bg.png);padding: 30px 0px;}
+      .index_about{width: 100%;padding-top: 20px;}
+      .index_about1{width: 100%;background-image: url(../../../static/img/index/index_intro_bg.png);padding: 30px 0px;padding-top: 0px;}
       .index_about_content{width: 1200px;margin: 0 auto;display: flex;overflow: hidden;}
       .index_left_content{padding: 30px;background: #fff;margin-right: 20px;flex: 1;width: 0;display: flex;flex-direction: column;}
       .index_left_content h3{padding: 10px 0;color: #333;}
@@ -544,7 +581,7 @@
 
 
       /* 企业服务*/
-      .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bg.jpg);padding: 30px;padding-top: 10px;}
+      .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bg.jpg);padding: 20px 0px;}
       .index_enterpriseasd{width: 1240px;height: 420px;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
       .index_enterpriseasdwron{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbaon.png);background-size: cover;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 3%;color: #fff;}
       .index_enterpriseasdwrtw{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatw.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
@@ -558,7 +595,7 @@
       .index_cmetkaqw{border: 1px solid #fff;padding: 10px;font-size: 14px;}
 
       /* 跳蚤市场 */
-      .index_content{display: flex;flex-direction: column;align-items: center;background: #f6f6f6;padding: 25px 0;}
+      .index_content{display: flex;flex-direction: column;align-items: center;background: #f6f6f6;}
       .index_online{width: 1200px;height: 570px;display: flex;align-items: baseline;flex-wrap: wrap;padding-top: 4px;}
       .index_block{width: 295px;height: 185px;background-color: #fff;display: flex;justify-content: baseline;align-items: center;flex-direction: column;margin: 0 2.5px 0 2.5px;box-shadow: 1px 1px 7px #ccc;}
       .index_blokk{width: 295px;height: 185px;background-image: url(../../../static/img/index/index_icws.png);background-size: cover;display: flex;justify-content: baseline;align-items: center;flex-direction: column;margin: 0 2.5px 0 2.5px;box-shadow: 1px 1px 7px #ccc;}
@@ -572,7 +609,7 @@
       .index_mwt{display: flex;justify-content: center;align-items: center;background-color: #ff8800;width: 50%;height: 100%;color: #fff;}
       .index_qwz{display: flex;justify-content: center;align-items: center;border: 2px solid #ff8800;width: 50%;height: 100%;color: #ff8800;}
       .index_bvxxa{font-size: 16px;width: 100%;padding-left: 18px;color: rgb(88, 80, 80);}
-      .index_partner{width: 1200px;height: 425px;background-color: #f6f6f6f6;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
+      .index_partner{width: 1200px;background-color: #f6f6f6f6;display: flex;justify-content: space-between;align-items: center;flex-direction: row;padding-top: 20px;}
       .index_partblok{width: 265px;height: 395px;display: flex;flex-direction: column;background-image: url(../../../static/img/index/index_partneron.png);background-size: cover;}
       .index_partblak{width: 215px;height: 395px;background-color: #fff;display: flex;flex-direction: column;}
       .index_parsimg{width: 100%;height: 60%;}
