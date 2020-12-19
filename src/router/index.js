@@ -5,9 +5,31 @@ import login from '@/page/login/login'
 import copyrightChanges from '@/page/copyrightChanges/copyrightChanges'
 import tradingCenter from '@/page/tradingCenter/tradingCenter'
 import service from '@/page/service/service'
-import service_ptsb from '@/page/service_ptsb/service_ptsb'
-import service_zzdj from '@/page/service_zzdj/service_zzdj'
-import service_zlsq from '@/page/service_zlsq/service_zlsq'
+import service_ptsb from '@/page/service_ptsb/service_ptsb' //普通商标注册
+import service_sbbg from '@/page/service_sbbg/service_sbbg' //商标变更
+import service_sbxz from '@/page/service_sbxz/service_sbxz' //商标续展
+import service_sbkz from '@/page/service_sbkz/service_sbkz' //商标宽展
+import service_gbzr from '@/page/service_gbzr/service_gbzr' //国标转让
+import service_sbxk from '@/page/service_sbxk/service_sbxk' //商标许可备案
+import service_sbgz from '@/page/service_sbgz/service_sbgz' //商标更正
+
+import service_zzdj from '@/page/service_zzdj/service_zzdj' //软件著作登记
+import service_msdj from '@/page/service_msdj/service_msdj' //美术作品登记
+import service_wxdj from '@/page/service_wxdj/service_wxdj' //文学作品登记
+import service_bqbg from '@/page/service_bqbg/service_bqbg' //版权变更
+import service_bqzr from '@/page/service_bqzr/service_bqzr' //版权转让
+
+import service_fmzl from '@/page/service_fmzl/service_fmzl' //发明专利
+import service_syxx from '@/page/service_syxx/service_syxx' //实用新型
+import service_wgsj from '@/page/service_wgsj/service_wgsj' //外观设计
+
+import service_zlsq from '@/page/service_zlsq/service_zlsq' //专利申请
+import service_gjsq from '@/page/service_gjsq/service_gjsq' //国家申请
+
+import service_qyzs from '@/page/service_qyzs/service_qyzs' //企业知识
+import service_gqrd from '@/page/service_gqrd/service_gqrd' //高企认定
+
+
 import service_xlj from '@/page/service_xlj/service_xlj'
 import service_xlj_two from '@/page/service_xlj/service_xlj_two'
 import service_xlj_three from '@/page/service_xlj/service_xlj_three'
@@ -72,6 +94,7 @@ export default new Router({
             name: 'tradingcenter',
             component: tradingCenter
         },
+
         {
             path: '/copyright', //版权转让
             name: 'copyright',
@@ -93,9 +116,56 @@ export default new Router({
             component: service
         },
         {
-            path: '/isserve', //普通商标
+            path: '/patent', //发明专利
+            name: 'service_fmzl',
+            component: service_fmzl
+        },
+        {
+            path: '/patent', //实用新型
+            name: 'service_syxx',
+            component: service_syxx
+        },
+        {
+            path: '/patent', //外观设计
+            name: 'service_wgsj',
+            component: service_wgsj
+        },
+
+        {
+            path: '/isserve', //普通商标注册
             name: 'service_ptsb',
             component: service_ptsb
+        },
+        {
+            path: '/isserve', //商标变更
+            name: 'service_sbbg',
+            component: service_sbbg
+        },
+        {
+            path: '/isserve', //商标续展
+            name: 'service_sbxz',
+            component: service_sbxz
+        },
+        {
+            path: '/isserve', //商标宽展
+            name: 'service_sbkz',
+            component: service_sbkz
+        },
+        {
+            path: '/isserve', //国标转让
+            name: 'service_gbzr',
+            component: service_gbzr
+        },
+        {
+            path: '/isserve', //商标许可备案
+            name: 'service_sbxk',
+            component: service_sbxk
+        },
+
+        {
+            path: '/isserve', //商标更正
+            name: 'service_sbgz',
+            component: service_sbgz
         },
         {
             path: '/copyrightregister', //著作登记
@@ -103,9 +173,45 @@ export default new Router({
             component: service_zzdj
         },
         {
+            path: '/copyrightregister', //美术登记
+            name: 'service_msdj',
+            component: service_msdj
+        },
+        {
+            path: '/copyrightregister', //文学登记
+            name: 'service_wxdj',
+            component: service_wxdj
+        },
+        {
+            path: '/copyrightregister', //版权变更
+            name: 'service_bqbg',
+            component: service_bqbg
+        },
+        {
+            path: '/copyrightregister', //版权转让
+            name: 'service_bqzr',
+            component: service_bqzr
+        },
+        {
             path: '/patent', //专利申请
             name: 'service_zlsq',
             component: service_zlsq
+        },
+
+        {
+            path: '/patent', //国家申请
+            name: 'service_gjsq',
+            component: service_gjsq
+        },
+        {
+            path: '/patent', //企业知识
+            name: 'service_qyzs',
+            component: service_qyzs
+        },
+        {
+            path: '/patent', //高企认定
+            name: 'service_gqrd',
+            component: service_gqrd
         },
         {
             path: '/service_xlj', //下料机
