@@ -4,15 +4,12 @@
             <div class="top_text">账号设置/实名认证</div>
         </div>
         <ul class="id_con">
-           
                 <button class="con_t_item">个人实名认证</button>       
-          
                 <button class="con_t_item">企业实名认证</button>    
             <li class="t_right">
-                    <button>联系认证客服</button>
+                <button>联系认证客服</button>
             </li>
         </ul>      
-        
         <div class="id_center">
             <div class="center_t">
                 <span>实名认证</span>
@@ -21,24 +18,31 @@
             </div>
             <div class="center_b">
                 <div class="name">真实姓名:
-                    <input type="text" placeholder="请输入您的真实姓名，认证后不可更改">
+                    <input v-model="realname"  type="text" placeholder="请输入您的真实姓名，认证后不可更改">
                 </div>
                 <div class="ids">证件号码:
-                    <input type="text" placeholder="请输入您真实姓名对应的证件号码">
+                    <input v-model="idnumber"  type="text" placeholder="请输入您真实姓名对应的证件号码">
                 </div>
                 <p>温馨提示：证件必须是清洗彩色原件版本。可以是扫描件或者数码拍摄照片。仅支持jpg、png、jpeg的图片格式。2M以内。</p>
                 <div class="ids_1">身份证人像面:
                     <div class="ids_11">
-                        <img src="../../../static/img/usercenter/photo.png" alt="">
-                        <button>上传图片</button>
+                        <!-- <img src="../../../static/img/usercenter/photo.png" alt=""> -->
+                        <!-- <button>上传图片</button> -->
+                       <el-upload
+                        class="avatar-uploader"
+                        action="https://jsonplaceholder.typicode.com/posts/"
+                        :show-file-list="false"
+                        :on-success="handleAvatarSuccess"
+                        :before-upload="beforeAvatarUpload">
+                        <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                        </el-upload>
                     </div>
                     示例:
                     <div class="ids_12">
                         <div class="img"><img src="../../../static/img/usercenter/example-1.png" alt=""></div>
-                        
                         <p>请提供清晰照片，漏出证件四角</p>
                     </div>
-                    
                 </div>
                 <div class="ids_1">身份证国徽面:
                     <div class="ids_11">
@@ -48,10 +52,8 @@
                     示例:
                     <div class="ids_12">
                         <div class="img"><img src="../../../static/img/usercenter/example-1.png" alt=""></div>
-                        
                         <p>请提供清晰照片，漏出证件四角</p>
                     </div>
-                    
                 </div>
                 <div class="ids_1 photo">手持身份证照片:
                     <div class="ids_11">
@@ -61,34 +63,32 @@
                     示例:
                     <div class="ids_12">
                         <div class="img"><img src="../../../static/img/usercenter/example-1.png" alt=""></div>
-                        
                         <p>请提供清晰照片，漏出证件四角</p>
                     </div>
-                    
                 </div>
                 <div class="bank">开户银行:
-                    <input type="text" placeholder="请选择您的账号">
+                    <input v-model="bank"  type="text" placeholder="请选择您的账号">
                     <img src="../../../static/img/usercenter/arrow.png" alt="">
                 </div>
                 <div class="bankname">支行名称:
-                    <input type="text" placeholder="请输入支行名称">
+                    <input v-model="subbranch"  type="text" placeholder="请输入支行名称">
                 </div>
                 <div class="openingaccount">开户地区:
-                    <input type="text" placeholder="请选择开户身份"><img class="arrow1" src="../../../static/img/usercenter/arrow.png" alt="">
-                    <input type="text" placeholder="请选择开户市级"><img class="arrow2" src="../../../static/img/usercenter/arrow.png" alt="">
+                    <input v-model="subbranch"  type="text" placeholder="请选择开户身份"><img class="arrow1" src="../../../static/img/usercenter/arrow.png" alt="">
+                    <input v-model="city"  type="text" placeholder="请选择开户市级"><img class="arrow2" src="../../../static/img/usercenter/arrow.png" alt="">
                 </div>
                 <div class="name">银行卡号:
-                    <input type="text" placeholder="请输入对应真实姓名开户的银行卡号">
+                    <input v-model="cardnumber"  type="text" placeholder="请输入对应真实姓名开户的银行卡号">
                 </div>
                 <div class="phone">绑定手机:
-                    <input type="text" placeholder="155****2220">
+                    <input v-model="mobile"  type="text" placeholder="155****2220">
                     <button>免费获取校验码</button>
                 </div>
                 <div class="phonenumber">手机校验码:
-                    <input type="text" placeholder="请输入您收到的手机校验码">
+                    <input v-model="captcha" type="text" placeholder="请输入您收到的手机校验码">
                 </div>
                 <div class="submit">
-                    <button>提交</button>
+                    <button  @click="ispost">提交</button>
                     <div class="sub_text">
                         <img src="../../../static/img/usercenter/exclamationpoint.png" alt="">
                         <span>请填写真实信息，一旦填写，不可更改！</span>
@@ -102,9 +102,50 @@
 export default{
     data(){
         return{
-            msg:'这是测试内容'
-              }
+            uid:'',
+            realname:'',
+            idnumber:'',
+            idfront:'',
+            idrear:'',
+            idhand:'',
+            bank:'',
+            subbranch:'',
+            province:'',
+            city:'',
+            cardnumber:'',
+            type:'',
+            mobile:'',
+            captcha:'',
+            dialogImageUrl: '',
+            dialogVisible: false
+            
+        };
    },
+   methods:{
+    handleAvatarSuccess(res, file) {
+        this.imageUrl = URL.createObjectURL(file.raw);
+    },
+    beforeAvatarUpload(file) {
+        const isJPG = file.type === 'image/jpeg';
+        const isLt2M = file.size / 1024 / 1024 < 2;
+        if (!isJPG) {
+          this.$message.error('上传头像图片只能是 JPG 格式!');
+        }
+        if (!isLt2M) {
+          this.$message.error('上传头像图片大小不能超过 2MB!');
+        }
+        return isJPG && isLt2M;
+    },
+    ispost(){
+        console.log(this.realname);
+        console.log(this.idnumber);
+        this.$api.authentication()
+        .then(res=>{
+            console.log(res);
+        })
+    }
+   }
+   
 }
 </script>
 <style scoped>
@@ -125,9 +166,6 @@ export default{
     font-size: 14px;
     padding: 15px;
 }
-
-
-
 .id_con{
     background-color: #fff;
     font-size: 14px;
@@ -143,8 +181,6 @@ export default{
     align-items: center;
     color: #949494;
 }
-
-
 .id_con button{
     margin-left: 10px;
     color: #fff;
@@ -153,8 +189,6 @@ export default{
     border-radius: 3px;
     font-size: 14px;
 }
-
-
 .con_t_item:nth-of-type(1) {
     background-color: #1a7fc3;
     color: #fff;
@@ -342,6 +376,30 @@ p {
 .sub_text img{
     margin:0  5px;
 }
+
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
 
 
 </style>
