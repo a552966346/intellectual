@@ -2,7 +2,7 @@
     <div class="main">
         <div class="main_l" >
                 <!-- 名字 -->
-                <div class="r1_top"  >
+                <div class="r1_top"  v-show="berl">
                     <div class="r1_top_tou">
                         <img :src="userIn.avatar">
                     </div>
@@ -25,6 +25,11 @@
                         <p>押金</p>
                         <span>{{userIn.pledge}}元</span>
                     </div>
+                </div>
+                <div class="r1_top denglu" v-show="!berl">
+                              <router-link to="/login">
+                                      <p>请登录后操作</p>
+                              </router-link>
                 </div>
                 <!-- 3个图 -->
                 <div class="r2_top">
@@ -190,11 +195,17 @@ export default {
             userIn:[
                 {frozen:0.00},
                 {pledge:0.00}
-            ]//用户信息
+            ],//用户信息,
+            userIn:'',
+            berl:false
         }
     },
     mounted(){
-           this.userIn =   this.$store.state.user
+            if(this.$store.state.user){
+                     this.userIn =   this.$store.state.user
+                     this.berl = true
+            }
+
     },
 }
 </script>
@@ -359,6 +370,14 @@ a {
     border: 1px solid rgba(0,0,0,0.16);
     border-radius: 8px;
     /* width: 806px; */
+}
+.denglu{
+        display: flex;
+        align-items: center;
+        padding: 10px 50px;
+}
+.denglu p{
+         color: #111;
 }
 .r1_top_tou {
     position: absolute;
