@@ -18,7 +18,7 @@
                                                 <span>{{item.name}}</span>
                                                 <img src="../../../static/img/paycenter/copyright_like.png" alt="">
                                         </p>
-                                        <p class="trademark_p2">{{item.categoryid_text}}</p>
+                                        <p class="trademark_p2">{{item.categoryid_text.name}}</p>
                                         <p class="trademark_p3">
                                                 <span class="trademark_price"><label>￥</label>{{item.fee}}</span>
                                                 <img src="../../../static/img/paycenter/copyright_right.png" alt="">

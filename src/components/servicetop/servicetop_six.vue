@@ -1,32 +1,33 @@
 <template>
         <div id="serviceTopThree">
                 <div id="topAll">
-                        <div class="topLeft">
+                        <div class="topall_img">
                                 <el-carousel trigger="click" height="300px">
                                         <el-carousel-item v-for="(item,index) in image" :key="index" style="display: flex;justify-content: center;align-items: center;">
-                                                <img :src="item" alt="" width="100%">
+                                                <img :src="item" alt="">
                                         </el-carousel-item>
                                 </el-carousel>
                         </div>
                         <div class="topRight">
                                 <div class="topHeader">
                                         <h3>{{top_data.name}}</h3>
-                                        <p><span>创建时间：{{top_data.creatime_text}}</span>|<span>专利号：{{top_data.number}}&nbsp;<!-- <span>复制</span> --></span>|<span>申请时间：{{top_data.application_text}}</span>|<span>注册年限：{{top_data.yearsnumber_text}}</span></p>
+                                        <p><span>创建时间：{{top_data.creatime_text}}</span>|<span>专利号：{{top_data.number}}&nbsp;
+                                                        <!-- <span>复制</span> --></span>|<span>申请时间：{{top_data.application_text}}</span>|<span>注册年限：{{top_data.yearsnumber_text}}</span></p>
                                 </div>
                                 <div class="topBody">
                                         <div class="topBody_lei">
                                                 <div>
                                                         <p>行业分类</p>
-                                                        <p>{{top_data.categoryid_text}}</p>
+                                                        <p>{{top_data.categoryid_text.name}}</p>
                                                 </div>
                                                 <div>
                                                         <p>专利类型</p>
-                                                       <p >{{top_data.patenttype}}</p>
+                                                        <p>{{top_data.patenttype}}</p>
 
                                                 </div>
                                                 <div>
                                                         <p>专利状态</p>
-                                                        <p >{{top_data.condition}}</p>
+                                                        <p>{{top_data.condition}}</p>
                                                 </div>
                                         </div>
                                         <div class="topBody_money">
@@ -104,17 +105,34 @@
                 background-color: #fff;
         }
 
-        .topLeft {
+        .topall_img {
                 flex: 2;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
         }
 
-        .topLeft>img {
+        .el-carousel {
                 width: 100%;
-                height: 80%;
+                height: 100%;
         }
+
+        .el-carousel__item {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        }
+
+        .el-carousel__item>img {
+                width: 100%;
+                height: 100%;
+        }
+
 
         .topRight {
-                flex: 5;
+                flex: 4;
                 padding: 11px 20px;
         }
 

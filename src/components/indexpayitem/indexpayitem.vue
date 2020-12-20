@@ -63,7 +63,7 @@
                                                 <router-link :to="'service_xlj_three?id='+item.id">
                                                         <p class="title">{{item.name}}</p>
                                                         <div class="er">
-                                                                <p>行业分类：{{item.categoryid_text}}</p>
+                                                                <p>行业分类：{{item.categoryid_text.name}}</p>
                                                                 <p v-if="item.patenttype==1">发明专利</p>
                                                                 <p v-if="item.patenttype==2">实用新型</p>
                                                                 <p v-if="item.patenttype==3">外观设计</p>

@@ -194,14 +194,14 @@
                         <div class="servecenter_center_qy">
                                 <div class="servecenter_center_qy_left">
                                         <div>
-                                                <p>{{qy_right_lie_o.name}}</p>
-                                                <p>{{qy_right_lie_o.sketch}}</p>
+                                                <p>  </p>
+                                                <p>  </p>
                                                 <p>{{qy_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                                 <button @click="but_bl">立即咨询&nbsp;&nbsp;></button>
                                         </div>
                                 </div>
                                 <div class="servecenter_center_qy_right">
-                                        <div class="qy_right_lie" v-for="(item,index) in qy_right_lie" :key="item.id" v-if="index != 0&&qy_right_lie.length !=1">
+                                        <div class="qy_right_lie" v-for="(item,index) in qy_right_lie" :key="item.id" v-if="qy_right_lie.length !=1&&index<=2">
                                                 <img :src=" item.images_text[0]" alt="">
                                                 <div>
                                                         <img :src=" item.breviary_image" alt="">
@@ -1004,6 +1004,11 @@
         .zl_right_lie>div:nth-child(2)>span:last-child {
                 font-size: 13px;
                 color: #ccc;
+                text-overflow: ellipsis;
+                width: 100%;
+                overflow: hidden;
+                display: inline-block;
+                  white-space: nowrap;
         }
 
         .zl_right_lie>p {
@@ -1021,7 +1026,10 @@
                 font-weight: 600;
                 border-radius: 5px;
         }
-
+        .zl_right_lie img{
+                width: 23px;
+                height: 23px;
+        }
         .servecenter_center_fu {
                 background-color: #6D7896;
                 width: 100%;
@@ -1039,9 +1047,9 @@
         .fu_cen_left {
                 background: url(../../../static/img/service/fu_cen_left.png)no-repeat 0, 0;
                 /* flex: 7; */
-                height: 350px;
+                /* height: 350px; */
                 width: 25%;
-                padding: 50px 25px 50px 25px;
+                padding: 45px 25px 50px 25px;
                 background-size: 100% 100%;
                 margin-right: 10px;
                 display: flex;
@@ -1183,11 +1191,10 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                justify-content: center;
-                /* line-height: 3; */
+                justify-content: flex-end;
+                padding-bottom: 50px;
                 padding-left: 35px;
-                /* line-height: 2; */
-                background: url(../../../static/img/service/fu_cen_left.png)no-repeat 0, 0;
+                background: url(../../../static/img/service/servecenter_center_qy_left.png)no-repeat 0, 0;
                 background-size: 100% 100%;
                 height: 100%;
         }

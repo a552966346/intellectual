@@ -1,22 +1,22 @@
 <template>
         <div id="serviceTopThree">
                 <div id="topAll">
-                        <div class="topLeft">
+                        <div class="topall_img">
                                 <el-carousel trigger="click" height="300px">
                                         <el-carousel-item v-for="(item,index) in image" :key="index" style="display: flex;justify-content: center;align-items: center;">
-                                                <img :src="item" alt="" width="100%">
+                                                <img :src="item" alt="">
                                         </el-carousel-item>
                                 </el-carousel>
                         </div>
                         <div class="topRight">
                                 <div class="topHeader">
-                                        <!-- <h3>{{top_data.name}}</h3>
-                                        <p><span>创建时间：{{top_data.creatime_text}}</span></p> -->
+                                        <h3>{{top_data.name}}</h3>
+                                        <p><span>创建时间：{{top_data.creatime_text}}</span></p>
                                 </div>
                                 <div class="topBody">
                                         <div class="topBody_lei">
                                                 <div>
-                                                        <p>{{top_data.categoryid_text}}</p>
+                                                        <p>{{top_data.categoryid_text.name}}</p>
                                                 </div>
                                                 <!-- <div>
                                                         <p>应用领域</p>
@@ -44,7 +44,7 @@
                                                         <p v-else-if="top_data.means == 1">许可转让</p>
                                                         <p v-else-if="top_data.means==2">技术入股</p>
                                                 </div>
-                                                 <div>
+                                                <div>
                                                         <p>{{top_data.is_exclusive}}</p>
                                                         <p v-if="top_data.maturity == 0">正在研发</p>
                                                         <p v-else-if="top_data.maturity == 1">已有样品</p>
@@ -52,7 +52,7 @@
                                                         <p v-else-if="top_data.maturity == 3">通过中试</p>
                                                         <p v-else-if="top_data.maturity == 4">可以量产</p>
                                                 </div>
-                                                 <div>
+                                                <div>
                                                         <p>{{top_data.region}}</p>
                                                         <p v-if="top_data.maturity == 0">正在研发</p>
                                                         <p v-else-if="top_data.maturity == 1">已有样品</p>
@@ -136,14 +136,31 @@
                 background-color: #fff;
         }
 
-        .topLeft {
+        .topall_img {
                 flex: 2;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
         }
 
-        .topLeft>img {
+        .el-carousel {
                 width: 100%;
-                height: 80%;
+                height: 100%;
         }
+
+        .el-carousel__item {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        }
+
+        .el-carousel__item>img {
+                width: 100%;
+                height: 100%;
+        }
+
 
         .topRight {
                 flex: 5;

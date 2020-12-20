@@ -1,10 +1,10 @@
 <template>
         <div id="serviceTopThree">
                 <div id="topAll">
-                        <div class="topLeft">
+                        <div class="topall_img">
                                 <el-carousel trigger="click" height="300px">
                                         <el-carousel-item v-for="(item,index) in image" :key="index" style="display: flex;justify-content: center;align-items: center;">
-                                                <img :src="item" alt="" width="100%">
+                                                <img :src="item" alt="">
                                         </el-carousel-item>
                                 </el-carousel>
                         </div>
@@ -21,14 +21,14 @@
                                                 </div>
                                                 <div>
                                                         <p>应用领域</p>
-                                                       <p v-if="top_data.territory == 0">高技术服务</p>
-                                                       <p v-else-if="top_data.territory == 1">建筑业</p>
-                                                       <p v-else-if="top_data.territory==2">新材料</p>
-                                                       <p v-else-if="top_data.territory == 3">新能源与节能</p>
-                                                       <p v-else-if="top_data.territory == 4">环境与资源</p>
-                                                       <p v-else-if="top_data.territory == 5">现代农业</p>
-                                                       <p v-else-if="top_data.territory == 6">生物与新医药</p>
-                                                       <p v-else-if="top_data.territory == 7">航天航空</p>
+                                                        <p v-if="top_data.territory == 0">高技术服务</p>
+                                                        <p v-else-if="top_data.territory == 1">建筑业</p>
+                                                        <p v-else-if="top_data.territory==2">新材料</p>
+                                                        <p v-else-if="top_data.territory == 3">新能源与节能</p>
+                                                        <p v-else-if="top_data.territory == 4">环境与资源</p>
+                                                        <p v-else-if="top_data.territory == 5">现代农业</p>
+                                                        <p v-else-if="top_data.territory == 6">生物与新医药</p>
+                                                        <p v-else-if="top_data.territory == 7">航天航空</p>
                                                         <p v-else-if="top_data.territory == 8">其他</p>
                                                 </div>
                                                 <div>
@@ -130,13 +130,29 @@
                 background-color: #fff;
         }
 
-        .topLeft {
+        .topall_img {
                 flex: 2;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
         }
 
-        .topLeft>img {
+        .el-carousel {
                 width: 100%;
-                height: 80%;
+                height: 100%;
+        }
+
+        .el-carousel__item {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        }
+
+        .el-carousel__item>img {
+                width: 100%;
+                height: 100%;
         }
 
         .topRight {

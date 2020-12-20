@@ -1,8 +1,12 @@
 <template>
         <div id="serviceTop">
                 <div class="topAll">
-                        <div class="left">
-                                <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1182890981,2248614031&fm=26&gp=0.jpg" alt="">
+                        <div class="topall_img">
+                                <el-carousel trigger="click" height="300px">
+                                        <el-carousel-item v-for="(item,index) in image" :key="index" style="display: flex;justify-content: center;align-items: center;">
+                                                <img :src="item" alt="">
+                                        </el-carousel-item>
+                                </el-carousel>
                         </div>
                         <div class="right">
                                 <div class="rHeader">实用新型专利申请</div>
@@ -80,42 +84,63 @@
 </script>
 
 <style>
-        *{
+        * {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
         }
-        #serviceTop{
+
+        #serviceTop {
                 width: 1200px;
                 margin: 0 auto;
                 background-color: #fff;
         }
-        .topAll{
+
+        .topAll {
                 width: 100%;
                 padding: 20px;
                 display: flex;
         }
-        .left{
+
+        .topall_img {
                 flex: 2;
+                padding: 20px;
                 display: flex;
-                align-items: flex-start;
+                justify-content: center;
         }
-        .left>img{
+
+        .el-carousel {
                 width: 100%;
-                height: 90%;
+                height: 100%;
         }
-        .right{
+
+        .el-carousel__item {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        }
+
+        .el-carousel__item>img {
+                width: 100%;
+                height: 100%;
+        }
+
+        .right {
                 flex: 3;
                 /* background: #ddd; */
                 padding: 11px 20px 0 35px;
         }
-        .right>.rHeader{
+
+        .right>.rHeader {
                 font-size: 22px;
                 letter-spacing: 2px;
                 color: #2f2f2f;
         }
-        .right>.rHeadercont{
-                padding:  0 10px;
+
+        .right>.rHeadercont {
+                padding: 0 10px;
                 font-size: 12px;
                 line-height: 26px;
                 background: #f3f6ff;
@@ -123,7 +148,9 @@
                 margin: 10px 0 17px 0;
                 color: #8a8b8f;
         }
-        .rServiceType,.costSlow{
+
+        .rServiceType,
+        .costSlow {
                 width: 100%;
                 height: 40px;
                 font-size: 13px;
@@ -131,31 +158,43 @@
                 display: flex;
                 align-items: center;
         }
-        .costSlow{
+
+        .costSlow {
                 margin-top: 16px;
         }
-        .rServiceType>span,.costSlow>span{
+
+        .rServiceType>span,
+        .costSlow>span {
                 display: inline-block;
                 margin-right: 20px;
                 height: 100%;
         }
-        .rServiceType>span:nth-child(2),.rServiceType>span:nth-child(3),.costSlow>span:nth-child(2),.costSlow>span:nth-child(3),.costSlow>span:nth-child(4){
+
+        .rServiceType>span:nth-child(2),
+        .rServiceType>span:nth-child(3),
+        .costSlow>span:nth-child(2),
+        .costSlow>span:nth-child(3),
+        .costSlow>span:nth-child(4) {
                 text-align: center;
                 line-height: 40px;
                 width: 120px;
                 font-size: 14px;
                 border-radius: 2px;
         }
-        .rServiceType>span:nth-child(2),.rServiceType>span:nth-child(3){
+
+        .rServiceType>span:nth-child(2),
+        .rServiceType>span:nth-child(3) {
                 border: 1px solid #187fc4;
                 color: #187fc4;
         }
+
         /* 服务类型点击效果 */
-        .rServiceTypeActive{
+        .rServiceTypeActive {
                 background: #187fc4;
                 color: #fefeff !important;
         }
-        .right .rightCommon{
+
+        .right .rightCommon {
                 width: 23px;
                 height: 23px;
                 border-radius: 50%;
@@ -166,73 +205,94 @@
                 line-height: 23px;
                 font-weight: 600;
         }
-        .costSlow>span:nth-child(1),.rServiceType>span:nth-child(1){
+
+        .costSlow>span:nth-child(1),
+        .rServiceType>span:nth-child(1) {
                 line-height: 40px;
         }
-        .costSlow>span:nth-child(2),.costSlow>span:nth-child(3),.costSlow>span:nth-child(4){
+
+        .costSlow>span:nth-child(2),
+        .costSlow>span:nth-child(3),
+        .costSlow>span:nth-child(4) {
                 border: 1px solid #989898;
                 color: #989898;
         }
+
         /* 费用减缓点击效果 */
-        .costLowActive{
+        .costLowActive {
                 border: 1px solid #187fc4 !important;
-        } 
+        }
+
         /* 完善信息 */
-        .complete{
-                height:60px;
+        .complete {
+                height: 60px;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
         }
-        .complete>span{
+
+        .complete>span {
                 font-size: 13px;
         }
-        .complete>span:nth-child(1){
+
+        .complete>span:nth-child(1) {
                 width: 15px;
                 height: 21px;
                 background: cornsilk;
                 margin-right: 7px;
         }
-        .complete>span:nth-child(2){
-                 color: #747474;
+
+        .complete>span:nth-child(2) {
+                color: #747474;
         }
-        .complete>span:nth-child(3){
-                color:#177dc5;
+
+        .complete>span:nth-child(3) {
+                color: #177dc5;
                 margin-left: 15px;
         }
+
         /* 底部费用合计 */
-        .rBottom>.bottom{
+        .rBottom>.bottom {
                 display: flex;
                 justify-content: space-between;
         }
-        .bottomLeft>div{
+
+        .bottomLeft>div {
                 padding-bottom: 10px;
         }
-        .bottomLeft>div>span:nth-child(2){
+
+        .bottomLeft>div>span:nth-child(2) {
                 color: red;
         }
-        .bottomLeft>div:nth-child(1),.bottomLeft>div:nth-child(3){
+
+        .bottomLeft>div:nth-child(1),
+        .bottomLeft>div:nth-child(3) {
                 text-indent: 14px;
         }
-        .bottomLeft>div:nth-child(2)>span:nth-child(3){
+
+        .bottomLeft>div:nth-child(2)>span:nth-child(3) {
                 margin-left: 10px;
         }
-        .bottom>.bottomRight{
+
+        .bottom>.bottomRight {
                 display: flex;
                 width: 98px;
                 height: 22px;
                 justify-content: center;
                 align-items: center;
         }
-        .bottom>.bottomRight>span{
+
+        .bottom>.bottomRight>span {
                 margin-left: 2px;
         }
-        .bottom>.bottomRight>input{
+
+        .bottom>.bottomRight>input {
                 height: 13;
                 width: 13px;
                 border-radius: 2px;
         }
-        .rBottom{
+
+        .rBottom {
                 width: 100%;
                 border: 1px solid #187fc4;
                 padding: 17px 26px 17px 26px;
@@ -241,16 +301,20 @@
                 background: #f3f6ff;
 
         }
-        .rightCommon{
-                display: flex!important;;
+
+        .rightCommon {
+                display: flex !important;
+                ;
                 justify-content: center;
                 align-items: center;
         }
+
         /* 按钮 */
-        .rfooter{
+        .rfooter {
                 display: flex;
         }
-        .rfooter>.rfooterLeft{
+
+        .rfooter>.rfooterLeft {
                 width: 210px;
                 height: 58px;
                 border: 2px solid #187fc4;
@@ -258,13 +322,15 @@
                 display: flex;
                 background: #187fc4;
         }
-        .rfooter>.rfooterLeft>.num{
+
+        .rfooter>.rfooterLeft>.num {
                 display: flex;
                 width: 73px;
-               border-radius: 4px;
-               background: #187fc4;
+                border-radius: 4px;
+                background: #187fc4;
         }
-        .rfooter>.rfooterLeft>.num>div:nth-child(1){
+
+        .rfooter>.rfooterLeft>.num>div:nth-child(1) {
                 width: 40px;
                 border-right: 2px solid #187fc4;
                 display: flex;
@@ -274,27 +340,31 @@
                 background: #fff;
 
         }
-        .rfooter>.rfooterLeft>.num>div:nth-child(2){
-                 background: #fff;
+
+        .rfooter>.rfooterLeft>.num>div:nth-child(2) {
+                background: #fff;
                 border-right: 2px solid #187fc4;
                 border-bottom-right-radius: 4px;
-                border-top-right-radius:4px;
+                border-top-right-radius: 4px;
         }
-        .rfooter>.rfooterLeft>.num>div:nth-child(2)>span:nth-child(1){
+
+        .rfooter>.rfooterLeft>.num>div:nth-child(2)>span:nth-child(1) {
                 border-bottom: 2px solid #187fc4;
-                border-top-right-radius:4px;
+                border-top-right-radius: 4px;
                 overflow: hidden;
                 background: #fff;
         }
-        .rfooter>.rfooterLeft>.num>div:nth-child(2)>span{
+
+        .rfooter>.rfooterLeft>.num>div:nth-child(2)>span {
                 width: 30px;
                 height: 27px;
-                color:  #187fc4;
+                color: #187fc4;
                 display: flex;
                 justify-content: center;
                 align-items: center;
         }
-        .rfooter>.rfooterLeft>.car{
+
+        .rfooter>.rfooterLeft>.car {
                 width: 200px;
                 display: flex;
                 flex-direction: column;
@@ -305,7 +375,7 @@
                 background: #187fc4;
         }
 
-        .rfooter>.rfooterRight{
+        .rfooter>.rfooterRight {
                 width: 172px;
                 height: 58px;
                 background: #ff7046;
@@ -317,9 +387,25 @@
                 font-size: 16px;
                 color: #feffff;
         }
-        .rfooter>.rfooterRight>img{
+
+        .rfooter>.rfooterRight>img {
                 width: 40px;
         }
-        .car>div>p{display: flex;align-items: center;justify-content: center;padding: 3px 0;}
-        .car>div>p>span{display: flex;align-items: center;justify-content: center;border: 1px solid #fff;border-radius: 50%;padding: 0 3px;font-size: 11px;}
+
+        .car>div>p {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 3px 0;
+        }
+
+        .car>div>p>span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #fff;
+                border-radius: 50%;
+                padding: 0 3px;
+                font-size: 11px;
+        }
 </style>

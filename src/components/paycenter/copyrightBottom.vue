@@ -34,7 +34,7 @@
                                                         <h3>{{item.name}}</h3>
                                                         <img src="../../../static/img/paycenter/copyright_like.png" alt="">
                                                 </div>
-                                                <p>{{item.categoryid_text}}</p>
+                                                <p>{{item.categoryid_text.name}}</p>
                                                 <div class="copyright_prices">
                                                         <span>￥{{item.fee}}</span>
                                                         <img src="../../../static/img/paycenter/copyright_right.png"

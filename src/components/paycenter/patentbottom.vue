@@ -27,14 +27,14 @@
                         <router-link :to="'/service_xlj_three?id='+item.id">
                         <div class="patent_img">
                             <img :src="item.images_text[0]" alt="">
-                            <span>{{item.categoryid_text}}</span>
+                            <span>{{item.categoryid_text.name}}</span>
                         </div>
                         </router-link>
                         <a href="#" class="patent_active">
                         <p>{{item.name}}</p>
                         <div class="patent_price">
                             <span>￥{{item.fee}}</span>
-                            <p>{{item.categoryid_text}}</p>
+                            <p>{{item.categoryid_text.name}}</p>
                         </div>
                         <div class="patent_bargain">立即议价</div>
                         </a>
