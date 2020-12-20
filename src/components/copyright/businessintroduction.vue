@@ -29,24 +29,23 @@ export default {
     width: 100%;
 }
 .businessintroduction_container{
-    height: 348px;
     display: flex;
     flex-wrap: wrap;
-    padding: 0 10px 20px 20px;
+    padding: 0 0 20px 20px;
     align-items: flex-start;
     
     
 }
 .businessintroduction_item{
-    box-shadow: 1px 1px 3px 2px rgb(227 224 224);
+    box-shadow: 1px 1px 8px 4px rgb(192 202 223);
     background-color: #fff;
-    height: 144px;
+    height: 158px;
     padding: 20px 20px;
     border-radius: 5px;
-    width: 32%;
+    width: 31%;
     margin-top: 20px;
     padding: 10px;
-    margin-right: 1.3%;
+    margin-right: 2.3%;
 }
 .businessintroduction_item_top{
     font-size: 34px;

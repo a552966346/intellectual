@@ -36,20 +36,19 @@
                                                                        <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
                                                                        <!-- <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务保障</span></p> -->
                                                                        <!-- 商标变更流程周期  -->
-                                                                        <v-applyprocess :app="app"></v-applyprocess>
+                                                                            <v-applyprocesszero :app="app"></v-applyprocesszero>
+
                                                                </div>
                                                                <div class="center_text" id="text_2">
                                                                        <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">认定条件</span></p>
                                                                        <!-- 认定条件  -->
-                                                                         <v-identifyconditions :iden="iden"></v-identifyconditions>
                                                                </div>
 
                                                                <!-- 常见问题 -->
                                                                <div class="center_text" id="text_3">
                                                                        <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
-                                                                       <v-publicproblems :pub="pub"></v-publicproblems>
                                                                </div>
                                                        </div>
                                                 </div>
@@ -68,9 +67,12 @@
         import servicetop from '../../components/servicetop/servicetop.vue'
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import serviceright_proc_t from '../../components/serviceright/serviceright_proc_t.vue' //左图右字
-        import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
         import serviceassurance from '../../components/copyright/serviceassurance.vue'//服务保障  123样式
+        import applicationprocesszero from '../../components/copyright/applicationprocesszero.vue'//申请流程 0个图
+        import businessintroduction from '../../components/copyright/businessintroduction.vue'//业务流程
+
+
         export default{
                 name:'service',
                 data(){
@@ -83,68 +85,38 @@
                                                 toptext:[],
                                                 question:[],
                                                 title_color:'',
-                                                title_all:["申请主体","商标续展申请流程","业务介绍","服务优势",'常见问题'],
+                                                title_all:["申请主体","企业知识产权贯标服务流程","工作步骤及服务标准","伊甸优势"],
                                                 title_text_all:["","流程合理完善、实时跟进 ，注册商标让您更放心！","",""],
                                                 txt:'text_',
                                                 iscolor:0,
                                                 app:{//申请流程 2个图   //申请流程 0个图
                                                         src:"../../../static/img/copyright/process.png" ,
-                                                        top_text:"著作权变更所需资料",
-                                                        top_r:"资深顾问审核资料，减少返回率，商业信息、公司信息严格保密",
-                                                        arrl:[
-                                                                {text: '申请书（伊甸城代准备）'},
-                                                                {text: '委托书（伊甸城代准备）'},
-                                                                {text: '作品创造说明 法人作品声明'},
-                                                                {text: '作品图样'},
-                                                                {text: '申请人身份证正反面复印件'}
-                                                        ],
-                                                        arrr:[
-                                                                {text: '申请书（伊甸城代准备）'},
-                                                                {text: '委托书（伊甸城代准备）'},
-                                                                {text: '作品创造说明 法人作品声明'},
-                                                                {text: '作品图样'},
-                                                                {text: '公司营业执照副本复印件'}
-                                                        ],
+                                                        
                                                 },
-                                                ser:{//服务保障  123样式
+                                                bus:{//业务流程
                                                     arr:[
-                                                      {
-                                                            src:'../../../static/img/copyright/ser01.png',
-                                                            title:'信息安全',
-                                                            text:'请您放心，您提供的资料我们都会对外保密，并且在您提供材料前，我们的专利顾问会与您签订一份保密协议，作为伊甸城的一种负责任的书面承诺，让您安心！当然，不管您是否与我们签有保密协议，我们都会对您提供过来的材料进行严格的保密处理，绝不例外！'
-                                                      },
-                                                      {
-                                                            src:'../../../static/img/copyright/ser02.png',
-                                                            title:'专属顾问',
-                                                            text:'在案件服务过程中，有任何疑问，可发送邮箱：info@edencity.cn，我们将安排专业人员在24小时之内及时处理，对于担保服务，可依据合同条款进行退款。'
-                                                      },
-                                                      {
-                                                            src:'../../../static/img/copyright/ser03.png',
-                                                            title:'投诉渠道',
-                                                            text:'邮件投诉：发送邮件至info@edencity.cn'
-                                                      },
-                                                    ]
-                                                } ,
-                                                pub:{//公共问题
-                                                    arrq:[
-                                                            {q: '转让后版权登记证书全国通用吗？',
-                                                             a: '是的，版权不限制地区，全国范围内均具有同等效力。'},
-                                                            {q: '版权转让成功后，是否会重新下发登记证书吗？',
-                                                             a: '转让成功后会下发转让证明，不会重新下发新名义的登记证书。登记成功的版权转让证明和原版版登记证来证明版权。'},
-                                                             {q: '版权转让和授权的区别？',
-                                                             a: '版权转让后，原版权所有者不再享有被转让的权利，受让人成为新的版权所有者；而在授权使用的情况下，版权仍归原版权所有者，被授权人只有按双方约定的使用方式和条件使用作品的权利。'}
+                                                            {top:'01',
+                                                            text: '提升企业无形资产价值在企业融资上市、投资并购及企业出售等资产运作上获取更大的收益。'},
+                                                            {top:'02',
+                                                            text: '巩固企业市场竞争地位使企业开发的具有知识产权保护的产品在销售市场上的地位明显增强。'},
+                                                            {top:'03',
+                                                            text: '提高企业风险应对能力避免或减少企业在产品全生命周期管理过程中出现知识产权或法律风险。'},
+                                                            {top:'04',
+                                                            text: '增强企业核心竞争力通过提升企业技术创新能力，支撑企业持续良性发展，保持企业活力与动力。'},
+                                                            {top:'05',
+                                                            text: '企业知识产权管理规范认证情况是科技项目立项、高新技术企业认定、知识产权示范企业和优势企业认定的重要参考条件。'},
 
                                                     ]
-
                                                 },
+                                               
+                                                
                                         }
                                 },
                                 components:{
                                       'v-servicet':servicetop,
                                       'v-serviceleft':serviceleft,
-                                      'v-applyprocess':applicationprocess,//申请流程 2个图
-                                        'v-publicproblems':publicproblems,//公共问题
-                                        'v-serviceassurance':serviceassurance,//服务保障  123样式
+                                      'v-applyprocesszero':applicationprocesszero,//申请流程 0个图
+                                        'v-businessintroduction':businessintroduction,//业务流程
                                         'v-servicerightP':serviceright_proc_t
                 },
                 beforeMount() {

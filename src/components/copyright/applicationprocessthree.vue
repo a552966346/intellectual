@@ -2,7 +2,6 @@
 <!-- 申请流程 3个图-->
 <div class="applyProcess3_all">
     <div class="applyProcess3_container">
-        <v-comtitle :title="title_all[3]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
 
         <div class="applyProcess3_img">
             <img :src="appthree.src" alt="">
@@ -41,15 +40,7 @@
 export default {
     data(){
         return{
-            title_color:'#fff',
-            title_all:["软件著作权登记流程","美术作品登记流程","文学作品登记流程","著作权变更流程","著作权版权转让流程"],
-            title_text_all:[
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单"
-            ]
+            
         }
     },
     props: {
@@ -89,7 +80,7 @@ export default {
     background-color: #fff;
     height: 240px;
     padding: 20px 20px;
-    width: 84%;
+    width: 98%;
     border-radius: 5px;
     box-shadow: 1px 1px 3px 2px rgb(227 224 224);
 }
@@ -117,7 +108,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     color: #9d9d9d;
-    padding: 20px 10px 10px 10px;
+    padding: 20px 0 10px 0;
 }
 .app3_b_item{
     width: 32%;
@@ -139,7 +130,7 @@ export default {
 .app3_b_item_con{
     margin-top: 10px;
     line-height: 1.6;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 
