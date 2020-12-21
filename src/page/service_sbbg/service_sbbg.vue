@@ -56,7 +56,7 @@
                                                                         <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务优势</span></p>
                                                                         <!-- 服务优势 -->
-                                                                        <v-advantage></v-advantage>
+                                                                        <v-advantage :yst="yst"></v-advantage>
                                                                 </div>
                                                                <!-- 常见问题 -->
                                                                <div class="center_text" id="text_5">
@@ -153,6 +153,38 @@
                                                     ]
 
                                                 },
+                                                //服务优势
+                                                yst:[{
+                                                        ystid:1,
+                                                        ystimg:'../../../static/img/service/advantage_one.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },{
+                                                        ystid:2,
+                                                        ystimg:'../../../static/img/service/advantage_two.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },{
+                                                        ystid:3,
+                                                        ystimg:'../../../static/img/service/advantage_tre.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },{
+                                                        ystid:4,
+                                                        ystimg:'../../../static/img/service/advantage_fhh.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },{
+                                                        ystid:5,
+                                                        ystimg:'../../../static/img/service/advantage_fvv.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },{
+                                                        ystid:6,
+                                                        ystimg:'../../../static/img/service/advantage_sxx.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },] 
                                         }
                                 },
                                 components:{

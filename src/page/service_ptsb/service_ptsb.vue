@@ -6,7 +6,7 @@
                         <v-navigation></v-navigation>
                         <!--  -->
                         <div class="consultation_all_Center">
-                                <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
+                                <div class="consultation_all_text"><p>服务中心>普通商标注册</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
                                         <v-servicet :qiye="title" :top_data = 'top_data' :image="image">
@@ -49,7 +49,7 @@
                                                                         <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务优势</span></p>
                                                                         <!-- 服务优势 -->
-                                                                        <v-advantage></v-advantage>
+                                                                        <v-advantage :yst='yst'></v-advantage>
                                                                 </div>
                                                                <!-- 常见问题 -->
                                                                <div class="center_text" id="text_4">
@@ -148,10 +148,43 @@
                                 nut:{
                                 nutimg:'../../../static/img/service/guarantee_one.png',
                                 data:[
-                                        {tit:'信息安全',cet:'请您放心，您提供的资料我们都会对外保密。'},
-                                        {tit:'专属顾问',cet:'在案件服务过程中，有任何疑问。'}
+                                        {tit:'信息安全',cet:'请您放心，您提供的资料我们都会对外保密,我们会对您提供过来的材料进行严格的保密处理，绝不例外!'},
+                                        {tit:'专属顾问',cet:'在案件服务过程中，有任何疑问,可拨打客服热线:xxxxxx,也可在伊甸城官方微信、微博、邮箱进行咨询、投诉，对客户反馈问题进行核实，我们将安排专业人员及时处理，对于担保服务，可依据合同条款进行退款'}
                                 ]
-                                }
+                                },
+                                //服务优势
+                                yst:[{
+                                        ystid:1,
+                                        ystimg:'../../../static/img/service/advantage_one.png',
+                                        ysttit:'高通过率',
+                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                },{
+                                        ystid:2,
+                                        ystimg:'../../../static/img/service/advantage_two.png',
+                                        ysttit:'高通过率',
+                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                },{
+                                        ystid:3,
+                                        ystimg:'../../../static/img/service/advantage_tre.png',
+                                        ysttit:'高通过率',
+                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                },{
+                                        ystid:4,
+                                        ystimg:'../../../static/img/service/advantage_fhh.png',
+                                        ysttit:'高通过率',
+                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                },{
+                                        ystid:5,
+                                        ystimg:'../../../static/img/service/advantage_fvv.png',
+                                        ysttit:'高通过率',
+                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                },{
+                                        ystid:6,
+                                        ystimg:'../../../static/img/service/advantage_sxx.png',
+                                        ysttit:'高通过率',
+                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                },] 
+
                         }
                 },
                 components:{

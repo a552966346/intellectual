@@ -30,4 +30,5 @@
 .guarantee_left img{width: 100%;height: 100%;}
 .guarantee_right{flex: 1;height: 100%; display: flex;justify-content: space-around;align-items: center;flex-direction: column;}
 .guarantee_rightbk{display: flex;justify-content: center;align-items: flex-start;flex-direction: column; width: 100%;height: 50%;}
+.guarantee_riti{color: #1980c2;}
 </style>
