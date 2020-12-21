@@ -5,7 +5,7 @@
                         <img :src="item.image" alt="">
                         <div class="itemall">
                                 <div class="item_list" v-for="(item1,index) in item.cont">
-                                        <div class="item_list_item">
+                                        <div class="item_list_item" >
                                                 <router-link to="">
                                                         <span>{{item1.id}}</span>
                                                         <p>{{item1.title}}</p>

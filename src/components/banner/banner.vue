@@ -135,10 +135,10 @@
                 }
         }
 </script>
-<style scoped>
+<style >
         a:link{text-decoration: none;}
-        input, button{border: 0;outline: none;background: none;}
-        input{font-family: 微软雅黑, Microsoft YaHei, \5FAE\8F6F\96C5\9ED1;font-size: 12px;}
+        .searchbox input, button{border: 0;outline: none;background: none;}
+        .searchbox input{font-family: 微软雅黑, Microsoft YaHei, \5FAE\8F6F\96C5\9ED1;font-size: 12px;}
        /* 选项卡共同一级标题 */
        .baner_commontop{display: flex;justify-content: center;align-items: center;color: #909399;padding-top: 20px;padding-bottom: 25px;font-size: 14px;}
         #banner{width: 100%;height: 556px;background-image: url(../../../static/img/index/index_enterprise_bg.jpg);display: flex;justify-content: center;align-items: center;}
