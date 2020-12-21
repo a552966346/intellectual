@@ -38,7 +38,6 @@
                 mounted() {
                         this.$api.severcategory()
                         .then(res=>{
-                                console.log(res)
                                 this.leftdata = res.data
                         })
                 },

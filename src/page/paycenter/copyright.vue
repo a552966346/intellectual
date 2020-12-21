@@ -60,22 +60,27 @@ export default {
             istotal:0,         //总条数
             zlTop:[],           //筛选
             iscolor:[],
-            banner:'../../../static/img/paycenter/copyright_top.png'
+            banner:'../../../static/img/paycenter/copyright_top.png',
+            category_one:''
         }
 
     },
     mounted() {
+            this.category_one = this.$route.query.id
+             this.$set(this.id,"category_id",this.category_one)
             this.$api.getCopyrightcondition()
             .then(res=>{
                     this.zlTop = res.data
-
+                    console.log(res)
+                    this.$set(this.iscolor,0,this.$route.query.id)
             })
             this.$api.getCopyrightvertisement()
             .then(res=>{
                     console.log(res)
                     this.banner = res.data.images
+
             })
-            this.ispost()
+            this.ispost(this.id)
     },
       methods: {
                 comsort(index){

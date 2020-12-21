@@ -16,7 +16,7 @@
                                                       <div class="baner_tradeitem_bottom">
                                                               <div class="baner_tradeitem_bottom1">
                                                                    <div v-for="(item1,index1) in item.children">
-                                                                        <router-link to="">{{item1.name}}></router-link>
+                                                                        <router-link :to="item.keywords+'?id='+item1.id+'&name='+item1.name">{{item1.name}}></router-link>
                                                                    </div>
                                                               </div>
                                                               <div class="baner_tradeitem_bottom2">

@@ -116,7 +116,11 @@ export default {
         created: function() {
                 setInterval(this.showMarquee, 2000)
         },
-
+        mounted() {
+                this.$nextTick(function(){
+                        this.$set(this.screetext,0,this.$route.query.name)
+                });
+        },
         methods: {
                 showMarquee: function() {
                         this.animate = true;
@@ -143,6 +147,7 @@ export default {
                 },
                 // 清空筛选条件
                 choosenull() {
+                        this.id = {}
                        this.value=[]
                          this.screetext = []
                         this.$emit('choosenull')

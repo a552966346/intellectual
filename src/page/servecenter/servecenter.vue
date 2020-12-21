@@ -75,7 +75,8 @@
                                                                 <div>
                                                                         <p>你好欢迎来到伊甸网</p>
                                                                         <p>{{phone}}</p>
-                                                                        <button @click="tuichu">退出登录</button>
+                                                                        <button @click="denlu"  v-if="this.$store.state.user==null">登录</button>
+                                                                        <button @click="tuichu" v-else>退出登录</button>
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -277,7 +278,6 @@
                         }
                         this.$api.severcategory()
                         .then(res=>{
-                                console.log(res)
                                 this.$nextTick(function(){
                                         this.top_lei = res.data
                                         this.each(res.data)
@@ -286,7 +286,6 @@
                         })
                        this.$api.severindex()  //服务中心
                          .then(res=>{
-                                 console.log(res)
                                  this.$nextTick(function(){
                                          this.o_cen_lie = res.data.hot_server    //热门服务
                                          this.sb_right_lie = res.data.server_data39      //商标服务
@@ -342,9 +341,13 @@
                                         this.title_all[i] = data[i].name
                                 }
                         },
+                        denlu(){
+                                this.$router.push({
+                                         path:'/login',
+                                 })
+                        },
                         //服务详情跳转
                         running(key,id){
-                                console.log(key,id)
                                this.$router.push({
                                         path:key,
                                         query:{
@@ -353,7 +356,6 @@
                                 })
                         },
                         but_xq(name,id){
-                                console.log(name)
                                 if(name){
                                      this.$router.push({
                                               path:name.keywords,
