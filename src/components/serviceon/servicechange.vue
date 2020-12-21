@@ -8,17 +8,17 @@
             <p>针对不同行业不同商标名字进行精准查询，检索近似风险，将风险降到最低，选择我们，让您在使用商标途中无忧！</p>
         </div>
         <div class="servicechange_cet">
-            <div class="servicechange_cbolk" v-for="(item,index) in list" :key="index">
+            <div class="servicechange_cbolk" v-for="(item,index) in lists" :key="index">
                 <div class="servicechange_cboimg">
-                    <img src="" alt="">
+                     <img :src="item.src" alt="">
                 </div>
                 <div class="servicechange_cbsze">
-                    官方自营
+                    {{item.title}}
                 </div>
                 <div class="servicechange_cbta">
                 </div>
                 <div class="servicechange_cbot">
-                    伊甸自营专利申请服务
+                    {{item.text}}
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
     export default {
         data(){
             return{
-                list:[{},{},{},{}]
+                lists:[{},{},{},{}]
             }
         }
     }

@@ -99,9 +99,9 @@
                                                 list:{//伊甸优势
                                                         arr:[
                                                             {src:'../../../static/img/service/service_ys.png',title:'官方自营',text:'伊甸自营专利申请服务'},
-                                                            {src:'../../../static/img/service/service_ys.png',title:'快速专业',text:'同比行业快50%，1对1服务'},
-                                                            {src:'../../../static/img/service/service_ys.png',title:'服务保障',text:'品牌保障，全程陪同护航'},
-                                                            {src:'../../../static/img/service/service_ys.png',title:'自营平台可交易',text:'无需东奔西跑，伊甸快速帮你完成'},
+                                                            {src:'../../../static/img/service/service_zy.png',title:'快速专业',text:'同比行业快50%，1对1服务'},
+                                                            {src:'../../../static/img/service/service_bz.png',title:'服务保障',text:'品牌保障，全程陪同护航'},
+                                                            {src:'../../../static/img/service/service_jy.png',title:'自营平台可交易',text:'无需东奔西跑，伊甸快速帮你完成'},
                                                         ],
                                                 },
                                                 bus:{//业务流程

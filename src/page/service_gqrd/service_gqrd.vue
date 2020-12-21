@@ -29,8 +29,8 @@
                                                                <div class="center_text" id="text_0">
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">高企认定好处</span></p>
                                                                        <!-- <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle> -->
-                                                                       <!-- 高企认定 -->
-                                                                        <v-servicezl></v-servicezl>
+                                                                       <!-- 高企认定好处 -->
+                                                                        <v-servicezl :idenimg="idenimg"></v-servicezl>
                                                                </div>
 
                                                                <div class="center_text" id="text_1">
@@ -90,6 +90,9 @@
                                                 title_text_all:["","流程合理完善、实时跟进 ，注册商标让您更放心！","",""],
                                                 txt:'text_',
                                                 iscolor:0,
+                                                idenimg:{//认定图片
+                                                        src:'../../../static/img/service/iden_hc.png'
+                                                },
                                                 appthree:{//申请流程 3个图
                                                     src:"../../../static/img/copyright/process.png" ,
                                                     top_text:"高企认定所需资料",

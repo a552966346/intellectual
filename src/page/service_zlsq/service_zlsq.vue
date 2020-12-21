@@ -31,9 +31,9 @@
                                                                 <div class="center_text" id="text_0">
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">PCT申请</span></p>
                                                                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
-                                                                        <v-servicezl></v-servicezl>
+                                                                        <v-servicezl :idenimg='idenimg'></v-servicezl>
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
-                                                                        <v-servicezl></v-servicezl>
+                                                                        <v-servicezl :idenimg='idenimg'></v-servicezl>
                                                                         <v-comtitle id="text_1" :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                         <v-servicetr></v-servicetr>
                                                                 </div>
@@ -47,7 +47,7 @@
                                                                 <div class="center_text" id="text_3">
                                                                         <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">伊甸优势</span></p>
-                                                                        <v-servicetw></v-servicetw>
+                                                                        <v-servicetw :list="list"></v-servicetw>
                                                                 </div>
                                                                 
                                                                 <!-- 常见问题 -->
@@ -97,6 +97,17 @@
                                 title_text_all:["","","","流程合理完善，让您的著作权登记更为流畅简单","",""],
                                 txt:'text_',
                                 iscolor:0,
+                                idenimg:{
+                                        src:'../../../static/img/service/severic_zlon.png'
+                                },
+                                list:{//伊甸优势
+                                        arr:[
+                                                            {src:'../../../static/img/service/service_ys.png',title:'官方自营',text:'伊甸自营专利申请服务'},
+                                                            {src:'../../../static/img/service/service_zy.png',title:'快速专业',text:'同比行业快50%，1对1服务'},
+                                                            {src:'../../../static/img/service/service_bz.png',title:'服务保障',text:'品牌保障，全程陪同护航'},
+                                                            {src:'../../../static/img/service/service_jy.png',title:'自营平台可交易',text:'无需东奔西跑，伊甸快速帮你完成'},
+                                        ],
+                                },
                                 pub:{//公共问题
                                         arrq:[
                                                 {q: 'PCT和单独国家申请有哪些区别？',
