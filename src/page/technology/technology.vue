@@ -199,7 +199,7 @@
                                                 }
                                              },{
                                                 id:6,
-                                                title:'专利交易-我要出售：潜泳器',
+                                                title:'六开模模架',
                                                 detail:{
                                                         people:'小王1-6',
                                                         number:'CN1-6',
