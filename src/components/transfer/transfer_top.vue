@@ -208,6 +208,10 @@
         padding: 5px 15px;
 }
 
+.center_lei_right p{
+        cursor: pointer;
+}
+
 .center_lei_right>div>img {
         height: 15px;
         margin-left: 5px;

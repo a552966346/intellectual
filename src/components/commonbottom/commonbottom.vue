@@ -9,7 +9,7 @@
      <div class="bottom_right_item">
        <div v-for="(item,index) in text" :key="index">
          <p>{{item.name}}</p>
-         <li v-for="children in item.children" :key="children.id">{{children.name}}</li>
+                 <li v-for="children in item.children" :key="children.id" @click="run(children.id)">{{children.name}}</li>
          <!-- <li>忘记密码</li>
          <li>关于合同</li> -->
        </div>
@@ -55,6 +55,17 @@ export default {
           .then(res=>{
                  this.text = res.data
           })
+  },
+  methods:{
+          run(id){
+                  console.log(id)
+                  this.$router.push({
+                          path:'/aboutus',
+                          query:{
+                                  id:id
+                          }
+                  })
+          }
   }
 }
 
@@ -101,9 +112,13 @@ export default {
     font-weight: bold;
     letter-spacing: 1px;
   }
+  .bottom_right_item a{
+          color: #fff;
+  }
   .bottom_right_item li{
     list-style: none;
     padding: 15px 0 0 0;
+    cursor: pointer;
   }
   .commonbottom_bottom{
     width: 100%;

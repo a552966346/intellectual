@@ -17,7 +17,7 @@
                     <el-submenu :index="index+''" v-for='(item,index) in list_data' :key="index">
                         <template slot="title">{{item.name}}</template>
                         <el-menu-item-group router='true'>
-                        <el-menu-item :index="'/'+item.type +'?id='+item.id+'ids'+items.id"   @click="ispost(items.id)"   v-for="(items,indes) in item.children" :key="indes">{{items.name}}</el-menu-item>
+                        <el-menu-item :index="'/'+item.type +'?id='+items.id"   @click="ispost(items.id)"   v-for="(items,indes) in item.children" :key="indes">{{items.name}}</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
                     </el-menu>
@@ -32,19 +32,20 @@
 import navcter from '@/components/navcter/navcter.vue'
    export default {
     data() {
-      return { 
+      return {
         list_data:[],//左侧分类数据  :index="'/'+item.type +'?id='+item.id+'ids'+items.id" @click="goTo('/'+item.type +'?id='+item.id+'?ids'+items.id)"  @click="ispost(items.id)"
         right_data:[],
         id:''
         }
     },
     beforeMount(){
-        var router_path = this.$route.path;
+        var router_path = this.$route.query.id;
+        
         this.$api.getaboutcat()
         .then(res=>{
             if(res.code==1){
-                this.list_data = res.data 
-                this.ispost(res.data[0].children[0].id);
+                this.list_data = res.data
+                this.ispost(router_path);
             }else{
                 this.$message({
                 showClose: true,
@@ -56,19 +57,19 @@ import navcter from '@/components/navcter/navcter.vue'
             console.log(err)
         })
 
-                
+
     },
     mounted(){
         var url = window.location.href;
-        var id = url.split('ids')[1]; 
+        var id = url.split('ids')[1];
     },
     methods:{
         items(){},
         handleOpen(key, keyPath) {
-            console.log(key, keyPath);
+            // console.log(key, keyPath);
         },
         handleClose(key, keyPath) {
-            console.log(key, keyPath);
+            // console.log(key, keyPath);
         },
         goTo(path) {
             this.$router.go(path);
@@ -76,11 +77,11 @@ import navcter from '@/components/navcter/navcter.vue'
         // 请求列表
         ispost(id){
             this.id = id
-            console.log(id);
+            // console.log(id);
             this.right_data = [];
             this.$api.getaboutdetiles(id)
             .then(res=>{
-                console.log(res);
+                // console.log(res);
                  this.right_data = res.data
             })
         }
