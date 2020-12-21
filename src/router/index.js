@@ -299,12 +299,12 @@ export default new Router({
             }]
         },
         {
-            path: '/technology', //技术转让筛选
+            path: '/transfer', //技术转让筛选
             name: 'transfer',
             component: transfer
         },
         {
-            path: '/transfer',
+            path: '/technology',
             name: 'technology',
             component: technology
         },
