@@ -53,7 +53,7 @@ export default {
 <style scoped>
 .applyProcess3_all {
     width: 100%;
-    height: 570px;
+    height: 450px;
 }
 .applyProcess3_container{
     background-color: #7381a4;

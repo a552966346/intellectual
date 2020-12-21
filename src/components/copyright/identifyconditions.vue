@@ -9,7 +9,7 @@
             <div class="identifyconditions_item_img2">
                 <img src="../../../static/img/copyright/iden_number.png" alt="">
             </div>
-            <div class="identifyconditions_item_text">{{item.text}}</div>
+            <div class="identifyconditions_item_text" v-html="item.text"></div>
 
         </div>
     </div>
