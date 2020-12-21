@@ -17,11 +17,13 @@
                 <span>未认证实名认证后，可提升账号安全等级，资金提现，绑定银行卡等操作</span>
             </div>
             <div class="center_b">
-                <div class="name">真实姓名:
-                    <input v-model="realname"  type="text" placeholder="请输入您的真实姓名，认证后不可更改">
+                <div class="name"><p>真实姓名:</p>
+                    <el-input v-model="realname" placeholder="请输入您的真实姓名，认证后不可更改"></el-input>
+                    <!-- <input v-model="realname"  type="text" placeholder="请输入您的真实姓名，认证后不可更改"> -->
                 </div>
-                <div class="ids">证件号码:
-                    <input v-model="idnumber"  type="text" placeholder="请输入您真实姓名对应的证件号码">
+                <div class="ids"><p>证件号码:</p>
+                    <el-input v-model="idnumber" placeholder="请输入您真实姓名对应的证件号码"></el-input>
+                    <!-- <input v-model="idnumber"  type="text" placeholder="请输入您真实姓名对应的证件号码"> -->
                 </div>
                 <p>温馨提示：证件必须是清洗彩色原件版本。可以是扫描件或者数码拍摄照片。仅支持jpg、png、jpeg的图片格式。2M以内。</p>
                 <div class="ids_1">身份证人像面:
@@ -66,26 +68,33 @@
                         <p>请提供清晰照片，漏出证件四角</p>
                     </div>
                 </div>
-                <div class="bank">开户银行:
-                    <input v-model="bank"  type="text" placeholder="请选择您的账号">
+                <div class="bank"><p>开户银行:</p>
+                    <el-input v-model="bank" placeholder="请选择您的账号"></el-input>
+                    <!-- <input v-model="bank"  type="text" placeholder="请选择您的账号"> -->
                     <img src="../../../static/img/usercenter/arrow.png" alt="">
                 </div>
-                <div class="bankname">支行名称:
-                    <input v-model="subbranch"  type="text" placeholder="请输入支行名称">
+                <div class="bankname"><p>支行名称:</p>
+                    <el-input v-model="subbranch" placeholder="请输入支行名称"></el-input>
+                    <!-- <input v-model="subbranch"  type="text" placeholder="请输入支行名称"> -->
                 </div>
-                <div class="openingaccount">开户地区:
-                    <input v-model="subbranch"  type="text" placeholder="请选择开户身份"><img class="arrow1" src="../../../static/img/usercenter/arrow.png" alt="">
-                    <input v-model="city"  type="text" placeholder="请选择开户市级"><img class="arrow2" src="../../../static/img/usercenter/arrow.png" alt="">
+                <div class="openingaccount"><p>开户地区:</p>
+                    <el-input v-model="subbranch" placeholder="请选择开户身份"></el-input><img class="arrow1" src="../../../static/img/usercenter/arrow.png" alt="">
+                    <el-input v-model="city" placeholder="请选择开户市级"></el-input><img class="arrow2" src="../../../static/img/usercenter/arrow.png" alt="">
+                    <!-- <input v-model="subbranch"  type="text" placeholder="请选择开户身份">
+                    <input v-model="city"  type="text" placeholder="请选择开户市级"> -->
                 </div>
-                <div class="name">银行卡号:
-                    <input v-model="cardnumber"  type="text" placeholder="请输入对应真实姓名开户的银行卡号">
+                <div class="name"><p>银行卡号:</p>
+                    <el-input v-model="cardnumber" placeholder="请输入对应真实姓名开户的银行卡号"></el-input>
+                    <!-- <input v-model="cardnumber"  type="text" placeholder="请输入对应真实姓名开户的银行卡号"> -->
                 </div>
-                <div class="phone">绑定手机:
-                    <input v-model="mobile"  type="text" placeholder="155****2220">
+                <div class="phone"><p>绑定手机:</p>
+                    <el-input v-model="mobile" placeholder="155****2220"></el-input>
+                    <!-- <input v-model="mobile"  type="text" placeholder="155****2220"> -->
                     <button>免费获取校验码</button>
                 </div>
-                <div class="phonenumber">手机校验码:
-                    <input v-model="captcha" type="text" placeholder="请输入您收到的手机校验码">
+                <div class="phonenumber"><span>手机校验码:</span>
+                    <el-input v-model="captcha" placeholder="请输入您收到的手机校验码"></el-input>
+                    <!-- <input v-model="captcha" type="text" placeholder="请输入您收到的手机校验码"> -->
                 </div>
                 <div class="submit">
                     <button  @click="ispost">提交</button>
@@ -109,6 +118,7 @@ export default{
             idrear:'',
             idhand:'',
             bank:'',
+            imageUrl:'',
             subbranch:'',
             province:'',
             city:'',
@@ -204,7 +214,7 @@ export default{
     justify-content: flex-end;
 }
 .t_right button{
-        background-color: #e4404b;
+    background-color: #e4404b;
 
 }
 
@@ -240,15 +250,22 @@ export default{
 }
 .center_b>div{
     margin-top: 15px;
+    display: flex;
 }
-.center_b input{
+.center_b>div>p{
+    height: 30px;
+    font-size: 15px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+.center_b el-input{
     margin-left: 20px;
     height: 32px;
     padding: 5px;
     border: none;
     font-size: 14px;
     color: #bbb;
-    width: 272px;
+    /* width: 272px; */
     border: 1px solid #f2f2f2;
     border-radius: 5px;
 }
@@ -319,7 +336,7 @@ p {
     position: relative;
     text-indent: 8em;
 }
-.openingaccount input{
+.openingaccount el-input{
     width: 21%;
     padding-left: 6px;
 }
@@ -336,7 +353,7 @@ p {
 .phone{
     text-indent: 2em;
 }
-.phone input{
+.phone el-input{
     width: 35%;
 }
 .phone button{

@@ -1,22 +1,18 @@
 <template>
     <div class="servicetw_all">
-        <div class="servicetw_firt">
+        <!-- <div class="servicetw_firt">
             <img src="../../../static/img/service/serviceright_jiantou.png" alt="">
             <div class="servicetw_fiws">伊甸优势</div>
-        </div>
+        </div> -->
         <div class="servicetw_cet">
-            <div class="servicetw_cbolk" v-for="(item,index) in list" :key="index">
+            <div class="servicetw_cbolk" v-for="(item,index) in list.arr" :key="index">
                 <div class="servicetw_cboimg">
-                    <img src="../../../static/img/service/service_ys.png" alt="">
+ 
+                    <img :src="item.src" alt="">
                 </div>
-                <div class="servicetw_cbsze">
-                    官方自营
-                </div>
-                <div class="servicetw_cbta">
-                </div>
-                <div class="servicetw_cbot">
-                    伊甸自营专利申请服务
-                </div>
+                <div class="servicetw_cbsze">{{item.title}}</div>
+                <div class="servicetw_cbta"></div>
+                <div class="servicetw_cbot">{{item.text}}</div>
             </div>
         </div>
     </div>
@@ -26,8 +22,12 @@
     export default {
         data(){
             return{
-                list:[{},{},{},{}]
+               
+                // list:[]
             }
+        },
+        props:{
+             list:Object
         }
     }
 </script>
@@ -40,6 +40,6 @@
 .servicetw_cboimg{width: 66px;height: 66px;background-color: #d9ebff;}
 .servicetw_cbta{width: 30px;height: 2px;background-color: #187fc4;}
 .servicetw_cbsze{color: #187fc4;font-size: 20px;}
-.servicetw_cbot{font-size: 14px;color: #9abded;}
+.servicetw_cbot{font-size: 14px;color: #9abded;height: 34px;padding: 0 14px 10px;text-align: center;}
 .servicetw_fiws{margin-left: 10px;}
 </style>

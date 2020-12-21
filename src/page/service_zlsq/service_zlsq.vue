@@ -24,37 +24,35 @@
                                                        
 
                                                         <div class="zzdj_serviceright_top">
-                                                                <p>服务详情</p>
-                                                                <p>申请流程</p>
-                                                                <p>服务保障</p>
-                                                                <p>常见问题</p>
+                                                                <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
+
                                                         </div>
                                                         <div class="zzdj_serviceright_center">
                                                                 <!-- 服务详情 -->
-                                                                <div class="center_text" >
-                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务详情</span></p>
+                                                                <div class="center_text" id="text_0">
+                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">PCT申请</span></p>
                                                                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
                                                                         <v-servicezl></v-servicezl>
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
                                                                         <v-servicezl></v-servicezl>
-                                                                        <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
+                                                                        <v-comtitle id="text_1" :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                         <v-servicetr></v-servicetr>
                                                                 </div>
                                                                 <!-- 申请流程 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_2">
                                                                         <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                         <!-- 申请流程 2个图 -->
                                                                         <v-applyprocess :app="app"></v-applyprocess>
                                                                 </div>  
                                                                 <!-- 伊甸优势 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_3">
                                                                         <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :color='title_color'></v-comtitle>
-                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务保障</span></p>
+                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">伊甸优势</span></p>
                                                                         <v-servicetw></v-servicetw>
                                                                 </div>
                                                                 
                                                                 <!-- 常见问题 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_4">
                                                                         <v-comtitle :title="title_all[5]" :inform_title='title_text_all[5]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
                                                                         <v-publicproblems :pub="pub"></v-publicproblems>
@@ -89,14 +87,15 @@
                 data(){
                         return{
 
-                                title:'企业知识产贯标',
+                                // title:'企业知识产贯标',
+                                title:['PCT申请','PCT优势','申请材料','伊甸优势','常见问题'],
                                 top_data:'',
                                 id:'',
                                 image:[],
                                 right_data:[],
                                 toptext:[],
                                 question:[],
-                                // title_color:'#fff',
+                                title_color:'',
                                 title_all:["PCT申请","通过专利合作条约（PCT），向指定国家递交专利申请","PCT优势","国际专利申请流程","伊甸优势","常见问题"],
                                 title_text_all:["","","","流程合理完善，让您的著作权登记更为流畅简单","",""],
                                 txt:'text_',
@@ -104,7 +103,7 @@
                                 pub:{//公共问题
                                         arrq:[
                                                 {q: 'PCT和单独国家申请有哪些区别？',
-                                                a: '<img src="../../../static/img/copyright/a.png" alt="">'},
+                                                a: '<img src="../../../static/img/copyright/problem.png" alt="">'},
                                                 {q: 'PCT和单独 国家申请如何选择？',
                                                 a: '如果申请的国家比较少，3个国家以内，单独国家申请比较适合，费用也会少一些，但是时间也比较短，而PCT时间比较宽松，申请人可以利用检索和初步审查程序对该专利申请获得专利侵权可能性进行初步评估，并结合技术发展情况和市场前景等因素确定是否要等到具体国家去申请，一直到30个月的时候再做决定都可以，在申请的流程中可以充分做市场分析，看要进入哪个国家，而且翻译的时候比较宽松，准确度会高一些。'},
                                                 {q: '申请美国专利需要准备哪些文件？',
@@ -173,6 +172,10 @@
                                         //         alert("暂无数据")
                                         // }
                                 })
+                        },
+                        text_click(porp){
+                                        this.iscolor = porp
+                                       this.$el.querySelector('#text_'+porp).scrollIntoView()
                         }
                 }
         }

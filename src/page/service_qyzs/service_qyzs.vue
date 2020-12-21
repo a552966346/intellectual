@@ -46,11 +46,11 @@
                                                                        <v-servicefh></v-servicefh>
                                                                </div>
 
-                                                               <!-- 常见问题 -->
+                                                               <!-- 伊甸优势 -->
                                                                <div class="center_text" id="text_3">
                                                                        <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">伊甸优势</span></p>
-                                                                        <v-servicetw></v-servicetw>
+                                                                        <v-servicetw :list="list"></v-servicetw>
                                                                </div>
                                                        </div>
                                                 </div>
@@ -95,6 +95,14 @@
                                                 app:{//申请流程 2个图   //申请流程 0个图
                                                         src:"../../../static/img/copyright/process.png" ,
                                                         
+                                                },
+                                                list:{//伊甸优势
+                                                        arr:[
+                                                            {src:'../../../static/img/service/service_ys.png',title:'官方自营',text:'伊甸自营专利申请服务'},
+                                                            {src:'../../../static/img/service/service_ys.png',title:'快速专业',text:'同比行业快50%，1对1服务'},
+                                                            {src:'../../../static/img/service/service_ys.png',title:'服务保障',text:'品牌保障，全程陪同护航'},
+                                                            {src:'../../../static/img/service/service_ys.png',title:'自营平台可交易',text:'无需东奔西跑，伊甸快速帮你完成'},
+                                                        ],
                                                 },
                                                 bus:{//业务流程
                                                     arr:[

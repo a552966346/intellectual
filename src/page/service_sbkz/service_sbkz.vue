@@ -53,7 +53,7 @@
                                                                 </div>
                                                                <!-- 常见问题 -->
                                                                <div class="center_text" id="text_4">
-                                                                       <v-comtitle :title="title_all[5]" :inform_title='title_text_all[5]' :color='title_color'></v-comtitle>
+                                                                       <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
                                                                        <v-publicproblems :pub="pub"></v-publicproblems>
                                                                </div>
@@ -83,7 +83,7 @@
                 name:'service',
                 data(){
                         return{
-                                title:['申请主体','流程周期','业务介绍','服务优势','常见问题'],
+                                                title:['申请主体','流程周期','业务介绍','服务优势','常见问题'],
                                                 top_data:'',
                                                 id:'',
                                                 image:[],
