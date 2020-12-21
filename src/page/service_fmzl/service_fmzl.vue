@@ -81,11 +81,6 @@
         import apply from '../../components/serviceon/apply.vue'//申请
         import benefit from '../../components/serviceon/benefit.vue'//好处
         import servicetn from '../../components/serviceon/servicetn.vue'//选择伊甸城
-
-        
-
-
-
         export default{
                 name:'service',
                 data(){
@@ -168,8 +163,6 @@
                         'v-apply':apply,//申请
                         'v-benefit':benefit,//好处
                         'v-servicetn':servicetn,//选择伊甸城
-
-
                 },
                 beforeMount() {
                         this.id = this.$route.query.id
