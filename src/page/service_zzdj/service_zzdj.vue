@@ -24,14 +24,14 @@
                                                         <!-- <v-servicer :toptext ='toptext' :right_data ='right_data' :question ="question"></v-servicer> -->
 
                                                         <div class="zzdj_serviceright_top">
-                                                                <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
+                                                                <p v-for="(item,index) in title"  :key="index" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
                                                         </div>
                                                         <div class="zzdj_serviceright_center">
                                                                 <!-- 软著必要性 -->
                                                                 <div class="center_text" id="text_0">
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">软著必要性</span></p>
                                                                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
-                                                                        <v-servicechange></v-servicechange>
+                                                                        <v-servicechange :lists="lists"></v-servicechange>
                                                                 </div>
                                                                 <!-- 服务流程 -->
                                                                 <div class="center_text" id="text_1">
@@ -87,6 +87,13 @@
                                 title_text_all:["","流程合理完善，让您的著作权登记更为流畅简单",""],
                                 txt:'text_',
                                 iscolor:0,
+                                lists:[
+                                        {src:'../../../static/img/service/service_chaone.png',text:'APP上架：应用宝、360等主流，应用市场上架必备'},
+                                        {src:'../../../static/img/service/service_chatwo.png',text:'项目投标：政府/商业项目，竞标资质条件'},
+                                        {src:'../../../static/img/service/service_chatre.png',text:'国家补贴：高企/双软申报，享受百万政府补贴'},
+                                        {src:'../../../static/img/service/service_chatfh.png',text:'无形资产：帮助企业增资，递延纳税优惠'},
+                                       
+                                ],
                                 app:{//申请流程 2个图   //申请流程 0个图
                                         src:"../../../static/img/copyright/process.png" ,
                                         top_text:"著作权变更所需资料",
