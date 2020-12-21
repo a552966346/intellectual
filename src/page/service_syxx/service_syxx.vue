@@ -6,7 +6,7 @@
                         <v-navigation></v-navigation>
                         <!--  -->
                         <div class="consultation_all_Center">
-                                <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
+                                <div class="consultation_all_text"><p>服务中心>实用新型</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
                                         <v-servicet :qiye="title" :top_data = 'top_data' :image="image">

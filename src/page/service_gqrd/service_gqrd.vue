@@ -6,7 +6,7 @@
                         <v-navigation></v-navigation>
                         <!--  -->
                         <div class="consultation_all_Center">
-                                <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
+                                <div class="consultation_all_text"><p>服务中心>企业高企认定</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
                                         <v-servicet :qiye="title" :top_data = 'top_data' :image="image">
@@ -22,7 +22,7 @@
                                                 </div>
                                                 <div class="cen_right zzdj_cen_right">
                                                        <div class="zzdj_serviceright_top">
-                                                              <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
+                                                              <p v-for="(item,index) in title" :key="index" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
                                                        </div>
                                                        <div class="zzdj_serviceright_center">
                                                                <!-- 高企认定 -->
