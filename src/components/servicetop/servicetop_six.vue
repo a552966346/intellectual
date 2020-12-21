@@ -11,7 +11,7 @@
                         <div class="topRight">
                                 <div class="topHeader">
                                         <h3>{{top_data.name}}</h3>
-                                        <p><span>创建时间：{{top_data.creatime_text}}</span>|<span>专利号：{{top_data.number}}&nbsp;
+                                        <p><span>创建时间：{{top_data.creatime_text}}</span>|<span>专利号：{{top_data.number}}
                                                         <!-- <span>复制</span> --></span>|<span>申请时间：{{top_data.application_text}}</span>|<span>注册年限：{{top_data.yearsnumber_text}}</span></p>
                                 </div>
                                 <div class="topBody">
@@ -22,12 +22,19 @@
                                                 </div>
                                                 <div>
                                                         <p>专利类型</p>
-                                                        <p>{{top_data.patenttype}}</p>
-
+                                                        <p v-if="top_data.patenttype==1">发明专利</p>
+                                                        <p v-if="top_data.patenttype==2">实用新型</p>
+                                                        <p v-if="top_data.patenttype==3">外观设计</p>
                                                 </div>
                                                 <div>
                                                         <p>专利状态</p>
-                                                        <p>{{top_data.condition}}</p>
+                                                        <p v-if="top_data.condition == 1">授权未下证</p>
+                                                        <p v-if="top_data.condition == 2">已下证</p>
+                                                </div>
+                                                <div>
+                                                        <p>出售 OR 授权</p>
+                                                        <p v-if="top_data.sell==1">出售</p>
+                                                        <p v-if="top_data.sell==2">授权</p>
                                                 </div>
                                         </div>
                                         <div class="topBody_money">

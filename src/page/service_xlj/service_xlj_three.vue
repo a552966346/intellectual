@@ -6,7 +6,7 @@
                         <v-navigation></v-navigation>
                         <!--  -->
                         <div class="consultation_all_Center">
-                                <div class="consultation_all_text"><p>交易中心>版权变更</p></div>
+                                <div class="consultation_all_text"><p>交易中心>专利转让</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
                                         <v-servicet :title="title" :top_data="top_data" :image="image">
@@ -76,20 +76,6 @@
                                         this.toptext = res.data.data.contenttitle.split(',')
                                         this.toptext.push("常见问题","典型案例")
                                         this.image = res.data.data.images_text
-                                        switch(res.data.data.patenttype){
-                                                case 1 :this.top_data.patenttype ='发明专利'; break;
-                                                case 2 : this.top_data.patenttype ='实用新型'; break;
-                                                case 3 : this.top_data.patenttype ='外观设计'; break;
-                                        }
-                                        switch(res.data.condition){
-                                                case 1 :this.top_data.condition ='授权未下证'; break;
-                                                case 2 : this.top_data.condition ='已下证'; break;
-                                        }
-                                        switch(res.data.sell){
-                                                case 1 :this.top_data.sell ='出售'; break;
-                                                case 2 : this.top_data.sell ='授权'; break;
-
-                                        }
                                 })
                         }
                 }

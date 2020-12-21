@@ -28,7 +28,7 @@
                 </div>
                 <div class="r1_top denglu" v-show="!berl">
                               <router-link to="/login">
-                                      <p>请登录后操作</p>
+                                      <p>请<span>登录</span>后操作</p>
                               </router-link>
                 </div>
                 <!-- 3个图 -->
@@ -378,6 +378,10 @@ a {
 }
 .denglu p{
          color: #111;
+}
+.denglu span{
+        color: #0163D2;
+        font-size: 17px;
 }
 .r1_top_tou {
     position: absolute;
