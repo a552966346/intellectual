@@ -29,8 +29,11 @@
                                                                 <div class="center_text" >
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">PCT申请</span></p>
                                                                         <v-comtitle id="text_0" :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
+                                                                        <v-servicezl :idenimg='idenimg'></v-servicezl>
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
+                                                                        <v-servicezl :idenimg='idenimg'></v-servicezl>
                                                                         <v-comtitle id="text_1" :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
+                                                                        <v-servicetr :mulist="mulist"></v-servicetr>
                                                                 </div>
                                                                 <!-- 申请流程 -->
                                                                 <div class="center_text" id="text_2">
@@ -42,6 +45,7 @@
                                                                 <div class="center_text" id="text_3">
                                                                         <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">伊甸优势</span></p>
+                                                                        <v-servicetw :list="list"></v-servicetw>
                                                                 </div>
                                                                 
                                                                 <!-- 常见问题 -->
@@ -69,6 +73,9 @@
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
+        import servicetw from '../../components/serviceon/servicetw.vue' //伊甸优势
+        import servicetr from '../../components/serviceon/servicetr.vue' //pc优势
+        import servicezl from '../../components/serviceon/servicezl.vue' //申请
 
 
 
@@ -89,6 +96,9 @@
                                 title_text_all:["","","","流程合理完善，让您的著作权登记更为流畅简单","",""],
                                 txt:'text_',
                                 iscolor:0,
+                                idenimg:{
+                                        src:'../../../static/img/service/severic_zlon.png'
+                                },
                                 pub:{//公共问题
                                         arrq:[
                                                 {q: 'PCT和单独国家申请有哪些区别？',
@@ -99,6 +109,14 @@
                                                 a: '（1）巴黎公约途径：在中国申请后，在第一在先专利申请日（即优先权日）起12个月届满前向美国知识产权局提出美国专利申请，可以享受优先权的待遇，需要提交优先权证明文件。申请所需文件及信息：申请文件：包括说明书、权利要求书、说明书附图、摘要、摘要附图；申请信息：申请人及发明人中英文名称姓名、地址及邮编，申请国家，联系人等；优先权信息；委托书；（2）PCT途径：根据PCT的规定，申请人可以通过PCT途径递交国际申请，指定向全球几乎所有国家申请专利，即在中国在先申请的申请日（优先权日）起12个月内向中国国家知识产权局提出PCT国际申请，在自优先权日起30个月内向美国知识产权局提出进入申请。申请所需文件：PCT公开文件；国际检索报告；PCT阶段的修改文件（如有）；委托书。'},
                                         ]
                                         
+                                },
+                                list:{//伊甸优势
+                                        arr:[
+                                                            {src:'../../../static/img/service/service_ys.png',title:'官方自营',text:'伊甸自营专利申请服务'},
+                                                            {src:'../../../static/img/service/service_zy.png',title:'快速专业',text:'同比行业快50%，1对1服务'},
+                                                            {src:'../../../static/img/service/service_bz.png',title:'服务保障',text:'品牌保障，全程陪同护航'},
+                                                            {src:'../../../static/img/service/service_jy.png',title:'自营平台可交易',text:'无需东奔西跑，伊甸快速帮你完成'},
+                                        ],
                                 },
                                 app:{//申请流程 2个图   //申请流程 0个图
                                         src:"../../../static/img/copyright/process.png" ,
@@ -119,6 +137,21 @@
                                                 {text: '技术交底书'}
                                         ],  
                                 },
+                                //pc优势
+                                mulist:[{
+                                        src:'../../../static/img/service/service_sqon.png',
+                                        text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
+                                        },{
+                                        src:'../../../static/img/service/service_sqon.png',
+                                        text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
+                                        },{
+                                        src:'../../../static/img/service/service_sqon.png',
+                                        text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
+                                        },{
+                                        src:'../../../static/img/service/service_sqon.png',
+                                        text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
+                                        }]
+                                
                                 
                         }
                 },
@@ -127,6 +160,9 @@
                       'v-serviceleft':serviceleft,
                       'v-applyprocess':applicationprocess,//申请流程 2个图
                       'v-publicproblems':publicproblems,//公共问题
+                      'v-servicetw':servicetw,//伊甸优势
+                      'v-servicetr':servicetr,//pc优势
+                      'v-servicezl':servicezl,//申请
 
 
                 },
