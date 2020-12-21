@@ -154,30 +154,29 @@
                                                 },{
                                                         ystid:2,
                                                         ystimg:'../../../static/img/service/advantage_two.png',
-                                                        ysttit:'高通过率',
+                                                        ysttit:'加速申报无滞后',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
                                                 },{
                                                         ystid:3,
                                                         ystimg:'../../../static/img/service/advantage_tre.png',
-                                                        ysttit:'高通过率',
+                                                        ysttit:'一站式办理',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
                                                 },{
                                                         ystid:4,
                                                         ystimg:'../../../static/img/service/advantage_fhh.png',
-                                                        ysttit:'高通过率',
+                                                        ysttit:'自费透明、价格品优',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
                                                 },{
                                                         ystid:5,
                                                         ystimg:'../../../static/img/service/advantage_fvv.png',
-                                                        ysttit:'高通过率',
+                                                        ysttit:'全程托管，进度可查',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
                                                 },{
                                                         ystid:6,
                                                         ystimg:'../../../static/img/service/advantage_sxx.png',
-                                                        ysttit:'高通过率',
+                                                        ysttit:'同等重视',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
-                                                },
-                                                ],
+                                                },] ,
                                                 // 业务介绍
                                                 fvlist:[{
                                                         text:'商标续展是注册商标有效期为十年，期满需要继续使用的，应当在期满前六个月内申请。',
