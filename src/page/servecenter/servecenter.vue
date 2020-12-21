@@ -805,7 +805,7 @@
                 font-weight: bold;
         }
         .o_cen_lie_img img{
-                height: 100px;
+                height: 60px;
         }
         .fuwu {
                 padding: 30px 0 20px 0;

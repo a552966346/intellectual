@@ -50,7 +50,9 @@
                 width: 100%;
                 background-color: #187fc4
         }
-
+        a{
+                text-decoration: none;
+        }
         .el-menu-demo {
                 width: 1200px;
                 display: flex;

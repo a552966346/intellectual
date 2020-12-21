@@ -70,7 +70,7 @@
                 <!-- 跳蚤市场、合伙人、新闻、伊甸网 -->
                 <div class="index_content">
                         <!-- 跳蚤市场 -->
-                        <div style="padding: 20px 0px;">
+                        <!-- <div style="padding: 20px 0px;">
                                 <v-comtitle :title="title_all[2]"  :background_img_url='title_bg_url[2]' :inform_title="title_text_all[2]"></v-comtitle>
                                 <div class="index_online">
                                         <div :class="index.index == 12?'index_blokk':'index_block'" v-for="(index,item) in list"
@@ -89,14 +89,14 @@
                                                                 <img :src='index.listimg' alt="">
                                                         </div>
                                                 </div>
-                                                <!-- 文本框 -->
+                                                文本框
                                                 <div class="index_qza" v-if="seen==item">
                                                         <div class="index_mwt">{{index.btntit}}</div>
                                                         <div class="index_qwz">{{index.btntitw}}</div>
                                                 </div>
                                         </div>
                                 </div>
-                        </div>
+                        </div> -->
                         <!-- 新闻中心 -->
                         <div>
                                 <v-comtitle :title="title_all[3]"  :background_img_url='title_bg_url[3]' :inform_title="title_text_all[3]"></v-comtitle>
