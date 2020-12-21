@@ -43,12 +43,14 @@
                                                                        <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">认定条件</span></p>
                                                                        <!-- 认定条件  -->
+                                                                       <v-servicefh></v-servicefh>
                                                                </div>
 
                                                                <!-- 常见问题 -->
                                                                <div class="center_text" id="text_3">
                                                                        <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
-                                                                       <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
+                                                                       <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">伊甸优势</span></p>
+                                                                        <v-servicetw></v-servicetw>
                                                                </div>
                                                        </div>
                                                 </div>
@@ -71,7 +73,8 @@
         import serviceassurance from '../../components/copyright/serviceassurance.vue'//服务保障  123样式
         import applicationprocesszero from '../../components/copyright/applicationprocesszero.vue'//申请流程 0个图
         import businessintroduction from '../../components/copyright/businessintroduction.vue'//业务流程
-
+        import servicefh from '../../components/serviceon/servicefh.vue'//服务标准
+        import servicetw from '../../components/serviceon/servicetw.vue'//伊甸优势
 
         export default{
                 name:'service',
@@ -117,7 +120,9 @@
                                       'v-serviceleft':serviceleft,
                                       'v-applyprocesszero':applicationprocesszero,//申请流程 0个图
                                         'v-businessintroduction':businessintroduction,//业务流程
-                                        'v-servicerightP':serviceright_proc_t
+                                        'v-servicerightP':serviceright_proc_t,
+                                        'v-servicefh':servicefh,
+                                        'v-servicetw':servicetw
                 },
                 beforeMount() {
                         this.id = this.$route.query.id

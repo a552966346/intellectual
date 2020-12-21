@@ -57,6 +57,7 @@ import navcter from '@/components/navcter/navcter' //关于我们
 import transfer from '@/page/transfer/transfer'
 import technology from '@/page/technology/technology' //技术转移
 import yuan from '@/page/yuan/yuan' //技术转移
+import trys from '@/page/trys/trys' 
 
 Vue.use(Router)
 
@@ -307,5 +308,10 @@ export default new Router({
             name: 'technology',
             component: technology
         },
+        {
+            path: '/trys',
+            name: 'trys',
+            component: trys
+        }
     ]
 })
