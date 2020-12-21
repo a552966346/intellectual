@@ -15,7 +15,8 @@
                 </li>
                 <li class="con_c"  v-on:click.self="isshow">
                     <router-link to="/usercenter/userbuy" class="item"  >
-                        <img class="left_b" src="../../../static/img/usercenter/buyperson.png" alt="" v-on:click.self="isshow">我是买家
+                        <img class="left_b" src="../../../static/img/usercenter/buyperson.png" alt="" >
+                        <span  v-on:click.self="isshow">我是买家</span>
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis">
@@ -27,9 +28,10 @@
                         <li>已完成订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li  @click.stop="isshow_two">
-                    <router-link to="/usercenter/usershop" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/shopperson.png" alt="">我是卖家
+                <li  v-on:click.self="isshow_two">
+                    <router-link to="/usercenter/usershop" class="item" >
+                        <img class="left_b" src="../../../static/img/usercenter/shopperson.png" alt="">
+                        <span v-on:click.self="isshow_two">我是卖家</span>
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_two">
@@ -39,9 +41,10 @@
                         <li>技术转让<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li @click.stop="isshow_three">
+                <li v-on:click.self="isshow_three">
                     <router-link to="/usercenter/usermanage" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/zjmanage.png" alt="">资金管理
+                        <img class="left_b" src="../../../static/img/usercenter/zjmanage.png" alt="">
+                        <span v-on:click.self="isshow_three">资金管理</span>
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_three">
@@ -53,9 +56,10 @@
                         <li>绑定银行卡<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li @click.stop="isshow_four">
+                <li v-on:click.self="isshow_four">
                     <router-link to="/usercenter/usertel" class="imgs item">
-                        <img class="left_b" src="../../../static/img/usercenter/tel.png" alt="">投诉与咨询
+                        <img class="left_b" src="../../../static/img/usercenter/tel.png" alt="">
+                        <span v-on:click.self="isshow_four">投诉与咨询</span>
                         <img class="icon icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_four">
@@ -64,9 +68,10 @@
                         <li>举报假客服<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li @click.stop="isshow_five">
+                <li v-on:click.self="isshow_five">
                     <router-link to="/usercenter/userid" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/id.png" alt="">账号设置
+                        <img class="left_b" src="../../../static/img/usercenter/id.png" alt="">
+                        <span v-on:click.self="isshow_five">账号设置</span>
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_five">
@@ -78,9 +83,10 @@
                         <li>我的邮箱<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li @click.stop="isshow_six">
+                <li v-on:click.self="isshow_six">
                     <router-link to="/usercenter/usermessage" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/user_message.png" alt="">全部消息
+                        <img class="left_b" src="../../../static/img/usercenter/user_message.png" alt="">
+                        <span v-on:click.self="isshow_six"></span>全部消息
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_six">
@@ -89,9 +95,10 @@
                         <li>已读消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
                     </ul>
                 </li>
-                <li @click.stop="isshow_seve">
+                <li v-on:click.self="isshow_seve">
                     <router-link to="/usercenter/usercontract" class="item">
-                        <img class="left_b" src="../../../static/img/usercenter/mycontract_active.png" alt="">我的合同
+                        <img class="left_b" src="../../../static/img/usercenter/mycontract_active.png" alt="">
+                        <span v-on:click.self="isshow_seve">我的合同</span>
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_seve">

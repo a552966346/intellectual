@@ -225,7 +225,6 @@ a {
     margin-left: 3%;
     max-width: 363px;
     min-width: 350px;
-
 }
 .main_l{
     flex: 1;
