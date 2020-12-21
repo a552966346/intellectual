@@ -4,20 +4,20 @@
                 <div class="item" v-for="(item,index) in rank">
                         <img :src="item.image" alt="">
                         <div class="itemall">
-                                <div class="item_list" v-for="(item1,index) in item.cont">
-                                        <div class="item_list_item" >
+                                <div class="item_list" v-for="(item1,index1) in item.cont">
+                                        <div class="item_list_item" @mouseenter="enter(index,index1)">
                                                 <router-link to="">
                                                         <span>{{item1.id}}</span>
                                                         <p>{{item1.title}}</p>
                                                         <img src="../../../static/img/technology/toplistjiantou1.png" alt="">
                                                 </router-link>
                                         </div>
-                                       <!-- <div class="item_list_detailitem">
+                                       <div class="item_list_detailitem" v-show="num[index]== index1">
                                                 <p>发明人:{{item1.detail.people}}</p>
                                                 <p>申请号:{{item1.detail.number}}</p>
                                                 <p>专利状态:{{item1.detail.status}}</p>
                                                 <p>发布时间:{{item1.detail.time}}</p>
-                                        </div> -->
+                                        </div>
                                 </div>
 
                         </div>
@@ -26,8 +26,6 @@
                                 <img src="../../../static/img/technology/enter.png" alt="">
                         </div>
                 </div>
-
-
         </div>
 </template>
 <script>
@@ -38,11 +36,16 @@
                 },
                 data() {
                         return {
-                                active: 0
+                                active: 0,
+                                num:[]
                         }
                 },
                 methods: {
-
+                        enter(index,index1){
+                                console.log(index1)
+                                this.$set(this.num,index,index1);
+                                console.log(this.num)
+                        }
                 }
         }
 </script>
