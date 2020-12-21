@@ -156,7 +156,7 @@
                                 nawqli:[{
                                 nawqtit:' 主要分为产品发明（如机器、仪器、设备和用具等）和方法发明（制造方法、工艺流程等）两大类。',
                                 nawqlist:[{cttimg:'../../../static/img/service/service_ys.png',ttle:'产品名称',cbct:'专利法上的产品，可以是一个独立、完整的产品，也可以是一个设备或仪器中的零部件。',cbctft:'举例：机器、设备以及各种用品材料，如化学物质、组合等具有新用途的产品'},
-                                                {cttimg:'../../../static/img/service/service_ys.png',ttle:'产品名称',cbct:'专利法上的产品，可以是一个独立、完整的产品，也可以是一个设备或仪器中的零部件。',cbctft:'举例：机器、设备以及各种用品材料，如化学物质、组合等具有新用途的产品'}
+                                                {cttimg:'../../../static/img/service/service_ys.png',ttle:'方法发明',cbct:'指人们为制造产品或解决某个技术课题而研究开发出来的操作方法，制造方法以及工艺流程等技术方案。方法可以是由一系列步骤构成的一个完整过程，也可以是一个步骤。',cbctft:'举例：制造方法，即制造特定产品的方法；以及其他方法，如测量方法、分析方法、通信方法、药品配方等;产品的新用途。'}
                                 ]
                                 }],
                                 //好处
@@ -165,43 +165,43 @@
                                 txt:'个人'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'保护智慧结晶'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'维权证明'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'技术入股'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'评职评优'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'升学晋升'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'落户加分'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'企业'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'保护核心技术'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'抢占市场'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'评定高企'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'授权信贷'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'税收减免'
                                 },{
                                 imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                txt:'政策扶持'
                                 },],
                                 //选择伊甸城 表格
                                 tableData: [{
