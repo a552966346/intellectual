@@ -43,13 +43,13 @@
                                                                        <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务保障</span></p>
                                                                        <!-- 服务保障  -->
-
+                                                                       <v-guarantee :nut="nut"></v-guarantee>
                                                                </div>
                                                                 <div class="center_text" id="text_3">
                                                                         <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务优势</span></p>
                                                                         <!-- 服务优势 -->
-
+                                                                        <v-advantage></v-advantage>
                                                                 </div>
                                                                <!-- 常见问题 -->
                                                                <div class="center_text" id="text_4">
@@ -77,6 +77,8 @@
         import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
         import serviceassurance from '../../components/copyright/serviceassurance.vue'//服务保障  123样式
+        import guarantee from '../../components/serviceon/guarantee.vue'//服务保障
+        import advantage from '../../components/serviceon/advantage.vue'//服务优势
         export default{
                 name:'service',
                 data(){
@@ -142,6 +144,14 @@
                                     ]
 
                                 },
+                                //服务保障
+                                nut:{
+                                nutimg:'../../../static/img/service/guarantee_one.png',
+                                data:[
+                                        {tit:'信息安全',cet:'请您放心，您提供的资料我们都会对外保密。'},
+                                        {tit:'专属顾问',cet:'在案件服务过程中，有任何疑问。'}
+                                ]
+                                }
                         }
                 },
                 components:{
@@ -150,7 +160,9 @@
                       'v-applyprocess':applicationprocess,//申请流程 2个图
                         'v-publicproblems':publicproblems,//公共问题
                         'v-serviceassurance':serviceassurance,//服务保障  123样式
-                        'v-servicerightP':serviceright_proc_t
+                        'v-servicerightP':serviceright_proc_t,
+                        'v-guarantee':guarantee,//服务保障
+                        'v-advantage':advantage//服务优势
 
                 },
                 beforeMount() {

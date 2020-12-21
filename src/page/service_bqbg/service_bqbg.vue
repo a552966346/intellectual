@@ -154,11 +154,9 @@
                       'v-serviceleft':serviceleft,
                       'v-servicer':serviceright,
                       'v-applyprocess':applicationprocess,//申请流程 2个图
-                        'v-publicproblems':publicproblems,//公共问题
-                        'v-serviceassurance':serviceassurance,//服务保障  123样式
-                         'v-servicechange':servicechange//必要性
-
-
+                      'v-publicproblems':publicproblems,//公共问题
+                      'v-serviceassurance':serviceassurance,//服务保障  123样式
+                      'v-servicechange':servicechange//必要性
                 },
                 beforeMount() {
                         this.id = this.$route.query.id

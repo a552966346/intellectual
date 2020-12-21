@@ -30,7 +30,7 @@
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">高企认定好处</span></p>
                                                                        <!-- <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle> -->
                                                                        <!-- 高企认定 -->
-
+                                                                        <v-servicezl></v-servicezl>
                                                                </div>
 
                                                                <div class="center_text" id="text_1">
@@ -73,6 +73,7 @@
         import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
         import applicationprocessthree from '../../components/copyright/applicationprocessthree.vue'//申请流程 3个图
         import identifyconditions from '../../components/copyright/identifyconditions.vue'//认定条件
+        import servicezl from '../../components/serviceon/servicezl.vue'//认定图片
         export default{
                 name:'service',
                 data(){
@@ -158,7 +159,8 @@
                                         'v-applyprocessthree':applicationprocessthree,//申请流程 3个图
                                         'v-publicproblems':publicproblems,//公共问题
                                         'v-servicerightP':serviceright_proc_t,
-                                        'v-identifyconditions':identifyconditions
+                                        'v-identifyconditions':identifyconditions,
+                                        'v-servicezl':servicezl //认定图片
                 },
                 beforeMount() {
                         this.id = this.$route.query.id

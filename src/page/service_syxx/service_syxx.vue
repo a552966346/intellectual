@@ -34,9 +34,13 @@
                                                                 <div class="center_text" >
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务详情</span></p>
                                                                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
+                                                                        <v-servicezl></v-servicezl>
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
+                                                                        <v-apply></v-apply>
                                                                         <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
+                                                                        <v-benefit></v-benefit>
                                                                         <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
+                                                                        <v-servicetn></v-servicetn>
                                                                 </div>
                                                                 <!-- 申请流程 -->
                                                                 <div class="center_text" >
@@ -56,6 +60,7 @@
                                                                 <div class="center_text" >
                                                                         <v-comtitle :title="title_all[6]" :inform_title='title_text_all[6]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
+                                                                        <v-serviceon :met='met'></v-serviceon>
                                                                 </div>
                                                         </div>
 
@@ -76,7 +81,11 @@
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import serviceassurance from '../../components/copyright/serviceassurance.vue'//服务保障  123样式
-
+        import serviceon from '../../components/serviceon/serviceon.vue'//常见问题
+        import servicezl from '../../components/serviceon/servicezl.vue'//专利
+        import apply from '../../components/serviceon/apply.vue'//申请
+        import benefit from '../../components/serviceon/benefit.vue'//好处
+        import servicetn from '../../components/serviceon/servicetn.vue'//选择伊甸城
 
 
         export default{
@@ -134,6 +143,21 @@
                                       },
                                     ]
                                 } ,
+                                //常见问题
+                                met:{ 
+                                mess:['../../../static/img/service/serviceright_jiantou.png','常见问题'],
+                                feli:[
+                                        {id:1,ming:'../../../static/img/service/service_icon.png',mitt:'实用新型和发明专利的区别在哪里？',mitim:'../../../static/img/service/service_ictw.png',felida:[
+                                        {text:'第一，实用新型只限于具有一定形状的产品，不能是一种方法，也不能是没有固定形状的产品；而发明是方法，也可以是产品；'},
+                                        {text:'第二，实用新型对技术的要求低，授权时间短；发明对技术的创造性要求高，授权时间长。'}
+                                        ]},
+                                        {id:2,ming:'../../../static/img/service/service_icon.png',mitt:'实用新型的授权条件',mitim:'../../../static/img/service/service_ictw.png',felida:[
+                                        {text:'第一，实用新型只限于具有一定形状的产品，不能是一种方法，也不能是没有固定形状的产品；而发明是方法，也可以是产品；'},
+                                        {text:'第二，实用新型对技术的要求低，授权时间短；发明对技术的创造性要求高，授权时间长。'},
+                                        {text:'第三，实用新型对技术的要求低，授权时间短；发明对技术的创造性要求高，授权时间长。'}
+                                        ]}
+                                ],
+                                },
                                 
                         }
                 },
@@ -142,6 +166,11 @@
                       'v-serviceleft':serviceleft,
                       'v-applyprocess':applicationprocess,//申请流程 2个图
                         'v-serviceassurance':serviceassurance,//服务保障  123样式
+                        'v-serviceon':serviceon,//常见问题
+                        'v-servicezl':servicezl,//专利
+                        'v-apply':apply,//申请
+                        'v-benefit':benefit,//好处
+                        'v-servicetn':servicetn//选择伊甸城
 
 
                 },
