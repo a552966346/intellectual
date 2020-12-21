@@ -37,7 +37,8 @@
                                                                        <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
                                                                        <!-- <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务保障</span></p> -->
                                                                        <!-- 商标变更流程周期  -->
-                                                                        <v-applyprocess :app="app"></v-applyprocess>
+                                                                         <v-applyprocessthree :appthree="appthree"></v-applyprocessthree>
+
                                                                </div>
                                                                <div class="center_text" id="text_2">
                                                                        <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
@@ -69,9 +70,8 @@
         import servicetop from '../../components/servicetop/servicetop.vue'
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import serviceright_proc_t from '../../components/serviceright/serviceright_proc_t.vue' //左图右字
-        import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
-        import serviceassurance from '../../components/copyright/serviceassurance.vue'//服务保障  123样式
+        import applicationprocessthree from '../../components/copyright/applicationprocessthree.vue'//申请流程 3个图
         import identifyconditions from '../../components/copyright/identifyconditions.vue'//认定条件
         export default{
                 name:'service',
@@ -89,60 +89,63 @@
                                                 title_text_all:["","流程合理完善、实时跟进 ，注册商标让您更放心！","",""],
                                                 txt:'text_',
                                                 iscolor:0,
-                                                app:{//申请流程 2个图   //申请流程 0个图
-                                                        src:"../../../static/img/copyright/process.png" ,
-                                                        top_text:"著作权变更所需资料",
-                                                        top_r:"资深顾问审核资料，减少返回率，商业信息、公司信息严格保密",
-                                                        arrl:[
-                                                                {text: '申请书（伊甸城代准备）'},
-                                                                {text: '委托书（伊甸城代准备）'},
-                                                                {text: '作品创造说明 法人作品声明'},
-                                                                {text: '作品图样'},
-                                                                {text: '申请人身份证正反面复印件'}
-                                                        ],
-                                                        arrr:[
-                                                                {text: '申请书（伊甸城代准备）'},
-                                                                {text: '委托书（伊甸城代准备）'},
-                                                                {text: '作品创造说明 法人作品声明'},
-                                                                {text: '作品图样'},
-                                                                {text: '公司营业执照副本复印件'}
-                                                        ],
+                                                appthree:{//申请流程 3个图
+                                                    src:"../../../static/img/copyright/process.png" ,
+                                                    top_text:"高企认定所需资料",
+                                                    top_r:"资深顾问审核资料，减少返回率，商业信息、公司信息严格保密",
+                                                    arr:[
+                                                            {src:"../../../static/img/copyright/company_financial.png" ,
+                                                            title:'企业基本资料',
+                                                            children:[
+                                                                {text: '1、营业执照'},
+                                                                {text: '2、组织机构代码和税务登记证'},
+                                                                {text: '3、企业职工总体情况说明和科技人员名单'}
+                                                            ]},
+                                                            {src:"../../../static/img/copyright/company_basic.png" ,
+                                                            title:'企业财务资料',
+                                                            children:[
+                                                                {text: '1、近三个年度的财务会计报告和年度纳税申请表'},
+                                                                {text: '2、企业近三个会计年度的财务会计报告'},
+                                                            ]},
+                                                            {src:"../../../static/img/copyright/company_manage.png" ,
+                                                            title:'知识产权及研发管理资料',
+                                                            children:[
+                                                                {text: '1、高新技术企业认定申请书'},
+                                                                {text: '2、企业研发管理文件'},
+                                                                {text: '3、企业知识产权证书、科研项目立项证明'}
+                                                            ]},
+
+                                                    ]
                                                 },
                                                 iden:{//认定条件
                                                     arr:[
                                                             {src:"../../../static/img/copyright/ser01.png" ,
-                                                            text: '申请书（伊甸城代准备）'},
+                                                            text: '企业申请认定时须注册成立一年以上；'},
                                                             {src:"../../../static/img/copyright/ser02.png" ,
-                                                            text: '委托书（伊甸城代准备）'}
+                                                            text: '企业提供自主研发、受让、受赠、并购等方式，获得对其主要产品（服务）在技术上发挥核心支持作用的知识产权的所有权；'},
+                                                            {src:"../../../static/img/copyright/ser03.png" ,
+                                                            text: '对企业主要产品（服务）发挥核心支持作用的技术属于《国家重点支持的高新技术领域》规定的范围；'},
+                                                            {src:"../../../static/img/copyright/ser04.png" ,
+                                                            text: '企业从事研发和相关技术创新活动的科技人员占企业当年职工总数的比例不低于10%；'},
+                                                            {src:"../../../static/img/copyright/ser05.png" ,
+                                                            text: '企业近三个会计年度（实际经营期不满三年的按实际经营时间计算，下同）的研究开发费用总额占同期销售收入总额的比例符合如下要求：<br/>a.最近一年销售收入小于5,000万元（含）的企业，比例不低于5%；<br/>b.最近一年销售收入在5,000万元至2亿元（含）的企业，比例不低于4%；<br/>c.最近一年销售收入在2亿元以上的企业，比例不低于3%；<br/>其中，企业在中国境内发生的研究开发费用总额占全部研究开发费用总额的比例不低于60%；'},
+                                                            {src:"../../../static/img/copyright/ser06.png" ,
+                                                            text: '近一年高新技术产品（服务）收入占企业同期总收入的比例不低于60%；'},
+                                                            {src:"../../../static/img/copyright/ser07.png" ,
+                                                            text: '企业创新能力评价应达到相应要求；'},
+                                                            {src:"../../../static/img/copyright/ser08.png" ,
+                                                            text: '企业申请认定前一年内未发生重大安全、重大质量事故或严重环境违法行为。'},
+
                                                     ],
                                                 },
-                                                ser:{//服务保障  123样式
-                                                    arr:[
-                                                      {
-                                                            src:'../../../static/img/copyright/ser01.png',
-                                                            title:'信息安全',
-                                                            text:'请您放心，您提供的资料我们都会对外保密，并且在您提供材料前，我们的专利顾问会与您签订一份保密协议，作为伊甸城的一种负责任的书面承诺，让您安心！当然，不管您是否与我们签有保密协议，我们都会对您提供过来的材料进行严格的保密处理，绝不例外！'
-                                                      },
-                                                      {
-                                                            src:'../../../static/img/copyright/ser02.png',
-                                                            title:'专属顾问',
-                                                            text:'在案件服务过程中，有任何疑问，可发送邮箱：info@edencity.cn，我们将安排专业人员在24小时之内及时处理，对于担保服务，可依据合同条款进行退款。'
-                                                      },
-                                                      {
-                                                            src:'../../../static/img/copyright/ser03.png',
-                                                            title:'投诉渠道',
-                                                            text:'邮件投诉：发送邮件至info@edencity.cn'
-                                                      },
-                                                    ]
-                                                } ,
                                                 pub:{//公共问题
                                                     arrq:[
-                                                            {q: '转让后版权登记证书全国通用吗？',
-                                                             a: '是的，版权不限制地区，全国范围内均具有同等效力。'},
-                                                            {q: '版权转让成功后，是否会重新下发登记证书吗？',
-                                                             a: '转让成功后会下发转让证明，不会重新下发新名义的登记证书。登记成功的版权转让证明和原版版登记证来证明版权。'},
-                                                             {q: '版权转让和授权的区别？',
-                                                             a: '版权转让后，原版权所有者不再享有被转让的权利，受让人成为新的版权所有者；而在授权使用的情况下，版权仍归原版权所有者，被授权人只有按双方约定的使用方式和条件使用作品的权利。'}
+                                                            {q: '高企技术企业的有效期是多久?有效期到了需要复审吗?',
+                                                             a: '自颁发高新技术企业认定证书之日起生效，有效期为3年，逾期自动失效，需重新申请认定。'},
+                                                            {q: '高企通过后如何办理税收优惠?',
+                                                             a: '持省科技部门颁发的高新技术企业证书及复印件，向主管税务机关申请办理免税手续，即可按15％税率进行所得税预缴申报。'},
+                                                             {q: '餐饮类企业、贸易型企业可以申报高新技术企业吗?',
+                                                             a: '企业是否符合申报条件要严格按照国家相关管理办法，须进行相关技术研发活动，且自主研发的产品为主营收入并拥有知识产权的企业方可申请。'}
 
                                                     ]
 
@@ -150,11 +153,10 @@
                                         }
                                 },
                                 components:{
-                                      'v-servicet':servicetop,
-                                      'v-serviceleft':serviceleft,
-                                      'v-applyprocess':applicationprocess,//申请流程 2个图
+                                        'v-servicet':servicetop,
+                                        'v-serviceleft':serviceleft,
+                                        'v-applyprocessthree':applicationprocessthree,//申请流程 3个图
                                         'v-publicproblems':publicproblems,//公共问题
-                                        'v-serviceassurance':serviceassurance,//服务保障  123样式
                                         'v-servicerightP':serviceright_proc_t,
                                         'v-identifyconditions':identifyconditions
                 },

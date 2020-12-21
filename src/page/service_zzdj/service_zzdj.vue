@@ -31,6 +31,7 @@
                                                                 <div class="center_text" id="text_0">
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">软著必要性</span></p>
                                                                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
+                                                                        <v-servicechange></v-servicechange>
                                                                 </div>
                                                                 <!-- 服务流程 -->
                                                                 <div class="center_text" id="text_1">
@@ -65,6 +66,8 @@
         import serviceright from '../../components/serviceright/serviceright.vue'
         import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
+        import servicechange from '../../components/serviceon/servicechange.vue'//必要性
+        
 
 
         export default{
@@ -123,7 +126,8 @@
                       'v-serviceleft':serviceleft,
                       'v-servicer':serviceright,
                       'v-applyprocess':applicationprocess,//申请流程 2个图
-                        'v-publicproblems':publicproblems,//公共问题
+                      'v-publicproblems':publicproblems,//公共问题
+                      'v-servicechange':servicechange//必要性
 
                 },
                 beforeMount() {

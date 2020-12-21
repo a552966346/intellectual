@@ -39,8 +39,8 @@
 </script>
 
 <style>
-.servicesv_all{width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column;padding: 20px;}
+.servicesv_all{width: 100%;height: 330px;display: flex;justify-content: center;align-items: center;flex-direction: column;padding: 20px;}
 .servicesv_firt{width: 100%;height: 65px;display: flex;justify-content: flex-start;align-items: center;flex-direction: row;}
-.servicesv_second{width: 100%;height: 100%;display: flex;justify-content: space-around;align-items: center;flex-direction: column;}
+.servicesv_second{width: 100%;height: 100%;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;}
 .servicesv_second p{display: flex;justify-content: space-around;align-items: center;flex-direction: row;}
 </style>
