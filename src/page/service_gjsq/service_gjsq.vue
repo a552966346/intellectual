@@ -21,11 +21,8 @@
                                                         <v-serviceleft :isid="id" @running="running"></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right zzdj_cen_right">
-                                                       
-
                                                         <div class="zzdj_serviceright_top">
-                                                               <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
-
+                                                               <p v-for="(item,index) in title" :key="index" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
                                                         </div>
                                                         <div class="zzdj_serviceright_center">
                                                                 <!-- 服务详情 -->
@@ -136,9 +133,9 @@
                 beforeMount() {
                         console.log(111111)
                         this.id = this.$route.query.id
-                        // this.$nextTick(function(){
-                        //      this.isgets(this.id)
-                        // })
+                        this.$nextTick(function(){
+                             this.isgets(this.id)
+                        })
 
                 },
                 methods:{
@@ -149,17 +146,17 @@
                         isgets(id){
                                 this.$api.severdetiles(id)
                                 .then(res=>{
-                                        // if(res.code){
-                                        //         console.log(res)
-                                        //         this.top_data = res.data.data
-                                        //         this.right_data = res.data.data.content.split(',')
-                                        //         this.toptext = res.data.data.contenttitle.split(',')
-                                        //         this.question = res.data.question
-                                        //         this.toptext.push("常见问题","典型案例")
-                                        //         this.image = res.data.data.images_text
-                                        // }else{
-                                        //         alert("暂无数据")
-                                        // }
+                                        if(res.code){
+                                                console.log(res)
+                                                this.top_data = res.data.data
+                                                this.right_data = res.data.data.content.split(',')
+                                                this.toptext = res.data.data.contenttitle.split(',')
+                                                this.question = res.data.question
+                                                this.toptext.push("常见问题","典型案例")
+                                                this.image = res.data.data.images_text
+                                        }else{
+                                                alert("暂无数据")
+                                        }
                                 })
                         },
                         text_click(porp){
@@ -189,4 +186,5 @@
         .center_text{padding:10px 20px ;flex: 1;}
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;}
+        .iscolor{color: #0184FE;}
 </style>

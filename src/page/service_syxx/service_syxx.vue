@@ -21,17 +21,12 @@
                                                         <v-serviceleft :isid="id" @running="running"></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right zzdj_cen_right">
-                                                       
-
                                                         <div class="zzdj_serviceright_top">
-                                                                <p>服务详情</p>
-                                                                <p>申请流程</p>
-                                                                <p>服务保障</p>
-                                                                <p>常见问题</p>
-                                                        </div>
+                                                              <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}" :key="index">{{item}}</p>
+                                                       </div>
                                                         <div class="zzdj_serviceright_center">
                                                                 <!-- 服务详情 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_0">
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务详情</span></p>
                                                                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
                                                                         <v-servicezl></v-servicezl>
@@ -43,13 +38,13 @@
                                                                         <v-servicetn></v-servicetn>
                                                                 </div>
                                                                 <!-- 申请流程 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_1">
                                                                         <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :color='title_color'></v-comtitle>
                                                                         <!-- 申请流程 2个图 -->
                                                                         <v-applyprocess :app="app"></v-applyprocess>
                                                                 </div>  
                                                                 <!-- 服务保障 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_2">
                                                                         <v-comtitle :title="title_all[5]" :inform_title='title_text_all[5]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务保障</span></p>
                                                                         <!-- 服务保障  123样式 -->
@@ -57,7 +52,7 @@
                                                                 </div>
                                                                 
                                                                 <!-- 常见问题 -->
-                                                                <div class="center_text" >
+                                                                <div class="center_text" id="text_3">
                                                                         <v-comtitle :title="title_all[6]" :inform_title='title_text_all[6]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
                                                                         <v-serviceon :met='met'></v-serviceon>
@@ -92,8 +87,7 @@
                 name:'service',
                 data(){
                         return{
-
-                                title:'企业知识产贯标',
+                                title:['服务详情','申请流程','服务保障','常见问题'],
                                 top_data:'',
                                 id:'',
                                 image:[],
@@ -175,11 +169,10 @@
 
                 },
                 beforeMount() {
-                        console.log(111111)
                         this.id = this.$route.query.id
-                        // this.$nextTick(function(){
-                        //      this.isgets(this.id)
-                        // })
+                        this.$nextTick(function(){
+                             this.isgets(this.id)
+                        })
 
                 },
                 methods:{
@@ -190,20 +183,25 @@
                         isgets(id){
                                 this.$api.severdetiles(id)
                                 .then(res=>{
-                                        // if(res.code){
-                                        //         console.log(res)
-                                        //         this.top_data = res.data.data
-                                        //         this.right_data = res.data.data.content.split(',')
-                                        //         this.toptext = res.data.data.contenttitle.split(',')
-                                        //         this.question = res.data.question
-                                        //         this.toptext.push("常见问题","典型案例")
-                                        //         this.image = res.data.data.images_text
-                                        // }else{
-                                        //         alert("暂无数据")
-                                        // }
+                                        if(res.code){
+                                                console.log(res)
+                                                this.top_data = res.data.data
+                                                this.right_data = res.data.data.content.split(',')
+                                                this.toptext = res.data.data.contenttitle.split(',')
+                                                this.question = res.data.question
+                                                this.toptext.push("常见问题","典型案例")
+                                                this.image = res.data.data.images_text
+                                        }else{
+                                                alert("暂无数据")
+                                        }
                                 })
+                        },
+                        text_click(porp){
+                                this.iscolor = porp;
+                                this.$el.querySelector('#text_'+porp).scrollIntoView()
                         }
-                }
+                },
+                
         }
 </script>
 
@@ -226,4 +224,5 @@
         .center_text{padding:10px 20px ;flex: 1;}
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;}
+        .iscolor{color: #0184FE;}
 </style>

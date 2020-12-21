@@ -24,8 +24,7 @@
                                                        
 
                                                         <div class="zzdj_serviceright_top">
-                                                                <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
-
+                                                                <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}" :key="index">{{item}}</p>
                                                         </div>
                                                         <div class="zzdj_serviceright_center">
                                                                 <!-- 服务详情 -->
@@ -86,8 +85,6 @@
                 name:'service',
                 data(){
                         return{
-
-                                // title:'企业知识产贯标',
                                 title:['PCT申请','PCT优势','申请材料','伊甸优势','常见问题'],
                                 top_data:'',
                                 id:'',
@@ -200,4 +197,5 @@
         .center_text{padding:10px 20px ;flex: 1;}
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;}
+        .iscolor{color: #0184FE;}
 </style>
