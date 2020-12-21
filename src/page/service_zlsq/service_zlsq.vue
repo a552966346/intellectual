@@ -35,7 +35,7 @@
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
                                                                         <v-servicezl :idenimg='idenimg'></v-servicezl>
                                                                         <v-comtitle id="text_1" :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
-                                                                        <v-servicetr></v-servicetr>
+                                                                        <v-servicetr :mulist="mulist"></v-servicetr>
                                                                 </div>
                                                                 <!-- 申请流程 -->
                                                                 <div class="center_text" id="text_2">
@@ -138,6 +138,20 @@
                                                 {text: '技术交底书'}
                                         ],  
                                 },
+                                //pc优势
+                                mulist:[{
+                                        src:'../../../static/img/service/service_sqon.png',
+                                        text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
+                                        },{
+                                        src:'../../../static/img/service/service_sqon.png',
+                                        text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
+                                        },{
+                                        src:'../../../static/img/service/service_sqon.png',
+                                        text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
+                                        },{
+                                        src:'../../../static/img/service/service_sqon.png',
+                                        text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
+                                        }]
                                 
                         }
                 },

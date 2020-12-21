@@ -2,10 +2,10 @@
     <div class="servicetr_all">
         <div class="servicetr_blcs" v-for="(item,index) in mulist" :key="index">
             <div class="servicetr_blclet">
-                <img src="../../../static/img/service/service_sqon.png" alt="">
+                <img :src="item.src" alt="">
             </div>
             <div class="servicetr_blcret">
-                享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。
+                {{item.text}}
             </div>
         </div>
     </div>
@@ -15,8 +15,11 @@
     export default {
         data(){
             return{
-                mulist:[{},{},{},{}]
+                
             }
+        },
+        props:{
+            mulist:''
         }
     }
 </script>
