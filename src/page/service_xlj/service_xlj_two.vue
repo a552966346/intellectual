@@ -27,8 +27,8 @@
                                                        <div class="zzdj_serviceright_center">
                                                                <!-- 服务详情 -->
                                                                <div class="center_text" id="text_0">
-                                                                       <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">成果信息</span></p>
                                                                        <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
+                                                                       <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">成果信息</span></p>
                                                                        <!-- 业务介绍 -->
                                                                         <v-servicesv :svali='svali'></v-servicesv>
                                                                </div>
@@ -92,32 +92,32 @@
                                       {
                                             src:'../../../static/img/copyright/safe_contract.png',
                                             title:'签署交易合同',
-                                            text:'请您放心，您提供的资料我们都会对外保'
+                                            text:'Sign the transaction contract'
                                       },
                                       {
                                             src:'../../../static/img/copyright/safe_confirm.png',
                                             title:'第三方担保交易',
-                                            text:'请您放心，您提供的资料我们都会对外保'
+                                            text:'Tripartite secured transactions'
                                       },
                                       {
                                             src:'../../../static/img/copyright/safe_confirm.png',
                                             title:'提供资料证件',
-                                            text:'请您放心，您提供的资料我们都会对外保'
+                                            text:'Provide information and certificates'
                                       },
                                       {
                                             src:'../../../static/img/copyright/safe_confirm.png',
                                             title:'极速退款',
-                                            text:'请您放心，您提供的资料我们都会对外保'
+                                            text:'Extreme refund'
                                       },
                                       {
                                             src:'../../../static/img/copyright/safe_confirm.png',
                                             title:'支持线下',
-                                            text:'请您放心，您提供的资料我们都会对外保'
+                                            text:'Under the support line'
                                       },
                                       {
                                             src:'../../../static/img/copyright/safe_confirm.png',
                                             title:'确认后放款',
-                                            text:'请您放心，您提供的资料我们都会对外保'
+                                            text:'loan after confirmation'
                                       }
 
                                   ]
@@ -134,14 +134,12 @@
                                 },
                                 pub:{//公共问题
                                     arrq:[
-                                            {q: '商标更正有哪几种情况？',
-                                             a: '商标更正有两种，一种是注册人或代理人的笔误，另一种是商标局在受理商标注册申请文件时，在录入或者扫描过程中将个别内容弄错的。'},
-                                            {q: '办理商标更正的方法？',
-                                             a: '商标更正可以由申请人到商标总局办事大厅（北京市西城区茶马南街1号）办理，也可以委托具有代理资质的商标代理机构代为办理。'},
-                                             {q: '商标更正和商标变更有什么区别？',
-                                             a: '商标更正：是指在商标过程中，由于申请文件文字错误，不涉及商标、申请名称、地址等内容的更改。商标变更：商标核准注册后，商标注册人的名义、地址或其他注册事项发生变更的，应当向商标局申请办理相应变更手续。'},
-                                             {q: '变更成功后，会重新下发新的商标注册证吗？',
-                                             a: '商标局会下发《商标更正核准证明》，此文件须同原商标证书一并使用，不再下发新的证书。'}
+                                            {q: '什么是评价？',
+                                             a: '按照规定  原则、程序和标准，运用科学、可行的方法，对技术成果的成熟度、先进性市场前景'},
+                                            {q: '专利申请权和专利权可以转让吗？',
+                                             a: `专利权简称“专利”，是发明创造bai人或其权利受让人对特定的发明创造在一定期限内依法享有的独占实施权，是知识产权的一种。那么专利权能不能转让呢?答案是可以转让。专利转让是拥有专利申请权和专利权人把专利申请权和专利权让给他人的一种法律行为。《中华人民共和国专利法》规定：专利申请权和专利权可以转让。国有企业转让专利申请权或者专利权，必须经上级主管机关批准;中国人(或者单位)向外国人转让专利申请权或专利权，必须经国务院有关主管部门批准。转让专利申请或专利权的当事人必须订立书面合同，经国家知识产权局登记和公告后生效。专利转让包括出售、折股投资等多种形式。书面形式和登记及公告是专利申请权转让合同生效的法定条件，未签订书面合同或未经国家知识产权局登记和公告的专利权转让不发生法律上的效力。法律依据：《中华人民共和国专利法》第十条专利申请权和专利权可以转让。中国单位或者个人向外国人、外国企业或者外国其他组织转让专利申请权或者专利权的，应当依照有关法律、行政法规的规定办理手续。转让专利申请权或者专利权的，当事人应当订立书面合同，并向国务院专利行政部门登记，由国务院专利行政部门予以公告。专利申请权或者专利权的转让自登记之日起生效。`},
+                                             {q: '什么是专利转让？',
+                                             a: '专利转让是专利申请权人和专利权人把专利申请权和专利权让给他人的一种法律行为。《中华人民共和国专利法》规定：专利申请权和专利权可以转让。全民所有制单位转让专利申请权或者专利权，必须经上级主管机关批准;中国人(或单位)向外国人转让专利申请权或专利权，必须经国务院有关主管部门批准。转让专利申请或专利权的当事人必须订立书面合同，经专利局登记后生效。专利转让包括出售、折股投资等多种形式。'},
 
                                     ]
 
