@@ -18,7 +18,7 @@
                                         <div class="topBody_lei">
                                                 <div>
                                                         <p>行业分类</p>
-                                                        <p>{{top_data.categoryid_text.name}}</p>
+                                                        <p>{{top_data.name.name}}</p>
                                                 </div>
                                                 <div>
                                                         <p>专利类型</p>
@@ -83,7 +83,8 @@
                 props: {
                         title: '',
                         top_data: '',
-                        image: ''
+                        image: '',
+                        name:''
                 },
                 mounted() {
 

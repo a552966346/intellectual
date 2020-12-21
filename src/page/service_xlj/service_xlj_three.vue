@@ -9,7 +9,7 @@
                                 <div class="consultation_all_text"><p>交易中心>专利转让</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :title="title" :top_data="top_data" :image="image">
+                                        <v-servicet :title="title" :top_data="top_data" :image="image" :name ="name">
                                                <!-- <template v-slot:topall>
                                                         <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
                                                         <div class="slot_bord">11111111</div>
@@ -141,6 +141,7 @@
                                            ]
 
                                        },
+                                       name:''
                                }
                        },
                        components:{
@@ -164,11 +165,8 @@
                                 .then(res=>{
                                         console.log(res)
                                         this.top_data = res.data.data
-                                        this.question = res.data.question
-                                        this.right_data = res.data.data.content.split(',')
-                                        this.toptext = res.data.data.contenttitle.split(',')
-                                        this.toptext.push("常见问题","典型案例")
                                         this.image = res.data.data.images_text
+                                        this.name = res.data.data.categoryid_text
                                 })
                         },
                         text_click(porp){

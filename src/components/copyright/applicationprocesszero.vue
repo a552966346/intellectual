@@ -2,7 +2,7 @@
 <!-- 申请流程 0个图-->
 <div class="applyProcess0_all">
     <div class="applyProcess0_container">
-        <v-comtitle :title="title_all[3]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
+        <v-comtitle :title="title_all" :inform_title='title_text_all' :color='title_color'></v-comtitle>
 
         <div class="applyProcess0_img">
             <img :src="app.src" alt="">
@@ -15,21 +15,23 @@ export default {
     data(){
         return{
             title_color:'#fff',
-            title_all:["软件著作权登记流程","美术作品登记流程","文学作品登记流程","著作权变更流程","著作权版权转让流程"],
-            title_text_all:[
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单",
-                "流程合理完善，让您的著作权登记更为流畅简单"
-            ]
+            // title_all:["软件著作权登记流程","美术作品登记流程","文学作品登记流程","著作权变更流程","著作权版权转让流程"],
+            // title_text_all:[
+            //     "流程合理完善，让您的著作权登记更为流畅简单",
+            //     "流程合理完善，让您的著作权登记更为流畅简单",
+            //     "流程合理完善，让您的著作权登记更为流畅简单",
+            //     "流程合理完善，让您的著作权登记更为流畅简单",
+            //     "流程合理完善，让您的著作权登记更为流畅简单"
+            // ]
         }
     },
     props: {
+        title_all:'',
+        title_text_all:'',
         app:Object
-        
+
     }
-    
+
 }
 </script>
 <style scoped>

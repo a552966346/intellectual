@@ -21,8 +21,8 @@
                                                         <v-serviceleft  ></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right zzdj_cen_right">
-                                                
-                                                
+
+
                                                         <div class="zzdj_serviceright_top">
                                                                <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
                                                         </div>
@@ -46,7 +46,7 @@
                                                                         <!-- 服务保障  123样式 -->
                                                                         <v-serviceassurance :ser="ser"></v-serviceassurance>
                                                                 </div>
-                                                
+
                                                                 <!-- 常见问题 -->
                                                                 <div class="center_text" id="text_3">
                                                                         <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
@@ -54,7 +54,7 @@
                                                                         <v-publicproblems :pub="pub"></v-publicproblems>
                                                                 </div>
                                                         </div>
-                                                
+
                                                 </div>
                                         </div>
                                 </div>
@@ -162,27 +162,14 @@
                         ispost(id){
                                 this.$api.getCopyrightconditions(id)
                                 .then(res=>{
-                                        console.log(res)
+                                        res.data.data.scope = res.data.data.scope.split(',')
+                                         res.data.data.region= res.data.data.region.split(',')
+                                         res.data.data.affiliating = res.data.data.affiliating.split(',')
+                                         res.data.data.meanstype = res.data.data.meanstype.split(',')
                                         this.top_data = res.data.data
-                                         this.question = res.data.question
-                                        this.right_data = res.data.data.content.split(',')
-                                        this.toptext = res.data.data.contenttitle.split(',')
-                                        this.toptext.push("常见问题","典型案例")
+                                        this.title = res.data.data.categoryid_text
+                                        console.log(this.top_data)
                                         this.image = res.data.data.images_text
-                                        switch(res.data.patenttype){
-                                                case 1 :this.top_data.patenttype ='发明专利'; break;
-                                                case 2 : this.top_data.patenttype ='实用新型'; break;
-                                                case 3 : this.top_data.patenttype ='外观设计'; break;
-                                        }
-                                        switch(res.data.condition){
-                                                case 1 :this.top_data.condition ='授权未下证'; break;
-                                                case 2 : this.top_data.condition ='已下证'; break;
-                                        }
-                                        switch(res.data.sell){
-                                                case 1 :this.top_data.sell ='出售'; break;
-                                                case 2 : this.top_data.sell ='授权'; break;
-
-                                        }
                                 })
                         },
                         text_click(porp){

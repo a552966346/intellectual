@@ -44,17 +44,17 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    height: 440px;
+    /* height: 440px; */
 }
 .safetyguarantee_item{
-    width: 32%;
-    height: 92px;
+    width: 33%;
+    /* height: 92px; */
     margin-top: 20px;
     background-color: #f5f6f8;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 29px 10px 29px;
+    padding: 10px 25px 10px 25px;
 }
 .safetyguarantee_text{
     margin-left: 16px;
