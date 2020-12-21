@@ -28,7 +28,7 @@
                                                       </div>
                                                 </div>
                                                 <div class="indexpay_right_contitem2" v-show="see[index]">
-                                                         <router-link to="">
+                                                         <router-link :to="'service_xlj_two?id='+item.id">
                                                                 <div>
                                                                          <img src="../../../static/img/technology/detail.png" alt="">
                                                                         查看详情

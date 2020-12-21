@@ -12,11 +12,8 @@
                 <div class="servicechange_cboimg">
                      <img :src="item.src" alt="">
                 </div>
-                <div class="servicechange_cbsze">
-                    {{item.title}}
-                </div>
-                <div class="servicechange_cbta">
-                </div>
+                
+               
                 <div class="servicechange_cbot">
                     {{item.text}}
                 </div>
@@ -29,8 +26,11 @@
     export default {
         data(){
             return{
-                lists:[{},{},{},{}]
+                lists:[{},{},{},{},]
             }
+        },
+        props:{
+            lists:Object
         }
     }
 </script>
@@ -39,10 +39,8 @@
 .servicechange_all{width: 100%;height: 300px;display: flex;justify-content: center;align-items: center;flex-direction: column;padding: 20px;}
 .servicechange_firt{width: 100%;height: 65px;display: flex;justify-content: flex-start;align-items: center;flex-direction: row;}
 .servicechange_cont{width: 100%;height: 120px;display: flex;justify-content: center;align-items: center;}
-.servicechange_cet{width: 100%;flex: 1;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
-.servicechange_cbolk{width: 185px;height: 185px;border: 1px solid #d9ebff;display: flex;justify-content: space-evenly;align-items: center;flex-direction: column;}
-.servicechange_cboimg{width: 66px;height: 66px;background-color: #d9ebff;}
-.servicechange_cbta{width: 30px;height: 2px;background-color: #187fc4;}
-.servicechange_cbsze{color: #187fc4;font-size: 20px;}
-.servicechange_cbot{font-size: 14px;color: #9abded;}
+.servicechange_cet{margin-top: 20px;width: 100%;flex: 1;display: flex;justify-content: center;align-items: center;flex-direction: row;}
+.servicechange_cbolk{width: 170px;margin: 0 5px;height: 185px;border: 1px solid #d9ebff;display: flex;justify-content: space-evenly;align-items: center;flex-direction: column;}
+.servicechange_cboimg{width: 66px;height: 66px;display: flex;justify-content: center;align-items: center;}
+.servicechange_cbot{font-size: 14px;color: #9abded;padding: 5px;text-align: center;}
 </style>

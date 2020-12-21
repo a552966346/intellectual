@@ -54,7 +54,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 25px 10px 25px;
+    padding: 10px 20px 10px 20px;
 }
 .safetyguarantee_text{
     margin-left: 16px;
