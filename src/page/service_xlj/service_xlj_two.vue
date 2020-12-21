@@ -19,6 +19,7 @@
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left">
                                                         <v-serviceleft  ></v-serviceleft>
+                                                        <v-hove></v-hove>
                                                 </div>
                                                 <div class="cen_right zzdj_cen_right">
                                                        <div class="zzdj_serviceright_top">
@@ -73,6 +74,7 @@
         import servicesv from '../../components/serviceon/servicesv.vue'//成果推荐
         import applicationprocesszero from '../../components/copyright/applicationprocesszero.vue'//申请流程 0个图
          import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
+         import hove from '../../components/transfer/hove.vue'
         export default{
                 name:'service',
                 data(){
@@ -152,7 +154,8 @@
                       'v-safetyguarantee':safetyguarantee,
                       'v-servicesv':servicesv,
                       'v-applicationprocesszero':applicationprocesszero,
-                      'v-publicproblems':publicproblems
+                      'v-publicproblems':publicproblems,
+                      'v-hove':hove
                 },
                 mounted() {
                         this.id = this.$route.query.id
