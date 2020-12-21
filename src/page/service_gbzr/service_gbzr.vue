@@ -29,8 +29,8 @@
                                                                <div class="center_text" id="text_0">
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">申请主体</span></p>
                                                                        <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
-                                                                       <!-- 业务介绍 -->
-                                                                       <v-servicerightP :ser="ser"></v-servicerightP>
+                                                                       <!-- 申请主体 -->
+                                                                       <v-servicezl :idenimg='idenimg'></v-servicezl>
                                                                </div>
 
                                                                <div class="center_text" id="text_1">
@@ -79,6 +79,8 @@
         import serviceassurance from '../../components/copyright/serviceassurance.vue'//服务保障  123样式
         import servicefv from '../../components/serviceon/servicefv.vue'//业务介绍
         import advantage from '../../components/serviceon/advantage.vue'//服务优势
+        import servicezl from '../../components/serviceon/servicezl.vue' //申请主体
+
         export default{
                 name:'service',
                 data(){
@@ -95,6 +97,9 @@
                                                 title_text_all:["","流程合理完善、实时跟进 ，注册商标让您更放心！","",""],
                                                 txt:'text_',
                                                 iscolor:0,
+                                                idenimg:{
+                                                        src:'../../../static/img/service/sqzt.png'
+                                                },
                                                 app:{//申请流程 2个图   //申请流程 0个图
                                                         src:"../../../static/img/copyright/process.png" ,
                                                         top_text:"商标转让所需资料",
@@ -193,7 +198,8 @@
                                         'v-serviceassurance':serviceassurance,//服务保障  123样式
                                         'v-servicerightP':serviceright_proc_t,
                                         'v-servicefv':servicefv,//业务介绍
-                                        'v-advantage':advantage//服务优势
+                                        'v-advantage':advantage,//服务优势
+                                        'v-servicezl':servicezl,//申请主体
                 },
                 beforeMount() {
                         this.id = this.$route.query.id
