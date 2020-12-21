@@ -29,13 +29,13 @@
                                                                 <div class="center_text" id="text_0">
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务详情</span></p>
                                                                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
-                                                                        <v-servicezl></v-servicezl>
+                                                                        <v-servicezl :idenimg="idenimg"></v-servicezl>
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
-                                                                        <v-apply></v-apply>
+                                                                        <v-apply :nawqli="nawqli"></v-apply>
                                                                         <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
-                                                                        <v-benefit></v-benefit>
+                                                                        <v-benefit :mrt="mrt"></v-benefit>
                                                                         <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
-                                                                        <v-servicetn></v-servicetn>
+                                                                        <v-servicetn :tableData="tableData"></v-servicetn>
                                                                 </div>
                                                                 <!-- 申请流程 -->
                                                                 <div class="center_text" id="text_1">
@@ -152,6 +152,85 @@
                                         ]}
                                 ],
                                 },
+                                 //发明专利 图片
+                                idenimg:{src:"../../../static/img/service/severic_zlon.png"},
+                                //申请发明
+                                nawqli:[{
+                                nawqtit:' 主要分为产品发明（如机器、仪器、设备和用具等）和方法发明（制造方法、工艺流程等）两大类。',
+                                nawqlist:[{cttimg:'../../../static/img/service/service_ys.png',ttle:'产品名称',cbct:'专利法上的产品，可以是一个独立、完整的产品，也可以是一个设备或仪器中的零部件。',cbctft:'举例：机器、设备以及各种用品材料，如化学物质、组合等具有新用途的产品'},
+                                                {cttimg:'../../../static/img/service/service_ys.png',ttle:'产品名称',cbct:'专利法上的产品，可以是一个独立、完整的产品，也可以是一个设备或仪器中的零部件。',cbctft:'举例：机器、设备以及各种用品材料，如化学物质、组合等具有新用途的产品'}
+                                ]
+                                }],
+                                //好处
+                                mrt:[{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },{
+                                imga:'../../../static/img/service/benefit_ismg.png',
+                                txt:'个人'
+                                },],
+                                //选择伊甸城 表格
+                                tableData: [{
+                                date: '授权保险',
+                                name: '8个',
+                                },{
+                                date: '技术交底指导',
+                                name: '50000',
+                                },{
+                                date: '专利检索',
+                                name: '50000',
+                                },{
+                                date: '费减指导',
+                                name: '50000',
+                                },{
+                                date: '专利文件撰写',
+                                name: '50000',
+                                },{
+                                date: '平面画图（修图）',
+                                name: '50000',
+                                },{
+                                date: '专利质量审查',
+                                name: '50000',
+                                },{
+                                date: '客户一票否决权',
+                                name: '50000',
+                                }]
                                 
                         }
                 },

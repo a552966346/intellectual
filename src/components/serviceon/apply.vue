@@ -1,25 +1,25 @@
 <template>
     <div class="apply_all">
         <div class="apply_top">
-            主要分为产品发明（如机器、仪器、设备和用具等）和方法发明（制造方法、工艺流程等）两大类。
+           {{nawqli[0].nawqtit}}
         </div>
         <div class="apply_cet">
-            <div class="apply_cetbl" v-for="(items,index) in nawqli" :key="index">
+            <div class="apply_cetbl" v-for="(items,index) in nawqli[0].nawqlist" :key="index">
                 <div class="apply_cetbltop">
                     <div class="apply_cetbltoptt">
                         <div class="apply_cetbltopttimg">
-                            <img src="../../../static/img/service/service_ys.png" alt="">
+                            <img :src="items.cttimg" alt="">
                         </div>
                         <div class="apply_cetbltopttit">
-                            产品名称
+                            {{items.ttle}}
                         </div>
                     </div>
                     <div class="apply_cetbltopttct">
-                        专利法上的产品，可以是一个独立、完整的产品，也可以是一个设备或仪器中的零部件。
+                            {{items.cbct}}
                     </div>
                 </div>
                 <div class="apply_cetblfot">
-                    举例：机器、设备以及各种用品材料，如化学物质、组合等具有新用途的产品
+                        {{items.cbctft}}
                 </div>
             </div>
         </div>
@@ -30,8 +30,11 @@
     export default {
         data(){
             return{
-                nawqli:[{},{}]
+                
             }
+        },
+        props:{
+            nawqli:''
         }
     }
 </script>

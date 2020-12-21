@@ -24,32 +24,11 @@
     export default {
         data(){
             return {
-                tableData: [{
-                date: '授权保险',
-                name: '8个',
-                },{
-                date: '技术交底指导',
-                name: '50000',
-                },{
-                date: '专利检索',
-                name: '50000',
-                },{
-                date: '费减指导',
-                name: '50000',
-                },{
-                date: '专利文件撰写',
-                name: '50000',
-                },{
-                date: '平面画图（修图）',
-                name: '50000',
-                },{
-                date: '专利质量审查',
-                name: '50000',
-                },{
-                date: '客户一票否决权',
-                name: '50000',
-                }]
-            }
+                
+            }  
+        },
+        props:{
+            tableData:'' 
         }
     }
 </script>

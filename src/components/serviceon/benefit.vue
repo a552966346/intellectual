@@ -2,10 +2,10 @@
     <div class="benefit_all">
         <div class="benefit_block" v-for="(item,index) in mrt" :key="index">
             <div class="benefit_blockimg">
-                <img src="../../../static/img/service/benefit_ismg.png" alt="">
+                <img :src="item.imga" alt="">
             </div>
             <div class="benefit_blofz">
-                个人
+                {{item.txt}}
             </div>
         </div>
     </div>
@@ -15,8 +15,11 @@
     export default {
         data(){
             return{
-                mrt:[{},{},{},{},{},{},{},{},{},{},{},{},{},{},]
+                
             }
+        },
+        props:{
+            mrt:''
         }
     }
 </script>
