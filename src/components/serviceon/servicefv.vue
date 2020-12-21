@@ -1,17 +1,22 @@
 <template>
     <div class="servicefv_all">
         <div class="servicefv_ret">
-            <p>需要变更注册人名义、登记地址等注册事项(代理、文件接收人)的商标注册人。</p>
+            <p>{{fvlist[0].text}}</p>
         </div>
         <div class="servicefv_let">
-            <img src="../../../static/img/service/sevice_fvion.png" alt="">
+            <img :src="fvlist[0].img" alt="">
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        
+       data(){
+           
+       },
+       props:{
+           fvlist:''
+       } 
     }
 </script>
 

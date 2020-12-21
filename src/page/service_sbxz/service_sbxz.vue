@@ -43,13 +43,13 @@
                                                                        <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">业务介绍</span></p>
                                                                        <!-- 业务介绍  -->
-                                                                        <v-servicefv></v-servicefv>
+                                                                        <v-servicefv :fvlist='fvlist'></v-servicefv>
                                                                </div>
                                                                 <div class="center_text" id="text_3">
                                                                         <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务优势</span></p>
                                                                         <!-- 服务优势 -->
-                                                                        <v-advantage></v-advantage>
+                                                                        <v-advantage :yst="yst"></v-advantage>
                                                                 </div>
                                                                <!-- 常见问题 -->
                                                                <div class="center_text" id="text_4">
@@ -143,6 +143,44 @@
                                                              a: '商标注册在有效期满前，商标所有人应及时在商标注册机关办理续展注册手续。不要使商标过期失效，失去商标专用权。'}
                                                    ]
                                                },
+                                               //服务优势
+                                                yst:[{
+                                                        ystid:1,
+                                                        ystimg:'../../../static/img/service/advantage_one.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },{
+                                                        ystid:2,
+                                                        ystimg:'../../../static/img/service/advantage_two.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },{
+                                                        ystid:3,
+                                                        ystimg:'../../../static/img/service/advantage_tre.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },{
+                                                        ystid:4,
+                                                        ystimg:'../../../static/img/service/advantage_fhh.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },{
+                                                        ystid:5,
+                                                        ystimg:'../../../static/img/service/advantage_fvv.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },{
+                                                        ystid:6,
+                                                        ystimg:'../../../static/img/service/advantage_sxx.png',
+                                                        ysttit:'高通过率',
+                                                        ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
+                                                },
+                                                ],
+                                                // 业务介绍
+                                                fvlist:[{
+                                                        text:'需要变更注册人名义、登记地址等注册事项(代理、文件接收人)的商标注册人。',
+                                                        img:'../../../static/img/service/sevice_fvion.png'
+                                                }]
                                        }
                                },
                                components:{

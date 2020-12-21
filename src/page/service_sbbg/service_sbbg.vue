@@ -37,7 +37,7 @@
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">商标信息变更</span></p>
                                                                        <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
                                                                        <!-- 信息变更-->
-                                                                        <v-servicesx></v-servicesx>
+                                                                        <v-servicesx :changli="changli"></v-servicesx>
                                                                </div>
                                                                <!-- 服务保障 -->
                                                                <div class="center_text" id="text_2">
@@ -50,7 +50,7 @@
                                                                        <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">业务介绍</span></p>
                                                                        <!-- 业务介绍  -->
-                                                                        <v-servicesv></v-servicesv>
+                                                                        <v-servicesv :svali='svali'></v-servicesv>
                                                                </div>
                                                                 <div class="center_text" id="text_4">
                                                                         <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :color='title_color'></v-comtitle>
@@ -184,7 +184,34 @@
                                                         ystimg:'../../../static/img/service/advantage_sxx.png',
                                                         ysttit:'高通过率',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
-                                                },] 
+                                                },
+                                                ],
+                                                //信息变更
+                                                changli:{
+                                                contimg:'../../../static/img/service/sever_sbbgimh.png',
+                                                list:[{
+                                                cboimg:'../../../static/img/service/service_chaone.png',
+                                                cbstit:'商标转让',
+                                                cbot:'商标权属发生改变，依照商...'
+                                                },{
+                                                cboimg:'../../../static/img/service/service_chatwo.png',
+                                                cbstit:'商标变更',
+                                                cbot:'如需变更注册人名义、登记地...'
+                                                },{
+                                                cboimg:'../../../static/img/service/service_chatre.png',
+                                                cbstit:'商标续展',
+                                                cbot:'希望继续保有原商标，在商...'
+                                                },{
+                                                cboimg:'../../../static/img/service/service_chatfh.png',
+                                                cbstit:'商标补证',
+                                                cbot:'商标注册证遗失或者破损，即...'
+                                                }]
+                                                },
+                                                //业务介绍
+                                                svali:{
+                                                svat:'商标在注册有效期限内，当其注册人变更其名义、地址、代理人，或者删减指定的商品的，应及时向商标局办理变更手续。企业、事业单位和个人工商业者的地址改变后，若不进行商标变更备案，后续若商标被异议、撤三、无效，都无法及时收到商标局下发的通知，最终可能导致权利的丧失。',
+                                                mlist:[{text:' 变更申请人/注册人名义'},{text:' 变更地址'},{text:' 变更集体/证明商标管理规则/集体成员名单'},{text:'变更商标代理人/文件接收人申请'},{text:'删减商品/服务项目'}]
+                                                }
                                         }
                                 },
                                 components:{

@@ -25,28 +25,11 @@
     export default {
         data(){
             return{
-                changli:{
-                    contimg:'../../../static/img/service/sever_sbbgimh.png',
-                    list:[{
-                       cboimg:'../../../static/img/service/service_chaone.png',
-                       cbstit:'商标转让',
-                       cbot:'商标权属发生改变，依照商...'
-                    },{
-                       cboimg:'../../../static/img/service/service_chaone.png',
-                       cbstit:'商标变更',
-                       cbot:'如需变更注册人名义、登记地...'
-                    },{
-                       cboimg:'../../../static/img/service/service_chaone.png',
-                       cbstit:'商标续展',
-                       cbot:'希望继续保有原商标，在商...'
-                    },{
-                       cboimg:'../../../static/img/service/service_chaone.png',
-                       cbstit:'商标补证',
-                       cbot:'商标注册证遗失或者破损，即...'
-                    }]
-                }
                 
             }
+        },
+        props:{
+            changli:''
         }
     }
 </script>
@@ -58,6 +41,6 @@
 .servicesx_cbolk{width: 185px;height: 185px;border: 1px solid #d9ebff;display: flex;justify-content: space-evenly;align-items: center;flex-direction: column;}
 .servicesx_cboimg{width: 66px;height: 66px;display: flex;justify-content: center;align-items: center;}
 .servicesx_cbta{width: 30px;height: 2px;background-color: #187fc4;}
-.servicesx_cbsze{color: #187fc4;font-size: 20px;}
-.servicesx_cbot{font-size: 14px;color: #9abded;}
+.servicesx_cbsze{color: #187fc4;font-size: 16px;font-weight: bold;}
+.servicesx_cbot{font-size: 14px;color: #9abded;padding: 0 15px;display: flex;justify-content: center;align-items: center;}
 </style>
