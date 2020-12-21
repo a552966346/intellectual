@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.title{margin-top: 40px;background-color: red;}
+		</style>
+	</head>
+	<body>
+		<!-- <button id="btn1">退出登录</button> -->
+		<div id="app">
+			<div v-for="(item,index) in arr">
+				<div class="title" @mouseenter="con=index" @mouseleave="con=-1">{{item.title}}</div>
+				<div class="name" v-if="index==con">{{item.name}}</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:'#app',
+				data:{
+					arr:[{title:'标题一',name:'内容一'},{title:'标题2',name:'内容2'},{title:'标题3',name:'内容3'}],
+					con:-1	//默认索引
+				}
+			})
+		</script>
+	</body>
+</html>
