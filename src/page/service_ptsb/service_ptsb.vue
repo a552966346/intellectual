@@ -22,7 +22,7 @@
                                                 </div>
                                                 <div class="cen_right zzdj_cen_right">
                                                        <div class="zzdj_serviceright_top">
-                                                              <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
+                                                              <p v-for="(item,index) in title" :key="index" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
                                                        </div>
                                                        <div class="zzdj_serviceright_center">
                                                                <!-- 服务详情 -->
