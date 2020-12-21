@@ -149,6 +149,7 @@
                        },
                         choosenull() {
                                 this.screetext =[]
+                                this.id = {}
                                 this.$emit('choosenull')
                         }
                 }

@@ -16,7 +16,7 @@
                                                       <div class="baner_tradeitem_bottom">
                                                               <div class="baner_tradeitem_bottom1">
                                                                    <div v-for="(item1,index1) in item.children">
-                                                                        <router-link to="">{{item1.name}}></router-link>
+                                                                        <router-link :to="item.keywords+'?id='+item1.id+'&name='+item1.name">{{item1.name}}></router-link>
                                                                    </div>
                                                               </div>
                                                               <div class="baner_tradeitem_bottom2">
@@ -135,7 +135,7 @@
                 }
         }
 </script>
-<style>
+<style scoped>
         a:link{text-decoration: none;}
         input, button{border: 0;outline: none;background: none;}
         input{font-family: 微软雅黑, Microsoft YaHei, \5FAE\8F6F\96C5\9ED1;font-size: 12px;}

@@ -34,8 +34,11 @@
                                                                 <div class="center_text" >
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务详情</span></p>
                                                                         <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
+                                                                        <v-servicezl></v-servicezl>
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
+                                                                        <v-servicezl></v-servicezl>
                                                                         <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
+                                                                        <v-servicetr></v-servicetr>
                                                                 </div>
                                                                 <!-- 申请流程 -->
                                                                 <div class="center_text" >
@@ -47,6 +50,7 @@
                                                                 <div class="center_text" >
                                                                         <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务保障</span></p>
+                                                                        <v-servicetw></v-servicetw>
                                                                 </div>
                                                                 
                                                                 <!-- 常见问题 -->
@@ -74,6 +78,9 @@
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
+        import servicetw from '../../components/serviceon/servicetw.vue' //伊甸优势
+        import servicetr from '../../components/serviceon/servicetr.vue' //pc优势
+        import servicezl from '../../components/serviceon/servicezl.vue' //申请
 
 
 
@@ -132,6 +139,9 @@
                       'v-serviceleft':serviceleft,
                       'v-applyprocess':applicationprocess,//申请流程 2个图
                       'v-publicproblems':publicproblems,//公共问题
+                      'v-servicetw':servicetw,//伊甸优势
+                      'v-servicetr':servicetr,//pc优势
+                      'v-servicezl':servicezl,//申请
 
 
                 },

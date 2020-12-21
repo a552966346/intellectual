@@ -37,7 +37,7 @@
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">商标信息变更</span></p>
                                                                        <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
                                                                        <!-- 信息变更-->
-
+                                                                        <v-servicesx></v-servicesx>
                                                                </div>
                                                                <!-- 服务保障 -->
                                                                <div class="center_text" id="text_2">
@@ -50,13 +50,13 @@
                                                                        <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">业务介绍</span></p>
                                                                        <!-- 业务介绍  -->
-
+                                                                        <v-servicesv></v-servicesv>
                                                                </div>
                                                                 <div class="center_text" id="text_4">
                                                                         <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务优势</span></p>
                                                                         <!-- 服务优势 -->
-
+                                                                        <v-advantage></v-advantage>
                                                                 </div>
                                                                <!-- 常见问题 -->
                                                                <div class="center_text" id="text_5">
@@ -84,6 +84,9 @@
        import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
        import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
        import serviceassurance from '../../components/copyright/serviceassurance.vue'//服务保障  123样式
+       import servicesx from '../../components/serviceon/servicesx.vue'//信息变更
+       import servicesv from '../../components/serviceon/servicesv.vue'//业务介绍
+       import advantage from '../../components/serviceon/advantage.vue'//服务优势
         export default{
                 name:'service',
                 data(){
@@ -158,7 +161,10 @@
                                       'v-applyprocess':applicationprocess,//申请流程 2个图
                                         'v-publicproblems':publicproblems,//公共问题
                                         'v-serviceassurance':serviceassurance,//服务保障  123样式
-                                        'v-servicerightP':serviceright_proc_t
+                                        'v-servicerightP':serviceright_proc_t,
+                                        'v-servicesx':servicesx,//商标变更
+                                        'v-servicesv':servicesv,//业务介绍
+                                        'v-advantage':advantage // 服务优势
 
                                 },
                 beforeMount() {

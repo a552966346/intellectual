@@ -75,7 +75,8 @@
                                                                 <div>
                                                                         <p>你好欢迎来到伊甸网</p>
                                                                         <p>{{phone}}</p>
-                                                                        <button @click="tuichu">退出登录</button>
+                                                                        <button @click="denlu"  v-if="this.$store.state.user==null">登录</button>
+                                                                        <button @click="tuichu" v-else>退出登录</button>
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -123,7 +124,7 @@
                                         <p><button @click="but_bl">立即办理</button><button @click="but_xq(sb_right_lie_o.categoryid_text,sb_right_lie_o.category_id)">查看详情</button></p>
                                 </div>
                                 <div class="servecenter_center_sb_right">
-                                        <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="item.id" v-if="index != 0&&sb_right_lie.length !=1">
+                                        <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="item.id" v-if="index != 0&&sb_right_lie.length !=1" @click="but_xq(item.categoryid_text,item.category_id)">
                                                 <p>{{item.name}}</p>
                                                <p>{{item.sketch}}</p>
                                                 <p><span>{{item.fee}}元起</span><img :src=" item.breviary_image" alt=""></p>
@@ -277,7 +278,6 @@
                         }
                         this.$api.severcategory()
                         .then(res=>{
-                                console.log(res)
                                 this.$nextTick(function(){
                                         this.top_lei = res.data
                                         this.each(res.data)
@@ -286,7 +286,6 @@
                         })
                        this.$api.severindex()  //服务中心
                          .then(res=>{
-                                 console.log(res)
                                  this.$nextTick(function(){
                                          this.o_cen_lie = res.data.hot_server    //热门服务
                                          this.sb_right_lie = res.data.server_data39      //商标服务
@@ -342,9 +341,13 @@
                                         this.title_all[i] = data[i].name
                                 }
                         },
+                        denlu(){
+                                this.$router.push({
+                                         path:'/login',
+                                 })
+                        },
                         //服务详情跳转
                         running(key,id){
-                                console.log(key,id)
                                this.$router.push({
                                         path:key,
                                         query:{
@@ -353,7 +356,6 @@
                                 })
                         },
                         but_xq(name,id){
-                                console.log(name)
                                 if(name){
                                      this.$router.push({
                                               path:name.keywords,
@@ -993,12 +995,13 @@
         .zl_right_lie>div {
                 display: flex;
                 flex-direction: column;
-                padding: 30px 0;
+                padding: 25px 0;
         }
 
         .zl_right_lie>div:nth-child(2)>span:first-child {
                 font-size: 15px;
                 font-weight: bold;
+                padding-bottom: 10px;
         }
 
         .zl_right_lie>div:nth-child(2)>span:last-child {

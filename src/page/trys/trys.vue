@@ -3,9 +3,10 @@
         <v-serviceon :met="met"></v-serviceon>
         <v-guarantee :nut="nut"></v-guarantee>
         <v-serviceni :mt="mt"></v-serviceni>
+        <hr>
         <v-servicetw></v-servicetw>
         <v-servicetr></v-servicetr>
-        <hr>
+        
         <v-servicefh></v-servicefh>
         <v-servicefv></v-servicefv>
         <v-servicesx></v-servicesx>

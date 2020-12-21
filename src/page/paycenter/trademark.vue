@@ -60,16 +60,19 @@ export default {
             bgcolor:'rgb(230, 92, 92)',
             istotal:0,
             listdata:[],
-            banner:'../../../static/img/paycenter/trademark_bg.png'
+            banner:'../../../static/img/paycenter/trademark_bg.png',
+            category_one:''
         }
 
     },
     mounted() {
+            this.category_one = this.$route.query.id
+             this.$set(this.id,"category_one",this.category_one)
             this.$api.gettrademarkcondition()
             .then(res=>{
                     console.log(res)
                     this.patenscree = res.data.data_one
-                    this.iscolor = []
+                   this.$set(this.iscolor,0,this.$route.query.id)
                     this.data_two = res.data.data_two
             })
             this.$api.gettrademarkadvertisement()
@@ -77,7 +80,7 @@ export default {
                     console.log(res)
                     this.banner = res.data.images
             })
-            this.ispost()
+            this.ispost(this.id)
     },
       methods: {
                 comsort(index){
@@ -130,6 +133,7 @@ export default {
                 choosenull(){
                         this.iscolor = []
                         this.screetext = []
+                        this.id = {}
                         this.ispost()
                 },
                 // 选择颜色

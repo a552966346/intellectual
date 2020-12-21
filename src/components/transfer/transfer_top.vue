@@ -105,6 +105,7 @@
                         },
                         // 清空
                         qinchu() {
+				this.id = {}
                                 this.text_sx = []
                                 this.$emit('qinchu')
                         }
