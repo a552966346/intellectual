@@ -167,7 +167,7 @@
        .baner_tradeitem_top{width: 100%;height: 100px;}
        .baner_tradeitem_top>img{width: 100%;height: 100%;}
        .baner_tradeitem_bottom{display: flex;flex-direction: column;padding: 0px 30px;padding-top: 30px;}
-       .baner_tradeitem_bottom a{color: #909399!important;}
+       .baner_tradeitem_bottom a{color: #909399!important;font-size: 15px;}
        .baner_tradeitem_bottom1{display: flex;flex-wrap: wrap;width: 100%;}
        .baner_tradeitem_bottom1>div{width: 50%;padding-bottom: 15px;}
        .baner_tradeitem_bottom2{width: 100%;padding-top: 5px;padding-bottom: 20px;}
