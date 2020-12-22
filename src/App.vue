@@ -9,7 +9,7 @@
         </div>
         <div class="common_top_right">
           <router-link to="/usercenter">个人中心</router-link>
-          <p>购物车</p>
+          <router-link to="/shopcart">购物车</router-link>
           <p>免费咨询热线：0354-2057888</p>
         </div>
       </div>
