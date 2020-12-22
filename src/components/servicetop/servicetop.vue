@@ -14,9 +14,10 @@
                                         <p>{{top_data.sketch}}</p>
                                 </div>
                                 <div class="topall_center">
-                                        <div class="solt">
+                                        <div class="solt" style="display:flex;">
                                                 <slot name="topall">
-                                                        <p>服务费：<span>￥{{top_data.fee}}</span></p>
+                                                        <p style="margin-right:30px;">价格：<span>￥{{top_data.fee}}</span></p>
+                                                        <span style="color:#ccc;font-size:12px;padding:6px;">官费200</span>
                                                 </slot>
                                         </div>
                                         <div class="inp" v-show="isShow !=''">
