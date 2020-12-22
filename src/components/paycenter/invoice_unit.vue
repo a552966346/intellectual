@@ -8,10 +8,13 @@
             <div class="content_select">
                 <div>
                     <span>发票信息:</span>
+                    <el-radio v-model="radio" label="1">纸质发票</el-radio>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <el-radio v-model="radio" label="2">电子发票</el-radio>
+                    <!-- <span>发票信息:</span>
                     <span class="select_active"></span>
                     <span>纸质发票</span>
                     <span></span>
-                    <span>电子发票</span>
+                    <span>电子发票</span> -->
                 </div>
                 <div>
                     <span>发票类型：</span>
@@ -19,8 +22,8 @@
                 </div>
             </div>
             <div class="content_input">
-                <div><span>姓名：</span><input type="text"></div>  
-                <div><span>电话：</span><input type="text"></div> 
+                <div><span>单位名称：</span><input type="text"></div>  
+                <div><span>税号：</span><input type="text"></div> 
             </div>
             <div class="content_input">
                 <div><span>注册地址：</span><input type="text"></div>  
@@ -43,7 +46,11 @@
 </template>
 <script>
 export default {
-    
+    data () {
+      return {
+        radio: '1'
+      };
+    }
 }
 </script>
 <style scoped>
@@ -51,7 +58,7 @@ export default {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-size: 14px;
+            font-size: 13px;
         }
         #invoice_unit{
             width: 1200px;
@@ -84,6 +91,10 @@ export default {
             width: 50%;
             display: flex;
             align-items: center;
+            margin-left: 30px;
+        }
+        .content_select>div:nth-child(2){
+            margin-left: 50px;
         }
         .content_select>div>span{
             display: inline-block;
@@ -94,16 +105,6 @@ export default {
         }
         .content_select>div>span:nth-child(2n){
             margin-right: 10px;
-        }
-        .content_select>div:nth-child(1)>span:nth-child(2),.content_select>div>span:nth-child(4){
-            height: 16px;
-            width: 16px;
-            border:2px solid #187fc2;
-            border-radius: 50%;
-        }
-        .select_active{
-            border: 5px solid #187fc2 !important;
-            
         }
         .content_input{
             margin-bottom: 10px;

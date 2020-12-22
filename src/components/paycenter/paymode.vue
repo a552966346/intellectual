@@ -4,9 +4,21 @@
             <div>支付方式：</div>
         </div>
         <div class="mode_header">
-            <div><span class="mode_active"></span><img src="../../../static/img/paycenter/zhifubao.jpg" alt=""></div>
-            <div><span></span><img src="../../../static/img/paycenter/weixin.jpg" alt=""></div>
-            <div><span></span><img src="../../../static/img/paycenter/yinlian.jpg" alt=""></div>
+            <div>
+                 <el-radio v-model="radio" label="1"><span></span></el-radio><img src="../../../static/img/paycenter/zhifubao.jpg" alt="">
+            </div>
+           <div>
+               <el-radio v-model="radio" label="2"><span></span></el-radio><img src="../../../static/img/paycenter/weixin.jpg" alt="">
+           </div>
+            <div>
+                <el-radio v-model="radio" label="3"><span></span></el-radio><img src="../../../static/img/paycenter/yinlian.jpg" alt="">
+            </div>
+            <div></div>
+            
+            
+            <!-- <div><span class="mode_active"></span><img src="../../../static/img/paycenter/zhifubao.jpg" alt=""></div> -->
+            <!-- <div><span></span><img src="../../../static/img/paycenter/weixin.jpg" alt=""></div> -->
+            <!-- <div><span></span><img src="../../../static/img/paycenter/yinlian.jpg" alt=""></div> -->
         </div>
         <div class="mode_detail">
             <div class="detail_list">
@@ -28,7 +40,11 @@
 </template>
 <script>
 export default {
-    
+    data () {
+      return {
+        radio: '1'
+      };
+    }
 }
 </script>
 <style scoped>
@@ -36,7 +52,7 @@ export default {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-size: 14px;
+            font-size: 13px;
         }
         #paymode{
             width: 1200px;
@@ -52,7 +68,7 @@ export default {
             padding: 20px 0;
         }
         .pay_header>div{
-            padding: 5px 30px;
+            padding: 5px 15px;
             /* font-size: 18px; */
             margin-right: 50px;
             border-left: 5px solid #187fc2;
@@ -64,18 +80,24 @@ export default {
             /* align-items: center; */
         }
         .mode_header>div{
-            margin-right: 60px;
+            margin-right: 100px;
             display: flex;
             align-items: center;
         }
-        .mode_header>div>span{
+        .mode_header span{
+            display: inline-block;
+        }
+        .el-radio__inner{
+            display: inline-block !important;
+        }
+        /* .mode_header>div>span{
             display: inline-block;
             height: 20px;
             width: 20px;
             border:2px solid #187fc2;
             border-radius: 50%;
             margin-right: 10px;
-        }
+        } */
         .mode_active{
             border: 5px solid #187fc2 !important;
         }
@@ -90,24 +112,25 @@ export default {
             margin-bottom: 20px;
         }
         .detail_list>div:nth-child(1){
-            margin-right: 100px;
+            margin-right: 80px;
             text-align: right;
         }
         .detail_list{
             display: flex;
         }
         .detail_pay{
-            width: 200px;
-            height: 30px;
+            width: 210px;
+            height: 35px;
             background: #187fc4;
             color: #fff;
             border-radius: 5px;
             text-align: center;
-            line-height: 30px;
+            line-height: 35px;
             margin-right: 100px;
         }
         .mode_detail>.list3>div:nth-child(2){
-            font-size: 18px;
+            font-size: 16px;
             color: #e00000;
+            font-weight: 600;
         }
     </style>

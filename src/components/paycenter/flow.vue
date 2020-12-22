@@ -1,7 +1,15 @@
 <template>
     <div id="flow">
-        <div class="flow_header"><span>交易中心</span>><span>详情</span>><span>购买</span></div>
-        <div class="flow_picture"></div>
+        <div class="flow_header"><span>交易中心</span>><span>商品详情</span>><span>购买</span></div>
+        <div class="flow_picture">
+            <el-steps :active="2" align-center>
+                <el-step title="选中中意产品" description=""></el-step>
+                <el-step title="确认订单信息" description=""></el-step>
+                <el-step title="付款支付资金" description=""></el-step>
+                <el-step title="自助或联系客服交易" description=""></el-step>
+                <el-step title="交易成功" description=""></el-step>
+            </el-steps>
+        </div>
     
     </div> 
 </template>
@@ -14,7 +22,7 @@ export default {
         *{margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-size: 14px;
+            font-size: 13px;
         }
         #flow{
             width: 1200px;
@@ -24,8 +32,18 @@ export default {
             padding: 20px 0;
         }
         .flow_picture{
-            height: 300px;
+            height: 200px;
+            padding: 80px;
             background: #fff;
             border-radius: 10px;
+            /* display: flex;
+            align-items: center; */
+            /* justify-content: center; */
+        }
+        .is-text{
+            border-color: #187fc4 !important;
+            z-index: 1000;
+            background: #187fc4 !important;
+
         }
 </style>
