@@ -58,6 +58,7 @@ import transfer from '@/page/transfer/transfer'
 import technology from '@/page/technology/technology' //技术转移
 import yuan from '@/page/yuan/yuan' //技术转移
 import trys from '@/page/trys/trys' 
+import paydetial from '@/page/paycenter/paydetial'
 
 Vue.use(Router)
 
@@ -312,6 +313,11 @@ export default new Router({
             path: '/trys',
             name: 'trys',
             component: trys
+        },
+        {
+            path: '/paydetial',
+            name: 'paydetial',
+            component: paydetial
         }
     ]
 })
