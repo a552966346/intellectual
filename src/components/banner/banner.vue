@@ -15,12 +15,12 @@
                                                       </div>
                                                       <div class="baner_tradeitem_bottom">
                                                               <div class="baner_tradeitem_bottom1">
-                                                                   <div v-for="(item1,index1) in item.children">
+                                                                   <div v-for="(item1,index1) in item.children" :class="{banimg:bgimg==index1}" v-if="index1<4">
                                                                         <router-link :to="item.keywords+'?id='+item1.id+'&name='+item1.name">{{item1.name}}></router-link>
                                                                    </div>
                                                               </div>
                                                               <div class="baner_tradeitem_bottom2">
-                                                                   <div>
+                                                                   <div style="padding-left: 15px;">
                                                                          <router-link :to="item.keywords">查看更多></router-link>
                                                                     </div>
                                                               </div>
@@ -119,7 +119,8 @@
                                            keywords:"property"
                                        }
 
-                                ]
+                                ],
+                                bgimg:1
                         }
                 },
                 mounted() {
@@ -166,10 +167,12 @@
        .baner_tradecont_item{width: 31%;display: flex;justify-content: center;align-content: center;flex-direction: column;box-shadow: 0px 0px 5px 1px #c1dbf9;}
        .baner_tradeitem_top{width: 100%;height: 100px;}
        .baner_tradeitem_top>img{width: 100%;height: 100%;}
-       .baner_tradeitem_bottom{display: flex;flex-direction: column;padding: 0px 30px;padding-top: 30px;}
-       .baner_tradeitem_bottom a{color: #909399!important;font-size: 15px;}
+       .baner_tradeitem_bottom{display: flex;flex-direction: column;padding-left: 15px;padding-top: 30px;}
+       .baner_tradeitem_bottom a{color: #909399;font-size: 15px;}
        .baner_tradeitem_bottom1{display: flex;flex-wrap: wrap;width: 100%;}
-       .baner_tradeitem_bottom1>div{width: 50%;padding-bottom: 15px;}
+       .baner_tradeitem_bottom1>div{width: 50%;padding: 7px 0;padding-left: 15px;}
+       .banimg{background: url(../../../static/img/index/hover_jian.png)no-repeat 0 0; background-size: 100% 100%; }
+       .banimg>a{color: #fff !important; font-size: 16px;}
        .baner_tradeitem_bottom2{width: 100%;padding-top: 5px;padding-bottom: 20px;}
 
         /* 服务中心内容 */

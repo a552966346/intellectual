@@ -569,6 +569,7 @@
                         .then(res=>{
                                 // console.log(res,'伊甸网')
                                 this.brief=res.data.brief;
+                                console.log(res)
                                 this.introimage=res.data.images;
                                 // this.num3=res.data.count;
                         })
