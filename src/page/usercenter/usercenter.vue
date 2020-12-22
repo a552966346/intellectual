@@ -221,6 +221,7 @@ a {
     top: 35px;
     left: 0;
     box-shadow: 2px 1px 1px rgba(0,0,0,0.16);
+    font-size: 15px;
 }
 .user_right{
     flex: 1;

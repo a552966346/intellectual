@@ -51,6 +51,7 @@ export default {
     display: flex;
     align-content: center;
     font-size: 14px;
+    letter-spacing: 1px;
 }
 .publicproblems_item_a{
     display: flex;

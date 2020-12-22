@@ -90,7 +90,7 @@ export default {
 .applyProcess_item{
     background-color: #fff;
     height: 240px;
-    padding: 16px 16px;
+    padding: 16px 14px;
     width: 96%;
     border-radius: 5px;
     box-shadow: 1px 1px 3px 2px rgb(227 224 224);
@@ -102,13 +102,14 @@ export default {
     margin-bottom: 10px;
 }
 .app_item_top_l{
-    font-size: 16px;
+    
     color: #949494;
     display: flex;
     align-items: center;
 }
 .app_item_top_l_text{
     margin-left: 10px;
+    font-size: 15px;
 }
 .app_item_top_r{
     font-size: 12px;

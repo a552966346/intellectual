@@ -53,7 +53,7 @@
                 justify-content: center;
         }
         .proc_t_right>p{
-                  color: #ccc;
+                color: #ccc;
                 font-size: 15px;
                 display: flex;
                 align-items: center;
@@ -70,5 +70,6 @@
                 color:#117BC1 ;
                 margin-right: 10px;
                 width: 8px;
+               
         }
 </style>

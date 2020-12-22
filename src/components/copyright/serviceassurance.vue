@@ -49,11 +49,11 @@ export default {
 .serviceassurance_item_title{
     color: #1b7fc5;
     font-weight: 700;
-    font-size: 22px;
+    /* font-size: 22px; */
 }
 .serviceassurance_item_text{
     margin-left: 9px;
-    font-size: 18px;
+    font-size: 15px;
     color: #4d87be;
     line-height: 1.6;
     width: 625px;
