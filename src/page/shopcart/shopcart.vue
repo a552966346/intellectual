@@ -38,7 +38,7 @@
                                         <div>￥28000.00</div>
                                     </div>
                                     <div class="shopcart_zsdcefhtea">
-                                        <el-input-number class="shopcart_zsdcefhin" v-model="num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+                                        <el-input-number class="shopcart_zsdcefhin" size="mini" v-model="num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
                                     </div>
                                     <div class="shopcart_zsdcefviet">
                                         <div>￥28000</div>
