@@ -33,7 +33,7 @@ export default {
     display: flex;
     justify-content: center;
     align-content: center;
-    font-size: 15px;
+    font-size: 14px;
 }
 .identifyconditions_container{
     padding: 10px 20px;
@@ -51,7 +51,6 @@ export default {
 }
 .identifyconditions_item_text{
     color: #5c9ccf;
-    font-size: 15px;
     line-height: 1.7;
 }
 </style>

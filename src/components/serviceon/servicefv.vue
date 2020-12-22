@@ -25,5 +25,5 @@
 <style>
     .servicefv_all{width: 100%;height: 220px;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
     .servicefv_let{width: 40%;height: 100%;}
-    .servicefv_ret{flex: 1;display: flex;justify-content: center;align-items: center;padding-left: 25px;font-size: 14px;}
+    .servicefv_ret{flex: 1;display: flex;justify-content: center;align-items: center;padding-left: 25px;font-size: 15px;line-height: 1.7;}
 </style>
