@@ -35,7 +35,7 @@
                                                                         <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                         <v-benefit :mrt="mrt"></v-benefit>
                                                                         <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
-                                                                        <v-servicetn :tableData="tableData"></v-servicetn>
+                                                                        <v-whychoose :why="why"></v-whychoose>
                                                                 </div>
                                                                 <!-- 申请流程 -->
                                                                 <div class="center_text" id="text_1">
@@ -80,7 +80,7 @@
         import servicezl from '../../components/serviceon/servicezl.vue'//专利
         import apply from '../../components/serviceon/apply.vue'//申请
         import benefit from '../../components/serviceon/benefit.vue'//好处
-        import servicetn from '../../components/serviceon/servicetn.vue'//选择伊甸城
+        import whychoose from '../../components/copyright/whychoose.vue'//选择伊甸城
 
 
         export default{
@@ -95,11 +95,45 @@
                                 toptext:[],
                                 question:[],
                                 nub:'',
-                                title_color:'#fff',
+                                title_color:'',
                                 title_all:["什么是实用新型？","哪些发明创造可以申请实用新型？","发明专利能给带来什么好处?","为什么选择伊甸城？","实用新型申请流程","服务保障","常见问题"],
                                 title_text_all:["","","","","流程合理完善，让您的著作权登记更为流畅简单","",""],
                                 txt:'text_',
                                 iscolor:0,
+                                //选择伊甸城 表格
+                                why:{
+                                        ltitle:'服务清单',
+                                        rtitle:'服务内容',
+                                        arrl:[
+                                                {text:'授权保险'},
+                                                {text:'技术交底指导'},
+                                                {text:'专利检索'},
+                                                {text:'费减指导'},
+                                                {text:'专利文件撰写'},
+                                                {text:'平面画图（修图）'},
+                                                {text:'专利质量审查'},
+                                                {text:'客户一票否决权'},
+                                                {text:'电子递交国知局'},
+                                                {text:'审查意见答复'},
+                                                {text:'专利证书寄送'},
+                                                {text:'专利年费监控'},
+                                        ],
+                                        arrr:[
+                                                {text:'在伊甸城申请专利并选择“授权保险”保障服务，伊甸城即赠送您一份专利保险，专利未获得授权可按比例赔付专利服务费。'},
+                                                {text:'专利顾问会与客户详细沟通交底材料的填写，不用担心方案描述不清楚'},
+                                                {text:'专利顾问将对您的方案进行技术检索，有效降低申请风险'},
+                                                {text:'节约专利费用，最高可省3315元'},
+                                                {text:'本领域专利老师撰稿，提升授权率'},
+                                                {text:'全面展示产品图形，满足附图要求'},
+                                                {text:'专业审查人员把关，不符合审查标准的专利文件一律退回重写'},
+                                                {text:'客户对我们的工作成果进行确认，不满意，我们重头再来'},
+                                                {text:'极速提交，1-2个工作日拿到受理通知书'},
+                                                {text:'解答审查员的疑问，大大提高专利的申请成功率'},
+                                                {text:'EMS安全速递，1-3天送证上门'},
+                                                {text:'防止未缴纳年费导致专利失效'},
+                                        ]
+
+                                },
                                 app:{//申请流程 2个图   //申请流程 0个图
                                         src:"../../../static/img/copyright/process.png" ,
                                         top_text:"实用新型申请所需资料",
@@ -167,71 +201,46 @@
                                 imga:'../../../static/img/service/benefit_ismg.png',
                                 txt:'个人'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg2.jpg',
+                                txt:'保护智慧结晶'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg3.jpg',
+                                txt:'维权证明'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg4.jpg',
+                                txt:'技术入股'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg5.jpg',
+                                txt:'评职评优'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg6.jpg',
+                                txt:'升学晋升'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg7.jpg',
+                                txt:'落户加分'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg8.jpg',
+                                txt:'企业'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg9.jpg',
+                                txt:'保护核心技术'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg10.jpg',
+                                txt:'抢占市场'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg11.jpg',
+                                txt:'评定高企'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg12.jpg',
+                                txt:'授权信贷'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg13.jpg',
+                                txt:'税收减免'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
-                                },],
-                                //选择伊甸城 表格
-                                tableData: [{
-                                date: '授权保险',
-                                name: '8个',
-                                },{
-                                date: '技术交底指导',
-                                name: '50000',
-                                },{
-                                date: '专利检索',
-                                name: '50000',
-                                },{
-                                date: '费减指导',
-                                name: '50000',
-                                },{
-                                date: '专利文件撰写',
-                                name: '50000',
-                                },{
-                                date: '平面画图（修图）',
-                                name: '50000',
-                                },{
-                                date: '专利质量审查',
-                                name: '50000',
-                                },{
-                                date: '客户一票否决权',
-                                name: '50000',
-                                }]
+                                imga:'../../../static/img/service/benefit_ismg14.jpg',
+                                txt:'政策扶持'
+                                }],
+                                
 
                         }
                 },
@@ -244,7 +253,7 @@
                         'v-servicezl':servicezl,//专利
                         'v-apply':apply,//申请
                         'v-benefit':benefit,//好处
-                        'v-servicetn':servicetn//选择伊甸城
+                        'v-whychoose':whychoose,//选择伊甸城
 
 
                 },

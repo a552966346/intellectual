@@ -73,6 +73,7 @@
         import serviceassurance from '../../components/copyright/serviceassurance.vue'//服务保障  123样式
         import applicationprocesszero from '../../components/copyright/applicationprocesszero.vue'//申请流程 0个图
         import businessintroduction from '../../components/copyright/businessintroduction.vue'//业务流程
+        import condition from '../../components/copyright/condition.vue'//业务流程    
         import servicefh from '../../components/serviceon/servicefh.vue'//服务标准
         import servicetw from '../../components/serviceon/servicetw.vue'//伊甸优势
 
@@ -130,6 +131,7 @@
                                         'v-businessintroduction':businessintroduction,//业务流程
                                         'v-servicerightP':serviceright_proc_t,
                                         'v-servicefh':servicefh,
+                                        
                                         'v-servicetw':servicetw
                 },
                 beforeMount() {
