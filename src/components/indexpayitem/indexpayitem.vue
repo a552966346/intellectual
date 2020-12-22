@@ -14,7 +14,7 @@
                                 </span>
                         </div>
                         <div class="indexpay_right_list">
-                                <div class="indexpay_right_item"  v-for="(item,index) in trade" :key="item.id">
+                                <div class="indexpay_right_item"  v-for="(item,index) in trade" :key="item.id" v-if="index<8">
                                         <router-link :to="'service_xlj?id='+item.id">
                                                 <img :src="item.images_text[0]" alt="">
                                                 <p class="title_blodes">{{item.name}}</p>
@@ -34,7 +34,7 @@
                                 </span>
                         </div>
                         <div class="indexpay_right_list" >
-                                <div class="indexpay_right_item" v-for="(item,index) in istrades" :key="item.id">
+                                <div class="indexpay_right_item" v-for="(item,index) in istrades" :key="item.id" v-if="index<8">
                                         <router-link :to="'service_xlj_four?id='+item.id">
                                                 <img :src="item.images_text[0]" alt="">
                                                 <p class="title_blodes">{{item.name}}</p>
@@ -59,7 +59,7 @@
                                                 @click="active_top(index,item.id,item.name)">{{item.name}}</span>
                                 </div>
                                 <div class="indexpay_right_item_list">
-                                        <div class="indexpay_right_item_item" v-for="(item,index) in transaction">
+                                        <div class="indexpay_right_item_item" v-for="(item,index) in transaction" v-if="index<9">
                                                 <router-link :to="'service_xlj_three?id='+item.id">
                                                         <p class="title">{{item.name}}</p>
                                                         <div class="er">

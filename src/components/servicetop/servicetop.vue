@@ -14,10 +14,13 @@
                                         <p>{{top_data.sketch}}</p>
                                 </div>
                                 <div class="topall_center">
-                                        <div class="solt" style="display:flex;">
+                                        <div class="solt" style="display:flex;flex-direction: column;">
                                                 <slot name="topall">
-                                                        <p style="margin-right:30px;">价格：<span>￥{{top_data.fee}}</span></p>
-                                                        <span style="color:#ccc;font-size:12px;padding:6px;">官费200</span>
+                                                        <div class="moren" style="display: flex;">
+                                                                <p style="margin-right:30px;">价格：<span>￥{{top_data.fee}}</span></p>
+                                                                <span style="color:#ccc;font-size:12px;padding:6px;">官费200</span>
+                                                        </div>
+
                                                 </slot>
                                         </div>
                                         <div class="inp" v-show="!isShow">
@@ -147,17 +150,17 @@
         }
 
         .solt {
-                background: url(../../../static/img/index/index_enterprise_bg.jpg)no-repeat;
+                background: url(../../../static/img/service/price.png)no-repeat;
                 background-size: cover;
                 padding: 15px 5px;
         }
 
-        .solt>p {
+        .moren {
                 font-size: 15px;
-                color: #ccc;
+                color: #aaa;
         }
 
-        .solt>p>span {
+        .moren>p>span {
                 padding-left: 20px;
                 font-size: 20px;
                 color: #D94A4B;

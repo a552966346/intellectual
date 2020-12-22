@@ -13,15 +13,14 @@
                                 <div class="rHeadercont">{{top_data.sketch}}</div>
                                 <div class="rServiceType">
                                         <span>服务类型：</span>
-                                        <span class="rServiceTypeActive">标准</span>
-                                        <span>授权保险</span>
+                                        <span :class="{rServiceTypeActive:nub1==index}" v-for="(item,index) in name" @click="qiehuan(index)">{{item}}</span>
+
                                         <span class="rightCommon">?</span>
                                 </div>
                                 <div class="costSlow">
                                         <span>费用减缓：</span>
-                                        <span class="costLowActive">减缓85%</span>
-                                        <span>减缓70%</span>
-                                        <span>无减缓</span>
+                                        <span :class="{costLowActive:nub2==index}" v-for="(item,index) in fee" @click="qiehuan2(index)">{{item}}</span>
+
                                         <span class="rightCommon">?</span>
                                 </div>
                                 <p class="complete">
@@ -84,14 +83,25 @@
 	export default{
 		data(){
 			return{
-
+                                name:['标准','授权保险'],
+                                nub1:0,
+                                fee:['减缓85%','减缓70%','无减缓'],
+                                nub2:0
 			}
 		},
 		props:{
 			image:'',
                         top_data:'',
                         nub:''
-		}
+		},
+                methods:{
+                        qiehuan(index){
+                                this.nub1= index
+                        },
+                        qiehuan2(index){
+                                this.nub2= index
+                        }
+                }
 	}
 </script>
 
@@ -232,7 +242,7 @@
 
         /* 费用减缓点击效果 */
         .costLowActive {
-                border: 1px solid #187fc4 !important;
+                border: 2px solid #187fc4 !important;
         }
 
         /* 完善信息 */

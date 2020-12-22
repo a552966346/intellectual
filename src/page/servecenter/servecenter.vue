@@ -959,7 +959,7 @@
                 flex: 3;
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-between;
+                /* justify-content: space-between; */
 
         }
 
@@ -1005,10 +1005,10 @@
                 color: #fff;
         }
 
-        .servecenter_center_zl_right {
+        /* .servecenter_center_zl_right {
                 display: flex;
                 justify-content: space-between;
-        }
+        } */
 
         .zl_right_lie {
                 background: url(../../../static/img/service/zl_right_lie.png)no-repeat 0, 0;
