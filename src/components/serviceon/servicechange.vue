@@ -1,9 +1,9 @@
 <template>
     <div class="servicechange_all">
-        <div class="servicechange_firt">
+        <!-- <div class="servicechange_firt">
             <i class="el-icon-share"></i>
             <div>必要性</div>
-        </div>
+        </div> -->
         <div class="servicechange_cont">
             <p>针对不同行业不同商标名字进行精准查询，检索近似风险，将风险降到最低，选择我们，让您在使用商标途中无忧！</p>
         </div>
