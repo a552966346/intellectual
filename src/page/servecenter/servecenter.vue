@@ -39,7 +39,7 @@
                                                                         @mouseleave="btnleave" :class="{btm_xiang_two:isbtn==index}">
                                                                         <p v-show="!(isbtn==index)">{{item.name}}</p>
                                                                         <p v-show="!(isbtn==index)">{{item.nub}}类</p>
-                                                                        <span v-show="isbtn==index">30类</span>
+                                                                        <span v-show="isbtn==index">{{item.nub}}类</span>
                                                                         <div v-show="isbtn==index">
                                                                                 <p>优质品牌，祝您前行</p>
                                                                                 <p>High quality brand</p>
@@ -238,24 +238,24 @@
                                 top_lei: [],
                                 btm_xiang: [{
                                                 name: '服装鞋帽',
-                                                nub: '20',
+                                                nub: '25',
                                                 img: '../../../static/img/service/servecenter_s1.png'
                                         }, {
-                                                name: '服装鞋帽',
-                                                nub: '20',
+                                                name: '日化用品',
+                                                nub: '03',
                                                 img: '../../../static/img/service/servecenter_s2.png'
                                         }, {
-                                                name: '服装鞋帽',
-                                                nub: '20',
+                                                name: '科学仪器',
+                                                nub: '09',
                                                 img: '../../../static/img/service/servecenter_s3.png'
                                         }, {
-                                                name: '服装鞋帽',
-                                                nub: '20',
+                                                name: '珠宝钟表',
+                                                nub: '14',
                                                 img: '../../../static/img/service/servecenter_s4.png'
                                         },
                                         {
-                                                name: '服装鞋帽',
-                                                nub: '20',
+                                                name: '家具用品',
+                                                nub: '30',
                                                 img: '../../../static/img/service/servecenter_s5.png',
                                         }
                                 ],
@@ -434,7 +434,7 @@
                 color: #fff;
                 text-align: center;
                 border-bottom: 1px solid #777;
-                font-size: 15px;
+                font-size: 14px;
                 font-weight: bold;
         }
 
@@ -445,6 +445,7 @@
 
         .top_cen_left_lei>img {
                 width: 25px;
+                margin-bottom: 5px;
         }
 
         .top_cen_right_box {
@@ -588,7 +589,7 @@
 
         .btm_xiang_two>div>p:nth-child(1) {
                 color: #666;
-                font-size: 15px;
+                font-size: 13px;
         }
 
         .btm_xiang_two>div>p:nth-child(2) {
@@ -600,7 +601,7 @@
 
         .btm_xiang_two>div>div:nth-child(3) {
                 color: #666;
-                font-size: 13px;
+                font-size: 12px;
                 display: flex;
                 align-items: center;
         }
@@ -802,16 +803,17 @@
         }
 
         .o_cen_lie_bg p:nth-child(1) {
-                font-size: 18px;
+                font-size: 15px;
                 font-weight: bold;
         }
 
         .o_cen_lie_bg p:nth-child(2) {
                 color: #ccc;
+                font-size: 13px;
         }
 
         .o_cen_lie_img p {
-                font-size: 18px;
+                font-size: 15px;
                 color: #FE9E3E;
                 font-weight: bold;
         }
@@ -949,9 +951,10 @@
         .servecenter_center_zli_left {
                 background: url(../../../static/img/service/servecenter_center_zl_left.png)no-repeat 0, 0;
                 flex: 1;
-                padding: 50px 25px 50px 25px;
+                min-width: 302px;
+                padding: 50px 20px 50px 20px;
                 background-size: cover;
-                margin-right: 10px;
+                margin-right: 4px;
 
         }
 
