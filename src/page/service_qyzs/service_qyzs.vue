@@ -27,7 +27,7 @@
                                                        <div class="zzdj_serviceright_center">
                                                                <!-- 业务介绍 -->
                                                                <div class="center_text" id="text_0">
-                                                                       <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;font-size:18px;font-weight: bold;">业务介绍</span></p>
+                                                                       <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">业务介绍</span></p>
                                                                        <!-- <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle> -->
                                                                           <v-businessintroduction :bus="bus"></v-businessintroduction>
                                                                </div>
@@ -41,7 +41,7 @@
                                                                </div>
                                                                <div class="center_text" id="text_2">
                                                                        <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
-                                                                       <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;font-size:18px;font-weight: bold;">认定条件</span></p>
+                                                                       <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">认定条件</span></p>
                                                                        <!-- 认定条件  -->
                                                                        <v-servicefh></v-servicefh>
                                                                </div>
@@ -49,7 +49,7 @@
                                                                <!-- 伊甸优势 -->
                                                                <div class="center_text" id="text_3">
                                                                        <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
-                                                                       <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;font-size:18px;font-weight: bold;">伊甸优势</span></p>
+                                                                       <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">伊甸优势</span></p>
                                                                         <v-servicetw :list="list"></v-servicetw>
                                                                </div>
                                                        </div>
@@ -181,7 +181,7 @@
         .money{display: flex;align-items: center;color: #D30102;}
         .zzdj_cen_right{display: flex;flex-direction: column;overflow: hidden;background-color: #fff;}
         .zzdj_serviceright_top{display: flex;padding:20px 15px;}
-        .zzdj_serviceright_top>p{padding: 10px;cursor: pointer;font-size: 20px;font-weight: bold;}
+        .zzdj_serviceright_top>p{padding: 10px;cursor: pointer;}
         .zzdj_serviceright_center{flex: 1;display: flex;flex-direction: column;}
         .zzdj_center_text{padding:10px 20px ;flex: 1;}
         .center_text{padding:10px 20px ;flex: 1;}
