@@ -52,9 +52,16 @@
                 flex-direction: column;
                 justify-content: center;
         }
-        .proc_t_right>p{
+        .proc_t_right>p:nth-of-type(1){
                 color: #ccc;
                 font-size: 15px;
+                display: flex;
+                align-items: center;
+                padding: 5px 0;
+        }
+        .proc_t_right>p{
+                color: #ccc;
+                font-size: 12px;
                 display: flex;
                 align-items: center;
                 padding: 5px 0;

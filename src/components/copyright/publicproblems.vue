@@ -50,7 +50,7 @@ export default {
 .publicproblems_item_a{
     display: flex;
     align-content: center;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 1px;
 }
 .publicproblems_item_a{
@@ -68,7 +68,7 @@ export default {
     width: 50%;
     justify-content: flex-end;
     display: flex;
-    line-height: 20px;
+    line-height: 17px;
     padding-top: 14px;
 }
 </style>

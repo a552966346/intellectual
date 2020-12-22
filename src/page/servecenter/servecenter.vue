@@ -4,7 +4,7 @@
                 <v-navigation></v-navigation>
                 <div id="servecneter">
                         <!-- 服务中心头部导航 -->
-                        <div class="servecenter_top" style="background-image: url(../../../static/img/service/servecenter_banner.png);">
+                        <div class="servecenter_top" style="background-image: url(../../../static/img/service/servecenter_enterprises_bg.png);">
                                 <div class="servecenter_top_cen">
 
                                         <div class="top_cen_left">
@@ -98,7 +98,7 @@
                                         <p><img src="../../../static/img/service/servecenter_center_o.png" alt=""><span>热门服务</span></p>
                                 </div>
                                 <div class="servecenter_center_o_cen">
-                                        <div class="o_cen_lie" v-for="(item,index) in o_cen_lie" :key="index">
+                                        <div class="o_cen_lie" v-for="(item,index) in o_cen_lie" :key="index" @click="hose(item.categoryid_text.keywords,item.category_id)">
                                                 <div class="o_cen_lie_bg"
                                                         style="background-repeat: no-repeat;"><!-- :style="{'background-image':'url('+item.bgimg+')'}" -->
                                                         <p>{{item.name}}</p>
@@ -288,6 +288,7 @@
                          .then(res=>{
                                  this.$nextTick(function(){
                                          this.o_cen_lie = res.data.hot_server    //热门服务
+                                         console.log(res.data.hot_server)
                                          this.sb_right_lie = res.data.server_data39      //商标服务
                                          if(res.data.server_data39.length != 0){
                                                  this.sb_right_lie_o = res.data.server_data39[0]
@@ -371,7 +372,17 @@
                                 this.phone =''
                                 this.$store.state.user = null
                                 sessionStorage['user'] = null
+                        },
+                        hose(name,id){
+                                console.log(id)
+                                this.$router.push({
+                                        path:name,
+                                        query:{
+                                                id:id
+                                        }
+                                })
                         }
+                        
                 }
         }
 </script>
@@ -443,7 +454,7 @@
                 list-style: none;
                 background-color: #fff;
                 padding: 5px;
-                font-size: 15px;
+                font-size: 13px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -841,10 +852,18 @@
                 line-height: 3.5;
                 letter-spacing: 4px;
         }
+        .servecenter_center_sb_left>p:nth-child(2) {
+                overflow:hidden;
+                text-overflow:ellipsis;
+                display:-webkit-box;
+                -webkit-box-orient:vertical;
+                -webkit-line-clamp:1;
+                font-size: 15px;
+        }
 
         .servecenter_center_sb_left>p:nth-child(1) {
                 font-weight: bold;
-                font-size: 18px;
+                font-size: 16px;
         }
 
         .servecenter_center_sb_left>p:last-child {
@@ -903,7 +922,7 @@
         }
 
         .sb_right_lie>p:nth-child(3)>img {
-                height: 45px;
+                height: 35px;
                 width: 45px;
         }
 
@@ -939,7 +958,7 @@
                 flex: 3;
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-between;
+                /* justify-content: space-between; */
 
         }
 
@@ -952,6 +971,14 @@
         .servecenter_center_zli_left>p:nth-child(1) {
                 font-weight: bold;
                 font-size: 18px;
+        }
+        .servecenter_center_zli_left>p:nth-child(2) {
+                overflow:hidden;
+                text-overflow:ellipsis;
+                display:-webkit-box;
+                -webkit-box-orient:vertical;
+                -webkit-line-clamp:1;
+                font-size: 15px;
         }
 
         .servecenter_center_zl_left>p:last-child {
@@ -977,10 +1004,10 @@
                 color: #fff;
         }
 
-        .servecenter_center_zl_right {
+        /* .servecenter_center_zl_right {
                 display: flex;
                 justify-content: space-between;
-        }
+        } */
 
         .zl_right_lie {
                 background: url(../../../static/img/service/zl_right_lie.png)no-repeat 0, 0;
@@ -1010,7 +1037,7 @@
                 width: 100%;
                 overflow: hidden;
                 display: inline-block;
-                  white-space: nowrap;
+                white-space: nowrap;
         }
 
         .zl_right_lie>p {
@@ -1247,6 +1274,7 @@
                 align-items: center;
                 justify-content: space-around;
                 padding: 15px;
+                
                 /* line-height: 2; */
         }
 
@@ -1257,12 +1285,18 @@
         .qy_right_lie>div>p:nth-child(2) {
                 font-weight: bold;
                 font-size: 18px;
+                
                 /* padding-bottom: 10px; */
         }
 
         .qy_right_lie>div>p:nth-child(3) {
                 font-size: 14px;
                 color: #aaa;
+                overflow:hidden;
+                text-overflow:ellipsis;
+                display:-webkit-box;
+                -webkit-box-orient:vertical;
+                -webkit-line-clamp:1;
                 /* padding-bottom: 15px; */
         }
 

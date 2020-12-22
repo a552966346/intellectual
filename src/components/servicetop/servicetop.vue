@@ -141,6 +141,7 @@
                 padding: 10px;
                 color: #A7A7A7;
                 background-color: #F3F6FF;
+                font-size: 12px;
         }
 
         .topall_center {

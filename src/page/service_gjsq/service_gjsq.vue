@@ -91,7 +91,7 @@
                                 right_data:[],
                                 toptext:[],
                                 question:[],
-                                title_color:'#fff',
+                                title_color:'',
                                 title_all:["PCT申请","通过专利合作条约（PCT），向指定国家递交专利申请","PCT优势","国际专利申请流程","伊甸优势","常见问题"],
                                 title_text_all:["","","","流程合理完善，让您的著作权登记更为流畅简单","",""],
                                 txt:'text_',
