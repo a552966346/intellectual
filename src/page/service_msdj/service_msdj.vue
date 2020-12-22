@@ -64,6 +64,9 @@
                   <img src="../../../static/img/index/cooperation_img.png" alt="">
                 </div >
                 <v-combotttom></v-combotttom>
+                <div class="zhiding" @click="menu">
+                        <img src="../../../static/img/service/zhiding.png" alt="">
+                </div>
         </div>
 </template>
 
@@ -100,7 +103,7 @@
                                         {src:'../../../static/img/service/service_chatwo.png',text:'项目投标：政府/商业项目，竞标资质条件'},
                                         {src:'../../../static/img/service/service_chatre.png',text:'国家补贴：高企/双软申报，享受百万政府补贴'},
                                         {src:'../../../static/img/service/service_chatfh.png',text:'无形资产：帮助企业增资，递延纳税优惠'},
-                                       
+
                                 ],
                                 app:{//申请流程 2个图   //申请流程 0个图
                                         src:"../../../static/img/copyright/process.png" ,
@@ -183,10 +186,7 @@
                                         if(res.code){
                                                 console.log(res)
                                                 this.top_data = res.data.data
-                                                this.right_data = res.data.data.content.split(',')
-                                                this.toptext = res.data.data.contenttitle.split(',')
-                                                this.question = res.data.question
-                                                this.toptext.push("常见问题","典型案例")
+
                                                 this.image = res.data.data.images_text
                                         }else{
                                                 alert("暂无数据")
@@ -197,6 +197,9 @@
                                         this.iscolor = porp
                                        this.$el.querySelector('#text_'+porp).scrollIntoView()
                         },
+                        menu(){
+                                this.$el.scrollIntoView()
+                        }
                 }
         }
 </script>
@@ -221,4 +224,6 @@
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;}
         .iscolor{color: #0184FE;}
+        .zhiding{position: absolute;bottom: 100px;right: 100px;}
+        .zhiding>img{width: 50px;}
 </style>

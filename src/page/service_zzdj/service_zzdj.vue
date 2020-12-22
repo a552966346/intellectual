@@ -59,6 +59,9 @@
                   <img src="../../../static/img/index/cooperation_img.png" alt="">
                 </div >
                 <v-combotttom></v-combotttom>
+                <div class="zhiding" @click="menu">
+                        <img src="../../../static/img/service/zhiding.png" alt="">
+                </div>
         </div>
 </template>
 
@@ -183,13 +186,13 @@
                         },
                         text_click(porp){
                                         this.iscolor = porp
-                                        // if(porp==3){
-                                        //         porp = porp-1
-                                        // }
                                        this.$el.querySelector('#text_'+porp).scrollIntoView()
                         },
                         xuanze(index){
                                 this.color = index
+                        },
+                        menu(){
+                                this.$el.scrollIntoView()
                         }
                 }
         }
@@ -220,4 +223,6 @@
         .center_text>p>span{padding-left: 16px;}
         .iscolor{color: #0184FE;}
         .color{background-color: #0184FE !important;color: #fff !important;font-size: 14px;}
+        .zhiding{position: absolute;bottom: 100px;right: 100px;}
+        .zhiding>img{width: 50px;}
 </style>

@@ -68,6 +68,9 @@
                   <img src="../../../static/img/index/cooperation_img.png" alt="">
                 </div >
                 <v-combotttom></v-combotttom>
+                <div class="zhiding" @click="menu">
+                        <img src="../../../static/img/service/zhiding.png" alt="">
+                </div>
         </div>
 </template>
 
@@ -238,7 +241,7 @@
                                 imga:'../../../static/img/service/benefit_ismg14.jpg',
                                 txt:'政策扶持'
                                 }],
-                                
+
 
                         }
                 },
@@ -257,7 +260,7 @@
                         this.id = this.$route.query.id
                         this.$nextTick(function(){
                              this.isgets(this.id)
-                             this.$api.severcategory()
+                             this.$el.scrollIntoView()
                         })
 
                 },
@@ -282,6 +285,9 @@
                         text_click(porp){
                                 this.iscolor = porp;
                                 this.$el.querySelector('#text_'+porp).scrollIntoView()
+                        },
+                        menu(){
+                                this.$el.scrollIntoView()
                         }
                 }
         }
@@ -307,4 +313,6 @@
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;}
         .iscolor{color: #0184FE;}
+        .zhiding{position: absolute;bottom: 100px;right: 100px;}
+        .zhiding>img{width: 50px;}
 </style>
