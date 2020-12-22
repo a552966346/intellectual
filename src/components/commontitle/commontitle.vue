@@ -34,6 +34,6 @@
        .commontitle{display: flex;justify-content: center;align-items: center;font-size: 30px;color: #1a81c6;}
        .commontitle>p{font-weight: bold;padding: 0 10px;}
        /* 字体为灰色的 */
-       .common_inform{text-align: center;font-size: 18px;color: #999;}
+       .common_inform{text-align: center;font-size: 14px;color: #999;}
        .common_inform>p{padding: 5px 0px;}
 </style>

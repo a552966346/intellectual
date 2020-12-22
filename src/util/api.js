@@ -288,7 +288,15 @@ const api = {
         }
         return requestAll.requset(baseUrl + '/api/Technology/newneed', data);
     },
-
+    // 导航搜索
+    getsearch(keyword,type){
+            let data = {
+                keyword: keyword,
+                type:type,
+                // page:page
+            }
+            return requestAll.requset(baseUrl + '/api/index/search', data);
+    }
 }
 
 export default api;
