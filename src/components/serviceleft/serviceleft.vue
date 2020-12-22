@@ -52,14 +52,14 @@
 <style scoped>
         *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;list-style: none;}
         #serviceleft{width: 100%;background-color: #fff;box-shadow: 1px 1px 10px 2px #ccc;}
-        .serviceleft_title{background-color: #1a7fc3;height: 50px;color: white;display: flex;align-items: center;padding: 0px 15px;font-size: 18px;}
+        .serviceleft_title{background-color: #1a7fc3;height: 50px;color: white;display: flex;align-items: center;padding: 0px 15px;font-size: 16px;}
         .serviceleft_cont{background-color: #fff;padding: 0px 15px;padding-top:30px;}
         .serviceleft_item{padding-bottom: 25px;}
-        .serviceleft_item_title{padding-bottom: 20px;display: flex;align-items: center;padding-bottom: 25px;font-size: 18px;}
+        .serviceleft_item_title{padding-bottom: 20px;display: flex;align-items: center;padding-bottom: 25px;font-size: 15px;}
         .serviceleft_item_title1{-webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);width: 15px;height: 15px;background-color:#1a7fc3 ;}
         .serviceleft_item_title2{font-weight: bold;padding-left: 10px;letter-spacing:1px;}
         /* 跳转链接 */
-        .serviceleft_item_lian{display: flex;flex-direction: column;}
+        .serviceleft_item_lian{display: flex;flex-direction: column;font-size: 14px;}
         .common_lian{padding-bottom: 20px;padding-left: 25px;color: #999;font-weight: bold;}
         .font_color{color: #1a7fc3!important;}
 </style>
