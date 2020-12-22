@@ -13,8 +13,9 @@
                     class="aside-menu-test"
                     text-color="#000"
                     :router="true"
+                    :unique-opened="true"
                     >
-                    <el-submenu :index="index+''" v-for='(item,index) in list_data' :key="index">
+                    <el-submenu :index="index+''" v-for='(item,index) in list_data' :key="index" >
                         <template slot="title">{{item.name}}</template>
                         <el-menu-item-group router='true'>
                         <el-menu-item :index="'/'+item.type +'?id='+items.id"   @click="ispost(items.id)"   v-for="(items,indes) in item.children" :key="indes">{{items.name}}</el-menu-item>
@@ -40,7 +41,7 @@ import navcter from '@/components/navcter/navcter.vue'
     },
     beforeMount(){
         var router_path = this.$route.query.id;
-        
+
         this.$api.getaboutcat()
         .then(res=>{
             if(res.code==1){

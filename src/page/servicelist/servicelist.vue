@@ -9,7 +9,7 @@
                 <div class="service_list">
                         <img :src="banner" alt="" />
                         <!-- 分类 -->
-                        <trademarkscreen :patenscree="patenscree"></trademarkscreen>
+                        <trademarkscreen :patenscree="patenscree" :iscolor="iscolor" :data_two="data_two"></trademarkscreen>
 
                 </div>
                 <!-- 底部 -->
@@ -34,21 +34,20 @@
                         return {
                                 banner: '../../../static/img/paycenter/trademark_bg.png', //banner图
                                 //一级分类
-                                patenscree: [],
+                                patenscree:[],
+                                data_two:[],
+                                iscolor:[]
                         }
                },
                 mounted() {
-                        this.$api.gettrademarkcondition()
-                                .then(res => {
-                                         console.log(res)
-                                        console.log(res.data)
-                                          console.log(typeof(res.data.data_one))
-                                        this.patenscree=res.data.data_one;
-
-
-                                 // this.$set(this.iscolor, 0, this.$route.query.id)
-                                 //        this.data_two = res.data.data_two
-                          })
+                       this.$api.gettrademarkcondition()
+                               .then(res => {
+                                        console.log(res)
+                                       console.log(res.data)
+                                       this.patenscree=res.data.data_one;
+                                       // this.$set(this.iscolor, 0, this.$route.query.id)
+                                       this.data_two = res.data.data_two
+                               })
                 }
 
         }

@@ -68,13 +68,7 @@
                         this.$set(this.id, "category_one", this.category_one)
                         this.$api.gettrademarkcondition()
                                 .then(res => {
-                                         console.log(res)
-                                        console.log(res.data)
-                                          console.log(typeof(res.data.data_one))
                                         this.patenscree=res.data.data_one;
-                                        // this.patenscree =  Array.from(res.data.data_one)
-                                        //  console.log(res.data.data_one)
-
                                         this.$set(this.iscolor, 0, this.$route.query.id)
                                         this.data_two = res.data.data_two
                                 })

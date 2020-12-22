@@ -118,7 +118,9 @@ export default {
         },
         mounted() {
                 this.$nextTick(function(){
-                        this.$set(this.screetext,0,this.$route.query.name)
+                        if(this.$route.query.name){
+                                this.$set(this.screetext,0,this.$route.query.name)
+                        }
                 });
         },
         methods: {
