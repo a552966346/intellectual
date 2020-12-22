@@ -227,7 +227,7 @@
                                 isactive: 0,
                                 isbtn: '',
                                 title_color: '#fff',
-                                title_all: [],
+                                title_all: ['商标注册','专利申请','版权服务','企业服务'],
                                 title_text_all: [ ],
                                 title_bg_url: [
                                         // '../../../static/img/common/Trading_Center.png',
@@ -339,7 +339,6 @@
                                 for( let i=0; i<data.length;i++){
                                       this.img[i] = data[i].image.split(',')
                                         this.top_lei[i].img = this.img[i]
-                                        this.title_all[i] = data[i].name
                                 }
                         },
                         denlu(){

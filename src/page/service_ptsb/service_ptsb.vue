@@ -1,11 +1,11 @@
 <template>
         <div>
-                <v-topsearch></v-topsearch>
-                <div class="consultation_all">
+                <v-topsearch ></v-topsearch>
+                <div class="consultation_all" >
                         <!-- 导航 -->
                         <v-navigation></v-navigation>
                         <!--  -->
-                        <div class="consultation_all_Center">
+                        <div class="consultation_all_Center" >
                                 <div class="consultation_all_text"><p>服务中心>普通商标注册</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
@@ -183,7 +183,7 @@
                                         ystimg:'../../../static/img/service/advantage_sxx.png',
                                         ysttit:'同等重视',
                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
-                                },] 
+                                },]
 
                         }
                 },
@@ -202,6 +202,7 @@
                         this.id = this.$route.query.id
                         this.$nextTick(function(){
                              this.isgets(this.id)
+                             this.$el.scrollIntoView()
                         })
 
                 },

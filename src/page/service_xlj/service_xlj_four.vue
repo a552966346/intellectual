@@ -153,7 +153,10 @@
                 },
                 mounted() {
                         this.id = this.$route.query.id
-                        this.ispost(this.id)
+                      this.$nextTick(function(){
+                              this.$el.scrollIntoView()
+                              this.ispost(this.id)
+                      })
                 },
                 methods:{
                         text_click(){

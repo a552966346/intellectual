@@ -285,9 +285,10 @@
                 beforeMount() {
                         console.log(111111)
                         this.id = this.$route.query.id
-                        // this.$nextTick(function(){
-                        //      this.isgets(this.id)
-                        // })
+                        this.$nextTick(function(){
+                             this.isgets(this.id)
+                             this.$el.scrollIntoView()
+                        })
 
                 },
                 methods:{
@@ -298,17 +299,13 @@
                         isgets(id){
                                 this.$api.severdetiles(id)
                                 .then(res=>{
-                                        // if(res.code){
-                                        //         console.log(res)
-                                        //         this.top_data = res.data.data
-                                        //         this.right_data = res.data.data.content.split(',')
-                                        //         this.toptext = res.data.data.contenttitle.split(',')
-                                        //         this.question = res.data.question
-                                        //         this.toptext.push("常见问题","典型案例")
-                                        //         this.image = res.data.data.images_text
-                                        // }else{
-                                        //         alert("暂无数据")
-                                        // }
+                                        if(res.code){
+                                                console.log(res)
+                                                this.top_data = res.data.data
+                                                this.image = res.data.data.images_text
+                                        }else{
+                                                alert("暂无数据")
+                                        }
                                 })
                         },
                         text_click(porp){

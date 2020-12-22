@@ -229,6 +229,7 @@
                         this.id = this.$route.query.id
                         this.$nextTick(function(){
                              this.isgets(this.id)
+                             this.$el.scrollIntoView()
                         })
 
                 },

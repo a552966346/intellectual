@@ -100,7 +100,7 @@
                                         {src:'../../../static/img/service/service_chatwo.png',text:'项目投标：政府/商业项目，竞标资质条件'},
                                         {src:'../../../static/img/service/service_chatre.png',text:'国家补贴：高企/双软申报，享受百万政府补贴'},
                                         {src:'../../../static/img/service/service_chatfh.png',text:'无形资产：帮助企业增资，递延纳税优惠'},
-                                       
+
                                 ],
                                 app:{//申请流程 2个图   //申请流程 0个图
                                         src:"../../../static/img/copyright/process.png" ,
@@ -168,6 +168,7 @@
                         this.id = this.$route.query.id
                         this.$nextTick(function(){
                              this.isgets(this.id)
+                             this.$el.scrollIntoView()
                         })
 
                 },
@@ -182,10 +183,6 @@
                                         if(res.code){
                                                 console.log(res)
                                                 this.top_data = res.data.data
-                                                this.right_data = res.data.data.content.split(',')
-                                                this.toptext = res.data.data.contenttitle.split(',')
-                                                this.question = res.data.question
-                                                this.toptext.push("常见问题","典型案例")
                                                 this.image = res.data.data.images_text
                                         }else{
                                                 alert("暂无数据")
