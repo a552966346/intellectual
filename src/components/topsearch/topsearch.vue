@@ -8,11 +8,12 @@
         <div class="search_input">
           <el-input placeholder="请输入内容" v-model="input3" class="input-with-select search_text">
             <el-select v-model="select" slot="prepend" placeholder="商标">
-              <el-option label="餐厅名" value="1"></el-option>
-              <el-option label="订单号" value="2"></el-option>
-              <el-option label="用户电话" value="3"></el-option>
+              <el-option label="服务中心" value="servicecenter"></el-option>
+              <el-option label="商标转让" value="trademarks"></el-option>
+              <el-option label="专利转让" value="patents"></el-option>
+              <el-option label="版权转让" value="copyright"></el-option>
             </el-select>
-           <el-button type="primary" slot="append" class="search_btn">搜索</el-button>
+           <el-button type="primary" slot="append" class="search_btn" @click="search">搜索</el-button>
           </el-input>
         </div>
    </div>
@@ -24,9 +25,18 @@ export default {
   data() {
     return {
       select:'',
-      input3:''
+      input3:'',
+      page:''
     }
   },
+  methods:{
+          search(){
+                  this.$api.getsearch(this.input3,this.select)
+                  .then(res=>{
+                          console.log(res)
+                  })
+          }
+  }
 }
 </script>
 
@@ -51,7 +61,7 @@ export default {
     align-items: center;
   }
   .el-select{
-    width: 80px;
+    width: 120px;
     font-size: 15px;
     color:#187fc4;
   }

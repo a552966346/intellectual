@@ -13,9 +13,9 @@
                                                <template v-slot:topall>
                                                         <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
                                                         <div class="slot_bord">
-                                                                <div>
-                                                                        <span>50工作日</span><span>￥398/件</span>
-                                                                </div>
+                                                                <p v-for="(item,index) in top_work" :key="index" @click="xuanze(index)" >
+                                                                        <span >{{item.name}}</span><span :class="{color:color==index}">￥{{item.fee}}/件</span>
+                                                                </p>
                                                         </div>
                                                         <div class="money">￥<h2>398</h2>元起</div>
                                                 </template>
@@ -69,7 +69,7 @@
         import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
         import servicechange from '../../components/serviceon/servicechange.vue'//必要性
-        
+
 
 
         export default{
@@ -84,17 +84,29 @@
                                 right_data:[],
                                 toptext:[],
                                 question:[],
-                                title_color:'#fff',
+                                title_color:'',
                                 title_all:["软件著作权登记的必要性","软件著作权登记流程","常见问题"],
                                 title_text_all:["","流程合理完善，让您的著作权登记更为流畅简单",""],
                                 txt:'text_',
                                 iscolor:0,
+                                top_work:[
+                                                {name:'3个工作日',fee:'4200'},
+                                                {name:'4个工作日',fee:'3500'},
+                                                {name:'5个工作日',fee:'2600'},
+                                                {name:'6-10个工作日',fee:'2000'},
+                                                {name:'11-15个工作日',fee:'1600'},
+                                                {name:'16-20个工作日',fee:'1300'},
+                                                {name:'21-25个工作日',fee:'1100'},
+                                                {name:'26-30个工作日',fee:'900'},
+                                                {name:'31-35个工作日',fee:'700'}
+                                        ],
+
                                 lists:[
                                         {src:'../../../static/img/service/service_chaone.png',text:'APP上架：应用宝、360等主流，应用市场上架必备'},
                                         {src:'../../../static/img/service/service_chatwo.png',text:'项目投标：政府/商业项目，竞标资质条件'},
                                         {src:'../../../static/img/service/service_chatre.png',text:'国家补贴：高企/双软申报，享受百万政府补贴'},
                                         {src:'../../../static/img/service/service_chatfh.png',text:'无形资产：帮助企业增资，递延纳税优惠'},
-                                       
+
                                 ],
                                 app:{//申请流程 2个图   //申请流程 0个图
                                         src:"../../../static/img/copyright/process.png" ,
@@ -128,6 +140,7 @@
                                     ]
 
                                 },
+                                color:0
                         }
                 },
                 components:{
@@ -173,6 +186,9 @@
                                         //         porp = porp-1
                                         // }
                                        this.$el.querySelector('#text_'+porp).scrollIntoView()
+                        },
+                        xuanze(index){
+                                this.color = index
                         }
                 }
         }
@@ -188,10 +204,10 @@
         .cen_right { flex:3;box-shadow:1px 1px 10px 2px #ccc;}
         .consultation_bottom{width: 100%;}
         .consultation_bottom>img{width: 100%;}
-        .slot_bord{display: flex;padding: 10px 0;}
-        .slot_bord>div{border: 1px solid #0184FE;}
-        .slot_bord>div>span:nth-child(1){background-color: #0184FE;color: #fff;font-size: 14px;padding: 5px;}
-        .slot_bord>div>span:nth-child(2){background-color: #fff;color: #0184FE;font-size: 14px;padding: 5px;}
+        .slot_bord{display: flex;padding: 10px 0;flex-wrap: wrap;}
+        .slot_bord>p{margin-right: 5px;margin-bottom: 10px;}
+        .slot_bord>p>span{background-color: #f5f5f5;color: #0184FE;font-size: 14px;padding: 5px;border: 1px solid #0184FE;font-size: 12px;}
+         .slot_bord>p>span:nth-child(1){border-right: none;background-color: #0184FE;color: #fff;}
         .money{display: flex;align-items: center;color: #D30102;}
         .zzdj_cen_right{display: flex;flex-direction: column;overflow: hidden;background-color: #fff;}
         .zzdj_serviceright_top{display: flex;padding:20px 15px;}
@@ -202,4 +218,5 @@
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;}
         .iscolor{color: #0184FE;}
+        .color{background-color: #0184FE !important;color: #fff !important;font-size: 14px;}
 </style>
