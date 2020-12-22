@@ -22,7 +22,6 @@
                                                 </div>
                                                 <div class="cen_right zzdj_cen_right">
                                                         <!-- <v-servicer :toptext ='toptext' :right_data ='right_data' :question ="question"></v-servicer> -->
-
                                                         <div class="zzdj_serviceright_top">
                                                                 <p v-for="(item,index) in title"  :key="index" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
                                                         </div>
@@ -47,7 +46,6 @@
                                                                         <v-publicproblems :pub="pub"></v-publicproblems>
                                                                 </div>
                                                         </div>
-
                                                 </div>
                                         </div>
                                 </div>
@@ -67,9 +65,6 @@
         import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
         import servicechange from '../../components/serviceon/servicechange.vue'//必要性
-        
-
-
         export default{
                 name:'service',
                 data(){
@@ -82,7 +77,7 @@
                                 right_data:[],
                                 toptext:[],
                                 question:[],
-                                // title_color:'#fff',
+                                title_color:'#fff',
                                 title_all:["软件著作权登记的必要性","软件著作权登记流程","常见问题"],
                                 title_text_all:["","流程合理完善，让您的著作权登记更为流畅简单",""],
                                 txt:'text_',
@@ -92,7 +87,6 @@
                                         {src:'../../../static/img/service/service_chatwo.png',text:'项目投标：政府/商业项目，竞标资质条件'},
                                         {src:'../../../static/img/service/service_chatre.png',text:'国家补贴：高企/双软申报，享受百万政府补贴'},
                                         {src:'../../../static/img/service/service_chatfh.png',text:'无形资产：帮助企业增资，递延纳税优惠'},
-                                       
                                 ],
                                 app:{//申请流程 2个图   //申请流程 0个图
                                         src:"../../../static/img/copyright/process.png" ,

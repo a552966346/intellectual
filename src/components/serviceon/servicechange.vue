@@ -12,8 +12,6 @@
                 <div class="servicechange_cboimg">
                      <img :src="item.src" alt="">
                 </div>
-                
-               
                 <div class="servicechange_cbot">
                     {{item.text}}
                 </div>
@@ -26,11 +24,11 @@
     export default {
         data(){
             return{
-                lists:[{},{},{},{},]
+                // lists:[{},{},{},{},]
             }
         },
         props:{
-            lists:Object
+            lists:Array
         }
     }
 </script>

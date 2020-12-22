@@ -195,7 +195,7 @@
                         text_click(porp){
                                         this.iscolor = porp
                                        this.$el.querySelector('#text_'+porp).scrollIntoView()
-                        }
+                        },
                 }
         }
 </script>
