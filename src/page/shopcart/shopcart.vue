@@ -97,13 +97,6 @@
                     'v-guarantee':guarantee,//服务保障
                     'v-advantage':advantage//服务优势   
                 },
-                beforeMount() {
-                        this.id = this.$route.query.id
-                        this.$nextTick(function(){
-                             this.isgets(this.id)
-                        })
-
-                },
                 methods:{
                     handleChange(value) {
                         console.log(value);
