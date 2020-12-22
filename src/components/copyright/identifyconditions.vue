@@ -51,7 +51,7 @@ export default {
 }
 .identifyconditions_item_text{
     color: #5c9ccf;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.7;
 }
 </style>
