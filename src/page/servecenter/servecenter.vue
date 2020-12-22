@@ -39,7 +39,7 @@
                                                                         @mouseleave="btnleave" :class="{btm_xiang_two:isbtn==index}">
                                                                         <p v-show="!(isbtn==index)">{{item.name}}</p>
                                                                         <p v-show="!(isbtn==index)">{{item.nub}}类</p>
-                                                                        <span v-show="isbtn==index">30类</span>
+                                                                        <span v-show="isbtn==index">{{item.nub}}类</span>
                                                                         <div v-show="isbtn==index">
                                                                                 <p>优质品牌，祝您前行</p>
                                                                                 <p>High quality brand</p>
@@ -197,18 +197,18 @@
                                         <div>
                                                 <p>  </p>
                                                 <p>  </p>
-                                                <p>{{qy_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
+                                                <p> </p>
                                                 <button @click="but_bl">立即咨询&nbsp;&nbsp;></button>
                                         </div>
                                 </div>
                                 <div class="servecenter_center_qy_right">
-                                        <div class="qy_right_lie" v-for="(item,index) in qy_right_lie" :key="item.id" v-if="qy_right_lie.length !=1&&index<=2">
-                                                <img :src=" item.images_text[0]" alt="">
+                                        <div class="qy_right_lie" v-for="(item,index) in qy_right_lie" :key="item.id">
+                                                <img :src="item.img" alt="">
                                                 <div>
-                                                        <img :src=" item.breviary_image" alt="">
+                                                        <p>{{item.eng}}</p>
                                                         <p>{{item.name}}</p>
-                                                        <p>{{item.sketch}}</p>
-                                                        <button @click="but_xq(item.categoryid_text,item.category_id)">查看详情</button>
+                                                        <p>{{item.text}}</p>
+                                                        <button @click="but_xq(item.istext,item.id)">查看详情</button>
                                                 </div>
                                         </div>
                                 </div>
@@ -227,7 +227,7 @@
                                 isactive: 0,
                                 isbtn: '',
                                 title_color: '#fff',
-                                title_all: [],
+                                title_all: ['商标注册','专利申请','版权服务','企业服务'],
                                 title_text_all: [ ],
                                 title_bg_url: [
                                         // '../../../static/img/common/Trading_Center.png',
@@ -238,24 +238,24 @@
                                 top_lei: [],
                                 btm_xiang: [{
                                                 name: '服装鞋帽',
-                                                nub: '20',
+                                                nub: '25',
                                                 img: '../../../static/img/service/servecenter_s1.png'
                                         }, {
-                                                name: '服装鞋帽',
-                                                nub: '20',
+                                                name: '日化用品',
+                                                nub: '03',
                                                 img: '../../../static/img/service/servecenter_s2.png'
                                         }, {
-                                                name: '服装鞋帽',
-                                                nub: '20',
+                                                name: '科学仪器',
+                                                nub: '09',
                                                 img: '../../../static/img/service/servecenter_s3.png'
                                         }, {
-                                                name: '服装鞋帽',
-                                                nub: '20',
+                                                name: '珠宝钟表',
+                                                nub: '14',
                                                 img: '../../../static/img/service/servecenter_s4.png'
                                         },
                                         {
-                                                name: '服装鞋帽',
-                                                nub: '20',
+                                                name: '家具用品',
+                                                nub: '30',
                                                 img: '../../../static/img/service/servecenter_s5.png',
                                         }
                                 ],
@@ -263,7 +263,40 @@
                                 sb_right_lie: [],
                                 zl_right_lie: [],
                                 fu_cen_right_lie:[],
-                                qy_right_lie: [],
+                                qy_right_lie: [
+                                        {
+                                                img:'../../../static/img/service/sever_qi_one.jpg',
+                                                eng:'INTELLECTUAL PROPERTY RIGHT',
+                                                name:'知识产权贯标',
+                                                istext:{
+                                                      keywords:'service_qyzs'
+
+                                                },
+                                                id:'108',
+                                                text:'享受政府资助最高30万',
+                                        },
+                                        {
+                                                img:'../../../static/img/service/sever_qi_two.jpg',
+                                                eng:'HIGH TECH ENTERPRISES',
+                                                name:'国家高新企业认定',
+                                                istext:{
+                                                    keywords:'service_gqrd'
+                                                },
+                                                 id:'110',
+                                                text:'奖励最高20万 减免40%所得税',
+                                        },
+                                        {
+                                                img:'../../../static/img/service/sever_qi_three.jpg',
+                                                eng:'TECHNICAL PRODUCTS',
+                                                name:'高新技术产品认定套餐',
+                                                istext:{
+                                                    keywords:''
+                                                },
+                                                 id:'',
+                                                text:'享受政府资助最高30万',
+
+                                        }
+                                ],
                                 img:[],
                                 sb_right_lie_o:[],      //商标注册 左侧
                                 zl_right_lie_o:[],      //专利申请
@@ -288,11 +321,12 @@
                          .then(res=>{
                                  this.$nextTick(function(){
                                          this.o_cen_lie = res.data.hot_server    //热门服务
-                                         console.log(res.data.hot_server)
+
                                          this.sb_right_lie = res.data.server_data39      //商标服务
                                          if(res.data.server_data39.length != 0){
                                                  this.sb_right_lie_o = res.data.server_data39[0]
                                          }
+                                         console.log(res.data.server_data39)
                                          this.zl_right_lie = res.data.server_data40
                                          if(res.data.server_data40.length != 0){
                                                 this.zl_right_lie_o = res.data.server_data40[0]
@@ -301,10 +335,10 @@
                                          if(res.data.server_data45.length != 0){
                                                  this.fu_cen_right_lie_o = res.data.server_data45[0]
                                          }
-                                         this.qy_right_lie = res.data.server_data46
-                                         if(res.data.server_data46.length != 0){
-                                                  this.qy_right_lie_o = res.data.server_data46[0]
-                                         }
+                                         // this.qy_right_lie = res.data.server_data46
+                                         // if(res.data.server_data46.length != 0){
+                                         //          this.qy_right_lie_o = res.data.server_data46[0]
+                                         // }
 
                                  })
 
@@ -339,7 +373,6 @@
                                 for( let i=0; i<data.length;i++){
                                       this.img[i] = data[i].image.split(',')
                                         this.top_lei[i].img = this.img[i]
-                                        this.title_all[i] = data[i].name
                                 }
                         },
                         denlu(){
@@ -383,7 +416,7 @@
                                         }
                                 })
                         }
-                        
+
                 }
         }
 </script>
@@ -434,7 +467,7 @@
                 color: #fff;
                 text-align: center;
                 border-bottom: 1px solid #777;
-                font-size: 15px;
+                font-size: 14px;
                 font-weight: bold;
         }
 
@@ -445,6 +478,7 @@
 
         .top_cen_left_lei>img {
                 width: 25px;
+                margin-bottom: 5px;
         }
 
         .top_cen_right_box {
@@ -588,7 +622,7 @@
 
         .btm_xiang_two>div>p:nth-child(1) {
                 color: #666;
-                font-size: 15px;
+                font-size: 13px;
         }
 
         .btm_xiang_two>div>p:nth-child(2) {
@@ -600,7 +634,7 @@
 
         .btm_xiang_two>div>div:nth-child(3) {
                 color: #666;
-                font-size: 13px;
+                font-size: 12px;
                 display: flex;
                 align-items: center;
         }
@@ -802,16 +836,17 @@
         }
 
         .o_cen_lie_bg p:nth-child(1) {
-                font-size: 18px;
+                font-size: 15px;
                 font-weight: bold;
         }
 
         .o_cen_lie_bg p:nth-child(2) {
                 color: #ccc;
+                font-size: 13px;
         }
 
         .o_cen_lie_img p {
-                font-size: 18px;
+                font-size: 15px;
                 color: #FE9E3E;
                 font-weight: bold;
         }
@@ -948,15 +983,16 @@
 
         .servecenter_center_zli_left {
                 background: url(../../../static/img/service/servecenter_center_zl_left.png)no-repeat 0, 0;
-                flex: 1;
-                padding: 50px 25px 50px 25px;
+                width: 30%;
+                min-width: 302px;
+                padding: 50px 20px 50px 20px;
                 background-size: cover;
-                margin-right: 10px;
+                margin-right: 4px;
 
         }
 
         .servecenter_center_zl_right {
-                flex: 3;
+                width: 70%;
                 display: flex;
                 flex-wrap: wrap;
                 /* justify-content: space-between; */
@@ -1264,29 +1300,30 @@
 
         .qy_right_lie>img {
                 width: 100%;
-                height: 35%;
+                height: 40%;
         }
 
         .qy_right_lie>div {
                 background-color: #f5f5f5;
-                height: 65%;
+                height: 60%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-around;
                 padding: 15px;
-                
+
                 /* line-height: 2; */
         }
 
-        .qy_right_lie>div>img {
-                height: 30px;
+        .qy_right_lie>div>p:nth-child(1) {
+                font-size: 13px;
+                color: #ccc;
         }
 
         .qy_right_lie>div>p:nth-child(2) {
                 font-weight: bold;
                 font-size: 18px;
-                
+
                 /* padding-bottom: 10px; */
         }
 

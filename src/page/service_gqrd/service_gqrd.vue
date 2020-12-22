@@ -1,5 +1,5 @@
 <template>
-        <div>
+        <div id="all">
                 <v-topsearch></v-topsearch>
                 <div class="consultation_all">
                         <!-- 导航 -->
@@ -48,7 +48,7 @@
                                                                </div>
 
                                                                <!-- 常见问题 -->
-                                                               <div class="center_text" id="text_4">
+                                                               <div class="center_text" id="text_3">
                                                                        <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
                                                                        <v-publicproblems :pub="pub"></v-publicproblems>
@@ -63,6 +63,9 @@
                   <img src="../../../static/img/index/cooperation_img.png" alt="">
                 </div >
                 <v-combotttom></v-combotttom>
+                <div class="zhiding" @click="menu">
+                        <img src="../../../static/img/service/zhiding.png" alt="">
+                </div>
         </div>
 </template>
 
@@ -169,8 +172,8 @@
                         this.id = this.$route.query.id
                         this.$nextTick(function(){
                              this.isgets(this.id)
+                             this.$api.severcategory()
                         })
-
                 },
                 methods:{
                         running(){
@@ -183,10 +186,6 @@
                                         if(res.code){
                                                 console.log(res)
                                                 this.top_data = res.data.data
-                                                this.right_data = res.data.data.content.split(',')
-                                                this.toptext = res.data.data.contenttitle.split(',')
-                                                this.question = res.data.question
-                                                this.toptext.push("常见问题","典型案例")
                                                 this.image = res.data.data.images_text
                                         }else{
                                                 alert("暂无数据")
@@ -196,6 +195,9 @@
                         text_click(porp){
                                         this.iscolor = porp
                                        this.$el.querySelector('#text_'+porp).scrollIntoView()
+                        },
+                        menu(){
+                                this.$el.scrollIntoView()
                         }
                 }
         }
@@ -214,11 +216,13 @@
         .money{display: flex;align-items: center;color: #D30102;}
         .zzdj_cen_right{display: flex;flex-direction: column;overflow: hidden;background-color: #fff;}
         .zzdj_serviceright_top{display: flex;padding:20px 15px;}
-        .zzdj_serviceright_top>p{padding: 10px;cursor: pointer;}
+        .zzdj_serviceright_top>p{padding: 10px;cursor: pointer;font-size: 15px;}
         .zzdj_serviceright_center{flex: 1;display: flex;flex-direction: column;}
         .zzdj_center_text{padding:10px 20px ;flex: 1;}
         .center_text{padding:10px 20px ;flex: 1;}
         .center_text>p,.center_text>div{padding-bottom: 10px;}
-        .center_text>p>span{padding-left: 16px;}
+        .center_text>p>span{padding-left: 16px;font-size: 14px;}
          .iscolor{color: #0184FE;}
+         .zhiding{position: absolute;bottom: 100px;right: 100px;}
+         .zhiding>img{width: 50px;}
 </style>

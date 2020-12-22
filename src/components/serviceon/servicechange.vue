@@ -36,7 +36,7 @@
 <style>
 .servicechange_all{width: 100%;height: 300px;display: flex;justify-content: center;align-items: center;flex-direction: column;padding: 20px;}
 .servicechange_firt{width: 100%;height: 65px;display: flex;justify-content: flex-start;align-items: center;flex-direction: row;}
-.servicechange_cont{width: 100%;height: 120px;display: flex;justify-content: center;align-items: center;}
+.servicechange_cont{font-size: 14px;;width: 100%;height: 120px;display: flex;justify-content: center;align-items: center;}
 .servicechange_cet{margin-top: 20px;width: 100%;flex: 1;display: flex;justify-content: center;align-items: center;flex-direction: row;}
 .servicechange_cbolk{border-radius: 10px;width: 170px;margin: 0 5px;height: 185px;border: 1px solid #d9ebff;display: flex;justify-content: space-evenly;align-items: center;flex-direction: column;}
 .servicechange_cboimg{width: 66px;height: 66px;display: flex;justify-content: center;align-items: center;}

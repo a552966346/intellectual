@@ -55,12 +55,14 @@
                 },
                 beforeMount() {
                         let id = this.$route.query.id
+                        this.$nextTick(function(){
+                                this.$api.severcategory()
                                 this.$api.severdetiles(id)
                                 .then(res=>{
                                         console.log(res.data)
                                         this.top_data = res.data
                                 })
-
+                        })
                 },
                 methods:{
                         text_click(){

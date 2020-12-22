@@ -5,6 +5,7 @@ import login from '@/page/login/login'
 import copyrightChanges from '@/page/copyrightChanges/copyrightChanges'
 import tradingCenter from '@/page/tradingCenter/tradingCenter'
 import service from '@/page/service/service'
+import servicelist from '@/page/servicelist/servicelist'//商标列表
 import service_ptsb from '@/page/service_ptsb/service_ptsb' //普通商标注册
 import service_sbbg from '@/page/service_sbbg/service_sbbg' //商标变更
 import service_sbxz from '@/page/service_sbxz/service_sbxz' //商标续展
@@ -59,6 +60,7 @@ import technology from '@/page/technology/technology' //技术转移
 import yuan from '@/page/yuan/yuan' //技术转移
 import trys from '@/page/trys/trys' 
 import paydetial from '@/page/paycenter/paydetial'
+import shopcart from '@/page/shopcart/shopcart'  //购物车
 
 Vue.use(Router)
 
@@ -116,6 +118,11 @@ export default new Router({
             path: '/serve', //其他服务
             name: 'service',
             component: service
+        },
+        {
+            path: '/servicelist', //服务中心列表
+            name: 'servicelist',
+            component: servicelist
         },
         {
             path: '/service_fmzl', //发明专利
@@ -318,6 +325,11 @@ export default new Router({
             path: '/paydetial',
             name: 'paydetial',
             component: paydetial
+        },
+        {
+            path:'/shopcart',
+            name:'shopcart',
+            component:shopcart
         }
     ]
 })

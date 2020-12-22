@@ -8,8 +8,8 @@
                                                 @click="choosecon(index,undefined,item[1],undefined)" >不限</span>
                                         <span :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]"
                                                 @click="choosecon(index,nubs,item[1],second)" :key="second.id" v-if="second !=''">{{second}}</span>
-                                        <div class="patenscree_leftprice" v-if="index==4">
-                                                <input type="text">&nbsp;元&nbsp;-&nbsp;<input type="text">&nbsp;元<button>确定</button>
+                                        <div class="patenscree_leftprice" v-if="index==(zlTop.length-1)">
+                                                <input type="text"><button>搜索</button>
                                         </div>
                                 </div>
                         </div>
@@ -214,26 +214,25 @@
                 position: absolute;
                 right: 15px;
                 color: #999;
+                display: flex;
+                align-items: center;
         }
 
         .patenscree_leftprice>input {
-                width: 50px;
-                border: 1px solid #e0e0e0;
-                height: 25px;
+                width: 80%;
+                border: 2px solid #177ec1;
+                height: 35px;
                 padding: 0 3px;
+                 outline: none;
         }
 
-        .patenscree_leftprice>input:focus {
-                outline: none;
-        }
 
         .patenscree_leftprice>button {
                 background-color: #177ec1;
                 border: none;
                 color: #fff;
-                padding: 0 5px;
-                height: 25px;
-                margin-left: 5px;
+                padding: 1px 6px;
+                height: 35px;
         }
 
         .patenscree_leftother {
