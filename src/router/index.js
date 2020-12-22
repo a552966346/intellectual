@@ -5,6 +5,7 @@ import login from '@/page/login/login'
 import copyrightChanges from '@/page/copyrightChanges/copyrightChanges'
 import tradingCenter from '@/page/tradingCenter/tradingCenter'
 import service from '@/page/service/service'
+import servicelist from '@/page/servicelist/servicelist'//商标列表
 import service_ptsb from '@/page/service_ptsb/service_ptsb' //普通商标注册
 import service_sbbg from '@/page/service_sbbg/service_sbbg' //商标变更
 import service_sbxz from '@/page/service_sbxz/service_sbxz' //商标续展
@@ -117,6 +118,11 @@ export default new Router({
             path: '/serve', //其他服务
             name: 'service',
             component: service
+        },
+        {
+            path: '/servicelist', //服务中心列表
+            name: 'servicelist',
+            component: servicelist
         },
         {
             path: '/service_fmzl', //发明专利
