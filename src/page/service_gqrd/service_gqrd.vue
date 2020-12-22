@@ -1,5 +1,5 @@
 <template>
-        <div>
+        <div id="all">
                 <v-topsearch></v-topsearch>
                 <div class="consultation_all">
                         <!-- 导航 -->
@@ -48,7 +48,7 @@
                                                                </div>
 
                                                                <!-- 常见问题 -->
-                                                               <div class="center_text" id="text_4">
+                                                               <div class="center_text" id="text_3">
                                                                        <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
                                                                        <v-publicproblems :pub="pub"></v-publicproblems>
@@ -169,8 +169,8 @@
                         this.id = this.$route.query.id
                         this.$nextTick(function(){
                              this.isgets(this.id)
+                             this.$api.severcategory()
                         })
-
                 },
                 methods:{
                         running(){

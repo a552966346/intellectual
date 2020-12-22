@@ -94,7 +94,7 @@
                                                 iscolor:0,
                                                 app:{//申请流程 2个图   //申请流程 0个图
                                                         src:"../../../static/img/copyright/process.png" ,
-                                                        
+
                                                 },
                                                 list:{//伊甸优势
                                                         arr:[
@@ -119,8 +119,8 @@
 
                                                     ]
                                                 },
-                                               
-                                                
+
+
                                         }
                                 },
                                 components:{
@@ -136,6 +136,7 @@
                         this.id = this.$route.query.id
                         this.$nextTick(function(){
                              this.isgets(this.id)
+                                this.$el.scrollIntoView()
                         })
 
                 },

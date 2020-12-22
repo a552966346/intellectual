@@ -1,5 +1,5 @@
 <template>
-        <div>
+        <div id="all">
                 <v-topsearch></v-topsearch>
                 <div class="consultation_all">
                         <!-- 导航 -->
@@ -248,6 +248,7 @@
                         this.id = this.$route.query.id
                         this.$nextTick(function(){
                              this.isgets(this.id)
+                             this.$api.severcategory()
                         })
 
                 },
