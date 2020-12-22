@@ -9,8 +9,8 @@
                                 </el-carousel>
                         </div>
                         <div class="right">
-                                <div class="rHeader">实用新型专利申请</div>
-                                <div class="rHeadercont">实用新型专利又称小发明或小专利，是对通常是指对产品的形状、构造或者结合其所提出的适于实用的新的技术方案。授权周期短，实用性强。</div>
+                                <div class="rHeader">{{top_data.name}}</div>
+                                <div class="rHeadercont">{{top_data.sketch}}</div>
                                 <div class="rServiceType">
                                         <span>服务类型：</span>
                                         <span class="rServiceTypeActive">标准</span>
@@ -34,16 +34,16 @@
                                                 <div class="bottomLeft">
                                                         <div>
                                                                 <span>服务费用：</span>
-                                                                <span>￥1999</span>
+                                                                <span>￥{{top_data.serve_fee}}</span>
                                                         </div>
                                                         <div>
                                                                 <span>国知局费用：</span>
-                                                                <span>￥75</span>
-                                                                <span>（实用新型：申请费：￥75）</span>
+                                                                <span>￥{{top_data.know_fee}}</span>
+                                                                <span>（{{top_data.know_fee_remark}}）</span>
                                                         </div>
                                                         <div>
                                                                 <span>费用合计：</span>
-                                                                <span>￥2074</span>
+                                                                <span>￥{{nub}}</span>
                                                         </div>
                                                 </div>
                                                 <div class="bottomRight">
@@ -81,6 +81,18 @@
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+
+			}
+		},
+		props:{
+			image:'',
+                        top_data:'',
+                        nub:''
+		}
+	}
 </script>
 
 <style>

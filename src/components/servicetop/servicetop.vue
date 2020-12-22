@@ -19,10 +19,10 @@
                                                         <p>服务费：<span>￥{{top_data.fee}}</span></p>
                                                 </slot>
                                         </div>
-                                        <div class="inp" v-show="isShow !=''">
+                                        <div class="inp" v-show="!isShow">
                                                 <p>联系电话：</p><input type="tel">
                                         </div>
-                                        <div class="inp" v-show="isShow !=''">
+                                        <div class="inp" v-show="!isShow">
                                                 <p>联系人：</p><input type="text">
                                         </div>
                                 </div>
@@ -60,7 +60,7 @@
                 props: {
                         image: '',
                         top_data: '',
-                        isShow: ''
+                        isShow: false
                 },
                 mounted() {
 

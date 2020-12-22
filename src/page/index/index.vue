@@ -183,7 +183,7 @@
                                 <v-comtitle :title="title_all[4]"  :background_img_url='title_bg_url[4]' :inform_title="title_text_all[4]"></v-comtitle>
                                 <div class="index_partner">
                                         <div :class="index.index == 1?'index_partblok':'index_partblak'" v-for="(index,item) in parlist"
-                                                :key="item">
+                                                :key="item" @click="open(item)">
                                                 <div :class="index.index == 1?'index_parsnimg':'index_parsimg'">
                                                         <img :src="index.parimg" alt="">
                                                 </div>
@@ -227,6 +227,36 @@
 
                         </div>
                 </div>
+                <div class="layui" v-show="isshow" @click.self="close">
+                     <div class="layui_left">
+                             <div class="layui_title" style="display:flex;">
+                                     <div>
+                                             <h2>申请成为合伙人</h2>
+                                             <span style="color: #ccc;font-size: 15px;padding-left: 5px;"><img src="" alt="">最高100%返佣</span>
+                                     </div>
+                                     <div @click="close">
+                                             <img src="../../../static/img/index/index_close.png" alt="">
+                                     </div>
+                             </div>
+                             <div class="layui_cent">
+                                    <el-form :model="login_ruleForm" status-icon :rules="verification_rules" ref="login_ruleForm"
+                                            class="layui_cent_from">
+                                            <el-form-item label="手机号" prop="phone" class="login_form_item">
+                                                    <el-input  type="nub" v-model="login_ruleForm.phone" size="large"
+                                                            autocomplete="off" placeholder='请输入手机号'></el-input>
+                                            </el-form-item>
+                                            <el-form-item label="联系人" prop="name" class="login_form_item">
+                                                    <el-input  type="text" v-model="login_ruleForm.name" size="large"
+                                                            autocomplete="off" placeholder='如王女士/张女士'></el-input>
+                                            </el-form-item>
+                                            <el-form-item class="login_form_item">
+                                                    <el-button type="primary" :plain="true" @click="submitForm('login_ruleForm')"
+                                                            style="width:200px;height:40px">立即申请</el-button>
+                                            </el-form-item>
+                                    </el-form>
+                             </div>
+                     </div>
+             </div>
                 <!-- 合作平台 -->
                 <div>
                       <img src="../../../static/img/index/cooperation_img.png" alt="">
@@ -240,6 +270,7 @@
         import indexpayitem from '@/components/indexpayitem/indexpayitem.vue'
         import navigation from '@/components/navigation/navigation.vue'
         import banner from '@/components/banner/banner.vue'
+        import {validatePhone} from '@/util/rules.js'
         export default {
                 name: 'index',
                 data() {
@@ -474,7 +505,25 @@
                                 ],
                                 // 伊甸网
                                 brief:'',
-                                introimage:[]
+                                introimage:[],
+                                login_ruleForm:{
+                                        phone:'',
+                                        name:''
+                                },
+                                //校验规则
+                              verification_rules: {
+                                      phone: [{
+                                              required: true,
+                                              trigger: 'blur',
+                                              message: '请输入手机号'
+                                      }, {
+                                              validator: validatePhone,
+                                              trigger: 'blur'
+                                      },
+                                      { type: 'number', message: '手机号必须为数字值'},
+                                      ],
+                              },
+                              isshow:false
                         }
                 },
                 mounted() {
@@ -538,6 +587,16 @@
                                 if(index<11){
                                       this.seen='';
                                 }
+                        },
+                        open(index){
+                                console.log(index)
+                                this.isshow = true
+                        },
+                        close(){
+                                 this.isshow = false
+                        },
+                        submitForm(){
+                                console.log(111)
                         }
 
                 },
@@ -581,7 +640,7 @@
 
 
       /* 企业服务*/
-      .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bg.jpg);padding: 20px 0px;}
+      .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bgt.jpg);padding: 20px 0px;}
       .index_enterpriseasd{width: 1240px;height: 420px;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
       .index_enterpriseasdwron{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbaon.png);background-size: cover;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 3%;color: #fff;}
       .index_enterpriseasdwrtw{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatw.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
@@ -650,4 +709,21 @@
       .index_ulwsaq{width: 100%;height: 45px;display: flex;justify-content: flex-start;align-items: center;}
       .index_ulwsapq{width: 100%;flex: 1;display: flex;justify-content: flex-start;align-items: center;}
       .index_ulxwsqk .index_ulxwsqkz:nth-child(2){margin: 10px 0;}
+
+
+      .layui_title{display: flex;align-items: center; justify-content: space-between;}
+       .layui_title>div{display: flex; align-items: center;}
+      .layui_title>div:nth-child(2){width: 30px;height: 30px; }
+      .layui_title>div>img{width: 100%;}
+      .layui{position: fixed;z-index: 9999;background: rgba(0,0,0,0.2); width: 100%;height: 100%;top:0;
+            right:0;
+            left:0;
+            bottom:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+      .layui_left{width: 25%;height: 30%;background-color: #fff; padding: 15px ;}
+       .layui_cent{text-align: center;}
+       .login_form_item{display: flex; padding: 15px 0;width: 100%;justify-content: center;}
 </style>

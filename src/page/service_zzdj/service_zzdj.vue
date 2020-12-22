@@ -9,12 +9,16 @@
                                 <div class="consultation_all_text"><p>服务中心>软件著作权登记</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image">
-                                               <!-- <template v-slot:topall>
+                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image" :isShow="true">
+                                               <template v-slot:topall>
                                                         <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
-                                                        <div class="slot_bord">11111111</div>
+                                                        <div class="slot_bord">
+                                                                <div>
+                                                                        <span>50工作日</span><span>￥398/件</span>
+                                                                </div>
+                                                        </div>
                                                         <div class="money">￥<h2>398</h2>元起</div>
-                                                </template> -->
+                                                </template>
                                         </v-servicet>
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left">
@@ -67,7 +71,7 @@
         import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
         import servicechange from '../../components/serviceon/servicechange.vue'//必要性
-        
+
 
 
         export default{
@@ -92,7 +96,7 @@
                                         {src:'../../../static/img/service/service_chatwo.png',text:'项目投标：政府/商业项目，竞标资质条件'},
                                         {src:'../../../static/img/service/service_chatre.png',text:'国家补贴：高企/双软申报，享受百万政府补贴'},
                                         {src:'../../../static/img/service/service_chatfh.png',text:'无形资产：帮助企业增资，递延纳税优惠'},
-                                       
+
                                 ],
                                 app:{//申请流程 2个图   //申请流程 0个图
                                         src:"../../../static/img/copyright/process.png" ,
@@ -186,6 +190,10 @@
         .cen_right { flex:3;box-shadow:1px 1px 10px 2px #ccc;}
         .consultation_bottom{width: 100%;}
         .consultation_bottom>img{width: 100%;}
+        .slot_bord{display: flex;padding: 10px 0;}
+        .slot_bord>div{border: 1px solid #0184FE;}
+        .slot_bord>div>span:nth-child(1){background-color: #0184FE;color: #fff;font-size: 14px;padding: 5px;}
+        .slot_bord>div>span:nth-child(2){background-color: #fff;color: #0184FE;font-size: 14px;padding: 5px;}
         .money{display: flex;align-items: center;color: #D30102;}
         .zzdj_cen_right{display: flex;flex-direction: column;overflow: hidden;background-color: #fff;}
         .zzdj_serviceright_top{display: flex;padding:20px 15px;}

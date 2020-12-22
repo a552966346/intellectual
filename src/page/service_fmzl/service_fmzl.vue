@@ -9,7 +9,7 @@
                                 <div class="consultation_all_text"><p>服务中心>发明专利</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image">
+                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image" :nub="nub">
                                                <!-- <template v-slot:topall>
                                                         <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
                                                         <div class="slot_bord">11111111</div>
@@ -42,7 +42,7 @@
                                                                         <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :color='title_color'></v-comtitle>
                                                                         <!-- 申请流程 2个图 -->
                                                                         <v-applyprocess :app="app"></v-applyprocess>
-                                                                </div>  
+                                                                </div>
                                                                 <!-- 服务保障 -->
                                                                 <div class="center_text" id="text_2">
                                                                         <v-comtitle :title="title_all[5]" :inform_title='title_text_all[5]' :color='title_color'></v-comtitle>
@@ -50,7 +50,7 @@
                                                                         <!-- 服务保障  123样式 -->
                                                                         <v-serviceassurance :ser="ser"></v-serviceassurance>
                                                                 </div>
-                                                                
+
                                                                 <!-- 常见问题 -->
                                                                 <div class="center_text" id="text_3">
                                                                         <v-comtitle :title="title_all[6]" :inform_title='title_text_all[6]' :color='title_color'></v-comtitle>
@@ -72,7 +72,7 @@
 </template>
 
 <script>
-        import servicetop from '../../components/servicetop/servicetop.vue'
+        import servicetop from '../../components/servicetop/servicetop_two.vue'
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import serviceassurance from '../../components/copyright/serviceassurance.vue'//服务保障  123样式
@@ -96,6 +96,7 @@
                                 title_all:["什么是发明专利？","哪些发明创造可以申请发明专利？","发明专利能给带来什么好处?","为什么选择伊甸城？","发明专利申请流程","服务保障","常见问题"],
                                 title_text_all:["","","","","流程合理完善，让您的著作权登记更为流畅简单","",""],
                                 txt:'text_',
+                                nub:'',
                                 iscolor:0,
                                 app:{//申请流程 2个图   //申请流程 0个图
                                         src:"../../../static/img/copyright/process.png" ,
@@ -114,7 +115,7 @@
                                                 {text: '营业执照副本复印件'},
                                                 {text: '发明人信息'},
                                                 {text: '技术交底书'}
-                                        ],  
+                                        ],
                                 },
                                 ser:{//服务保障  123样式
                                     arr:[
@@ -136,7 +137,7 @@
                                     ]
                                 } ,
                                 //常见问题
-                                met:{ 
+                                met:{
                                 mess:['../../../static/img/service/serviceright_jiantou.png','常见问题'],
                                 feli:[
                                         {id:1,ming:'../../../static/img/service/service_icon.png',mitt:'实用新型和发明专利的区别在哪里？',mitim:'../../../static/img/service/service_ictw.png',felida:[
@@ -229,7 +230,7 @@
                                 date: '客户一票否决权',
                                 name: '50000',
                                 }]
-                                
+
                         }
                 },
                 components:{
@@ -261,10 +262,7 @@
                                         if(res.code){
                                                 console.log(res)
                                                 this.top_data = res.data.data
-                                                this.right_data = res.data.data.content.split(',')
-                                                this.toptext = res.data.data.contenttitle.split(',')
-                                                this.question = res.data.question
-                                                this.toptext.push("常见问题","典型案例")
+                                                this.nub =Number(res.data.data.fee) +Number(res.data.data.know_fee) + Number(res.data.data.serve_fee)
                                                 this.image = res.data.data.images_text
                                         }else{
                                                 alert("暂无数据")

@@ -9,20 +9,14 @@
                                 <div class="consultation_all_text"><p>服务中心>PCT国际专利申请</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image">
-                                               <!-- <template v-slot:topall>
-                                                        <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
-                                                        <div class="slot_bord">11111111</div>
-                                                        <div class="money">￥<h2>398</h2>元起</div>
-                                                </template> -->
+                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image" :nub ="nub">
+
                                         </v-servicet>
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left">
                                                         <v-serviceleft :isid="id" @running="running"></v-serviceleft>
                                                 </div>
                                                 <div class="cen_right zzdj_cen_right">
-                                                       
-
                                                         <div class="zzdj_serviceright_top">
                                                                 <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}" :key="index">{{item}}</p>
                                                         </div>
@@ -42,14 +36,14 @@
                                                                         <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                         <!-- 申请流程 2个图 -->
                                                                         <v-applyprocess :app="app"></v-applyprocess>
-                                                                </div>  
+                                                                </div>
                                                                 <!-- 伊甸优势 -->
                                                                 <div class="center_text" id="text_3">
                                                                         <v-comtitle :title="title_all[4]" :inform_title='title_text_all[4]' :color='title_color'></v-comtitle>
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">伊甸优势</span></p>
                                                                         <v-servicetw :list="list"></v-servicetw>
                                                                 </div>
-                                                                
+
                                                                 <!-- 常见问题 -->
                                                                 <div class="center_text" id="text_4">
                                                                         <v-comtitle :title="title_all[5]" :inform_title='title_text_all[5]' :color='title_color'></v-comtitle>
@@ -71,7 +65,7 @@
 </template>
 
 <script>
-        import servicetop from '../../components/servicetop/servicetop.vue'
+        import servicetop from '../../components/servicetop/servicetop_four.vue'
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
         import publicproblems from '../../components/copyright/publicproblems.vue'//公共问题
@@ -117,7 +111,7 @@
                                                 {q: '申请美国专利需要准备哪些文件？',
                                                 a: '（1）巴黎公约途径：在中国申请后，在第一在先专利申请日（即优先权日）起12个月届满前向美国知识产权局提出美国专利申请，可以享受优先权的待遇，需要提交优先权证明文件。申请所需文件及信息：申请文件：包括说明书、权利要求书、说明书附图、摘要、摘要附图；申请信息：申请人及发明人中英文名称姓名、地址及邮编，申请国家，联系人等；优先权信息；委托书；（2）PCT途径：根据PCT的规定，申请人可以通过PCT途径递交国际申请，指定向全球几乎所有国家申请专利，即在中国在先申请的申请日（优先权日）起12个月内向中国国家知识产权局提出PCT国际申请，在自优先权日起30个月内向美国知识产权局提出进入申请。申请所需文件：PCT公开文件；国际检索报告；PCT阶段的修改文件（如有）；委托书。'},
                                         ]
-                                        
+
                                 },
                                 app:{//申请流程 2个图   //申请流程 0个图
                                         src:"../../../static/img/copyright/process.png" ,
@@ -136,7 +130,7 @@
                                                 {text: '营业执照副本复印件'},
                                                 {text: '发明人信息'},
                                                 {text: '技术交底书'}
-                                        ],  
+                                        ],
                                 },
                                 //pc优势
                                 mulist:[{
@@ -151,8 +145,9 @@
                                         },{
                                         src:'../../../static/img/service/service_sqon.png',
                                         text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
-                                        }]
-                                
+                                        }],
+                                nub:''
+
                         }
                 },
                 components:{
@@ -169,9 +164,9 @@
                 beforeMount() {
                         console.log(111111)
                         this.id = this.$route.query.id
-                        // this.$nextTick(function(){
-                        //      this.isgets(this.id)
-                        // })
+                        this.$nextTick(function(){
+                             this.isgets(this.id)
+                        })
 
                 },
                 methods:{
@@ -182,17 +177,15 @@
                         isgets(id){
                                 this.$api.severdetiles(id)
                                 .then(res=>{
-                                        // if(res.code){
-                                        //         console.log(res)
-                                        //         this.top_data = res.data.data
-                                        //         this.right_data = res.data.data.content.split(',')
-                                        //         this.toptext = res.data.data.contenttitle.split(',')
-                                        //         this.question = res.data.question
-                                        //         this.toptext.push("常见问题","典型案例")
-                                        //         this.image = res.data.data.images_text
-                                        // }else{
-                                        //         alert("暂无数据")
-                                        // }
+                                        if(res.code){
+                                                console.log(res)
+                                                this.top_data = res.data.data
+                                                this.nub =Number(res.data.data.fee) +Number(res.data.data.know_fee) + Number(res.data.data.know_fee_remark)
+                                                console.log(this.nub)
+                                                this.image = res.data.data.images_text
+                                        }else{
+                                                alert("暂无数据")
+                                        }
                                 })
                         },
                         text_click(porp){

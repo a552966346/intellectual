@@ -11,7 +11,7 @@
                         <div class="topRight">
                                 <div class="topHeader">
                                         <p>{{top_data.name}}</p>
-                                        <p v-html="top_data.content"></p>
+                                        <p v-html="top_data.sketch"></p>
                                 </div>
                                 <div class="topSelect">
                                         <select name="" id="">
@@ -68,7 +68,8 @@
                 },
                 props: {
                         title: '',
-                        top_data: ''
+                        top_data: '',
+                        image:''
                 }
         }
 </script>

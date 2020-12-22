@@ -5,7 +5,7 @@
     <div class="copyright_pay">
       <img :src="banner" alt="" />
       <!-- 分类 -->
-      <trademarkscreen @choosecon="choosecon" @ischange = "ischange" @choosenull="choosenull" :patenscree="patenscree" :data_two="data_two" :iscolor="iscolor"></trademarkscreen>
+      <trademarkscreen @choosecon="choosecon" @ischange = "ischange" @search="search" @choosenull="choosenull" :patenscree="patenscree" :data_two="data_two" :iscolor="iscolor"></trademarkscreen>
       <!-- 排序-->
       <div class="patent_sort">
         <span :class="{ sortactive: this.sortnumber == 0 }" @click="comsort(0)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
@@ -111,6 +111,11 @@ export default {
                 ischange(id){
                        this.id = id
                        this.ispost(this.id)
+                },
+                //搜索
+                search(id){
+                        this.id = id
+                        this.ispost(id)
                 },
                 // 请求列表
                 ispost(id){

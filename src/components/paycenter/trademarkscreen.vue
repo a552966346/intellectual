@@ -26,8 +26,8 @@
                                                     </el-select>
                                         </div>
                                         <div class="patenscree_leftdrop">
-                                            <input type="text" value="输入名称搜索商标">
-                                            <span class="patentscreen_search">搜索</span>
+                                            <input type="text" value="输入名称搜索商标" v-model="text" >
+                                            <span class="patentscreen_search"  @click="search">搜索</span>
                                         </div>
                                 </div>
                         </div>
@@ -104,8 +104,8 @@ export default {
                         }
                         ],
                         value:[],       //下拉框值
-                        id:{}           //筛选参数
-
+                        id:{},           //筛选参数
+                        text:''
                 }
         },
         props:{
@@ -145,6 +145,11 @@ export default {
                          this.$set(this.id,item,this.value[index])
                          this.$emit('ischange',this.id)
                 },
+                search(){
+                        this.$set(this.id,'keyword',this.text)
+                        console.log(this.id)
+                         this.$emit('search',this.id)
+                },
                 // 清空筛选条件
                 choosenull() {
                         this.id = {}
@@ -169,9 +174,12 @@ export default {
                 width: 78.5%;
                 background-color: #fff;
                 font-size: 15px;
+                display: flex;
+                flex-direction: column;
         }
 
         .patenscree_leftrow {
+                flex: 1;
                 display: flex;
                 border-bottom: 1px dashed #e9e7f2;
         }
@@ -234,11 +242,14 @@ export default {
         .patenscree_leftother {
                 flex: 1;
                 display: flex;
+                align-items: center;
         }
-
+        .patenscree_leftother input,button{
+                height: 40px;
+        }
         .patenscree_leftdrop {
                 cursor: pointer;
-                padding: 16px 8px 0;
+                padding: 0 10px;
                 display: flex;
                 flex: 1;
         }
