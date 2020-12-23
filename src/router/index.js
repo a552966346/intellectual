@@ -62,6 +62,7 @@ import trys from '@/page/trys/trys'
 import paydetial from '@/page/paycenter/paydetial'
 import shopcart from '@/page/shopcart/shopcart'  //购物车
 
+
 Vue.use(Router)
 
 export default new Router({
