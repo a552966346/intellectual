@@ -3,14 +3,25 @@
 <div class="cobdition_table_all">
     <div class="cobdition_table_container"  >
         <div class="cobdition_table_item_l" >
-            <div class="cobdition_table_item_t cs " > </div>
-            <div class="cobdition_table_item_t cq " > </div>
-            <div class="cobdition_table_item_c " v-for="(item,index) in cond.arrl" :key="index" >{{item.text}}</div>
+            <div class="cobdition_table_item_t ">{{cond.tl}} </div>
+            <div class="cobdition_table_item_tc" v-for="(item,index) in cond.arrt" :key="index">{{item.text}}</div>
+            <div class="cobdition_table_item_c cl " v-for="(items,index) in cond.arrl" :key="index" >
+                <!-- v-for="(item,index) in cond.arrl" :key="index" -->
+                <div class="cobdition_table_item_c1">{{items.n}}</div>
+                <div class="cobdition_table_item_c2">{{items.t}}</div>
+            </div>
         </div>
         <div class="cobdition_table_item_r" >
-            <div class="cobdition_table_item_t cs" ></div>
-            <div class="cobdition_table_item_t cq" ></div>
-            <div class="cobdition_table_item_c " ></div>
+            <div class="cobdition_table_item_t0" >
+                <div class="cobdition_table_item_t3" v-for="(it,index) in cond.arr" :key="index">{{it.t}}</div>
+                
+            </div>
+            <div class="cobdition_table_item_c cr" v-for="(its,index) in cond.arrr" :key="index">
+                <div class="cobdition_table_item_c3" v-html="its.t"></div>
+                <div class="cobdition_table_item_c3" v-html="its.t2"></div>
+                <div class="cobdition_table_item_c3" v-html="its.t3"></div>
+                   
+            </div>
         </div>
     </div>
 </div>
@@ -42,12 +53,12 @@ export default {
     align-items: center;
 }
 .cobdition_table_item_l{
-    width: 19%;
+    width: 68%;
     display: flex;
     flex-direction: column;
 }
 .cobdition_table_item_r{
-    width: 79%;
+    width: 30%;
     display: flex;
     flex-direction: column;
 }
@@ -59,15 +70,43 @@ export default {
     justify-content: center;
     align-items: center;
     font-size: 18px;
-}
-.tt{
     background-color: #187fc4;
     color: #fff;
 }
-.bb{
-    background-color: #f2f6ff;
-    color:#1681c5;
+.cobdition_table_item_t0{
+    height: 34px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
 }
+.cobdition_table_item_t3{
+    height: 34px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: #187fc4;
+    color: #fff;
+    flex: 1;
+    margin-right: 14px;
+}
+.cobdition_table_item_t3:nth-of-type(3){
+    margin-right: 0;
+}
+.cobdition_table_item_tc{
+    background-color: #f2f6ff;
+    color: #1a7fc5;
+    margin-top: 14px;
+     height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .cobdition_table_item_c{
     width: 100%;
     height: 50px;
@@ -75,9 +114,42 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 10px;
+    /* padding: 0 10px; */
     font-size: 13px;
+    display: flex;
+    color: #1a7fc5;
 }
+.cobdition_table_item_c1{
+    width: 50px;
+    margin-right: 14px;
+    background-color: #f2f6ff;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cobdition_table_item_c2{
+    flex: 1;
+    background-color: #f2f6ff;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cobdition_table_item_c3{
+    flex: 1;
+    height: 50px;
+    display: flex;
+    background-color: #f2f6ff;
+    color: #1a7fc5;
+    justify-content: center;
+    align-items: center;
+    margin-right: 14px;
+}
+.cobdition_table_item_c3:nth-of-type(3){
+    margin-right: 0;
+}
+
 
 
 </style>
