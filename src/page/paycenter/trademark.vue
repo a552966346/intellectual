@@ -37,7 +37,7 @@
                 </div>
                 <v-combotttom></v-combotttom>
                 <div class="tanchuang" v-show="isshow" @click.self="shows">
-                         <v-tanchuangsb></v-tanchuangsb>
+                         <v-tanchuangsb @close="close"></v-tanchuangsb>
                 </div>
         </div>
 </template>
@@ -104,6 +104,9 @@
                         tanchuang(){
                                 console.log(111)
                           this.isshow = true
+                        },
+                        close(){//隐藏弹框
+                                this.isshow = false
                         },
                         //隐藏弹框
                         shows(){

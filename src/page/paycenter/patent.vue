@@ -36,7 +36,7 @@
                 </div>
                 <v-combotttom></v-combotttom>
                 <div class="tanchuang" v-show="isshow" @click.self="shows">
-                         <v-tanchuangsb></v-tanchuangsb>
+                         <v-tanchuangsb @close="close"></v-tanchuangsb>
                 </div>
         </div>
 </template>
@@ -83,6 +83,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         })
                 },
                 methods: {
+                        
                         comsort(index){
                                 this.sortnumber=index
                                 if(index == 2){
@@ -101,6 +102,9 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         tanchuang(){
                                 console.log(111)
                           this.isshow = true
+                        },
+                        close(){//隐藏弹框
+                                this.isshow = false
                         },
                         //隐藏弹框
                         shows(){
