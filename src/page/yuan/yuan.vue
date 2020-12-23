@@ -1,5 +1,7 @@
 <template>
 <div class="all">
+  <!-- 弹窗商标 -->
+  <v-tanchuangsb></v-tanchuangsb>
   <!-- 业务流程 -->
   <v-businessintroduction :bus="bus"></v-businessintroduction>
   <!-- 认定条件 -->
@@ -23,6 +25,7 @@
 </template>
 <script>
 
+import tanchuangsb from '../../components/copyright/tanchuangsb.vue'//商标弹窗
 import businessintroduction from '../../components/copyright/businessintroduction.vue'//业务流程
 import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
 import applicationprocesszero from '../../components/copyright/applicationprocesszero.vue'//申请流程 0个图
@@ -158,6 +161,7 @@ import identifyconditions from '../../components/copyright/identifyconditions.vu
       }
     },
     components: {
+      'v-tanchuangsb':tanchuangsb,//商标弹窗
       'v-applyprocess':applicationprocess,//申请流程 2个图
       'v-applyprocesszero':applicationprocesszero,//申请流程 0个图
       'v-applyprocessthree':applicationprocessthree,//申请流程 3个图
