@@ -23,12 +23,12 @@
 
                                                 </slot>
                                         </div>
-                                        <div class="inp" v-show="!isShow">
+                                        <!-- <div class="inp" v-show="!isShow">
                                                 <p>联系电话：</p><input type="tel">
                                         </div>
                                         <div class="inp" v-show="!isShow">
                                                 <p>联系人：</p><input type="text">
-                                        </div>
+                                        </div> -->
                                 </div>
                                 <div class="topall_bottom">
                                         <div class="bottom_left">
@@ -82,6 +82,18 @@
                         },
                         shop(id){
                                 console.log(id)
+                                this.$api.getshop(id,2,1)
+                                .then(res=>{
+                                     if(res.msg == 1){
+                                        console.log(res.data)
+                                     }else{
+                                        console.log(res.msg)
+                                     }
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+
                                 this.$router.push({
                                         path:'/shopcart',
                                         query:{
