@@ -70,6 +70,7 @@
                 },
                 mounted() {
                         this.category_one = this.$route.query.id
+                        console.log(this.category_one)
                         this.$set(this.id, "category_one", this.category_one)
                         this.$api.gettrademarkcondition()
                                 .then(res => {
@@ -79,12 +80,12 @@
                                 })
                         this.$api.gettrademarkadvertisement()
                                 .then(res => {
-                                        console.log(res)
                                         this.banner = res.data.images
                                 })
                         this.ispost(this.id)
                 },
                 methods: {
+                        // 排序
                         comsort(index) {
                                 this.sortnumber = index
                                 if (index == 1) {
@@ -102,16 +103,15 @@
                         },
                         //显示弹框
                         tanchuang(){
-                                console.log(111)
                           this.isshow = true
                         },
                         //隐藏弹框
                         shows(){
                                 this.isshow = false
                         },
-                        listsort(index) {
-                                this.listsortnum = index
-                        },
+                        // listsort(index) {
+                        //         this.listsortnum = index
+                        // },
                         // 分类筛选
                         choosecon(id) {
                                 this.id = id
@@ -156,9 +156,9 @@
                                 this.ispost(id)
                         },
                         // 选择颜色
-                        colorbtn(color, index) {
+                        // colorbtn(color, index) {
 
-                        },
+                        // },
                         handleSizeChange() {
 
                         },
