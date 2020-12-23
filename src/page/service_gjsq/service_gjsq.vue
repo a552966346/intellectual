@@ -30,7 +30,9 @@
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">PCT申请</span></p>
                                                                         <v-comtitle id="text_0" :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
                                                                         <v-servicezl :idenimg='idenimg'></v-servicezl>
+                                                                        <!-- <v-pctapply :arrlist='arrlist'></v-pctapply> -->
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
+                                                                        <!-- <v-advantages></v-advantages> -->
                                                                         <v-servicezl :idenimg='idenimg'></v-servicezl>
                                                                         <v-comtitle id="text_1" :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                         <v-servicetr :mulist="mulist"></v-servicetr>
@@ -79,6 +81,8 @@
         import servicetw from '../../components/serviceon/servicetw.vue' //伊甸优势
         import servicetr from '../../components/serviceon/servicetr.vue' //pc优势
         import servicezl from '../../components/serviceon/servicezl.vue' //申请
+        import pctapply from '../../components/serviceon/pctapply.vue' //pct申请
+        import advantages from '../../components/serviceon/advantages.vue' //合作条约利弊
 
 
 
@@ -155,7 +159,11 @@
                                         },{
                                         src:'../../../static/img/service/service_sqon.png',
                                         text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
-                                        }]
+                                        }],
+                                //PCT申请
+                                arrlist:[{title:'什么是PCT途径？',con:'专利合作条约（PTC）是专利领域的额一项国际合作条约，允许申请人根据该条约提交一份专利申请，即可同时在该条约148个成员国中要求对其发明进行保护。'},
+                                        {title:'什么是PCT体系？',con:'1.PCT体系是专利“申请”体系而非专利“授予”体系。不存在“国际专利”，只有国际申请。'}
+                                ]        
 
 
                         }
@@ -168,7 +176,8 @@
                       'v-servicetw':servicetw,//伊甸优势
                       'v-servicetr':servicetr,//pc优势
                       'v-servicezl':servicezl,//申请
-
+                      'v-pctapply':pctapply, //pct申请
+                      'v-advantages':advantages,//合作条约
 
                 },
                 beforeMount() {

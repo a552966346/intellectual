@@ -153,4 +153,5 @@
         .shopcart_zsdfotret{width: 30%;height: 100%;display: flex;justify-content: space-between; align-items: center;}
         .shopcart_zsdfotretmt{height: 100%;width: 40%;background-color: red;display: flex;justify-content: center;align-items: center;}
         .shopcart_zsdfotretmt>div{color: #fff;font-size: 24px;font-weight: bold;}
+        .el-checkbox{margin-top:0px ! important;}
 </style>
