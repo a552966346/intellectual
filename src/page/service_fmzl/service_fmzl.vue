@@ -260,7 +260,6 @@
                              this.isgets(this.id)
                              this.$el.scrollIntoView()
                         })
-
                 },
                 methods:{
                         running(){

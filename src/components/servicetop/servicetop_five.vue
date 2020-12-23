@@ -58,7 +58,8 @@
                                         <div class="topBody_money">
                                                 <img src="" alt=""><span>价格</span>
                                                 <div class="topBody_money_text">
-                                                        <h1>{{top_data.fee}}</h1>
+                                                        <h1 v-if="top_data.fee>=10000">{{(top_data.fee/10000)}}万元</h1>
+                                                        <h1 v-else>{{top_data.fee}}元</h1>
                                                         <div>
                                                                 <span><img src="" alt="">{{top_data.clicks}}</span>
                                                                 <span><img src="" alt="">分享</span>
@@ -73,7 +74,7 @@
                                                                 <span><button @click="but1">+</button><button @click="but2">-</button></span>
                                                         </div>
                                                         <div class="left_but">
-                                                                <button @click="shop(top_data.id)">加入购物车<p>--<span>></span>--</p></button>
+                                                                <button @click="shop(top_data.id)">加入购物车<p>--<img src="../../../static/img/transfer/transfer_right.png" alt="">--</p></button>
                                                         </div>
 
                                                 </div>
@@ -116,7 +117,18 @@
                                         this.nub++
                         },
                         shop(id){
-                                console.log(id)
+                                 this.$api.getshop(id,5,1)
+                                .then(res=>{
+                                     if(res.msg == 1){
+                                        console.log(res.data)
+                                     }else{
+                                        console.log(res.msg)
+                                     }
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+
                                 this.$router.push({
                                         path:'/shopcart',
                                         query:{
@@ -335,19 +347,13 @@
 
         .left_but>button>p {
                 display: flex;
-                align-items: center;
+                align-items: flex-end;
                 justify-content: center;
                 padding: 3px 0;
         }
 
-        .left_but>button>p>span {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid #fff;
-                border-radius: 50%;
-                padding: 0 3px;
-                font-size: 11px;
+        .left_but>button>p>img {
+               width: 15px;
         }
 
         .bottom_right {
