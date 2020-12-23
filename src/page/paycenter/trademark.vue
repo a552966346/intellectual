@@ -3,7 +3,7 @@
                 <v-topsearch></v-topsearch>
                 <v-navigation></v-navigation>
                 <div class="copyright_pay">
-                        <img :src="banner" alt="" />
+                        <img :src="banner" alt="" @click="tanchuang" />
                         <!-- 分类 -->
                         <trademarkscreen @choosecon="choosecon" @ischange="ischange" @search="search" @choosenull="choosenull"
                                 :patenscree="patenscree" :data_two="data_two" :iscolor="iscolor" @delet="delet"></trademarkscreen>
@@ -36,10 +36,14 @@
                         <trademarkbo :listdata="listdata"></trademarkbo>
                 </div>
                 <v-combotttom></v-combotttom>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                         <v-tanchuangsb></v-tanchuangsb>
+                </div>
         </div>
 </template>
 
 <script>
+        import tanchuangsb from '../../components/copyright/tanchuangsb.vue'//商标弹窗
         import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
         import trademarkscreen from '@/components/paycenter/trademarkscreen.vue'
         import trademarkcon from '@/components/paycenter/trademarkcon.vue'
@@ -59,7 +63,8 @@
                                 istotal: 0,
                                 listdata: [],
                                 banner: '../../../static/img/paycenter/trademark_bg.png',
-                                category_one: ''
+                                category_one: '',
+                                isshow:false
                         }
 
                 },
@@ -95,7 +100,15 @@
                                 }
 
                         },
-
+                        //显示弹框
+                        tanchuang(){
+                                console.log(111)
+                          this.isshow = true
+                        },
+                        //隐藏弹框
+                        shows(){
+                                this.isshow = false
+                        },
                         listsort(index) {
                                 this.listsortnum = index
                         },
@@ -155,6 +168,7 @@
 
                 },
                 components: {
+                        'v-tanchuangsb':tanchuangsb,//商标弹窗
                         copyrightOrdinary,
                         trademarkscreen,
                         trademarkcon,
@@ -289,5 +303,14 @@
                 background-color: #3b5791;
                 color: #fff;
                 outline: none;
+        }
+        .tanchuang{
+              position: fixed;z-index: 9999;background: rgba(0,0,0,0.2); width: 100%;height: 100%;top:0;
+            right:0;
+            left:0;
+            bottom:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 </style>
