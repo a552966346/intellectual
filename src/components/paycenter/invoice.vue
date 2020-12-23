@@ -112,6 +112,7 @@ export default {
             width: 50%;
             display: flex;
             align-items: center;
+            margin-right: 100px;
         }
         .content_input>div>span{
             display: inline-block;
