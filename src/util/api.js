@@ -128,8 +128,18 @@ const api = {
      * 知识产权交易(专利交易)
      */
     // 中心专利数据列表
-    getPatentslist(data) {
-
+    getPatentslist(id) {
+                var data
+                if(id){
+                      data={
+                                      category_id:id[0],
+                                      patenttype:id[1],
+                                      fee:id[2],
+                                      condition:id[3],
+                                      strlenlength:id[4],
+                                      sell:id[5]
+                      }
+                }
         return requestAll.requset(baseUrl + '/api/Patents/patents_list', data);
     },
     // 专利筛选列表
@@ -151,7 +161,21 @@ const api = {
      * 知识产权交易(版权交易)
      */
     // 版权列表
-    getCopyrightlist(data) {
+    getCopyrightlist(id) {
+            var data
+            if(id){
+                  data={
+                                  category_id:id[0],
+                                  meanstype:id[1],
+                                  is_exclusive:id[2],
+                                  region:id[3],
+                                  affiliating:id[4],
+                                  chronology:id[5],
+                                  scope:id[6],
+                                  condition:id[7],
+                                  sell:id[8]
+                  }
+            }
         return requestAll.requset(baseUrl + '/api/Copyright/copyright_list', data);
     },
     // 版权列筛选数据
@@ -173,12 +197,23 @@ const api = {
      * 技术转让
      */
     // 技术转移列表
-    gettechnologylist(data) {
+    gettechnologylist(id) {
+            var data
+            if(id){
+                  data={
+                                  category_id:id[0],
+                                  territory:id[1],
+                                  type:id[2],
+                                  maturity:id[3],
+                                  means:id[4],
+                                  fee:id[5]
+                  }
+            }
         return requestAll.requset(baseUrl + '/api/technology/lists', data);
     },
     // 技术转移筛选条件
     gettechnologycondition() {
-        return requestAll.requset(baseUrl + '/api/technology/condition');
+                return requestAll.requset(baseUrl + '/api/technology/condition');
     },
     // 技术详细
     gettechnologydetiles(id) {

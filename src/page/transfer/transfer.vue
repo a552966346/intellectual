@@ -13,7 +13,7 @@
                         <v-navigation></v-navigation>
                         <img src="../../../static/img/transfer/transfer_banner.png" alt="">
                         <div class="transfer_all">
-                                <v-transfertop :top_data="top_data" :iscolor ='iscolor' @xuanze="xuanze" @qinchu="qinchu"></v-transfertop>
+                                <v-transfertop :top_data="top_data" :iscolor ='iscolor' @xuanze="xuanze" @qinchu="qinchu" @delet="delet"></v-transfertop>
                                 <div class="transfer_cen">
                                         <div class="transfer_cen_left">
                                                 <v-transferleft :left_data="left_data" :nub='nub' @shaixuan ="shaixuan"></v-transferleft>
@@ -42,14 +42,15 @@
                                 left_data:[],
                                 botm_data:[],
                                 nub:0,
-                                id:{},
+                                id:[],
                         }
                 },
                 mounted() {
                         this.$api.gettechnologycondition()
                         .then(res=>{
+                                console.log(res)
                                 this.top_data = res.data
-                                this.ispost()
+                                this.ispost(this.id)
                         })
                 },
                 methods:{
@@ -82,6 +83,10 @@
                         qinchu(){
                                 this.iscolor = []
                               this.ispost()
+                        },
+                        delet(id){
+                                this.id = id
+                                this.ispost(this.id)
                         }
                 },
                 components:{

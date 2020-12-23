@@ -170,45 +170,45 @@
                                 imga:'../../../static/img/service/benefit_ismg.png',
                                 txt:'个人'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg2.jpg',
+                                txt:'保护智慧结晶'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg3.jpg',
+                                txt:'维权证明'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg4.jpg',
+                                txt:'技术入股'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg5.jpg',
+                                txt:'评职评优'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg6.jpg',
+                                txt:'升学晋升'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg7.jpg',
+                                txt:'落户加分'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg8.jpg',
+                                txt:'企业'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg9.jpg',
+                                txt:'保护核心技术'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg10.jpg',
+                                txt:'抢占市场'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg11.jpg',
+                                txt:'评定高企'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg12.jpg',
+                                txt:'授权信贷'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
+                                imga:'../../../static/img/service/benefit_ismg13.jpg',
+                                txt:'税收减免'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg.png',
-                                txt:'个人'
-                                },],
+                                imga:'../../../static/img/service/benefit_ismg14.jpg',
+                                txt:'政策扶持'
+                                }],
                                 //选择伊甸城 表格
                                 tableData: [{
                                 date: '授权保险',

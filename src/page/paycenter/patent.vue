@@ -5,7 +5,7 @@
                 <div class="patent_pay">
                         <img :src="banner" alt="">
                         <!-- 分类 -->
-                        <patentscreen :zlTop = "zlTop" :iscolor="iscolor" @choosecon="choosecon" @choosenull="choosenull"></patentscreen>
+                        <patentscreen :zlTop = "zlTop" :iscolor="iscolor" @choosecon="choosecon" @choosenull="choosenull" @delet="delet"></patentscreen>
                         <!-- 排序-->
                         <div class="patent_sort">
                                 <span :class="{sortactive:this.sortnumber==1}" @click="comsort(1)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
@@ -116,6 +116,9 @@ import patentcon from '../../components/paycenter/patentcon.vue';
                                         this.listdata = res.data.youlike
                                         this.istotal = res.data.lists.data.length
                                 })
+                        },
+                        delet(id){
+                                this.ispost(id)
                         },
                         handleSizeChange(){
 

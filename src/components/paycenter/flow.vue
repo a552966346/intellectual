@@ -10,7 +10,6 @@
                 <el-step title="交易成功" description=""></el-step>
             </el-steps>
         </div>
-    
     </div> 
 </template>
 <script>
@@ -36,14 +35,5 @@ export default {
             padding: 80px;
             background: #fff;
             border-radius: 10px;
-            /* display: flex;
-            align-items: center; */
-            /* justify-content: center; */
-        }
-        .is-text{
-            border-color: #187fc4 !important;
-            z-index: 1000;
-            background: #187fc4 !important;
-
         }
 </style>
