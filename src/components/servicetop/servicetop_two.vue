@@ -42,7 +42,8 @@
                                                         </div>
                                                         <div>
                                                                 <span>费用合计：</span>
-                                                                <span>￥{{nub}}</span>
+                                                                <span v-if="top_data.fee>=10000">{{(top_data.fee/10000)}}万元</span>
+                                                                <span v-else>{{top_data.fee}}元</span>
                                                         </div>
                                                 </div>
                                                 <div class="bottomRight">
@@ -64,7 +65,7 @@
                                                         <div class="car" @click="shop(top_data.id)">
                                                                 <div>加入购物车</div>
                                                                 <div>
-                                                                        <p>---<span>></span>---</p>
+                                                                        <p>---<img src="../../../static/img/transfer/transfer_right.png" alt="">---</p>
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -447,18 +448,12 @@
 
         .car>div>p {
                 display: flex;
-                align-items: center;
+                align-items: flex-end;
                 justify-content: center;
                 padding: 3px 0;
         }
 
-        .car>div>p>span {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid #fff;
-                border-radius: 50%;
-                padding: 0 3px;
-                font-size: 11px;
+        .car>div>p>img {
+                width: 15px;
         }
 </style>
