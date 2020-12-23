@@ -1134,6 +1134,11 @@
 
         .fu_cen_left>div>p:nth-child(2) {
                 font-size: 14px;
+                overflow:hidden;
+                text-overflow:ellipsis;
+                display:-webkit-box;
+                -webkit-box-orient:vertical;
+                -webkit-line-clamp:1;
         }
 
         .fu_cen_left>div>p:nth-child(3) {
@@ -1198,6 +1203,11 @@
 
         .right_lie_cent>p:nth-child(2) {
                 color: #bbb;
+                overflow:hidden;
+                text-overflow:ellipsis;
+                display:-webkit-box;
+                -webkit-box-orient:vertical;
+                -webkit-line-clamp:1;
         }
 
         .right_lie_cent>p:nth-child(3) {

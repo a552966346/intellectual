@@ -12,20 +12,9 @@
                                 <span :class="{ sortactive: this.sortnumber == 0 }" @click="comsort(0)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
                                 <span :class="{ sortactive: this.sortnumber == 1 }" @click="comsort(1)">发布时间<i class="el-icon-bottom patent_sorticon"></i></span>
                                 <span :class="{ sortactive: this.sortnumber == 2 }" @click="comsort(2)">价格排序<i class="el-icon-bottom patent_sorticon"></i></span>
-                                <!-- <div class="patent_sortright">
-          <div :class="{patent_sortitem: true,sortactive: this.listsortnum == 1,}" @click="listsort(1)">
-            <i class="el-icon-s-grid"></i>
-          </div>
-          <div :class="{patent_sortitem: true,sortactive: this.listsortnum == 2,}" @click="listsort(2)">
-            <i class="el-icon-s-unfold"></i>
-          </div>
-          <div class="patent_sortpage">
-            <div><i class="el-icon-arrow-left"></i></div>
-            <div><i class="el-icon-arrow-right"></i></div>
-          </div>
-        </div> -->
+
                         </div>
-                        <trademarkcon :iscent="iscent" @colorbtn="colorbtn"></trademarkcon>
+                        <trademarkcon :iscent="iscent" ></trademarkcon>
                         <div class="copyright_page">
                                 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
                                         :page-size="10" layout="prev, pager, next, jumper" :total="istotal">
@@ -37,7 +26,11 @@
                 </div>
                 <v-combotttom></v-combotttom>
                 <div class="tanchuang" v-show="isshow" @click.self="shows">
+<<<<<<< HEAD
                          <v-tanchuangsb @close="close"></v-tanchuangsb>
+=======
+                         <v-tanchuangsb ></v-tanchuangsb>
+>>>>>>> a20dc79441aed1814d6e44ca8d2bb273579c6f45
                 </div>
         </div>
 </template>
@@ -70,7 +63,10 @@
                 },
                 mounted() {
                         this.category_one = this.$route.query.id
-                        this.$set(this.id, "category_one", this.category_one)
+                        this.name = this.$route.query.name
+                        this.$set(this.id,7,this.name)
+                        this.$set(this.id, 0, this.category_one)
+
                         this.$api.gettrademarkcondition()
                                 .then(res => {
                                         this.patenscree=res.data.data_one;
@@ -79,12 +75,12 @@
                                 })
                         this.$api.gettrademarkadvertisement()
                                 .then(res => {
-                                        console.log(res)
                                         this.banner = res.data.images
                                 })
                         this.ispost(this.id)
                 },
                 methods: {
+                        // 排序
                         comsort(index) {
                                 this.sortnumber = index
                                 if (index == 1) {
@@ -102,7 +98,6 @@
                         },
                         //显示弹框
                         tanchuang(){
-                                console.log(111)
                           this.isshow = true
                         },
                         close(){//隐藏弹框
@@ -112,9 +107,9 @@
                         shows(){
                                 this.isshow = false
                         },
-                        listsort(index) {
-                                this.listsortnum = index
-                        },
+                        // listsort(index) {
+                        //         this.listsortnum = index
+                        // },
                         // 分类筛选
                         choosecon(id) {
                                 this.id = id
@@ -144,6 +139,7 @@
                                                 for (let i = 0; i < res.data.youlike.length; i++) {
                                                         this.listdata[i].bgcolor = this.bgcolor
                                                 }
+                                                console.log(this.iscent)
                                         })
                         },
                         //清空筛选
@@ -158,9 +154,9 @@
                                 this.ispost(id)
                         },
                         // 选择颜色
-                        colorbtn(color, index) {
+                        // colorbtn(color, index) {
 
-                        },
+                        // },
                         handleSizeChange() {
 
                         },

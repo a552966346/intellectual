@@ -2,11 +2,18 @@
   <div class="all">
     <div class="tanchuang_all">
       <div class="tanchuang_title">
-              <div>
-                      <img src="" alt="">
-                      <div class="tanchuang_title_text">我要出售商标</div>
-              </div>
-       
+            <!-- left -->
+            <div class="tanchuang_title_l">
+                <div class="tanchuang_title_img">
+                    <img src="../../../static/img/copyright/tc_r.png" alt="" >
+                </div>
+                <div class="tanchuang_title_text">我要出售商标</div>
+            </div>
+            <!-- right -->
+            <div class="tanchuang_title_r" @click="close">
+                <img src="../../../static/img/copyright/close.png" alt="" >
+            </div>
+        
       </div>
       <div class="tanchuang_body">
         <div class="tanchuang_bodytit">填写详情</div>
@@ -44,10 +51,10 @@
             <el-button  style="width:30%;background:#efefef;color:#919191;" type="mini">获取验证码</el-button></div>
             
           </el-form-item>
-          <el-form-item>
+          <el-form-item >
             <el-button
               type="primary"
-              style="color: #fff; background: #2b3d63; width: 42%"
+              style="color: #fff; background: #2b3d63; width: 42%;margin-bottom:20px"
               >确认发布</el-button
             >
             <el-button
@@ -57,6 +64,7 @@
                 background: #fff;
                 color: #eb9848;
                 width: 42%;
+                
               "
               >联系创建</el-button
             >
@@ -80,6 +88,12 @@ export default {
       }
     };
   },
+  methods:{
+    close(){
+      console.log(125)
+      this.$emit("close")
+    }
+  }
 };
 </script>
 
@@ -89,10 +103,10 @@ export default {
   width: 40%;
 }
 .tanchuang_all {
-  height: 550px;
+  /* height: 550px; */
   border-radius: 10px;
   overflow: hidden;
-  background: #ccc;
+  background: #fff;
 }
 .tanchuang_title_text {
   font-size: 15px;
@@ -105,6 +119,28 @@ export default {
   color: white;
   display: flex;
   padding-left: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tanchuang_title_img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-right: 8px;
+}
+.tanchuang_title_l{
+  display: flex;
+}
+.tanchuang_title_r{
+  margin-right: 5px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.tanchuang_title_r img{
+  height: 36px;
 }
 .tanchuang_bodytit {
   font-size: 16px;

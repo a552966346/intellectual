@@ -51,8 +51,8 @@
 
                         }
                },
-                mounted() {
-                       this.$api.severlist()
+                mounted(){
+                        this.$api.severlist()
                        .then(res => {
                                 console.log(res)
                                 console.log(res.data)
