@@ -1,22 +1,22 @@
 <template>
         <!-- 技术转移首页的专利排行榜 -->
         <div id="toplist">
-                <div class="item">
-                        <img :src="rank[0].image" alt="">
+                <div class="item"v-for="(item,index) in rank" @mouseleave="con1s=[]">
+                        <img :src="item.image" alt="">
                         <div class="itemall">
-                                <div class="item_list" v-for="(item,index) in rank[0].cont">
-                                        <div class="item_list_item" @mouseenter="con1=index" @mouseleave="con1=-1">
+                                <div class="item_list" v-for="(items,index1) in item.cont">
+                                        <div class="item_list_item" @click="con1(index,index1)" >
                                                 <router-link to="">
-                                                        <span>{{item.id}}</span>
-                                                        <p>{{item.title}}</p>
+                                                        <span>{{items.id}}</span>
+                                                        <p>{{items.title}}</p>
                                                         <img src="../../../static/img/technology/toplistjiantou1.png" alt="">
                                                 </router-link>
                                         </div>
-                                       <div class="item_list_detailitem" v-if="con1==index">
-                                                <p>发明人:{{item.detail.people}}</p>
-                                                <p>申请号:{{item.detail.number}}</p>
-                                                <p>专利状态:{{item.detail.status}}</p>
-                                                <p>发布时间:{{item.detail.time}}</p>
+                                       <div class="item_list_detailitem" v-show="con1s[index]==index1">
+                                                <p>发明人:{{items.detail.people}}</p>
+                                                <p>申请号:{{items.detail.number}}</p>
+                                                <p>专利状态:{{items.detail.status}}</p>
+                                                <p>发布时间:{{items.detail.time}}</p>
                                         </div>
                                 </div>
 
@@ -26,18 +26,18 @@
                                 <img src="../../../static/img/technology/enter.png" alt="">
                         </div>
                 </div>
-                <div class="item">
+                <!-- <div class="item">
                         <img :src="rank[1].image" alt="">
                         <div class="itemall">
                                 <div class="item_list" v-for="(item,index) in rank[1].cont">
-                                        <div class="item_list_item" @mouseenter="con2=index" @mouseleave="con2=-1">
+                                        <div class="item_list_item" @click="con2(index)" >
                                                 <router-link to="">
                                                         <span>{{item.id}}</span>
                                                         <p>{{item.title}}</p>
                                                         <img src="../../../static/img/technology/toplistjiantou1.png" alt="">
                                                 </router-link>
                                         </div>
-                                       <div class="item_list_detailitem" v-if="con2==index">
+                                       <div class="item_list_detailitem" v-if="con1s[1]==index">
                                                 <p>发明人:{{item.detail.people}}</p>
                                                 <p>申请号:{{item.detail.number}}</p>
                                                 <p>专利状态:{{item.detail.status}}</p>
@@ -55,14 +55,14 @@
                         <img :src="rank[2].image" alt="">
                         <div class="itemall">
                                 <div class="item_list" v-for="(item,index) in rank[2].cont">
-                                        <div class="item_list_item" @mouseenter="con3=index" @mouseleave="con3=-1">
+                                        <div class="item_list_item" @click="con3(index)">
                                                 <router-link to="">
                                                         <span>{{item.id}}</span>
                                                         <p>{{item.title}}</p>
                                                         <img src="../../../static/img/technology/toplistjiantou1.png" alt="">
                                                 </router-link>
                                         </div>
-                                       <div class="item_list_detailitem" v-if="con3==index">
+                                       <div class="item_list_detailitem" v-if="con1s[2]==index">
                                                 <p>发明人:{{item.detail.people}}</p>
                                                 <p>申请号:{{item.detail.number}}</p>
                                                 <p>专利状态:{{item.detail.status}}</p>
@@ -75,7 +75,7 @@
                         <div class="item_bottom">
                                 <img src="../../../static/img/technology/enter.png" alt="">
                         </div>
-                </div>
+                </div> -->
         </div>
 </template>
 <script>
@@ -87,9 +87,7 @@
                 data() {
                         return {
                                 active: 0,
-                                con1:-1,
-                                con2:-1,
-                                con3:-1,
+                                con1s:[],
                         }
                 },
                 methods: {
@@ -98,6 +96,10 @@
                         //         this.$set(this.num,index,index1);
                         //         console.log(this.num)
                         // }
+                        con1(index,index1){
+                                this.$set(this.con1s,index,index1)
+                        },
+
                 }
         }
 </script>
@@ -117,7 +119,7 @@
         .item_list .item_list_item span{display: inline-block;width: 15px;height: 15px;background: #f6f6f6;color: #bebdc3;font-size: 10px;text-align: center;line-height: 15px;}
         .item_list .item_list_item img{width: 20px;}
         .item_list_detailitem{padding: 0px 30px;}
-        .item_list_detailitem p{padding-top: 10px;}
+        .item_list_detailitem p{padding-top: 10px;font-size: 12px;}
 
         .item_bottom{width: 100%;display: flex;justify-content: flex-end;padding-right: 20px;}
         .item_bottom>img{width: 80px;height: 40px;}

@@ -132,7 +132,6 @@
                                                 for (let i = 0; i < res.data.youlike.length; i++) {
                                                         this.listdata[i].bgcolor = this.bgcolor
                                                 }
-                                                console.log(this.iscent)
                                         })
                         },
                         //清空筛选

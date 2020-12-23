@@ -19,7 +19,7 @@
                     <img src="../static/img/index/erweima.png" alt="">
             </div>
             <div class="xianshi">
-                    <img src="../static/img/index/kefu.png" alt="">
+                    <img src="../static/img/index/kefu.png" alt="" @click="tankuang">
                     <div class="xuanfu_one">
                             <p @click="one" :class="{bgcolor:isbg==1}"><span>扫二</span><span>维码</span></p>
                     </div>
@@ -29,16 +29,21 @@
             </div>
 
     </div>
+    <div class="tanchuang" v-show="isshow" >
+             <v-customer @shows="shows"></v-customer>
+    </div>
     <router-view/>
   </div>
 </template>
 <script>
+import customer from './components/customers/customer_services.vue'
 export default {
    name: 'App',
    data(){
            return{
                    user:{},
-                   isbg:''
+                   isbg:'',
+                   isshow:false
            }
    },
         beforeMount(){
@@ -59,7 +64,17 @@ export default {
                 },
                 twos(){
                         this.isbg =null
+                },
+                tankuang(){
+                        this.isshow = true
+                },
+                shows(){
+                        console.log(111)
+                        this.isshow = false
                 }
+        },
+        components:{
+              'v-customer':customer
         }
   }
 </script>
@@ -160,4 +175,13 @@ export default {
         background-color: #007DDB !important;
         color: #fff;
 }
+.tanchuang{
+              position: fixed;z-index: 9999;background: rgba(0,0,0,0.2); width: 100%;height: 100%;top:0;
+            right:0;
+            left:0;
+            bottom:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 </style>

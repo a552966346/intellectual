@@ -380,7 +380,7 @@
         .technology_sou{display: flex;align-items: center;}
         .technology_search{width: 120px;height: 45px;line-height: 45px;color: white;background-color: #187fc4;text-align: center;cursor: pointer;}
         .technology_input{flex: 1;width: 0;}
-        .technology_input input{width: 100%;border: 1px solid #187fc4;height: 45px;padding-left: 20px;font-size: 15px;}
+        .technology_input input{width: 100%;border: 1px solid #187fc4;height: 45px;padding-left: 20px;font-size: 15px;outline: none;}
         .technology_flex{display: flex;align-items: center;flex-wrap: wrap;}
         .technology_flex>div{font-size: 13px;color: #999;margin-right: 15px;margin-top: 15px;}
 
