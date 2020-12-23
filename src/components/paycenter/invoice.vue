@@ -4,15 +4,16 @@
             <div>开具发票:</div>
         </div>
         <div class="invoice_nav">
-            <span class="nav_active">个人</span>
-            <span>单位</span>
+            <span v-bind:class="isShow?'nav_active':''" v-on:click="handleTab">个人</span>
+            <span v-bind:class="!isShow?'nav_active':''" v-on:click="handleTab(false)">单位</span>
         </div>
-        <div class="invoice_content">
+        <!-- 个人发票 -->
+        <div class="invoice_content" v-if="isShow">
             <div class="content_select">
                 <div>
                     <span>发票信息:</span>
-                    <el-radio v-model="radio" label="1">纸质发票</el-radio>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <el-radio v-model="radio" label="2">电子发票</el-radio>
+                    <el-radio v-model="radio1" label="1" key="1">纸质发票</el-radio>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <el-radio v-model="radio1" label="2" key="2">电子发票</el-radio>
                 </div>
                 <div>
                     <span>发票类型：</span>
@@ -28,19 +29,70 @@
                 <div><span>地址：</span><el-input v-model="input4" ></el-input></div> 
             </div>
         </div>
+        <!-- 单位发票 -->
+        <div class="invoice_content" v-else>
+            <div class="content_select">
+                <div>
+                    <span>发票信息:</span>
+                    <el-radio v-model="radio2" label="3" key="3">纸质发票</el-radio>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <el-radio v-model="radio2" label="4" key="4">电子发票</el-radio>
+                </div>
+                <div>
+                    <span>发票类型：</span>
+                    <span>增值税普通发票</span>
+                </div>
+            </div>
+            <div class="content_input">
+                <div><span>单位名称：</span><el-input v-model="input5" ></el-input></div>  
+                <div><span>税号：</span><el-input v-model="input6" ></el-input></div> 
+            </div>
+            <div class="content_input">
+                <div><span>注册地址：</span><el-input v-model="input7"></el-input></div>  
+                <div><span>联系电话：</span><el-input v-model="input8"></el-input></div> 
+            </div>
+            <div class="content_input">
+                <div><span>账号：</span><el-input v-model="input9" ></el-input></div>  
+                <div><span>开户行：</span><el-input v-model="input10"></el-input></div> 
+            </div>
+            <div class="content_input">
+                <div><span>收票人姓名：</span><el-input v-model="input11"></el-input></div>  
+                <div><span>收票人地址：</span><el-input v-model="input12"></el-input></div> 
+            </div>
+            <div class="content_input">
+                <div><span>收票人电话：</span><el-input v-model="input13" ></el-input></div>  
+                <div><span>收票人邮箱：</span><el-input v-model="input14"></el-input></div> 
+            </div>
+        </div>
     </div>
 </template>
 <script>
 export default {
     data () {
       return {
-        radio: '1',
+        radio1: '1',
+        radio2: '3',
         input1: '',
         input2: '',
         input3: '',
         input4: '',
+        input5: '',
+        input6: '',
+        input7: '',
+        input8: '',
+        input9: '',
+        input10: '',
+        input11: '',
+        input12: '',
+        input13: '',
+        input14: '',
+        isShow:true
       };
-    }
+    },
+     methods: {
+      handleTab(bool=true){
+        this.isShow = bool
+      }
+    },
 }
 </script>
 <style scoped>
@@ -72,6 +124,8 @@ export default {
             display: inline-block;
             padding: 10px 0;
             margin: 0 20px;
+
+            cursor: pointer;
         }
         .nav_active{
             border-bottom: 2px solid #187fc2;

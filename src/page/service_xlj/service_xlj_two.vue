@@ -63,9 +63,7 @@
                   <img src="../../../static/img/index/cooperation_img.png" alt="">
                 </div >
                 <v-combotttom></v-combotttom>
-                <div class="zhiding" @click="menu">
-                        <img src="../../../static/img/service/zhiding.png" alt="">
-                </div>
+
         </div>
 </template>
 
@@ -191,9 +189,7 @@
                                         this.iscolor = porp
                                        this.$el.querySelector('#text_'+porp).scrollIntoView()
                         },
-                        menu(){
-                                this.$el.scrollIntoView()
-                        }
+
                 }
         }
 </script>
@@ -218,6 +214,5 @@
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;}
         .iscolor{color: #0184FE;}
-        .zhiding{position: absolute;bottom: 100px;right: 100px;}
-        .zhiding>img{width: 50px;}
+
 </style>

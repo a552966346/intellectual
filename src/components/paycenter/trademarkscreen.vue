@@ -140,15 +140,17 @@ export default {
                        this.$set(this.screetext,index,name)
                         }
                         console.log(this.screetext)
-                        this.$set(this.id,item,nubs)
+                        this.$set(this.id,index,nubs)
                         this.$emit('choosecon',this.id)
                 },
                 ischange(item,index){
-                         this.$set(this.id,item,this.value[index])
+			let i = index+4
+			console.log(i)
+                         this.$set(this.id,i,this.value[index])
                          this.$emit('ischange',this.id)
                 },
                 search(){
-                        this.$set(this.id,'keyword',this.text)
+                        this.$set(this.id,7,this.text)
                         console.log(this.id)
                          this.$emit('search',this.id)
                 },

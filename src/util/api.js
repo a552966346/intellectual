@@ -106,7 +106,21 @@ const api = {
      * combination 组合
      * strlenlength 字符长度
      */
-    gettrademarklist(data) {
+    gettrademarklist(id) {
+	    let data
+            console.log(id)
+	    if(id){
+		 data = {
+			 category_one:id[0],
+			 category_id:id[1],
+                         hot:id[2],
+                         fee:id[3],
+                         is_exclusive:id[4],
+                         combination:id[5],
+                         strlenlength:id[6],
+                         keyword:id[7]
+		 }
+	    }
         return requestAll.requset(baseUrl + '/api/trademark/trademark_list', data);
     },
     // 商标筛选数据
