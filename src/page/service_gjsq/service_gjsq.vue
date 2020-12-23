@@ -30,9 +30,9 @@
                                                                         <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">PCT申请</span></p>
                                                                         <v-comtitle id="text_0" :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
                                                                         <v-servicezl :idenimg='idenimg'></v-servicezl>
-                                                                        <v-pctapply :arrlist='arrlist'></v-pctapply>
+                                                                        <!-- <v-pctapply :arrlist='arrlist'></v-pctapply> -->
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
-                                                                        <v-advantages></v-advantages>
+                                                                        <!-- <v-advantages></v-advantages> -->
                                                                         <v-servicezl :idenimg='idenimg'></v-servicezl>
                                                                         <v-comtitle id="text_1" :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                         <v-servicetr :mulist="mulist"></v-servicetr>
