@@ -54,14 +54,14 @@
                                         <div class="rfooter">
                                                 <div class="rfooterLeft">
                                                         <div class="num">
-                                                                <div>1</div>
+                                                                <div>{{isnub}}</div>
                                                                 <div>
-                                                                        <span>+</span>
-                                                                        <span>-</span>
+                                                                        <span @click="but1">+</span>
+                                                                        <span @click="but2">-</span>
                                                                 </div>
                                                         </div>
 
-                                                        <div class="car">
+                                                        <div class="car" @click="shop(top_data.id)">
                                                                 <div>加入购物车</div>
                                                                 <div>
                                                                         <p>---<span>></span>---</p>
@@ -83,6 +83,7 @@
 	export default{
 		data(){
 			return{
+                                isnub:1,
                                 name:['标准','授权保险'],
                                 nub1:0,
                                 fee:['减缓85%','减缓70%','无减缓'],
@@ -100,6 +101,25 @@
                         },
                         qiehuan2(index){
                                 this.nub2= index
+                        },
+                        but2() {
+                                console.log(11111)
+                                if(this.isnub>=1){
+                                        this.isnub--
+                                }
+                        },
+                        but1() {
+                                        this.isnub++
+
+                        },
+                        shop(id){
+                                console.log(id)
+                                this.$router.push({
+                                        path:'/shopcart',
+                                        query:{
+                                                id:id
+                                        }
+                                })
                         }
                 }
 	}
