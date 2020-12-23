@@ -41,7 +41,7 @@
                         </div>
                 </div>
                 <div class="patenscree_left" v-if="!type">
-                        <div class="patenscree_leftrow" v-for="(item,index) in patenscree" :key="index">
+                        <div class="patenscree_leftrow" v-for="(item,index) in servicelist" :key="index">
                                 <div class="patenscree_lefthead">{{item[0]}}</div>
                                 <div class="patenscree_leftcontent">
                                         <span  :class="{color:iscolor[index] == null}" @click="choosecon(index,null,item[1],null)">不限</span>
@@ -51,9 +51,15 @@
                                         </div>
                                 </div>
                         </div>
-
+                        <div class="patenscree_leftrow">
+                                <div class="patenscree_lefthead">筛选条件</div>
+                                <div class="patenscree_leftcontent">
+                                        <p @click="choosenull">清空筛选条件</p>
+                                        <span v-for="(item,index) in screetext" :key="index"  v-if="item != null || item != undefined" @click="delet(index)">{{item}}</span>
+                        
+                                </div>
+                        </div>
                 </div>
-
                 <div class="patenscree_right">
                         <div class="copyright_active">
                                 <img src="../../../static/img/paycenter/copyright_pay.png" alt="">
@@ -125,6 +131,7 @@ export default {
         props:{
                 iscolor:'',
                 patenscree: '',
+                servicelist:'',
                 data_two:'',
                 type:Boolean
         },
@@ -204,7 +211,7 @@ export default {
         }
 
         .patenscree_leftrow {
-                flex: 1;
+                /* flex: 1; */
                 display: flex;
                 border-bottom: 1px dashed #e9e7f2;
         }

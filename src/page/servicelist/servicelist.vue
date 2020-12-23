@@ -11,7 +11,7 @@
                         <div class="service_site">
                               <!-- 筛选 -->
                               <div class="service_choose">
-                                        <trademarkscreen :type='false' :patenscree="patenscree" :iscolor="iscolor"></trademarkscreen>
+                                        <trademarkscreen :type='false' :servicelist="servicelist" :iscolor="iscolor"  @choosecon="choosecon"></trademarkscreen>
                               </div>
                                 <!-- 条目 -->
                                 <div  class="service_all">
@@ -44,20 +44,40 @@
                         return {
                                 banner: '../../../static/img/paycenter/trademark_bg.png', //banner图
                                 //一级分类
-                                patenscree:[],
-                                data_two:[],
-                                iscolor:[]
+                                // patenscree:[],
+                                iscolor:[],
+                                // 筛选
+                                servicelist:[]
+
                         }
                },
                 mounted() {
-                       this.$api.gettrademarkcondition()
-                               .then(res => {
-                                        console.log(res)
-                                       console.log(res.data)
-                                       this.patenscree=res.data.data_one;
-                                       // this.$set(this.iscolor, 0, this.$route.query.id)
-                                       this.data_two = res.data.data_two
-                               })
+                       this.$api.severlist()
+                       .then(res => {
+                                console.log(res)
+                                console.log(res.data)
+                               this.servicelist=res.data;
+                               // this.$set(this.iscolor, 0, this.$route.query.id)
+                               // this.data_two = res.data.data_two
+                       })
+                },
+                methods:{
+                        // 分类筛选
+                        choosecon(id) {
+                                this.id = id
+                                this.ispost(this.id)
+                        },
+                        //清空筛选
+                        choosenull() {
+                                this.iscolor = []
+                                this.screetext = []
+                                this.id = {}
+                                this.ispost()
+                        },
+                        //删除条件
+                        delet(id){
+                                this.ispost(id)
+                        },
                 }
 
         }
