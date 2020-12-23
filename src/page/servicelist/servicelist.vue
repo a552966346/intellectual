@@ -11,11 +11,20 @@
                         <div class="service_site">
                               <!-- 筛选 -->
                               <div class="service_choose">
-                                        <trademarkscreen :type='false' :servicelist="servicelist" :iscolor="iscolor"  @choosecon="choosecon"></trademarkscreen>
+                                        <trademarkscreen :type='false' :servicelist="severcondition" :iscolor="iscolor"  @choosecon="choosecon" @choosenull="choosenull"></trademarkscreen>
                               </div>
                                 <!-- 条目 -->
                                 <div  class="service_all">
-                                        <servicetoplist></servicetoplist>
+                                        <!-- 数据 -->
+                                        <servicetoplist :listdata="listdata"></servicetoplist>
+                                        <!-- 分页 -->
+                                        <div class="copyright_page">
+                                                <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                                                        :page-size="10" layout="prev, pager, next, jumper" :total="istotal">
+                                                </el-pagination>
+                                                <!-- :current-page.sync="currentPage3" -->
+                                                <!-- 当前业数 -->
+                                        </div>
                                 </div>
                          </div>
 
@@ -46,22 +55,49 @@
                                 //一级分类
                                 // patenscree:[],
                                 iscolor:[],
+                                // 分页
+                                istotal: 0,
                                 // 筛选
-                                servicelist:[]
+                                severcondition:[],
+                                id: {}, //筛选条件
+                                category_one: '',//id
+                                listdata:[],//列表数据
 
                         }
                },
                 mounted(){
-                        this.$api.severlist()
+                        this.category_one = this.$route.query.id
+                        this.$set(this.id, "category_one", this.category_one)
+                        // 筛选条件
+                        this.$api.severcondition()
                        .then(res => {
                                 console.log(res)
                                 console.log(res.data)
-                               this.servicelist=res.data;
-                               // this.$set(this.iscolor, 0, this.$route.query.id)
-                               // this.data_two = res.data.data_two
+                               this.severcondition=res.data;
+
                        })
+                       this.ispost(this.id)
                 },
                 methods:{
+                        // 请求列表id
+                        ispost(id) {
+                                // 列表数据
+                                this.$api.severlist(id)
+                                .then(res => {
+                                        console.log(res)
+                                        // this.iscent = res.data.lists.data
+                                        this.listdata = res.data.data
+                                        // 分页
+                                        // this.istotal = res.data.lists.data.length
+                                        // for (let i = 0; i < this.istotal; i++) {
+                                        //         this.iscent[i].bgcolor = this.bgcolor
+                                        // }
+                                        // for (let i = 0; i < res.data.youlike.length; i++) {
+                                        //         this.listdata[i].bgcolor = this.bgcolor
+                                        // }
+                                        // console.log(this.iscent)
+                                })
+                        },
                         // 分类筛选
                         choosecon(id) {
                                 this.id = id
@@ -78,6 +114,13 @@
                         delet(id){
                                 this.ispost(id)
                         },
+                        // 分页
+                        handleSizeChange() {
+
+                        },
+                        handleCurrentChange() {
+
+                        }
                 }
 
         }
@@ -97,4 +140,6 @@
         .patent_sort>span{ width: 135px;text-align: center;cursor: pointer;height: 50px;line-height: 50px;border-right: 1px solid #f1f1f1;}
         /* 数据 */
         .service_all{width: 1200px;margin: 0 auto;}
+        /* 分页 */
+        .copyright_page{background-color: #fff;display: flex;justify-content: center;padding: 10px 0px;margin-bottom: 20px;}
 </style>

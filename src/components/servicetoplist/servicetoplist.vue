@@ -1,47 +1,15 @@
 <template>
         <div class="list">
-                <!-- 第一种 -->
-                <div class="list_item">
-                        <div class="list_topitem">
-                              <div class="list_topitem_left">京</div>
-                              <div class="list_topitem_right">
-                                      <p>北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年</p>
-                                      <p>北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，</p>
-                              </div>
-                        </div>
-                        <div class="list_botitem">
-                                <div class="list_botitem_left">
-                                       <div class="list_botitem_leftitem">
-                                           <p class="text">价格</p>
-                                           <p>￥1500.00</p>
-                                       </div>
-                                       <div class="list_botitem_leftitem">
-                                           <p class="text">官费</p>
-                                           <p>￥200.00</p>
-                                       </div>
-                                       <div class="list_botitem_leftitem">
-                                           <p class="text">联系电话</p>
-                                           <p>15535435698</p>
-                                       </div>
-                                       <div class="list_botitem_leftitem">
-                                           <p class="text">联系人</p>
-                                           <p>小飞侠</p>
-                                       </div>
-                                </div>
-                                <div class="list_botitem_right">
-                                        <div><img src="../../../static/img/service/icon26.png"></div>
-                                        <div><img src="../../../static/img/service/icon27.png">联系客服</div>
-                                        <div><router-link to="">查看详情</router-link></div>
-                                </div>
-                        </div>
-                </div>
+
                 <!-- 第二种 -->
-                <div class="list_item">
+                <div class="list_item" v-for="(item,index) in listdata">
                         <div class="list_topitem">
-                              <div class="list_topitem_left">京</div>
+                              <div class="list_topitem_left">
+                                     <img :src="item.breviary_image">
+                              </div>
                               <div class="list_topitem_right">
-                                      <p>成立满五年北京科技类公司，成立满五年</p>
-                                      <p>北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，成立满五年北京科技类公司，</p>
+                                      <p>{{item.name}}</p>
+                                      <p>{{item.sketch}}</p>
                               </div>
                         </div>
                         <div class="list_botitem">
@@ -80,14 +48,14 @@
 <script>
         export default{
                 props: {
-                     // service:Array,
+                       listdata: ''
                 },
                 data() {
                         return {
 
                         }
                 },
-               
+
         }
 </script>
 
@@ -100,7 +68,8 @@
          .list_item:hover{box-shadow: 1px 1px 10px 2px #ccc;}
         /* 上边内容 */
         .list_topitem{width: 100%;display: flex;}
-        .list_topitem_left{width: 55px;height: 61px;background-size: 100% 100%;font-size: 14px;color: #7B64F2;text-align: center;line-height: 54px;font-weight: bold;background-image: url(../../../static/img/service/icon32.png);}
+        .list_topitem_left{width: 55px;height: 61px;/* background-size: 100% 100%;font-size: 14px;color: #7B64F2;text-align: center;line-height: 54px;font-weight: bold;background-image: url(../../../static/img/service/icon32.png); */}
+        .list_topitem_left img{width: 100%;height: 100%;}
         .list_topitem_right{flex: 1;flex-direction: column;width: 0;padding-left: 10px;}
         .list_topitem_right p:nth-child(1){padding-top: 8px;color: #464646;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
         .list_topitem_right p:nth-child(2){padding-top: 5px;color: #666666;font-size: 12px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
