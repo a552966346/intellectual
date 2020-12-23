@@ -59,9 +59,6 @@
                   <img src="../../../static/img/index/cooperation_img.png" alt="">
                 </div >
                 <v-combotttom></v-combotttom>
-                <div class="zhiding" @click="menu">
-                        <img src="../../../static/img/service/zhiding.png" alt="">
-                </div>
         </div>
 </template>
 
@@ -191,9 +188,6 @@
                         xuanze(index){
                                 this.color = index
                         },
-                        menu(){
-                                this.$el.scrollIntoView()
-                        }
                 }
         }
 </script>

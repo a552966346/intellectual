@@ -114,7 +114,7 @@
                                 this.id = id
                                 this.ispost(id)
                         },
-                        // 请求列表
+                        // 请求列表id
                         ispost(id) {
                                 this.$api.gettrademarklist(id)
                                         .then(res => {
@@ -140,7 +140,6 @@
                         },
                         //删除条件
                         delet(id){
-                                console.log(id)
                                 this.ispost(id)
                         },
                         // 选择颜色
