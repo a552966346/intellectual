@@ -72,7 +72,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
     background-color: #187fc4;
     color: #fff;
 }
@@ -82,7 +82,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
 }
 .cobdition_table_item_t3{
     height: 34px;
@@ -90,7 +90,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
     background-color: #187fc4;
     color: #fff;
     flex: 1;
@@ -104,6 +104,7 @@ export default {
     color: #1a7fc5;
     margin-top: 14px;
      height: 50px;
+     font-size: 13px;
     display: flex;
     justify-content: center;
     align-items: center;
