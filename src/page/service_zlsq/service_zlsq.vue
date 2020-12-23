@@ -61,9 +61,7 @@
                   <img src="../../../static/img/index/cooperation_img.png" alt="">
                 </div >
                 <v-combotttom></v-combotttom>
-                <div class="zhiding" @click="menu">
-                        <img src="../../../static/img/service/zhiding.png" alt="">
-                </div>
+
         </div>
 </template>
 
@@ -202,9 +200,7 @@
                                         this.iscolor = porp
                                        this.$el.querySelector('#text_'+porp).scrollIntoView()
                         },
-                        menu(){
-                                this.$el.scrollIntoView()
-                        }
+
                 }
         }
 </script>

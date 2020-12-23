@@ -44,7 +44,7 @@
                                         <div class="bottom_right">
                                                 <button>
                                                         <img src="../../../static/img/service/service_kefu.png" alt="">
-                                                        <span>咨询客服</span>
+                                                        <span >咨询客服</span>
                                                 </button>
                                         </div>
                                 </div>
@@ -88,7 +88,8 @@
                                                 id:id
                                         }
                                 })
-                        }
+                        },
+
                 }
         }
 </script>
