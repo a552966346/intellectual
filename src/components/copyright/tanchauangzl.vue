@@ -45,7 +45,7 @@
             >
             </el-input>
             <el-button style="width:30%;background:#efefef;color:#919191;" type="mini">获取验证码</el-button></div>
-            
+
           </el-form-item>
           <el-form-item>
             <el-button
@@ -89,12 +89,16 @@ export default {
 <style>
 .all {
   padding: 20px;
+  width: 40%;
 }
 .tanchuang_all {
   height: 600px;
   border-radius: 10px;
   overflow: hidden;
   background: #ccc;
+}
+.el-form-item__label{
+        text-align: center !important;
 }
 .tanchuang_title_text {
   font-size: 15px;

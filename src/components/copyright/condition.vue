@@ -5,11 +5,14 @@
         <div class="cobdition_table_item_l" >
             <div class="cobdition_table_item_t ">{{cond.tl}} </div>
             <div class="cobdition_table_item_tc" v-for="(item,index) in cond.arrt" :key="index">{{item.text}}</div>
-            <div class="cobdition_table_item_c cl " v-for="(items,index) in cond.arrl" :key="index" >
-                <!-- v-for="(item,index) in cond.arrl" :key="index" -->
-                <div class="cobdition_table_item_c1">{{items.n}}</div>
-                <div class="cobdition_table_item_c2">{{items.t}}</div>
+            <div class="">
+                <div class="cobdition_table_item_c cl " v-for="(items,index) in cond.arrl" :key="index" >
+                    <!-- v-for="(item,index) in cond.arrl" :key="index" -->
+                    <div class="cobdition_table_item_c1">{{items.n}}</div>
+                    <div class="cobdition_table_item_c2">{{items.t}}</div>
+                </div>
             </div>
+            
         </div>
         <div class="cobdition_table_item_r" >
             <div class="cobdition_table_item_t0" >
@@ -69,7 +72,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
     background-color: #187fc4;
     color: #fff;
 }
@@ -79,7 +82,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
 }
 .cobdition_table_item_t3{
     height: 34px;
@@ -87,7 +90,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
     background-color: #187fc4;
     color: #fff;
     flex: 1;
@@ -101,6 +104,7 @@ export default {
     color: #1a7fc5;
     margin-top: 14px;
      height: 50px;
+     font-size: 13px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,7 +153,6 @@ export default {
 .cobdition_table_item_c3:nth-of-type(3){
     margin-right: 0;
 }
-
 
 
 </style>

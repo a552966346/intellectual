@@ -3,9 +3,9 @@
                 <v-topsearch></v-topsearch>
                 <v-navigation></v-navigation>
                 <div class="copyright_pay">
-                        <img :src="banner" alt="" />
+                        <img :src="banner" alt="" @click="tanchuang" />
                         <!-- 分类 -->
-                        <trademarkscreen @choosecon="choosecon" @ischange="ischange" @search="search" @choosenull="choosenull"
+                        <trademarkscreen :type='true' @choosecon="choosecon" @ischange="ischange" @search="search" @choosenull="choosenull"
                                 :patenscree="patenscree" :data_two="data_two" :iscolor="iscolor" @delet="delet"></trademarkscreen>
                         <!-- 排序-->
                         <div class="patent_sort">
@@ -36,10 +36,14 @@
                         <trademarkbo :listdata="listdata"></trademarkbo>
                 </div>
                 <v-combotttom></v-combotttom>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                         <v-tanchuangsb></v-tanchuangsb>
+                </div>
         </div>
 </template>
 
 <script>
+        import tanchuangsb from '../../components/copyright/tanchuangsb.vue'//商标弹窗
         import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
         import trademarkscreen from '@/components/paycenter/trademarkscreen.vue'
         import trademarkcon from '@/components/paycenter/trademarkcon.vue'
@@ -59,12 +63,14 @@
                                 istotal: 0,
                                 listdata: [],
                                 banner: '../../../static/img/paycenter/trademark_bg.png',
-                                category_one: ''
+                                category_one: '',
+                                isshow:false
                         }
 
                 },
                 mounted() {
                         this.category_one = this.$route.query.id
+                        console.log(this.category_one)
                         this.$set(this.id, "category_one", this.category_one)
                         this.$api.gettrademarkcondition()
                                 .then(res => {
@@ -74,12 +80,12 @@
                                 })
                         this.$api.gettrademarkadvertisement()
                                 .then(res => {
-                                        console.log(res)
                                         this.banner = res.data.images
                                 })
                         this.ispost(this.id)
                 },
                 methods: {
+                        // 排序
                         comsort(index) {
                                 this.sortnumber = index
                                 if (index == 1) {
@@ -95,10 +101,17 @@
                                 }
 
                         },
-
-                        listsort(index) {
-                                this.listsortnum = index
+                        //显示弹框
+                        tanchuang(){
+                          this.isshow = true
                         },
+                        //隐藏弹框
+                        shows(){
+                                this.isshow = false
+                        },
+                        // listsort(index) {
+                        //         this.listsortnum = index
+                        // },
                         // 分类筛选
                         choosecon(id) {
                                 this.id = id
@@ -143,9 +156,9 @@
                                 this.ispost(id)
                         },
                         // 选择颜色
-                        colorbtn(color, index) {
+                        // colorbtn(color, index) {
 
-                        },
+                        // },
                         handleSizeChange() {
 
                         },
@@ -155,6 +168,7 @@
 
                 },
                 components: {
+                        'v-tanchuangsb':tanchuangsb,//商标弹窗
                         copyrightOrdinary,
                         trademarkscreen,
                         trademarkcon,
@@ -289,5 +303,14 @@
                 background-color: #3b5791;
                 color: #fff;
                 outline: none;
+        }
+        .tanchuang{
+              position: fixed;z-index: 9999;background: rgba(0,0,0,0.2); width: 100%;height: 100%;top:0;
+            right:0;
+            left:0;
+            bottom:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 </style>

@@ -83,6 +83,7 @@ export default {
 <style>
 .all {
   padding: 20px;
+  width: 40%;
 }
 .tanchuang_all {
   height: 550px;

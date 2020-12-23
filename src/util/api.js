@@ -283,6 +283,10 @@ const api = {
     severindex() {
         return requestAll.requset(baseUrl + '/api/service/index');
     },
+    // 服务列表
+    severlist() {
+        return requestAll.requset(baseUrl + '/api/Service/service_condition');
+    },
     // 服务中心分类数据
     severcategory() {
         return requestAll.requset(baseUrl + '/api/service/category');
