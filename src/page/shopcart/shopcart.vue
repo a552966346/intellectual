@@ -14,7 +14,6 @@
                                 <div class="shopcart_zsdcet" v-for="(item,index) in zsdlist" :key="index">
                                     <div class="shopcart_zsdcetlet">
                                         <el-checkbox v-model="item.checkModel" @change="handleCheckItemChange" style="vertical-align:top;margin-top:20px;"></el-checkbox>
-                                        <!-- <input type="checkbox" name="" id=""> -->
                                         <div class="shopcart_zsdcettop">
                                             <div class="shopcart_zsdcettopimg">
                                                 <img src="../../../static/img/shop/shop_one.png" alt="">
@@ -47,8 +46,6 @@
                                 </div>
                                 <div class="shopcart_zsdfot">
                                     <div class="shopcart_zsdfotlet">
-                                        <!-- <input type="checkbox" name="" id="">
-                                        <div class="shopcart_zsall">全选</div> -->
                                         <el-checkbox v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
                                         <div class="shopcart_zsall">删除</div>
                                         <div class="shopcart_zsall">移入收藏夹</div>
@@ -57,7 +54,7 @@
                                         <div>已选择0件</div>
                                         <div>共计:￥0.00</div>
                                         <div class="shopcart_zsdfotretmt">
-                                            <div>去结算</div>
+                                             <router-link class="shopcart_zsdfotretzf" to="/paydetia">去结算</router-link>
                                         </div>
                                     </div>
                                 </div>
@@ -107,18 +104,18 @@
                         console.log(value);
                     },
                     handleCheckAllChange(val){
-                    this.zsdlist.map((item,i)=>{
-                        item.checkModel = val;
-                    })
+                        this.zsdlist.map((item,i)=>{
+                            item.checkModel = val;
+                        })
                     },
                     handleCheckItemChange(val){
-                    for(let i = 0,l = this.zsdlist.length;i < l;i ++){
-                        if(this.zsdlist[i].checkModel !== val){
-                        this.checkAll = false;
-                        return;
+                        for(let i = 0,l = this.zsdlist.length;i < l;i ++){
+                            if(this.zsdlist[i].checkModel !== val){
+                                this.checkAll = false;
+                                return;
+                            }
                         }
-                    }
-                    this.checkAll = val;
+                        this.checkAll = val;
                     }
                 }
         }
@@ -152,6 +149,6 @@
         .shopcart_zsdfotlet{width: 20%;height: 100%;display: flex;justify-content: space-between; align-items: center;}
         .shopcart_zsdfotret{width: 30%;height: 100%;display: flex;justify-content: space-between; align-items: center;}
         .shopcart_zsdfotretmt{height: 100%;width: 40%;background-color: red;display: flex;justify-content: center;align-items: center;}
-        .shopcart_zsdfotretmt>div{color: #fff;font-size: 24px;font-weight: bold;}
+        .shopcart_zsdfotretzf{color: #fff;font-size: 24px;font-weight: bold;}
         .el-checkbox{margin-top:0px ! important;}
 </style>

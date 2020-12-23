@@ -331,7 +331,16 @@ const api = {
                 // page:page
             }
             return requestAll.requset(baseUrl + '/api/index/search', data);
-    }
+    },
+    // 添加购物车
+    getshop(product_id,type,number){
+        let data = {
+            product_id: product_id,
+            type:type,
+            number:number
+        }
+        return requestAll.requset(baseUrl + '/api/order/addcart', data);
+}
 }
 
 export default api;
