@@ -49,6 +49,17 @@
                                         <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]" @click="choosecon(index,nubs,item[1],second)" :key="nubs" v-if="second !=''">{{second}}</span>
                                 </div>
                         </div>
+                        <!-- 其他条件 -->
+                        <div class="patenscree_leftrow">
+                                <div class="patenscree_lefthead">其他条件</div>
+                                <div class="patenscree_leftother">
+                                        <div class="patenscree_leftdrop">
+                                            <input type="text" value="输入名称搜索商标" v-model="text" >
+                                            <span class="patentscreen_search"  @click="search">搜索</span>
+                                        </div>
+                                </div>
+                        </div>
+                        <!-- 筛选条件 -->
                         <div class="patenscree_leftrow">
                                 <div class="patenscree_lefthead">筛选条件</div>
                                 <div class="patenscree_leftcontent">

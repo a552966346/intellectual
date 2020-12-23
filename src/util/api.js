@@ -290,7 +290,22 @@ const api = {
         return requestAll.requset(baseUrl + '/api/Service/service_condition');
     },
     // 服务列表筛选列表
-    severlist() {
+    severlist(id) {
+        let data
+        console.log(id)
+        if(id){
+              // 服务分类。。行业分页。。。服务价格。。。关键字搜索。。。时间排序。。。价格排序
+              data = {
+               category_one:id[0],//服务分类
+               category_id:id[1],//行业分类
+                // hot:id[2],
+                fee:id[2],//服务价格
+                keyword:id[3],//关键字搜索
+                creatime :id[4],//时间排序
+                feeorder :id[5]//价格排序
+
+              }
+        }
         return requestAll.requset(baseUrl + '/api/Service/service_list');
     },
     // 服务中心分类数据

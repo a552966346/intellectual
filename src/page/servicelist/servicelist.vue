@@ -11,7 +11,13 @@
                         <div class="service_site">
                               <!-- 筛选 -->
                               <div class="service_choose">
-                                        <trademarkscreen :type='false' :servicelist="severcondition" :iscolor="iscolor"  @choosecon="choosecon" @choosenull="choosenull"></trademarkscreen>
+                                        <trademarkscreen :type='false' :servicelist="severcondition" :iscolor="iscolor"  @choosecon="choosecon" @choosenull="choosenull" @search="search"></trademarkscreen>
+                                        <div class="patent_sort">
+                                                                <span :class="{ sortactive: this.sortnumber == 0 }" @click="comsort(0)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
+                                                                <span :class="{ sortactive: this.sortnumber == 1 }" @click="comsort(1)">发布时间<i class="el-icon-bottom patent_sorticon"></i></span>
+                                                                <span :class="{ sortactive: this.sortnumber == 2 }" @click="comsort(2)">价格排序<i class="el-icon-bottom patent_sorticon"></i></span>
+
+                                        </div>
                               </div>
                                 <!-- 条目 -->
                                 <div  class="service_all">
@@ -51,6 +57,7 @@
                 },
                 data() {
                         return {
+                                sortnumber: 0, //左侧边排序切换
                                 banner: '../../../static/img/paycenter/trademark_bg.png', //banner图
                                 //一级分类
                                 // patenscree:[],
@@ -79,6 +86,22 @@
                        this.ispost(this.id)
                 },
                 methods:{
+                        // 排序
+                        comsort(index) {
+                                this.sortnumber = index
+                                if (index == 1) {
+                                        this.$set(this.id, "creatime", "desc")
+                                        this.$set(this.id, "feeorder", "")
+                                        this.ispost(this.id)
+                                } else if (index == 2) {
+                                        this.$set(this.id, "feeorder", "desc")
+                                        this.$set(this.id, "creatime", "")
+                                        this.ispost(this.id)
+                                } else {
+                                        this.ispost()
+                                }
+
+                        },
                         // 请求列表id
                         ispost(id) {
                                 // 列表数据
@@ -102,6 +125,11 @@
                         choosecon(id) {
                                 this.id = id
                                 this.ispost(this.id)
+                        },
+                        //搜索
+                        search(id) {
+                                this.id = id
+                                this.ispost(id)
                         },
                         //清空筛选
                         choosenull() {
