@@ -12,20 +12,9 @@
                                 <span :class="{ sortactive: this.sortnumber == 0 }" @click="comsort(0)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
                                 <span :class="{ sortactive: this.sortnumber == 1 }" @click="comsort(1)">发布时间<i class="el-icon-bottom patent_sorticon"></i></span>
                                 <span :class="{ sortactive: this.sortnumber == 2 }" @click="comsort(2)">价格排序<i class="el-icon-bottom patent_sorticon"></i></span>
-                                <!-- <div class="patent_sortright">
-          <div :class="{patent_sortitem: true,sortactive: this.listsortnum == 1,}" @click="listsort(1)">
-            <i class="el-icon-s-grid"></i>
-          </div>
-          <div :class="{patent_sortitem: true,sortactive: this.listsortnum == 2,}" @click="listsort(2)">
-            <i class="el-icon-s-unfold"></i>
-          </div>
-          <div class="patent_sortpage">
-            <div><i class="el-icon-arrow-left"></i></div>
-            <div><i class="el-icon-arrow-right"></i></div>
-          </div>
-        </div> -->
+
                         </div>
-                        <trademarkcon :iscent="iscent" @colorbtn="colorbtn"></trademarkcon>
+                        <trademarkcon :iscent="iscent" ></trademarkcon>
                         <div class="copyright_page">
                                 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
                                         :page-size="10" layout="prev, pager, next, jumper" :total="istotal">
@@ -52,9 +41,9 @@
 
                 data() {
                         return {
-                                sortnumber: 0, //左侧边排序切�
+                                sortnumber: 0, //左侧边排序切换
                                 listsortnum: 1, //右侧 列表形式排序
-                                id: {}, //筛选条�
+                                id: {}, //筛选条件
                                 iscent: [],
                                 patenscree: [],
                                 iscolor: [],
@@ -73,6 +62,7 @@
                         this.name = this.$route.query.name
                         this.$set(this.id,7,this.name)
                         this.$set(this.id, 0, this.category_one)
+
                         this.$api.gettrademarkcondition()
                                 .then(res => {
                                         this.patenscree=res.data.data_one;
@@ -113,12 +103,12 @@
                         // listsort(index) {
                         //         this.listsortnum = index
                         // },
-                        // 分类筛�
+                        // 分类筛选
                         choosecon(id) {
                                 this.id = id
                                 this.ispost(this.id)
                         },
-                        // 下拉筛�
+                        // 下拉筛选
                         ischange(id) {
                                 this.id = id
                                 this.ispost(this.id)
@@ -145,7 +135,7 @@
                                                 console.log(this.iscent)
                                         })
                         },
-                        //清空筛�
+                        //清空筛选
                         choosenull() {
                                 this.iscolor = []
                                 this.screetext = []

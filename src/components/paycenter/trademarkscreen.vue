@@ -1,6 +1,6 @@
 <template>
         <div class="patenscree_all">
-                <div class="patenscree_left">
+                <div class="patenscree_left" v-if="type">
                         <div class="patenscree_leftrow" v-for="(item,index) in patenscree" :key="index">
                                 <div class="patenscree_lefthead">{{item[0]}}</div>
                                 <div class="patenscree_leftcontent">
@@ -28,6 +28,27 @@
                                         <div class="patenscree_leftdrop">
                                             <input type="text" value="输入名称搜索商标" v-model="text" >
                                             <span class="patentscreen_search"  @click="search">搜索</span>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="patenscree_leftrow">
+                                <div class="patenscree_lefthead">筛选条件</div>
+                                <div class="patenscree_leftcontent">
+                                        <p @click="choosenull">清空筛选条件</p>
+                                        <span v-for="(item,index) in screetext" :key="index"  v-if="item != null || item != undefined" @click="delet(index)">{{item}}</span>
+
+                                </div>
+                        </div>
+                </div>
+
+                <div class="patenscree_left" v-if="!type">
+                        <div class="patenscree_leftrow" v-for="(item,index) in servicelist" :key="index">
+                                <div class="patenscree_lefthead">{{item[0]}}</div>
+                                <div class="patenscree_leftcontent">
+                                        <span  :class="{color:iscolor[index] == null}" @click="choosecon(index,null,item[1],null)">不限</span>
+                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]" @click="choosecon(index,nubs,item[1],second)" :key="nubs" v-if="second !=''">{{second}}</span>
+                                        <div class="patenscree_leftprice" v-if="index==4">
+                                                <input type="text">&nbsp;元&nbsp;-&nbsp;<input type="text">&nbsp;元<button>确定</button>
                                         </div>
                                 </div>
                         </div>
@@ -111,7 +132,6 @@ export default {
         props:{
                 iscolor:'',
                 patenscree: '',
-                servicelist:'',
                 data_two:'',
                 type:Boolean
         },
