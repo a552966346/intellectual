@@ -20,12 +20,12 @@
                 </div>
             </div>
             <div class="content_input">
-                <div><span>姓名：</span><input type="text"></div>  
-                <div><span>电话：</span><input type="text"></div> 
+                <div><span>姓名：</span><el-input v-model="input1" ></el-input></div>  
+                <div><span>电话：</span><el-input v-model="input2"></el-input></div> 
             </div>
             <div class="content_input">
-                <div><span>邮箱：</span><input type="text"></div>  
-                <div><span>地址：</span><input type="text"></div> 
+                <div><span>邮箱：</span><el-input v-model="input3" ></el-input></div>  
+                <div><span>地址：</span><el-input v-model="input4" ></el-input></div> 
             </div>
         </div>
     </div>
@@ -34,7 +34,11 @@
 export default {
     data () {
       return {
-        radio: '1'
+        radio: '1',
+        input1: '',
+        input2: '',
+        input3: '',
+        input4: '',
       };
     }
 }
@@ -54,14 +58,12 @@ export default {
         }
         .pay_header{
             display: flex;
-            /* background: orange; */
             padding: 20px 0;
         }
         .pay_header>div{
             padding: 5px 15px;
-            /* font-size: 18px; */
             margin-right: 50px;
-            border-left: 5px solid #187fc2;
+            border-left: 4px solid #187fc2;
 
         }
         .invoice_nav{
@@ -78,7 +80,6 @@ export default {
         }
         .invoice_content{
             padding: 25px;
-            /* background: orange; */
         }
         .content_select{
             margin: 25px 0;
@@ -88,10 +89,10 @@ export default {
             width: 50%;
             display: flex;
             align-items: center;
-            margin-left: 30px;
+            margin-left: 33px;
         }
         .content_select>div:nth-child(2){
-            margin-left: 50px;
+            margin-left: 24px;
         }
         .content_select>div>span{
             display: inline-block;
@@ -110,17 +111,13 @@ export default {
         }
         .content_input>div{
             width: 50%;
+            display: flex;
+            align-items: center;
         }
         .content_input>div>span{
             display: inline-block;
-            width: 90px;
+            width: 110px;
             text-align: right;
         }
-        .content_input>div>input{
-            width: 350px;
-            height: 40px;
-            outline: none;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+        
     </style>

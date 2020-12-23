@@ -13,12 +13,6 @@
             <div>
                 <el-radio v-model="radio" label="3"><span></span></el-radio><img src="../../../static/img/paycenter/yinlian.jpg" alt="">
             </div>
-            <div></div>
-            
-            
-            <!-- <div><span class="mode_active"></span><img src="../../../static/img/paycenter/zhifubao.jpg" alt=""></div> -->
-            <!-- <div><span></span><img src="../../../static/img/paycenter/weixin.jpg" alt=""></div> -->
-            <!-- <div><span></span><img src="../../../static/img/paycenter/yinlian.jpg" alt=""></div> -->
         </div>
         <div class="mode_detail">
             <div class="detail_list">
@@ -59,25 +53,21 @@ export default {
             margin: 20px auto;
             background: #fff;
             border-radius: 10px;
-            /* background: orange; */
             padding-bottom: 30px;
         }
         .pay_header{
             display: flex;
-            /* background: orange; */
             padding: 20px 0;
         }
         .pay_header>div{
             padding: 5px 15px;
-            /* font-size: 18px; */
             margin-right: 50px;
-            border-left: 5px solid #187fc2;
+            border-left: 4px solid #187fc2;
 
         }
         .mode_header{
             margin: 10px 50px 50px 50px;
             display: flex;
-            /* align-items: center; */
         }
         .mode_header>div{
             margin-right: 100px;
@@ -86,20 +76,6 @@ export default {
         }
         .mode_header span{
             display: inline-block;
-        }
-        .el-radio__inner{
-            display: inline-block !important;
-        }
-        /* .mode_header>div>span{
-            display: inline-block;
-            height: 20px;
-            width: 20px;
-            border:2px solid #187fc2;
-            border-radius: 50%;
-            margin-right: 10px;
-        } */
-        .mode_active{
-            border: 5px solid #187fc2 !important;
         }
         .mode_detail{
             width: 100%;

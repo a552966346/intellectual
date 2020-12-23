@@ -36,14 +36,5 @@ export default {
             padding: 80px;
             background: #fff;
             border-radius: 10px;
-            /* display: flex;
-            align-items: center; */
-            /* justify-content: center; */
-        }
-        .is-text{
-            border-color: #187fc4 !important;
-            z-index: 1000;
-            background: #187fc4 !important;
-
         }
 </style>

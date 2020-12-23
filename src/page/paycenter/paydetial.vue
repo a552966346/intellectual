@@ -56,7 +56,6 @@ export default {
 </script>
 <style scoped>
     #all{
-        /* height: 100%; */
         background: #fafafa;
     }
     
