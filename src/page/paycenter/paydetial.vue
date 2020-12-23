@@ -10,14 +10,10 @@
         <div>
         <v-paytime></v-paytime>
         </div>
-        <!-- 个人发票 -->
+        <!-- 个人发票与单位发票 -->
         <div>
             <v-invoice></v-invoice>
-        </div>
-        <!-- 单位发票 -->
-        <div>
-            <v-invoiceunit></v-invoiceunit>
-        </div>
+        </div> 
         <!-- 支付方式 -->
         <div>
             <v-paymode></v-paymode>
@@ -32,7 +28,6 @@ import copyrightBottom from '@/components/paycenter/copyrightBottom.vue'
 import flow from '@/components/paycenter/flow.vue'
 import paytime from '@/components/paycenter/paytime.vue'
 import invoice from '@/components/paycenter/invoice.vue'
-import invoice_unit from '@/components/paycenter/invoice_unit.vue'
 import paymode from '@/components/paycenter/paymode.vue'
 export default {
     name:'pay',
@@ -48,7 +43,6 @@ export default {
             'v-flow':flow,
             'v-paytime':paytime,
             'v-invoice':invoice,
-            'v-invoiceunit':invoice_unit,
             'v-paymode':paymode
     }
 }
