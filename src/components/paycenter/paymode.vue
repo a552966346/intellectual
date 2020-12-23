@@ -2,6 +2,7 @@
     <div id="paymode">
         <div class="pay_header">
             <div>支付方式：</div>
+            
         </div>
         <div class="mode_header">
             <div>

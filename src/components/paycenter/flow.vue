@@ -10,7 +10,6 @@
                 <el-step title="交易成功" description=""></el-step>
             </el-steps>
         </div>
-    
     </div> 
 </template>
 <script>

@@ -10,11 +10,6 @@
                     <span>发票信息:</span>
                     <el-radio v-model="radio" label="1">纸质发票</el-radio>&nbsp;&nbsp;&nbsp;&nbsp;
                     <el-radio v-model="radio" label="2">电子发票</el-radio>
-                    <!-- <span>发票信息:</span>
-                    <span class="select_active"></span>
-                    <span>纸质发票</span>
-                    <span></span>
-                    <span>电子发票</span> -->
                 </div>
                 <div>
                     <span>发票类型：</span>

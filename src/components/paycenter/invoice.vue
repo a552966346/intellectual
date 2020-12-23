@@ -64,7 +64,6 @@ export default {
             padding: 5px 15px;
             margin-right: 50px;
             border-left: 4px solid #187fc2;
-
         }
         .invoice_nav{
             border-bottom: 1px solid #ccc;

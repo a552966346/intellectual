@@ -1,7 +1,6 @@
 <template>
     <div id="all">
-        <v-topsearch></v-topsearch>
-        
+        <v-topsearch></v-topsearch> 
         <v-navigation></v-navigation>
         <!-- 交易中心流程详情 -->
         <div>

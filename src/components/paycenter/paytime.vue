@@ -42,6 +42,7 @@ export default {
         .pay_header>div{
             padding: 5px 15px;
             margin-right: 130px;
+            
         }
         .pay_header>div:nth-child(1){
             border-left: 4px solid #187fc2;
