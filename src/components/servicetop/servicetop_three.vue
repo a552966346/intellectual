@@ -61,12 +61,12 @@
                                         </div>
                                         <div class="topBody_btn">
                                                 <div class="bottom_left">
-                                                        <!-- <div class="left_left">
+                                                        <div class="left_left">
                                                                 <span>{{nub}}</span>
                                                                 <span><button @click="but1">+</button><button @click="but2">-</button></span>
-                                                        </div> -->
+                                                        </div>
                                                         <div class="left_but">
-                                                                <button>加入购物车<p>--<span>></span>--</p></button>
+                                                                <button @click="shop(top_data.id)">加入购物车<p>--<span>></span>--</p></button>
                                                         </div>
 
                                                 </div>
@@ -100,12 +100,24 @@
 
                 },
                 methods: {
-                        but2() {
-                                console.log(11111)
-                        },
-                        but1() {
-                                console.log(1111)
-                        }
+                       but2() {
+                               if(this.nub>=1){
+                                       this.nub--
+                               }
+                       },
+                       but1() {
+                                       this.nub++
+
+                       },
+                       shop(id){
+                               console.log(id)
+                               this.$router.push({
+                                       path:'/shopcart',
+                                       query:{
+                                               id:id
+                                       }
+                               })
+                       }
                 }
         }
 </script>

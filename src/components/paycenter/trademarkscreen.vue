@@ -35,7 +35,7 @@
                                 <div class="patenscree_lefthead">筛选条件</div>
                                 <div class="patenscree_leftcontent">
                                         <p @click="choosenull">清空筛选条件</p>
-                                        <span v-for="(item,index) in screetext" :key="index"  v-if="item != null || item != undefined">{{item}}</span>
+                                        <span v-for="(item,index) in screetext" :key="index"  v-if="item != null || item != undefined" @click="delet(index)">{{item}}</span>
 
                                 </div>
                         </div>
@@ -139,7 +139,7 @@ export default {
                         }else{
                        this.$set(this.screetext,index,name)
                         }
-                        console.log(item)
+                        console.log(this.screetext)
                         this.$set(this.id,item,nubs)
                         this.$emit('choosecon',this.id)
                 },
@@ -158,6 +158,12 @@ export default {
                        this.value=[]
                          this.screetext = []
                         this.$emit('choosenull')
+                },
+                delet(index){
+                        this.id[index] = null
+                        this.$set(this.screetext,index,null)
+                        this.$set(this.iscolor,index,undefined)
+                        this.$emit('delet',this.id)
                 }
         }
 }

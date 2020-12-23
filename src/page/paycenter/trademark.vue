@@ -6,7 +6,7 @@
                         <img :src="banner" alt="" />
                         <!-- 分类 -->
                         <trademarkscreen @choosecon="choosecon" @ischange="ischange" @search="search" @choosenull="choosenull"
-                                :patenscree="patenscree" :data_two="data_two" :iscolor="iscolor"></trademarkscreen>
+                                :patenscree="patenscree" :data_two="data_two" :iscolor="iscolor" @delet="delet"></trademarkscreen>
                         <!-- 排序-->
                         <div class="patent_sort">
                                 <span :class="{ sortactive: this.sortnumber == 0 }" @click="comsort(0)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
@@ -137,6 +137,11 @@
                                 this.screetext = []
                                 this.id = {}
                                 this.ispost()
+                        },
+                        //删除条件
+                        delet(id){
+                                console.log(id)
+                                this.ispost(id)
                         },
                         // 选择颜色
                         colorbtn(color, index) {

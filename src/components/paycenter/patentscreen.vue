@@ -36,7 +36,7 @@
                                 <div class="patenscree_lefthead">筛选条件</div>
                                 <div class="patenscree_leftcontent">
                                         <p @click="choosenull">清空筛选条件</p>
-                                        <span v-for="(item,index) in screetext" :key="index" v-if="item != null || item != undefined">{{item}}</span>
+                                        <span v-for="(item,index) in screetext" :key="index" v-if="item != null || item != undefined" @click="delet(index)">{{item}}</span>
                                 </div>
                         </div>
                 </div>
@@ -139,7 +139,7 @@
                         },
                        choosecon(index,nubs,item,name) {
                                this.iscolor[index] = nubs
-                               this.$set(this.id,item,nubs)
+                               this.$set(this.id,index,nubs)
                               if(name =="不限" ){
                                     this.$set(this.screetext,index,null)
                                }else{
@@ -151,6 +151,12 @@
                                 this.screetext =[]
                                 this.id = {}
                                 this.$emit('choosenull')
+                        },
+                        delet(index){
+                                this.id[index] = null
+                                this.$set(this.screetext,index,null)
+                                this.$set(this.iscolor,index,undefined)
+                                this.$emit('delet',this.id)
                         }
                 }
         }

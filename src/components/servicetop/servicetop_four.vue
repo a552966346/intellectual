@@ -35,14 +35,14 @@
                                         <div class="rfooter">
                                                 <div class="rfooterLeft">
                                                         <div class="num">
-                                                                <div>1</div>
+                                                                <div>{{nub}}</div>
                                                                 <div>
-                                                                        <span>+</span>
-                                                                        <span>-</span>
+                                                                        <span @click="but1">+</span>
+                                                                        <span @click="but2">-</span>
                                                                 </div>
                                                         </div>
 
-                                                        <div class="car">
+                                                        <div class="car" @click="shop(top_data.id)">
                                                                 <div>加入购物车</div>
                                                                 <div>
                                                                         <p>---<span>></span>---</p>
@@ -63,13 +63,32 @@
         export default {
                 data() {
                         return {
-
+                                nub:1
                         }
                 },
                 props: {
                         title: '',
                         top_data: '',
                         image:''
+                },
+                methods:{
+                        but1(){
+                                this.nub++
+                        },
+                        but2(){
+                                if(this.nub>=1){
+                                        this.nub--
+                                }
+                        },
+                        shop(id){
+                                console.log(id)
+                                this.$router.push({
+                                        path:'/shopcart',
+                                        query:{
+                                                id:id
+                                        }
+                                })
+                        }
                 }
         }
 </script>

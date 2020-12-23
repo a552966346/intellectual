@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="center_lei_right">
                                         <button @click="qinchu">清除全部</button>
-                                        <span v-for="(item,index) in text_sx" :key="index" v-if="item!='不限'">{{item}}</span>
+                                        <span v-for="(item,index) in text_sx" :key="index" v-if="item!='不限'" @click="delet(index)">{{item}}</span>
                                 </div>
                         </div>
                 </div>
@@ -92,14 +92,13 @@
                           t  ---- 选中项目名
                           */
                         xuanze(s, item,i, t) {
-
                                 this.iscolor[i]=s;
                                 if(t =="不限" ){
                                      this.$set(this.text_sx,i,null)
                                 }else{
                                 this.$set(this.text_sx,i,t)
                                 }
-                                this.$set(this.id,item,s)
+                                this.$set(this.id,i,s)
                                 this.$emit('xuanze',this.id)
 
                         },
@@ -108,6 +107,13 @@
 				this.id = {}
                                 this.text_sx = []
                                 this.$emit('qinchu')
+                        },
+                        // 删除条件
+                        delet(index){
+                                this.iscolor[index]=undefined
+                                this.$set(this.text_sx,index,null)
+                                this.id[index] = null
+                                this.$emit('delet',this.id)
                         }
                 }
         }
@@ -222,6 +228,7 @@
         padding-left:15px;
         display: flex;
         align-items: center;
+        cursor: pointer;
 }
 
 #shaixuan {

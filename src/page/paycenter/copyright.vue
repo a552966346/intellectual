@@ -5,7 +5,7 @@
       <div class="copyright_pay">
         <img :src="banner" alt="">
         <!-- 分类 -->
-         <patentscreen :zlTop="zlTop" :iscolor="iscolor" @choosenull="choosenull" @choosecon="choosecon"></patentscreen>
+         <patentscreen :zlTop="zlTop" :iscolor="iscolor" @choosenull="choosenull" @choosecon="choosecon" @delet="delet"></patentscreen>
         <!-- 排序-->
         <div>
             <div class="patent_sort">
@@ -118,6 +118,9 @@ export default {
                                 this.listdata = res.data.youlike
                                 this.istotal = res.data.lists.data.length
                         })
+                },
+                delet(id){
+                        this.ispost(id)
                 },
                 handleSizeChange(){
 

@@ -82,4 +82,7 @@ export default {
     color: red;
     font-size: 15px;
   }
+  .el-select-dropdown__item{
+          text-align: center;
+  }
 </style>
