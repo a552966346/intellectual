@@ -37,16 +37,15 @@ export default {
         }
         .pay_header{
             display: flex;
-            /* background: orange; */
             padding: 20px 0;
         }
         .pay_header>div{
             padding: 5px 15px;
-            /* font-size: 18px; */
             margin-right: 130px;
+            
         }
         .pay_header>div:nth-child(1){
-            border-left: 5px solid #187fc2;
+            border-left: 4px solid #187fc2;
         }
         .pay_header>div:nth-child(3)>span:nth-child(2){
             color: #e00000;
@@ -58,8 +57,6 @@ export default {
         }
         .time_content>div{
             width: 225px;
-            /* height: 190px; */
-            background: palegoldenrod;
         }
         .time_content>div>img{
             width: 100%;

@@ -13,7 +13,8 @@
                                 </div>
                                 <div class="shopcart_zsdcet" v-for="(item,index) in zsdlist" :key="index">
                                     <div class="shopcart_zsdcetlet">
-                                        <input type="checkbox" name="" id="">
+                                        <el-checkbox v-model="item.checkModel" @change="handleCheckItemChange" style="vertical-align:top;margin-top:20px;"></el-checkbox>
+                                        <!-- <input type="checkbox" name="" id=""> -->
                                         <div class="shopcart_zsdcettop">
                                             <div class="shopcart_zsdcettopimg">
                                                 <img src="../../../static/img/shop/shop_one.png" alt="">
@@ -46,8 +47,9 @@
                                 </div>
                                 <div class="shopcart_zsdfot">
                                     <div class="shopcart_zsdfotlet">
-                                        <input type="checkbox" name="" id="">
-                                        <div class="shopcart_zsall">全选</div>
+                                        <!-- <input type="checkbox" name="" id="">
+                                        <div class="shopcart_zsall">全选</div> -->
+                                        <el-checkbox v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
                                         <div class="shopcart_zsall">删除</div>
                                         <div class="shopcart_zsall">移入收藏夹</div>
                                     </div>
@@ -82,9 +84,12 @@
                 name:'service',
                 data(){
                         return{
-                            zsdlist:[{},{},{},{},{}],
+                            zsdlist:[{checkModel:false,},{checkModel:false,},{checkModel:false,},{checkModel:false,},{checkModel:false,}],
                             wdlist:[{text:'专利行业：包装印刷'},{text:'专利注册号：201510233066x'},{text:'专利状态：已下证'},{text:'商品编号：640HA8F72860703XIPI5933'}],
-                            num: 1
+                            num: 1,
+                            checkAll:false,
+                            checkedAllShops:[],
+                            checkItemData:[],
                         }
                 },
                 components:{
@@ -100,6 +105,20 @@
                 methods:{
                     handleChange(value) {
                         console.log(value);
+                    },
+                    handleCheckAllChange(val){
+                    this.zsdlist.map((item,i)=>{
+                        item.checkModel = val;
+                    })
+                    },
+                    handleCheckItemChange(val){
+                    for(let i = 0,l = this.zsdlist.length;i < l;i ++){
+                        if(this.zsdlist[i].checkModel !== val){
+                        this.checkAll = false;
+                        return;
+                        }
+                    }
+                    this.checkAll = val;
                     }
                 }
         }

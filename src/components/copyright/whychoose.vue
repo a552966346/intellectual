@@ -1,12 +1,12 @@
 <template>
 <!-- 为什么选择  表格样式 -->
 <div class="whychoose_table_all">
-    <div class="whychoose_table_container"  >
-        <div class="whychoose_table_item_l" >
+    <div class="whychoose_table_container">
+        <div class="whychoose_table_item_l">
             <div class="whychoose_table_item_t tt " >{{why.ltitle}} </div>
             <div class="whychoose_table_item_c bb" v-for="(item,index) in why.arrl" :key="index" >{{item.text}}</div>
         </div>
-        <div class="whychoose_table_item_r" >
+        <div class="whychoose_table_item_r">
             <div class="whychoose_table_item_t tt" >{{why.rtitle}}</div>
             <div class="whychoose_table_item_c bb" v-for="(item,index) in why.arrr" :key="index" >{{item.text}}</div>
         </div>

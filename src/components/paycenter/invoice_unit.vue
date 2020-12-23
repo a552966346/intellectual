@@ -10,11 +10,6 @@
                     <span>发票信息:</span>
                     <el-radio v-model="radio" label="1">纸质发票</el-radio>&nbsp;&nbsp;&nbsp;&nbsp;
                     <el-radio v-model="radio" label="2">电子发票</el-radio>
-                    <!-- <span>发票信息:</span>
-                    <span class="select_active"></span>
-                    <span>纸质发票</span>
-                    <span></span>
-                    <span>电子发票</span> -->
                 </div>
                 <div>
                     <span>发票类型：</span>
@@ -22,24 +17,24 @@
                 </div>
             </div>
             <div class="content_input">
-                <div><span>单位名称：</span><input type="text"></div>  
-                <div><span>税号：</span><input type="text"></div> 
+                <div><span>单位名称：</span><el-input v-model="input1" ></el-input></div>  
+                <div><span>税号：</span><el-input v-model="input2" ></el-input></div> 
             </div>
             <div class="content_input">
-                <div><span>注册地址：</span><input type="text"></div>  
-                <div><span>联系电话：</span><input type="text"></div> 
+                <div><span>注册地址：</span><el-input v-model="input3"></el-input></div>  
+                <div><span>联系电话：</span><el-input v-model="input4"></el-input></div> 
             </div>
             <div class="content_input">
-                <div><span>账号：</span><input type="text"></div>  
-                <div><span>开户行：</span><input type="text"></div> 
+                <div><span>账号：</span><el-input v-model="input5" ></el-input></div>  
+                <div><span>开户行：</span><el-input v-model="input6"></el-input></div> 
             </div>
             <div class="content_input">
-                <div><span>收票人姓名：</span><input type="text"></div>  
-                <div><span>收票人地址：</span><input type="text"></div> 
+                <div><span>收票人姓名：</span><el-input v-model="input7"></el-input></div>  
+                <div><span>收票人地址：</span><el-input v-model="input8"></el-input></div> 
             </div>
             <div class="content_input">
-                <div><span>收票人电话：</span><input type="text"></div>  
-                <div><span>收票人邮箱：</span><input type="text"></div> 
+                <div><span>收票人电话：</span><el-input v-model="input9" ></el-input></div>  
+                <div><span>收票人邮箱：</span><el-input v-model="input10"></el-input></div> 
             </div>
         </div>
     </div>
@@ -48,7 +43,17 @@
 export default {
     data () {
       return {
-        radio: '1'
+        radio: '1',
+        input1: '',
+        input2: '',
+        input3: '',
+        input4: '',
+        input5: '',
+        input6: '',
+        input7: '',
+        input8: '',
+        input9: '',
+        input10: ''
       };
     }
 }
@@ -91,10 +96,10 @@ export default {
             width: 50%;
             display: flex;
             align-items: center;
-            margin-left: 30px;
+            margin-left: 33px;
         }
         .content_select>div:nth-child(2){
-            margin-left: 50px;
+            margin-left: 24px;
         }
         .content_select>div>span{
             display: inline-block;
@@ -112,18 +117,14 @@ export default {
         }
         .content_input>div{
             width: 50%;
+            display: flex;
+            align-items: center;
         }
         .content_input>div>span{
             display: inline-block;
-            width: 90px;
+            width: 110px;
             text-align: right;
         }
-        .content_input>div>input{
-            width: 350px;
-            height: 40px;
-            outline: none;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+        
     
 </style>
