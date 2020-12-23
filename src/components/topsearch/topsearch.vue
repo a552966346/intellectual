@@ -31,10 +31,12 @@ export default {
   },
   methods:{
           search(){
-                  this.$api.getsearch(this.input3,this.select)
-                  .then(res=>{
-                          console.log(res)
-                  })
+                  this.$router.push({
+			  path:this.select,
+			  query:{
+				  name:this.input3
+			  }
+		  })
           }
   }
 }

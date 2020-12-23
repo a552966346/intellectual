@@ -26,10 +26,16 @@
                                                               <p v-for="(item,index) in title" @click="text_click(index)" :class="{iscolor:iscolor==index}">{{item}}</p>
                                                        </div>
                                                        <div class="zzdj_serviceright_center">
-                                                               <!-- 服务详情 -->
                                                                <div class="center_text" id="text_0">
                                                                        <v-comtitle :title="title_all[0]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">成果信息</span></p>
+                                                                       <!-- 业务介绍 -->
+                                                                        <div v-html="content"></div>
+                                                               </div>
+                                                               <!-- 服务详情 -->
+                                                               <div class="center_text" id="text_0">
+                                                                       <v-comtitle :title="title_all[1]" :inform_title='title_text_all[0]' :color='title_color'></v-comtitle>
+                                                                       <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">成果推荐</span></p>
                                                                        <!-- 业务介绍 -->
                                                                         <v-servicesv :svali='svali'></v-servicesv>
                                                                </div>
@@ -42,13 +48,13 @@
                                                                </div>
                                                                <!-- 服务保障 -->
                                                                <div class="center_text" id="text_2">
-                                                                       <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
+                                                                       <v-comtitle :title="title_all[3]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                        <!-- <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">服务保障</span></p> -->
                                                                        <!-- 商标变更流程周期  -->
                                                                         <v-safetyguarantee :safe="safe"></v-safetyguarantee>
                                                                </div>
                                                                <div class="center_text" id="text_3">
-                                                                       <v-comtitle :title="title_all[3]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
+                                                                       <v-comtitle :title="title_all[4]" :inform_title='title_text_all[3]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">常见问题</span></p>
                                                                        <!-- 业务介绍  -->
                                                                         <v-publicproblems :pub="pub"></v-publicproblems>
@@ -80,9 +86,9 @@
                 name:'service',
                 data(){
                         return{
-                                 title:['成果推荐','转让流程','安全保障','常见问题'],
+                                 title:['成果详情','成果推荐','转让流程','安全保障','常见问题'],
                                  title_color:'',
-                                 title_all:["成果信息","科技成果转让流程","安全保障","常见问题"],
+                                 title_all:['成果详情',"成果推荐","科技成果转让流程","安全保障","常见问题"],
                                  title_text_all:["","科技是第一生产力，给大家分享最新的科学研究成果","",""],
                                 iscolor:0,
                                 image:[],
@@ -155,6 +161,7 @@
                                     ]
 
                                 },
+                                content:''
                         }
                 },
                 components:{
@@ -171,6 +178,7 @@
                         this.$nextTick(function(){
                                 this.$el.scrollIntoView()
                                 this.ispost(this.id)
+
                         })
                 },
                 methods:{
@@ -181,6 +189,7 @@
                                 this.$api.gettechnologydetiles(id)
                                 .then(res=>{
                                         console.log(res)
+                                        this.content = res.data.content
                                        this.top_data = res.data
                                        this.image = res.data.images_text
                                 })

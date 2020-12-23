@@ -17,9 +17,9 @@
       </div>
       <div class="tanchuang_body">
         <div class="tanchuang_bodytit">填写详情</div>
-        <el-form ref="form2" :model="form2" label-width="100px">
+        <el-form ref="form2" :model="form" label-width="100px">
           <el-form-item label="专利名称">
-            <el-input v-model="form2.name"
+            <el-input v-model="form.name"
               placeholder="请输入专利名称"
               style="width: 100%"
             ></el-input>
@@ -84,8 +84,8 @@
 <script>
 export default {
   data() {
-    return { 
-      form2:{
+    return {
+      form:{
         name:'',
         select:'',
         num:'',

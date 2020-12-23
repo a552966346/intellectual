@@ -100,9 +100,9 @@ import navcter from '@/components/navcter/navcter.vue'
 .el-aside {color: #333;}
 .el-container{width: 1200px !important;margin: 0 auto;}
 .about_cet p{text-indent: 2em;line-height: 30px;}
-.about_cet {display: flex;justify-content: center;align-items: center;flex-direction: column;}
+.about_cet {display: flex;justify-content: center;flex-direction: column;}
 .el-menu{border-right: none !important;}
-.about_cet p:first-child{font-size: 24px;display: flex;justify-content: center;align-items: center;}
+.about_cet p:first-child{font-size: 24px;display: flex;justify-content: center;flex-direction: column;}
 .el-menu-item .is-active{border-bottom-color: none !important;}
 .el-menu-item:hover{color: #1787FB !important;text-decoration: underline;}
 .el-menu-item{border-bottom: none !important;}
