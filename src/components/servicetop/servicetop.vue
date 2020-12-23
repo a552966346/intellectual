@@ -17,18 +17,19 @@
                                         <div class="solt" style="display:flex;flex-direction: column;">
                                                 <slot name="topall">
                                                         <div class="moren" style="display: flex;">
-                                                                <p style="margin-right:30px;">价格：<span>￥{{top_data.fee}}</span></p>
+                                                                <p style="margin-right:30px;">价格：<span v-if="top_data.fee>=10000">￥{{(top_data.fee/10000)}}万元</span>
+                                                                <span v-else>￥{{top_data.fee}}元</span></p>
                                                                 <span style="color:#ccc;font-size:12px;padding:6px;">官费200</span>
                                                         </div>
 
                                                 </slot>
                                         </div>
-                                        <div class="inp" v-show="!isShow">
+                                        <!-- <div class="inp" v-show="!isShow">
                                                 <p>联系电话：</p><input type="tel">
                                         </div>
                                         <div class="inp" v-show="!isShow">
                                                 <p>联系人：</p><input type="text">
-                                        </div>
+                                        </div> -->
                                 </div>
                                 <div class="topall_bottom">
                                         <div class="bottom_left">
@@ -37,7 +38,7 @@
                                                         <span><button @click="but1">+</button><button @click="but2">-</button></span>
                                                 </div>
                                                 <div class="left_but">
-                                                        <button @click="shop(top_data.id)">加入购物车<p>--<span>></span>--</p></button>
+                                                        <button @click="shop(top_data.id)">加入购物车<p>--<img src="../../../static/img/transfer/transfer_right.png" alt="">--</p></button>
                                                 </div>
 
                                         </div>
@@ -81,7 +82,18 @@
                                 }
                         },
                         shop(id){
-                                console.log(id)
+                                this.$api.getshop(id,1,1)
+                                .then(res=>{
+                                     if(res.msg == 1){
+                                        console.log(res.data)
+                                     }else{
+                                        console.log(res.msg)
+                                     }
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+
                                 this.$router.push({
                                         path:'/shopcart',
                                         query:{
@@ -271,19 +283,13 @@
 
         .left_but>button>p {
                 display: flex;
-                align-items: center;
+                align-items: flex-end;
                 justify-content: center;
                 padding: 3px 0;
         }
 
-        .left_but>button>p>span {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid #fff;
-                border-radius: 50%;
-                padding: 0 3px;
-                font-size: 11px;
+        .left_but>button>p>img {
+               width: 15px;
         }
 
         .bottom_right {

@@ -60,7 +60,7 @@ import technology from '@/page/technology/technology' //技术转移
 import yuan from '@/page/yuan/yuan' //技术转移
 import trys from '@/page/trys/trys' 
 import paydetial from '@/page/paycenter/paydetial'
-import shopcart from '@/page/shopcart/shopcart'  //购物车
+import shopcart from '@/page/shopcart/shopcart' //购物车
 
 
 Vue.use(Router)

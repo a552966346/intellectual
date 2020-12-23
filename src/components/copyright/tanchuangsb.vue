@@ -7,38 +7,38 @@
       </div>
       <div class="tanchuang_body">
         <div class="tanchuang_bodytit">填写详情</div>
-        <el-form label-width="100px">
+        <el-form ref="form" :model="form" label-width="100px">
           <el-form-item label="注册商标号">
-            <el-input
+            <el-input v-model="form.name"
               placeholder="请输入您的注册商标号"
               style="width: 100%"
             ></el-input>
           </el-form-item>
           <el-form-item label="商标类别">
-            <el-select placeholder="请选择商标类别（必填）" style="width: 100%">
+            <el-select v-model="form.select" placeholder="请选择商标类别（必填）" style="width: 100%">
               <el-option label="区域一" value="shanghai"></el-option>
               <el-option label="区域二" value="beijing"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="出售底价">
-            <el-input
+            <el-input v-model="form.minprice"
               placeholder="请输入出售底价（必填）"
               style="width: 100%s"
             ></el-input>
           </el-form-item>
           <el-form-item label="联系方式">
-            <el-input
+            <el-input v-model="form.tel"
               placeholder="请输入您的联系方式（必填）"
               style="width: 100%"
             ></el-input>
           </el-form-item>
           <el-form-item  label="验证号码">
-            <div  style="display:flex"><el-input
+            <div  style="display:flex"><el-input v-model="form.haoma"
               placeholder="请输入您的验证号码（必填）"
               style="width: 70%"
             >
             </el-input>
-            <el-button style="width:30%;background:#efefef;color:#919191;" type="mini">获取验证码</el-button></div>
+            <el-button  style="width:30%;background:#efefef;color:#919191;" type="mini">获取验证码</el-button></div>
             
           </el-form-item>
           <el-form-item>
@@ -67,7 +67,15 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      form:{
+        name:'',
+        select:'',
+        minprice:'',
+        tel:'',
+        haoma:''
+      }
+    };
   },
 };
 </script>
@@ -75,6 +83,7 @@ export default {
 <style>
 .all {
   padding: 20px;
+  width: 40%;
 }
 .tanchuang_all {
   height: 550px;

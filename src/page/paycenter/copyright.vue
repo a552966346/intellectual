@@ -3,7 +3,7 @@
       <v-topsearch></v-topsearch>
       <v-navigation></v-navigation>
       <div class="copyright_pay">
-        <img :src="banner" alt="">
+        <img :src="banner" alt="" @click="tanchuang">
         <!-- 分类 -->
          <patentscreen :zlTop="zlTop" :iscolor="iscolor" @choosenull="choosenull" @choosecon="choosecon" @delet="delet"></patentscreen>
         <!-- 排序-->
@@ -42,10 +42,14 @@
 
       </div>
       <v-combotttom></v-combotttom>
+      <div class="tanchuang" v-show="isshow" @click.self="shows">
+               <v-tanchuangsb></v-tanchuangsb>
+      </div>
   </div>
 </template>
 
 <script>
+import tanchuangsb from '@/components/copyright/tanchuangbq.vue';//专利弹窗
 import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
 import patentscreen from '@/components/paycenter/patentscreen.vue'
 import copyrightBottom from '@/components/paycenter/copyrightBottom.vue'
@@ -61,7 +65,8 @@ export default {
             zlTop:[],           //筛选
             iscolor:[],
             banner:'../../../static/img/paycenter/copyright_top.png',
-            category_one:''
+            category_one:'',
+            isshow:false
         }
 
     },
@@ -97,6 +102,15 @@ export default {
                                  this.ispost()
                         }
                 },
+                //显示弹框
+                tanchuang(){
+                        console.log(111)
+                  this.isshow = true
+                },
+                //隐藏弹框
+                shows(){
+                        this.isshow = false
+                },
                 listsort(index){
                         this.listsortnum=index
                 },
@@ -130,6 +144,7 @@ export default {
                 }
                 },
     components:{
+        'v-tanchuangsb':tanchuangsb,//专利弹窗
         copyrightOrdinary,
         patentscreen,copyrightBottom
     }
@@ -249,5 +264,14 @@ export default {
             background-color:#3b5791 ;
             color: #fff;
             outline: none;
+        }
+        .tanchuang{
+              position: fixed;z-index: 9999;background: rgba(0,0,0,0.2); width: 100%;height: 100%;top:0;
+            right:0;
+            left:0;
+            bottom:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 </style>
