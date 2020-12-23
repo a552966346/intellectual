@@ -5,7 +5,7 @@
                 <div class="copyright_pay">
                         <img :src="banner" alt="" @click="tanchuang" />
                         <!-- 分类 -->
-                        <trademarkscreen @choosecon="choosecon" @ischange="ischange" @search="search" @choosenull="choosenull"
+                        <trademarkscreen :type='true' @choosecon="choosecon" @ischange="ischange" @search="search" @choosenull="choosenull"
                                 :patenscree="patenscree" :data_two="data_two" :iscolor="iscolor" @delet="delet"></trademarkscreen>
                         <!-- 排序-->
                         <div class="patent_sort">

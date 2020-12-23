@@ -11,14 +11,8 @@
                         <div class="service_site">
                               <!-- 筛选 -->
                               <div class="service_choose">
-                                        <trademarkscreen :patenscree="patenscree" :iscolor="iscolor" :data_two="data_two"></trademarkscreen>
+                                        <trademarkscreen :type='false' :patenscree="patenscree" :iscolor="iscolor"></trademarkscreen>
                               </div>
-                              <!-- 排序-->
-                              <div class="service_choose patent_sort">
-                                        <span>综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
-                                        <span>发布时间<i class="el-icon-bottom patent_sorticon"></i></span>
-                                        <span>价格排序<i class="el-icon-bottom patent_sorticon"></i></span>
-                                </div>
                                 <!-- 条目 -->
                                 <div  class="service_all">
                                         <servicetoplist></servicetoplist>
