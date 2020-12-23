@@ -46,7 +46,7 @@ export default {
                  if(this.$store.state.user == ''|| this.$store.state.user==null || this.$store.state.user==undefined){
                          this.$store.state.user =  JSON.parse(localStorage.getItem('user'))
                  }
-                 // console.log(this.$store.state.user)
+                 console.log(this.$store.state.user)
         },
         methods:{
                 one(){
@@ -54,7 +54,6 @@ export default {
                 },
                 two(){
                         this.isbg = 2
-
                         document.getElementById("top").scrollIntoView()
                         this.$emit('menu')
                 },

@@ -81,8 +81,7 @@
                                 }
                         },
                         shop(id){
-                                console.log(id)
-                                this.$api.getshop(id,2,1)
+                                this.$api.getshop(id,1,1)
                                 .then(res=>{
                                      if(res.msg == 1){
                                         console.log(res.data)

@@ -82,6 +82,17 @@
                         },
                         shop(id){
                                 console.log(id)
+                                 this.$api.getshop(id,1,1)
+                                .then(res=>{
+                                     if(res.msg == 1){
+                                        console.log(res.data)
+                                     }else{
+                                        console.log(res.msg)
+                                     }
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
                                 this.$router.push({
                                         path:'/shopcart',
                                         query:{
