@@ -7,27 +7,27 @@
       </div>
       <div class="tanchuang_body">
         <div class="tanchuang_bodytit">填写详情</div>
-        <el-form label-width="100px">
+        <el-form ref="form1" :model="form1" label-width="100px">
           <el-form-item label="版权名称">
-            <el-input
+            <el-input v-model="form1.name"
               placeholder="请输入版权名称（必填）"
               style="width: 100%"
             ></el-input>
           </el-form-item>
           <el-form-item label="版权分类">
-            <el-select placeholder="请选择版权类型（必填）" style="width: 100%">
+            <el-select v-model="form1.select" placeholder="请选择版权类型（必填）" style="width: 100%">
               <el-option label="区域一" value="shanghai"></el-option>
               <el-option label="区域二" value="beijing"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="联系方式">
-            <el-input
+            <el-input v-model="form1.tel"
               placeholder="请输入您的联系方式（必填）"
               style="width: 100%"
             ></el-input>
           </el-form-item>
           <el-form-item  label="验证号码">
-            <div  style="display:flex"><el-input
+            <div  style="display:flex"><el-input v-model="form1.haoma"
               placeholder="请输入您的验证号码（必填）"
               style="width: 70%"
             >
@@ -61,7 +61,14 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      form1:{
+        name:'',
+        select:'',
+        tel:'',
+        haoma:''
+      }
+    };
   },
 };
 </script>

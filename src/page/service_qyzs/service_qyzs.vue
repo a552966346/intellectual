@@ -42,8 +42,8 @@
                                                                <div class="center_text" id="text_2">
                                                                        <v-comtitle :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                        <p><img src="../../../static/img/service/serviceright_jiantou.png" alt=""><span style="text-indent: 2em;">认定条件</span></p>
-                                                                       <!-- 认定条件  -->
-                                                                       <v-servicefh></v-servicefh>
+                                                                       <!-- 服务清单  -->
+                                                                       <v-condition :cond="cond"></v-condition>
                                                                </div>
 
                                                                <!-- 伊甸优势 -->
@@ -59,12 +59,10 @@
                         </div>
                 </div>
                 <div class="consultation_bottom">
+                        
                   <img src="../../../static/img/index/cooperation_img.png" alt="">
                 </div >
                 <v-combotttom></v-combotttom>
-                <div class="zhiding" @click="menu">
-                        <img src="../../../static/img/service/zhiding.png" alt="">
-                </div>
         </div>
 </template>
 
@@ -76,7 +74,7 @@
         import serviceassurance from '../../components/copyright/serviceassurance.vue'//服务保障  123样式
         import applicationprocesszero from '../../components/copyright/applicationprocesszero.vue'//申请流程 0个图
         import businessintroduction from '../../components/copyright/businessintroduction.vue'//业务流程
-        import condition from '../../components/copyright/condition.vue'//业务流程
+        import condition from '../../components/copyright/condition.vue'//服务清单    
         import servicefh from '../../components/serviceon/servicefh.vue'//服务标准
         import servicetw from '../../components/serviceon/servicetw.vue'//伊甸优势
 
@@ -98,6 +96,54 @@
                                                 iscolor:0,
                                                 app:{//申请流程 2个图   //申请流程 0个图
                                                         src:"../../../static/img/copyright/process.png" ,
+
+                                                },
+                                                cond:{//服务清单
+                                                        tl:'服务清单',
+                                                        arrt:[
+                                                                {text:'企业规模（组织机构个数）'},
+                                                                {text:'贯标服务费（元）'},
+                                                        ],
+                                                        arrl:[
+                                                                       {n:'1',t:'主持贯标动员会，介绍贯标的作用、意义和操作流程，提高全员知识产权意识'},
+                                                                       {n:'2',t:'《企业知识产权管理规范》(GB/29490-2013)内容解读'},
+                                                                       {n:'3',t:'到企业现场调研，全面了解企业的知识产权现状以及知识产权管理现状'},
+                                                                       {n:'4',t:'根据国标逐个部门进行过程控制甄别'},
+                                                                       {n:'5',t:'根据调研结果，分析企业知识产权管理现状，提供企业知识产权管理改进意见'},
+                                                                       {n:'6',t:'构建知识产权管理体系(包括知识产权管理的制度;知识产权管理手册程序文件;记录表单)'},
+                                                                       {n:'7',t:'进行知识产权管理体系的宣贯'},
+                                                                       {n:'8',t:'针对部门的文件解读'},
+                                                                       {n:'9',t:'指导管理体系的实施'},
+                                                                       {n:'10',t:'辅导企业对知识产权管理体系进行内审管评'},
+                                                                       {n:'11',t:'指导企业进行贯标中期验收电子系统资料上传'},
+                                                                       {n:'12',t:'指导企业认证准备及认证过程中协助调整'},
+                                                                       {n:'13',t:'提供知识产权相关系列培训'},
+                                                                       {n:'14',t:'上门或现场办公时间'},
+                                                                
+                                                        ],
+                                                        arr:[
+                                                                {t:'一级'},{t:'标准'},{t:'高级'},
+                                                        ],
+                                                        arrr:[
+                                                               {t:'8个',t2:'12个',t3:'15个及以上',},
+                                                               {t:'50000',t2:'70000',t3:'100000',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_y.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_y.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_y.png" alt="">',},
+                                                               {t:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t2:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',t3:'<img src="../../../static/img/copyright/cond_dg.png" alt="">',},
+                                                               {t:'',t2:'2课时',t3:'4课时',},
+                                                               {t:'4次/4-5天',t2:'5次/6-7天',t3:'6次/10天',},
+                                                        ],
 
                                                 },
                                                 list:{//伊甸优势
@@ -134,7 +180,7 @@
                                         'v-businessintroduction':businessintroduction,//业务流程
                                         'v-servicerightP':serviceright_proc_t,
                                         'v-servicefh':servicefh,
-
+                                        'v-condition':condition,
                                         'v-servicetw':servicetw
                 },
                 beforeMount() {
@@ -156,6 +202,10 @@
                                         if(res.code){
                                                 console.log(res)
                                                 this.top_data = res.data.data
+                                                this.right_data = res.data.data.content.split(',')
+                                                this.toptext = res.data.data.contenttitle.split(',')
+                                                this.question = res.data.question
+                                                this.toptext.push("常见问题","典型案例")
                                                 this.image = res.data.data.images_text
                                         }else{
                                                 alert("暂无数据")
@@ -165,9 +215,6 @@
                         text_click(porp){
                                         this.iscolor = porp
                                        this.$el.querySelector('#text_'+porp).scrollIntoView()
-                        },
-                        menu(){
-                                this.$el.scrollIntoView()
                         }
                 }
         }
@@ -193,6 +240,4 @@
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;font-size: 14px;}
          .iscolor{color: #0184FE;}
-         .zhiding{position: absolute;bottom: 100px;right: 100px;}
-         .zhiding>img{width: 50px;}
 </style>
