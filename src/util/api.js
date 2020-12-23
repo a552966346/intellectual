@@ -188,7 +188,8 @@ const api = {
                                   chronology:id[5],
                                   scope:id[6],
                                   condition:id[7],
-                                  sell:id[8]
+                                  sell:id[8],
+                                   keyword:id[9]
                   }
             }
         return requestAll.requset(baseUrl + '/api/Copyright/copyright_list', data);

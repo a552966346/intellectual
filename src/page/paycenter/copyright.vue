@@ -74,8 +74,8 @@ export default {
     mounted() {
             this.category_one = this.$route.query.id
             this.name = this.$route.query.name
-             this.$set(this.id,0,this.category_id)
-             this.$set(this.id,"category_id",this.category_one)
+             this.$set(this.id,9,this.name)
+             this.$set(this.id,0,this.category_one)
             this.$api.getCopyrightcondition()
             .then(res=>{
                     this.zlTop = res.data
