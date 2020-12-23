@@ -151,7 +151,8 @@ const api = {
                                       fee:id[2],
                                       condition:id[3],
                                       strlenlength:id[4],
-                                      sell:id[5]
+                                      sell:id[5],
+                                      keyword:id[6]
                       }
                 }
         return requestAll.requset(baseUrl + '/api/Patents/patents_list', data);
@@ -283,10 +284,6 @@ const api = {
     severindex() {
         return requestAll.requset(baseUrl + '/api/service/index');
     },
-    // 服务列表
-    severlist() {
-        return requestAll.requset(baseUrl + '/api/Service/service_condition');
-    },
     // 服务中心分类数据
     severcategory() {
         return requestAll.requset(baseUrl + '/api/service/category');
@@ -349,16 +346,7 @@ const api = {
                 // page:page
             }
             return requestAll.requset(baseUrl + '/api/index/search', data);
-    },
-    // 添加购物车
-    getshop(product_id,type,number){
-        let data = {
-            product_id: product_id,
-            type:type,
-            number:number
-        }
-        return requestAll.requset(baseUrl + '/api/order/addcart', data);
-}
+    }
 }
 
 export default api;

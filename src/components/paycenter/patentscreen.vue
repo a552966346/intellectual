@@ -209,6 +209,7 @@
                 color: #666;
                 padding: 5px 15px;
                 cursor: pointer;
+                font-size: 12px;
         }
 
 

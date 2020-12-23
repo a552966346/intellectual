@@ -2,8 +2,11 @@
   <div class="all">
     <div class="tanchuang_all">
       <div class="tanchuang_title">
-        <img src="" alt="">
-        <div class="tanchuang_title_text">我要出售商标</div>
+              <div>
+                      <img src="" alt="">
+                      <div class="tanchuang_title_text">我要出售商标</div>
+              </div>
+       
       </div>
       <div class="tanchuang_body">
         <div class="tanchuang_bodytit">填写详情</div>

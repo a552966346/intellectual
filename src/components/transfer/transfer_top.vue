@@ -216,6 +216,7 @@
 
 .center_lei_right p{
         cursor: pointer;
+        font-size: 12px;
 }
 
 .center_lei_right>div>img {
@@ -229,6 +230,7 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+        font-size: 12px;
 }
 
 #shaixuan {

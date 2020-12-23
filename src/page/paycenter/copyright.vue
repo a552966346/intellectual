@@ -66,12 +66,15 @@ export default {
             iscolor:[],
             banner:'../../../static/img/paycenter/copyright_top.png',
             category_one:'',
-            isshow:false
+            isshow:false,
+            name:''
         }
 
     },
     mounted() {
             this.category_one = this.$route.query.id
+            this.name = this.$route.query.name
+             this.$set(this.id,0,this.category_id)
              this.$set(this.id,"category_id",this.category_one)
             this.$api.getCopyrightcondition()
             .then(res=>{

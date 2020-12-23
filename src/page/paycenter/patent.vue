@@ -61,12 +61,15 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                 id:{},
                                 banner:'../../../static/img/paycenter/patent_bg.png',
                                 category_id:'',
-                                isshow:false
+                                isshow:false,
+                                name:''
                         }
                 },
                 beforeMount() {
                        this.category_id = this.$route.query.id
-                        this.$set(this.id,"category_id",this.category_id)
+                       this.name = this.$route.query.name
+                        this.$set(this.id,0,this.category_id)
+                        this.$set(this.id,6,this.name)
                         this.$api.getPatentsconditions()   //专利筛选
                         .then(res=>{
                                 console.log(res)
