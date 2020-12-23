@@ -52,9 +52,9 @@
 
                 data() {
                         return {
-                                sortnumber: 0, //左侧边排序切换
+                                sortnumber: 0, //左侧边排序切�
                                 listsortnum: 1, //右侧 列表形式排序
-                                id: {}, //筛选条件
+                                id: {}, //筛选条�
                                 iscent: [],
                                 patenscree: [],
                                 iscolor: [],
@@ -81,12 +81,12 @@
                                 })
                         this.$api.gettrademarkadvertisement()
                                 .then(res => {
-                                        console.log(res)
                                         this.banner = res.data.images
                                 })
                         this.ispost(this.id)
                 },
                 methods: {
+                        // 排序
                         comsort(index) {
                                 this.sortnumber = index
                                 if (index == 1) {
@@ -104,22 +104,21 @@
                         },
                         //显示弹框
                         tanchuang(){
-                                console.log(111)
                           this.isshow = true
                         },
                         //隐藏弹框
                         shows(){
                                 this.isshow = false
                         },
-                        listsort(index) {
-                                this.listsortnum = index
-                        },
-                        // 分类筛选
+                        // listsort(index) {
+                        //         this.listsortnum = index
+                        // },
+                        // 分类筛�
                         choosecon(id) {
                                 this.id = id
                                 this.ispost(this.id)
                         },
-                        // 下拉筛选
+                        // 下拉筛�
                         ischange(id) {
                                 this.id = id
                                 this.ispost(this.id)
@@ -146,7 +145,7 @@
                                                 console.log(this.iscent)
                                         })
                         },
-                        //清空筛选
+                        //清空筛�
                         choosenull() {
                                 this.iscolor = []
                                 this.screetext = []
@@ -158,9 +157,9 @@
                                 this.ispost(id)
                         },
                         // 选择颜色
-                        colorbtn(color, index) {
+                        // colorbtn(color, index) {
 
-                        },
+                        // },
                         handleSizeChange() {
 
                         },

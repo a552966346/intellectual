@@ -6,9 +6,9 @@
                                 <div class="patenscree_leftcontent">
                                         <span  :class="{color:iscolor[index] == null}" @click="choosecon(index,null,item[1],null)">不限</span>
                                         <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]" @click="choosecon(index,nubs,item[1],second)" :key="nubs" v-if="second !=''">{{second}}</span>
-                                        <div class="patenscree_leftprice" v-if="index==4">
+                                        <!-- <div class="patenscree_leftprice" v-if="index==4">
                                                 <input type="text">&nbsp;元&nbsp;-&nbsp;<input type="text">&nbsp;元<button>确定</button>
-                                        </div>
+                                        </div> -->
                                 </div>
                         </div>
                         <div class="patenscree_leftrow">
@@ -111,7 +111,9 @@ export default {
         props:{
                 iscolor:'',
                 patenscree: '',
+                servicelist:'',
                 data_two:'',
+                type:Boolean
         },
         created: function() {
                 setInterval(this.showMarquee, 2000)
@@ -124,6 +126,7 @@ export default {
                 });
         },
         methods: {
+                // 右侧交易滚动
                 showMarquee: function() {
                         this.animate = true;
                         setTimeout(() => {
@@ -132,6 +135,7 @@ export default {
                                 this.animate = false;
                         }, 500)
                 },
+                //选择条件
                 choosecon(index,nubs,item,name) {
                         this.iscolor[index] = nubs
                         if(name =="不限" ){
@@ -143,12 +147,14 @@ export default {
                         this.$set(this.id,index,nubs)
                         this.$emit('choosecon',this.id)
                 },
+                // 下拉框筛选
                 ischange(item,index){
 			let i = index+4
 			console.log(i)
                          this.$set(this.id,i,this.value[index])
                          this.$emit('ischange',this.id)
                 },
+                //文本框搜索
                 search(){
                         this.$set(this.id,7,this.text)
                         console.log(this.id)
@@ -161,6 +167,7 @@ export default {
                          this.screetext = []
                         this.$emit('choosenull')
                 },
+                //删除条件
                 delet(index){
                         this.id[index] = null
                         this.$set(this.screetext,index,null)
