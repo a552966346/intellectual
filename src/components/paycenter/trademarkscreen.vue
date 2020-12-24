@@ -185,7 +185,12 @@ export default {
                 },
                 //文本框搜索
                 search(){
-                        this.$set(this.id,7,this.text)
+                        if(this.type){
+                            this.$set(this.id,7,this.text)
+                        }else{
+                            this.$set(this.id,3,this.text)
+                        }
+
                         console.log(this.id)
                          this.$emit('search',this.id)
                 },
