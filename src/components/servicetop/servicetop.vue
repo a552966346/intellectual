@@ -42,7 +42,7 @@
                                                 </div>
 
                                         </div>
-                                        <div class="bottom_right">
+                                        <div class="bottom_right" >
                                                 <button>
                                                         <img src="../../../static/img/service/service_kefu.png" alt="">
                                                         <span >咨询客服</span>
@@ -59,13 +59,15 @@
                 data() {
                         return {
                                 // qiye: '企业知识产贯标',
-                                nub: 1
+                                nub: 1,
+                                
                         }
                 },
                 props: {
                         image: '',
                         top_data: '',
-                        isShow: false
+                        isShow: false,
+                        
                 },
                 mounted() {
 
@@ -302,6 +304,7 @@
                 overflow: hidden;
                 display: flex;
                 justify-content: center;
+                cursor: pointer;
         }
 
         .bottom_right img {
@@ -317,6 +320,7 @@
                 outline: none;
                 display: flex;
                 align-items: center;
+                cursor: pointer;
         }
 
         .bottom_right span {
