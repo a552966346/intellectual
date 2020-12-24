@@ -108,9 +108,9 @@
                                                 </li>
                                         </ul>
                                         <ul class="index_ultw">
-                                                <div v-for="(item,index) in news" v-if="index == num">
+                                                <div v-for="(item,index) in news" v-if="index == num" >
                                                     <li>
-                                                            <div class="index_ulxwon" v-for="(item1,index) in item.news" v-if="index==0">
+                                                            <div class="index_ulxwon"  :key="index" v-for="(item1,index) in item.news" v-if="index==0">
                                                                     <router-link to="">
                                                                             <div class="index_url"></div>
                                                                             <div class="index_urlw">
@@ -120,7 +120,7 @@
                                                                                             </div>
                                                                                             <div class="index_urlz">
                                                                                                     <p>{{item1.desc}}</p>
-                                                                                                    <p v-html="item1.content">{{item1.content}}</p>
+                                                                                                    <p v-html="item1.content"></p>
                                                                                             </div>
                                                                                     </router-link>
                                                                             </div>
@@ -207,7 +207,7 @@
                                                         </router-link>
                                                         <div class="swiper-container">
                                                                  <div class="swiper-wrapper">
-                                                                        <div class="swiper-slide" v-for="(item,index) in introimage">
+                                                                        <div class="swiper-slide"  :key="index" v-for="(item,index) in introimage">
                                                                                 <img :src="item" alt="">
                                                                         </div>
                                                                   </div>
@@ -692,16 +692,13 @@
       .index_ulon li{float: left;margin: 0 10px;cursor: pointer;width: 115px;height: 35px;border-top-left-radius: 25px;border-top-right-radius: 25px;border-bottom-left-radius: 25px;border-bottom-right-radius: 25px;display: flex;justify-content: center;align-items: center;}
       .index_ultw li{height: 470px;display: flex;justify-content: space-between;}
       .active{background-color: #187fc4;color: #fff;}
-      .index_ulxwon{width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;padding: 15px;}
+      .index_ulxwon{overflow: hidden;width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;padding: 15px;}
       .index_ulxwtw{width: 350px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;}
       .index_ulxwtr{width: 430px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;background-color: #fff;}
       .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
-      .index_urlw{flex: 1;display: flex;align-content: center;flex-direction: column;}
       .index_urlq{font-size: 16px;padding-top: 20px;padding-bottom: 10px;color: #333;}
-      .index_urlz p{line-height: 25px;color: #333;font-size: 12px;}
-      .index_urlz p:nth-child(2){word-break: break-all;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;;}
-      
-      .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
+      .index_urlz p{overflow: hidden;line-height: 25px;color: #333;font-size: 12px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}
+     .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
       .index_ulxwtwbklt{width: 50%;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding-right: 8px;}
       .newa{display: flex;width: 100%;}
       .newa>div:nth-child(1){width: 30%;}
