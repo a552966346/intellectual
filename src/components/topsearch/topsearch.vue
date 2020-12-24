@@ -31,12 +31,20 @@ export default {
   },
   methods:{
           search(){
-                  this.$router.push({
-			  path:this.select,
-			  query:{
-				  name:this.input3
-			  }
-		  })
+                  console.log(this.$route.path)
+                  if(this.$route.path!='/'+this.select){
+                         this.$router.push({
+                         			  path:this.select,
+                         			  query:{
+                         				  name:this.input3
+                         			  }
+                         })
+                  }else{
+                        this.$message({
+                                  message: '请在下方进行搜索',
+                                  type: 'warning'
+                                });
+                  }
           }
   }
 }

@@ -56,20 +56,59 @@
                                                                         alt="">
                                                         </div>
                                                         <div class="top_cen_right_cen">
-                                                                <div class="inp"><img src="../../../static/img/service/servecenter_hy.png"
-                                                                                alt=""><input type="text" placeholder="请填写您的行业"></div>
-                                                                <div class="inp"><img src="../../../static/img/service/servecenter_ys.png"
-                                                                                alt=""><input type="text" placeholder="请选择您的预算区间"></div>
-                                                                <div class="inp"><img src="../../../static/img/service/servecenter_sj.png"
-                                                                                alt=""><input type="text" placeholder="请输入您的手机号"></div>
-                                                                <button>马上获取商标信息</button>
+                                                                <el-form  :model="formInline" :rules="register_rules"  class="demo-form-inline"  ref="register_rules">
+                                                                  <el-form-item  class="demo-form-item">
+                                                                    <el-select v-model="value1" placeholder="请选择你的行业" size="mini" background="#409EFF">
+                                                                       <el-option
+                                                                       v-for="item in option"
+                                                                       :key="item.id"
+                                                                       :value="item.id"
+                                                                       :label="item.name"
+                                                                       style="text-align: center;"
+                                                                         >
+                                                                        </el-option>
+                                                                      </el-select>
+                                                                  </el-form-item>
+                                                                  <el-form-item class="demo-form-item">
+                                                                   <el-select v-model="value2" placeholder="请选择你的预算区间" size="mini" background="#409EFF">
+                                                                       <el-option
+                                                                       v-for="(item,index) in fee"
+                                                                       :key="index"
+                                                                       :value="item"
+                                                                       :label="item"
+                                                                       style="text-align: center;"
+                                                                         >
+                                                                       </el-option>
+                                                                     </el-select>
+                                                                  </el-form-item>
+                                                                  <el-form-item prop="phones" class="demo-form-item">
+                                                                                <el-input v-model="formInline.phones" placeholder="请输入手机号" size="mini"><i slot="prepend" class="el-icon-mobile"></i></el-input>
+                                                                  </el-form-item>
+                                                                  <el-form-item prop="authcode" style="display: flex;flex-direction: column;">
+                                                                          <el-row>
+                                                                                          <div class="grid-content">
+                                                                                                  <el-input type="text" v-model="formInline.authcode" size="mini"
+                                                                                                          autocomplete="off" placeholder='输入验证码'>
+                                                                                                          <i slot="prepend" class="el-icon-key"></i>
+                                                                                                  </el-input>
+                                                                                          </div>
+                                                                                          <div class="grid-content" style="text-align: center;">
+                                                                                                  <div><img :src="'http://intellectual.jzhxwl.com/captcha.html?r='+html"
+                                                                                                                  alt="" @click="getVerification"></div>
+                                                                                          </div>
+                                                                          </el-row>
+                                                                  </el-form-item>
+                                                                  <el-form-item class="demo-form-item">
+                                                                    <el-button  type="primary" @click="submitForm('register_rules')">马上获取商标信息</el-button>
+                                                                  </el-form-item>
+                                                                </el-form>
                                                         </div>
-                                                        <div class="top_cen_right_cen_up">
+                                                       <!-- <div class="top_cen_right_cen_up">
                                                                 <div>
                                                                         <h3>13512059</h3>
                                                                         <p>今日交易指数</p>
                                                                 </div>
-                                                        </div>
+                                                        </div> -->
                                                         <div class="top_cen_right_cen_bottom">
                                                                 <img src="" alt="">
                                                                 <div>
@@ -219,6 +258,7 @@
 </template>
 
 <script>
+         import {validatePhone} from '@/util/rules.js'
         export default {
                 data() {
                         return {
@@ -302,7 +342,39 @@
                                 zl_right_lie_o:[],      //专利申请
                                 fu_cen_right_lie_o:[],  //涉外专利
                                 qy_right_lie_o:[],      //版权登记
-                                phone:''        //右侧个人信息
+                                phone:''        ,//右侧个人信息
+
+                                option:'',
+                                fee:['1000以下','1000-5000','5000-10000','10000以上'],
+                                value1:'',
+                                value2:'',
+                                formInline:{
+                                     phones:'',
+                                      authcode:'',
+                                },
+                                register_rules:{
+                                       phones: [{
+                                               required: true,
+                                               trigger: 'blur',
+                                               message: '请输入手机号'
+                                       }, {
+                                               validator: validatePhone,
+                                               trigger: 'blur'
+                                       }],
+                                        authcode: [{
+                                                required: true,
+                                                trigger: 'blur',
+                                                message: '请输入验证码'
+                                        }, {
+                                                min: 4,
+                                                max: 6,
+                                                trigger: 'blur',
+                                                message: '验证码错误'
+                                        }],
+                                },
+
+
+                                html:''
                         }
                 },
                 beforeMount() {
@@ -326,7 +398,6 @@
                                          if(res.data.server_data39.length != 0){
                                                  this.sb_right_lie_o = res.data.server_data39[0]
                                          }
-                                         console.log(res.data.server_data39)
                                          this.zl_right_lie = res.data.server_data40
                                          if(res.data.server_data40.length != 0){
                                                 this.zl_right_lie_o = res.data.server_data40[0]
@@ -343,6 +414,13 @@
                                  })
 
                          })
+                         //商标极速
+                         this.$api.seversellcategory()
+                         .then(res=>{
+                                 console.log(res)
+                                 this.option = res.data
+                         })
+                         this.getVerification()
                 },
                 methods: {
                         activeover(index) {
@@ -415,7 +493,23 @@
                                                 id:id
                                         }
                                 })
-                        }
+                        },
+                        submitForm(formName){
+                                console.log(this.$refs)
+                                let that = this
+                                this.$refs[formName].validate((valid) => {
+                                        console.log(that.$api)
+                                        that.$api.severfastdatas(this.value1,this.value2,this.formInline.phones,this.formInline.authcode)
+                                        .then(res=>{
+                                                console.log(res)
+                                        })
+                                        console.log(valid)
+                                })
+
+                        },
+                        getVerification() {
+                                this.html = Math.random();
+                        },
 
                 }
         }
@@ -659,7 +753,7 @@
         }
 
         .top_cen_right_cen {
-                height: 43%;
+                /* height: 43%; */
                 flex: 1;
                 padding: 20px;
                 display: flex;
@@ -668,47 +762,53 @@
         }
 
         .inp {
-                background-color: #D0E6F4;
+                /* background-color: #D0E6F4; */
                 padding: 8px;
                 display: flex;
                 border-radius: 5px;
-                margin-bottom: 15px;
+                margin-bottom: 5px;
                 align-items: center;
         }
 
         .inp>img {
                 height: 15px;
+                margin-right: 5px;
                 /* width: 10px; */
         }
 
         .inp>input {
-                border: none;
+                border: 1px solid #ccc;
+                border-radius: 5px;
                 outline: none;
-                background-color: #D0E6F4;
-                color: #409EFF;
+                height: 30px;
+                padding-left: 10px;
+                /* background-color: #D0E6F4; */
+                color: #ccc;
                 margin-left: 5px;
         }
 
         input::-webkit-input-placeholder {
-                color: #409EFF;
+                color: #ccc;
         }
 
         /* 火狐 Mozilla Firefox 4 to 18 */
         input:-moz-placeholder {
-                color: #409EFF;
+                color: #ccc;
         }
 
         /* 火狐 Mozilla Firefox 19+ */
         input::-moz-placeholder {
-                color: #409EFF;
+                color: #ccc;
         }
 
         /* Internet Explorer 10+ */
         input:-ms-input-placeholder {
-                color: #409EFF;
+                color: #ccc;
         }
-
-        .top_cen_right_cen>button {
+        .top_cen_right_cen{
+                background-color: #f5f5f5;
+        }
+       .el-button--primary {
                 background-image: linear-gradient(#1B82CF, #409EFF);
                 border: none;
                 width: 100%;

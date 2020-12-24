@@ -296,6 +296,7 @@
                 },
                 beforeMount() {
                         this.getVerification()
+                        console.log(this.$refs)
                 },
                 mounted() {
                         // console.log(validatePhone)

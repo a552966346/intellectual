@@ -311,6 +311,19 @@ const api = {
         }
         return requestAll.requset(baseUrl + '/api/Service/service_list',data);
     },
+    // 服务中心极速商标处理
+    seversellcategory(){
+             return requestAll.requset(baseUrl + '/api/service/fastcategory');
+    },
+    severfastdatas(id,fee,mobile,code){
+            let data = {
+                    category_id:id,
+                    fee:fee,
+                    mobile:mobile,
+                    code:code
+            }
+            return requestAll.requset(baseUrl + '/api/service/fastdata',data);
+    },
     // 服务中心分类数据
     severcategory() {
         return requestAll.requset(baseUrl + '/api/service/category');
