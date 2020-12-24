@@ -13,11 +13,11 @@
             <div class="tanchuang_title_r" @click="close">
                 <img src="../../../static/img/copyright/close.png" alt="" >
             </div>
-        
+
       </div>
       <div class="tanchuang_body">
         <div class="tanchuang_bodytit">填写详情</div>
-        <el-form ref="form" :model="form" label-width="100px">
+        <el-form ref="form_rul" :model="form" label-width="100px">
           <el-form-item label="注册商标号">
             <el-input v-model="form.name"
               placeholder="请输入您的注册商标号"
@@ -25,10 +25,9 @@
             ></el-input>
           </el-form-item>
           <el-form-item label="商标类别">
-            <el-select v-model="form.select" placeholder="请选择商标类别（必填）" style="width: 100%">
-              <el-option label="区域一" value="shanghai"></el-option>
-              <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
+                  <el-select v-model="form.select" placeholder="请选择商标类别（必填）"style="width: 100%">
+                      <el-option v-for="item in data" :key="item.id" :label="item.name" :value="item.id"></el-option>
+                </el-select>
           </el-form-item>
           <el-form-item label="出售底价">
             <el-input v-model="form.minprice"
@@ -49,7 +48,7 @@
             >
             </el-input>
             <el-button  style="width:30%;background:#efefef;color:#919191;" type="mini">获取验证码</el-button></div>
-            
+
           </el-form-item>
           <el-form-item >
             <el-button
@@ -64,7 +63,7 @@
                 background: #fff;
                 color: #eb9848;
                 width: 42%;
-                
+
               "
               >联系创建</el-button
             >
@@ -85,15 +84,17 @@ export default {
         minprice:'',
         tel:'',
         haoma:''
-      }
+      },
+      data:''
     };
   },
-  created(){
+  mounted(){
       this.$api.getselldata()
       .then(res => {
-              console.log(9999)
-              console.log(res)
-              this.form= res.data 
+              // console.log(9999)
+              // console.log(res)
+              this.data= res.data
+              console.log(this.data,"商标分类")
       })
   },
   methods:{

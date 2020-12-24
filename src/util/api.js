@@ -362,11 +362,23 @@ const api = {
         return requestAll.requset(baseUrl + '/api/aboutus/details', data);
     },
     //我要出售  商标  版权  专利
+    getsellpost() {
+        let data = {
+                category_id:category_id,
+                fee:fee,
+                mobile:mobile,
+                name:name,
+                number:number,
+                type:type,
+                code:code
+        }
+        return requestAll.requset(baseUrl + '/api/Trademark/selldata',data);
+    },
+    //商标分类数据
     getselldata() {
 
-        return requestAll.requset(baseUrl + '/api/Trademark/selldata');
+        return requestAll.requset(baseUrl + '/api/Trademark/sellcategory');
     },
-
 
     // 测试请求
     getBanner(status) {
