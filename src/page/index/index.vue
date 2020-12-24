@@ -645,11 +645,11 @@
       .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bgt.jpg);padding: 20px 0px;}
       .index_enterpriseasd{width: 1240px;height: 420px;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
       .index_enterpriseasdwron{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbaon.png);background-size: cover;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 3%;color: #fff;}
-      .index_enterpriseasdwron:hover{position: relative;top: -5px;}
+      .index_enterpriseasdwron:hover{position: relative;top: -5px;box-shadow: 1px 1px 6px #ccc;}
       .index_enterpriseasdwrtw{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatw.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
-      .index_enterpriseasdwrtw:hover{position: relative;top: -5px;}
+      .index_enterpriseasdwrtw:hover{position: relative;top: -5px;box-shadow: 1px 1px 6px #ccc;}
       .index_enterpriseasdwrtr{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatr.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
-      .index_enterpriseasdwrtr:hover{position: relative;top: -5px;}
+      .index_enterpriseasdwrtr:hover{position: relative;top: -5px;box-shadow: 1px 1px 6px #ccc; }
       .index_entesdwr{font-size: 30px;font-weight: bold;}
       .index_entesdwrqwas{border: 1px solid #fff;padding: 3%;border-radius: 8px;}
       .index_entwkjk{width: 100%;height: 140px;background-image: url(../../../static/img/index/index_banrtwstw.png);background-size: cover;}
