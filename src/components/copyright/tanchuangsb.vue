@@ -87,6 +87,9 @@ export default {
         haoma:''
       }
     };
+    props:{
+      
+    }
   },
   methods:{
     close(){

@@ -39,7 +39,7 @@
 .servicetw_cbolk{width: 185px;height: 185px;border: 1px solid #d9ebff;display: flex;justify-content: space-evenly;align-items: center;flex-direction: column;border-radius: 10px;}
 .servicetw_cboimg{width: 66px;height: 66px;}
 .servicetw_cbta{width: 30px;height: 2px;background-color: #187fc4;}
-.servicetw_cbsze{color: #187fc4;font-size: 20px;}
-.servicetw_cbot{font-size: 14px;color: #9abded;height: 34px;padding: 0 14px 10px;text-align: center;}
+.servicetw_cbsze{color: #187fc4;font-size: 16px;}
+.servicetw_cbot{font-size: 12px;color: #9abded;height: 34px;padding: 0 14px 10px;text-align: center;}
 .servicetw_fiws{margin-left: 10px;}
 </style>
