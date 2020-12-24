@@ -111,10 +111,10 @@
                                                 <div v-for="(item,index) in news" v-if="index == num" >
                                                     <li>
                                                             <div class="index_ulxwon"  :key="index" v-for="(item1,index) in item.news" v-if="index==0">
-                                                                    <router-link :to="'nuwsint?id='+item1.id">
+                                                                    <router-link :to="'newsint?id='+item1.id">
                                                                             <div class="index_url"></div>
                                                                             <div class="index_urlw">
-                                                                                    <router-link :to="'nuwsint?id='+item1.id">
+                                                                                    <router-link :to="'newsint?id='+item1.id">
                                                                                             <div class="index_urlq">
                                                                                                    {{item1.title}}
                                                                                             </div>
@@ -128,7 +128,7 @@
                                                             </div>
                                                             <div class="index_ulxwtw" >
                                                                     <div class="index_ulxwtwbk" v-for="(item1,index) in item.news" v-if="(index>0)&&(index<5)" :key="item1">
-                                                                        <router-link :to="'nuwsint?id='+item1.id" class="newa">
+                                                                        <router-link :to="'newsint?id='+item1.id" class="newa">
                                                                                 <div class="index_ulxwtwbkrt">
                                                                                         <div class="idnex_ulxwtas">
                                                                                                 {{jiequ(item1.createtime_text)}}
@@ -152,7 +152,7 @@
                                                             </div>
                                                             <div class="index_ulxwtr">
                                                                     <div class="index_ulxwsq"  v-for="(item1,index) in item.news" v-if="index==5" :key="item1">
-                                                                            <router-link to="" class="newa">
+                                                                            <router-link :to="'newsint?id='+item1.id" class="newa">
                                                                                    <div class="index_ulxwsqlt"></div>
                                                                                    <div class="index_ulxwsqrt">
                                                                                            <div>产权转让全程监督</div>

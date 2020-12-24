@@ -4,18 +4,20 @@
         <v-navigation></v-navigation>
         <div class="newsint_con">
             <div class="newsint_title">
-                <h3>【活动通知】中小企业和创业者：“创客北京2020”创新创业大赛，报名启动！</h3>
+                <h3>{{news.title}}</h3>
                 <div>
-                    <span><img src="../../../static/img/news/newsint_eye.png" alt="">阅读量：743</span>
-                    <span><img src="../../../static/img/news/newsint_ri.png" alt="">时间：2020.07.08</span>
+                    <span v-if="news.clicks ==null"><img src="../../../static/img/news/newsint_eye.png" alt="" >阅读量：0</span>
+                    <span v-else-if="news.clicks!=null"><img src="../../../static/img/news/newsint_eye.png" alt="" >阅读量：{{news.clicks}}</span>
+                    <span><img src="../../../static/img/news/newsint_ri.png" alt="">时间：{{news.createtime_text}}</span>
                 </div>
             </div>
             <div class="newsint_txt">
-                <p>“创客北京2020”创新创业大赛启动啦！此次大赛分为企业组和创客组，设置了多种赛事，获奖项目可以获得奖金、证书和奖杯还有更多优厚福利哦~心动不如行动，快来报名吧！</p>
+                <p>{{news.desc}}</p>
                 <p><br></p>
-                <p style="text-align:center;"><img src="https://api.cnipol.com/Uploads/ueditor/image/20200708/5f05a471407e3.jpg" alt=""></p>
+                <p style="text-align:center;"><img :src="news.image" alt=""></p>
                 <p><br></p>
-                <p>中知在线（WWW.CNIPOL.CON）作为市中小企业公共服务示范平台将开展窗口平台赛事的组织实施工作，对于符合条件的优秀企业项目经过选拔将推荐晋级区级赛区，更有机会亮相市级赛区！</p>
+                <div v-html="news.content">
+                </div>
                 <p><br></p>
                 <p>目前，大赛项目正在火热征集中，报名截止时间至7月31日，欢迎符合条件的优秀企业及创业者积极报名参赛！</p>
                 <p><br></p>
@@ -48,15 +50,17 @@
 export default {
     data(){
         return{
-
+            news:''
         }
     },
      mounted() {
-        let id = this.$router.query.id
+        let id = this.$route.query.id
+        console.log(id)
         this.$api.getnews(id)
                 .then(res => {
                         console.log(321)
                         console.log(res)
+                        this.news = res.data
                         
                 })
       
