@@ -13,7 +13,7 @@
                         </div>
                         <!-- 查看列表 -->
                         <div class="indexpay_right_list">
-                                <div class="indexpay_right_item" v-for="(item,index) in demand" @mouseenter="enter(index)" @mouseleave="leave(index)">
+                                <div class="indexpay_right_item" v-for="(item,index) in demand" :key="index" @mouseenter="enter(index)" @mouseleave="leave(index)">
                                         <div  class="indexpay_right_contitem1">
                                               <div class="item_top">
                                                       <p>

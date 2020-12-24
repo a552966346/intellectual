@@ -83,6 +83,13 @@
                                         this.banner = res.data.images
                                 })
                         this.ispost(this.id)
+                        this.$api.getselldata()
+                                .then(res => {
+                                        console.log(321)
+                                        console.log(res)
+                                       
+                                })
+                        
                 },
                 methods: {
                         comsort(index) {

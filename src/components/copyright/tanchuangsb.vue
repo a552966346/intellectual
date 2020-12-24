@@ -88,6 +88,14 @@ export default {
       }
     };
   },
+  created(){
+      this.$api.getselldata()
+      .then(res => {
+              console.log(9999)
+              console.log(res)
+              this.form= res.data 
+      })
+  },
   methods:{
     close(){
       console.log(125)
