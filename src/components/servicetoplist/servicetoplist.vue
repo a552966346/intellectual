@@ -8,31 +8,31 @@
                                      <img :src="item.breviary_image">
                               </div>
                               <div class="list_topitem_right">
-                                      <p>{{item.name}}</p>
+                                      <p>{{item.categoryid_text.name}}</p>
                                       <p>{{item.sketch}}</p>
                               </div>
                         </div>
                         <div class="list_botitem">
                                 <div class="list_botitem_left">
-                                       <div class="list_botitem_leftitem">
-                                           <p class="text">服务类型</p>
-                                           <p>标准</p>
+                                       <div class="list_botitem_leftitem" v-if="item.status">
+                                           <p class="text">服务状态</p>
+                                           <p v-if="item.status=='normal'">正常</p>
                                        </div>
-                                       <div class="list_botitem_leftitem">
+                                      <!-- <div class="list_botitem_leftitem">
                                            <p class="text">费用减缓</p>
                                            <p>减缓70%</p>
-                                       </div>
-                                       <div class="list_botitem_leftitem">
+                                       </div> -->
+                                       <div class="list_botitem_leftitem" v-if="item.fee">
                                            <p class="text">服务费用</p>
-                                           <p>￥1500.00</p>
+                                           <p>￥{{item.fee-0}}</p>
                                        </div>
-                                       <div class="list_botitem_leftitem">
+                                       <div class="list_botitem_leftitem" v-if="item.know_fee">
                                            <p class="text">国知局费用</p>
-                                           <p>￥151.00</p>
+                                           <p>￥{{item.know_fee-0}}</p>
                                        </div>
-                                       <div class="list_botitem_leftitem">
+                                       <div class="list_botitem_leftitem" v-if="item.know_fee||item.fee">
                                            <p class="text">费用合计</p>
-                                           <p>￥3151</p>
+                                           <p>￥{{(item.fee-0)+(item.know_fee-0)}}</p>
                                        </div>
                                 </div>
                                 <div class="list_botitem_right">
@@ -48,13 +48,22 @@
 <script>
         export default{
                 props: {
-                       listdata: ''
+                       listdata: '',
+
                 },
                 data() {
                         return {
 
                         }
                 },
+                // computed: {
+                //     message: function () {
+                //         return
+                //     }
+                // },
+                 mounted(){
+
+                }
 
         }
 </script>
