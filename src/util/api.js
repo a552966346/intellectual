@@ -152,7 +152,9 @@ const api = {
                                       condition:id[3],
                                       strlenlength:id[4],
                                       sell:id[5],
-                                      keyword:id[6]
+                                      creatime:id[6],
+                                      feeorder:id[7],
+                                        keyword:id[11]
                       }
                 }
         return requestAll.requset(baseUrl + '/api/Patents/patents_list', data);
@@ -189,7 +191,9 @@ const api = {
                                   scope:id[6],
                                   condition:id[7],
                                   sell:id[8],
-                                   keyword:id[9]
+                                  creatime:id[9],
+                                  feeorder:id[10],
+                                  keyword:id[11]
                   }
             }
         return requestAll.requset(baseUrl + '/api/Copyright/copyright_list', data);

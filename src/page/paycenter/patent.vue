@@ -5,7 +5,7 @@
                 <div class="patent_pay">
                         <img :src="banner" alt="" @click="tanchuang">
                         <!-- 分类 -->
-                        <patentscreen :zlTop = "zlTop" :iscolor="iscolor" @choosecon="choosecon" @choosenull="choosenull" @delet="delet"></patentscreen>
+                        <patentscreen :zlTop = "zlTop" :iscolor="iscolor" @choosecon="choosecon" @choosenull="choosenull" @delet="delet" @search="search"></patentscreen>
                         <!-- 排序-->
                         <div class="patent_sort">
                                 <span :class="{sortactive:this.sortnumber==1}" @click="comsort(1)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
@@ -86,20 +86,24 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         })
                 },
                 methods: {
-                        
+
                         comsort(index){
                                 this.sortnumber=index
                                 if(index == 2){
-                                        this.$set(this.id,"creatime","desc")
-                                        this.$set(this.id,"feeorder","")
+                                        this.$set(this.id,6,"desc")
+                                        this.$set(this.id,7,"")
                                         this.ispost(this.id)
                                 }else if(index == 3){
-                                        this.$set(this.id,"feeorder","desc")
-                                        this.$set(this.id,"creatime","")
+                                        this.$set(this.id,7,"desc")
+                                        this.$set(this.id,6,"")
                                         this.ispost(this.id)
                                 }else{
                                          this.ispost()
                                 }
+                        },
+                        //搜索
+                        search(id){
+                                this.ispost(id)
                         },
                         //显示弹框
                         tanchuang(){
