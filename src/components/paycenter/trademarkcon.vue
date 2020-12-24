@@ -1,6 +1,6 @@
 <template>
         <div class="trademark_content">
-                <ul class="trademark_list">
+                <ul class="trademark_list" v-if="iscent.length!=0">
                         <li class="color1" v-for="(item,index) in iscent" :key="index+'list'">
                                 <!-- <router-link class="trademark_pro" :to="{path:'/service_xlj',query:{ id:item.id}}"> -->
                                         <div class="trademark_colors" :style="{background:item.bgcolor}">
@@ -26,6 +26,9 @@
                                         <div class="trademark_kefu" href="#">立即议价</div>
                                 <!-- </router-link> -->
                         </li>
+                </ul>
+                <ul v-else>
+                        <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p>
                 </ul>
         </div>
 </template>

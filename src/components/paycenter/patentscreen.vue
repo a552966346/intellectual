@@ -9,7 +9,7 @@
                                         <span :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]"
                                                 @click="choosecon(index,nubs,item[1],second)" :key="second.id" v-if="second !=''">{{second}}</span>
                                         <div class="patenscree_leftprice" v-if="index==(zlTop.length-1)">
-                                                <input type="text"><button>搜索</button>
+                                                <input type="text" v-model="text"><button @click="search">搜索</button>
                                         </div>
                                 </div>
                         </div>
@@ -112,7 +112,8 @@
                                         label: '非独家'
                                 }],
                                 value: '',
-                                id:{}
+                                id:{},
+                                text:''
                         }
                 },
                 props: {
@@ -136,6 +137,11 @@
                                         this.marqueeList.shift();
                                         this.animate = false;
                                 }, 500)
+                        },
+                        //搜索
+                        search(){
+                                this.$set(this.id,11,this.text)
+                                this.$emit('search',this.id)
                         },
                        choosecon(index,nubs,item,name) {
                                this.iscolor[index] = nubs
