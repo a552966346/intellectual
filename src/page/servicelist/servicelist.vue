@@ -25,11 +25,9 @@
                                         <servicetoplist :listdata="listdata"></servicetoplist>
                                         <!-- 分页 -->
                                         <div class="copyright_page">
-                                                <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                                                        :page-size="10" layout="prev, pager, next, jumper" :total="istotal">
+                                                <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page.sync="currentPage"
+                                                        :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">
                                                 </el-pagination>
-                                                <!-- :current-page.sync="currentPage3" -->
-                                                <!-- 当前业数 -->
                                         </div>
                                 </div>
                          </div>
@@ -62,14 +60,17 @@
                                 //一级分类
                                 // patenscree:[],
                                 iscolor:[],
-                                // 分页
-                                istotal: 0,
+                                // // 分页
+                                // istotal: 0,
                                 // 筛选
                                 severcondition:[],
                                 id: {}, //筛选条件
                                 category_one: '',//id
                                 listdata:[],//列表数据
-
+                                // 分页
+                                currentPage: 1,
+                                pagesize: 0,
+                                total:0
                         }
                },
                 mounted(){
@@ -108,9 +109,13 @@
                                 // 列表数据
                                 this.$api.severlist(id)
                                 .then(res => {
+
                                         console.log(res)
                                         // this.iscent = res.data.lists.data
                                         this.listdata = res.data.data;
+                                        this.total=res.data.total;
+                                        this.currentPage=res.data.current_page;
+                                        this.pagesize=res.data.per_page;
                                         // 分页
                                         // this.istotal = res.data.lists.data.length
                                         // for (let i = 0; i < this.istotal; i++) {
@@ -145,12 +150,16 @@
                                 this.ispost(id)
                         },
                         // 分页
-                        handleSizeChange() {
+                         handleSizeChange(val) {
+                            console.log(`每页 ${val} 条`);
 
-                        },
-                        handleCurrentChange() {
-
-                        }
+                         },
+                         handleCurrentChange(val) {
+                             // 输入页数
+                             console.log(`当前页: ${val}`);
+                             this.id[6] = val
+                             this.ispost(this.id)
+                         }
                 }
 
         }

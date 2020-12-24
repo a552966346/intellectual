@@ -30,7 +30,8 @@
                                               </div>
                                               <div class="item_bottom" v-show="!see[index]">
                                                       <span>预算：</span>
-                                                      <span>面议</span>
+                                                      <span v-if="item.fee>=10000">￥{{(item.fee/10000)}}万元</span>
+                                                      <span v-else>￥{{item.fee}}元</span>
                                               </div>
                                              <div class="indexpay_right_contitem2" v-show="see[index]">
                                                        <router-link :to="'service_xlj_two?id='+item.id">

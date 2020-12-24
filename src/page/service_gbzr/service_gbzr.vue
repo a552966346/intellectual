@@ -6,7 +6,7 @@
                         <v-navigation></v-navigation>
                         <!--  -->
                         <div class="consultation_all_Center">
-                                <div class="consultation_all_text"><p>服务中心>国标转让</p></div>
+                                <div class="consultation_all_text"><p>服务中心>商标转让</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
                                         <v-servicet :qiye="title" :top_data = 'top_data' :image="image">
@@ -238,7 +238,7 @@
 
 <style scoped>
         * {margin:0;padding:0;box-sizing:border-box;}
-        .consultation_all_text {width:100%;padding:10px 0;}
+        .consultation_all_text {font-size: 15px;width:100%;padding:10px 0;}
         .consultation_all {width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;background-color:#f5f5f5;}
         .consultation_all_Center {width:1200px;background-color:#f5f5f5;}
         .consultation_center_cen {display:flex;width:100%;padding:20px 0;}

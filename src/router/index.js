@@ -81,7 +81,7 @@ export default new Router({
             component: yuan
         },
         { //活动专区
-            path: '/activity',
+            path: '/flea',
             name: 'activity',
             component: activity
         },

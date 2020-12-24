@@ -108,9 +108,9 @@
                                                 </li>
                                         </ul>
                                         <ul class="index_ultw">
-                                                <div v-for="(item,index) in news" v-if="index == num">
+                                                <div v-for="(item,index) in news" v-if="index == num" >
                                                     <li>
-                                                            <div class="index_ulxwon" v-for="(item1,index) in item.news" v-if="index==0">
+                                                            <div class="index_ulxwon"  :key="index" v-for="(item1,index) in item.news" v-if="index==0">
                                                                     <router-link to="">
                                                                             <div class="index_url"></div>
                                                                             <div class="index_urlw">
@@ -120,7 +120,7 @@
                                                                                             </div>
                                                                                             <div class="index_urlz">
                                                                                                     <p>{{item1.desc}}</p>
-                                                                                                    <p v-html="item1.content">{{item1.content}}</p>
+                                                                                                    <!-- <p v-html="item1.content"></p> -->
                                                                                             </div>
                                                                                     </router-link>
                                                                             </div>
@@ -131,21 +131,22 @@
                                                                         <router-link to="" class="newa">
                                                                                 <div class="index_ulxwtwbkrt">
                                                                                         <div class="idnex_ulxwtas">
-                                                                                                {{index.seltr}}
-                                                                                                2020.08
+                                                                                                {{jiequ(item1.createtime_text)}}
+                                                                                                <!-- 2020.08 -->
                                                                                         </div>
-                                                                                        <div class="idnex_ulxwtasq">
-                                                                                                {{index.selfv}}
-                                                                                                25
+                                                                                       <div class="idnex_ulxwtasq">
+                                                                                                {{item1.createtime_text.split('-')[2]}}
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="index_ulxwtwbklt">
                                                                                         <div class="index_ulxwas">
                                                                                                  {{item1.title}}
                                                                                         </div>
-                                                                                
+                                                                                        <div class="index_ulxwas">
+                                                                                                 {{item1.desc}}
+                                                                                        </div>
                                                                                 </div>
-                                                                                
+
                                                                         </router-link>
                                                                     </div>
                                                             </div>
@@ -207,7 +208,7 @@
                                                         </router-link>
                                                         <div class="swiper-container">
                                                                  <div class="swiper-wrapper">
-                                                                        <div class="swiper-slide" v-for="(item,index) in introimage">
+                                                                        <div class="swiper-slide"  :key="index" v-for="(item,index) in introimage">
                                                                                 <img :src="item" alt="">
                                                                         </div>
                                                                   </div>
@@ -243,11 +244,12 @@
                                     <el-form :model="login_ruleForm" status-icon :rules="verification_rules" ref="login_ruleForm"
                                             class="layui_cent_from">
                                             <el-form-item label="手机号" prop="phone" class="login_form_item">
-                                                    <el-input  type="nub" v-model="login_ruleForm.phone" size="large"
+                                                    <el-input  type="nub" v-model="login_ruleForm.phone" size="large" style="width: 100%;"
                                                             autocomplete="off" placeholder='请输入手机号'></el-input>
                                             </el-form-item>
                                             <el-form-item label="联系人" prop="name" class="login_form_item">
                                                     <el-input  type="text" v-model="login_ruleForm.name" size="large"
+                                                    style="width: 100%;"
                                                             autocomplete="off" placeholder='如王女士/张女士'></el-input>
                                             </el-form-item>
                                             <el-form-item class="login_form_item">
@@ -599,6 +601,10 @@
                         },
                         submitForm(){
                                 console.log(111)
+                        },
+                        jiequ(time){
+                               let times = time.split('-')
+                               return times[0]+'.'+times[1]
                         }
 
                 },
@@ -645,11 +651,11 @@
       .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bgt.jpg);padding: 20px 0px;}
       .index_enterpriseasd{width: 1240px;height: 420px;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
       .index_enterpriseasdwron{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbaon.png);background-size: cover;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 3%;color: #fff;}
-      .index_enterpriseasdwron:hover{position: relative;top: -5px;}
+      .index_enterpriseasdwron:hover{position: relative;top: -5px;box-shadow: 1px 1px 6px #ccc;}
       .index_enterpriseasdwrtw{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatw.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
-      .index_enterpriseasdwrtw:hover{position: relative;top: -5px;}
+      .index_enterpriseasdwrtw:hover{position: relative;top: -5px;box-shadow: 1px 1px 6px #ccc;}
       .index_enterpriseasdwrtr{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatr.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
-      .index_enterpriseasdwrtr:hover{position: relative;top: -5px;}
+      .index_enterpriseasdwrtr:hover{position: relative;top: -5px;box-shadow: 1px 1px 6px #ccc; }
       .index_entesdwr{font-size: 30px;font-weight: bold;}
       .index_entesdwrqwas{border: 1px solid #fff;padding: 3%;border-radius: 8px;}
       .index_entwkjk{width: 100%;height: 140px;background-image: url(../../../static/img/index/index_banrtwstw.png);background-size: cover;}
@@ -691,22 +697,19 @@
       .index_ulon li{float: left;margin: 0 10px;cursor: pointer;width: 115px;height: 35px;border-top-left-radius: 25px;border-top-right-radius: 25px;border-bottom-left-radius: 25px;border-bottom-right-radius: 25px;display: flex;justify-content: center;align-items: center;}
       .index_ultw li{height: 470px;display: flex;justify-content: space-between;}
       .active{background-color: #187fc4;color: #fff;}
-      .index_ulxwon{width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;padding: 15px;}
+      .index_ulxwon{overflow: auto;width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;padding: 15px;}
       .index_ulxwtw{width: 350px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;}
       .index_ulxwtr{width: 430px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;background-color: #fff;}
       .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
-      .index_urlw{flex: 1;display: flex;align-content: center;flex-direction: column;}
       .index_urlq{font-size: 16px;padding-top: 20px;padding-bottom: 10px;color: #333;}
-      .index_urlz p{line-height: 25px;color: #333;font-size: 12px;}
-      .index_urlz p:nth-child(2){word-break: break-all;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;;}
-      
-      .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
+      .index_urlz p{overflow: hidden;line-height: 25px;color: #333;font-size: 12px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}
+     .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
       .index_ulxwtwbklt{width: 50%;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding-right: 8px;}
       .newa{display: flex;width: 100%;}
       .newa>div:nth-child(1){width: 30%;}
       .newa>div:nth-child(2){flex: 1;}
       .index_ulxwtwbkrt{height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding: 15px;}
-      .index_ulxwas{width: 100%;height: 70%;display: flex;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;color: #187fc4;padding-left: 20px;padding-right: 15px;}
+      .index_ulxwas{line-height: 1.7;padding-top: 5px; width: 100%;height: 70%;display: flex;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;color: #187fc4;padding-left: 20px;padding-right: 15px;}
       /* .index_ulxwasq{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;} */
       .idnex_ulxwtas{width: 100%;height: 60%;display: flex;justify-content: center;align-content: center;color: #187fc4;font-size: 18px;}
       .idnex_ulxwtasq{width: 100%;flex: 1;display: flex;justify-content: center;align-content: center;color: #187fc4;font-size: 24px;}
@@ -732,7 +735,11 @@
             justify-content: center;
             align-items: center;
             }
-      .layui_left{width: 25%;height: 30%;background-color: #fff; padding: 15px ;}
+      .layui_left{width: 30%;height: 30%;background-color: #fff; padding: 15px ;}
        .layui_cent{text-align: center;}
        .login_form_item{display: flex; padding: 15px 0;width: 100%;justify-content: center;}
+       .el-form-item__label{
+                   text-align: center;
+                   width: 85px;
+       }
 </style>
