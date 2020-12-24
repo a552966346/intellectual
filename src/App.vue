@@ -29,7 +29,7 @@
             </div>
 
     </div>
-    <div class="tanchuang" v-show="isshow" >
+    <div class="tanchuang" v-show="isshow" @click.self="shows">
              <v-customer @shows="shows"></v-customer>
     </div>
     <router-view/>
