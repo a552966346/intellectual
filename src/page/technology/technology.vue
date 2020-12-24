@@ -374,6 +374,7 @@ export default {
     qiehuan(ind) {
       this.acv = ind;
     },
+    
   },
   components: {
     "v-navigation": navigation,
