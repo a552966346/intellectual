@@ -230,7 +230,7 @@ export default {
         }
 
         .patenscree_leftrow {
-                /* flex: 1; */
+                flex: 1;
                 display: flex;
                 border-bottom: 1px dashed #e9e7f2;
         }

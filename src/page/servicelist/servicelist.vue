@@ -82,6 +82,7 @@
                                 console.log(res.data)
                                this.severcondition=res.data;
 
+
                        })
                        this.ispost(this.id)
                 },
@@ -109,7 +110,7 @@
                                 .then(res => {
                                         console.log(res)
                                         // this.iscent = res.data.lists.data
-                                        this.listdata = res.data.data
+                                        this.listdata = res.data.data;
                                         // 分页
                                         // this.istotal = res.data.lists.data.length
                                         // for (let i = 0; i < this.istotal; i++) {

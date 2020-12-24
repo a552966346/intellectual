@@ -119,7 +119,7 @@
     /* 交易中心右侧内容 */
     .indexpay_right{flex: 1;padding: 15px 25px;display: flex;flex-direction: column;}
     /* 交易中心右侧内容的查看更多*/
-    .indexpay_right>div:nth-child(1){display: flex;justify-content: flex-end;padding: 0 0 10px;border-bottom: 1px solid #f6f6f6;}
+    .indexpay_right>div:nth-child(1){display: flex;justify-content: flex-end;padding: 0 0 10px;border-bottom: 1px solid #f6f6f6;font-size: 14px;}
     .indexpay_right>div:nth-child(1) p{padding-right: 15px;color: #333;}
     .indexpay_right>div:nth-child(1) p span{color: #1780c2;font-size: 17px;}
      /* 商品交易/软著交易 */
@@ -139,7 +139,8 @@
     .activie_list span{padding: 3px 10px;margin: 0 5px;}
     .active{background: #4b7ef1;border-radius: 30px;color: #fff}
     .indexpay_right_item_list{width: 100%;display: flex;align-content: space-between;flex-wrap: wrap;flex: 1;padding: 15px 0;}
-    .indexpay_right_item_item{width: 32%;margin-right: 2%;padding: 20px 15px;border-radius: 5px;border: 1px solid #dddddd;font-size: 14px;margin-bottom: 1%;}
+    .indexpay_right_item_item{width: 32%;margin-right: 2%;padding: 20px 15px;border-radius: 5px;border: 1px solid #dddddd;font-size: 14px;margin-bottom: 1%;border-radius: 5px;}
+    .indexpay_right_item_item:hover{position: relative;top: -3px;box-shadow: 1px 1px 6px #ccc}
     .indexpay_right_item_item:nth-child(3n+3){margin-right: 0%!important;}
 
     .indexpay_right_item_item .title{font-size: 18px;font-weight: bold;display: inline-block;white-space: nowrap;width: 100%;overflow: hidden;text-overflow: ellipsis;color: #333;}

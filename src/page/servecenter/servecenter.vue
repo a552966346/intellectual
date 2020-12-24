@@ -963,6 +963,7 @@
                 display: flex;
                 height: 350px;
         }
+        
 
         .servecenter_center_sb_left {
                 background: url(../../../static/img/service/servecenter_center_sb_left.png)no-repeat 0, 0;
@@ -974,6 +975,9 @@
                 background-size: cover;
                 margin-right: 10px;
 
+        }
+        .servecenter_center_sb_left:hover{
+                
         }
 
         .servecenter_center_sb_right {
@@ -1032,6 +1036,10 @@
                 height: 48.5%;
                 padding: 10px;
                 background-color: #fff;
+                cursor: pointer;
+        }
+        .sb_right_lie:hover{
+                
         }
 
         .sb_right_lie>p:nth-child(1) {

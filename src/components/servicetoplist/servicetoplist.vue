@@ -1,46 +1,52 @@
 <template>
         <div class="list">
-
                 <!-- 第二种 -->
-                <div class="list_item" v-for="(item,index) in listdata">
-                        <div class="list_topitem">
-                              <div class="list_topitem_left">
-                                     <img :src="item.breviary_image">
-                              </div>
-                              <div class="list_topitem_right">
-                                      <p>{{item.name}}</p>
-                                      <p>{{item.sketch}}</p>
-                              </div>
-                        </div>
-                        <div class="list_botitem">
-                                <div class="list_botitem_left">
-                                       <div class="list_botitem_leftitem">
-                                           <p class="text">服务类型</p>
-                                           <p>标准</p>
-                                       </div>
-                                       <div class="list_botitem_leftitem">
-                                           <p class="text">费用减缓</p>
-                                           <p>减缓70%</p>
-                                       </div>
-                                       <div class="list_botitem_leftitem">
-                                           <p class="text">服务费用</p>
-                                           <p>￥1500.00</p>
-                                       </div>
-                                       <div class="list_botitem_leftitem">
-                                           <p class="text">国知局费用</p>
-                                           <p>￥151.00</p>
-                                       </div>
-                                       <div class="list_botitem_leftitem">
-                                           <p class="text">费用合计</p>
-                                           <p>￥3151</p>
-                                       </div>
-                                </div>
-                                <div class="list_botitem_right">
-                                        <div><img src="../../../static/img/service/icon26.png"></div>
-                                        <div><img src="../../../static/img/service/icon27.png">联系客服</div>
-                                        <div><router-link to="">查看详情</router-link></div>
-                                </div>
-                        </div>
+                <div v-if="listdata.length!=0">
+                     <div class="list_item" v-for="(item,index) in listdata" >
+                             <div class="list_topitem">
+                                   <div class="list_topitem_left">
+                                          <img :src="item.breviary_image">
+                                   </div>
+                                   <div class="list_topitem_right">
+                                           <p>{{item.categoryid_text.name}}</p>
+                                           <p>{{item.sketch}}</p>
+                                   </div>
+                             </div>
+                             <div class="list_botitem">
+                                     <div class="list_botitem_left">
+                                            <div class="list_botitem_leftitem" v-if="item.status">
+                                                <p class="text">服务状态</p>
+                                                <p v-if="item.status=='normal'">正常</p>
+                                            </div>
+                                           <!-- <div class="list_botitem_leftitem">
+                                                <p class="text">费用减缓</p>
+                                                <p>减缓70%</p>
+                                            </div> -->
+                                            <div class="list_botitem_leftitem" v-if="item.fee">
+                                                <p class="text">服务费用</p>
+                                                <p>￥{{item.fee-0}}</p>
+                                            </div>
+                                            <div class="list_botitem_leftitem" v-if="item.know_fee">
+                                                <p class="text">国知局费用</p>
+                                                <p>￥{{item.know_fee-0}}</p>
+                                            </div>
+                                            <div class="list_botitem_leftitem" v-if="item.know_fee||item.fee">
+                                                <p class="text">费用合计</p>
+                                                <p>￥{{(item.fee-0)+(item.know_fee-0)}}</p>
+                                            </div>
+                                     </div>
+                                     <div class="list_botitem_right">
+                                             <div><img src="../../../static/img/service/icon26.png"></div>
+                                             <div><img src="../../../static/img/service/icon27.png">联系客服</div>
+                                             <div><router-link to="">查看详情</router-link></div>
+                                     </div>
+                             </div>
+                     </div>
+
+                </div>
+                <div v-else style="background-color: #fff;display: flex;justify-content: center;">
+                         <img src="../../../static/img/service/word_none.png">
+                       <!-- <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p> -->
                 </div>
         </div>
 </template>
@@ -48,13 +54,15 @@
 <script>
         export default{
                 props: {
-                       listdata: ''
+                       listdata: '',
+
                 },
                 data() {
                         return {
 
                         }
-                },
+                }
+
 
         }
 </script>

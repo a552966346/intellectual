@@ -128,29 +128,30 @@
                                                             </div>
                                                             <div class="index_ulxwtw" >
                                                                     <div class="index_ulxwtwbk" v-for="(item1,index) in item.news" v-if="(index>0)&&(index<5)" :key="item1">
-                                                                        <router-link to="">
+                                                                        <router-link to="" class="newa">
+                                                                                <div class="index_ulxwtwbkrt">
+                                                                                        <div class="idnex_ulxwtas">
+                                                                                                {{index.seltr}}
+                                                                                                2020.08
+                                                                                        </div>
+                                                                                        <div class="idnex_ulxwtasq">
+                                                                                                {{index.selfv}}
+                                                                                                25
+                                                                                        </div>
+                                                                                </div>
                                                                                 <div class="index_ulxwtwbklt">
                                                                                         <div class="index_ulxwas">
                                                                                                  {{item1.title}}
                                                                                         </div>
-                                                                                        <div class="index_ulxwasq">
-                                                                                                {{index.seltw}}
-                                                                                        </div>
+                                                                                
                                                                                 </div>
-                                                                                <div class="index_ulxwtwbkrt">
-                                                                                        <div class="idnex_ulxwtas">
-                                                                                                {{index.seltr}}
-                                                                                        </div>
-                                                                                        <div class="idnex_ulxwtasq">
-                                                                                                {{index.selfv}}
-                                                                                        </div>
-                                                                                </div>
+                                                                                
                                                                         </router-link>
                                                                     </div>
                                                             </div>
                                                             <div class="index_ulxwtr">
                                                                     <div class="index_ulxwsq"  v-for="(item1,index) in item.news" v-if="index==5" :key="item1">
-                                                                            <router-link to="">
+                                                                            <router-link to="" class="newa">
                                                                                    <div class="index_ulxwsqlt"></div>
                                                                                    <div class="index_ulxwsqrt">
                                                                                            <div>产权转让全程监督</div>
@@ -161,7 +162,7 @@
                                                                     </div>
                                                                     <div class="index_ulxwsqk">
                                                                             <div class="index_ulxwsqkz"  v-for="(item1,index) in item.news" v-if="(index>5)&&(index<8)" :key="item1">
-                                                                                <router-link to="">
+                                                                                <router-link to="" class="newa">
                                                                                         <div class="index_ulwsaq">
                                                                                                 {{must.title}}
                                                                                         </div>
@@ -645,8 +646,11 @@
       .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bgt.jpg);padding: 20px 0px;}
       .index_enterpriseasd{width: 1240px;height: 420px;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
       .index_enterpriseasdwron{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbaon.png);background-size: cover;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 3%;color: #fff;}
+      .index_enterpriseasdwron:hover{position: relative;top: -5px;}
       .index_enterpriseasdwrtw{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatw.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
+      .index_enterpriseasdwrtw:hover{position: relative;top: -5px;}
       .index_enterpriseasdwrtr{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatr.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
+      .index_enterpriseasdwrtr:hover{position: relative;top: -5px;}
       .index_entesdwr{font-size: 30px;font-weight: bold;}
       .index_entesdwrqwas{border: 1px solid #fff;padding: 3%;border-radius: 8px;}
       .index_entwkjk{width: 100%;height: 140px;background-image: url(../../../static/img/index/index_banrtwstw.png);background-size: cover;}
@@ -693,16 +697,20 @@
       .index_ulxwtr{width: 430px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;background-color: #fff;}
       .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
       .index_urlw{flex: 1;display: flex;align-content: center;flex-direction: column;}
-      .index_urlq{font-size: 24px;padding-top: 20px;padding-bottom: 10px;color: #333;}
-      .index_urlz p{line-height: 25px;color: #333;}
-      .index_urlz p:nth-child(2){word-break: break-all;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}
+      .index_urlq{font-size: 16px;padding-top: 20px;padding-bottom: 10px;color: #333;}
+      .index_urlz p{line-height: 25px;color: #333;font-size: 12px;}
+      .index_urlz p:nth-child(2){word-break: break-all;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;;}
+      
       .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
-      .index_ulxwtwbklt{width: 77px;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;}
-      .index_ulxwtwbkrt{flex: 1;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding: 15px;}
-      .index_ulxwas{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;border-right: 1px solid #ccc;}
-      .index_ulxwasq{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;border-right: 1px solid #ccc;}
-      .idnex_ulxwtas{width: 100%;height: 30px;display: flex;justify-content: flex-start;align-content: center;}
-      .idnex_ulxwtasq{width: 100%;display: flex;justify-content: center;align-content: center;}
+      .index_ulxwtwbklt{width: 50%;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding-right: 8px;}
+      .newa{display: flex;width: 100%;}
+      .newa>div:nth-child(1){width: 30%;}
+      .newa>div:nth-child(2){flex: 1;}
+      .index_ulxwtwbkrt{height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding: 15px;}
+      .index_ulxwas{width: 100%;height: 70%;display: flex;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;color: #187fc4;padding-left: 20px;padding-right: 15px;}
+      /* .index_ulxwasq{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;} */
+      .idnex_ulxwtas{width: 100%;height: 60%;display: flex;justify-content: center;align-content: center;color: #187fc4;font-size: 18px;}
+      .idnex_ulxwtasq{width: 100%;flex: 1;display: flex;justify-content: center;align-content: center;color: #187fc4;font-size: 24px;}
       .index_ulxwsq{width: 100%;height: 150px;display: flex;justify-content: center;align-items: center;}
       .index_ulxwsqlt{width: 40%;height: 70%;margin-left: 5%;background-image: url(../../../static/img/index/index_mset.png);background-size: cover;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;}
       .index_ulxwsqrt{flex: 1;height: 100%;display: flex;justify-content: space-evenly;align-items: flex-start;flex-direction: column;padding: 15px;}
