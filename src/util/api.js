@@ -364,7 +364,7 @@ const api = {
         return requestAll.requset(baseUrl + '/api/aboutus/details', data);
     },
     //我要出售  商标  版权  专利
-    getsellpost() {
+    getsellpost(category_id,fee,mobile,name,number,type,code) {
         let data = {
                 category_id:category_id,
                 fee:fee,
