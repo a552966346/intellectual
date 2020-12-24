@@ -143,7 +143,7 @@
        /* 选项卡共同一级标题 */
        .baner_commontop{display: flex;justify-content: center;align-items: center;color: #909399;padding-top: 20px;padding-bottom: 25px;font-size: 14px;}
         #banner{width: 100%;height: 556px;background-image: url(../../../static/img/index/index_enterprise_bg.jpg);display: flex;justify-content: center;align-items: center;}
-        .bnner_all{width: 1200px;height: 86%;background-color: #fff;display: flex;flex-direction: column;overflow: hidden;}
+        .bnner_all{width: 1200px;height: 86%;background-color: #fff;display: flex;flex-direction: column;overflow: hidden;border-radius: 10px;}
         .el-tabs__content{height: 100%;display: flex;justify-content: center;align-content: center;padding: 0 !important;}
         .el-tab-pane{width: 100%;height: 100%;display: flex;flex-direction: column;}
         .el-tabs--border-card>.el-tabs__content{height: 85% !important;display: flex;justify-content: space-around;align-items: center;flex-direction: column;}

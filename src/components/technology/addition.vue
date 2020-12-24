@@ -42,7 +42,8 @@
         *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
        #addition{width: 1200px;margin: 20px auto;background: #fff;display: flex;}
        /* 每一块内容 */
-       .item{width: 33%;border-radius: 5px;box-shadow: 0 0px 5px 5px rgba(212, 224, 240, 0.5);margin-right: 10px;}
+       .item{width: 33%;border-radius: 5px;margin-right: 10px;}
+       .item:hover{position: relative;box-shadow: 0 0px 5px 5px rgba(212, 224, 240, 0.5);top: -3px;}
        .item:nth-child(3n+3){margin-right: 0px!important;}
        .item>img{width: 100%;}
        .item_content{padding: 30px;}
