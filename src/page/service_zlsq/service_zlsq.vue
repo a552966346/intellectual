@@ -29,7 +29,6 @@
                                                                         <v-pctapply :arrlist='arrlist'></v-pctapply>
                                                                         <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :color='title_color'></v-comtitle>
                                                                         <v-advantages></v-advantages>
-                                                                        <!-- <v-servicezl :idenimg='idenimg'></v-servicezl> -->
                                                                         <v-comtitle id="text_1" :title="title_all[2]" :inform_title='title_text_all[2]' :color='title_color'></v-comtitle>
                                                                         <v-servicetr :mulist="mulist"></v-servicetr>
                                                                 </div>
@@ -146,17 +145,17 @@
                                 },
                                 //pc优势
                                 mulist:[{
-                                        src:'../../../static/img/service/service_sqon.png',
+                                        src:'../../../static/img/service/service_sqon01.png',
                                         text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
                                         },{
-                                        src:'../../../static/img/service/service_sqon.png',
-                                        text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
+                                        src:'../../../static/img/service/service_sqon02.png',
+                                        text:'强效保护研发成果:防止侵权，保护核心技术，构筑核心竞争力。专利权保护具有严格的地域性。'
                                         },{
-                                        src:'../../../static/img/service/service_sqon.png',
-                                        text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
+                                        src:'../../../static/img/service/service_sqon03.png',
+                                        text:'抢占海外市场:需出口产品应尽早进行海外专利布局，确保拥有自主知识产权，比竞争对手领先海外市场，保障国际参展。'
                                         },{
-                                        src:'../../../static/img/service/service_sqon.png',
-                                        text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
+                                        src:'../../../static/img/service/service_sqon04.png',
+                                        text:'授信贷款贏取收益:无形资产，可通过授权许可等多种方式变现，最高可获得银行授信贷款500万。'
                                         }],
                                  //PCT申请
                                 arrlist:[{title:'什么是PCT途径？',con:'专利合作条约（PTC）是专利领域的额一项国际合作条约，允许申请人根据该条约提交一份专利申请，即可同时在该条约148个成员国中要求对其发明进行保护。'},

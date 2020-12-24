@@ -25,12 +25,18 @@ export default {
 .advantages_img{
     width: 100%;
     padding-bottom: 30px;
+    padding-left: 30px;
+    
 }
+
 p{
     color:#1a7fc5;
     padding-left: 8px;
 }
 .advantages_con{
     padding-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>
