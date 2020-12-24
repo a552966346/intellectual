@@ -27,9 +27,10 @@
                                 <!-- </router-link> -->
                         </li>
                 </ul>
-                <ul v-else>
-                        <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p>
-                </ul>
+                <div v-else style="background-color: #fff;display: flex;justify-content: center;">
+                         <img src="../../../static/img/service/word_none.png">
+                       <!-- <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p> -->
+                </div>
         </div>
 </template>
 
