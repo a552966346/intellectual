@@ -27,9 +27,9 @@
                         </div>
                         <trademarkcon :iscent="iscent" @colorbtn="colorbtn"></trademarkcon>
                         <div class="copyright_page">
-                                <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                                        :page-size="10" layout="prev, pager, next, jumper" :total="istotal">
-                                </el-pagination>
+                               <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page.sync="currentPage"
+                                       :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">
+                               </el-pagination>
                                 <!-- :current-page.sync="currentPage3" -->
                                 <!-- 当前业数 -->
                         </div>
@@ -60,12 +60,15 @@
                                 iscolor: [],
                                 data_two: [],
                                 bgcolor: 'rgb(230, 92, 92)',
-                                istotal: 0,
                                 listdata: [],
                                 banner: '../../../static/img/paycenter/trademark_bg.png',
                                 category_one: '',
                                 isshow:false,
-                                name:''
+                                name:'',
+                                // 分页
+                                currentPage: 1,
+                                pagesize: 0,
+                                total:0
                         }
 
                 },
@@ -90,9 +93,9 @@
                                 .then(res => {
                                         console.log(321)
                                         console.log(res)
-                                       
+
                                 })
-                        
+
                 },
                 methods: {
                         comsort(index) {
