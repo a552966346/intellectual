@@ -29,7 +29,7 @@
                                                 <div class="top_cen_cen">
                                                         <div class="top_cen_cen_text">
                                                                 <h1>专利服务,保护创新</h1>
-                                                                <p>激发创造力，保护知识产权权�/p>
+                                                                <p>激发创造力，保护知识产权权益</p>
                                                                 <button>了解详情</button>
                                                         </div>
                                                         <div class="top_cen_cen_btm">
@@ -38,10 +38,10 @@
                                                                         :key="index" @mouseover="btnover(index)"
                                                                         @mouseleave="btnleave" :class="{btm_xiang_two:isbtn==index}">
                                                                         <p v-show="!(isbtn==index)">{{item.name}}</p>
-                                                                        <p v-show="!(isbtn==index)">{{item.nub}}�/p>
-                                                                        <span v-show="isbtn==index">{{item.nub}}�/span>
+                                                                        <p v-show="!(isbtn==index)">{{item.nub}}类</p>
+                                                                        <span v-show="isbtn==index">{{item.nub}}类</span>
                                                                         <div v-show="isbtn==index">
-                                                                                <p>优质品牌，祝您前�/p>
+                                                                                <p>优质品牌，祝您前行</p>
                                                                                 <p>High quality brand</p>
                                                                                 <div>立即抢购 <i class="el-icon-caret-right"></i>
                                                                                 </div>
@@ -89,7 +89,7 @@
                                                                                    <!-- <el-col :span="10"> -->
                                                                                           <div class="grid-content">
                                                                                                   <el-input type="text" v-model="formInline.authcode" size="mini"
-                                                                                                          autocomplete="off" placeholder='输入验证�>
+                                                                                                          autocomplete="off" placeholder='输入验证码'>
                                                                                                           <i slot="prepend" class="el-icon-key"></i>
                                                                                                   </el-input>
                                                                                           </div>
@@ -116,10 +116,10 @@
                                                         <div class="top_cen_right_cen_bottom">
                                                                 <img src="" alt="">
                                                                 <div>
-                                                                        <p>你好欢迎来到伊甸�/p>
+                                                                        <p>你好欢迎来到伊甸网</p>
                                                                         <p>{{phone}}</p>
                                                                         <button @click="denlu"  v-if="this.$store.state.user==null">登录</button>
-                                                                        <button @click="tuichu" v-else>退出登�/button>
+                                                                        <button @click="tuichu" v-else>退出登录</button>
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -148,7 +148,7 @@
                                                         <p>专业一对一服务</p>
                                                 </div>
                                                 <div class="o_cen_lie_img">
-                                                        <p v-if="item.fee>=10000">{{(item.fee/10000)}}万元�/p>
+                                                        <p v-if="item.fee>=10000">{{(item.fee/10000)}}万元起</p>
                                                         <p v-else>{{item.fee}}元起</p>
                                                         <img :src=" item.breviary_image" alt="">
                                                 </div>
@@ -164,7 +164,7 @@
                                 <div class="servecenter_center_sb_left">
                                        <p>{{sb_right_lie_o.name}}</p>
                                         <p>{{sb_right_lie_o.sketch}}</p>
-                                        <p v-if="sb_right_lie_o.fee>=10000">{{(sb_right_lie_o.fee/10000)}}&nbsp;&nbsp;万元�/p>
+                                        <p v-if="sb_right_lie_o.fee>=10000">{{(sb_right_lie_o.fee/10000)}}&nbsp;&nbsp;万元起</p>
                                         <p v-else>{{sb_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                         <p><button @click="but_bl">立即办理</button><button @click="but_xq(sb_right_lie_o.categoryid_text,sb_right_lie_o.category_id)">查看详情</button></p>
                                 </div>
@@ -173,8 +173,8 @@
                                                 <p>{{item.name}}</p>
                                                <p>{{item.sketch}}</p>
                                                 <p>
-                                                        <span v-if="item.fee>=10000">{{(item.fee/10000)}}万元�/span>
-                                                        <span v-else>{{item.fee}}�/span>
+                                                        <span v-if="item.fee>=10000">{{(item.fee/10000)}}万元起</span>
+                                                        <span v-else>{{item.fee}}元</span>
                                                         <img :src=" item.breviary_image" alt="">
                                                 </p>
                                         </div>
@@ -192,7 +192,7 @@
                                 <div class="servecenter_center_zli_left">
                                         <p>{{ zl_right_lie_o.name}}</p>
                                         <p >{{zl_right_lie_o.sketch}}</p>
-                                        <p v-if="zl_right_lie_o.fee>=10000">{{(zl_right_lie_o.fee/10000)}}&nbsp;&nbsp;万元�/p>
+                                        <p v-if="zl_right_lie_o.fee>=10000">{{(zl_right_lie_o.fee/10000)}}&nbsp;&nbsp;万元起</p>
                                         <p v-else>{{zl_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                         <p><button @click="but_bl">联系客服</button><button @click="but_xq(zl_right_lie_o.categoryid_text,zl_right_lie_o.category_id)">查看详情</button></p>
                                 </div>
@@ -203,8 +203,8 @@
                                                         <span>{{item.name}}</span>
                                                         <span>{{item.sketch}}</span>
                                                 </div>
-                                                <p><span v-if="item.fee>=10000">{{(item.fee/10000)}}万元�/span>
-                                                        <span v-else>{{item.fee}}�/span></p>
+                                                <p><span v-if="item.fee>=10000">{{(item.fee/10000)}}万元起</span>
+                                                        <span v-else>{{item.fee}}元</span></p>
                                                 <button @click="but_xq(item.categoryid_text,item.category_id)">查看详情</button>
                                         </div>
                                 </div>
@@ -220,7 +220,7 @@
                                                 <div >
                                                         <p>{{fu_cen_right_lie_o.name}}</p>
                                                         <p>{{fu_cen_right_lie_o.sketch}}</p>
-                                                        <p v-if="fu_cen_right_lie_o.fee>=10000">{{(fu_cen_right_lie_o.fee/10000)}}&nbsp;&nbsp;万元�/p>
+                                                        <p v-if="fu_cen_right_lie_o.fee>=10000">{{(fu_cen_right_lie_o.fee/10000)}}&nbsp;&nbsp;万元起</p>
                                                         <p v-else>{{fu_cen_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                                 </div>
                                                 <p><button @click="but_bl">联系客服</button><button @click="but_xq(fu_cen_right_lie_o.categoryid_text,fu_cen_right_lie_o.category_id)">查看详情</button></p>
@@ -233,7 +233,7 @@
                                                         <!-- <img :src=" item.images_text[1]" v-show="index == active"> -->
                                                         <span>{{item.name}}</span></p>
                                                         <p>{{item.sketch}}</p>
-                                                        <p v-if="item.fee>=10000">{{(item.fee/10000)}}万元�/p>
+                                                        <p v-if="item.fee>=10000">{{(item.fee/10000)}}万元起</p>
                                                         <p v-else>{{item.fee}}元起</p>
                                                         <p v-show="active==index"><button @click="but_xq(item.categoryid_text,item.category_id)">立即办理</button></p>
                                                 </div>
@@ -327,7 +327,7 @@
 
                                                 },
                                                 id:'108',
-                                                text:'享受政府资助最�0�,
+                                                text:'享受政府资助最高30万',
                                         },
                                         {
                                                 img:'../../../static/img/service/sever_qi_two.jpg',
@@ -337,17 +337,17 @@
                                                     keywords:'service_gqrd'
                                                 },
                                                  id:'110',
-                                                text:'奖励最�0�减免40%所得税',
+                                                text:'奖励最高20万 减免40%所得税',
                                         },
                                         {
                                                 img:'../../../static/img/service/sever_qi_three.jpg',
                                                 eng:'TECHNICAL PRODUCTS',
-                                                name:'高新技术产品认定套�,
+                                                name:'高新技术产品认定套餐',
                                                 istext:{
                                                     keywords:''
                                                 },
                                                  id:'',
-                                                text:'享受政府资助最�0�,
+                                                text:'享受政府资助最高30万',
 
                                         }
                                 ],
@@ -359,7 +359,7 @@
                                 phone:''        ,//右侧个人信息
 
                                 option:'',
-                                fee:['一万以�,'1�5�,'5�10�,'10万以�],
+                                fee:['一万以下','1万-5万','5万-10万','10万以上'],
                                 value1:'',
                                 value2:'',
                                 formInline:{
@@ -383,7 +383,7 @@
                                                 min: 4,
                                                 max: 6,
                                                 trigger: 'blur',
-                                                message: '验证码错�
+                                                message: '验证码错误'
                                         }],
                                 },
 
@@ -428,7 +428,7 @@
                                  })
 
                          })
-                         //商标极�
+                         //商标极速
                          this.$api.seversellcategory()
                          .then(res=>{
                                  console.log(res)
