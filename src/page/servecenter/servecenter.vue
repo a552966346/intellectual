@@ -607,6 +607,13 @@
         .top_cen_right_box>div>div:last-child {
                 border: none;
         }
+        .top_cen_right_box>div>div:hover{
+                background-color: #f5f1f1;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        }
 
         .top_cen_right_box>div>div {
                 text-align: center;
@@ -624,7 +631,7 @@
 
         .top_cen_right_box>div>div>p:hover {
                 color: #409EFF !important;
-
+                text-align: center;
         }
 
         .top_cen {
