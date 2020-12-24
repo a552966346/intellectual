@@ -9,7 +9,7 @@
                                 <div class="consultation_all_text"><p>服务中心>版权变更</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image" :isshows="isshows">
+                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image">
                                                <!-- <template v-slot:topall>
                                                         <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
                                                         <div class="slot_bord">11111111</div>
@@ -83,6 +83,7 @@
                 name:'service',
                 data(){
                         return{
+ 
                                 title:['服务详情','申请流程','服务保障','常见问题'],
                                 top_data:'',
                                 id:'',
@@ -193,7 +194,6 @@
                                         }
                                 })
                         },
-                       
                         text_click(porp){
                                         this.iscolor = porp
                                        this.$el.querySelector('#text_'+porp).scrollIntoView()

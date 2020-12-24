@@ -103,14 +103,14 @@
                                 <div id="index_box">
                                         <ul class="index_ulon">
                                                 <li v-for="(item,index) in news" :class="{active:index == num}"
-                                                        @click="tab(index)" :key="item.id">
+                                                        @click="tab(index)" :key="index">
                                                         {{item.name}}
                                                 </li>
                                         </ul>
                                         <ul class="index_ultw">
-                                                <div v-for="(item,index) in news" v-if="index == num">
+                                                <div v-for="(item,index) in news" v-if="index == num" >
                                                     <li>
-                                                            <div class="index_ulxwon" v-for="(item1,index) in item.news" v-if="index==0">
+                                                            <div class="index_ulxwon"  :key="index" v-for="(item1,index) in item.news" v-if="index==0">
                                                                     <router-link to="">
                                                                             <div class="index_url"></div>
                                                                             <div class="index_urlw">
@@ -120,14 +120,14 @@
                                                                                             </div>
                                                                                             <div class="index_urlz">
                                                                                                     <p>{{item1.desc}}</p>
-                                                                                                    <!-- <p v-html="item1.content">{{item1.content}}</p> -->
+                                                                                                    <!-- <p v-html="item1.content"></p> -->
                                                                                             </div>
                                                                                     </router-link>
                                                                             </div>
                                                                     </router-link>
                                                             </div>
                                                             <div class="index_ulxwtw" >
-                                                                    <div class="index_ulxwtwbk" v-for="(item1,index) in item.news" v-if="(index>0)&&(index<5)" :key="item1.id">
+                                                                    <div class="index_ulxwtwbk" v-for="(item1,index) in item.news" v-if="(index>0)&&(index<5)" :key="item1">
                                                                         <router-link to="" class="newa">
                                                                                 <div class="index_ulxwtwbkrt">
                                                                                         <div class="idnex_ulxwtas">
@@ -151,7 +151,7 @@
                                                                     </div>
                                                             </div>
                                                             <div class="index_ulxwtr">
-                                                                    <div class="index_ulxwsq"  v-for="(item1,index) in item.news" v-if="index==5" :key="item1.id">
+                                                                    <div class="index_ulxwsq"  v-for="(item1,index) in item.news" v-if="index==5" :key="item1">
                                                                             <router-link to="" class="newa">
                                                                                    <div class="index_ulxwsqlt"></div>
                                                                                    <div class="index_ulxwsqrt">
@@ -162,7 +162,7 @@
                                                                             </router-link>
                                                                     </div>
                                                                     <div class="index_ulxwsqk">
-                                                                            <div class="index_ulxwsqkz"  v-for="(item1,index) in item.news" v-if="(index>5)&&(index<8)" :key="item1.id">
+                                                                            <div class="index_ulxwsqkz"  v-for="(item1,index) in item.news" v-if="(index>5)&&(index<8)" :key="item1">
                                                                                 <router-link to="" class="newa">
                                                                                         <div class="index_ulwsaq">
                                                                                                 {{must.title}}
@@ -208,7 +208,7 @@
                                                         </router-link>
                                                         <div class="swiper-container">
                                                                  <div class="swiper-wrapper">
-                                                                        <div class="swiper-slide" v-for="(item,index) in introimage">
+                                                                        <div class="swiper-slide"  :key="index" v-for="(item,index) in introimage">
                                                                                 <img :src="item" alt="">
                                                                         </div>
                                                                   </div>
@@ -240,33 +240,24 @@
                                              <img src="../../../static/img/index/index_close.png" alt="">
                                      </div>
                              </div>
-                             <div class="layui_left_left">
-                                     <div class="layui_cent">
-                                            <el-form :model="login_ruleForm" status-icon :rules="verification_rules" ref="login_ruleForm"
-                                                    class="layui_cent_from">
-                                                    <el-form-item label="手机号" prop="phone" class="login_form_item">
-                                                            <el-input  type="text" v-model="login_ruleForm.phone" size="large" style="width: 100%;"
-                                                                    autocomplete="off" placeholder='请输入手机号'></el-input>
-                                                    </el-form-item>
-                                                    <el-form-item label="联系人" prop="name" class="login_form_item">
-                                                            <el-input  type="text" v-model="login_ruleForm.name" size="large"
-                                                            style="width: 100%;"
-                                                                    autocomplete="off" placeholder='如王女士/张女士'></el-input>
-                                                    </el-form-item>
-                                                    <el-form-item class="login_form_item">
-                                                            <el-button type="primary" :plain="true" @click="submitForm('login_ruleForm')"
-                                                                    style="width:200px;height:40px">立即申请</el-button>
-                                                    </el-form-item>
-                                            </el-form>
-                                     </div>
-                                     <div class="layui_left_rig">
-                                                <p style="font-size: 15px !important;font-weight: bold !important; color: #000000;">追高100%返佣</p>
-                                                <p><i class="el-icon-circle-checke"></i>品牌赋能</p>
-                                                 <p><i class="el-icon-circle-checke"></i>运营营赋能</p>
-                                                  <p><i class="el-icon-circle-checke"></i>培训支持</p>
-                                     </div>
+                             <div class="layui_cent">
+                                    <el-form :model="login_ruleForm" status-icon :rules="verification_rules" ref="login_ruleForm"
+                                            class="layui_cent_from">
+                                            <el-form-item label="手机号" prop="phone" class="login_form_item">
+                                                    <el-input  type="nub" v-model="login_ruleForm.phone" size="large" style="width: 100%;"
+                                                            autocomplete="off" placeholder='请输入手机号'></el-input>
+                                            </el-form-item>
+                                            <el-form-item label="联系人" prop="name" class="login_form_item">
+                                                    <el-input  type="text" v-model="login_ruleForm.name" size="large"
+                                                    style="width: 100%;"
+                                                            autocomplete="off" placeholder='如王女士/张女士'></el-input>
+                                            </el-form-item>
+                                            <el-form-item class="login_form_item">
+                                                    <el-button type="primary" :plain="true" @click="submitForm('login_ruleForm')"
+                                                            style="width:200px;height:40px">立即申请</el-button>
+                                            </el-form-item>
+                                    </el-form>
                              </div>
-
                      </div>
              </div>
                 <!-- 合作平台 -->
@@ -531,7 +522,8 @@
                                       }, {
                                               validator: validatePhone,
                                               trigger: 'blur'
-                                      }
+                                      },
+                                      { type: 'number', message: '手机号必须为数字值'},
                                       ],
                               },
                               isshow:false
@@ -572,7 +564,7 @@
                         })
                         this.$api.getindexnew()
                         .then(res=>{
-                                console.log(res,'新闻中心')
+                                // console.log(res,'新闻中心')
                                 this.news=res.data;
                                 // this.num3=res.data.count;
                         })
@@ -607,21 +599,8 @@
                         close(){
                                  this.isshow = false
                         },
-                        submitForm(fromName){
-                                this.$refs[fromName].validate((valid) => {
-                                        this.$api.getindexpart(this.login_ruleForm.name,this.login_ruleForm.phone)
-                                        .then(res=>{
-                                                console.log(res,"合伙人")
-                                                if(res.code==1){
-                                                       this.isshow = false
-                                                        this.$notify({
-                                                                 title: '申请成功',
-                                                                 message: '申请成功,请等待客服人员与您联系',
-                                                                 type: 'success'
-                                                               });
-                                                }
-                                        })
-                                })
+                        submitForm(){
+                                console.log(111)
                         },
                         jiequ(time){
                                let times = time.split('-')
@@ -718,22 +697,19 @@
       .index_ulon li{float: left;margin: 0 10px;cursor: pointer;width: 115px;height: 35px;border-top-left-radius: 25px;border-top-right-radius: 25px;border-bottom-left-radius: 25px;border-bottom-right-radius: 25px;display: flex;justify-content: center;align-items: center;}
       .index_ultw li{height: 470px;display: flex;justify-content: space-between;}
       .active{background-color: #187fc4;color: #fff;}
-      .index_ulxwon{width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;padding: 15px; overflow: auto;}
+      .index_ulxwon{overflow: auto;width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;padding: 15px;}
       .index_ulxwtw{width: 350px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;}
       .index_ulxwtr{width: 430px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;background-color: #fff;}
       .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
-      .index_urlw{flex: 1;display: flex;align-content: center;flex-direction: column;}
       .index_urlq{font-size: 16px;padding-top: 20px;padding-bottom: 10px;color: #333;}
-      .index_urlz p{line-height: 25px;color: #333;font-size: 12px;}
-      .index_urlz p:nth-child(2){word-break: break-all;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;;}
-
-      .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
+      .index_urlz p{overflow: hidden;line-height: 25px;color: #333;font-size: 12px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}
+     .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
       .index_ulxwtwbklt{width: 50%;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding-right: 8px;}
       .newa{display: flex;width: 100%;}
       .newa>div:nth-child(1){width: 30%;}
       .newa>div:nth-child(2){flex: 1;}
       .index_ulxwtwbkrt{height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding: 15px;}
-      .index_ulxwas{width: 100%;height: 70%;display: flex;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;color: #187fc4;padding-left: 20px;padding-right: 15px;}
+      .index_ulxwas{padding-top: 5px; width: 100%;height: 70%;display: flex;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;color: #187fc4;padding-left: 20px;padding-right: 15px;}
       /* .index_ulxwasq{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;} */
       .idnex_ulxwtas{width: 100%;height: 60%;display: flex;justify-content: center;align-content: center;color: #187fc4;font-size: 18px;}
       .idnex_ulxwtasq{width: 100%;flex: 1;display: flex;justify-content: center;align-content: center;color: #187fc4;font-size: 24px;}
@@ -760,28 +736,10 @@
             align-items: center;
             }
       .layui_left{width: 30%;height: 30%;background-color: #fff; padding: 15px ;}
-       .layui_cent{text-align: center;width:70%;border-right: 1px solid #ccc;}
+       .layui_cent{text-align: center;}
        .login_form_item{display: flex; padding: 15px 0;width: 100%;justify-content: center;}
        .el-form-item__label{
                    text-align: center;
                    width: 85px;
-       }
-       .layui_left_left{
-               display: flex;
-       }
-       .layui_left_rig{
-               width: 30%;
-       }
-       .layui_left_rig{
-               display: flex;
-               justify-content: center;
-               align-items: center;
-                flex-direction: column;
-
-       }
-       .layui_left_rig>p{
-               font-size: 12px;
-               color: #ccc;
-               padding: 5px 0;
        }
 </style>

@@ -54,18 +54,18 @@
          </div>
          <div @mouseleave='mouse_leave(1)' @mouseover="mouse_over(1)">
            <img :src="transaction_imglist[1]" alt="">
-           <h3>查阅作品</h3>
-           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
+           <h3>预约看样</h3>
+           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界。</p>
          </div>
          <div @mouseleave='mouse_leave(2)' @mouseover="mouse_over(2)">
            <img :src="transaction_imglist[2]" alt="">
-           <h3>查阅作品</h3>
-           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
+           <h3>签订合同</h3>
+           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手。</p>
          </div>
          <div @mouseleave='mouse_leave(3)' @mouseover="mouse_over(3)">
            <img :src="transaction_imglist[3]" alt="">
-           <h3>查阅作品</h3>
-           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
+           <h3>交易完成</h3>
+           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学。</p>
          </div>
        </div>
      </div>

@@ -45,6 +45,7 @@ export default {
     option:Array,
   },
   data() {
+
     return {
       // option: [
       //   {
@@ -116,6 +117,10 @@ export default {
       // ],
     };
   },
+  methods:{
+    handleOpen(){},
+    handleClose(){}
+  }
 };
 </script>
 
