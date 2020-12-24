@@ -184,7 +184,7 @@
                         <div class="guanggao">
                                 <img src="../../../static/img/service/servecenter_center_guanggao.png" alt="">
                         </div>
-                        <!-- 专利服务 -->
+                        <!-- 专利申请 -->
                        <div class="fuwu">
                                 <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :background_img_url='title_bg_url[1]'></v-comtitle>
                         </div>
@@ -1189,6 +1189,7 @@
         .zl_right_lie:hover{
                 position: relative;
                 top: -5px;
+                
         }
         .zl_right_lie>div {
                 display: flex;
@@ -1226,6 +1227,11 @@
                 padding: 5px 15px;
                 font-weight: 600;
                 border-radius: 5px;
+
+        }
+        .zl_right_lie>button:hover{
+                background-color: #2081C2;
+                color: #fff;
         }
         .zl_right_lie img{
                 width: 23px;
@@ -1496,6 +1502,10 @@
                 color: #1366CE;
                 border-radius: 5px;
                 outline: none;
+        }
+        .qy_right_lie>div>button:hover{
+                color: #fff;
+                background-color: #1366CE;
         }
         .el-form-item__error{
                 position: relative !important;
