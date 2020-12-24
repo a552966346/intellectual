@@ -378,6 +378,13 @@ const api = {
                 // page:page
             }
             return requestAll.requset(baseUrl + '/api/index/search', data);
+    },
+    //新闻联系
+    getnews(id){
+        let data = {
+            id: id
+        }
+        return requestAll.requset(baseUrl + '/api/index/newsdetails',data);
     }
 }
 
