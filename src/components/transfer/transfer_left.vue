@@ -58,7 +58,10 @@
                                                 </div>
 
                                         </div>
-                                        <p>交易价格<span>{{item.fee}}</span></p>
+                                        <p>交易价格：
+                                        <span v-if="item.fee>=10000">￥{{(item.fee/10000)}}万元</span>
+                                        <span v-else>￥{{item.fee}}元</span>
+                                        </p>
                                 </div>
                                 </router-link>
                                 <div class="left_xiang_right">
@@ -105,7 +108,7 @@
                                         name: '发布时间'
                                 }],
                                 active: 0,
-                                currentPage:1  //数据数量
+                                currentPage:1  //当前页
                         }
                 },
                 props:{
