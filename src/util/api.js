@@ -162,7 +162,8 @@ const api = {
                                       sell:id[5],
                                       creatime:id[6],
                                       feeorder:id[7],
-                                        keyword:id[11]
+                                        keyword:id[11],
+                                        page:id[12]
                       }
                 }
         return requestAll.requset(baseUrl + '/api/Patents/patents_list', data);
