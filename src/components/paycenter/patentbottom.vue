@@ -33,7 +33,8 @@
                         <a href="#" class="patent_active">
                         <p>{{item.name}}</p>
                         <div class="patent_price">
-                            <span>￥{{item.fee}}</span>
+                            <span v-if="item.fee>=10000">￥{{(item.fee/10000)}}</span>
+                            <span v-else>￥{{item.fee}}</span>
                             <p>{{item.categoryid_text.name}}</p>
                         </div>
                         <div class="patent_bargain">立即议价</div>

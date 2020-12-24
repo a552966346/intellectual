@@ -20,7 +20,8 @@
                                         </p>
                                         <p class="trademark_p2" v-if="item.categoryid_text">{{item.categoryid_text.name}}</p>
                                         <p class="trademark_p3">
-                                                <span class="trademark_price"><label>￥</label>{{item.fee}}</span>
+                                                <span class="trademark_price" v-if="item.fee>=10000"><label>￥</label>{{(item.fee/10000)}}万元</span>
+                                                <span class="trademark_price" v-else><label>￥</label>{{item.fee}}元</span>
                                                 <img src="../../../static/img/paycenter/copyright_right.png" alt="">
                                         </p>
                                         <div class="trademark_kefu" href="#">立即议价</div>

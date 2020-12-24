@@ -84,6 +84,14 @@ const api = {
     getindexnew() {
         return requestAll.requset(baseUrl + '/api/index/news');
     },
+    //首页合伙人
+    getindexpart(name,mobile){
+            let data = {
+                    name:name,
+                    mobile:mobile
+            }
+             return requestAll.requset(baseUrl + '/api/index/partnerdata',data);
+    },
     /*
      * 金融中心
      */
@@ -353,8 +361,8 @@ const api = {
         return requestAll.requset(baseUrl + '/api/aboutus/details', data);
     },
     //我要出售  商标  版权  专利
-    getselldata() { 
-        
+    getselldata() {
+
         return requestAll.requset(baseUrl + '/api/Trademark/selldata');
     },
 

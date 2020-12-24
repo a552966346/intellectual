@@ -16,7 +16,8 @@
                                                 </div>
                                                 <p>{{item.categoryid_text.name}}</p>
                                                 <div class="copyright_price">
-                                                        <span>￥{{item.fee}}</span>
+                                                        <span v-if="item.fee>=10000">￥{{(item.fee/10000)}}</span>
+                                                        <span v-else>￥{{item.fee}}</span>
                                                         <img src="../../../static/img/paycenter/copyright_right.png"
                                                                 alt="">
                                                 </div>
