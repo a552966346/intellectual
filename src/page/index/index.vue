@@ -111,10 +111,10 @@
                                                 <div v-for="(item,index) in news" v-if="index == num" >
                                                     <li>
                                                             <div class="index_ulxwon"  :key="index" v-for="(item1,index) in item.news" v-if="index==0">
-                                                                    <router-link to="">
+                                                                    <router-link :to="'nuwsint?id='+item1.id">
                                                                             <div class="index_url"></div>
                                                                             <div class="index_urlw">
-                                                                                    <router-link to="">
+                                                                                    <router-link :to="'nuwsint?id='+item1.id">
                                                                                             <div class="index_urlq">
                                                                                                    {{item1.title}}
                                                                                             </div>
@@ -128,7 +128,7 @@
                                                             </div>
                                                             <div class="index_ulxwtw" >
                                                                     <div class="index_ulxwtwbk" v-for="(item1,index) in item.news" v-if="(index>0)&&(index<5)" :key="item1">
-                                                                        <router-link to="" class="newa">
+                                                                        <router-link :to="'nuwsint?id='+item1.id" class="newa">
                                                                                 <div class="index_ulxwtwbkrt">
                                                                                         <div class="idnex_ulxwtas">
                                                                                                 {{jiequ(item1.createtime_text)}}
@@ -240,23 +240,31 @@
                                              <img src="../../../static/img/index/index_close.png" alt="">
                                      </div>
                              </div>
-                             <div class="layui_cent">
-                                    <el-form :model="login_ruleForm" status-icon :rules="verification_rules" ref="login_ruleForm"
-                                            class="layui_cent_from">
-                                            <el-form-item label="手机号" prop="phone" class="login_form_item">
-                                                    <el-input  type="nub" v-model="login_ruleForm.phone" size="large" style="width: 100%;"
-                                                            autocomplete="off" placeholder='请输入手机号'></el-input>
-                                            </el-form-item>
-                                            <el-form-item label="联系人" prop="name" class="login_form_item">
-                                                    <el-input  type="text" v-model="login_ruleForm.name" size="large"
-                                                    style="width: 100%;"
-                                                            autocomplete="off" placeholder='如王女士/张女士'></el-input>
-                                            </el-form-item>
-                                            <el-form-item class="login_form_item">
-                                                    <el-button type="primary" :plain="true" @click="submitForm('login_ruleForm')"
-                                                            style="width:200px;height:40px">立即申请</el-button>
-                                            </el-form-item>
-                                    </el-form>
+                             <div class="layui_left_left">
+                                  <div class="layui_cent">
+                                         <el-form :model="login_ruleForm" status-icon :rules="verification_rules" ref="login_ruleForm"
+                                                 class="layui_cent_from">
+                                                 <el-form-item label="手机号" prop="phone" class="login_form_item">
+                                                         <el-input  type="text" v-model="login_ruleForm.phone" size="large" style="width: 100%;"
+                                                                 autocomplete="off" placeholder='请输入手机号'></el-input>
+                                                 </el-form-item>
+                                                 <el-form-item label="联系人" prop="name" class="login_form_item">
+                                                         <el-input  type="text" v-model="login_ruleForm.name" size="large"
+                                                         style="width: 100%;"
+                                                                 autocomplete="off" placeholder='如王女士/张女士'></el-input>
+                                                 </el-form-item>
+                                                 <el-form-item class="login_form_item">
+                                                         <el-button type="primary" :plain="true" @click="submitForm('login_ruleForm')"
+                                                                 style="width:200px;height:40px">立即申请</el-button>
+                                                 </el-form-item>
+                                         </el-form>
+                                  </div>
+                                  <div class="layui_left_rig">
+                                             <p style="font-size: 15px !important;font-weight: bold !important; color: #000000;">追高100%返佣</p>
+                                             <p><i class="el-icon-circle-checke"></i>品牌赋能</p>
+                                              <p><i class="el-icon-circle-checke"></i>运营营赋能</p>
+                                               <p><i class="el-icon-circle-checke"></i>培训支持</p>
+                                  </div>
                              </div>
                      </div>
              </div>
@@ -564,7 +572,7 @@
                         })
                         this.$api.getindexnew()
                         .then(res=>{
-                                // console.log(res,'新闻中心')
+                                console.log(res,'新闻中心')
                                 this.news=res.data;
                                 // this.num3=res.data.count;
                         })
@@ -599,8 +607,21 @@
                         close(){
                                  this.isshow = false
                         },
-                        submitForm(){
-                                console.log(111)
+                        submitForm(fromName){
+                                       this.$refs[fromName].validate((valid) => {
+                                               this.$api.getindexpart(this.login_ruleForm.name,this.login_ruleForm.phone)
+                                               .then(res=>{
+                                                       console.log(res,"合伙人")
+                                                       if(res.code==1){
+                                                              this.isshow = false
+                                                               this.$notify({
+                                                                        title: '申请成功',
+                                                                        message: '申请成功,请等待客服人员与您联系',
+                                                                        type: 'success'
+                                                                      });
+                                                       }
+                                               })
+                                       })
                         },
                         jiequ(time){
                                let times = time.split('-')
@@ -736,10 +757,28 @@
             align-items: center;
             }
       .layui_left{width: 30%;height: 30%;background-color: #fff; padding: 15px ;}
-       .layui_cent{text-align: center;}
+      .layui_cent{text-align: center;width:70%;border-right: 1px solid #ccc;}
        .login_form_item{display: flex; padding: 15px 0;width: 100%;justify-content: center;}
        .el-form-item__label{
                    text-align: center;
                    width: 85px;
        }
+       .layui_left_left{
+                      display: flex;
+              }
+              .layui_left_rig{
+                      width: 30%;
+              }
+              .layui_left_rig{
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                       flex-direction: column;
+
+              }
+              .layui_left_rig>p{
+                      font-size: 12px;
+                      color: #ccc;
+                      padding: 5px 0;
+              }
 </style>
