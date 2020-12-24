@@ -65,6 +65,7 @@ export default {
 #all{
         width: 40%;
         height: 50%;
+        
 }
 .customer_service{
     /* border: 1px solid #ccc; */
@@ -73,6 +74,7 @@ export default {
                 no-repeat;
     background-size: 100% 100%;
     background-position: top;
+    border-radius: 17px;
 }
 .customer_service>img{
     width: 100%;
