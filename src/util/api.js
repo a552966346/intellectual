@@ -302,7 +302,7 @@ const api = {
         return requestAll.requset(baseUrl + '/api/Service/service_condition');
     },
     // 服务列表筛选列表
-    severlist(id) {
+    severlist(id,page) {
         let data
         console.log(id)
         if(id){
@@ -314,7 +314,8 @@ const api = {
                 fee:id[2],//服务价格
                 keyword:id[3],//关键字搜索
                 creatime :id[4],//时间排序
-                feeorder :id[5]//价格排序
+                feeorder :id[5],//价格排序
+                page:id[6]
               }
         }
         return requestAll.requset(baseUrl + '/api/Service/service_list',data);

@@ -120,7 +120,7 @@
                                 // 列表数据
                                 this.$api.severlist(id)
                                 .then(res => {
-                                        
+
                                         console.log(res)
                                         // this.iscent = res.data.lists.data
                                         this.listdata = res.data.data;
@@ -163,10 +163,13 @@
                         // 分页
                          handleSizeChange(val) {
                             console.log(`每页 ${val} 条`);
+
                          },
                          handleCurrentChange(val) {
                              // 输入页数
                              console.log(`当前页: ${val}`);
+                             this.id[6] = val
+                             this.ispost(this.id)
                          }
                 }
 

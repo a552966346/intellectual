@@ -120,7 +120,7 @@
                                                                                             </div>
                                                                                             <div class="index_urlz">
                                                                                                     <p>{{item1.desc}}</p>
-                                                                                                    <p v-html="item1.content">{{item1.content}}</p>
+                                                                                                    <!-- <p v-html="item1.content">{{item1.content}}</p> -->
                                                                                             </div>
                                                                                     </router-link>
                                                                             </div>
@@ -131,19 +131,20 @@
                                                                         <router-link to="" class="newa">
                                                                                 <div class="index_ulxwtwbkrt">
                                                                                         <div class="idnex_ulxwtas">
-                                                                                                {{index.seltr}}
-                                                                                                2020.08
+                                                                                                {{jiequ(item1.createtime_text)}}
+                                                                                                <!-- 2020.08 -->
                                                                                         </div>
-                                                                                        <div class="idnex_ulxwtasq">
-                                                                                                {{index.selfv}}
-                                                                                                25
+                                                                                       <div class="idnex_ulxwtasq">
+                                                                                                {{item1.createtime_text.split('-')[2]}}
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="index_ulxwtwbklt">
                                                                                         <div class="index_ulxwas">
                                                                                                  {{item1.title}}
                                                                                         </div>
-
+                                                                                        <div class="index_ulxwas">
+                                                                                                 {{item1.desc}}
+                                                                                        </div>
                                                                                 </div>
 
                                                                         </router-link>
@@ -571,7 +572,7 @@
                         })
                         this.$api.getindexnew()
                         .then(res=>{
-                                // console.log(res,'新闻中心')
+                                console.log(res,'新闻中心')
                                 this.news=res.data;
                                 // this.num3=res.data.count;
                         })
@@ -621,6 +622,10 @@
                                                 }
                                         })
                                 })
+                        },
+                        jiequ(time){
+                               let times = time.split('-')
+                               return times[0]+'.'+times[1]
                         }
 
                 },
@@ -713,7 +718,7 @@
       .index_ulon li{float: left;margin: 0 10px;cursor: pointer;width: 115px;height: 35px;border-top-left-radius: 25px;border-top-right-radius: 25px;border-bottom-left-radius: 25px;border-bottom-right-radius: 25px;display: flex;justify-content: center;align-items: center;}
       .index_ultw li{height: 470px;display: flex;justify-content: space-between;}
       .active{background-color: #187fc4;color: #fff;}
-      .index_ulxwon{width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;padding: 15px;}
+      .index_ulxwon{width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;padding: 15px; overflow: auto;}
       .index_ulxwtw{width: 350px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;}
       .index_ulxwtr{width: 430px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;background-color: #fff;}
       .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
