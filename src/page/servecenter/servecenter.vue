@@ -937,9 +937,12 @@
                 padding: 10px;
                 background-color: #fff;
                 cursor: pointer;
+                border-radius: 8px;
         }
         .sb_right_lie:hover{
-                
+                position: relative;
+                top: -3px;
+                box-shadow: 1px 1px 6px #ccc;
         }
 
         .sb_right_lie>p:nth-child(1) {
@@ -1058,11 +1061,14 @@
                 background: url(../../../static/img/service/zl_right_lie.png)no-repeat 0, 0;
                 background-size: 100% 100%;
                 width: 33%;
-
+                border-radius: 8px;
                 padding: 40px;
 
         }
-
+        .zl_right_lie:hover{
+                position: relative;
+                top: -5px;
+        }
         .zl_right_lie>div {
                 display: flex;
                 flex-direction: column;
@@ -1179,6 +1185,10 @@
                 background-color: #fff;
                 margin-right: 5px;
                 height: 325px;
+        }
+        .fu_cen_right_lie:hover{
+                position: relative;
+                top: -5px;
         }
 
         .fu_cen_right_lie>img {
@@ -1315,6 +1325,10 @@
                 padding: 20px;
                 border-right: 1px solid #f5f5f5;
         }
+        .qy_right_lie:hover{
+                position: relative;
+                top: -5px;
+        }
 
         .qy_right_lie>img {
                 width: 100%;
@@ -1329,7 +1343,6 @@
                 align-items: center;
                 justify-content: space-around;
                 padding: 15px;
-
                 /* line-height: 2; */
         }
 
