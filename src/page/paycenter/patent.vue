@@ -22,13 +22,9 @@
                         </div>
                         <patentcon :iscent="iscent"></patentcon>
                         <div class="copyright_page">
-                           <el-pagination
-                             @size-change="handleSizeChange"
-                             @current-change="handleCurrentChange"
-                             :page-size="10"
-                             layout="prev, pager, next, jumper"
-                             :total="istotal">
-                           </el-pagination>
+                          <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page.sync="currentPage"
+                                  :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">
+                          </el-pagination>
                         </div>
 
                         <!-- 猜你喜欢 -->
@@ -54,7 +50,6 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                 listsortnum:1,             //右侧 列表形式排序
                                 zlTop:[],
                                 iscolor:[],
-                                istotal:0,              //默认页数
                                 listdata:[]             ,//总条数
                                 iscent:[],
                                 listdata:[],
@@ -62,7 +57,11 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                 banner:'../../../static/img/paycenter/patent_bg.png',
                                 category_id:'',
                                 isshow:false,
-                                name:''
+                                name:'',
+                                // 分页
+                                currentPage: 1,
+                                pagesize: 0,
+                                total:0
                         }
                 },
                 beforeMount() {
@@ -140,17 +139,24 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                         // 猜你喜欢
                                         this.listdata = res.data.youlike
                                         this.istotal = res.data.lists.data.length;
+                                        // 分页
+                                        this.total=res.data.total;
+                                        this.currentPage=res.data.current_page;
+                                        this.pagesize=res.data.per_page;
                                 })
                         },
                         delet(id){
                                 this.ispost(id)
                         },
-                        handleSizeChange(){
-
+                       // 分页
+                        handleSizeChange(val) {
+                           console.log(`每页 ${val} 条`);
                         },
-                        handleCurrentChange(val){
-                                this.id[12]=val;
-                                this.ispost(id)
+                        handleCurrentChange(val) {
+                            // 输入页数
+                            console.log(`当前页: ${val}`);
+                            this.id[6] = val
+                            this.ispost(this.id)
                         }
                 },
                 components: {

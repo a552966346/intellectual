@@ -25,20 +25,9 @@
                                         <servicetoplist :listdata="listdata"></servicetoplist>
                                         <!-- 分页 -->
                                         <div class="copyright_page">
-                                                <!-- <el-pagination
-                                                      @size-change="handleSizeChange"
-                                                      @current-change="handleCurrentChange"
-                                                      :current-page.sync="currentPage3"
-                                                      :page-size="100"
-                                                      layout="prev, pager, next, jumper"
-                                                      :total="1000">
-                                                    </el-pagination> -->
-
                                                 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page.sync="currentPage"
                                                         :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">
                                                 </el-pagination>
-                                                <!-- :current-page.sync="currentPage3" -->
-                                                <!-- 当前业数 -->
                                         </div>
                                 </div>
                          </div>

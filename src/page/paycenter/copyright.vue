@@ -23,12 +23,8 @@
         </div>
         <copyrightOrdinary :iscent="iscent"></copyrightOrdinary>
         <div class="copyright_page">
-           <el-pagination
-             @size-change="handleSizeChange"
-             @current-change="handleCurrentChange"
-             :page-size="10"
-             layout="prev, pager, next, jumper"
-             :total="istotal">
+           <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page.sync="currentPage"
+                   :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">
            </el-pagination>
 
         </div>
@@ -56,18 +52,21 @@ import copyrightBottom from '@/components/paycenter/copyrightBottom.vue'
 export default {
     data(){
         return{
-             sortnumber:1,           //左侧边排序切�
+             sortnumber:1,           //左侧边排序切��
             listsortnum:1,             //右侧 列表形式排序
             id:{},
             iscent:[],           //列表
             listdata:[],        //猜你喜欢
-            istotal:0,         //总条�
-            zlTop:[],           //筛�
+            zlTop:[],           //筛��
             iscolor:[],
             banner:'../../../static/img/paycenter/copyright_top.png',
             category_one:'',
             isshow:false,
-            name:''
+            name:'',
+            // 分页
+            currentPage: 1,
+            pagesize: 0,
+            total:0
         }
 
     },
@@ -123,7 +122,7 @@ export default {
                 listsort(index){
                         this.listsortnum=index
                 },
-                // 筛�
+                // 筛��
                 choosecon(id){
                         this.ispost(id)
                 },
@@ -140,16 +139,25 @@ export default {
                                 this.iscent = res.data.lists.data
                                 this.listdata = res.data.youlike
                                 this.istotal = res.data.lists.data.length
+                                // 分页
+                                this.total=res.data.total;
+                                this.currentPage=res.data.current_page;
+                                this.pagesize=res.data.per_page;
                         })
                 },
                 delet(id){
                         this.ispost(id)
                 },
-                handleSizeChange(){
+               // 分页
+                handleSizeChange(val) {
+                   console.log(`每页 ${val} 条`);
 
                 },
-                handleCurrentChange(){
-
+                handleCurrentChange(val) {
+                    // 输入页数
+                    console.log(`当前页: ${val}`);
+                    this.id[12] = val
+                    this.ispost(this.id)
                 }
                 },
     components:{

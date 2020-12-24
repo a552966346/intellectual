@@ -131,7 +131,7 @@ const api = {
 	    }
         return requestAll.requset(baseUrl + '/api/trademark/trademark_list', data);
     },
-    // 商标筛选数据
+    // 交易中心商标转让筛选数据
     gettrademarkcondition() {
         return requestAll.requset(baseUrl + '/api/trademark/trademark_condition');
     },
@@ -142,7 +142,7 @@ const api = {
         }
         return requestAll.requset(baseUrl + '/api/Trademark/details', data);
     },
-    //商标广告
+    //商标广告banner
     gettrademarkadvertisement() {
         return requestAll.requset(baseUrl + '/api/banner/trademark');
     },
@@ -202,7 +202,8 @@ const api = {
                                   sell:id[8],
                                   creatime:id[9],
                                   feeorder:id[10],
-                                  keyword:id[11]
+                                  keyword:id[11],
+                                  page:id[12]
                   }
             }
         return requestAll.requset(baseUrl + '/api/Copyright/copyright_list', data);
