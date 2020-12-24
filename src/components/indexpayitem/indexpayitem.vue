@@ -119,7 +119,7 @@
     /* 交易中心右侧内容 */
     .indexpay_right{flex: 1;padding: 15px 25px;display: flex;flex-direction: column;}
     /* 交易中心右侧内容的查看更多*/
-    .indexpay_right>div:nth-child(1){display: flex;justify-content: flex-end;padding: 0 0 10px;border-bottom: 1px solid #f6f6f6;}
+    .indexpay_right>div:nth-child(1){display: flex;justify-content: flex-end;padding: 0 0 10px;border-bottom: 1px solid #f6f6f6;font-size: 14px;}
     .indexpay_right>div:nth-child(1) p{padding-right: 15px;color: #333;}
     .indexpay_right>div:nth-child(1) p span{color: #1780c2;font-size: 17px;}
      /* 商品交易/软著交易 */

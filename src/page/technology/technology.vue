@@ -450,6 +450,7 @@ export default {
   text-align: center;
   background-color: #f4f3ef;
   cursor: pointer;
+  font-size: 14px;
 }
 .active {
   color: white;
@@ -478,6 +479,7 @@ export default {
   height: 45px;
   padding-left: 20px;
   font-size: 15px;
+  font-size: 12px;
 }
 .technology_flex {
   display: flex;
