@@ -140,9 +140,9 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                         this.listdata = res.data.youlike
                                         this.istotal = res.data.lists.data.length;
                                         // 分页
-                                        this.total=res.data.total;
-                                        this.currentPage=res.data.current_page;
-                                        this.pagesize=res.data.per_page;
+                                        this.total=res.data.lists.total;
+                                        this.currentPage=res.data.lists.current_page;
+                                        this.pagesize=res.data.lists.per_page;
                                 })
                         },
                         delet(id){
