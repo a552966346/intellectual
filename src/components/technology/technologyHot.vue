@@ -25,12 +25,12 @@
             <el-submenu index="1">
               <template slot="title">
                 <el-tag size="mini" color="red" class="tag">{{ items.id}}</el-tag>
-                <span>{{ items.listtitle }}</span>
+                <span>{{ items.title }}</span>
               </template>
-              <el-menu-item>{{ items.option1 }}</el-menu-item>
-              <el-menu-item>{{ items.option2 }}</el-menu-item>
-              <el-menu-item>{{ items.option3 }}</el-menu-item>
-              <el-menu-item>{{ items.option4 }}</el-menu-item>
+              <el-menu-item>{{ items.people }}</el-menu-item>
+              <el-menu-item>{{ items.number }}</el-menu-item>
+              <el-menu-item>{{ items.status }}</el-menu-item>
+              <el-menu-item>{{ items.time }}</el-menu-item>
             </el-submenu>
           </el-menu>
         </div>
@@ -157,7 +157,7 @@ export default {
   flex-direction: column;
 }
 .technologyHot_content:hover {
-  box-shadow: 3px 3px 10px #8abfdf, -3px -3px 10px #8abfdf;
+  box-shadow: 3px 3px 10px #ccc, -3px -3px 10px #ccc;
   /* position: relative; */
   /* top: -10%; */
   top: -30px;

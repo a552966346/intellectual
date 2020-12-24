@@ -8,7 +8,7 @@
         <div class="search_input">
           <el-input placeholder="请输入内容" v-model="input3" class="input-with-select search_text">
             <el-select v-model="select" slot="prepend" placeholder="商标">
-              <el-option label="服务中心" value="servicecenter"></el-option>
+              <el-option label="服务中心" value="servicelist"></el-option>
               <el-option label="商标转让" value="trademarks"></el-option>
               <el-option label="专利转让" value="patents"></el-option>
               <el-option label="版权转让" value="copyright"></el-option>

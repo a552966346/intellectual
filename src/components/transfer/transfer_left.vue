@@ -6,7 +6,7 @@
                                 <i class="el-icon-bottom transfer_sorticon"></i>
                         </div>
                 </div>
-                <div class="transfer_left_center">
+                <div class="transfer_left_center" v-if="left_data.length!=0">
                         <div class="left_xiang" v-for="(item,index) in left_data" :key="item.id">
                                 <router-link :to="'/service_xlj_two?id='+item.id">
                                 <img class="left_xiang_img" :src="item.images_text[0]" alt="">
@@ -86,6 +86,9 @@
                                         :total="nub">
                                 </el-pagination>
                         </div>
+                </div>
+                <div v-else>
+                        <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p>
                 </div>
         </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
         <div>
                 <div class="patent_product">
-                        <div class="patent_content">
+                        <div class="patent_content" v-if="iscent.length !=0">
                                 <div class="patent_con" v-for="(item,index) in iscent" :key="item.id">
                                         <div class="patent_txts">
                                                 <router-link :to="'/service_xlj_three?id='+item.id">
@@ -22,6 +22,9 @@
                                                 </a>
                                         </div>
                                 </div>
+                        </div>
+                        <div v-else>
+                                <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p>
                         </div>
                 </div>
         </div>

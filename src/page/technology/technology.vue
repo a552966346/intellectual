@@ -199,345 +199,175 @@ export default {
           titleimg1: "../../../static/img/technology/technologyHotrm.png",
           tit: "热门专利",
           options: [
-        {
-          id: "1",
-          listtitle: "导航一",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
+            {
+              id: "1",
+              title: "一种多功能坡度测量仪(公开号:123)",
+              people: "小王1-1",
+              number: "CN1-1",
+              status: "未知1-1",
+              time: "2020-12-21",
+            },
+            {
+              id: "2",
+              title: "一种道路清雪(公开号：123)",
+              people: "小王1-2",
+              number: "CN1-2",
+              status: "未知1-2",
+              time: "2020-12-21",
+            },
+            {
+              id: "3",
+              title: "可自动调整扭转刚度的翻转装",
+
+              people: "小王1-3",
+              number: "CN1-3",
+              status: "未知1-3",
+              time: "2020-12-21",
+            },
+            {
+              id: "4",
+              title: "十字形贴片双模微带带通滤波器",
+
+              people: "小王1-4",
+              number: "CN1-4",
+              status: "未知1-4",
+              time: "2020-12-21",
+            },
+            {
+              id: "5",
+              title: "专利交易-我要出售：潜泳器",
+
+              people: "小王1-5",
+              number: "CN1-5",
+              status: "未知1-5",
+              time: "2020-12-21",
+            },
+            {
+              id: "6",
+              title: "六开模模架",
+
+              people: "小王1-6",
+              number: "CN1-6",
+              status: "未知1-6",
+              time: "2020-12-21",
+            },
+          ],
         },
         {
-          id: "2",
-          listtitle: "导航二",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "3",
-          listtitle: "导航三",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "4",
-          listtitle: "导航四",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "5",
-          listtitle: "导航五",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "6",
-          listtitle: "导航六",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-      ],
-        },
-        {
-          titleimg:
-            "../../../static/img/technology/toplist2.png",
+          titleimg: "../../../static/img/technology/toplist2.png",
           titleimg1: "../../../static/img/technology/technologyHotzx.png",
           tit: "最新专利",
           options: [
-        {
-          id: "1",
-          listtitle: "导航一",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "2",
-          listtitle: "导航二",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "3",
-          listtitle: "导航三",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "4",
-          listtitle: "导航四",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "5",
-          listtitle: "导航五",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "6",
-          listtitle: "导航六",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-      ],
+            {
+              id: "1",
+              title: "超薄大直径吸顶风扇灯",
+
+              people: "小王2-1",
+              number: "CN2-1",
+              status: "未知2-1",
+              time: "2020-12-21",
+            },
+            {
+              id: "2",
+              title: "一种可伸展的马桶水箱盖",
+              people: "小王2-2",
+              number: "CN2-2",
+              status: "未知2-2",
+              time: "2020-12-21",
+            },
+            {
+              id: "3",
+              title: "一种出烟点烟一体式烟盒",
+              people: "小王2-3",
+              number: "CN2-3",
+              status: "未知2-3",
+              time: "2020-12-21",
+            },
+            {
+              id: "4",
+              title: "一种上楼辅助装置",
+              people: "小王2-4",
+              number: "CN2-4",
+              status: "未知2-4",
+              time: "2020-12-21",
+            },
+            {
+              id: "5",
+              title: "无链条齿轮人力车",
+              people: "小王2-5",
+              number: "CN2-5",
+              status: "未知2-5",
+              time: "2020-12-21",
+            },
+            {
+              id: "6",
+              title: "一种防冻输水管路",
+              people: "小王2-6",
+              number: "CN2-6",
+              status: "未知2-6",
+              time: "2020-12-21",
+            },
+          ],
         },
         {
           titleimg: "../../../static/img/technology/toplist1.png",
           titleimg1: "../../../static/img/technology/technologyHotqg.png",
           tit: "求购专利",
           options: [
-        {
-          id: "1",
-          listtitle: "导航一",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "2",
-          listtitle: "导航二",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "3",
-          listtitle: "导航三",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "4",
-          listtitle: "导航四",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "5",
-          listtitle: "导航五",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
-        },
-        {
-          id: "6",
-          listtitle: "导航六",
-          option1: "选项一",
-          option2: "选项二",
-          option3: "选项三",
-          option4: "选项四",
+            {
+              id: "1",
+              title: "M专利交易:鞋底防滑",
+              people: "小王3-1",
+              number: "CN3-1",
+              status: "未知3-1",
+              time: "2020-12-21",
+            },
+            {
+              id: "2",
+              title: " 买专利一种净化空气窗",
+              people: "小王3-2",
+              number: "CN3-2",
+              status: "未知3-2",
+              time: "2020-12-21",
+            },
+            {
+              id: "3",
+              title: "专利交易--专利求购：实用型高",
+              people: "小王3-3",
+              number: "CN3-3",
+              status: "未知3-3",
+              time: "2020-12-21",
+            },
+            {
+              id: "4",
+              title: "一种离心式强力污水处理装置",
+              people: "小王3-4",
+              number: "CN3-4",
+              status: "未知3-4",
+              time: "2020-12-21",
+            },
+            {
+              id: "5",
+              title: "M专利交易:氢燃料电池",
+              people: "小王3-5",
+              number: "CN3-5",
+              status: "未知3-5",
+              time: "2020-12-21",
+            },
+            {
+              id: "6",
+              title: "购买专利蓝莓饮料专利",
+              people: "小王3-6",
+              number: "CN3-6",
+              status: "未知3-6",
+              time: "2020-12-21",
+            },
+          ],
         },
       ],
-        },
-      ],
-      
+
       // 专利排行榜
-      // ranking:[{
-      //              image:'../../../static/img/technology/toplist1.png',
-      //              cont:[{
-      //                      id:1,
-      //                      title:'一种多功能坡度测量仪(公开号:123)',
-      //                      detail:{
-      //                              people:'小王1-1',
-      //                              number:'CN1-1',
-      //                              status:'未知1-1',
-      //                              time:'2020-12-21'
-      //                      }
-      //              },{
-      //                   id:2,
-      //                   title:'一种道路清雪(公开号：123)',
-      //                   detail:{
-      //                           people:'小王1-2',
-      //                           number:'CN1-2',
-      //                           status:'未知1-2',
-      //                           time:'2020-12-21'
-      //                         }
-      //              },{
-      //                 id:3,
-      //                 title:'可自动调整扭转刚度的翻转装',
-      //                 detail:{
-      //                         people:'小王1-3',
-      //                           number:'CN1-3',
-      //                           status:'未知1-3',
-      //                           time:'2020-12-21',
-      //                         }
-      //              },{
-      //                  id:4,
-      //                  title:'十字形贴片双模微带带通滤波器',
-      //                  detail:{
-      //                          people:'小王1-4',
-      //                            number:'CN1-4',
-      //                            status:'未知1-4',
-      //                            time:'2020-12-21',
-      //                  }
-      //              },{
-      //                 id:5,
-      //                 title:'专利交易-我要出售：潜泳器',
-      //                 detail:{
-      //                         people:'小王1-5',
-      //                         number:'CN1-5',
-      //                         status:'未知1-5',
-      //                         time:'2020-12-21',
-      //                 }
-      //              },{
-      //                 id:6,
-      //                 title:'六开模模架',
-      //                 detail:{
-      //                         people:'小王1-6',
-      //                         number:'CN1-6',
-      //                         status:'未知1-6',
-      //                         time:'2020-12-21',
-      //                 }
-      //              }]
-      //         },
-      //         {
-      //              image:'../../../static/img/technology/toplist2.png',
-      //              cont:[{
-      //                      id:1,
-      //                      title:'超薄大直径吸顶风扇灯',
-      //                      detail:{
-      //                              people:'小王2-1',
-      //                              number:'CN2-1',
-      //                              status:'未知2-1',
-      //                              time:'2020-12-21',
-      //                      }
-      //              },{
-      //                      id:2,
-      //                      title:'一种可伸展的马桶水箱盖',
-      //                      detail:{
-      //                              people:'小王2-2',
-      //                              number:'CN2-2',
-      //                              status:'未知2-2',
-      //                              time:'2020-12-21',
-      //                      }
-      //              },{
-      //                      id:3,
-      //                      title:'一种出烟点烟一体式烟盒',
-      //                      detail:{
-      //                              people:'小王2-3',
-      //                              number:'CN2-3',
-      //                              status:'未知2-3',
-      //                              time:'2020-12-21',
-      //                      }
-      //              },{
-      //                      id:4,
-      //                      title:'一种上楼辅助装置',
-      //                      detail:{
-      //                              people:'小王2-4',
-      //                              number:'CN2-4',
-      //                              status:'未知2-4',
-      //                              time:'2020-12-21',
-      //                      }
-      //              },{
-      //                      id:5,
-      //                      title:'无链条齿轮人力车',
-      //                      detail:{
-      //                              people:'小王2-5',
-      //                              number:'CN2-5',
-      //                              status:'未知2-5',
-      //                              time:'2020-12-21',
-      //                      }
-      //              },{
-      //                      id:6,
-      //                      title:'一种防冻输水管路',
-      //                      detail:{
-      //                              people:'小王2-6',
-      //                              number:'CN2-6',
-      //                              status:'未知2-6',
-      //                              time:'2020-12-21',
-      //                      }
-      //              }]
-      //         },
-      //         {
-      //              image:'../../../static/img/technology/toplist1.png',
-      //              cont:[{
-      //                      id:1,
-      //                      title:'M专利交易:鞋底防滑',
-      //                      detail:{
-      //                              people:'小王3-1',
-      //                              number:'CN3-1',
-      //                              status:'未知3-1',
-      //                              time:'2020-12-21',
-      //                      }
-      //              },{
-      //                      id:2,
-      //                      title:'买专利一种净化空气窗',
-      //                      detail:{
-      //                              people:'小王3-2',
-      //                              number:'CN3-2',
-      //                              status:'未知3-2',
-      //                              time:'2020-12-21',
-      //                     }
-      //              },{
-      //                      id:3,
-      //                      title:'专利交易--专利求购：实用型高',
-      //                      detail:{
-      //                              people:'小王3-3',
-      //                              number:'CN3-3',
-      //                              status:'未知3-3',
-      //                              time:'2020-12-21',
-      //                      }
-      //              },{
-      //                      id:4,
-      //                      title:'一种离心式强力污水处理装置',
-      //                      detail:{
-      //                              people:'小王3-4',
-      //                              number:'CN3-4',
-      //                              status:'未知3-4',
-      //                              time:'2020-12-21',
-      //                      }
-      //              },{
-      //                      id:5,
-      //                      title:'M专利交易:氢燃料电池',
-      //                      detail:{
-      //                              people:'小王3-5',
-      //                              number:'CN3-5',
-      //                              status:'未知3-5',
-      //                              time:'2020-12-21',
-      //                      }
-      //              },{
-      //                      id:6,
-      //                      title:'购买专利蓝莓饮料专利',
-      //                      detail:{
-      //                              people:'小王3-6',
-      //                              number:'CN3-6',
-      //                              status:'未知3-6',
-      //                              time:'2020-12-21',
-      //                      }
-      //              }]
-      //         }
-      // ]
+ 
     };
   },
   methods: {

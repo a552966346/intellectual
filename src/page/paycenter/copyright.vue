@@ -5,7 +5,7 @@
       <div class="copyright_pay">
         <img :src="banner" alt="" @click="tanchuang">
         <!-- 分类 -->
-         <patentscreen :zlTop="zlTop" :iscolor="iscolor" @choosenull="choosenull" @choosecon="choosecon" @delet="delet"></patentscreen>
+         <patentscreen :zlTop="zlTop" :iscolor="iscolor" @choosenull="choosenull" @choosecon="choosecon" @delet="delet" @search="search"></patentscreen>
         <!-- 排序-->
         <div>
             <div class="patent_sort">
@@ -104,6 +104,9 @@ export default {
                         }else{
                                  this.ispost()
                         }
+                },
+                search(id){
+                        this.ispost(id)
                 },
                 //显示弹框
                 tanchuang(){
