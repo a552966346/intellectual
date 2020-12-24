@@ -303,10 +303,9 @@ const api = {
                 keyword:id[3],//关键字搜索
                 creatime :id[4],//时间排序
                 feeorder :id[5]//价格排序
-
               }
         }
-        return requestAll.requset(baseUrl + '/api/Service/service_list');
+        return requestAll.requset(baseUrl + '/api/Service/service_list',data);
     },
     // 服务中心分类数据
     severcategory() {
