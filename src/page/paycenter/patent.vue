@@ -69,7 +69,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                        this.category_id = this.$route.query.id
                        this.name = this.$route.query.name
                         this.$set(this.id,0,this.category_id)
-                        this.$set(this.id,6,this.name)
+                        this.$set(this.id,11,this.name)
                         this.$api.getPatentsconditions()   //专利筛选
                         .then(res=>{
                                 console.log(res)

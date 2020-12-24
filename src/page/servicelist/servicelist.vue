@@ -111,7 +111,6 @@
                                         console.log(res)
                                         // this.iscent = res.data.lists.data
                                         this.listdata = res.data.data;
-                                        console.log(typeof(res.data.data[0].know_fee))
                                         // 分页
                                         // this.istotal = res.data.lists.data.length
                                         // for (let i = 0; i < this.istotal; i++) {

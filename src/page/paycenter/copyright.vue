@@ -56,13 +56,13 @@ import copyrightBottom from '@/components/paycenter/copyrightBottom.vue'
 export default {
     data(){
         return{
-             sortnumber:1,           //左侧边排序切换
+             sortnumber:1,           //左侧边排序切�
             listsortnum:1,             //右侧 列表形式排序
             id:{},
             iscent:[],           //列表
             listdata:[],        //猜你喜欢
-            istotal:0,         //总条数
-            zlTop:[],           //筛选
+            istotal:0,         //总条�
+            zlTop:[],           //筛�
             iscolor:[],
             banner:'../../../static/img/paycenter/copyright_top.png',
             category_one:'',
@@ -74,7 +74,7 @@ export default {
     mounted() {
             this.category_one = this.$route.query.id
             this.name = this.$route.query.name
-            this.$set(this.id,9,this.name)
+             this.$set(this.id,11,this.name)
             this.$set(this.id,0,this.category_one)
             this.$api.getCopyrightcondition()
             .then(res=>{
@@ -123,7 +123,7 @@ export default {
                 listsort(index){
                         this.listsortnum=index
                 },
-                // 筛选
+                // 筛�
                 choosecon(id){
                         this.ispost(id)
                 },

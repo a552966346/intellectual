@@ -243,11 +243,12 @@
                                     <el-form :model="login_ruleForm" status-icon :rules="verification_rules" ref="login_ruleForm"
                                             class="layui_cent_from">
                                             <el-form-item label="手机号" prop="phone" class="login_form_item">
-                                                    <el-input  type="nub" v-model="login_ruleForm.phone" size="large"
+                                                    <el-input  type="nub" v-model="login_ruleForm.phone" size="large" style="width: 100%;"
                                                             autocomplete="off" placeholder='请输入手机号'></el-input>
                                             </el-form-item>
                                             <el-form-item label="联系人" prop="name" class="login_form_item">
                                                     <el-input  type="text" v-model="login_ruleForm.name" size="large"
+                                                    style="width: 100%;"
                                                             autocomplete="off" placeholder='如王女士/张女士'></el-input>
                                             </el-form-item>
                                             <el-form-item class="login_form_item">
@@ -732,7 +733,11 @@
             justify-content: center;
             align-items: center;
             }
-      .layui_left{width: 25%;height: 30%;background-color: #fff; padding: 15px ;}
+      .layui_left{width: 30%;height: 30%;background-color: #fff; padding: 15px ;}
        .layui_cent{text-align: center;}
        .login_form_item{display: flex; padding: 15px 0;width: 100%;justify-content: center;}
+       .el-form-item__label{
+                   text-align: center;
+                   width: 85px;
+       }
 </style>
