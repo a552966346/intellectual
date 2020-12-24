@@ -81,21 +81,25 @@
                                                                        </el-option>
                                                                      </el-select>
                                                                   </el-form-item>
-                                                                  <el-form-item prop="phones" class="demo-form-item">
+                                                                  <el-form-item prop="phones" class="demo-form-item" >
                                                                                 <el-input v-model="formInline.phones" placeholder="请输入手机号" size="mini"><i slot="prepend" class="el-icon-mobile"></i></el-input>
                                                                   </el-form-item>
                                                                   <el-form-item prop="authcode" style="display: flex;flex-direction: column;">
                                                                           <el-row>
+                                                                                   <!-- <el-col :span="10"> -->
                                                                                           <div class="grid-content">
                                                                                                   <el-input type="text" v-model="formInline.authcode" size="mini"
                                                                                                           autocomplete="off" placeholder='输入验证码'>
                                                                                                           <i slot="prepend" class="el-icon-key"></i>
                                                                                                   </el-input>
                                                                                           </div>
+                                                                                   <!-- </el-col>
+                                                                                      <el-col :span="3"> -->
                                                                                           <div class="grid-content" style="text-align: center;">
                                                                                                   <div><img :src="'http://intellectual.jzhxwl.com/captcha.html?r='+html"
                                                                                                                   alt="" @click="getVerification"></div>
                                                                                           </div>
+                                                                                       <!-- </el-col> -->
                                                                           </el-row>
                                                                   </el-form-item>
                                                                   <el-form-item class="demo-form-item">
@@ -144,7 +148,8 @@
                                                         <p>专业一对一服务</p>
                                                 </div>
                                                 <div class="o_cen_lie_img">
-                                                        <p>{{item.fee}}元起</p>
+                                                        <p v-if="item.fee>=10000">{{(item.fee/10000)}}万元起</p>
+                                                        <p v-else>{{item.fee}}元起</p>
                                                         <img :src=" item.breviary_image" alt="">
                                                 </div>
                                         </div>
@@ -159,14 +164,19 @@
                                 <div class="servecenter_center_sb_left">
                                        <p>{{sb_right_lie_o.name}}</p>
                                         <p>{{sb_right_lie_o.sketch}}</p>
-                                        <p>{{sb_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
+                                        <p v-if="sb_right_lie_o.fee>=10000">{{(sb_right_lie_o.fee/10000)}}&nbsp;&nbsp;万元起</p>
+                                        <p v-else>{{sb_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                         <p><button @click="but_bl">立即办理</button><button @click="but_xq(sb_right_lie_o.categoryid_text,sb_right_lie_o.category_id)">查看详情</button></p>
                                 </div>
                                 <div class="servecenter_center_sb_right">
                                         <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="item.id" v-if="index != 0&&sb_right_lie.length !=1" @click="but_xq(item.categoryid_text,item.category_id)">
                                                 <p>{{item.name}}</p>
                                                <p>{{item.sketch}}</p>
-                                                <p><span>{{item.fee}}元起</span><img :src=" item.breviary_image" alt=""></p>
+                                                <p>
+                                                        <span v-if="item.fee>=10000">{{(item.fee/10000)}}万元起</span>
+                                                        <span v-else>{{item.fee}}元</span>
+                                                        <img :src=" item.breviary_image" alt="">
+                                                </p>
                                         </div>
                                 </div>
                         </div>
@@ -182,7 +192,8 @@
                                 <div class="servecenter_center_zli_left">
                                         <p>{{ zl_right_lie_o.name}}</p>
                                         <p >{{zl_right_lie_o.sketch}}</p>
-                                        <p>{{zl_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
+                                        <p v-if="zl_right_lie_o.fee>=10000">{{(zl_right_lie_o.fee/10000)}}&nbsp;&nbsp;万元起</p>
+                                        <p v-else>{{zl_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                         <p><button @click="but_bl">联系客服</button><button @click="but_xq(zl_right_lie_o.categoryid_text,zl_right_lie_o.category_id)">查看详情</button></p>
                                 </div>
                                 <div class="servecenter_center_zl_right">
@@ -192,7 +203,8 @@
                                                         <span>{{item.name}}</span>
                                                         <span>{{item.sketch}}</span>
                                                 </div>
-                                                <p><span>{{item.fee}}元起</span></p>
+                                                <p><span v-if="item.fee>=10000">{{(item.fee/10000)}}万元起</span>
+                                                        <span v-else>{{item.fee}}元</span></p>
                                                 <button @click="but_xq(item.categoryid_text,item.category_id)">查看详情</button>
                                         </div>
                                 </div>
@@ -208,7 +220,8 @@
                                                 <div >
                                                         <p>{{fu_cen_right_lie_o.name}}</p>
                                                         <p>{{fu_cen_right_lie_o.sketch}}</p>
-                                                        <p>{{fu_cen_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
+                                                        <p v-if="fu_cen_right_lie_o.fee>=10000">{{(fu_cen_right_lie_o.fee/10000)}}&nbsp;&nbsp;万元起</p>
+                                                        <p v-else>{{fu_cen_right_lie_o.fee}}&nbsp;&nbsp;元起</p>
                                                 </div>
                                                 <p><button @click="but_bl">联系客服</button><button @click="but_xq(fu_cen_right_lie_o.categoryid_text,fu_cen_right_lie_o.category_id)">查看详情</button></p>
                                         </div>
@@ -220,7 +233,8 @@
                                                         <!-- <img :src=" item.images_text[1]" v-show="index == active"> -->
                                                         <span>{{item.name}}</span></p>
                                                         <p>{{item.sketch}}</p>
-                                                        <p >{{item.fee}}元</p>
+                                                        <p v-if="item.fee>=10000">{{(item.fee/10000)}}万元起</p>
+                                                        <p v-else>{{item.fee}}元起</p>
                                                         <p v-show="active==index"><button @click="but_xq(item.categoryid_text,item.category_id)">立即办理</button></p>
                                                 </div>
 
@@ -345,7 +359,7 @@
                                 phone:''        ,//右侧个人信息
 
                                 option:'',
-                                fee:['1000以下','1000-5000','5000-10000','10000以上'],
+                                fee:['一万以下','1万-5万','5万-10万','10万以上'],
                                 value1:'',
                                 value2:'',
                                 formInline:{
@@ -963,7 +977,7 @@
                 display: flex;
                 height: 350px;
         }
-        
+
 
         .servecenter_center_sb_left {
                 background: url(../../../static/img/service/servecenter_center_sb_left.png)no-repeat 0, 0;
@@ -977,7 +991,7 @@
 
         }
         .servecenter_center_sb_left:hover{
-                
+
         }
 
         .servecenter_center_sb_right {
@@ -1039,7 +1053,7 @@
                 cursor: pointer;
         }
         .sb_right_lie:hover{
-                
+
         }
 
         .sb_right_lie>p:nth-child(1) {
@@ -1462,5 +1476,8 @@
                 color: #1366CE;
                 border-radius: 5px;
                 outline: none;
+        }
+        .el-form-item__error{
+                position: relative !important;
         }
 </style>
