@@ -339,6 +339,11 @@ const api = {
         }
         return requestAll.requset(baseUrl + '/api/aboutus/details', data);
     },
+    //我要出售  商标  版权  专利
+    getselldata() { 
+        
+        return requestAll.requset(baseUrl + '/api/Trademark/selldata');
+    },
 
 
     // 测试请求
