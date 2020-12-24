@@ -243,11 +243,12 @@
                                     <el-form :model="login_ruleForm" status-icon :rules="verification_rules" ref="login_ruleForm"
                                             class="layui_cent_from">
                                             <el-form-item label="手机号" prop="phone" class="login_form_item">
-                                                    <el-input  type="nub" v-model="login_ruleForm.phone" size="large"
+                                                    <el-input  type="nub" v-model="login_ruleForm.phone" size="large" style="width: 100%;"
                                                             autocomplete="off" placeholder='请输入手机号'></el-input>
                                             </el-form-item>
                                             <el-form-item label="联系人" prop="name" class="login_form_item">
                                                     <el-input  type="text" v-model="login_ruleForm.name" size="large"
+                                                    style="width: 100%;"
                                                             autocomplete="off" placeholder='如王女士/张女士'></el-input>
                                             </el-form-item>
                                             <el-form-item class="login_form_item">
@@ -645,8 +646,11 @@
       .index_enterprise{background-image: url(../../../static/img/index/index_enterprise_bgt.jpg);padding: 20px 0px;}
       .index_enterpriseasd{width: 1240px;height: 420px;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;flex-direction: row;}
       .index_enterpriseasdwron{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbaon.png);background-size: cover;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 3%;color: #fff;}
+      .index_enterpriseasdwron:hover{position: relative;top: -5px;}
       .index_enterpriseasdwrtw{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatw.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
+      .index_enterpriseasdwrtw:hover{position: relative;top: -5px;}
       .index_enterpriseasdwrtr{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatr.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
+      .index_enterpriseasdwrtr:hover{position: relative;top: -5px;}
       .index_entesdwr{font-size: 30px;font-weight: bold;}
       .index_entesdwrqwas{border: 1px solid #fff;padding: 3%;border-radius: 8px;}
       .index_entwkjk{width: 100%;height: 140px;background-image: url(../../../static/img/index/index_banrtwstw.png);background-size: cover;}
@@ -729,7 +733,11 @@
             justify-content: center;
             align-items: center;
             }
-      .layui_left{width: 25%;height: 30%;background-color: #fff; padding: 15px ;}
+      .layui_left{width: 30%;height: 30%;background-color: #fff; padding: 15px ;}
        .layui_cent{text-align: center;}
        .login_form_item{display: flex; padding: 15px 0;width: 100%;justify-content: center;}
+       .el-form-item__label{
+                   text-align: center;
+                   width: 85px;
+       }
 </style>

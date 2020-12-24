@@ -21,7 +21,7 @@
             <div class="xianshi">
                     <img src="../static/img/index/kefu.png" alt="" @click="tankuang">
                     <div class="xuanfu_one">
-                            <p @click="one" :class="{bgcolor:isbg==1}"><span>扫二</span><span>维码</span></p>
+                            <p @mouseover="one" @mouseleave="twos" :class="{bgcolor:isbg==1}"><span>扫二</span><span>维码</span></p>
                     </div>
                     <div class="xuanfu_one">
                              <p @click="two" @mouseleave="twos" :class="{bgcolor:isbg==2}"><span>返回</span><span>顶部</span></p>
@@ -29,7 +29,7 @@
             </div>
 
     </div>
-    <div class="tanchuang" v-show="isshow" >
+    <div class="tanchuang" v-show="isshow" @click.self="shows">
              <v-customer @shows="shows"></v-customer>
     </div>
     <router-view/>
