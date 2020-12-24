@@ -129,6 +129,7 @@
                         //搜索
                         search(id) {
                                 this.id = id
+                                console.log(this.id)
                                 this.ispost(id)
                         },
                         //清空筛选
