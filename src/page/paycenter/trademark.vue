@@ -36,8 +36,8 @@
                         <trademarkbo :listdata="listdata"></trademarkbo>
                 </div>
                 <v-combotttom></v-combotttom>
-                <div class="tanchuang" v-show="isshow" @click.self="shows">
-                         <v-tanchuangsb @close="close"></v-tanchuangsb>
+                <div class="tanchuang" v-show="isshow" @click.self="shows" >
+                         <v-tanchuangsb @close="close" @fabu="fabu"></v-tanchuangsb>
                 </div>
         </div>
 </template>
@@ -91,7 +91,7 @@
                                         this.banner = res.data.images
                                 })
                         this.ispost(this.id)
-                      
+
 
                 },
                 methods: {
@@ -112,11 +112,13 @@
                         },
                         //显示弹框
                         tanchuang(){
-                                console.log(111)
                           this.isshow = true
                         },
                         close(){//隐藏弹框
                                 this.isshow = false
+                        },
+                        fabu(){
+                                 this.isshow = false
                         },
                         //隐藏弹框
                         shows(){

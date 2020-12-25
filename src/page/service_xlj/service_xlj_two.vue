@@ -19,7 +19,7 @@
                                         <div class="consultation_center_cen">
                                                 <div class="cen_left">
                                                         <v-serviceleft  ></v-serviceleft>
-                                                        <v-hove></v-hove>
+                                                        <v-hove @running="running"></v-hove>
                                                 </div>
                                                 <div class="cen_right zzdj_cen_right">
                                                        <div class="zzdj_serviceright_top">
@@ -198,6 +198,11 @@
                                         this.iscolor = porp
                                        this.$el.querySelector('#text_'+porp).scrollIntoView()
                         },
+                        running(id){
+                                this.$el.scrollIntoView()
+                                console.log(id)
+                                this.ispost(id)
+                        }
 
                 }
         }

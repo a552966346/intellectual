@@ -385,6 +385,24 @@ const api = {
 
         return requestAll.requset(baseUrl + '/api/Trademark/sellcategory');
     },
+    //专利分类数据
+    getrankingdata() {
+
+        return requestAll.requset(baseUrl + '/api/Patents/sellcategory');
+    },
+    getrankingpost(name,category_id,number,fee,mobile,code,type) {
+        let data = {
+                 // 名称,类别,专利号,低价,联系方式,验证码，类型
+                 name:name,
+                 category_id:category_id,
+                 number:number,
+                 fee:fee,
+                 mobile:mobile,
+                 code:code,
+                 type:type,
+        }
+        return requestAll.requset(baseUrl + '/api/Trademark/selldata',data);
+    },
 
     // 测试请求
     getBanner(status) {
@@ -461,6 +479,10 @@ const api = {
     //热门推荐
     hottui(){
         return requestAll.requset(baseUrl + '/api/Technology/hotrecommend');
+    },
+    //版权分类
+    getbanquan(){
+             return requestAll.requset(baseUrl + '/api/Copyright/sellcategory');
     }
 }
 

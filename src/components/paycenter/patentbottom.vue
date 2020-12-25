@@ -8,7 +8,7 @@
                     <p>联系客服帮您找</p>
                 </a>
                 <span>或</span>
-                <a href="#">
+                <a href="#" @click="tanchuang">
                     <p style="background-color:#3c568f">发布求购需求</p>
                 </a>
             </div>
@@ -46,16 +46,21 @@
     <div class="tanchuang" v-show="isshow" @click.self="shows">
             <v-customer @shows="shows"></v-customer>
     </div>
+    <div class="tanchuang" v-show="isshows" @click.self="shows" >
+             <v-tanchuangsb @close="close" ></v-tanchuangsb>
+    </div>
 </div>
 </template>
 
 <script>
+import tanchuangsb from '../../components/copyright/tanchuangsb.vue'//商标弹窗
 import customer from '@/components/customers/customer_services.vue'
 export default {
      data(){
         return{
             isshow:false,
-            
+            isshows:false,
+
              arr: [{
                 url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
                 ban: '一种油炸肉丸快速过滤油框',
@@ -98,15 +103,23 @@ export default {
             listdata:''
     },
     components:{
-                        'v-customer':customer
+                        'v-customer':customer,
+                        'v-tanchuangsb':tanchuangsb,//商标弹窗
     },
     methods:{
-        
+
         tankuang(){
                 this.isshow=true
         },
         shows(){
                 this.isshow = false
+        },
+        //显示商标弹框
+        tanchuang(){
+          this.isshows = true
+        },
+        close(){//隐藏弹框
+                this.isshows = false
         },
     }
 }

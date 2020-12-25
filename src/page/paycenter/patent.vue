@@ -32,13 +32,14 @@
                 </div>
                 <v-combotttom></v-combotttom>
                 <div class="tanchuang" v-show="isshow" @click.self="shows">
-                         <v-tanchuangsb @close="close"></v-tanchuangsb>
+                         <v-tanchuangsb @close="close"  @fabu="fabu"></v-tanchuangsb>
                 </div>
         </div>
 </template>
 
 <script>
 import tanchuangsb from '@/components/copyright/tanchauangzl.vue';//专利弹窗
+
 import patentscreen from '@/components/paycenter/patentscreen.vue'; //专利筛选组件
 import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
 import patentbottom from '@/components/paycenter/patentbottom.vue'
@@ -54,7 +55,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                 iscent:[],
                                 listdata:[],
                                 id:{},
-                                banner:'../../../static/img/paycenter/patent_bg.png',
+                                banner:'../../../static/img/paycenter/patent_bg.jpg',
                                 category_id:'',
                                 isshow:false,
                                 name:'',
@@ -104,18 +105,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         search(id){
                                 this.ispost(id)
                         },
-                        //显示弹框
-                        tanchuang(){
-                                console.log(111)
-                          this.isshow = true
-                        },
-                        close(){//隐藏弹框
-                                this.isshow = false
-                        },
-                        //隐藏弹框
-                        shows(){
-                                this.isshow = false
-                        },
+                       
                         listsort(index){
                                 this.listsortnum=index
                         },
@@ -157,7 +147,24 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                             console.log(`当前页: ${val}`);
                             this.id[6] = val
                             this.ispost(this.id)
-                        }
+                        },
+                        // 确认按钮
+                        fabu(){
+                                 this.isshow = false
+                        },
+                        //隐藏弹框
+                        close(){
+                                this.isshow = false
+                        },
+                        //显示弹框
+                        tanchuang(){
+                                console.log(111)
+                          this.isshow = true
+                        },
+                        //隐藏弹框
+                        shows(){
+                                this.isshow = false
+                        },
                 },
                 components: {
                         'v-tanchuangsb':tanchuangsb,//专利弹窗

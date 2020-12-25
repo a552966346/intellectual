@@ -13,45 +13,55 @@
             <div class="tanchuang_title_r" @click="close">
                 <img src="../../../static/img/copyright/close.png" alt="" >
             </div>
-        
+
       </div>
       <div class="tanchuang_body">
         <div class="tanchuang_bodytit">填写详情</div>
-        <el-form ref="form1" :model="form1" label-width="100px">
-          <el-form-item label="版权名称">
+        <el-form ref="form_rul" :model="form1" label-width="100px" :rules="form_rul">
+          <el-form-item label="版权名称" prop="name">
             <el-input v-model="form1.name"
               placeholder="请输入版权名称（必填）"
               style="width: 100%"
             ></el-input>
           </el-form-item>
           <el-form-item label="版权分类">
-            <el-select v-model="form1.select" placeholder="请选择版权类型（必填）" style="width: 100%">
-              <el-option label="区域一" value="shanghai"></el-option>
-              <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
+            <select name="shangbiao" v-model="select" style="width: 100%;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: #555;padding-left: 15px;">
+                    <option value="">请选择商标类别</option>
+                    <option v-for="item in option" :value="item.id">{{item.name}}</option>
+            </select>
           </el-form-item>
-          <el-form-item label="联系方式">
-            <el-input v-model="form1.tel"
+          <el-form-item label="联系方式" prop="phone">
+            <el-input v-model="form1.phone"
               placeholder="请输入您的联系方式（必填）"
               style="width: 100%"
             ></el-input>
           </el-form-item>
-          <el-form-item  label="验证号码">
-            <div  style="display:flex"><el-input v-model="form1.haoma"
-              placeholder="请输入您的验证号码（必填）"
-              style="width: 70%"
-            >
-            </el-input>
-            <el-button style="width:30%;background:#efefef;color:#919191;" type="mini">获取验证码</el-button></div>
-
+          <el-form-item label="验证号码" prop="authcode">
+                  <el-row>
+                          <el-col :span="12">
+                                  <div class="grid-content">
+                                          <el-input type="text" v-model="form1.authcode"
+                                                  autocomplete="off" placeholder='输入验证码'>
+                                                  <!-- <i slot="prepend" class="el-icon-key"></i> -->
+                                          </el-input>
+                                  </div>
+                          </el-col>
+                          <el-col :span="12">
+                                  <div class="grid-content" style="text-align: center;">
+                                          <div><img :src="'http://intellectual.jzhxwl.com/captcha.html?r='+html"
+                                                          alt="" @click="getVerification()"></div>
+                                  </div>
+                          </el-col>
+                  </el-row>
           </el-form-item>
           <el-form-item>
             <el-button
               type="primary"
               style="color: #fff; background: #2b3d63; width: 42%"
-              >确认发布</el-button
+             @click="fabu('form_rul')" >确认发布</el-button
             >
             <el-button
+            @click="kefu"
               type="primary"
               style="
                 border: 1px solid #ceaa88;
@@ -60,32 +70,109 @@
                 width: 42%;
                 margin-bottom:20px
               "
-              >联系创建</el-button
+              >联系客服</el-button
             >
           </el-form-item>
         </el-form>
       </div>
     </div>
+    <div class="tanchuang" v-show="isshow" @click.self="shows">
+            <v-customer @shows="shows"></v-customer>
+    </div>
   </div>
 </template>
 
 <script>
+import customer from '@/components/customers/customer_services.vue'
+        import {
+                validatePhone
+        } from '@/util/rules.js'
 export default {
   data() {
     return {
       form1:{
         name:'',
-        select:'',
-        tel:'',
-        haoma:''
-      }
+        phone:'',
+        authcode:''
+      },
+      isshow:false,
+      select:'',
+      html:'',
+      form_rul: {
+              phone: [{
+                      required: true,
+                      trigger: 'blur',
+                      message: '请输入手机号'
+              }, {
+                      validator: validatePhone,
+                      trigger: 'blur'
+              }],
+              authcode: [{
+                      required: true,
+                      trigger: 'blur',
+                      message: '请输入验证码'
+              }, {
+                      min: 4,
+                      max: 6,
+                      trigger: 'blur',
+                      message: '验证码错误'
+              }],
+              name: [{
+                      required: true,
+                      trigger: 'blur',
+                      message: '请输入版权名称'
+              }, ],
+      },
+      option:''
     };
+  },
+  mounted() {
+          this.$api.getbanquan()
+          .then(res=>{
+                  console.log(res)
+                  this.option = res.data
+          })
   },
   methods:{
     close(){
       console.log(124)
       this.$emit("close")
+    },
+    kefu(){
+            this.close()
+            this.isshow=true
+    },
+    shows(){
+            this.isshow = false
+    },
+    getVerification() {
+            this.html = Math.random();
+    },
+    fabu(fromname) {
+            this.$refs[fromname].validate((valid) => {
+                    this.$api.getsellpost(this.select, '', this.form1
+                                    .phone, this.form1.name, '', 3,
+                                    this.form1.authcode)
+                            .then(res => {
+                                    console.log(res)
+                                    if (res.code == 1) {
+                                            this.$message({
+                                                    message: '发布成功',
+                                                    type: 'success'
+                                            });
+                                            this.$emit("fabu")
+                                    } else {
+                                            this.$message.error({
+                                                    message: '添加失败',
+                                                    type: 'error'
+                                            });
+                                    }
+                            })
+            })
     }
+  },
+  components:{
+          'v-customer':customer
   }
 };
 </script>

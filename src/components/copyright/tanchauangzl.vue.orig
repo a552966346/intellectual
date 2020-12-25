@@ -48,47 +48,39 @@
                                                         </el-col>
                                                         <el-col :span="12">
                                                                 <div class="grid-content" style="text-align: center;">
-                                                                        <div><img :src="'http://intellectual.jzhxwl.com/captcha.html?r='+html"
-                                                                                        alt="" @click="getVerification"></div>
+                                                                        <div><img :src="'http://intellectual.jzhxwl.com/captcha.html?r='+html" alt="" @click="getVerification"></div>
                                                                 </div>
                                                         </el-col>
                                                 </el-row>
                                         </el-form-item>
                                         <el-form-item>
-                                                <el-button type="primary" style="color: #fff; background: #2b3d63; width: 42%;margin-bottom:20px"
-                                                        @click="fabu('formrul')">确认发布</el-button>
+                                                <el-button type="primary" style="color: #fff; background: #2b3d63; width: 42%;margin-bottom:20px" @click="fabu('formrul')">确认发布</el-button>
                                                 <el-button type="primary" style="border: 1px solid #ceaa88;background: #fff;color: #eb9848;width: 42%;">联系创建</el-button>
                                         </el-form-item>
                                 </el-form>
                         </div>
-
                 </div>
-                <div class="tanchuang" v-show="isshow" @click.self="shows">
-                        <v-customer @shows="shows"></v-customer>
-                </div>
+<<<<<<< HEAD
         </div>
 </template>
 
 <script>
-        import customer from '@/components/customers/customer_services.vue'
-        import {
-                validatePhone
-        } from '@/util/rules.js'
+        import {validatePhone} from '@/util/rules.js'
         export default {
                 data() {
                         return {
                                 form2: {
-                                        name: '', //名称
+                                        name: '',//名称
                                         // select: '',
-                                        num: '', //专利号
-                                        minprice: '', //售价
-                                        tel: '', //电话
-                                        authcode: '' //验证码
+                                        num: '',//专利号
+                                        minprice:'',//售价
+                                        tel: '',//电话
+                                        authcode:''//验证码
                                 },
-                                html: '', //验证码
-                                data: [], //分类数据
-                                select: '',
-                                // 验证规则
+                                 html: '',//验证码
+                                 data:[],//分类数据
+                                  select: '',
+                                 // 验证规则
                                 formrule: {
                                         name: [{
                                                 required: true,
@@ -123,8 +115,10 @@
                                                 trigger: 'blur',
                                                 message: '验证码错误'
                                         }],
-                                },
-                                isshow:false
+
+
+
+                                }
                         };
                 },
                 methods: {
@@ -137,44 +131,148 @@
                                 this.html = Math.random();
                         },
                         // 确认创建
-                        fabu(fromname) {
-                                this.$refs[fromname].validate((valid) => {
-                                        this.$api.getrankingpost(this.form2.name, this.select, this.form2
-                                                        .num, this.form2.minprice, this.form2.tel, this
-                                                        .form2.authcode, 2)
-                                                .then(res => {
-                                                        console.log(res)
-                                                        if (res.code == 1) {
-                                                                this.$message({
-                                                                        message: '添加成功',
-                                                                        type: 'success'
-                                                                });
-                                                                this.$emit("fabu")
-                                                        } else {
-                                                                this.$message.error({
-                                                                        message: '添加失败',
-                                                                        type: 'error'
-                                                                });
-                                                        }
-                                                })
-                                })
-                        },
-                        shows(){
-                                this.isshow = false
-                        }
+                       fabu(fromname) {
+                               this.$refs[fromname].validate((valid) => {
+                                       this.$api.getrankingpost( this.form2.name,this.select,this.form2.num, this.form2.minprice, this.form2.tel,this.form2.authcode,2)
+                                               .then(res => {
+                                                       console.log(res)
+                                                       if (res.code == 1) {
+                                                               this.$message({
+                                                                       message: '添加成功',
+                                                                       type: 'success'
+                                                               });
+                                                               this.$emit("fabu")
+                                                       } else {
+                                                               this.$message.error({
+                                                                       message: '添加失败',
+                                                                       type: 'error'
+                                                               });
+                                                       }
+                                               })
+                               })
+                       }
                 },
                 mounted() {
                         this.$api.getrankingdata()
-                                .then(res => {
+                        .then(res => {
 
-                                        console.log(res, "专利分类")
-                                        this.data = res.data
-                                })
-                },
-                components:{
-                        'v-customer':customer
+                                console.log(res, "专利分类")
+                                this.data = res.data
+                        })
                 }
         };
+=======
+                <div class="tanchuang_title_text">我要出售专利</div>
+            </div>
+            <!-- right -->
+            <div class="tanchuang_title_r" @click="close">
+                <img src="../../../static/img/copyright/close.png" alt="" >
+            </div>
+        
+      </div>
+      <div class="tanchuang_body">
+        <div class="tanchuang_bodytit">填写详情</div>
+        <el-form ref="form2" :model="form2" label-width="100px">
+          <el-form-item label="专利名称">
+            <el-input v-model="form2.name"
+              placeholder="请输入专利名称"
+              style="width: 100%"
+            ></el-input>
+          </el-form-item>
+          <el-form-item label="专利类型">
+            <el-select v-model="form2.select" placeholder="请选择专利类型（必填）" style="width: 100%">
+              <el-option label="区域一" value="shanghai"></el-option>
+              <el-option label="区域二" value="beijing"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="专利号">
+            <el-input v-model="form2.num"
+              placeholder="请输入专利号（必填）"
+              style="width: 100%"
+            ></el-input>
+          </el-form-item>
+          <el-form-item label="出售底价">
+            <el-input v-model="form2.minprice"
+              placeholder="请输入出售底价（必填）"
+              style="width: 100%"
+            ></el-input>
+          </el-form-item>
+          <el-form-item label="联系方式">
+            <el-input v-model="form2.tel"
+              placeholder="请输入您的联系方式（必填）"
+              style="width: 100%"
+            ></el-input>
+          </el-form-item>
+          <el-form-item  label="验证号码">
+            <div  style="display:flex"><el-input v-model="form2.haoma"
+              placeholder="请输入您的验证号码（必填）"
+              style="width: 70%"
+            >
+            </el-input>
+            <el-button style="width:30%;background:#efefef;color:#919191;" type="mini">获取验证码</el-button></div>
+
+          </el-form-item>
+          <el-form-item>
+            <el-button
+              type="primary"
+              style="color: #fff; background: #2b3d63; width: 42%"
+              >确认发布</el-button
+            >
+            <el-button
+            @click="kefu"
+              type="primary"
+              style="
+                border: 1px solid #ceaa88;
+                background: #fff;
+                color: #eb9848;
+                width: 42%;
+                margin-bottom:20px
+              "
+              >联系创建</el-button
+            >
+          </el-form-item>
+        </el-form>
+      </div>
+    </div>
+    <div class="tanchuang" v-show="isshow" @click.self="shows">
+            <v-customer @shows="shows"></v-customer>
+    </div>
+  </div>
+</template>
+
+<script>
+import customer from '@/components/customers/customer_services.vue'
+export default {
+  data() {
+    return {
+      form2:{
+        name:'',
+        select:'',
+        num:'',
+        tel:'',
+        haoma:''
+      },
+      isshow:false,
+    };
+  },
+  methods:{
+    close(){
+      console.log(123)
+      this.$emit("close")
+    },
+    kefu(){
+            this.close()
+            this.isshow=true
+    },
+    shows(){
+            this.isshow = false
+    },
+  },
+  components:{
+          'v-customer':customer
+  }
+};
+>>>>>>> 18ed6c5e53aa51f6829d270baedeaee451da0d32
 </script>
 
 <style>
