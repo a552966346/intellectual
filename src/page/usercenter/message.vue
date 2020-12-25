@@ -5,9 +5,11 @@
         </div>
         <div class="message_con">
             <ul class="con_t">
-                <li class="con_t_item">全部消息</li>
-                <li class="con_t_item">未读消息</li>
-                <li class="con_t_item">已读消息</li>
+                <li class="con_t_item" v-for="(item,i) in titles" :key="i"
+                v-bind:class="{active:i == num}"
+                @click="tab(i)">{{item}}</li>
+                <!-- <li class="con_t_item">未读消息</li>
+                <li class="con_t_item">已读消息</li> -->
                 <li class="con_t_del">
                     <div class="t_del">
                         <img src="../../../static/img/usercenter/del.png" alt="">
@@ -34,9 +36,16 @@ export default{
     data(){
         return{
             msg:'这是测试内容',
-            tabPosition: 'left'
+            tabPosition: 'left',
+            titles:["全部消息","未读消息","已读消息"],
+            num:0
               }
    },
+   methods:{
+       tab(i){
+           this.num=i;
+       }
+   }
 }
 </script>
 <style scoped>
@@ -80,7 +89,7 @@ export default{
     border: 1px solid #efefef;
     
 }
-.con_t_item:hover{
+.active{
     background-color: #fff;
     color: #696969;
     border-top: 2px solid #1b7fc3;

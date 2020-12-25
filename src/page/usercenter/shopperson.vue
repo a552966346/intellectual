@@ -15,7 +15,7 @@
             </div>
             <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
                 
-              <el-tab-pane label="出售商标" name="first">
+              <el-tab-pane label="出售商标" name="first" >
                 <ul class="s_con_b">
                     <li class="s_con_b_item">商品</li>
                     <li class="s_con_b_item">出售信息</li>

@@ -5,11 +5,13 @@
         </div>
         <div class="buy_con">
             <ul class="con_t">
-                <li class="con_t_item">全部订单</li>
-                <li class="con_t_item">未付款订单</li>
+                <li class="con_t_item" v-for="(item, i) in nav" :key="i"
+                 v-bind:class="{ active: i == num }"
+                 @click="tab(i)">{{ item }}</li>
+                <!-- <li class="con_t_item">未付款订单</li>
                 <li class="con_t_item">已预约的订单</li>
                 <li class="con_t_item">交接中的订单</li>
-                <li class="con_t_item">已完成的订单</li>
+                <li class="con_t_item">已完成的订单</li> -->
                 <li class="con_t_search">
                     <div class="t_sea">
                         <input type="text" placeholder="请输入您要查找的订单号">
@@ -40,9 +42,15 @@
 export default {
     data(){
         return{
-
+          nav: ["全部订单", "未付款订单", "已预约的订单","交接中的订单","已完成的订单"],
+          num:0
         }
     },
+     methods: {
+        tab(i) {
+           this.num = i;
+    }
+}
 }
 </script>
 <style>
@@ -81,7 +89,7 @@ export default {
     border: 1px solid #efefef;
     color: #949494;
 }
-.con_t_item:hover{
+.active{
     background-color: #fff;
     color: #696969;
     border-top: 2px solid #1b7fc3;

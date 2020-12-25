@@ -30,11 +30,13 @@
         </div>
         <div class="manage_con">
             <ul class="con_t">
-                <li class="con_t_item">资金明细</li>
-                <li class="con_t_item">我要提现</li>
+                <li class="con_t_item" v-for="(item,i) in titles" :key="i"
+                v-bind:class="{active:i == num}" 
+                @click="tab(i)">{{item}}</li>
+                <!-- <li class="con_t_item">我要提现</li>
                 <li class="con_t_item">绑定银行卡</li>
                 <li class="con_t_item">发票索取</li>
-                <li class="con_t_item">我的押金</li>
+                <li class="con_t_item">我的押金</li> -->
             </ul>
             
             <div class="content">
@@ -51,9 +53,16 @@ export default{
     data(){
         return{
             msg:'这是测试内容',
-            tabPosition: 'left'
-              }
+            tabPosition: 'left',
+            titles:["资金明细","我要提现","绑定银行卡","发票索取","我的押金"],
+            num:0
+            }
    },
+   methods:{
+       tab(i){
+           this.num=i;
+       }
+   }
 }
 </script>
 <style scoped>
@@ -153,7 +162,7 @@ export default{
     border: 1px solid #efefef;
     color: #949494;
 }
-.con_t_item:hover{
+.active{
     background-color: #fff;
     color: #696969;
     border-top: 2px solid #1b7fc3;
