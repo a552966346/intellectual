@@ -64,6 +64,7 @@
               >确认发布</el-button
             >
             <el-button
+            @click="kefu"
               type="primary"
               style="
                 border: 1px solid #ceaa88;
@@ -78,10 +79,14 @@
         </el-form>
       </div>
     </div>
+    <div class="tanchuang" v-show="isshow" @click.self="shows">
+            <v-customer @shows="shows"></v-customer>
+    </div>
   </div>
 </template>
 
 <script>
+import customer from '@/components/customers/customer_services.vue'
 export default {
   data() {
     return {
@@ -91,14 +96,25 @@ export default {
         num:'',
         tel:'',
         haoma:''
-      }
+      },
+      isshow:false,
     };
   },
   methods:{
     close(){
       console.log(123)
       this.$emit("close")
-    }
+    },
+    kefu(){
+            this.close()
+            this.isshow=true
+    },
+    shows(){
+            this.isshow = false
+    },
+  },
+  components:{
+          'v-customer':customer
   }
 };
 </script>

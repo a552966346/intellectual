@@ -8,8 +8,8 @@
                     <p>联系客服帮您找</p>
                 </a>
                 <span>或</span>
-                <a href="#">
-                    <p style="background-color:#3c568f">发布求购需求</p>
+                <a href="#" >
+                    <p @click="tankuang" style="background-color:#3c568f">发布求购需求</p>
                 </a>
             </div>
             <div class="transfer_dash">
