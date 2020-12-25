@@ -50,6 +50,25 @@
 </template>
 
 <script>
+export default {
+    data(){
+        return{
+            hove:''
+        }
+    },
+     mounted() {
+        let id = this.$route.query.id
+        console.log(id)
+        this.$api.hotnews(id)
+                .then(res => {
+                        // console.log(321)
+                        console.log(res)
+                        this.hotnews = res.data
+                        
+                })
+      
+            }
+}
 </script>
 
 <style scoped>

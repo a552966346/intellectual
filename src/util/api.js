@@ -421,6 +421,10 @@ const api = {
             id: id
         }
         return requestAll.requset(baseUrl + '/api/index/newsdetails',data);
+    },
+    // 技术转移推荐
+    hotnews(){
+        return requestAll.requset(baseUrl + '/api/Technology/hotdata');
     }
 }
 
