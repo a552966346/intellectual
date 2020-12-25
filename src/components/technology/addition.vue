@@ -9,18 +9,23 @@
                                         <span>{{item.title}}</span>
                                 </p>
                                 <p>{{item.cont}}</p>
-                                <p>
-                                        <router-link to="">
+                                <p @click="tankuang">
+                                       
                                              <span>了解详情</span>
                                              <img src="../../../static/img/technology/jiantou.png" alt="">
-                                        </router-link>
+                                        
                                 </p>
                         </div>
+                </div>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
                 </div>
         </div>
 </template>
 
 <script>
+        import customer from '@/components/customers/customer_services.vue'
+
         export default {
                 // 组件中接受的值
                 props: {
@@ -30,11 +35,20 @@
                 },
                 data() {
                         return {
-                                active: 0
+                                active: 0,
+                                isshow:false
                         }
                 },
                 methods: {
-
+                        tankuang(){
+                                this.isshow=true
+                        },
+                        shows(){
+                                this.isshow = false
+                        },
+                },
+                components:{
+                        'v-customer':customer
                 }
         }
 </script>
@@ -51,7 +65,7 @@
        .item_content>p:nth-child(1)>img{height: 25px;width: 25px;margin-top: 3px;margin-right: 10px;}
        .item_content>p:nth-child(2){font-size: 14px;color: #757575;margin-bottom: 30px;line-height: 22px;}
        .item_content>p:nth-child(3){font-size: 18px;display: flex;align-items: center;}
-       .item_content>p:nth-child(3) a{display: flex;align-items: center;color: #757575;}
+       .item_content>p:nth-child(3) {display: flex;align-items: center;color: #757575;cursor: pointer;}
        .item_content>p:nth-child(3) img{width: 70px;height: 20px;}
 
        .item:hover{box-shadow: 0 0px 5px 5px rgba(212, 224, 240, 0.9);}
