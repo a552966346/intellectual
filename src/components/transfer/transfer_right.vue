@@ -6,14 +6,14 @@
                             <router-link :to="'/transfer'"><span>更多<img src="../../../static/img/transfer/transfer_right.png" alt=""></span></router-link> </p>
                     </div>
                     <div class="transfer_pro" >
-                        <div class="transfer_more" v-for="(item,index) in hots" @mouseover="isshow(index)" @mousedown="isshows">
+                        <div class="transfer_more" v-for="(item,index) in hots" @mouseover="isshow_two(index)" @mousedown="isshows_two">
                             <div class="transfer_zhao">
                                 <img :src="item.images" alt="">
                             </div>
                             <span>{{item.name}}</span>
                             <div class="transfer_jia" v-show="!(shows==index)">
                                 <span v-if="item.fee>=10000">{{(item.fee)/10000}}万元</span>
-                                <span v-else>{{item.fee}}�/span>
+                                <span v-else>{{item.fee}}</span>
                                 <span style="font-weight:300;">不限</span>
                             </div>
                             <div class="transfer_foo" v-show="shows==index">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="tanchuang" v-show="isshow" @click.self="shows">
-                        <v-customer @shows="shows"></v-customer>
+                        <v-customer @shows="showst"></v-customer>
                 </div>
         </div>
 </template>
@@ -37,7 +37,7 @@ export default {
     data(){
         return{
             hots:[],
-            shows:undefined
+            shows:'',
             isshow:false
         }
     },
@@ -52,19 +52,19 @@ export default {
 
             },
             methods:{
-                    isshow(index){
+                    isshow_two(index){
                         this.shows = index
                     },
-                    isshows(){
+                    isshows_two(){
                      this.shows =undefined
-                    }
-    methods:{
-        tankuang(){
-                this.isshow=true
-        },
-        shows(){
-                this.isshow = false
-        },
+                    },
+                    tankuang(){
+                            this.isshow=true
+                    },
+                    showst(){
+                            this.isshow = false
+                    },
+
     },
     components:{
             'v-customer':customer
