@@ -5,13 +5,14 @@
                         <p>相关成果推荐 <span>更多<img src="../../../static/img/transfer/transfer_right.png" alt=""></span> </p>
                     </div>
                     <a class="transfer_pro" href="#">
-                        <div class="transfer_more">
+                        <div class="transfer_more" v-for="(item,index) in hots">
                             <div class="transfer_zhao">
-                                <img src="https://cdn.yuzhua.com/data/upload/2020-03-16/5e6f46dc89e29.gif" alt="">
+                                <img :src="item.images" alt="">
                             </div>
-                            <span>透气性医用手套用复合材料及其制备方法</span>
+                            <span>{{item.name}}</span>
                             <div class="transfer_jia">
-                                <span>5.24万</span>
+                                <span v-if="item.fee>=10000">{{(item.fee)/10000}}</span>
+                                <span v-else>{{item.fee}}</span>
                                 <span style="font-weight:300;">不限</span>
                             </div>
                             <div class="transfer_foo">
@@ -27,6 +28,23 @@
 </template>
 
 <script>
+export default {
+    data(){
+        return{
+            hots:[]
+        }
+    },
+     mounted() {
+        this.$api.hottui()
+                .then(res => {
+                        console.log(321)
+                        console.log(res)
+                        this.hots = res.data
+                        
+                })
+      
+            }
+}
 </script>
 
 <style>
@@ -76,6 +94,7 @@
        }
        .transfer_zhao{
            width: 200px;
+           margin: 0 auto;
        }
        .transfer_more img{
           width: 100%;

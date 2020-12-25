@@ -456,6 +456,10 @@ const api = {
     },
     getnewsnew(){
         return requestAll.requset(baseUrl + '/api/index/randomnews');
+    },
+    //热门推荐
+    hottui(){
+        return requestAll.requset(baseUrl + '/api/Technology/hotrecommend');
     }
 }
 

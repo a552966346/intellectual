@@ -2,49 +2,54 @@
         <div id="hover_right">
                 <div class="hover_recommend">
                     <div class="hover_cheng">
-                        <p>热门需求 <span>更多<img src="../../../static/img/transfer/transfer_right.png" alt=""></span> </p>
+                        <p>热门需求
+                            <router-link  :to="'/transfer'"><span>更多<img src="../../../static/img/transfer/transfer_right.png" alt=""></span></router-link>  </p>
                     </div>
-                    <a class="hover_pro" href="#">
+                    <!-- <a class="hover_pro" href="#"> -->
                         <div class="hover_more">
-
                             <div class="hover_jia">
-                                <div class="one"><div style="background-color: #FA6B75;">1</div><span>电子产品类技术需求</span></div>
+                                <div class="one"><div style="background-color: #FA6B75;">1</div><span>{{hot[0].name}}</span></div>
                                 <div class="two">
-                                        <span>面议</span>
-                                        <span style="font-weight:300;">04-02</span>
+                                        <span v-if="hot[0].fee>=10000">{{(hot[0].fee)/10000}}</span>
+                                        <span v-else>{{hot[0].fee}}</span>
+                                        <span style="font-weight:300;">{{hot[0].creatime_text}}</span>
                                 </div>
                             </div>
                             <div class="hover_jia">
-                                <div class="one"><div  style="background-color: #F97A37;">2</div><span>电子产品类技术需求</span></div>
+                                <div class="one"><div  style="background-color: #F97A37;">2</div><span>{{hot[1].name}}</span></div>
                                 <div class="two">
-                                        <span>面议</span>
-                                        <span style="font-weight:300;">04-02</span>
+                                        <span v-if="hot[1].fee>=10000">{{(hot[0].fee)/10000}}</span>
+                                        <span v-else>{{hot[1].fee}}</span>
+                                        <span style="font-weight:300;">{{hot[1].creatime_text}}</span>
                                 </div>
                             </div>
                             <div class="hover_jia">
-                                <div class="one"><div  style="background-color: #FAC539;">3</div><span>电子产品类技术需求</span></div>
+                                <div class="one"><div  style="background-color: #FAC539;">3</div><span>{{hot[2].name}}</span></div>
                                 <div class="two">
-                                        <span>面议</span>
-                                        <span style="font-weight:300;">04-02</span>
+                                        <span v-if="hot[2].fee>=10000">{{(hot[0].fee)/10000}}</span>
+                                        <span v-else>{{hot[2].fee}}</span>
+                                        <span style="font-weight:300;">{{hot[2].creatime_text}}</span>
                                 </div>
                             </div>
                             <div class="hover_jia">
-                                <div class="one"><div style="background-color: #ccc;">4</div><span>电子产品类技术需求</span></div>
+                                <div class="one"><div style="background-color: #ccc;">4</div><span>{{hot[3].name}}</span></div>
                                 <div class="two">
-                                        <span>面议</span>
-                                        <span style="font-weight:300;">04-02</span>
+                                        <span v-if="hot[3].fee>=10000">{{(hot[0].fee)/10000}}</span>
+                                        <span v-else>{{hot[3].fee}}</span>
+                                        <span style="font-weight:300;">{{hot[3].creatime_text}}</span>
                                 </div>
                             </div>
                             <div class="hover_jia">
-                                <div class="one"><div style="background-color: #ccc;">5</div><span>电子产品类技术需求</span></div>
+                                <div class="one"><div style="background-color: #ccc;">5</div><span>{{hot[4].name}}</span></div>
                                 <div class="two">
-                                        <span>面议</span>
-                                        <span style="font-weight:300;">04-02</span>
+                                        <span v-if="hot[4].fee>=10000">{{(hot[0].fee)/10000}}</span>
+                                        <span v-else>{{hot[4].fee}}</span>
+                                        <span style="font-weight:300;">{{hot[4].creatime_text}}</span>
                                 </div>
                             </div>
 
                         </div>
-                    </a>
+                    <!-- </a> -->
                 </div>
         </div>
 </template>
@@ -53,17 +58,17 @@
 export default {
     data(){
         return{
-            hove:''
+            hot:[]
         }
     },
      mounted() {
         let id = this.$route.query.id
-        console.log(id)
+        // console.log(id)
         this.$api.hotnews(id)
                 .then(res => {
                         // console.log(321)
                         console.log(res)
-                        this.hotnews = res.data
+                        this.hot = res.data
                         
                 })
       
@@ -79,6 +84,9 @@ export default {
            width: 100%;
            padding: 10px;
            line-height: 30px;
+       }
+       a{
+           color: #fff;
        }
        .hover_cheng>p{
                display: flex;
