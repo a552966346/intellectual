@@ -52,14 +52,14 @@ import userid from '@/page/usercenter/id' //个人账号设置
 import usermessage from '@/page/usercenter/message' //个人全部信息
 import usercontract from '@/page/usercenter/contract' //个人我的合同
 import test from '@/page/test/test' //测试页面
-import activity from '@/page/activity/activity' //测试页面
+import activity from '@/page/activity/activity' //跳蚤市场页面
 import about from '@/page/about/about' //关于我们
 import navcter from '@/components/navcter/navcter' //关于我们
 import transfer from '@/page/transfer/transfer'
 import technology from '@/page/technology/technology' //技术转移
-import yuan from '@/page/yuan/yuan' //技术转移
+import yuan from '@/page/yuan/yuan' //测试页面
 import trys from '@/page/trys/trys' 
-import paydetial from '@/page/paycenter/paydetial'
+import paydetial from '@/page/paycenter/paydetial'//购买详情页
 import shopcart from '@/page/shopcart/shopcart' //购物车
 import newsint from '@/page/news/newsint' //新闻联系
 

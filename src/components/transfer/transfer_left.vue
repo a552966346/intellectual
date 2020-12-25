@@ -75,10 +75,10 @@
                                                                 alt=""></div>
                                                 <div><img src="../../../static/img/transfer/transfer_zhuanf.png"
                                                                 alt=""></div>
-                                                <button>
+                                                <button @click="tankuang">
                                                         <img src="../../../static/img/transfer/transfer_kefu.png"
                                                                 alt="">
-                                                        <p>联系客服</p>
+                                                        <p >联系客服</p>
                                                 </button>
                                         </div>
                                 </div>
@@ -93,10 +93,15 @@
                 <div v-else>
                         <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p>
                 </div>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
+                </div>
         </div>
 </template>
 
 <script>
+        import customer from '@/components/customers/customer_services.vue'
+
         export default {
                 data() {
                         return {
@@ -108,7 +113,8 @@
                                         name: '发布时间'
                                 }],
                                 active: 0,
-                                currentPage:1  //当前页
+                                currentPage:1 , //当前页
+                                isshow:false
                         }
                 },
                 props:{
@@ -125,9 +131,20 @@
                         },
                         handleCurrentChange(val) {
                                 console.log(`当前页: ${val}`);
-                        }
+                        },
+                        tankuang(){
+                                this.isshow=true
+                        },
+                        shows(){
+                                this.isshow = false
+                        },
 
+                },
+                components:{
+                        'v-customer':customer
                 }
+
+                
         }
 </script>
 
@@ -303,6 +320,7 @@
                 border: none;
                 outline: none;
                 background-color: #F1F5FE;
+                cursor: pointer;
         }
 
         .text_leixin_right>button>img {

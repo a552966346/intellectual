@@ -69,5 +69,6 @@
                 flex: 1;
                 /* text-align: center; */
                 font-size: 16px!important;
+                text-align: center;
         }
 </style>

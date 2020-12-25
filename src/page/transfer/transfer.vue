@@ -1,12 +1,4 @@
 <template>
-</template>
-
-<script>
-</script>
-
-<style>
-</style>
-<template>
        <div>
                 <v-topsearch></v-topsearch>
                <div id="transfer">
