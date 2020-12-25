@@ -13,10 +13,10 @@
                                 </div>
                                 <div class="shopcart_zsdcet" v-for="(item,index) in zsdlist" :key="index">
                                     <div class="shopcart_zsdcetlet">
-                                        <el-checkbox v-model="item.checkModel" @change="handleCheckItemChange" style="vertical-align:top;margin-top:20px;"></el-checkbox>
+                                        <el-checkbox v-model="item.checkModel"  @change="handleCheckItemChange" style="vertical-align:top;margin-top:20px;"></el-checkbox>
                                         <div class="shopcart_zsdcettop">
                                             <div class="shopcart_zsdcettopimg">
-                                                <img src="../../../static/img/shop/shop_one.png" alt="">
+                                                <img :src="item.product.images" alt="">
                                             </div>
                                             <div class="shopcart_zsdcettopfot">
                                                 <div class="shopcart_zsdcettopfotbox">
@@ -26,33 +26,36 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="shopcart_zsdcetret">
+                                    <div class="shopcart_zsdcetret">    
                                         <div class="shopcart_zsdcetrettop">
-                                            商品名称
+                                            {{item.product.name}}
                                         </div>
-                                        <div class="shopcart_zsdcetretcet" v-for="(item,index) in wdlist" :key="index">
-                                            {{item.text}}
+                                        <div class="shopcart_zsdcetretcet">
+                                            {{item.product.sketch}}
                                         </div>
+                                        <!-- <div class="shopcart_zsdcetretcet" v-for="(items,indexs) in item.sketch" :key="indexs">
+                                             {{items}}
+                                        </div> -->
                                     </div>
                                     <div class="shopcart_zsdceterrn">
-                                        <div>￥28000.00</div>
+                                        <div>￥{{item.product.fee}}</div>
                                     </div>
                                     <div class="shopcart_zsdcefhtea">
                                         <el-input-number class="shopcart_zsdcefhin" size="mini" v-model="num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
                                     </div>
                                     <div class="shopcart_zsdcefviet">
-                                        <div>￥28000</div>
+                                        <div>￥{{item.product.fee}}</div>
                                     </div>
                                 </div>
                                 <div class="shopcart_zsdfot">
                                     <div class="shopcart_zsdfotlet">
                                         <el-checkbox v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
-                                        <div class="shopcart_zsall">删除</div>
+                                        <div class="shopcart_zsall" @click="dele">删除</div>
                                         <div class="shopcart_zsall">移入收藏夹</div>
                                     </div>
                                     <div class="shopcart_zsdfotret">
-                                        <div>已选择0件</div>
-                                        <div>共计:￥0.00</div>
+                                        <div>已选择<span>{{checkedNum}}</span>件</div>
+                                        <div>共计:￥<span>{{cartTotalPrice}}</span></div>
                                         <div class="shopcart_zsdfotretmt">
                                              <router-link class="shopcart_zsdfotretzf" to="/paydetia">去结算</router-link>
                                         </div>
@@ -81,12 +84,14 @@
                 name:'service',
                 data(){
                         return{
-                            zsdlist:[{checkModel:false,},{checkModel:false,},{checkModel:false,},{checkModel:false,},{checkModel:false,}],
-                            wdlist:[{text:'专利行业：包装印刷'},{text:'专利注册号：201510233066x'},{text:'专利状态：已下证'},{text:'商品编号：640HA8F72860703XIPI5933'}],
+                            zsdlist:[{checkModel:false,id:'',num:'',product:[{breviary_image:'',category_id:'',categoryid_text:'',content:'',contenttitle:'',creatime_text:''}]}],
                             num: 1,
                             checkAll:false,
                             checkedAllShops:[],
                             checkItemData:[],
+                            uid:'',
+                            checkedNum:0,
+                            cartTotalPrice:0,
                         }
                 },
                 components:{
@@ -99,16 +104,56 @@
                     'v-guarantee':guarantee,//服务保障
                     'v-advantage':advantage//服务优势   
                 },
+                mounted(){
+                    this.ispost()
+                },
                 methods:{
                     handleChange(value) {
-                        console.log(value);
+                    },
+                    ispost(){
+                        let user =JSON.parse(sessionStorage['user']); 
+                     this.uid = user.id;
+                     this.$api.shopdata(this.uid)
+                     .then(res=>{
+                        console.log((res.data));
+                        this.zsdlist = res.data;
+                     })
                     },
                     handleCheckAllChange(val){
                         this.zsdlist.map((item,i)=>{
                             item.checkModel = val;
+                            if(item.checkModel = val){
+                                this.checkedNum = this.zsdlist.length;
+                                let snlist = [];let sum = 0;
+                                snlist = this.zsdlist.filter(function(item){
+                                    return item.checkModel == true;
+                                });
+                                snlist.forEach(function(item){  
+                                    sum += sum +Number(item.product.fee);
+                                }); 
+                                this.cartTotalPrice = sum;
+                            }else{
+                                this.checkedNum = 0;
+                                this.cartTotalPrice = 0;
+                            }
+                            
                         })
                     },
                     handleCheckItemChange(val){
+                        console.log(val)
+                        if(val == true){
+                            this.checkedNum++;
+                        }else if(val == false){
+                            this.checkedNum--;
+                        }
+                        let snlist = [];let sum = 0;
+                        snlist = this.zsdlist.filter(function(item){
+                            return item.checkModel == true;
+                        });
+                        snlist.forEach(function(item){  
+                            sum += sum +Number(item.product.fee);
+                        }); 
+                        this.cartTotalPrice = sum;
                         for(let i = 0,l = this.zsdlist.length;i < l;i ++){
                             if(this.zsdlist[i].checkModel !== val){
                                 this.checkAll = false;
@@ -116,6 +161,24 @@
                             }
                         }
                         this.checkAll = val;
+                    },
+                    dele(uid){
+                         let user =JSON.parse(sessionStorage['user']); 
+                        uid = user.id;
+                        console.log(uid);
+                        let snlist = [];let id = '';
+                        snlist = this.zsdlist.filter(function(item){
+                            return item.checkModel == true;
+                        });
+                        snlist.forEach(function(item){  
+                            id = item.id;
+                        }); 
+                        this.$api.deletecart(id,uid)
+                        .then(res=>{
+                            console.log((res));
+                            this.ispost()
+                            this.$forceUpdate();
+                        })
                     }
                 }
         }

@@ -391,6 +391,31 @@ const api = {
                 // page:page
             }
             return requestAll.requset(baseUrl + '/api/index/search', data);
+    },
+     // 添加购物车
+     getshop(product_id,type,number,uid){
+        let data = {
+            product_id: product_id,
+            type:type,
+            number:number,
+            uid:uid
+        }
+        return requestAll.requset(baseUrl + '/api/order/addcart', data);
+    },
+     // 购物车数据
+     shopdata(uid){
+        let data = {
+            uid:uid
+        }
+        return requestAll.requset(baseUrl + '/api/order/datacart', data);
+    },
+    // 删除购物车数据
+    deletecart(id,uid){
+        let data = {
+            id:id,
+            uid:uid
+        }
+        return requestAll.requset(baseUrl + '/api/order/deletecart', data);
     }
 }
 

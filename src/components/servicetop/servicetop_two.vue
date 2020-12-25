@@ -113,18 +113,17 @@
                                         this.isnub++
 
                         },
-                        shop(id){
-                                console.log(id)
-                                 this.$api.getshop(id,1,1)
+                        shop(id,nub,uid){
+                                let user =JSON.parse(sessionStorage['user']); 
+                                uid = user.id;
+                                nub = this.nub;
+                                this.$api.getshop(id,1,nub,uid)
                                 .then(res=>{
-                                     if(res.msg == 1){
+                                     if(res.code == 1){
                                         console.log(res.data)
                                      }else{
                                         console.log(res.msg)
                                      }
-                                })
-                                .catch(err => {
-                                    console.log(err)
                                 })
                                 this.$router.push({
                                         path:'/shopcart',
@@ -132,7 +131,7 @@
                                                 id:id
                                         }
                                 })
-                        }
+                        },
                 }
 	}
 </script>

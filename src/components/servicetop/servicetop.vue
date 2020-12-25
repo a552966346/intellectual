@@ -59,7 +59,8 @@
                 data() {
                         return {
                                 // qiye: '企业知识产贯标',
-                                nub: 1
+                                nub: 1,
+                                uid:1
                         }
                 },
                 props: {
@@ -81,19 +82,18 @@
                                         this.nub = 0
                                 }
                         },
-                        shop(id){
-                                this.$api.getshop(id,1,1)
+                        shop(id,nub,uid){
+                                let user =JSON.parse(sessionStorage['user']); 
+                                uid = user.id;
+                                nub = this.nub;
+                                this.$api.getshop(id,1,nub,uid)
                                 .then(res=>{
-                                     if(res.msg == 1){
+                                     if(res.code == 1){
                                         console.log(res.data)
                                      }else{
                                         console.log(res.msg)
                                      }
                                 })
-                                .catch(err => {
-                                    console.log(err)
-                                })
-
                                 this.$router.push({
                                         path:'/shopcart',
                                         query:{
