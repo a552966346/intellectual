@@ -69,11 +69,7 @@
                 data() {
                         return {
                                 nub:1,
-<<<<<<< HEAD
                                 isshow:false
-=======
-                                uid:1
->>>>>>> e8a5cdbccbe5a4fe7c401d22dedcecf60b3ecb7b
                         }
                 },
                 props: {
@@ -120,7 +116,7 @@
                 components:{
                         'v-customer':customer
 =======
->>>>>>> e8a5cdbccbe5a4fe7c401d22dedcecf60b3ecb7b
+>>>>>>> 66c9cc53e18298e3330f0d17e2511672e7fa6440
                 }
         }
 </script>

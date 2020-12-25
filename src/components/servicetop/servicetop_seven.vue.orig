@@ -13,48 +13,101 @@
                                         <h3>{{top_data.name}}</h3>
                                         <p><span>创建时间：{{top_data.creatime_text}}</span></p>
                                 </div>
+                                <div class="topBody_lei_two">
+                                        <div >
+                                                <p>主题：</p>
+                                                <div>
+                                                        <p>{{top_data.theme_text}}</p>
+                                                </div>
+                                        </div>
+                                </div>
                                 <div class="topBody">
                                         <div class="topBody_lei">
                                                 <div>
-                                                        <p>行业分类</p>
-                                                        <p>{{top_data.categoryid_text}}</p>
+                                                        <p>所属类别</p>
+                                                        <p>{{title.name}}</p>
                                                 </div>
                                                 <div>
-                                                        <p>应用领域</p>
-                                                        <p v-if="top_data.territory == 0">高技术服务</p>
-                                                        <p v-else-if="top_data.territory == 1">建筑业</p>
-                                                        <p v-else-if="top_data.territory==2">新材料</p>
-                                                        <p v-else-if="top_data.territory == 3">新能源与节能</p>
-                                                        <p v-else-if="top_data.territory == 4">环境与资源</p>
-                                                        <p v-else-if="top_data.territory == 5">现代农业</p>
-                                                        <p v-else-if="top_data.territory == 6">生物与新医药</p>
-                                                        <p v-else-if="top_data.territory == 7">航天航空</p>
-                                                        <p v-else-if="top_data.territory == 8">其他</p>
+                                                        <p>授权地区 </p>
+                                                        <div>
+                                                                <p v-for="item in top_data.region">
+                                                                        <span v-if="item == 0">全球</span>
+                                                                        <span v-else-if="item == 1">中国大陆</span>
+                                                                        <span v-else-if="item==2">港澳台</span>
+                                                                </p>
+                                                        </div>
                                                 </div>
                                                 <div>
-                                                        <p>技术类型</p>
-                                                        <p v-if="top_data.type == 0">非专利</p>
-                                                        <p v-else-if="top_data.type == 1">发明专利</p>
-                                                        <p v-else-if="top_data.type==2">实用新型专利</p>
-                                                        <p v-else-if="top_data.type == 3">外观专利</p>
-                                                        <p v-else-if="top_data.type == 4">版权</p>
+                                                        <p>授权方式</p>
+                                                        <p v-if="top_data.is_exclusive == 1">独家</p>
+                                                        <p v-else-if="top_data.is_exclusive == 2">非独家</p>
+                                                </div>
+                                                <div>
+                                                        <p>所属地区</p>
+                                                        <div>
+                                                                <p v-for="item in top_data.affiliating">
+                                                                        <span v-if="item == 0">全球</span>
+                                                                        <span v-else-if="item == 1">中国大陆</span>
+                                                                        <span v-else-if="item==2">港澳台</span>
+                                                                </p>
+                                                        </div>
+
+                                                </div>
+                                                <div>
+                                                        <p>所属年代</p>
+                                                        <p v-if="top_data.chronology == 0">80年代</p>
+                                                        <p v-else-if="top_data.chronology == 1">90年代</p>
+                                                        <p v-else-if="top_data.chronology==2">2000-2005</p>
+                                                        <p v-else-if="top_data.chronology == 3">2005-2010</p>
+                                                        <p v-else-if="top_data.chronology == 4">2010-至今</p>
                                                 </div>
 
                                                 <div>
-                                                        <p>成熟程度</p>
-                                                        <p v-if="top_data.maturity == 0">正在研发</p>
-                                                        <p v-else-if="top_data.maturity == 1">已有样品</p>
-                                                        <p v-else-if="top_data.maturity==2">通过小试</p>
-                                                        <p v-else-if="top_data.maturity == 3">通过中试</p>
-                                                        <p v-else-if="top_data.maturity == 4">可以量产</p>
+                                                        <p>专利状态</p>
+                                                        <p v-if="top_data.condition == 1">授权未下证</p>
+                                                        <p v-else-if="top_data.condition==2">已下证</p>
+
                                                 </div>
                                                 <div>
-                                                        <p>交易方式</p>
-                                                        <p v-if="top_data.means == 0">完全转让</p>
-                                                        <p v-else-if="top_data.means == 1">许可转让</p>
-                                                        <p v-else-if="top_data.means==2">技术入股</p>
+                                                        <p>出售 OR 授权</p>
+                                                        <p v-if="top_data.sell == 1">出售</p>
+                                                        <p v-else-if="top_data.sell==2">授权</p>
+                                                </div>
+                                                <div>
+                                                        <p>交易方式 </p>
+                                                        <div>
+                                                                <p v-for="item in top_data.meanstype">
+                                                                        <span v-if="item ==1">转让</span>
+                                                                        <span v-else-if="item == 2">授权</span>
+                                                                        <span v-else-if="item==3">分账</span>
+                                                                </p>
+                                                        </div>
                                                 </div>
                                         </div>
+                                        <div class="topBody_lei_two">
+                                                <div >
+                                                        <p>授权范围：</p>
+                                                        <div>
+                                                                <p v-for="item in top_data.scope">
+                                                                        <span v-if="item == 1">全部版权</span>
+                                                                        <span v-else-if="item==2">复制权</span>
+                                                                        <span v-else-if="item == 3">发行权</span>
+                                                                        <span v-else-if="item == 4">出租权</span>
+                                                                        <span v-else-if="item == 5">展览权</span>
+                                                                        <span v-else-if="item==6">表演权</span>
+                                                                        <span v-else-if="item == 7">放映权</span>
+                                                                        <span v-else-if="item == 8">广播权</span>
+                                                                        <span v-else-if="item == 9">信息网络传播权</span>
+                                                                        <span v-else-if="item==10">摄制权</span>
+                                                                        <span v-else-if="item == 11">改编权</span>
+                                                                        <span v-else-if="item == 12">翻译权</span>
+                                                                        <span v-else-if="item == 13">汇编权</span>
+                                                                        <span v-else-if="item == 14">其他</span>
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                        </div>
+
                                         <div class="topBody_money">
                                                 <img src="" alt=""><span>价格</span>
                                                 <div class="topBody_money_text">
@@ -107,7 +160,7 @@
                 props: {
                         title: '',
                         top_data: '',
-                        image: ''
+                        image: '',
                 },
                 mounted() {
 
@@ -121,11 +174,11 @@
                         but1() {
                                         this.nub++
                         },
-                        shop(id,nub,uid){
+                         shop(id,nub,uid){
                                 let user =JSON.parse(sessionStorage['user']); 
                                  uid = user.id;
                                  nub = this.nub;
-                                this.$api.getshop(id,5,nub,uid)
+                                this.$api.getshop(id,4,nub,uid)
                                 .then(res=>{
                                      if(res.code == 1){
                                         console.log(res.data)
@@ -191,6 +244,7 @@
                 height: 100%;
         }
 
+
         .topRight {
                 flex: 5;
                 padding: 11px 20px;
@@ -203,7 +257,7 @@
         }
 
         .topHeader>p:nth-child(2) {
-                padding: 5px 0 40px 0;
+                padding: 5px 0 10px 0;
                 width: 100%;
                 border-bottom: 1px solid #ddd;
                 color: #838a92;
@@ -229,13 +283,31 @@
 
         .topBody_lei {
                 display: flex;
-                padding: 20px 0;
+                flex-wrap: wrap;
         }
-
+        .topBody_lei_two>div{
+                display: flex;
+                /* flex-direction: column; */
+                width: 100%;
+        }
+        .topBody_lei_two>div>p{
+                color: #444;
+                padding: 5px 0;
+                font-size: 14px;
+        }
+         .topBody_lei_two>div>div{
+                 display: flex;
+         }
+        .topBody_lei_two>div>div>p{
+                color: #aaa;
+                padding: 5px;
+                font-size: 14px;
+        }
         .topBody_lei>div {
-                flex: 1;
+                width: 20%;
                 border-right: 1px solid #ddd;
-                margin-right: 30px;
+                margin-right: 15px;
+                margin-bottom: 10px;
         }
 
         .topBody_lei>div:last-child {
@@ -244,14 +316,22 @@
 
         .topBody_lei>div>p:nth-child(1) {
                 font-size: 15px;
+                color: #444;
+        }
+        .topBody_lei>div>p{
+                display: flex;
+                font-size: 15px;
                 color: #aaa;
         }
-
-        .topBody_lei>div>p:nth-child(2) {
-                font-size: 15px;
-                color: #111111;
+        .topBody_lei>div>div{
+                display: flex;
         }
-
+        .topBody_lei>div>div>p{
+                display: flex;
+                font-size: 15px;
+                color: #aaa;
+                padding-right: 5px;
+        }
         .topBody_money {
                 padding: 10px 20px;
                 background-color: #FFF4F0;
@@ -366,7 +446,7 @@
         }
 
         .left_but>button>p>img {
-               width: 15px;
+                width: 15px;
         }
 
         .bottom_right {

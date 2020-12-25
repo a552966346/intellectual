@@ -415,6 +415,7 @@ const api = {
             }
             return requestAll.requset(baseUrl + '/api/index/search', data);
     },
+<<<<<<< HEAD
      // 添加购物车
      getshop(product_id,type,number,uid){
         let data = {
@@ -433,23 +434,20 @@ const api = {
         return requestAll.requset(baseUrl + '/api/order/datacart', data);
     },
     // 删除购物车数据
-    deletecart(ids,uid){
+    deletecart(id,uid){
         let data = {
-            ids:ids,
+            id:id,
             uid:uid
         }
         return requestAll.requset(baseUrl + '/api/order/deletecart', data);
-    },
-    //新聞聯係
+=======
+    //新闻联系
     getnews(id){
         let data = {
-            id:id
+            id: id
         }
-        return requestAll.requset(baseUrl +'/api/index/newsdetails',data);
-    },
-    // 技术转移推荐
-    hotnews(){
-        return requestAll.requset(baseUrl + '/api/Technology/hotdata');
+        return requestAll.requset(baseUrl + '/api/index/newsdetails',data);
+>>>>>>> 6271a80ca5b6508e9f0f7f6ac997a16092ca4baf
     }
 }
 

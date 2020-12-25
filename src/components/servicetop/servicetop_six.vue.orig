@@ -11,48 +11,30 @@
                         <div class="topRight">
                                 <div class="topHeader">
                                         <h3>{{top_data.name}}</h3>
-                                        <p><span>创建时间：{{top_data.creatime_text}}</span></p>
+                                        <p><span>创建时间：{{top_data.creatime_text}}</span>|<span>专利号：{{top_data.number}}
+                                                        <!-- <span>复制</span> --></span>|<span>申请时间：{{top_data.application_text}}</span>|<span>注册年限：{{top_data.yearsnumber_text}}</span></p>
                                 </div>
                                 <div class="topBody">
                                         <div class="topBody_lei">
                                                 <div>
                                                         <p>行业分类</p>
-                                                        <p>{{top_data.categoryid_text}}</p>
+                                                        <p>{{top_data.name}}</p>
                                                 </div>
                                                 <div>
-                                                        <p>应用领域</p>
-                                                        <p v-if="top_data.territory == 0">高技术服务</p>
-                                                        <p v-else-if="top_data.territory == 1">建筑业</p>
-                                                        <p v-else-if="top_data.territory==2">新材料</p>
-                                                        <p v-else-if="top_data.territory == 3">新能源与节能</p>
-                                                        <p v-else-if="top_data.territory == 4">环境与资源</p>
-                                                        <p v-else-if="top_data.territory == 5">现代农业</p>
-                                                        <p v-else-if="top_data.territory == 6">生物与新医药</p>
-                                                        <p v-else-if="top_data.territory == 7">航天航空</p>
-                                                        <p v-else-if="top_data.territory == 8">其他</p>
+                                                        <p>专利类型</p>
+                                                        <p v-if="top_data.patenttype==1">发明专利</p>
+                                                        <p v-if="top_data.patenttype==2">实用新型</p>
+                                                        <p v-if="top_data.patenttype==3">外观设计</p>
                                                 </div>
                                                 <div>
-                                                        <p>技术类型</p>
-                                                        <p v-if="top_data.type == 0">非专利</p>
-                                                        <p v-else-if="top_data.type == 1">发明专利</p>
-                                                        <p v-else-if="top_data.type==2">实用新型专利</p>
-                                                        <p v-else-if="top_data.type == 3">外观专利</p>
-                                                        <p v-else-if="top_data.type == 4">版权</p>
-                                                </div>
-
-                                                <div>
-                                                        <p>成熟程度</p>
-                                                        <p v-if="top_data.maturity == 0">正在研发</p>
-                                                        <p v-else-if="top_data.maturity == 1">已有样品</p>
-                                                        <p v-else-if="top_data.maturity==2">通过小试</p>
-                                                        <p v-else-if="top_data.maturity == 3">通过中试</p>
-                                                        <p v-else-if="top_data.maturity == 4">可以量产</p>
+                                                        <p>专利状态</p>
+                                                        <p v-if="top_data.condition == 1">授权未下证</p>
+                                                        <p v-if="top_data.condition == 2">已下证</p>
                                                 </div>
                                                 <div>
-                                                        <p>交易方式</p>
-                                                        <p v-if="top_data.means == 0">完全转让</p>
-                                                        <p v-else-if="top_data.means == 1">许可转让</p>
-                                                        <p v-else-if="top_data.means==2">技术入股</p>
+                                                        <p>出售 OR 授权</p>
+                                                        <p v-if="top_data.sell==1">出售</p>
+                                                        <p v-if="top_data.sell==2">授权</p>
                                                 </div>
                                         </div>
                                         <div class="topBody_money">
@@ -107,7 +89,8 @@
                 props: {
                         title: '',
                         top_data: '',
-                        image: ''
+                        image: '',
+                        name:''
                 },
                 mounted() {
 
@@ -125,7 +108,7 @@
                                 let user =JSON.parse(sessionStorage['user']); 
                                  uid = user.id;
                                  nub = this.nub;
-                                this.$api.getshop(id,5,nub,uid)
+                                this.$api.getshop(id,3,nub,uid)
                                 .then(res=>{
                                      if(res.code == 1){
                                         console.log(res.data)
@@ -191,8 +174,9 @@
                 height: 100%;
         }
 
+
         .topRight {
-                flex: 5;
+                flex: 4;
                 padding: 11px 20px;
         }
 
@@ -366,7 +350,7 @@
         }
 
         .left_but>button>p>img {
-               width: 15px;
+                width: 15px;
         }
 
         .bottom_right {

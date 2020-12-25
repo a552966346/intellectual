@@ -139,7 +139,7 @@
                                                                                         </div>
                                                                                 </div>
                                                                                 <div class="index_ulxwtwbklt">
-                                                                                        <div class="index_ulxwas">
+                                                                                        <div class="index_ulxwas1">
                                                                                                  {{item1.title}}
                                                                                         </div>
                                                                                         <div class="index_ulxwas">
@@ -733,18 +733,19 @@
       .index_ultw li{height: 470px;display: flex;justify-content: space-between;}
       .active{background-color: #187fc4;color: #fff;}
       .index_ulxwon{overflow: auto;width: 350px;height: 100%;background-color: #fff;display: flex;flex-direction: column;padding: 15px;}
-      .index_ulxwtw{width: 350px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;}
+      .index_ulxwtw{width: 350px;height: 100%;display: flex;align-content: center;flex-direction: column;}
       .index_ulxwtr{width: 430px;height: 100%;display: flex;justify-content: space-between;align-content: center;flex-direction: column;background-color: #fff;}
       .index_url{width: 100%;height: 235px;background-image: url(../../../static/img/index/index_nesinon.png);background-size: cover;}
       .index_urlq{font-size: 16px;padding-top: 20px;padding-bottom: 10px;color: #333;}
       .index_urlz p{overflow: hidden;line-height: 25px;color: #333;font-size: 12px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}
-     .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;}
+     .index_ulxwtwbk{width: 100%;height: 100px;background-color: #fff;display: flex;justify-content: center;align-content: center;flex-direction: row;margin-bottom: 15px;}
       .index_ulxwtwbklt{width: 50%;height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding-right: 8px;}
       .newa{display: flex;width: 100%;}
       .newa>div:nth-child(1){width: 30%;}
       .newa>div:nth-child(2){flex: 1;}
       .index_ulxwtwbkrt{height: 100%;display: flex;justify-content: center;align-content: center;flex-direction: column;padding: 15px;}
       .index_ulxwas{line-height: 1.7;padding-top: 5px; width: 100%;height: 70%;display: flex;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;color: #187fc4;padding-left: 20px;padding-right: 15px;}
+      .index_ulxwas1{padding-top: 5px; width: 100%;display: flex;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;color: #187fc4;padding-left: 20px;padding-right: 15px;}
       /* .index_ulxwasq{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;} */
       .idnex_ulxwtas{width: 100%;height: 60%;display: flex;justify-content: center;align-content: center;color: #187fc4;font-size: 18px;}
       .idnex_ulxwtasq{width: 100%;flex: 1;display: flex;justify-content: center;align-content: center;color: #187fc4;font-size: 24px;}
