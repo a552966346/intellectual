@@ -8,7 +8,7 @@
                                                 <p>联系客服帮您找</p>
                                         </a>
                                         <span>或</span>
-                                        <a href="#">
+                                        <a href="#"  @click="tanchuang">
                                                 <p style="background-color:#3c568f" >发布求购需求</p>
                                         </a>
                                 </div>
@@ -50,15 +50,20 @@
                 <div class="tanchuang" v-show="isshow" @click.self="shows">
                         <v-customer @shows="shows"></v-customer>
                 </div>
+                <div class="tanchuang" v-show="isshows" @click.self="shows" >
+                         <v-tanchuangsb @close="close" @fabu="fabu"></v-tanchuangsb>
+                </div>
         </div>
 </template>
 
 <script>
+        import tanchuangsb from '../../components/copyright/tanchuangsb.vue'//商标弹窗       
         import customer from '@/components/customers/customer_services.vue'
         export default {
                 data() {
                         return {
-                                isshow:false
+                                isshow:false,
+                                isshows:false
                         }
                 },
                 props:{
@@ -72,10 +77,18 @@
                         shows(){
                                 this.isshow = false
                         },
+                        //显示商标弹框
+                        tanchuang(){
+                          this.isshows = true
+                        },
+                        close(){//隐藏弹框
+                                this.isshows = false
+                        },
 
                 },
                 components:{
-                        'v-customer':customer
+                        'v-customer':customer,
+                        'v-tanchuangsb':tanchuangsb,//商标弹窗
                 },
         }
 </script>
