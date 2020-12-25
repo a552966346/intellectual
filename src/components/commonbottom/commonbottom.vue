@@ -35,7 +35,8 @@
      </div>
    </div>
    <div class="commonbottom_bottom">
-      <p>{{records}}</p>
+      <!-- <p>{{records}}</p> -->
+      <p>{{msg}}</p>
    </div>
  </div>
 </template>
@@ -45,9 +46,10 @@ export default {
   data(){
     return{
       address:'地址:山西晋中市定阳路1100号 (职工医学院对面)',
-      support:'技术支持:晋中华迅网路技术股份有限公司',
-      records:'备案号',
-      text:''
+      support:'技术支持:晋中华迅网络科技股份有限公司',
+      // records:'备案号：',
+      text:'',
+      msg:'版权所有：Copyright © 2020 山西知识产权交易中心 晋ICP备20002788号  服务热线：18910769211'
     }
   },
   beforeMount() {
@@ -126,6 +128,7 @@ export default {
     border-top: 1px solid #444;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     font-size: 14px;
   }

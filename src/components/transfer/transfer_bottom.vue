@@ -28,7 +28,8 @@
                             <img :src="item.images_text[0]" alt="">
                             <h3>{{item.name}}</h3>
                             <div class="transfer_con">
-                                <p>{{item.fee}}</p>
+                                <p v-if="item.fee>=10000">￥{{(item.fee/10000)}}万元</p>
+                                <p v-else>￥{{item.fee}}元</p>
                                 <span>{{item.categoryid_text}}</span>
                             </div>
                         </div>

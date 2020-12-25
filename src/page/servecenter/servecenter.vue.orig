@@ -184,7 +184,7 @@
                         <div class="guanggao">
                                 <img src="../../../static/img/service/servecenter_center_guanggao.png" alt="">
                         </div>
-                        <!-- 专利申请 -->
+                        <!-- 专利服务 -->
                        <div class="fuwu">
                                 <v-comtitle :title="title_all[1]" :inform_title='title_text_all[1]' :background_img_url='title_bg_url[1]'></v-comtitle>
                         </div>
@@ -607,13 +607,6 @@
         .top_cen_right_box>div>div:last-child {
                 border: none;
         }
-        .top_cen_right_box>div>div:hover{
-                background-color: #f5f1f1;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-        }
 
         .top_cen_right_box>div>div {
                 text-align: center;
@@ -631,7 +624,7 @@
 
         .top_cen_right_box>div>div>p:hover {
                 color: #409EFF !important;
-                text-align: center;
+
         }
 
         .top_cen {
@@ -1189,7 +1182,6 @@
         .zl_right_lie:hover{
                 position: relative;
                 top: -5px;
-                
         }
         .zl_right_lie>div {
                 display: flex;
@@ -1227,11 +1219,6 @@
                 padding: 5px 15px;
                 font-weight: 600;
                 border-radius: 5px;
-
-        }
-        .zl_right_lie>button:hover{
-                background-color: #2081C2;
-                color: #fff;
         }
         .zl_right_lie img{
                 width: 23px;
@@ -1502,10 +1489,6 @@
                 color: #1366CE;
                 border-radius: 5px;
                 outline: none;
-        }
-        .qy_right_lie>div>button:hover{
-                color: #fff;
-                background-color: #1366CE;
         }
         .el-form-item__error{
                 position: relative !important;

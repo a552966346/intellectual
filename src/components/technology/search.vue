@@ -19,7 +19,8 @@
                                                 <div class="indexpay_right_contitem1"  v-show="!see[index] ">
                                                       <div class="indexpay_right_contitem1_title"> {{item.name}}</div>
                                                       <div class="indexpay_right_contitem1_cont" >
-                                                              <span>面议</span>
+                                                              <span v-if="item.fee>=10000">￥{{(item.fee/10000)}}万元</span>
+                                                              <span v-else>￥{{item.fee}}元</span>
                                                               <span v-if="item.type==0">非专利</span>
                                                               <span v-if="item.type==1">发明专利</span>
                                                               <span v-if="item.type==2">实用新型专利</span>

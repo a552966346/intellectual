@@ -17,15 +17,15 @@
                                         <div class="solt" style="display:flex;flex-direction: column;">
                                                 <slot name="topall">
                                                         <div class="moren" style="display: flex;">
-                                                                <p style="margin-right:30px;">价格：<span v-if="top_data.fee>=10000">￥{{(top_data.fee/10000)}}万元</span>
-                                                                <span v-else>￥{{top_data.fee}}元</span></p>
+                                                                <p style="margin-right:30px;">价格�span v-if="top_data.fee>=10000">￥{{(top_data.fee/10000)}}万元</span>
+                                                                <span v-else>￥{{top_data.fee}}�/span></p>
                                                                 <span style="color:#ccc;font-size:12px;padding:6px;">官费200</span>
                                                         </div>
 
                                                 </slot>
                                         </div>
                                         <!-- <div class="inp" v-show="!isShow">
-                                                <p>联系电话：</p><input type="tel">
+                                                <p>联系电话�/p><input type="tel">
                                         </div>
                                         <div class="inp" v-show="!isShow">
                                                 <p>联系人：</p><input type="text">
@@ -33,40 +33,51 @@
                                 </div>
                                 <div class="topall_bottom">
                                         <div class="bottom_left">
-                                                <div class="left_left">
+                                                <div class="left_left" >
                                                         <span>{{nub}}</span>
                                                         <span><button @click="but1">+</button><button @click="but2">-</button></span>
                                                 </div>
                                                 <div class="left_but">
-                                                        <button @click="shop(top_data.id)">加入购物车<p>--<img src="../../../static/img/transfer/transfer_right.png" alt="">--</p></button>
+                                                        <button @click="shop(top_data.id)">加入购物�p>--<img src="../../../static/img/transfer/transfer_right.png" alt="">--</p></button>
                                                 </div>
 
                                         </div>
-                                        <div class="bottom_right">
-                                                <button>
+                                        <div class="bottom_right" >
+                                                <button@click="tankuang">
                                                         <img src="../../../static/img/service/service_kefu.png" alt="">
                                                         <span >咨询客服</span>
                                                 </button>
                                         </div>
                                 </div>
+
+
                         </div>
+                </div>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
                 </div>
         </div>
 </template>
 
 <script>
+        import customer from '@/components/customers/customer_services.vue'
+
         export default {
                 data() {
                         return {
-                                // qiye: '企业知识产贯标',
+                                // qiye: '企业知识产贯�,
                                 nub: 1,
                                 uid:1
+                                isshow:false
+                                
                         }
                 },
                 props: {
                         image: '',
                         top_data: '',
-                        isShow: false
+                        isShow: false,
+                        
+                        
                 },
                 mounted() {
 
@@ -94,6 +105,10 @@
                                         console.log(res.msg)
                                      }
                                 })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+
                                 this.$router.push({
                                         path:'/shopcart',
                                         query:{
@@ -101,7 +116,16 @@
                                         }
                                 })
                         },
+                        tankuang(){
+                                this.isshow=true
+                        },
+                        shows(){
+                                this.isshow = false
+                        },
 
+                },
+                components:{
+                        'v-customer':customer
                 }
         }
 </script>
@@ -302,6 +326,7 @@
                 overflow: hidden;
                 display: flex;
                 justify-content: center;
+                cursor: pointer;
         }
 
         .bottom_right img {
@@ -317,6 +342,7 @@
                 outline: none;
                 display: flex;
                 align-items: center;
+                cursor: pointer;
         }
 
         .bottom_right span {

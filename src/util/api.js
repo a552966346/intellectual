@@ -84,6 +84,14 @@ const api = {
     getindexnew() {
         return requestAll.requset(baseUrl + '/api/index/news');
     },
+    //首页合伙人
+    getindexpart(name,mobile){
+            let data = {
+                    name:name,
+                    mobile:mobile
+            }
+             return requestAll.requset(baseUrl + '/api/index/partnerdata',data);
+    },
     /*
      * 金融中心
      */
@@ -123,7 +131,7 @@ const api = {
 	    }
         return requestAll.requset(baseUrl + '/api/trademark/trademark_list', data);
     },
-    // 商标筛选数据
+    // 交易中心商标转让筛选数据
     gettrademarkcondition() {
         return requestAll.requset(baseUrl + '/api/trademark/trademark_condition');
     },
@@ -134,7 +142,7 @@ const api = {
         }
         return requestAll.requset(baseUrl + '/api/Trademark/details', data);
     },
-    //商标广告
+    //商标广告banner
     gettrademarkadvertisement() {
         return requestAll.requset(baseUrl + '/api/banner/trademark');
     },
@@ -154,7 +162,8 @@ const api = {
                                       sell:id[5],
                                       creatime:id[6],
                                       feeorder:id[7],
-                                        keyword:id[11]
+                                        keyword:id[11],
+                                        page:id[12]
                       }
                 }
         return requestAll.requset(baseUrl + '/api/Patents/patents_list', data);
@@ -193,7 +202,8 @@ const api = {
                                   sell:id[8],
                                   creatime:id[9],
                                   feeorder:id[10],
-                                  keyword:id[11]
+                                  keyword:id[11],
+                                  page:id[12]
                   }
             }
         return requestAll.requset(baseUrl + '/api/Copyright/copyright_list', data);
@@ -294,7 +304,7 @@ const api = {
         return requestAll.requset(baseUrl + '/api/Service/service_condition');
     },
     // 服务列表筛选列表
-    severlist(id) {
+    severlist(id,page) {
         let data
         console.log(id)
         if(id){
@@ -306,7 +316,8 @@ const api = {
                 fee:id[2],//服务价格
                 keyword:id[3],//关键字搜索
                 creatime :id[4],//时间排序
-                feeorder :id[5]//价格排序
+                feeorder :id[5],//价格排序
+                page:id[6]
               }
         }
         return requestAll.requset(baseUrl + '/api/Service/service_list',data);
@@ -353,11 +364,23 @@ const api = {
         return requestAll.requset(baseUrl + '/api/aboutus/details', data);
     },
     //我要出售  商标  版权  专利
-    getselldata() { 
-        
-        return requestAll.requset(baseUrl + '/api/Trademark/selldata');
+    getsellpost(category_id,fee,mobile,name,number,type,code) {
+        let data = {
+                category_id:category_id,
+                fee:fee,
+                mobile:mobile,
+                name:name,
+                number:number,
+                type:type,
+                code:code
+        }
+        return requestAll.requset(baseUrl + '/api/Trademark/selldata',data);
     },
+    //商标分类数据
+    getselldata() {
 
+        return requestAll.requset(baseUrl + '/api/Trademark/sellcategory');
+    },
 
     // 测试请求
     getBanner(status) {
