@@ -11,9 +11,11 @@
         
         <div class="tel_con">
             <ul class="con_t">
-                <li class="con_t_item">投诉建议</li>
-                <li class="con_t_item">真假客服验证</li>
-                <li class="con_t_item">举报假客服</li>
+                <li class="con_t_item" v-for="(item,i) in titles" :key="i"
+                v-bind:class="{active:i == num}"
+                @click="tab(i)">{{item}}</li>
+                <!-- <li class="con_t_item">真假客服验证</li>
+                <li class="con_t_item">举报假客服</li> -->
             </ul>
             
             <div class="content">
@@ -51,9 +53,16 @@ export default{
     data(){
         return{
             msg:'这是测试内容',
-            teloption:[]
+            teloption:[],
+            titles:["投诉建议","真假客服验证","举报假客服"],
+            num:0
               }
    },
+   methods:{
+       tab(i){
+           this.num=i;
+       }
+   }
 }
 </script>
 <style scoped>
@@ -115,7 +124,7 @@ export default{
     border: 1px solid #efefef;
     color: #949494;
 }
-.con_t_item:hover{
+.active{
     background-color: #fff;
     color: #696969;
     border-top: 2px solid #1b7fc3;

@@ -20,12 +20,12 @@
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis">
-                        <li>我的商标<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>全部订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>未付款订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>已预订订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>交接中订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>已完成订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                        <li>我的商标</li>
+                        <li>全部订单</li>
+                        <li>未付款订单</li>
+                        <li>已预订订单</li>
+                        <li>交接中订单</li>
+                        <li>已完成订单</li>
                     </ul>
                 </li>
                 <li  v-on:click.self="isshow_two">
@@ -35,10 +35,10 @@
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_two">
-                        <li>出售商标<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>出售专利<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>出售版权<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>技术转让<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                        <li @click="isshow == true">出售商标</li>
+                        <li>出售专利</li>
+                        <li>出售版权</li>
+                        <li>技术转让</li>
                     </ul>
                 </li>
                 <li v-on:click.self="isshow_three">
@@ -48,12 +48,12 @@
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_three">
-                        <li>我的账号<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>我要提现<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>资金明细<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>我的押金<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>发票索取<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>绑定银行卡<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                        <li>我的账号</li>
+                        <li>我要提现</li>
+                        <li>资金明细</li>
+                        <li>我的押金</li>
+                        <li>发票索取</li>
+                        <li>绑定银行卡</li>
                     </ul>
                 </li>
                 <li v-on:click.self="isshow_four">
@@ -63,9 +63,9 @@
                         <img class="icon icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_four">
-                        <li>我要投诉建议<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>真假客户验证<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>举报假客服<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                        <li>我要投诉建议</li>
+                        <li>真假客户验证</li>
+                        <li>举报假客服</li>
                     </ul>
                 </li>
                 <li v-on:click.self="isshow_five">
@@ -75,12 +75,12 @@
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_five">
-                        <li>实名认证<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>修改手机号<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>修改登录密码<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>个人信息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>收货地址<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>我的邮箱<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                        <li>实名认证</li>
+                        <li>修改手机号</li>
+                        <li>修改登录密码</li>
+                        <li>个人信息</li>
+                        <li>收货地址</li>
+                        <li>我的邮箱</li>
                     </ul>
                 </li>
                 <li v-on:click.self="isshow_six">
@@ -90,9 +90,9 @@
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_six">
-                        <li>全部消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>未读消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>已读消息<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                        <li>全部消息</li>
+                        <li>未读消息</li>
+                        <li>已读消息</li>
                     </ul>
                 </li>
                 <li v-on:click.self="isshow_seve">
@@ -102,11 +102,11 @@
                         <img class="icon" src="../../../static/img/usercenter/icon-arrow.png" alt="">
                     </router-link>
                     <ul class="items" v-show="showis_seve">
-                        <li>全部订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>未付款订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>已预订订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>交接中订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
-                        <li>已完成订单<img class="icon_b" src="../../../static/img/usercenter/icon-arrow.png" alt=""></li>
+                        <li>全部订单</li>
+                        <li>未付款订单</li>
+                        <li>已预订订单</li>
+                        <li>交接中订单</li>
+                        <li>已完成订单</li>
                     </ul>
                 </li>
             </ul>
@@ -197,6 +197,9 @@ export default {
             this.showis_five = false
             this.showis_six = false
             this.showis_seve = !this.showis_seven
+       },
+       isShow(){
+           this.isshow=false
        }
    }
 }
