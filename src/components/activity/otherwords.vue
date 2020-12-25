@@ -121,7 +121,6 @@ export default {
 .show_cen{
   font-size: 18px;
   margin-top: 20px ;
-  padding: 0 20px ;
   display: flex;
   
 }
@@ -130,6 +129,7 @@ export default {
 }
 .lists:hover .list{
   color: #000;
+  font-weight: 550;
 }
 .lists:hover .list_img{
   opacity: 1;

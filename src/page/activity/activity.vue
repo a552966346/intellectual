@@ -229,8 +229,14 @@ export default {
   color: #fff;
   padding: 5px 10px ;
   letter-spacing: 1px;
-  border:1px solid #fff
+  border:1px solid #fff;
   
+}
+.activity_recommend>div>a:hover,
+.activity_recommend>div>a:target{
+  background-color: #fff;
+  color: #013d61;
+  border: 1px solid #2b6d95;
 }
 .activity_recommend>div>p:nth-child(1){
   font-size: 36px;
@@ -332,11 +338,12 @@ export default {
   height: 80%;
   width: 80%;
   display: flex;
+  justify-content: space-around;
 }
 .activity_zone_left{
   color:#fff;
   font-size: 28px;
-  width: 50%;
+  width: 40%;
 }
 .activity_zone_left>p:first-of-type{
   font-size: 44px;
@@ -353,7 +360,7 @@ export default {
 }
 .activity_left_bottom>div{
   width: 33.3%;
-  height: 160px;
+  height: 140px;
   border-right: 1px solid #f5f5f5;
   border-bottom: 1px solid #f5f5f5;
   padding: 20px;
@@ -370,7 +377,7 @@ export default {
 }
 .activity_left_bottom_none img{
   width: 100%;
-  height: 160px;
+  height: 140px;
 
 }
 .activity_left_bottom>div:hover .activity_left_bottom_none{
@@ -409,7 +416,7 @@ export default {
   border-bottom: none;
 }
 .activity_zone_right{
-  flex: 1;
+  width: 50%;
   padding: 30px 40px;
 }
 
