@@ -76,14 +76,10 @@
         </el-form>
       </div>
     </div>
-    <div class="tanchuang" v-show="isshow" @click.self="shows">
-            <v-customer @shows="shows"></v-customer>
-    </div>
   </div>
 </template>
 
 <script>
-import customer from '@/components/customers/customer_services.vue'
         import {
                 validatePhone
         } from '@/util/rules.js'
@@ -135,15 +131,11 @@ export default {
   },
   methods:{
     close(){
-      console.log(124)
       this.$emit("close")
     },
     kefu(){
-            this.close()
-            this.isshow=true
-    },
-    shows(){
-            this.isshow = false
+            // this.isshow=true
+            this.$emit("kefu")
     },
     getVerification() {
             this.html = Math.random();
@@ -171,9 +163,6 @@ export default {
             })
     }
   },
-  components:{
-          'v-customer':customer
-  }
 };
 </script>
 

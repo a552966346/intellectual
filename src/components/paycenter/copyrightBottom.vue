@@ -50,45 +50,33 @@
                 <div class="tanchuang" v-show="isshow" @click.self="shows">
                         <v-customer @shows="shows"></v-customer>
                 </div>
-                <div class="tanchuang" v-show="isshows" @click.self="shows" >
-                         <v-tanchuangsb @close="close" @fabu="fabu"></v-tanchuangsb>
-                </div>
+
         </div>
 </template>
 
 <script>
-        import tanchuangsb from '../../components/copyright/tanchuangsb.vue'//商标弹窗       
         import customer from '@/components/customers/customer_services.vue'
         export default {
                 data() {
                         return {
                                 isshow:false,
-                                isshows:false
                         }
                 },
                 props:{
                         listdata:''
                 },
                 methods: {
-                        
+
                         tankuang(){
                                 this.isshow=true
                         },
                         shows(){
                                 this.isshow = false
                         },
-                        //显示商标弹框
-                        tanchuang(){
-                          this.isshows = true
-                        },
-                        close(){//隐藏弹框
-                                this.isshows = false
-                        },
 
                 },
                 components:{
                         'v-customer':customer,
-                        'v-tanchuangsb':tanchuangsb,//商标弹窗
                 },
         }
 </script>
@@ -198,7 +186,7 @@
         }
         .copyright_active{
                 text-decoration: none;
-                color: #000;    
+                color: #000;
         }
         .copyright_bottom .copyright_active:hover .copyright_quick {
                 display: block;

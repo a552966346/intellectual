@@ -55,15 +55,11 @@
                 <div class="tanchuang" v-show="isshow" @click.self="shows">
                         <v-customer @shows="shows"></v-customer>
                 </div>
-                <div class="tanchuang" v-show="isshows" @click.self="shows" >
-                         <v-tanchuangsb @close="close" @fabu="fabu"></v-tanchuangsb>
-                </div>
         </div>
 </template>
 
 <script>
         import customer from '@/components/customers/customer_services.vue'
-        import tanchuangsb from '../../components/copyright/tanchuangsb.vue'//商标弹窗
         export default {
                 data() {
                         return {
@@ -108,7 +104,6 @@
                 },
                 components:{
                         'v-customer':customer,
-                        'v-tanchuangsb':tanchuangsb,//商标弹窗
                 }
         }
 </script>

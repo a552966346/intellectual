@@ -37,12 +37,16 @@
                 </div>
                 <v-combotttom></v-combotttom>
                 <div class="tanchuang" v-show="isshow" @click.self="shows" >
-                         <v-tanchuangsb @close="close" @fabu="fabu"></v-tanchuangsb>
+                         <v-tanchuangsb @close="close" @fabu="fabu" @kefu="kefu"></v-tanchuangsb>
+                </div>
+                <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
+                                        <v-customer @shows="showstwo"></v-customer>
                 </div>
         </div>
 </template>
 
 <script>
+         import customer from '@/components/customers/customer_services.vue'
         import tanchuangsb from '../../components/copyright/tanchuangsb.vue'//商标弹窗
         import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
         import trademarkscreen from '@/components/paycenter/trademarkscreen.vue'
@@ -69,7 +73,8 @@
                                 currentPage: 1,
                                 pagesize: 0,
                                 total:0,
-                                data:[]
+                                data:[],
+                                isshowtwo:false
                         }
 
                 },
@@ -110,17 +115,27 @@
                                 }
 
                         },
-                        //显示弹框
+                        //商标显示弹框
                         tanchuang(){
                           this.isshow = true
                         },
-                        close(){//隐藏弹框
+                        close(){//商标隐藏弹框
                                 this.isshow = false
                         },
+                        // 发布按钮
                         fabu(){
                                  this.isshow = false
                         },
-                        //隐藏弹框
+                        //商标弹框隐藏
+                        kefu(){
+                                 this.isshow = false
+                                this.isshowtwo = true
+                        },
+                        //客服弹框隐藏
+                        showstwo(){
+                                this.isshowtwo =false
+                        },
+                        //商标隐藏弹框
                         shows(){
                                 this.isshow = false
                         },
@@ -188,7 +203,8 @@
                         copyrightOrdinary,
                         trademarkscreen,
                         trademarkcon,
-                        trademarkbo
+                        trademarkbo,
+                        'v-customer':customer
                 }
         }
 </script>

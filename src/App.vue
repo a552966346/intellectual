@@ -81,6 +81,10 @@ export default {
 </script>
 
 <style>
+@import url("./common/font/font.css");
+body{
+       font-family: "微软雅黑";
+}
 #app {
   height: calc(100%);
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif;

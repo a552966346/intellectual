@@ -64,16 +64,16 @@
                                         </el-form-item>
                                 </el-form>
                         </div>
-                        
+
                 </div>
-                <div class="tanchuang" v-show="isshow" @click.self="shows">
+<!--                <div class="tanchuang" v-show="isshow" @click.self="shows">
                         <v-customer @shows="shows"></v-customer>
-                </div>
+                </div> -->
         </div>
 </template>
 
 <script>
-        import customer from '@/components/customers/customer_services.vue'
+        // import customer from '@/components/customers/customer_services.vue'
         import {
                 validatePhone
         } from '@/util/rules.js'
@@ -86,7 +86,7 @@
                                         minprice: '',
                                         phone: '',
                                         authcode: '',
-                                        
+
                                 },
 
                                 isshow:false,
@@ -144,14 +144,11 @@
                         close() {
                                 this.$emit("close")
                         },
-                        
+
                         kefu(){
-                                this.close()
-                                this.isshow=true
+                                this.$emit("kefu")
                         },
-                        shows(){
-                                this.isshow = false
-                        },
+
                         getVerification() {
                                 this.html = Math.random();
                         },
@@ -178,9 +175,6 @@
                                 })
                         }
                 },
-                components:{
-                        'v-customer':customer
-                }
         };
 </script>
 
