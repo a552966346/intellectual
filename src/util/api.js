@@ -236,7 +236,10 @@ const api = {
                                   type:id[2],
                                   maturity:id[3],
                                   means:id[4],
-                                  fee:id[5]
+                                  fee:id[5],
+                                  clicks:id[6],
+                                  feeorder:id[7],
+                                  keyword:id[8],
                   }
             }
         return requestAll.requset(baseUrl + '/api/technology/lists', data);

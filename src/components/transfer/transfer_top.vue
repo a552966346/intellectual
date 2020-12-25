@@ -34,6 +34,17 @@
                                                 </div> -->
                                         </div>
                                 </div>
+                                <div class="top_center_all" >
+                                        <div class="center_lei_left">
+                                                <div>
+                                                        <i class="el-icon-search" ></i>
+                                                        <p>搜索条件</p>
+                                                </div>
+                                        </div>
+                                        <div class="center_lei_right" style="display: flex;padding-left: 15px;">
+                                               <input type="text" v-model="input"style="height: 40px;outline: none;border-radius: 5px;border: 1px solid #ccc;"><button @click="sousuo" style="background-color:#1D5CBD;color: #fff;padding: 0 10px;border-radius: 5px;">搜索</button>
+                                        </div>
+                                </div>
                         </div>
                         <div class="top_center_all" id="shaixuan">
                                 <div class="center_lei_left">
@@ -73,7 +84,8 @@
                                         nub: '专业顾问'
                                 }],
                                 text_sx: [],
-                                id:{}
+                                id:{},
+                                input:''
                         }
 
                 },
@@ -82,7 +94,7 @@
                         iscolor:''
                 },
                 mounted() {
-
+                        this.text_sx[6] = this.$route.query.name
                 },
 
                 methods: {
@@ -107,6 +119,12 @@
 				this.id = {}
                                 this.text_sx = []
                                 this.$emit('qinchu')
+                        },
+                        //搜索
+                        sousuo(){
+                                 this.$set(this.text_sx,6,this.input)
+                                this.$set(this.id,8,this.input)
+                                this.$emit('sousuo',this.id)
                         },
                         // 删除条件
                         delet(index){
@@ -196,7 +214,10 @@
         display: flex;
         align-items: center;
 }
-
+.center_lei_left i{
+        color: #1D5CBD;
+        margin-right: 5px;
+}
 .center_lei_left>div>img {
         height: 20px;
         margin-right: 5px;
