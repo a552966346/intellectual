@@ -18,7 +18,7 @@
                                 </div>
                                 <div class="newsint_con">
                                         <div class="newsint_txt">
-                                                <p>{{news.desc}}</p>
+                                                <p style="font-weight: bold;">{{news.desc}}</p>
                                                 <p><br></p>
                                                 <p style="text-align:center;"><img :src="news.image" alt=""></p>
                                                 <p><br></p>
@@ -31,7 +31,7 @@
                                                         <p>最新新闻</p>
                                                 </div>
                                                 <div class="newsint_right_cen">
-                                                        <div v-for="item in newstwo" :key="item.id">
+                                                        <div v-for="item in newstwo" :key="item.id" @click="running(item.id)">
                                                                 <img :src="item.image" alt="">
                                                                 <p>{{item.title}}</p>
                                                         </div>
@@ -57,18 +57,23 @@
                 mounted() {
                         let id = this.$route.query.id
                         console.log(id)
-                        this.$api.getnews(id)
-                                .then(res => {
-                                        console.log(321)
-                                        console.log(res)
-                                        this.news = res.data
-
-                                })
+                        this.running(id)
                         this.$api.getnewsnew()
                                 .then(res => {
                                         console.log(res)
                                         this.newstwo = res.data
                                 })
+                },
+                methods:{
+                        running(id){
+                                this.$api.getnews(id)
+                                        .then(res => {
+                                                console.log(321)
+                                                console.log(res)
+                                                this.news = res.data
+
+                                        })
+                        }
                 }
         }
 </script>
@@ -112,7 +117,7 @@
                 width: 30%;
                 padding: 15px;
                 background-color: #fff;
-                height: 500px;
+                height: 850px;
         }
 
         .newsint_right_title {
@@ -161,8 +166,9 @@
         }
 
         .newsint_right_cen>div {
-                width: 33.333%;
-                margin: 0 5px 5px 0;
+                width: 45%;
+                margin: 0 5px 15px 0;
+                cursor: pointer;
         }
         .newsint_right_cen>div img{
                 width: 100%;
@@ -171,6 +177,7 @@
         .newsint_right_cen>div p{
                 padding: 5px 0;
                 width: 100%;
+                font-size: 12px;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
@@ -190,7 +197,7 @@
                 width: 70%;
                 margin: 0 auto;
                 line-height: 30px;
-                padding: 15px;
+                padding: 15px 30px;
                 border-bottom: 1px solid #e7eaf3;
                 font-size: 14px;
                 color: #666;
