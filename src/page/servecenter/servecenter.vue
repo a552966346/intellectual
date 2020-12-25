@@ -267,12 +267,16 @@
                                 </div>
                         </div>
                 </div>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
+                </div>
                 <v-combotttom></v-combotttom>
         </div>
 </template>
 
 <script>
-         import {validatePhone} from '@/util/rules.js'
+        import {validatePhone} from '@/util/rules.js'
+        import customer from '@/components/customers/customer_services.vue'
         export default {
                 data() {
                         return {
@@ -280,6 +284,7 @@
                                 isactive_two: '',
                                 isactive: 0,
                                 isbtn: '',
+                                isshow:false,
                                 title_color: '#fff',
                                 title_all: ['商标注册','专利申请','版权服务','企业服务'],
                                 title_text_all: [ ],
@@ -391,6 +396,9 @@
                                 html:''
                         }
                 },
+                components:{
+                        'v-customer':customer
+                },
                 beforeMount() {
                         if(this.$store.state.user){
                                 this.phone = this.$store.state.user.nickname
@@ -492,7 +500,10 @@
                                 }
                         },
                        but_bl(){
-
+                               this.isshow=true
+                        },
+                        shows(){
+                                this.isshow = false
                         },
                         tuichu(){
                                 this.phone =''
@@ -1044,10 +1055,19 @@
                 margin-right: 20px;
                 color: #F5B83B;
         }
+        .servecenter_center_sb_left>p>button:nth-child(1):hover{
+                background-color:#F5B83B;
+                color:#fff;
+                border: 1px solid #fff;
+        }
 
         .servecenter_center_sb_left>p>button:nth-child(2) {
                 background-color: #F5B83B;
                 color: #fff;
+        }
+        .servecenter_center_sb_left>p>button:nth-child(2):hover {
+                background-color: #fff;
+                color: #F5B83B;
         }
 
         .sb_right_lie {
@@ -1161,17 +1181,19 @@
                 font-size: 15px;
         }
 
-        .servecenter_center_zli_left>p>button:nth-child(1) {
+        .servecenter_center_zli_left>p>button {
                 border: none;
                 background-color: #FF9900;
                 margin-right: 20px;
                 color: #fff;
         }
-
-        .servecenter_center_zli_left>p>button:nth-child(2) {
+        .servecenter_center_zli_left>p>button:hover{
                 background-color: #4B67F6;
-                color: #fff;
+                color:  #fff;
+                border: 1px solid  #fff;
         }
+
+        
 
         /* .servecenter_center_zl_right {
                 display: flex;
@@ -1292,7 +1314,6 @@
                 outline: none;
                 color: #fff;
                 font-weight: bold;
-
         }
 
         .fu_cen_left>p:last-child>button:nth-child(1) {
@@ -1300,10 +1321,19 @@
                 border: none;
                 margin-right: 20px;
         }
+        .fu_cen_left>p:last-child>button:nth-child(1):hover{
+                background-color: rgba(0, 0, 0, 0);
+                border: 1px solid #fff;
+                margin-right: 18px;
+        }
 
         .fu_cen_left>p:last-child>button:nth-child(2) {
                 background-color: rgba(0, 0, 0, 0);
                 border: 1px solid #fff;
+        }
+        .fu_cen_left>p:last-child>button:nth-child(2):hover{
+                background-color: #FF9900;
+                border: none;
         }
 
         .fu_cen_right_lie {
@@ -1438,6 +1468,10 @@
                 outline: none;
 
                 /* left: 35px; */
+        }
+        .servecenter_center_qy_left>div>button:hover{
+                background-color: #fff;
+                color: #fe7741;
         }
 
         .servecenter_center_qy_right {

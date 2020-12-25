@@ -79,7 +79,7 @@
 
                                                 </div>
                                                 <div class="bottom_right">
-                                                        <button>
+                                                        <button @click="tankuang">
                                                                 <img src="../../../static/img/service/service_kefu.png"
                                                                         alt="">
                                                                 <span>咨询客服</span>
@@ -89,14 +89,19 @@
                                 </div>
                         </div>
                 </div>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
+                </div>
         </div>
 
 </template>
 <script>
+        import customer from '@/components/customers/customer_services.vue'
         export default {
                 data() {
                         return {
-                                nub: 1
+                                nub: 1,
+                                isshow:false
                         }
                 },
                 props: {
@@ -135,7 +140,16 @@
                                                 id:id
                                         }
                                 })
-                        }
+                        },
+                        tankuang(){
+                                this.isshow=true
+                        },
+                        shows(){
+                                this.isshow = false
+                        },
+                },
+                components:{
+                        'v-customer':customer
                 }
         }
 </script>
@@ -381,6 +395,7 @@
                 outline: none;
                 display: flex;
                 align-items: center;
+                cursor: pointer;
         }
 
         .bottom_right span {

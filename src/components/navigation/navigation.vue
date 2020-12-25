@@ -8,6 +8,7 @@
                        @select="handleSelect"
                        background-color="#187fc4"
                        text-color="#fff"
+                       fontsize="16px"
                        active-text-color="#ffd04b">
                         <el-menu-item index="/">首页</el-menu-item>
                         <el-submenu :index='item.type' v-for="(item,id) in  this.$store.state.navbarlist" v-if="item.children.length !=0&&item.name != '服务中心'&&item.name != '技术转移'" :key="id">
@@ -48,7 +49,7 @@
 <style>
         .navigation_all {
                 width: 100%;
-                background-color: #187fc4
+                background-color: #187fc4;
         }
         a{
                 text-decoration: none;
@@ -59,11 +60,13 @@
                 align-content: center;
                 margin: 0 auto;
                 border-bottom: none !important;
+                
         }
 
         .el-menu--horizontal>.el-menu-item,
         .el-menu--horizontal>.el-submenu {
                 flex: 1;
                 text-align: center;
+                font-size: 16px!important;
         }
 </style>

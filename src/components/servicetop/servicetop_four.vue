@@ -50,7 +50,7 @@
                                                                 </div>
                                                         </div>
                                                 </div>
-                                                <div class="rfooterRight">
+                                                <div class="rfooterRight" @click="tankuang">
                                                         <img src="../../../static/img/service/service_kefu.png" alt="">
                                                         <span>咨询客服</span>
                                                 </div>
@@ -58,13 +58,18 @@
                                 </div>
                         </div>
                 </div>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
+                </div>
         </div>
 </template>
 <script>
+        import customer from '@/components/customers/customer_services.vue'
         export default {
                 data() {
                         return {
-                                nub:1
+                                nub:1,
+                                isshow:false
                         }
                 },
                 props: {
@@ -100,7 +105,16 @@
                                                 id:id
                                         }
                                 })
-                        }
+                        },
+                        tankuang(){
+                                this.isshow=true
+                        },
+                        shows(){
+                                this.isshow = false
+                        },
+                },
+                components:{
+                        'v-customer':customer
                 }
         }
 </script>
@@ -292,6 +306,7 @@
                 align-items: center;
                 font-size: 16px;
                 color: #feffff;
+                cursor: pointer;
         }
 
         .rfooter>.rfooterRight>img {
