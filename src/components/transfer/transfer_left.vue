@@ -83,16 +83,21 @@
                                         </div>
                                 </div>
                         </div>
-                        <div class="transfer_left_center_bottom">
+                        <!-- 分页 -->
+                        <!-- <div class="transfer_left_center_bottom">
                                 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                                        :current-page.sync="currentPage" :page-size="10" layout="prev, pager, next, jumper"
-                                        :total="nub">
+                                        :current-page.sync="currentPage" :page-size="pagesize" layout="prev, pager, next, jumper"
+                                        :total="total">
                                 </el-pagination>
-                        </div>
+                        </div> -->
                 </div>
-                <div v-else>
+                <div v-else style="background-color: #fff;display: flex;justify-content: center;">
+                         <img src="../../../static/img/service/word_none.png">
+                       <!-- <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p> -->
+                </div>
+                <!-- <div v-else>
                         <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p>
-                </div>
+                </div> -->
         </div>
 </template>
 
@@ -113,19 +118,13 @@
                 },
                 props:{
                         left_data:'',
-                        nub: 0,
+
                 },
                 methods: {
                         shaixuan(index) {
                                 this.active = index
                                 this.$emit('shaixuan',index)
                         },
-                        handleSizeChange(val) {
-                                console.log(`每页 ${val} 条`);
-                        },
-                        handleCurrentChange(val) {
-                                console.log(`当前页: ${val}`);
-                        }
 
                 }
         }
