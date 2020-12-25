@@ -4,7 +4,7 @@
                 <v-navigation></v-navigation>
 
                 <div class="news_all">
-                        <p>首页>新闻详情</p>
+                        <p style="font-size: 15px;">首页>新闻详情</p>
                         <div class="newsint_all">
                                 <div class="newsint_title">
                                         <h3>{{news.title}}</h3>
