@@ -13,27 +13,32 @@
                             <span>{{item.name}}</span>
                             <div class="transfer_jia" v-show="!(shows==index)">
                                 <span v-if="item.fee>=10000">{{(item.fee)/10000}}万元</span>
-                                <span v-else>{{item.fee}}元</span>
+                                <span v-else>{{item.fee}}�/span>
                                 <span style="font-weight:300;">不限</span>
                             </div>
                             <div class="transfer_foo" v-show="shows==index">
                                 <div class="transfer_ask" >
-                                    <p>咨询客服 </p>
+                                    <p @click="tankuang">咨询客服 </p>
                                     <font style="background-color:#00a3bf;"><img src="../../../static/img/transfer/transfer_tou.png" alt=""> </font>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
+                </div>
         </div>
 </template>
 
 <script>
+import customer from '@/components/customers/customer_services.vue'
 export default {
     data(){
         return{
             hots:[],
             shows:undefined
+            isshow:false
         }
     },
      mounted() {
@@ -53,7 +58,17 @@ export default {
                     isshows(){
                      this.shows =undefined
                     }
-            }
+    methods:{
+        tankuang(){
+                this.isshow=true
+        },
+        shows(){
+                this.isshow = false
+        },
+    },
+    components:{
+            'v-customer':customer
+    }
 }
 </script>
 

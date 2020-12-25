@@ -4,7 +4,7 @@
         <div class="transfer_title">
             <div class="transfer_copy">
                 <h2>没有找到您心仪的成果？</h2>
-                <a href="#">
+                <a href="#" @click="tankuang">
                     <p>联系客服帮您找</p>
                 </a>
                 <span>或</span>
@@ -37,13 +37,18 @@
              </div>
         </div>
     </div>
+    <div class="tanchuang" v-show="isshow" @click.self="shows">
+            <v-customer @shows="shows"></v-customer>
+    </div>
 </div>
 </template>
 
 <script>
+import customer from '@/components/customers/customer_services.vue'
 export default {
     data(){
         return{
+            isshow:false,
              arr: [{
                 url: 'https://cdn.yuzhua.com/data/upload/2020-03-16/5e6f46dc89e29.gif',
                 text: '一种多用途靠背椅',
@@ -79,6 +84,17 @@ export default {
     },
     props:{
             botm_data:''
+    },
+    methods:{
+        tankuang(){
+                this.isshow=true
+        },
+        shows(){
+                this.isshow = false
+        },
+    },
+    components:{
+            'v-customer':customer
     }
 }
 </script>
