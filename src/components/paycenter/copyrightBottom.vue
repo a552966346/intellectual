@@ -9,7 +9,7 @@
                                         </a>
                                         <span>或</span>
                                         <a href="#">
-                                                <p style="background-color:#3c568f">发布求购需求</p>
+                                                <p style="background-color:#3c568f" >发布求购需求</p>
                                         </a>
                                 </div>
                                 <div class="copyright_dash">

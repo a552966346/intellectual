@@ -54,7 +54,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                 iscent:[],
                                 listdata:[],
                                 id:{},
-                                banner:'../../../static/img/paycenter/patent_bg.png',
+                                banner:'../../../static/img/paycenter/patent_bg.jpg',
                                 category_id:'',
                                 isshow:false,
                                 name:'',

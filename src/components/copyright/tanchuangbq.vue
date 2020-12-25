@@ -61,6 +61,7 @@
              @click="fabu('form_rul')" >确认发布</el-button
             >
             <el-button
+            @click="kefu"
               type="primary"
               style="
                 border: 1px solid #ceaa88;
@@ -69,16 +70,20 @@
                 width: 42%;
                 margin-bottom:20px
               "
-              >联系创建</el-button
+              >联系客服</el-button
             >
           </el-form-item>
         </el-form>
       </div>
     </div>
+    <div class="tanchuang" v-show="isshow" @click.self="shows">
+            <v-customer @shows="shows"></v-customer>
+    </div>
   </div>
 </template>
 
 <script>
+import customer from '@/components/customers/customer_services.vue'
         import {
                 validatePhone
         } from '@/util/rules.js'
@@ -90,6 +95,7 @@ export default {
         phone:'',
         authcode:''
       },
+      isshow:false,
       select:'',
       html:'',
       form_rul: {
@@ -132,6 +138,13 @@ export default {
       console.log(124)
       this.$emit("close")
     },
+    kefu(){
+            this.close()
+            this.isshow=true
+    },
+    shows(){
+            this.isshow = false
+    },
     getVerification() {
             this.html = Math.random();
     },
@@ -157,6 +170,9 @@ export default {
                             })
             })
     }
+  },
+  components:{
+          'v-customer':customer
   }
 };
 </script>
