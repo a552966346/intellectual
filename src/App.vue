@@ -46,12 +46,12 @@ export default {
                    isshow:false
            }
    },
-        beforeMount(){
+        mounted(){
                  this.$store.state.user =  JSON.parse(sessionStorage.getItem('user'))
                  if(this.$store.state.user == ''|| this.$store.state.user==null || this.$store.state.user==undefined){
                          this.$store.state.user =  JSON.parse(localStorage.getItem('user'))
                  }
-                 document.scrollIntoView()
+                 document.getElementById("top").scrollIntoView()
                  console.log(this.$store.state.user)
         },
         methods:{
@@ -154,7 +154,7 @@ export default {
         border-radius: 10px;
         display: flex;
         margin-bottom: 5px;
-        
+
 }
 .xuanfu_one p{
         background-color: #d7d9db;
@@ -171,7 +171,7 @@ export default {
 .erweima{
      float: left;
      position: relative;
-     top: 50px;  
+     top: 50px;
 }
 .erweima>img{
         width: 150px;

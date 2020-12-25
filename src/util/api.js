@@ -236,7 +236,10 @@ const api = {
                                   type:id[2],
                                   maturity:id[3],
                                   means:id[4],
-                                  fee:id[5]
+                                  fee:id[5],
+                                  clicks:id[6],
+                                  feeorder:id[7],
+                                  keyword:id[8],
                   }
             }
         return requestAll.requset(baseUrl + '/api/technology/lists', data);
@@ -453,6 +456,10 @@ const api = {
     },
     getnewsnew(){
         return requestAll.requset(baseUrl + '/api/index/randomnews');
+    },
+    //热门推荐
+    hottui(){
+        return requestAll.requset(baseUrl + '/api/Technology/hotrecommend');
     }
 }
 

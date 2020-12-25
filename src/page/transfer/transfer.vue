@@ -13,7 +13,7 @@
                         <v-navigation></v-navigation>
                         <img src="../../../static/img/transfer/transfer_banner.png" alt="">
                         <div class="transfer_all">
-                                <v-transfertop :top_data="top_data" :iscolor ='iscolor' @xuanze="xuanze" @qinchu="qinchu" @delet="delet"></v-transfertop>
+                                <v-transfertop :top_data="top_data" :iscolor ='iscolor' @xuanze="xuanze" @qinchu="qinchu" @delet="delet" @sousuo="sousuo"></v-transfertop>
                                 <div class="transfer_cen">
                                         <div class="transfer_cen_left">
                                                 <v-transferleft :left_data="left_data" :nub='nub' @shaixuan ="shaixuan"></v-transferleft>
@@ -46,22 +46,25 @@
                         }
                 },
                 mounted() {
+                        this.id[0] = this.$route.query.id
+                         this.id[8] = this.$route.query.name
                         this.$api.gettechnologycondition()
                         .then(res=>{
                                 console.log(res)
                                 this.top_data = res.data
-                                this.ispost(this.id)
                         })
+                         this.ispost(this.id)
                 },
                 methods:{
                         shaixuan(index){
+                                console.log(index)
                                 if(index == 1){
-                                        this.$set(this.id,"creatime","desc")
-                                        this.$set(this.id,"feeorder","")
+                                        this.$set(this.id,6,"desc")
+                                        this.$set(this.id,7,"")
                                         this.ispost(this.id)
                                 }else if(index == 2){
-                                        this.$set(this.id,"feeorder","desc")
-                                        this.$set(this.id,"creatime","")
+                                        this.$set(this.id,7,"desc")
+                                        this.$set(this.id,6,"")
                                         this.ispost(this.id)
                                 }else{
                                          this.ispost()
@@ -69,7 +72,13 @@
                         },
                         xuanze(id){
                                 this.id = id
+
                                 this.ispost(this.id)
+                        },
+                        //搜索
+                        sousuo(id){
+                                this.id = id
+                                this.ispost(id)
                         },
                         ispost(id){
                                 this.$api.gettechnologylist(id)

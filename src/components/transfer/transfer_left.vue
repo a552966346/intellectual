@@ -67,7 +67,7 @@
                                 <div class="left_xiang_right">
                                         <div class="left_xiang_right_title">
                                                 <p><img src="../../../static/img/transfer/transfer_eye.png" alt=""></p>
-                                                <span>49</span>
+                                                <span>{{item.clicks}}</span>
                                                 <p>发布时间：{{item.creatime_text}}</p>
                                         </div>
                                         <div class="text_leixin_right">
