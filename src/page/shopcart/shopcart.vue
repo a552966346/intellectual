@@ -57,7 +57,7 @@
                                         <div>已选择<span>{{checkedNum}}</span>件</div>
                                         <div>共计:￥<span>{{cartTotalPrice}}</span></div>
                                         <div class="shopcart_zsdfotretmt">
-                                             <router-link class="shopcart_zsdfotretzf" to="/paydetia">去结算</router-link>
+                                             <router-link class="shopcart_zsdfotretzf" to="/paydetial">去结算</router-link>
                                         </div>
                                     </div>
                                 </div>
@@ -166,16 +166,16 @@
                          let user =JSON.parse(sessionStorage['user']); 
                         uid = user.id;
                         console.log(uid);
-                        let snlist = [];let id = '';
+                        let snlist = [];let ids ='';
                         snlist = this.zsdlist.filter(function(item){
                             return item.checkModel == true;
                         });
                         snlist.forEach(function(item){  
-                            id = item.id;
+                            ids += item.id+','; 
                         }); 
-                        this.$api.deletecart(id,uid)
+                        this.$api.deletecart(ids,uid)
                         .then(res=>{
-                            console.log((res));
+                            console.log(res);
                             this.ispost()
                             this.$forceUpdate();
                         })

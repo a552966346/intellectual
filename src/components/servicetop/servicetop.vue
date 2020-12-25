@@ -25,7 +25,7 @@
                                                 </slot>
                                         </div>
                                         <!-- <div class="inp" v-show="!isShow">
-                                                <p>联系电话�/p><input type="tel">
+                                                <p>联系电话</p><input type="tel">
                                         </div>
                                         <div class="inp" v-show="!isShow">
                                                 <p>联系人：</p><input type="text">

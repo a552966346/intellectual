@@ -433,9 +433,9 @@ const api = {
         return requestAll.requset(baseUrl + '/api/order/datacart', data);
     },
     // 删除购物车数据
-    deletecart(id,uid){
+    deletecart(ids,uid){
         let data = {
-            id:id,
+            ids:ids,
             uid:uid
         }
         return requestAll.requset(baseUrl + '/api/order/deletecart', data);
