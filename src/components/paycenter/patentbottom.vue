@@ -47,7 +47,7 @@
             <v-customer @shows="shows"></v-customer>
     </div>
     <div class="tanchuang" v-show="isshows" @click.self="shows" >
-             <v-tanchuangsb @close="close" @fabu="fabu"></v-tanchuangsb>
+             <v-tanchuangsb @close="close" ></v-tanchuangsb>
     </div>
 </div>
 </template>
@@ -60,7 +60,7 @@ export default {
         return{
             isshow:false,
             isshows:false,
-            
+
              arr: [{
                 url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
                 ban: '一种油炸肉丸快速过滤油框',
@@ -107,7 +107,7 @@ export default {
                         'v-tanchuangsb':tanchuangsb,//商标弹窗
     },
     methods:{
-        
+
         tankuang(){
                 this.isshow=true
         },
