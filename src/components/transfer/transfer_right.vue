@@ -2,28 +2,28 @@
         <div id="transfer_right">
                 <div class="transfer_recommend">
                     <div class="transfer_cheng">
-                        <p>相关成果推荐 
+                        <p>相关成果推荐
                             <router-link :to="'/transfer'"><span>更多<img src="../../../static/img/transfer/transfer_right.png" alt=""></span></router-link> </p>
                     </div>
-                    <a class="transfer_pro" href="#">
-                        <div class="transfer_more" v-for="(item,index) in hots">
+                    <div class="transfer_pro" >
+                        <div class="transfer_more" v-for="(item,index) in hots" @mouseover="isshow(index)" @mousedown="isshows">
                             <div class="transfer_zhao">
                                 <img :src="item.images" alt="">
                             </div>
                             <span>{{item.name}}</span>
-                            <div class="transfer_jia">
+                            <div class="transfer_jia" v-show="!(shows==index)">
                                 <span v-if="item.fee>=10000">{{(item.fee)/10000}}万元</span>
                                 <span v-else>{{item.fee}}元</span>
                                 <span style="font-weight:300;">不限</span>
                             </div>
-                            <div class="transfer_foo">
-                                <div class="transfer_ask">
+                            <div class="transfer_foo" v-show="shows==index">
+                                <div class="transfer_ask" >
                                     <p>咨询客服 </p>
                                     <font style="background-color:#00a3bf;"><img src="../../../static/img/transfer/transfer_tou.png" alt=""> </font>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
         </div>
 </template>
@@ -32,7 +32,8 @@
 export default {
     data(){
         return{
-            hots:[]
+            hots:[],
+            shows:undefined
         }
     },
      mounted() {
@@ -41,9 +42,17 @@ export default {
                         console.log(321)
                         console.log(res)
                         this.hots = res.data
-                        
+
                 })
-      
+
+            },
+            methods:{
+                    isshow(index){
+                        this.shows = index
+                    },
+                    isshows(){
+                     this.shows =undefined
+                    }
             }
 }
 </script>
@@ -68,12 +77,12 @@ export default {
            text-decoration: none;
            color: black;
        }
-       .transfer_pro:hover .transfer_foo{
+     /*  .transfer_pro:hover>.transfer_foo{
            display: block;
        }
-       .transfer_pro:hover .transfer_jia{
+       .transfer_pro:hover>.transfer_jia{
            display: none;
-       }
+       } */
        .transfer_cheng>p{
            color: #fff;
            display: flex;
@@ -116,7 +125,7 @@ export default {
            font-weight: bold;
        }
        .transfer_foo{
-           display: none;
+           /* display: none; */
            height: 30px;
        }
        .transfer_ask {
