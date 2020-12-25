@@ -10,40 +10,40 @@
                             <div class="hover_jia">
                                 <div class="one"><div style="background-color: #FA6B75;">1</div><span>{{hot[0].name}}</span></div>
                                 <div class="two">
-                                        <span v-if="hot[0].fee>=10000">{{(hot[0].fee)/10000}}</span>
-                                        <span v-else>{{hot[0].fee}}</span>
+                                        <span v-if="hot[0].fee>=10000">{{(hot[0].fee)/10000}}万元</span>
+                                        <span v-else>{{hot[0].fee}}元</span>
                                         <span style="font-weight:300;">{{hot[0].creatime_text}}</span>
                                 </div>
                             </div>
                             <div class="hover_jia">
                                 <div class="one"><div  style="background-color: #F97A37;">2</div><span>{{hot[1].name}}</span></div>
                                 <div class="two">
-                                        <span v-if="hot[1].fee>=10000">{{(hot[0].fee)/10000}}</span>
-                                        <span v-else>{{hot[1].fee}}</span>
+                                        <span v-if="hot[1].fee>=10000">{{(hot[0].fee)/10000}}万元</span>
+                                        <span v-else>{{hot[1].fee}}元</span>
                                         <span style="font-weight:300;">{{hot[1].creatime_text}}</span>
                                 </div>
                             </div>
                             <div class="hover_jia">
                                 <div class="one"><div  style="background-color: #FAC539;">3</div><span>{{hot[2].name}}</span></div>
                                 <div class="two">
-                                        <span v-if="hot[2].fee>=10000">{{(hot[0].fee)/10000}}</span>
-                                        <span v-else>{{hot[2].fee}}</span>
+                                        <span v-if="hot[2].fee>=10000">{{(hot[0].fee)/10000}}万元</span>
+                                        <span v-else>{{hot[2].fee}}元</span>
                                         <span style="font-weight:300;">{{hot[2].creatime_text}}</span>
                                 </div>
                             </div>
                             <div class="hover_jia">
                                 <div class="one"><div style="background-color: #ccc;">4</div><span>{{hot[3].name}}</span></div>
                                 <div class="two">
-                                        <span v-if="hot[3].fee>=10000">{{(hot[0].fee)/10000}}</span>
-                                        <span v-else>{{hot[3].fee}}</span>
+                                        <span v-if="hot[3].fee>=10000">{{(hot[0].fee)/10000}}万元</span>
+                                        <span v-else>{{hot[3].fee}}元</span>
                                         <span style="font-weight:300;">{{hot[3].creatime_text}}</span>
                                 </div>
                             </div>
                             <div class="hover_jia">
                                 <div class="one"><div style="background-color: #ccc;">5</div><span>{{hot[4].name}}</span></div>
                                 <div class="two">
-                                        <span v-if="hot[4].fee>=10000">{{(hot[0].fee)/10000}}</span>
-                                        <span v-else>{{hot[4].fee}}</span>
+                                        <span v-if="hot[4].fee>=10000">{{(hot[0].fee)/10000}}万元</span>
+                                        <span v-else>{{hot[4].fee}}元</span>
                                         <span style="font-weight:300;">{{hot[4].creatime_text}}</span>
                                 </div>
                             </div>

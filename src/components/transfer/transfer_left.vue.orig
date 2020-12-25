@@ -83,19 +83,27 @@
                                         </div>
                                 </div>
                         </div>
-                        <div class="transfer_left_center_bottom">
+                        <!-- 分页 -->
+                        <!-- <div class="transfer_left_center_bottom">
                                 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                                        :current-page.sync="currentPage" :page-size="10" layout="prev, pager, next, jumper"
-                                        :total="nub">
+                                        :current-page.sync="currentPage" :page-size="pagesize" layout="prev, pager, next, jumper"
+                                        :total="total">
                                 </el-pagination>
-                        </div>
+                        </div> -->
                 </div>
-                <div v-else>
-                        <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p>
+                <div v-else style="background-color: #fff;display: flex;justify-content: center;">
+                         <img src="../../../static/img/service/word_none.png">
+                       <!-- <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p> -->
                 </div>
+<<<<<<< HEAD
                 <div class="tanchuang" v-show="isshow" @click.self="shows">
                         <v-customer @shows="shows"></v-customer>
                 </div>
+=======
+                <!-- <div v-else>
+                        <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p>
+                </div> -->
+>>>>>>> 7f7e3e756de519077b0b27ff0913fb4b720eb958
         </div>
 </template>
 
@@ -119,13 +127,14 @@
                 },
                 props:{
                         left_data:'',
-                        nub: 0,
+
                 },
                 methods: {
                         shaixuan(index) {
                                 this.active = index
                                 this.$emit('shaixuan',index)
                         },
+<<<<<<< HEAD
                         handleSizeChange(val) {
                                 console.log(`每页 ${val} 条`);
                         },
@@ -138,6 +147,8 @@
                         shows(){
                                 this.isshow = false
                         },
+=======
+>>>>>>> 7f7e3e756de519077b0b27ff0913fb4b720eb958
 
                 },
                 components:{

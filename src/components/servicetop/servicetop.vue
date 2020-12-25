@@ -67,7 +67,6 @@
                         return {
                                 // qiye: '企业知识产贯�,
                                 nub: 1,
-                                uid:1,
                                 isshow:false
                                 
                         }

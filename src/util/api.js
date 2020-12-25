@@ -240,6 +240,7 @@ const api = {
                                   clicks:id[6],
                                   feeorder:id[7],
                                   keyword:id[8],
+                                  page:id[9]
                   }
             }
         return requestAll.requset(baseUrl + '/api/technology/lists', data);

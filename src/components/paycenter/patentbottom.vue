@@ -4,7 +4,7 @@
         <div class="patent_title">
             <div class="patent_copy">
                 <h2>没有找到您心仪的专利？</h2>
-                <a href="#">
+                <a href="#"  @click="tankuang">
                     <p>联系客服帮您找</p>
                 </a>
                 <span>或</span>
@@ -43,13 +43,19 @@
              </div>
         </div>
     </div>
+    <div class="tanchuang" v-show="isshow" @click.self="shows">
+            <v-customer @shows="shows"></v-customer>
+    </div>
 </div>
 </template>
 
 <script>
+import customer from '@/components/customers/customer_services.vue'
 export default {
      data(){
         return{
+            isshow:false,
+            
              arr: [{
                 url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
                 ban: '一种油炸肉丸快速过滤油框',
@@ -90,6 +96,18 @@ export default {
     },
     props:{
             listdata:''
+    },
+    components:{
+                        'v-customer':customer
+    },
+    methods:{
+        
+        tankuang(){
+                this.isshow=true
+        },
+        shows(){
+                this.isshow = false
+        },
     }
 }
 </script>

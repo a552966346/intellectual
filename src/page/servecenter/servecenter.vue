@@ -171,7 +171,7 @@
                                 <div class="servecenter_center_sb_right">
                                         <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="item.id" v-if="index != 0&&sb_right_lie.length !=1&&index<=7" @click="but_xq(item.categoryid_text,item.category_id)">
                                                 <p>{{item.name}}</p>
-                                               <p>{{item.sketch}}</p>
+                                                <p>{{item.sketch}}</p>
                                                 <p>
                                                         <span v-if="item.fee>=10000">{{(item.fee/10000)}}万元起</span>
                                                         <span v-else>{{item.fee}}元</span>

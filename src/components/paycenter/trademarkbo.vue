@@ -4,8 +4,8 @@
                         <div class="trademark_title">
                                 <div class="trademark_copy">
                                         <h2>没有找到您心仪的商标？</h2>
-                                        <a href="#">
-                                                <p>联系客服帮您找</p>
+                                        <a href="#" @click="tankuang">
+                                                <p >联系客服帮您找</p>
                                         </a>
                                         <span>或</span>
                                         <a href="#">
@@ -52,10 +52,15 @@
                                 </li>
                         </ul>
                 </div>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
+                </div>
         </div>
 </template>
 
 <script>
+        import customer from '@/components/customers/customer_services.vue'
+
         export default {
                 data() {
                         return {
@@ -63,6 +68,7 @@
                                 color: ['rgb(230, 92, 92)', 'rgb(246, 139, 108)', 'rgb(246, 189, 108)',
                                         'rgb(126, 152, 205)', 'rgb(197, 120, 209)'
                                 ],
+                                isshow:false
                         }
                 },
                 props: {
@@ -80,7 +86,17 @@
                                 this.$forceUpdate();
                                 // console.log(this.listdata[index])
                                 this.listdata[index];
-                        }
+                        },
+                        tankuang(){
+                                this.isshow=true
+                        },
+                        shows(){
+                                this.isshow = false
+                        },
+
+                },
+                components:{
+                        'v-customer':customer
                 }
         }
 </script>
