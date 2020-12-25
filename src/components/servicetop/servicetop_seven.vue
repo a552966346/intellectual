@@ -132,7 +132,7 @@
 
                                                 </div>
                                                 <div class="bottom_right">
-                                                        <button>
+                                                        <button @click="tankuang">
                                                                 <img src="../../../static/img/service/service_kefu.png"
                                                                         alt="">
                                                                 <span>咨询客服</span>
@@ -142,15 +142,19 @@
                                 </div>
                         </div>
                 </div>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
+                </div>
         </div>
 
 </template>
 <script>
+        import customer from '@/components/customers/customer_services.vue'
         export default {
                 data() {
                         return {
                                 nub: 1,
-                                uid:1
+                                isshow:false
                         }
                 },
                 props: {
@@ -170,25 +174,24 @@
                         but1() {
                                         this.nub++
                         },
-                         shop(id,nub,uid){
-                                let user =JSON.parse(sessionStorage['user']); 
-                                 uid = user.id;
-                                 nub = this.nub;
-                                this.$api.getshop(id,4,nub,uid)
-                                .then(res=>{
-                                     if(res.code == 1){
-                                        console.log(res.data)
-                                     }else{
-                                        console.log(res.msg)
-                                     }
-                                })
+                        shop(id){
+                                console.log(id)
                                 this.$router.push({
                                         path:'/shopcart',
                                         query:{
                                                 id:id
                                         }
                                 })
-                        }
+                        },
+                        tankuang(){
+                                this.isshow=true
+                        },
+                        shows(){
+                                this.isshow = false
+                        },
+                },
+                components:{
+                        'v-customer':customer
                 }
         }
 </script>
@@ -461,6 +464,7 @@
                 outline: none;
                 display: flex;
                 align-items: center;
+                cursor: pointer;
         }
 
         .bottom_right span {

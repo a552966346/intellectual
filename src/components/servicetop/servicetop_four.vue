@@ -50,7 +50,7 @@
                                                                 </div>
                                                         </div>
                                                 </div>
-                                                <div class="rfooterRight">
+                                                <div class="rfooterRight" @click="tankuang">
                                                         <img src="../../../static/img/service/service_kefu.png" alt="">
                                                         <span>咨询客服</span>
                                                 </div>
@@ -58,14 +58,18 @@
                                 </div>
                         </div>
                 </div>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
+                </div>
         </div>
 </template>
 <script>
+        import customer from '@/components/customers/customer_services.vue'
         export default {
                 data() {
                         return {
                                 nub:1,
-                                uid:1
+                                isshow:false
                         }
                 },
                 props: {
@@ -82,17 +86,18 @@
                                         this.nub--
                                 }
                         },
-                        shop(id,nub,uid){
-                                let user =JSON.parse(sessionStorage['user']); 
-                                uid = user.id;
-                                nub = this.nub;
-                                this.$api.getshop(id,1,nub,uid)
+                        shop(id){
+                                console.log(id)
+                                 this.$api.getshop(id,1,1)
                                 .then(res=>{
-                                     if(res.code == 1){
+                                     if(res.msg == 1){
                                         console.log(res.data)
                                      }else{
                                         console.log(res.msg)
                                      }
+                                })
+                                .catch(err => {
+                                    console.log(err)
                                 })
                                 this.$router.push({
                                         path:'/shopcart',
@@ -101,6 +106,15 @@
                                         }
                                 })
                         },
+                        tankuang(){
+                                this.isshow=true
+                        },
+                        shows(){
+                                this.isshow = false
+                        },
+                },
+                components:{
+                        'v-customer':customer
                 }
         }
 </script>
@@ -292,6 +306,7 @@
                 align-items: center;
                 font-size: 16px;
                 color: #feffff;
+                cursor: pointer;
         }
 
         .rfooter>.rfooterRight>img {

@@ -30,7 +30,7 @@
                                         <div class="index_entesdwrqw">
                                                 {{severtw[0]}}
                                         </div>
-                                        <div class="index_entesdwrqwas">
+                                        <div class="index_entesdwrqwas" @click="tankuang">
                                                 {{severtr[0]}}
                                         </div>
                                 </div>
@@ -44,7 +44,7 @@
                                                 <div class="index_cmetkaw">
                                                         {{severtw[1]}}
                                                 </div>
-                                                <div class="index_cmetkaqw">
+                                                <div class="index_cmetkaqw" >
                                                         {{severtr[1]}}
                                                 </div>
                                         </div>
@@ -274,6 +274,9 @@
                 </div>
                 <!-- 公共底部 -->
                 <v-combotttom></v-combotttom>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
+                </div>
         </div>
 </template>
 
@@ -281,6 +284,7 @@
         import indexpayitem from '@/components/indexpayitem/indexpayitem.vue'
         import navigation from '@/components/navigation/navigation.vue'
         import banner from '@/components/banner/banner.vue'
+        import customer from '@/components/customers/customer_services.vue'
         import {validatePhone} from '@/util/rules.js'
         export default {
                 name: 'index',
@@ -294,6 +298,7 @@
                                 transaction:[],//交易中心的块内容
                                 trade:[],//商标交易的块内容
                                 soft:[],//软著交易的块内容
+                                isshow:false,//客服弹窗显示
                                 title_color: '#fff', // commtitle组件传值所需
                                 title_all: ["交易中心", '企业服务', '跳蚤市场', '新闻中心', '合伙人计划', '了解伊甸网'], // 所有标题
                                 // 标题下的介绍
@@ -626,13 +631,20 @@
                         jiequ(time){
                                let times = time.split('-')
                                return times[0]+'.'+times[1]
-                        }
+                        },
+                        tankuang(){
+                                this.isshow=true
+                        },
+                        shows(){
+                                this.isshow = false
+                        },
 
                 },
                 components: {
                         'v-indexpayitem': indexpayitem,
                         'v-navigation': navigation,
-                        'v-banner': banner
+                        'v-banner': banner,
+                        'v-customer':customer
                 }
 
 
@@ -678,13 +690,15 @@
       .index_enterpriseasdwrtr{border: 20px solid #fff;width: 400px;height: 380px;background-image: url(../../../static/img/index/index_twbatr.png);background-size: cover;display: flex;justify-content: space-between;flex-direction: column;}
       .index_enterpriseasdwrtr:hover{position: relative;top: -5px;box-shadow: 1px 1px 6px #ccc; }
       .index_entesdwr{font-size: 30px;font-weight: bold;}
-      .index_entesdwrqwas{border: 1px solid #fff;padding: 3%;border-radius: 8px;}
+      .index_entesdwrqwas{border: 1px solid #fff;padding: 3%;border-radius: 8px;cursor: pointer;}
+      .index_entesdwrqwas:hover{background-color: #fff;color: #fd5b1a;}
       .index_entwkjk{width: 100%;height: 140px;background-image: url(../../../static/img/index/index_banrtwstw.png);background-size: cover;}
       .index_entwkjkr{width: 100%;height: 140px;background-image: url(../../../static/img/index/index_benarwst.png);background-size: cover;}
       .index_entwkjkas{width: 100%;flex: 1;display: flex;justify-content: space-around;align-items: flex-start;flex-direction: column;padding: 2%;color: #fff;padding: 0 30px;}
       .index_cmetk{font-size: 24px;font-weight: bold;}
-      .index_cmetkaqw{border: 1px solid #fff;padding: 10px;font-size: 14px;}
-
+      .index_cmetkaqw{border: 1px solid #fff;padding: 10px;font-size: 14px;cursor: pointer;border-radius: 10px;}
+      .index_cmetkaqw:hover{background-color: #fff;color: #8582d2;}
+      .index_cmetkaqw:last-of-type:hover{background-color: #fff;color: #f28a46;}
       /* 跳蚤市场 */
       .index_content{display: flex;flex-direction: column;align-items: center;background: #f6f6f6;}
       .index_online{width: 1200px;height: 570px;display: flex;align-items: baseline;flex-wrap: wrap;padding-top: 4px;}
@@ -764,22 +778,20 @@
                    text-align: center;
                    width: 85px;
        }
-       .layui_left_left{
-                      display: flex;
-              }
-              .layui_left_rig{
-                      width: 30%;
-              }
-              .layui_left_rig{
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                       flex-direction: column;
-
-              }
-              .layui_left_rig>p{
-                      font-size: 12px;
-                      color: #ccc;
-                      padding: 5px 0;
-              }
+        .layui_left_left{
+                display: flex;
+        }
+        .layui_left_rig{
+                width: 30%;
+        }
+        .layui_left_rig{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                 flex-direction: column                   }
+        .layui_left_rig>p{
+                font-size: 12px;
+                color: #ccc;
+                padding: 5px 0;
+        }
 </style>
