@@ -72,7 +72,7 @@
                         },
                         xuanze(id){
                                 this.id = id
-
+                                console.log(id)
                                 this.ispost(this.id)
                         },
                         //搜索
