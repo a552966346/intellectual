@@ -211,6 +211,11 @@ export default {
     padding: 20px;
     text-align: center;
 }
+.flex-item:hover{
+    position: relative;
+    top: -5px;
+
+}
 .basic_2,
 .basic_3 {
     margin-left: 65px;

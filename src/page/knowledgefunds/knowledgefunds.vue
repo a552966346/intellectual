@@ -178,6 +178,10 @@ export default {
     padding: 20px;
     text-align: center;
 }
+.flex-item:hover{
+    position: relative;
+    top: -5px;
+}
 .basic_2,
 .basic_3 {
     margin-left: 65px;
@@ -211,6 +215,10 @@ export default {
     display: flex;
     justify-content: space-between;
     margin-top: 70px;
+}
+.flexitem:hover{
+    position: relative;
+    top: -5px;
 }
 .flexitem3{
     height: 490px;

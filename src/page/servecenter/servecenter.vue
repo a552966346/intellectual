@@ -863,7 +863,7 @@
                 align-items: center;
         }
 
-        .top_cen_right_cen_up>div {}
+      
 
         .top_cen_right_cen_bottom {
                 height: 18%;
@@ -1008,9 +1008,7 @@
                 margin-right: 10px;
 
         }
-        .servecenter_center_sb_left:hover{
-
-        }
+        
 
         .servecenter_center_sb_right {
                 flex: 3;
