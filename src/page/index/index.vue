@@ -128,8 +128,9 @@
             <li
               v-for="(item, index) in news"
               :class="{ active: index == num }"
+              v-if="index!=2"
               @click="tab(index)"
-              :key="index"
+              :key="item.id"
             >
               {{ item.name }}
             </li>
@@ -139,7 +140,7 @@
               <li>
                 <div
                   class="index_ulxwon"
-                  :key="index"
+                  :key="item.id"
                   v-for="(item1, index) in item.news"
                   v-if="index == 0"
                 >
@@ -163,7 +164,7 @@
                     class="index_ulxwtwbk"
                     v-for="(item1, index) in item.news"
                     v-if="index > 0 && index < 5"
-                    :key="item1"
+                    :key="item1.id"
                   >
                     <router-link :to="'newsint?id=' + item1.id" class="newa">
                       <div class="index_ulxwtwbkrt">
@@ -187,16 +188,6 @@
                   </div>
                 </div>
                 <div class="index_ulxwtr">
-                  <!-- <div class="index_ulxwsq"  v-for="(item1,index) in item.news" v-if="index==5" :key="item1">
-                                                                            <router-link :to="'newsint?id='+item1.id" class="newa">
-                                                                                   <div class="index_ulxwsqlt"></div>
-                                                                                   <div class="index_ulxwsqrt">
-                                                                                           <div>产权转让全程监督</div>
-                                                                                           <div>国家知识产权局公告-第二八六号根据《中华人民共和国专利法》...</div>
-                                                                                           <div>发布时间：2020.08.26</div>
-                                                                                   </div>
-                                                                            </router-link>
-                                                                    </div> -->
                   <div class="index_ulxwsqk">
                     <div style="width: 100%; height: 100%;">
                       <router-link to="">
@@ -208,25 +199,13 @@
                                         <div class="index_ulwsaq3">山西省知识产权战略纲要</div>
                           <div class="index_ulwsapq3">为全面贯彻落实国家知识产权战略，推进我省国家资源型经济转型综合配套改革试验区...</div>
                                 </div>
-                          
-                        </div>
-                      </router-link>      
-                      <router-link to="">
-                        <div class="newa3">
-                          <div class="index_ulwsaq3">山西省知识产权战略纲要</div>
-                          <div class="index_ulwsapq3">为全面贯彻落实国家知识产权战略，推进我省国家资源型经济转型综合配套改革试验区...</div>
+
                         </div>
                       </router-link>
-                      <router-link to="">
+                      <router-link :to="'/newsint?id='+item.id" v-for="item in newnow.news" :key="item.id">
                         <div class="newa3">
-                          <div class="index_ulwsaq3">山西省人民政府关于新形势下推进知识产...</div>
-                          <div class="index_ulwsapq3">各市、县人民政府，省人民政府各委、办、厅、局:为深入贯彻落实《国务院关于新形势下加快知...</div>
-                        </div>
-                      </router-link>
-                      <router-link to="">
-                        <div class="newa3">
-                          <div class="index_ulwsaq3">山西省专利实施和保护条例</div>
-                          <div class="index_ulwsapq3">(2001年11月25日山西省第九届人民代表大会常务委员会第二十六次会议通过2014年 ..</div>
+                          <div class="index_ulwsaq3">{{item.title}}</div>
+                          <div class="index_ulwsapq3">{{item.desc}}</div>
                         </div>
                       </router-link>
                     </div>
@@ -668,6 +647,7 @@ export default {
         ],
       },
       isshow: false,
+      newnow:[]
     };
   },
   mounted() {
@@ -684,7 +664,7 @@ export default {
     });
 
     this.$api.getidnexdeal().then((res) => {
-      console.log(res, "专利交易");
+      // console.log(res, "专利交易");
       this.hot = res.data.hot;
       this.transaction = res.data.transaction;
       this.num1 = res.data.count;
@@ -700,14 +680,16 @@ export default {
       this.num3 = res.data.count;
     });
     this.$api.getindexnew().then((res) => {
-      console.log(res, "新闻中心");
+      // console.log(res, "新闻中心");
       this.news = res.data;
+      this.newnow = res.data[2]
+      console.log(this.newnow, "新闻中心")
       // this.num3=res.data.count;
     });
     this.$api.getydbrief().then((res) => {
       // console.log(res,'伊甸网')
       this.brief = res.data.brief;
-      console.log(res);
+      // console.log(res);
       this.introimage = res.data.images;
       // this.num3=res.data.count;
     });
@@ -1480,6 +1462,13 @@ a:hover {
         padding-right: 15px;
         line-height: 1.5em;
         color: #666;
+         text-overflow: -o-ellipsis-lastline;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          -webkit-box-orient: vertical;
 }
 .index_ulwsaq3{
         padding: 0 15px;

@@ -112,7 +112,6 @@
                         },
                         //显示弹框
                         tanchuang(){
-                                console.log(111)
                           this.isshow = true
                         },
                         close(){//隐藏弹框

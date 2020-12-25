@@ -6,8 +6,8 @@
                             <router-link  :to="'/transfer'"><span>更多<img src="../../../static/img/transfer/transfer_right.png" alt=""></span></router-link>  </p>
                     </div>
                     <!-- <a class="hover_pro" href="#"> -->
-                        <div class="hover_more">
-                            <div class="hover_jia">
+                        <div class="hover_more" v-if="hot.length!=0">
+                            <div class="hover_jia" @click="running(hot[0].id)" v-if="hot[0]">
                                 <div class="one"><div style="background-color: #FA6B75;">1</div><span>{{hot[0].name}}</span></div>
                                 <div class="two">
                                         <span v-if="hot[0].fee>=10000">{{(hot[0].fee)/10000}}万元</span>
@@ -15,7 +15,7 @@
                                         <span style="font-weight:300;">{{hot[0].creatime_text}}</span>
                                 </div>
                             </div>
-                            <div class="hover_jia">
+                            <div class="hover_jia" @click="running(hot[1].id)" v-if="hot[1]">
                                 <div class="one"><div  style="background-color: #F97A37;">2</div><span>{{hot[1].name}}</span></div>
                                 <div class="two">
                                         <span v-if="hot[1].fee>=10000">{{(hot[0].fee)/10000}}万元</span>
@@ -23,7 +23,7 @@
                                         <span style="font-weight:300;">{{hot[1].creatime_text}}</span>
                                 </div>
                             </div>
-                            <div class="hover_jia">
+                            <div class="hover_jia" @click="running(hot[2].id)" v-if="hot[2]">
                                 <div class="one"><div  style="background-color: #FAC539;">3</div><span>{{hot[2].name}}</span></div>
                                 <div class="two">
                                         <span v-if="hot[2].fee>=10000">{{(hot[0].fee)/10000}}万元</span>
@@ -31,7 +31,7 @@
                                         <span style="font-weight:300;">{{hot[2].creatime_text}}</span>
                                 </div>
                             </div>
-                            <div class="hover_jia">
+                            <div class="hover_jia" @click="running(hot[3].id)" v-if="hot[3]">
                                 <div class="one"><div style="background-color: #ccc;">4</div><span>{{hot[3].name}}</span></div>
                                 <div class="two">
                                         <span v-if="hot[3].fee>=10000">{{(hot[0].fee)/10000}}万元</span>
@@ -39,7 +39,7 @@
                                         <span style="font-weight:300;">{{hot[3].creatime_text}}</span>
                                 </div>
                             </div>
-                            <div class="hover_jia">
+                            <div class="hover_jia" @click="running(hot[4].id)" v-if="hot[4]">
                                 <div class="one"><div style="background-color: #ccc;">5</div><span>{{hot[4].name}}</span></div>
                                 <div class="two">
                                         <span v-if="hot[4].fee>=10000">{{(hot[0].fee)/10000}}万元</span>
@@ -66,12 +66,15 @@ export default {
         // console.log(id)
         this.$api.hotnews(id)
                 .then(res => {
-                        // console.log(321)
                         console.log(res)
                         this.hot = res.data
-                        
                 })
-      
+
+            },
+            methods:{
+                    running(id){
+                            this.$emit('running',id)
+                    }
             }
 }
 </script>
@@ -131,6 +134,7 @@ export default {
        .hover_jia{
          /*  display: flex;
            justify-content: space-between; */
+           cursor: pointer;
            margin-bottom: 10px;
            border-bottom: 1px solid #f5f5f5;
            padding: 10px 5px;

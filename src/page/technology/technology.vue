@@ -336,6 +336,14 @@
                         qiehuan(ind) {
                                 this.acv = ind;
                         },
+                        running(){
+                                this.$router.push({
+                                        path:'transfer',
+                                        query:{
+                                                name:this.input
+                                        }
+                                })
+                        }
 
                 },
                 components: {
@@ -361,16 +369,6 @@
                                 // this.num1=res.data.count;
                         });
                 },
-                methods:{
-                        running(){
-                                this.$router.push({
-                                        path:'transfer',
-                                        query:{
-                                                name:this.input
-                                        }
-                                })
-                        }
-                }
         };
 </script>
 
