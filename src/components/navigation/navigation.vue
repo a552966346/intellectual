@@ -1,23 +1,15 @@
 <template>
         <div class="navigation_all">
-                <el-menu
-                       theme="dark"
-                       :default-active="$route.path"
-                       class="el-menu-demo"
-                       router mode="horizontal"
-                       @select="handleSelect"
-                       background-color="#187fc4"
-                       text-color="#fff"
-                       fontsize="16px"
-                       active-text-color="#ffd04b">
-                        <el-menu-item index="/">首页</el-menu-item>
-                        <el-submenu :index='item.type' v-for="(item,id) in  this.$store.state.navbarlist" v-if="item.children.length !=0&&item.name != '服务中心'&&item.name != '技术转移'" :key="id">
-                                <template slot="title">{{item.name}}</template>
-                                <el-menu-item v-for="(isitem,isnub) in item.children" :index="'/'+isitem.keywords" :key="isnub">{{isitem.name}}</el-menu-item>
-                        </el-submenu>
-                        <el-menu-item :index='item.type' v-else>{{item.name}}</el-menu-item>
-
-                </el-menu>
+               <ul class="menu cf">
+               	<li><router-link to="/">网站首页</router-link></li>
+               	<li v-for="item in this.$store.state.navbarlist" :key="item.id">
+               		<router-link to="#" v-if="item.name !='服务中心'&&item.name!='技术转移'">{{item.name}}</router-link>
+                        <router-link :to="item.type"v-else>{{item.name}}</router-link>
+               		<ul class="submenu" v-if="item.name !='服务中心'&&item.name!='技术转移'">
+               			<li v-for="item1 in item.children" :key="item1.id"><router-link :to="item1.keywords">{{item1.name}}</router-link></li>
+               		</ul>
+               	</li>
+               </ul>
         </div>
 </template>
 <script>
@@ -30,7 +22,7 @@
                 created(){
                         this.$api.getnavbar()
                                 .then(res => {
-                                        // console.log(res)
+                                        console.log(res)
                                         this.$store.state.navbarlist = res.data
                                 })
                                 .catch(err => {
@@ -47,28 +39,113 @@
         }
 </script>
 <style>
-        .navigation_all {
-                width: 100%;
-                background-color: #187fc4;
-        }
-        a{
-                text-decoration: none;
-        }
-        .el-menu-demo {
-                width: 1200px;
-                display: flex;
-                align-content: center;
-                margin: 0 auto;
-                border-bottom: none !important;
-                text-align: center;
-        }
-
-        .el-menu--horizontal>.el-menu-item,
-        .el-menu--horizontal>.el-submenu,
-        .el-submenu{
-                flex: 1;
-                width: 16.666666%;
-                /* text-align: center; */
-                font-size: 16px!important;
-        }
+     *{margin:0;padding:0;list-style-type:none;}
+     a,img{border:0;}
+     /* Clearing floats */
+     .navigation_all{
+             width: 100%;
+             background-color: #1495E7;
+             position: relative;
+             z-index: 999;
+     }
+     .cf:before,.cf:after{content:" ";display:table;}
+     .cf:after{clear:both;}
+     .cf{*zoom:1;}
+     /* Main level */
+     .menu{
+     	margin:0 auto;
+     	width:1200px;
+        display: flex;
+     	/* width:-moz-fit-content;
+     	width:-webkit-fit-content;
+     	width:fit-content; */
+     }
+     .menu > li{
+             flex: 1;
+     	background:#1495E7;
+     	float:left;
+     	position:relative;
+     	transform:skewX(25deg);
+     }
+     .menu a{
+     	display:block;
+     	text-align:center;
+     	color:#fff;
+     	text-transform:uppercase;
+     	text-decoration:none;
+     	font-family:Arial, Helvetica;
+     	font-size:14px;
+     }
+     .menu li:hover{
+     	background:#e74c3c;
+     }
+     .menu > li > a{
+     	transform:skewX(-25deg);
+     	padding:1em 2em;
+     }
+     /* Dropdown */
+     .submenu{
+     	position:absolute;
+     	width:200px;
+     	left:50%;
+     	margin-left:-100px;
+     	transform:skewX(-25deg);
+     	transform-origin:left top;
+     }
+     .submenu li{
+     	background-color:#1495E7;
+     	position:relative;
+     	overflow:hidden;
+     }
+     .submenu > li > a{
+     	padding:1em 2em;
+     }
+     .submenu > li::after{
+     	content:'';
+     	position:absolute;
+     	top:-125%;
+     	height:100%;
+     	width:100%;
+     	box-shadow:0 0 50px rgba(0, 0, 0, .9);
+     }
+     /* Odd stuff */
+     .submenu > li:nth-child(odd){
+     	transform:skewX(-25deg) translateX(0);
+     }
+     .submenu > li:nth-child(odd) > a{
+     	transform:skewX(25deg);
+     }
+     .submenu > li:nth-child(odd)::after{
+     	right:-50%;
+     	transform:skewX(-25deg) rotate(3deg);
+     }
+     /* Even stuff */
+     .submenu > li:nth-child(even){
+     	transform:skewX(25deg) translateX(0);
+     }
+     .submenu > li:nth-child(even) > a{
+     	transform:skewX(-25deg);
+     }
+     .submenu > li:nth-child(even)::after{
+     	left:-50%;
+     	transform:skewX(25deg) rotate(3deg);
+     }
+     /* Show dropdown */
+     .submenu,  .submenu li{
+     	opacity:0;
+     	visibility:hidden;
+     }
+     .submenu li{
+     	transition:.2s ease transform;
+     }
+     .menu > li:hover .submenu,  .menu > li:hover .submenu li{
+     	opacity:1;
+     	visibility:visible;
+     }
+     .menu > li:hover .submenu li:nth-child(even){
+     	transform:skewX(25deg) translateX(15px);
+     }
+     .menu > li:hover .submenu li:nth-child(odd){
+     	transform:skewX(-25deg) translateX(-15px);
+     }
 </style>

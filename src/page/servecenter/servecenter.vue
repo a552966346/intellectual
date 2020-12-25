@@ -169,7 +169,7 @@
                                         <p><button @click="but_bl">立即办理</button><button @click="but_xq(sb_right_lie_o.categoryid_text,sb_right_lie_o.category_id)">查看详情</button></p>
                                 </div>
                                 <div class="servecenter_center_sb_right">
-                                        <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="item.id" v-if="index != 0&&sb_right_lie.length !=1" @click="but_xq(item.categoryid_text,item.category_id)">
+                                        <div class="sb_right_lie" v-for="(item,index) in sb_right_lie" :key="item.id" v-if="index != 0&&sb_right_lie.length !=1&&index<=7" @click="but_xq(item.categoryid_text,item.category_id)">
                                                 <p>{{item.name}}</p>
                                                <p>{{item.sketch}}</p>
                                                 <p>
@@ -225,7 +225,7 @@
                                                 </div>
                                                 <p><button @click="but_bl">联系客服</button><button @click="but_xq(fu_cen_right_lie_o.categoryid_text,fu_cen_right_lie_o.category_id)">查看详情</button></p>
                                         </div>
-                                        <div class="fu_cen_right_lie" v-for='(item,index) in fu_cen_right_lie' :key="item.id"   v-if="index != 0&&fu_cen_right_lie.length !=1"
+                                        <div class="fu_cen_right_lie" v-for='(item,index) in fu_cen_right_lie' :key="item.id"   v-if="index != 0&&fu_cen_right_lie.length !=1&&index<=4"
                                                 @mouseover="mouseOver(index)" @mouseleave="mouseLeave">
                                                 <img :src=" item.images_text[0]" alt="" :class="{active_o:active==index}">
                                                 <div class="right_lie_cent" :class="{active_t:active==index}">
@@ -415,7 +415,7 @@
                          .then(res=>{
                                  this.$nextTick(function(){
                                          this.o_cen_lie = res.data.hot_server    //热门服务
-
+                                        console.log(res)
                                          this.sb_right_lie = res.data.server_data39      //商标服务
                                          if(res.data.server_data39.length != 0){
                                                  this.sb_right_lie_o = res.data.server_data39[0]
@@ -863,7 +863,7 @@
                 align-items: center;
         }
 
-      
+
 
         .top_cen_right_cen_bottom {
                 height: 18%;
@@ -1008,7 +1008,7 @@
                 margin-right: 10px;
 
         }
-        
+
 
         .servecenter_center_sb_right {
                 flex: 3;
@@ -1191,7 +1191,7 @@
                 border: 1px solid  #fff;
         }
 
-        
+
 
         /* .servecenter_center_zl_right {
                 display: flex;
@@ -1209,7 +1209,7 @@
         .zl_right_lie:hover{
                 position: relative;
                 top: -5px;
-                
+
         }
         .zl_right_lie>div {
                 display: flex;

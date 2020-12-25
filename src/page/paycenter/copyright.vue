@@ -38,8 +38,8 @@
 
       </div>
       <v-combotttom></v-combotttom>
-      <div class="tanchuang" v-show="isshow" @click.self="shows">
-               <v-tanchuangsb @close="close"></v-tanchuangsb>
+      <div class="tanchuang" v-show="isshow" @click.self="shows" >
+               <v-tanchuangsb @close="close" @fabu="fabu"></v-tanchuangsb>
       </div>
   </div>
 </template>
@@ -114,6 +114,10 @@ export default {
                 },
                 close(){//隐藏弹框
                         this.isshow = false
+                },
+                fabu(){
+                        console.log(111)
+                       this.isshow = false
                 },
                 //隐藏弹框
                 shows(){

@@ -460,6 +460,10 @@ const api = {
     //热门推荐
     hottui(){
         return requestAll.requset(baseUrl + '/api/Technology/hotrecommend');
+    },
+    //版权分类
+    getbanquan(){
+             return requestAll.requset(baseUrl + '/api/Copyright/sellcategory');
     }
 }
 

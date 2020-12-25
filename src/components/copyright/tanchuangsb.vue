@@ -154,6 +154,7 @@
                                                                         message: '添加成功',
                                                                         type: 'success'
                                                                 });
+                                                                this.$emit("fabu")
                                                         } else {
                                                                 this.$message.error({
                                                                         message: '添加失败',
