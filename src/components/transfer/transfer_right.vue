@@ -18,21 +18,26 @@
                             </div>
                             <div class="transfer_foo">
                                 <div class="transfer_ask">
-                                    <p>咨询客服 </p>
+                                    <p @click="tankuang">咨询客服 </p>
                                     <font style="background-color:#00a3bf;"><img src="../../../static/img/transfer/transfer_tou.png" alt=""> </font>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
+                </div>
         </div>
 </template>
 
 <script>
+import customer from '@/components/customers/customer_services.vue'
 export default {
     data(){
         return{
-            hots:[]
+            hots:[],
+            isshow:false
         }
     },
      mounted() {
@@ -44,7 +49,18 @@ export default {
                         
                 })
       
-            }
+            },
+    methods:{
+        tankuang(){
+                this.isshow=true
+        },
+        shows(){
+                this.isshow = false
+        },
+    },
+    components:{
+            'v-customer':customer
+    }
 }
 </script>
 

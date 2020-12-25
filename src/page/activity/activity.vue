@@ -120,7 +120,7 @@
            </div>
          </div>
          <div class="activity_zone_right">
-            <el-carousel :interval="4000" type="card" height="500px">
+            <el-carousel :interval="4000" type="card" height="560px">
               <el-carousel-item v-for="item in 4" :key="item">
                 <!-- <h3 class="medium">{{ item }}</h3> -->
                 <h4>报名</h4>
@@ -416,7 +416,7 @@ export default {
   border-bottom: none;
 }
 .activity_zone_right{
-  width: 50%;
+  width: 45%;
   padding: 30px 40px;
 }
 
