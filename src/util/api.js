@@ -450,7 +450,11 @@ const api = {
     // 技术转移推荐
     hotnews(){
         return requestAll.requset(baseUrl + '/api/Technology/hotdata');
+    },
+    getnewsnew(){
+        return requestAll.requset(baseUrl + '/api/index/randomnews');
     }
 }
+
 
 export default api;
