@@ -42,7 +42,7 @@
                                                 </div>
                                         </div>
                                         <div class="center_lei_right" style="display: flex;padding-left: 15px;">
-                                               <input type="text" v-model="input"style="height: 40px;outline: none;border-radius: 5px;border: 1px solid #ccc;"><button @click="sousuo" style="background-color:#1D5CBD;color: #fff;padding: 0 10px;border-radius: 5px;">搜索</button>
+                                               <input type="text" v-model="input"style="height: 35px;outline: none;border-top-left-radius: 5px;border-bottom-left-radius:5px;border: 1px solid #ccc;"><button @click="sousuo" style="background-color:#1A7FC3;color: #fff;padding: 0 10px;border-top-right-radius: 5px;border-bottom-right-radius:5px;">搜索</button>
                                         </div>
                                 </div>
                         </div>
@@ -187,7 +187,8 @@
 
 .top_center_all {
         display: flex;
-                padding: 10px 10px;
+        padding: 10px 10px;
+        align-items: center;
         border-bottom: 1px dashed #ccc;
 }
 .top_center_lei>div:last-child{
@@ -198,7 +199,7 @@
 }
 .top_center_lei p{
         font-size: 13px;
-        color: #aaa;
+        color: #666;
 }
 .center_lei_left {
         display: flex;
@@ -252,6 +253,7 @@
         align-items: center;
         cursor: pointer;
         font-size: 12px;
+        color: #666;
 }
 
 #shaixuan {
@@ -262,10 +264,10 @@
         font-size: 13px;
 }
 .center_lei_right>button {
-        border: 1px solid #ccc;
+        border: 1px solid #666;
         background-color: #fff;
         padding: 0 3px;
-        color: #aaa;
+        color: #666;
         outline: none;
 }
 .color{color: #1D5CBD!important;}

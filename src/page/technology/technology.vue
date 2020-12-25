@@ -19,9 +19,9 @@
                                 <div :class="{ display: acv == 1 }">
                                         <div class="technology_sou">
                                                 <div class="technology_input">
-                                                        <input type="text" placeholder="请输入想要查找的技术丶专利名称" />
+                                                        <input type="text" v-model="input" placeholder="请输入想要查找的技术丶专利名称" />
                                                 </div>
-                                                <div class="technology_search">搜索</div>
+                                                <div class="technology_search" @click="running">搜索</div>
                                         </div>
                                         <div class="technology_flex">
                                                 <div>技术成果推广</div>
@@ -35,9 +35,9 @@
                                 <div :class="{ display: acv == 0 }">
                                         <div class="technology_sou">
                                                 <div class="technology_input">
-                                                        <input type="text" placeholder="请输入想要查找的技术丶专利名称1" />
+                                                        <input type="text"  v-model="input" placeholder="请输入想要查找的技术丶专利名称1" />
                                                 </div>
-                                                <div class="technology_search">搜索</div>
+                                                <div class="technology_search"   @click="running">搜索</div>
                                         </div>
                                         <div class="technology_flex">
                                                 <div>技术成果推广1</div>
@@ -327,7 +327,7 @@
                                                 ],
                                         },
                                 ],
-
+                                input:''
                                 // 专利排行榜
 
                         };
@@ -361,6 +361,16 @@
                                 // this.num1=res.data.count;
                         });
                 },
+                methods:{
+                        running(){
+                                this.$router.push({
+                                        path:'transfer',
+                                        query:{
+                                                name:this.input
+                                        }
+                                })
+                        }
+                }
         };
 </script>
 
@@ -455,6 +465,7 @@
                 padding-left: 20px;
                 font-size: 15px;
                 font-size: 12px;
+                outline: none;
         }
 
         .technology_flex {

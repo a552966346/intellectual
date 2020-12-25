@@ -2,7 +2,8 @@
         <div id="transfer_right">
                 <div class="transfer_recommend">
                     <div class="transfer_cheng">
-                        <p>相关成果推荐 <span>更多<img src="../../../static/img/transfer/transfer_right.png" alt=""></span> </p>
+                        <p>相关成果推荐 
+                            <router-link :to="'/transfer'"><span>更多<img src="../../../static/img/transfer/transfer_right.png" alt=""></span></router-link> </p>
                     </div>
                     <a class="transfer_pro" href="#">
                         <div class="transfer_more" v-for="(item,index) in hots">
@@ -11,8 +12,8 @@
                             </div>
                             <span>{{item.name}}</span>
                             <div class="transfer_jia">
-                                <span v-if="item.fee>=10000">{{(item.fee)/10000}}</span>
-                                <span v-else>{{item.fee}}</span>
+                                <span v-if="item.fee>=10000">{{(item.fee)/10000}}万元</span>
+                                <span v-else>{{item.fee}}元</span>
                                 <span style="font-weight:300;">不限</span>
                             </div>
                             <div class="transfer_foo">
@@ -60,7 +61,9 @@ export default {
                display: flex;
                justify-content: space-between;
        }
-
+        a{
+            color: #fff;
+        }
        .transfer_pro{
            text-decoration: none;
            color: black;
@@ -93,7 +96,7 @@ export default {
            padding: 15px;
        }
        .transfer_zhao{
-           width: 200px;
+           width: 170px;
            margin: 0 auto;
        }
        .transfer_more img{
@@ -101,11 +104,12 @@ export default {
        }
        .transfer_more span{
            font-size: 14px;
+           padding: 5px 0;
        }
        .transfer_jia{
            display: flex;
            justify-content: space-between;
-           margin-top: 5px;
+           height:30px;
        }
        .transfer_jia span{
            color: #1d7fc6;
@@ -113,6 +117,7 @@ export default {
        }
        .transfer_foo{
            display: none;
+           height: 30px;
        }
        .transfer_ask {
            display: flex;

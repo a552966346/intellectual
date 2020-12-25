@@ -7,8 +7,17 @@
                         <div class="transfer_all">
                                 <v-transfertop :top_data="top_data" :iscolor ='iscolor' @xuanze="xuanze" @qinchu="qinchu" @delet="delet" @sousuo="sousuo"></v-transfertop>
                                 <div class="transfer_cen">
+                                        <!-- 列表内容 -->
                                         <div class="transfer_cen_left">
-                                                <v-transferleft :left_data="left_data" :nub='nub' @shaixuan ="shaixuan"></v-transferleft>
+                                                <!-- 列表内容 -->
+                                                <div>
+                                                        <v-transferleft :left_data="left_data"  @shaixuan ="shaixuan" ></v-transferleft>
+                                                </div>
+                                                <!-- 分页 -->
+                                                <div style="display: flex;justify-content: center;padding: 10px 0px;">
+                                                        <el-pagination @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">
+                                                        </el-pagination>
+                                                </div>
                                         </div>
                                         <div class="transfer_cen_right">
                                                 <v-transferrig></v-transferrig>
@@ -35,6 +44,10 @@
                                 botm_data:[],
                                 nub:0,
                                 id:[],
+                                // 分页
+                                currentPage: 1,
+                                pagesize: 0,
+                                total:0,
                         }
                 },
                 mounted() {
@@ -64,7 +77,7 @@
                         },
                         xuanze(id){
                                 this.id = id
-
+                                console.log(id)
                                 this.ispost(this.id)
                         },
                         //搜索
@@ -79,6 +92,10 @@
                                         this.left_data = res.data.lists.data
                                         this.botm_data = res.data.youlike
                                         this.nub = res.data.lists.data.length
+                                        // 分页
+                                        this.total=res.data.lists.total;
+                                        this.currentPage=res.data.lists.current_page;
+                                        this.pagesize=res.data.lists.per_page;
                                 })
                         },
                         qinchu(){
@@ -88,6 +105,12 @@
                         delet(id){
                                 this.id = id
                                 this.ispost(this.id)
+                        },
+                        handleCurrentChange(val) {
+                            // 输入页数
+                            console.log(`当前页: ${val}`);
+                            this.id[9] = val
+                            this.ispost(this.id)
                         }
                 },
                 components:{

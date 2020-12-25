@@ -60,13 +60,14 @@
                 align-content: center;
                 margin: 0 auto;
                 border-bottom: none !important;
-                
+                text-align: center;
         }
 
         .el-menu--horizontal>.el-menu-item,
         .el-menu--horizontal>.el-submenu,
-        .el-submenu__title{
+        .el-submenu{
                 flex: 1;
+                width: 16.666666%;
                 /* text-align: center; */
                 font-size: 16px!important;
                 text-align: center;
