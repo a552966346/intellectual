@@ -64,7 +64,8 @@
         }
 
         .el-menu--horizontal>.el-menu-item,
-        .el-menu--horizontal>.el-submenu {
+        .el-menu--horizontal>.el-submenu,
+        .el-submenu__title{
                 flex: 1;
                 text-align: center;
                 font-size: 16px!important;
