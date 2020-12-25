@@ -415,6 +415,7 @@ const api = {
             }
             return requestAll.requset(baseUrl + '/api/index/search', data);
     },
+<<<<<<< HEAD
      // 添加购物车
      getshop(product_id,type,number,uid){
         let data = {
@@ -439,13 +440,14 @@ const api = {
             uid:uid
         }
         return requestAll.requset(baseUrl + '/api/order/deletecart', data);
-    },
-    //新聞聯係
+=======
+    //新闻联系
     getnews(id){
         let data = {
-            id:id
+            id: id
         }
-        return requestAll.requset(baseUrl +'/api/index/newsdetails',data);
+        return requestAll.requset(baseUrl + '/api/index/newsdetails',data);
+>>>>>>> 6271a80ca5b6508e9f0f7f6ac997a16092ca4baf
     }
 }
 
