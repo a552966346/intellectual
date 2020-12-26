@@ -57,7 +57,7 @@ import about from '@/page/about/about' //关于我们
 import navcter from '@/components/navcter/navcter' //关于我们
 import transfer from '@/page/transfer/transfer'
 import technology from '@/page/technology/technology' //技术转移
-import yuan from '@/page/yuan/yuan' //测试页面
+import detils from '@/page/detils/detils' //跳蚤市场详情页面
 import trys from '@/page/trys/trys' 
 import paydetial from '@/page/paycenter/paydetial'//购买详情页
 import shopcart from '@/page/shopcart/shopcart' //购物车
@@ -76,15 +76,16 @@ export default new Router({
             component: index
         },
         {
-            path: '/yuan',
-            name: 'yuan',
-            component: yuan
+            path: '/detils',
+            name: 'detils',
+            component: detils
         },
-        { //活动专区
+        { //跳蚤专区
             path: '/flea',
             name: 'activity',
             component: activity
         },
+        
         {
             path: '/login',
             name: 'login',
