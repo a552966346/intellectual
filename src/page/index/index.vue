@@ -360,9 +360,9 @@
     </div>
     <!-- 公共底部 -->
     <v-combotttom></v-combotttom>
-    <div class="tanchuang" v-show="isshow" @click.self="shows">
+<!--    <div class="tanchuang" v-show="isshow" @click.self="shows">
       <v-customer @shows="shows"></v-customer>
-    </div>
+    </div> -->
   </div>
 </template>
 
