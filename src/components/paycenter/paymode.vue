@@ -17,7 +17,7 @@
         </div>
         <div class="mode_detail">
             <div class="detail_list">
-                <div><span>{{uqdata.product.length}}</span><span>件商品，总商品金额：</span></div>
+                <div><span>{{uqdata.product.length}}</span><span>类商品，总商品金额：</span></div>
                 <div>￥{{uqdata.total_fee}}</div>
             </div>
             <div class="detail_list">

@@ -100,6 +100,12 @@
                                 .then(res=>{
                                      if(res.code == 1){
                                         console.log(res.data)
+                                         this.$router.push({
+                                        path:'/shopcart',
+                                        query:{
+                                                id:id
+                                        }
+                                })
                                      }else{
                                         console.log(res.msg)
                                      }
@@ -108,12 +114,7 @@
                                     console.log(err)
                                 })
 
-                                this.$router.push({
-                                        path:'/shopcart',
-                                        query:{
-                                                id:id
-                                        }
-                                })
+                               
                         },
                         tankuang(){
                                 this.isshow=true

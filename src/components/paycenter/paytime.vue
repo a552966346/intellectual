@@ -12,7 +12,7 @@
                     <dt>{{item.contenttitle}}</dt>
                     <dd><span>商标注册时间：</span><span>{{item.creatime_text}}</span></dd>
                     <dd><span>商标分类：</span><span>{{item.name}}</span></dd>
-                    <dd><span>待支付：</span><span>￥{{item.fee}}</span><span>（不含官费）</span></dd>
+                    <dd><span>待支付商品单价：</span><span>￥{{item.fee}}/1</span><span>（不含官费）</span></dd>
                 </dl>
             </div>
         </div>
