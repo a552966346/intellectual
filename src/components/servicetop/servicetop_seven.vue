@@ -175,26 +175,30 @@
                                         this.nub++
                         },
                         shop(id,nub,uid){
-                                let user =JSON.parse(sessionStorage['user']); 
-                                uid = user.id;
-                                nub = this.nub;
-                                this.$api.getshop(id,4,nub,uid)
-                                .then(res=>{
-                                     if(res.code == 1){
-                                        console.log(res.data)
-                                         this.$router.push({
-                                        path:'/shopcart',
-                                        query:{
-                                                id:id
+                                if (sessionStorage.getItem("key") != null) {
+                                        let user =JSON.parse(sessionStorage['user']); 
+                                        uid = user.id;
+                                        nub = this.nub;
+                                        this.$api.getshop(id,4,nub,uid)
+                                        .then(res=>{
+                                        if(res.code == 1){
+                                                console.log(res.data)
+                                                this.$router.push({
+                                                path:'/shopcart',
+                                                query:{
+                                                        id:id
+                                                }
+                                        })
+                                        }else{
+                                                console.log(res.msg)
                                         }
-                                })
-                                     }else{
-                                        console.log(res.msg)
-                                     }
-                                })
-                                .catch(err => {
-                                    console.log(err)
-                                })
+                                        })
+                                        .catch(err => {
+                                        console.log(err)
+                                        })
+                                }else{
+                                        this.$router.push({path:'/login'});
+                                }        
 
                                
                         },
