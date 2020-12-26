@@ -38,7 +38,7 @@
                                                         <span><button @click="but1">+</button><button @click="but2">-</button></span>
                                                 </div>
                                                 <div class="left_but">
-                                                        <button @click="shop(top_data.id)">加入购物<p>--<img src="../../../static/img/transfer/transfer_right.png" alt="">--</p></button>
+                                                        <button @click="shop(top_data.id)">加入购物车<p>--<img src="../../../static/img/transfer/transfer_right.png" alt="">--</p></button>
                                                 </div>
 
                                         </div>
@@ -93,7 +93,7 @@
                                 }
                         },
                         shop(id,nub,uid){
-                                if (sessionStorage.getItem("key") != null) {
+                                if (sessionStorage.getItem("user") !== null) {
                                         let user =JSON.parse(sessionStorage['user']); 
                                         uid = user.id;
                                         nub = this.nub;
@@ -115,7 +115,7 @@
                                         console.log(err)
                                         }) 
                                 }else{
-                                        this.$router.push({path:'/login'});
+                                         this.$router.push({path:'/login'});
                                 }
                                  
                         },

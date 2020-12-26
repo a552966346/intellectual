@@ -105,7 +105,7 @@
                                         this.nub++
                         },
                         shop(id,nub,uid){
-                                if (sessionStorage.getItem("key") != null) {
+                                if (sessionStorage.getItem("user") !== null) {
                                         let user =JSON.parse(sessionStorage['user']); 
                                         uid = user.id;
                                         nub = this.nub;
