@@ -204,6 +204,10 @@ export default {
             if(this.$store.state.user){
                      this.userIn =   this.$store.state.user
                      this.berl = true
+            }else{
+                    this.$router.push({
+                            path:"/login"
+                    })
             }
 
     },

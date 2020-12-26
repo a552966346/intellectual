@@ -110,7 +110,13 @@
                 //         this.handleCheckAllChange()
                 // },
                 mounted(){
-                    this.ispost();
+                        if(this.$store.state.user){
+                                 this.ispost();
+                        }else{
+                                this.$router.push({
+                                        path:"/login"
+                                })
+                        }
                 },
                 beforeMount(){
                       let snlist = [];
