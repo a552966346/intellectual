@@ -41,7 +41,6 @@ import navcter from '@/components/navcter/navcter.vue'
     },
     beforeMount(){
         var router_path = this.$route.query.id;
-
         this.$api.getaboutcat()
         .then(res=>{
             if(res.code==1){

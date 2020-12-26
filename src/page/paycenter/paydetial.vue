@@ -8,7 +8,7 @@
         </div>
         <!-- 下单时间 -->
         <div>
-        <v-paytime></v-paytime>
+            <v-paytime></v-paytime>
         </div>
         <!-- 个人发票与单位发票 -->
         <div>
@@ -33,8 +33,12 @@ export default {
     name:'pay',
          data(){
                  return{
-
+                    
                  }
+         },
+         beforeMount(){
+              let uqdata =JSON.parse(sessionStorage['data']);
+              console.log(uqdata);
          },
          components:{
             copyrightOrdinary,

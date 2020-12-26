@@ -41,7 +41,7 @@
                                         <div>￥{{item.product.fee}}</div>
                                     </div>
                                     <div class="shopcart_zsdcefhtea">
-                                        <el-input-number class="shopcart_zsdcefhin" size="mini" v-model="num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+                                        <el-input-number class="shopcart_zsdcefhin" size="mini" v-model="item.num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
                                     </div>
                                     <div class="shopcart_zsdcefviet">
                                         <div>￥{{item.product.fee}}</div>
@@ -57,7 +57,7 @@
                                         <div>已选择<span>{{checkedNum}}</span>件</div>
                                         <div>共计:￥<span>{{cartTotalPrice}}</span></div>
                                         <div class="shopcart_zsdfotretmt">
-                                             <router-link class="shopcart_zsdfotretzf" to="/paydetial">去结算</router-link>
+                                             <div class="shopcart_zsdfotretzf" @click="setment">去结算</div>
                                         </div>
                                     </div>
                                 </div>
@@ -92,6 +92,7 @@
                             uid:'',
                             checkedNum:0,
                             cartTotalPrice:0,
+                            sole:'', //商品单价
                         }
                 },
                 components:{
@@ -105,13 +106,33 @@
                     'v-advantage':advantage//服务优势   
                 },
                 mounted(){
-                    this.ispost()
+                    this.ispost();
+                },
+                beforeMount(){
+                      let snlist = [];
+                            snlist = this.zsdlist;let prd=0;
+                            console.log(this.zsdlist);
+                            // snlist.forEach(function(item){  
+                            //    prd = item.product.fee;
+                            //    sole = prd /item.num;
+                            //    console.log(sole);   
+                            // }); 
                 },
                 methods:{
-                    handleChange(value) {
+                    handleChange(value){
+                        console.log(value);
+                        console.log(this.zsdlist);
+                        //商品单价 =  商品总价 / 商品数量
+                        // let snlist = [];
+                        //     snlist = this.zsdlist;
+                        //     snlist.forEach(function(item){  
+                        //        prd = item.product.fee;
+                        //        sole = prd /item.num;
+                        //        console.log(sole);   
+                        //     }); 
                     },
                     ispost(){
-                        let user =JSON.parse(sessionStorage['user']); 
+                     let user =JSON.parse(sessionStorage['user']); 
                      this.uid = user.id;
                      this.$api.shopdata(this.uid)
                      .then(res=>{
@@ -163,7 +184,7 @@
                         this.checkAll = val;
                     },
                     dele(uid){
-                         let user =JSON.parse(sessionStorage['user']); 
+                        let user =JSON.parse(sessionStorage['user']); 
                         uid = user.id;
                         console.log(uid);
                         let snlist = [];let ids ='';
@@ -176,9 +197,29 @@
                         this.$api.deletecart(ids,uid)
                         .then(res=>{
                             console.log(res);
-                            this.ispost()
+                            this.ispost();
                             this.$forceUpdate();
                         })
+                    },
+                    setment(uid){
+                        let user =JSON.parse(sessionStorage['user']); 
+                        uid = user.id;
+                        let snlist = [];let ids ='';let tys =''; let numb='';
+                        snlist = this.zsdlist.filter(function(item){
+                            return item.checkModel == true;
+                        });
+                        snlist.forEach(function(item){  
+                            ids += item.product.id+','; 
+                            tys += item.type+',';
+                            numb += item.num+',';
+                        }); 
+                        console.log(uid,ids,tys,numb)
+                        this.$api.createorder(ids,tys,numb,uid)
+                        .then(res=>{
+                            console.log(res);
+                            sessionStorage['data']=JSON.stringify(res.data);
+                            this.$router.push({path: '/paydetial'});  
+                        })    
                     }
                 }
         }
