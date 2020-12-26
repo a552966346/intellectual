@@ -31,6 +31,27 @@
                                 <div class="b_content_c">
                                         <img src="../../../static/img/usercenter/order.png" alt=""><span>您还没有订单，去逛逛吧~</span>
                                 </div>
+                                <!-- <div class="b_content_c">
+                                        <div class="shopcart_zsdcet" v-for="(item,index) in zsdlist" :key="index">
+                                            <div class="shopcart_zsdcetret">
+                                                <div class="shopcart_zsdcetrettop">
+                                                    {{item.product.name}}
+                                                </div>
+                                                <div class="shopcart_zsdcetretcet">
+                                                    {{item.product.sketch}}
+                                                </div>
+                                            </div>
+                                            <div class="shopcart_zsdceterrn">
+                                                <div>￥{{item.product.fee}}</div>
+                                            </div>
+                                            <div class="shopcart_zsdcefhtea">
+                                                <el-input-number class="shopcart_zsdcefhin" size="mini" v-model="item.num" @change="handleChange(item.product.fee,item.num,index,item.checkModel)"  :min="1" :max="10" label="描述文字"></el-input-number>
+                                            </div>
+                                            <div class="shopcart_zsdcefviet">
+                                                 <div >￥{{zong(item.product.fee,item.num,index)}}</div>
+                                            </div>
+                                        </div>
+                                </div> -->
                         </div>
 
                 </div>
@@ -43,12 +64,13 @@
                         return {
                                 nav: ["全部订单", "未付款订单", "已预约的订单", "交接中的订单", "已完成的订单"],
                                 num: 0,
-                                data:{}
+                                data:{},
+                                zsdlist:[]
                         }
                 },
                 mounted() {
                         this.num=this.$route.query.type
-                        this.data = JSON.parse(sessionStorage['data']);
+                        this.data = JSON.parse(sessionStorage['user']);
                         this.ispost(this.num)
                 },
                 methods: {
@@ -58,9 +80,10 @@
                         },
                         ispost(index){
                                 console.log(this.data)
-                               this.$api.getuserTrademarkOrder(this.data.uid,index)
+                               this.$api.getuserTrademarkOrder(this.data.id,index)
                                .then(res=>{
                                        console.log(res)
+                                       this.zsdlist = res.data.data
                                })
                         }
                 }

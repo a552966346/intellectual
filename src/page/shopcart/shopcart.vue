@@ -33,9 +33,6 @@
                                         <div class="shopcart_zsdcetretcet">
                                             {{item.product.sketch}}
                                         </div>
-                                        <!-- <div class="shopcart_zsdcetretcet" v-for="(items,indexs) in item.sketch" :key="indexs">
-                                             {{items}}
-                                        </div> -->
                                     </div>
                                     <div class="shopcart_zsdceterrn">
                                         <div>￥{{item.product.fee}}</div>
@@ -121,7 +118,6 @@
                 beforeMount(){
                       let snlist = [];
                             snlist = this.zsdlist;let prd=0;
-                            console.log(this.zsdlist);
                             // snlist.forEach(function(item){
                             //    prd = item.product.fee;
                             //    sole = prd /item.num;
@@ -164,7 +160,6 @@
                      this.uid = user.id;
                      this.$api.shopdata(this.uid)
                      .then(res=>{
-                        console.log((res.data));
                         this.zsdlist = res.data;
                      })
                     },
@@ -199,7 +194,6 @@
                     dele(uid){
                         let user =JSON.parse(sessionStorage['user']);
                         uid = user.id;
-                        console.log(uid);
                         let snlist = [];let ids ='';
                         snlist = this.zsdlist.filter(function(item){
                             return item.checkModel == true;
@@ -209,7 +203,6 @@
                         });
                         this.$api.deletecart(ids,uid)
                         .then(res=>{
-                            console.log(res);
                             this.ispost();
                             this.$forceUpdate();
                         })
@@ -226,10 +219,8 @@
                             tys += item.type+',';
                             numb += item.num+',';
                         });
-                        console.log(uid,ids,tys,numb)
                         this.$api.createorder(ids,tys,numb,uid,this.cartTotalPrice)
                         .then(res=>{
-                            console.log(res);
                             sessionStorage['data']=JSON.stringify(res.data);
                             this.$router.push({path: '/paydetial'});
                         })
