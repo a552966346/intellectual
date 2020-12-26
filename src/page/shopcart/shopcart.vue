@@ -227,7 +227,7 @@
                             numb += item.num+',';
                         });
                         console.log(uid,ids,tys,numb)
-                        this.$api.createorder(ids,tys,numb,uid)
+                        this.$api.createorder(ids,tys,numb,uid,this.cartTotalPrice)
                         .then(res=>{
                             console.log(res);
                             sessionStorage['data']=JSON.stringify(res.data);

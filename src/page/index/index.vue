@@ -65,7 +65,7 @@
               {{ severtw[1] }}
             </div>
             <div class="index_cmetkaqw">
-              {{ severtr[1] }}
+              <router-link to="service_qyzs?id=108">  {{ severtr[1] }}</router-link>
             </div>
           </div>
         </div>
@@ -78,8 +78,8 @@
             <div class="index_cmetkaw">
               {{ severtw[2] }}
             </div>
-            <div class="index_cmetkaqw">
-              {{ severtr[2] }}
+            <div class="index_cmetkaqw" >
+                    <router-link to="service_gqrd?id=110">  {{ severtr[2] }}</router-link>
             </div>
           </div>
         </div>
@@ -360,9 +360,9 @@
     </div>
     <!-- 公共底部 -->
     <v-combotttom></v-combotttom>
-<!--    <div class="tanchuang" v-show="isshow" @click.self="shows">
-      <v-customer @shows="shows"></v-customer>
-    </div> -->
+   <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
+      <v-customer @shows="showstwo"></v-customer>
+    </div>
   </div>
 </template>
 
@@ -384,7 +384,8 @@ export default {
       transaction: [], //交易中心的块内容
       trade: [], //商标交易的块内容
       soft: [], //软著交易的块内容
-      isshow: false, //客服弹窗显示
+      isshow: false,
+      isshowtwo:false,//客服弹窗显示
       title_color: "#fff", // commtitle组件传值所需
       title_all: [
         "交易中心",
@@ -419,7 +420,7 @@ export default {
         "../../../static/img/index/ruanzhu_pay.png",
       ],
       // 企业服务
-      sever: ["企业服务", "知识产权贯标", "知识产权贯标"],
+      sever: ["企业服务", "知识产权贯标", "高企认定"],
       severtw: [
         "致力于小微企业提供数字金融服务",
         "享受政府资助最高30万",
@@ -646,7 +647,6 @@ export default {
           { type: "number", message: "手机号必须为数字值" },
         ],
       },
-      isshow: false,
       newnow:[]
     };
   },
@@ -738,11 +738,14 @@ export default {
       return times[0] + "." + times[1];
     },
     tankuang() {
-      this.isshow = true;
+      this.isshowtwo = true;
     },
     shows() {
       this.isshow = false;
     },
+    showstwo(){
+            this.isshowtwo = false;
+    }
   },
   components: {
     "v-indexpayitem": indexpayitem,
@@ -949,12 +952,21 @@ a:hover {
   cursor: pointer;
   border-radius: 10px;
 }
-.index_cmetkaqw:hover {
-  background-color: #fff;
+.index_cmetkaqw>a{
+        color: #fff;
+}
+.index_cmetkaqw:hover{
+         background-color: #fff;
+}
+.index_cmetkaqw:hover >a{
+ 
   color: #8582d2;
 }
-.index_cmetkaqw:last-of-type:hover {
-  background-color: #fff;
+.index_cmetkaqw:last-of-type:hover{
+          background-color: #fff;
+}
+.index_cmetkaqw:last-of-type:hover>a {
+
   color: #f28a46;
 }
 /* 跳蚤市场 */

@@ -1,6 +1,6 @@
 <template>
     <div class="pay_all">
-        <div id="paytime" v-for="item in uqdata" :key="item.id">
+        <div id="paytime" v-for="item in uqdata.order" :key="item.id">
             <div class="pay_header">
                 <div><span>下单时间：</span><span>{{getLocalTime(item.createtime)}}</span></div>
                 <div><span>订单编号：</span><span>{{item.order_sn}}</span></div>
@@ -12,6 +12,7 @@
                     <dt>{{item1.contenttitle}}</dt>
                     <dd><span>商标注册时间：</span><span>{{item1.creatime_text}}</span></dd>
                     <dd><span>商标分类：</span><span>{{item1.name}}</span></dd>
+                    <dd><span>购买数量：</span><span>{{item1.number}}件</span></dd>
                     <dd><span>待支付商品单价：</span><span>￥{{item1.fee}}</span><span>/件（不含官费）</span></dd>
                 </dl>
             </div>
@@ -29,8 +30,8 @@ export default {
         }
     },
     methods:{
-            getLocalTime(nS) {     
-               return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');     
+            getLocalTime(nS) {
+               return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
             }
     }
 }
@@ -95,10 +96,10 @@ export default {
         .time_content dd{
             margin-bottom: 10px;
         }
-        .time_content dd:nth-child(4){
+        .time_content dd:last-child{
             margin-top: 20px;
         }
-        .time_content >dl>dd:nth-child(4)>span:nth-child(2){
+        .time_content >dl>dd:last-child>span:nth-child(2){
             color: #e00000;
             font-size: 16px;
             font-weight: 600;
