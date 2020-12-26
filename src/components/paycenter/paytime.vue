@@ -1,18 +1,18 @@
 <template>
     <div class="pay_all">
-        <div id="paytime">
+        <div id="paytime" v-for="item in uqdata" :key="item.id">
             <div class="pay_header">
-                <div><span>下单时间：</span><span>{{uqdata.createtime}}</span></div>
-                <div><span>订单编号：</span><span>{{uqdata.order_sn}}</span></div>
+                <div><span>下单时间：</span><span>{{getLocalTime(item.createtime)}}</span></div>
+                <div><span>订单编号：</span><span>{{item.order_sn}}</span></div>
                 <div><span>订单状态：</span><span>待支付</span></div>
             </div>
-            <div class="time_content"   v-for="(item,index) in uqdata.product" v-if="item !== null" :key="index">
-                <div><img :src="item.images" alt=""></div>
+            <div class="time_content"   v-for="(item1,index) in item.product" v-if="item1 !== null" :key="item1.id">
+                <div><img :src="item1.images" alt=""></div>
                 <dl>
-                    <dt>{{item.contenttitle}}</dt>
-                    <dd><span>商标注册时间：</span><span>{{item.creatime_text}}</span></dd>
-                    <dd><span>商标分类：</span><span>{{item.name}}</span></dd>
-                    <dd><span>待支付商品单价：</span><span>￥{{item.fee}}/1</span><span>（不含官费）</span></dd>
+                    <dt>{{item1.contenttitle}}</dt>
+                    <dd><span>商标注册时间：</span><span>{{item1.creatime_text}}</span></dd>
+                    <dd><span>商标分类：</span><span>{{item1.name}}</span></dd>
+                    <dd><span>待支付商品单价：</span><span>￥{{item1.fee}}</span><span>/件（不含官费）</span></dd>
                 </dl>
             </div>
         </div>
@@ -28,6 +28,11 @@ export default {
 
         }
     },
+    methods:{
+            getLocalTime(nS) {     
+               return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');     
+            }
+    }
 }
 </script>
 <style scoped>
@@ -44,6 +49,7 @@ export default {
             height: auto;
         }
         #paytime{
+
             width: 1200px;
             margin: 20px auto;
             padding-bottom: 30px;
@@ -57,7 +63,7 @@ export default {
         .pay_header>div{
             padding: 5px 15px;
             margin-right: 130px;
-            
+
         }
         .pay_header>div:nth-child(1){
             border-left: 4px solid #187fc2;
@@ -68,6 +74,7 @@ export default {
         .time_content{
             display: flex;
             margin: 0 10px;
+            margin-bottom: 10px;
             background: #f9f9f9;
         }
         .time_content>div{

@@ -264,8 +264,12 @@ const api = {
         return requestAll.requset(baseUrl + '/api/user/index');
     },
     // 卖家   商标订单
-    getuserTrademarkOrder() {
-        return requestAll.requset(baseUrl + '/api/Userorder/trademark_order');
+    getuserTrademarkOrder(uid,status) {
+           let data={
+                    uid:uid,
+                    status:status
+           }
+        return requestAll.requset(baseUrl + '/api/Userorder/trademark_order',data);
     },
     // 卖家   专利订单
     getuserPatentsOrder() {

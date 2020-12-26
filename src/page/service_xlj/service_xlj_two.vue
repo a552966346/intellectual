@@ -6,7 +6,7 @@
                         <v-navigation></v-navigation>
                         <!--  -->
                         <div class="consultation_all_Center">
-                                <div class="consultation_all_text"><p style="font-size: 13px; color: #666;"><router-link to="/technology" style="color: #666;">技术转移</router-link>>{{top_data.name}}</p></div>
+                                <div class="consultation_all_text"><p style="font-size: 15px; color: #666;"><router-link to="/technology" style="color: #666;">技术转移</router-link>>{{top_data.name}}</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
                                         <v-servicet  :top_data="top_data" :image="image">
