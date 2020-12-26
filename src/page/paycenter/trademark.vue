@@ -33,12 +33,14 @@
                                 <!-- :current-page.sync="currentPage3" -->
                                 <!-- 当前业数 -->
                         </div>
-                        <trademarkbo :listdata="listdata"></trademarkbo>
+                        <trademarkbo :listdata="listdata" @kefu="kefu" @tanchuang="tanchuang"></trademarkbo>
                 </div>
                 <v-combotttom></v-combotttom>
+                <!-- 商标弹窗 -->
                 <div class="tanchuang" v-show="isshow" @click.self="shows" >
                          <v-tanchuangsb @close="close" @fabu="fabu" @kefu="kefu"></v-tanchuangsb>
                 </div>
+                <!-- 客服弹窗 -->
                 <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
                                         <v-customer @shows="showstwo"></v-customer>
                 </div>
@@ -46,7 +48,7 @@
 </template>
 
 <script>
-         import customer from '@/components/customers/customer_services.vue'
+         import customer from '@/components/customers/customer_services.vue'//客服弹窗
         import tanchuangsb from '../../components/copyright/tanchuangsb.vue'//商标弹窗
         import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
         import trademarkscreen from '@/components/paycenter/trademarkscreen.vue'
@@ -212,6 +214,7 @@
 <style scoped>
        *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
       .copyright_pay{background: #f6f6f6;}
+      .copyright_pay>img{cursor: pointer;}
       .patent_sort{max-width: 1200px;margin: 0 auto;height: 50px;background-color: #fff;color: #666;font-size: 14px;display: flex;align-items: center;border: 1px solid #eceff6;margin-bottom: 20px;position: relative;}
       .patent_sort>span{width: 135px;text-align: center;cursor: pointer;height: 50px;line-height: 50px;border-right: 1px solid #f1f1f1;}
       .patent_sorticon{font-weight: bold;}

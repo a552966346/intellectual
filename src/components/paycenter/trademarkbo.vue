@@ -4,11 +4,11 @@
                         <div class="trademark_title">
                                 <div class="trademark_copy">
                                         <h2>没有找到您心仪的商标？</h2>
-                                        <a href="#" @click="tankuang">
+                                        <a href="#" @click="kefu">
                                                 <p >联系客服帮您找</p>
                                         </a>
                                         <span>或</span>
-                                        <a href="#" @click="tanchuang">
+                                        <a href="#" @click="tanchuang" >
                                                 <p style="background-color:#3c568f">发布求购需求</p>
                                         </a>
                                 </div>
@@ -52,14 +52,10 @@
                                 </li>
                         </ul>
                 </div>
-                <div class="tanchuang" v-show="isshow" @click.self="shows">
-                        <v-customer @shows="shows"></v-customer>
-                </div>
         </div>
 </template>
 
 <script>
-        import customer from '@/components/customers/customer_services.vue'
         export default {
                 data() {
                         return {
@@ -67,8 +63,7 @@
                                 color: ['rgb(230, 92, 92)', 'rgb(246, 139, 108)', 'rgb(246, 189, 108)',
                                         'rgb(126, 152, 205)', 'rgb(197, 120, 209)'
                                 ],
-                                isshow:false,
-                                isshows:false
+                                
                         }
                 },
                 props: {
@@ -87,24 +82,18 @@
                                 // console.log(this.listdata[index])
                                 this.listdata[index];
                         },
-                        tankuang(){
-                                this.isshow=true
+                        kefu(){
+                                this.$emit("kefu")
                         },
-                        shows(){
-                                this.isshow = false
-                        },
+                        
                         //显示商标弹框
                         tanchuang(){
-                          this.isshows = true
+                          this.$emit("tanchuang")
                         },
-                        close(){//隐藏弹框
-                                this.isshows = false
-                        },
+                        
 
                 },
-                components:{
-                        'v-customer':customer,
-                }
+                
         }
 </script>
 
