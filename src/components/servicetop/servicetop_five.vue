@@ -121,25 +121,33 @@
                         but1() {
                                         this.nub++
                         },
-                        shop(id){
-                                 this.$api.getshop(id,5,1)
-                                .then(res=>{
-                                     if(res.msg == 1){
-                                        console.log(res.data)
-                                     }else{
-                                        console.log(res.msg)
-                                     }
-                                })
-                                .catch(err => {
-                                    console.log(err)
-                                })
-
-                                this.$router.push({
-                                        path:'/shopcart',
-                                        query:{
-                                                id:id
+                        shop(id,nub,uid){
+                                if (sessionStorage.getItem("user") !== null) {
+                                        let user =JSON.parse(sessionStorage['user']); 
+                                        uid = user.id;
+                                        nub = this.nub;
+                                        this.$api.getshop(id,5,nub,uid)
+                                        .then(res=>{
+                                        if(res.code == 1){
+                                                console.log(res.data)
+                                                this.$router.push({
+                                                path:'/shopcart',
+                                                query:{
+                                                        id:id
+                                                }
+                                        })
+                                        }else{
+                                                console.log(res.msg)
                                         }
-                                })
+                                        })
+                                        .catch(err => {
+                                        console.log(err)
+                                        })
+                                }else{
+                                        this.$router.push({path:'/login'});
+                                }        
+
+                               
                         },
                         tankuang(){
                                 this.isshow=true

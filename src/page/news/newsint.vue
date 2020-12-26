@@ -4,7 +4,7 @@
                 <v-navigation></v-navigation>
 
                 <div class="news_all">
-                        <p style="font-size: 15px;">首页>新闻详情</p>
+                        <p style="font-size: 13px;padding: 10px 0;"><router-link to="/">首页</router-link>>新闻详情</p>
                         <div class="newsint_all">
                                 <div class="newsint_title">
                                         <h3>{{news.title}}</h3>
@@ -66,12 +66,10 @@
                 },
                 methods:{
                         running(id){
+                                this.$el.scrollIntoView()
                                 this.$api.getnews(id)
                                         .then(res => {
-                                                console.log(321)
-                                                console.log(res)
                                                 this.news = res.data
-
                                         })
                         }
                 }
@@ -88,7 +86,7 @@
         .newsint_all {
                 width: 1200px;
                 margin: 0 auto;
-                padding: 25px 0;
+                /* padding: 25px 0; */
                 /* display: flex; */
                 /* background-color: #f5f5f5; */
         }

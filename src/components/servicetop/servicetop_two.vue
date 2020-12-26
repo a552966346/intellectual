@@ -13,14 +13,12 @@
                                 <div class="rHeadercont">{{top_data.sketch}}</div>
                                 <div class="rServiceType">
                                         <span>服务类型：</span>
-                                        <span :class="{rServiceTypeActive:nub1==index}" v-for="(item,index) in name" @click="qiehuan(index)">{{item}}</span>
-
+                                        <span :class="{rServiceTypeActive:nub1==index}" v-for="(item,index) in name" @click="qiehuan(index)" :key="index">{{item}}</span>
                                         <span class="rightCommon">?</span>
                                 </div>
                                 <div class="costSlow">
                                         <span>费用减缓：</span>
-                                        <span :class="{costLowActive:nub2==index}" v-for="(item,index) in fee" @click="qiehuan2(index)">{{item}}</span>
-
+                                        <span :class="{costLowActive:nub2==index}" v-for="(item,index) in fee" @click="qiehuan2(index)" :key="index">{{item}}</span>
                                         <span class="rightCommon">?</span>
                                 </div>
                                 <p class="complete">
@@ -119,25 +117,33 @@
                                         this.isnub++
 
                         },
-                        shop(id){
-                                console.log(id)
-                                 this.$api.getshop(id,1,1)
-                                .then(res=>{
-                                     if(res.msg == 1){
-                                        console.log(res.data)
-                                     }else{
-                                        console.log(res.msg)
-                                     }
-                                })
-                                .catch(err => {
-                                    console.log(err)
-                                })
-                                this.$router.push({
-                                        path:'/shopcart',
-                                        query:{
-                                                id:id
+                        shop(id,nub,uid){
+                                if (sessionStorage.getItem("user") !== null) {
+                                        let user =JSON.parse(sessionStorage['user']); 
+                                        uid = user.id;
+                                        nub = this.nub;
+                                        this.$api.getshop(id,1,nub,uid)
+                                        .then(res=>{
+                                        if(res.code == 1){
+                                                console.log(res.data)
+                                                this.$router.push({
+                                                path:'/shopcart',
+                                                query:{
+                                                        id:id
+                                                }
+                                        })
+                                        }else{
+                                                console.log(res.msg)
                                         }
-                                })
+                                        })
+                                        .catch(err => {
+                                        console.log(err)
+                                        })
+                                }else{
+                                        this.$router.push({path:'/login'});
+                                }        
+
+                               
                         },
                         tankuang(){
                                 this.isshow=true

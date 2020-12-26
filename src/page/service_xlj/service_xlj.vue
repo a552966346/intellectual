@@ -6,7 +6,7 @@
                         <v-navigation></v-navigation>
                         <!--  -->
                         <div class="consultation_all_Center">
-                                <div class="consultation_all_text"><p>交易中心>商标转让</p></div>
+                                <div class="consultation_all_text"><p style="font-size: 15px; color: #666;"><router-link to="/trademarks" style="color: #666;">商标转让</router-link>>{{top_data.name}}</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
                                         <v-servicet :title="title" :top_data="top_data" :image="image">

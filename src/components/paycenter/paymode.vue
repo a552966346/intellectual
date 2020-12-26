@@ -17,16 +17,16 @@
         </div>
         <div class="mode_detail">
             <div class="detail_list">
-                <div><span>1</span><span>件商品，总商品金额：</span></div>
-                <div>￥188000</div>
+                <div><span>{{uqdata.order.length}}</span><span>类商品，总商品金额：</span></div>
+                <div>￥{{uqdata.total_fee}}</div>
             </div>
             <div class="detail_list">
                 <div><span>应支付金额：</span></div>
-                <div>￥188000</div>
+                <div>￥{{uqdata.total_fee}}</div>
             </div>
             <div class="detail_list list3">
                 <div><span>本次支付金额：</span></div>
-                <div>￥188000</div>
+                <div>￥{{uqdata.total_fee}}</div>
             </div>
 
             <div class="detail_pay">立即支付</div>
@@ -35,11 +35,15 @@
 </template>
 <script>
 export default {
+    props:{
+        uqdata:{}
+    },
     data () {
       return {
         radio: '1'
       };
-    }
+    },
+   
 }
 </script>
 <style scoped>

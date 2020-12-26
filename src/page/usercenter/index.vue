@@ -201,9 +201,16 @@ export default {
         }
     },
     mounted(){
+            // if(JSON.parse(sessionStorage['data'])){
+            //         this.$store.state.data =  JSON.parse(sessionStorage['data']);
+            // }
             if(this.$store.state.user){
                      this.userIn =   this.$store.state.user
                      this.berl = true
+            }else{
+                    this.$router.push({
+                            path:"/login"
+                    })
             }
 
     },

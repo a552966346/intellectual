@@ -1,7 +1,7 @@
 <template>
     <div class="user">
 
-        <div class="user_left">
+        <!-- <div class="user_left">
                 <router-link to="/">
                         <div class="img_logo">
                         </div>
@@ -21,11 +21,7 @@
                     </router-link>
                     <ul class="items" v-show="showis">
                         <li>我的商标</li>
-                        <li>全部订单</li>
-                        <li>未付款订单</li>
-                        <li>已预订订单</li>
-                        <li>交接中订单</li>
-                        <li>已完成订单</li>
+
                     </ul>
                 </li>
                 <li  v-on:click.self="isshow_two">
@@ -114,8 +110,110 @@
         <div class="user_right">
             <router-view></router-view>
         </div>
-
-
+ -->
+        <div class="user_left">
+                <el-row class="tac">
+                  <el-col >
+                    <router-link to="/">
+                            <div class="img_logo">
+                            </div>
+                    </router-link>
+                    <el-menu
+                      default-active="2"
+                      router
+                      unique-opened
+                      class="el-menu-vertical-demo"
+                      @open="handleOpen"
+                      @close="handleClose">
+                      <el-menu-item index="/usercenter">
+                        <img class="left_b" src="../../../static/img/usercenter/home.png" alt="">
+                        个人中心
+                      </el-menu-item>
+                      <el-submenu index="1">
+                        <template slot="title">
+                          <img class="left_b" src="../../../static/img/usercenter/buyperson.png" alt="" >
+                          我是买家
+                        </template>
+                        <el-submenu index="/usercenter/userbuy">
+                          <template slot="title">我的商标</template>
+                          <el-menu-item index="/usercenter/userbuy?type=0">全部订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?type=1">未付款订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?type=2">已预订订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?type=3">交接中订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?type=4">已完成订单</el-menu-item>
+                        </el-submenu>
+                         <el-menu-item index="1-3">我的专利</el-menu-item>
+                          <el-menu-item index="1-4">我的版权</el-menu-item>
+                          <el-menu-item index="1-5">技术转移</el-menu-item>
+                          <el-menu-item index="1-6">服务中心</el-menu-item>
+                          <el-menu-item index="1-7">我的收藏</el-menu-item>
+                      </el-submenu>
+                     <el-submenu index="/usercenter/usershop">
+                       <template slot="title">
+                         <img class="left_b" src="../../../static/img/usercenter/shopperson.png" alt="">
+                         我是买家
+                       </template>
+                       <el-submenu index="/usercenter/usershop">
+                         <template slot="title">出售知识产权</template>
+                         <el-menu-item index="/usercenter/usershop?type=1">出售商标</el-menu-item>
+                         <el-menu-item index="/usercenter/usershop?type=2">出售专利</el-menu-item>
+                         <el-menu-item index="/usercenter/usershop?type=3">出售版权</el-menu-item>
+                         <el-menu-item index="/usercenter/usershop?type=4">技术转让</el-menu-item>
+                       </el-submenu>
+                     </el-submenu>
+                     <el-submenu index="/usercenter/usermanage">
+                       <template slot="title">
+                         <img class="left_b" src="../../../static/img/usercenter/zjmanage.png" alt="">
+                         资金管理
+                       </template>
+                        <el-menu-item index="/usercenter/usermanage">我的账号</el-menu-item>
+                         <el-menu-item index="/usercenter/usermanage?type=0">我要提现</el-menu-item>
+                         <el-menu-item index="/usercenter/usermanage?type=1">资金明细</el-menu-item>
+                         <el-menu-item index="/usercenter/usermanage?type=2">我的押金</el-menu-item>
+                         <el-menu-item index="/usercenter/usermanage?type=3">发票索取</el-menu-item>
+                         <el-menu-item index="/usercenter/usermanage?type=4">绑定银行卡</el-menu-item>
+                     </el-submenu>
+                     <el-submenu index="/usercenter/usertel">
+                       <template slot="title">
+                         <img class="left_b" src="../../../static/img/usercenter/tel.png" alt="">
+                         投诉与咨询
+                       </template>
+                        <el-menu-item index="/usercenter/usertel?type=0">我要投诉建议</el-menu-item>
+                         <el-menu-item index="/usercenter/usertel?type=1">真假客服验证</el-menu-item>
+                         <el-menu-item index="/usercenter/usertel?type=2">举报客服</el-menu-item>
+                     </el-submenu>
+                     <el-submenu index="/usercenter/userid">
+                       <template slot="title">
+                         <img class="left_b" src="../../../static/img/usercenter/id.png" alt="">
+                         账号设置
+                       </template>
+                        <el-menu-item index="/usercenter/userid?type=0">实名认证</el-menu-item>
+                         <el-menu-item index="/usercenter/userid?type=1">修改手机号</el-menu-item>
+                         <el-menu-item index="/usercenter/userid?type=2">修改登录密码</el-menu-item>
+                         <el-menu-item index="/usercenter/userid?type=3">个人信息</el-menu-item>
+                         <el-menu-item index="/usercenter/userid?type=4">收货地址</el-menu-item>
+                         <el-menu-item index="/usercenter/userid?type=5">我的邮箱</el-menu-item>
+                     </el-submenu>
+                      <el-submenu index="/usercenter/usermessage">
+                        <template slot="title">
+                          <img class="left_b" src="../../../static/img/usercenter/user_message.png" alt="">
+                          我的消息
+                        </template>
+                         <el-menu-item index="/usercenter/usermessage?type=0">全部消息</el-menu-item>
+                          <el-menu-item index="/usercenter/usermessage?type=1">未读消息</el-menu-item>
+                          <el-menu-item index="/usercenter/usermessage?type=2">已读消息</el-menu-item>
+                      </el-submenu>
+                      <el-menu-item index="/usercenter/usercontract">
+                        <img class="left_b" src="../../../static/img/usercenter/mycontract_active.png" alt="">
+                        <span slot="title">我的合同</span>
+                      </el-menu-item>
+                    </el-menu>
+                  </el-col>
+                </el-row>
+        </div>
+        <div class="user_right">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 <script>
@@ -124,84 +222,18 @@ export default {
         return{
             msg:'这是测试内容',
             tabPosition: 'left',
-            showis:false,
-            showis_two:false,
-            showis_three:false,
-            showis_four:false,
-            showis_five:false,
-            showis_six:false,
-            showis_seve:false,
+
               }
    },
    methods:{
-       isshow(){
-           this.showis = !this.showis
-           this.showis_two = false
-           this.showis_three = false
-            this.showis_four = false
-            this.showis_five = false
-            this.showis_six = false
-            this.showis_seve = false
-       },
-       isshow_two(){
-           this.showis = false
-            this.showis_two = !this.showis_two
-            this.showis_three = false
-            this.showis_four = false
-            this.showis_five = false
-            this.showis_six = false
-            this.showis_seve = false
-       },
-       isshow_three(){
-           this.showis = false
-           this.showis_two = false
-           this.showis_three = !this.showis_three
-            this.showis_four = false
-            this.showis_five = false
-            this.showis_six = false
-            this.showis_seve = false
-
-       },
-       isshow_four(){
-           this.showis = false
-           this.showis_two = false
-           this.showis_three = false
-            this.showis_four = !this.showis_four
-            this.showis_five = false
-            this.showis_six = false
-            this.showis_seve = false
-       },
-       isshow_five(){
-           this.showis = false
-           this.showis_two = false
-           this.showis_three = false
-            this.showis_four = false
-            this.showis_five = !this.showis_five
-            this.showis_six = false
-            this.showis_seve = false
-       },
-       isshow_six(){
-           this.showis = false
-           this.showis_two = false
-           this.showis_three = false
-            this.showis_four = false
-            this.showis_five = false
-            this.showis_six = !this.showis_six
-            this.showis_seve = false
-       },
-       isshow_seve(){
-           this.showis = false
-           this.showis_two = false
-           this.showis_three = false
-            this.showis_four = false
-            this.showis_five = false
-            this.showis_six = false
-            this.showis_seve = !this.showis_seven
-       },
-       isShow(){
-           this.isshow=false
-       }
+                handleOpen(key, keyPath) {
+                   console.log(key, keyPath);
+                 },
+                 handleClose(key, keyPath) {
+                   console.log(key, keyPath);
+                 }
    }
+
 }
 </script>
 <style scoped>
@@ -212,6 +244,7 @@ a {
 .user{
     display: flex;
     height: 96%;
+    overflow: auto;
 }
 /* .user_left */
 .user{
@@ -225,7 +258,16 @@ a {
     left: 0;
     box-shadow: 2px 1px 1px rgba(0,0,0,0.16);
     font-size: 15px;
+    /* overflow: auto; */
 }
+.tac{
+        width: 100%;
+        border: none;
+}
+.el-col {
+        width: 100%;
+}
+
 .user_right{
     flex: 1;
     position: fixed;

@@ -264,8 +264,12 @@ const api = {
         return requestAll.requset(baseUrl + '/api/user/index');
     },
     // 卖家   商标订单
-    getuserTrademarkOrder() {
-        return requestAll.requset(baseUrl + '/api/Userorder/trademark_order');
+    getuserTrademarkOrder(uid,status) {
+           let data={
+                    uid:uid,
+                    status:status
+           }
+        return requestAll.requset(baseUrl + '/api/Userorder/trademark_order',data);
     },
     // 卖家   专利订单
     getuserPatentsOrder() {
@@ -461,6 +465,17 @@ const api = {
             uid:uid
         }
         return requestAll.requset(baseUrl + '/api/order/deletecart', data);
+    },
+    // 创建订单
+    createorder(ids,type,number,uid,total_fee){
+        let data = {
+            ids:ids,
+            type:type,
+            number:number,
+            uid:uid,
+            total_fee:total_fee
+        }
+        return requestAll.requset(baseUrl + '/api/order/createorder', data);
     },
     //新聞聯係
     getnews(id){

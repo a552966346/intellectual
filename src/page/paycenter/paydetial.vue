@@ -8,7 +8,7 @@
         </div>
         <!-- 下单时间 -->
         <div>
-            <v-paytime></v-paytime>
+            <v-paytime :uqdata="uqdata"></v-paytime>
         </div>
         <!-- 个人发票与单位发票 -->
         <div>
@@ -16,7 +16,7 @@
         </div> 
         <!-- 支付方式 -->
         <div>
-            <v-paymode></v-paymode>
+            <v-paymode :uqdata="uqdata"></v-paymode>
         </div>
         <v-combotttom></v-combotttom>
     </div>
@@ -33,12 +33,13 @@ export default {
     name:'pay',
          data(){
                  return{
-                    
+                    uqdata:{}
                  }
          },
-         beforeMount(){
-              let uqdata =JSON.parse(sessionStorage['data']);
-              console.log(uqdata);
+         beforeMount(uqdata){
+              this.uqdata =JSON.parse(sessionStorage['data']);
+              console.log(this.uqdata);
+              console.log(456465)
          },
          components:{
             copyrightOrdinary,

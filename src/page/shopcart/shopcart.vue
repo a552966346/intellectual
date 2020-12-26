@@ -13,7 +13,7 @@
                                 </div>
                                 <div class="shopcart_zsdcet" v-for="(item,index) in zsdlist" :key="index">
                                     <div class="shopcart_zsdcetlet">
-                                        <el-checkbox v-model="item.checkModel"  @change="handleCheckItemChange" style="vertical-align:top;margin-top:20px;"></el-checkbox>
+                                        <el-checkbox v-model="item.checkModel"  @change="handleCheckItemChange(index,item.num,item.checkModel)" style="vertical-align:top;margin-top:20px;"></el-checkbox>
                                         <div class="shopcart_zsdcettop">
                                             <div class="shopcart_zsdcettopimg">
                                                 <img :src="item.product.images" alt="">
@@ -26,25 +26,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="shopcart_zsdcetret">    
+                                    <div class="shopcart_zsdcetret">
                                         <div class="shopcart_zsdcetrettop">
                                             {{item.product.name}}
                                         </div>
                                         <div class="shopcart_zsdcetretcet">
                                             {{item.product.sketch}}
                                         </div>
-                                        <!-- <div class="shopcart_zsdcetretcet" v-for="(items,indexs) in item.sketch" :key="indexs">
-                                             {{items}}
-                                        </div> -->
                                     </div>
                                     <div class="shopcart_zsdceterrn">
                                         <div>￥{{item.product.fee}}</div>
                                     </div>
                                     <div class="shopcart_zsdcefhtea">
-                                        <el-input-number class="shopcart_zsdcefhin" size="mini" v-model="item.num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+                                        <el-input-number class="shopcart_zsdcefhin" size="mini" v-model="item.num" @change="handleChange(item.product.fee,item.num,index,item.checkModel)"  :min="1" :max="10" label="描述文字"></el-input-number>
                                     </div>
                                     <div class="shopcart_zsdcefviet">
-                                        <div>￥{{item.product.fee}}</div>
+                                        <!-- <div v-if="sole[index]">￥{{sole[index]}}</div> -->
+                                         <div >￥{{zong(item.product.fee,item.num,index)}}</div>
                                     </div>
                                 </div>
                                 <div class="shopcart_zsdfot">
@@ -92,7 +90,7 @@
                             uid:'',
                             checkedNum:0,
                             cartTotalPrice:0,
-                            sole:'', //商品单价
+                            sole:[], //单件商品总价
                         }
                 },
                 components:{
@@ -103,123 +101,129 @@
                     'v-serviceassurance':serviceassurance,//服务保障  123样式
                     'v-servicerightP':serviceright_proc_t,
                     'v-guarantee':guarantee,//服务保障
-                    'v-advantage':advantage//服务优势   
+                    'v-advantage':advantage//服务优势
                 },
+                // updated() {
+                //         this.handleCheckAllChange()
+                // },
                 mounted(){
-                    this.ispost();
+                        if(this.$store.state.user){
+                                 this.ispost();
+                        }else{
+                                this.$router.push({
+                                        path:"/login"
+                                })
+                        }
                 },
                 beforeMount(){
                       let snlist = [];
                             snlist = this.zsdlist;let prd=0;
-                            console.log(this.zsdlist);
-                            // snlist.forEach(function(item){  
+                            // snlist.forEach(function(item){
                             //    prd = item.product.fee;
                             //    sole = prd /item.num;
-                            //    console.log(sole);   
-                            // }); 
+                            //    console.log(sole);
+                            // });
                 },
                 methods:{
-                    handleChange(value){
-                        console.log(value);
-                        console.log(this.zsdlist);
-                        //商品单价 =  商品总价 / 商品数量
-                        // let snlist = [];
-                        //     snlist = this.zsdlist;
-                        //     snlist.forEach(function(item){  
-                        //        prd = item.product.fee;
-                        //        sole = prd /item.num;
-                        //        console.log(sole);   
-                        //     }); 
+                    //单件商品总价
+                    handleChange(fee,num,index,val){
+                            console.log(val)
+                            if(val){
+                                 let money = fee*num
+                                    this.sole[index] = money
+                                    console.log(111)
+                                    if(this.checkedNum!=0){
+                                            this.checkedNum = 0
+                                            this.cartTotalPrice = 0
+                                    }
+                                    for(let i=0;i<this.zsdlist.length;i++){
+                                            if(this.zsdlist[i].checkModel){
+                                                   this.checkedNum += this.zsdlist[i].num
+                                                    this.cartTotalPrice += this.sole[i]
+                                            }
+                                    }
+                                    return money
+                            }else{
+                                    let money = fee*num
+                                       this.sole[index] = money
+                                       return money
+                            }
+
+                    },
+                    zong(fee,num,index){
+                             let money = fee * num
+                            this.sole[index] = money
+                            return money
                     },
                     ispost(){
-                     let user =JSON.parse(sessionStorage['user']); 
+                     let user =JSON.parse(sessionStorage['user']);
                      this.uid = user.id;
                      this.$api.shopdata(this.uid)
                      .then(res=>{
-                        console.log((res.data));
                         this.zsdlist = res.data;
                      })
                     },
                     handleCheckAllChange(val){
-                        this.zsdlist.map((item,i)=>{
-                            item.checkModel = val;
-                            if(item.checkModel = val){
-                                this.checkedNum = this.zsdlist.length;
-                                let snlist = [];let sum = 0;
-                                snlist = this.zsdlist.filter(function(item){
-                                    return item.checkModel == true;
-                                });
-                                snlist.forEach(function(item){  
-                                    sum += sum +Number(item.product.fee);
-                                }); 
-                                this.cartTotalPrice = sum;
+                            if(val){
+                                  for(let i=0;i<this.sole.length;i++){
+                                          if(!this.zsdlist[i].checkModel){
+                                                  this.zsdlist[i].checkModel = true
+                                                  this.cartTotalPrice +=Number(this.sole[i])
+                                                  this.checkedNum += this.zsdlist[i].num;
+                                          }
+                                  }
                             }else{
-                                this.checkedNum = 0;
-                                this.cartTotalPrice = 0;
+                                    for(let i=0;i<this.sole.length;i++){
+                                            this.zsdlist[i].checkModel = false
+                                    }
+                                    this.checkedNum = 0;
+                                    this.cartTotalPrice = 0;
                             }
-                            
-                        })
+
                     },
-                    handleCheckItemChange(val){
-                        console.log(val)
-                        if(val == true){
-                            this.checkedNum++;
-                        }else if(val == false){
-                            this.checkedNum--;
+                    handleCheckItemChange(index,nub,val){
+                        if(val){
+                                this.checkedNum +=nub
+                                this.cartTotalPrice += this.sole[index]
+                        }else{
+                                this.checkedNum -=nub
+                                this.cartTotalPrice -= this.sole[index]
                         }
-                        let snlist = [];let sum = 0;
-                        snlist = this.zsdlist.filter(function(item){
-                            return item.checkModel == true;
-                        });
-                        snlist.forEach(function(item){  
-                            sum += sum +Number(item.product.fee);
-                        }); 
-                        this.cartTotalPrice = sum;
-                        for(let i = 0,l = this.zsdlist.length;i < l;i ++){
-                            if(this.zsdlist[i].checkModel !== val){
-                                this.checkAll = false;
-                                return;
-                            }
-                        }
-                        this.checkAll = val;
+
                     },
                     dele(uid){
-                        let user =JSON.parse(sessionStorage['user']); 
+                        let user =JSON.parse(sessionStorage['user']);
                         uid = user.id;
-                        console.log(uid);
                         let snlist = [];let ids ='';
                         snlist = this.zsdlist.filter(function(item){
                             return item.checkModel == true;
                         });
-                        snlist.forEach(function(item){  
-                            ids += item.id+','; 
-                        }); 
+                        snlist.forEach(function(item){
+                            ids += item.id+',';
+                        });
                         this.$api.deletecart(ids,uid)
                         .then(res=>{
-                            console.log(res);
                             this.ispost();
                             this.$forceUpdate();
                         })
                     },
                     setment(uid){
-                        let user =JSON.parse(sessionStorage['user']); 
+                        let user =JSON.parse(sessionStorage['user']);
                         uid = user.id;
                         let snlist = [];let ids ='';let tys =''; let numb='';
                         snlist = this.zsdlist.filter(function(item){
                             return item.checkModel == true;
                         });
-                        snlist.forEach(function(item){  
-                            ids += item.product.id+','; 
+                        snlist.forEach(function(item){
+                            ids += item.product.id+',';
                             tys += item.type+',';
                             numb += item.num+',';
-                        }); 
-                        console.log(uid,ids,tys,numb)
-                        this.$api.createorder(ids,tys,numb,uid)
+                        });
+                        this.$api.createorder(ids,tys,numb,uid,this.cartTotalPrice)
                         .then(res=>{
-                            console.log(res);
                             sessionStorage['data']=JSON.stringify(res.data);
-                            this.$router.push({path: '/paydetial'});  
-                        })    
+                            this.$router.push({path: '/paydetial'});
+                        })
                     }
                 }
         }

@@ -38,7 +38,7 @@
                                                         <span><button @click="but1">+</button><button @click="but2">-</button></span>
                                                 </div>
                                                 <div class="left_but">
-                                                        <button @click="shop(top_data.id)">加入购物<p>--<img src="../../../static/img/transfer/transfer_right.png" alt="">--</p></button>
+                                                        <button @click="shop(top_data.id)">加入购物车<p>--<img src="../../../static/img/transfer/transfer_right.png" alt="">--</p></button>
                                                 </div>
 
                                         </div>
@@ -93,27 +93,31 @@
                                 }
                         },
                         shop(id,nub,uid){
-                                let user =JSON.parse(sessionStorage['user']); 
-                                uid = user.id;
-                                nub = this.nub;
-                                this.$api.getshop(id,1,nub,uid)
-                                .then(res=>{
-                                     if(res.code == 1){
-                                        console.log(res.data)
-                                     }else{
-                                        console.log(res.msg)
-                                     }
-                                })
-                                .catch(err => {
-                                    console.log(err)
-                                })
-
-                                this.$router.push({
-                                        path:'/shopcart',
-                                        query:{
-                                                id:id
+                                if (sessionStorage.getItem("user") !== null) {
+                                        let user =JSON.parse(sessionStorage['user']); 
+                                        uid = user.id;
+                                        nub = this.nub;
+                                        this.$api.getshop(id,1,nub,uid)
+                                        .then(res=>{
+                                        if(res.code == 1){
+                                                console.log(res.data)
+                                                this.$router.push({
+                                                path:'/shopcart',
+                                                query:{
+                                                        id:id
+                                                }
+                                        })
+                                        }else{
+                                                console.log(res.msg)
                                         }
-                                })
+                                        })
+                                        .catch(err => {
+                                        console.log(err)
+                                        }) 
+                                }else{
+                                         this.$router.push({path:'/login'});
+                                }
+                                 
                         },
                         tankuang(){
                                 this.isshow=true
