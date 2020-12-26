@@ -33,13 +33,13 @@
 
         <!-- 猜你喜欢 -->
         <div>
-            <copyrightBottom :listdata="listdata"></copyrightBottom>
+            <copyrightBottom :listdata="listdata" @kefu="kefu" @tanchuang="tanchuang"></copyrightBottom>
         </div>
 
       </div>
       <v-combotttom></v-combotttom>
       <div class="tanchuang" v-show="isshow" @click.self="shows" >
-               <v-tanchuangsb @close="close" @fabu="fabu" @kefu="kefu"></v-tanchuangsb>
+               <v-tanchuangbq @close="close" @fabu="fabu" @kefu="kefu"></v-tanchuangbq>
       </div>
       <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
                               <v-customer @shows="showstwo"></v-customer>
@@ -49,7 +49,7 @@
 
 <script>
  import customer from '@/components/customers/customer_services.vue'
-import tanchuangsb from '@/components/copyright/tanchuangbq.vue';//专利弹窗
+import tanchuangbq from '@/components/copyright/tanchuangbq.vue';//专利弹窗
 import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
 import patentscreen from '@/components/paycenter/patentscreen.vue'
 import copyrightBottom from '@/components/paycenter/copyrightBottom.vue'
@@ -134,7 +134,7 @@ export default {
                      },
                      //商标隐藏弹框
                      shows(){
-                             this.isshow = false
+                             this.isshowtwo = false
                      },
                 listsort(index){
                         this.listsortnum=index
@@ -178,7 +178,7 @@ export default {
                 }
                 },
     components:{
-        'v-tanchuangsb':tanchuangsb,//专利弹窗
+        'v-tanchuangbq':tanchuangbq,//专利弹窗
         copyrightOrdinary,
         patentscreen,copyrightBottom,
         'v-customer':customer
@@ -189,6 +189,7 @@ export default {
 <style scoped>
     *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
    .copyright_pay{background: #f6f6f6;}
+   .copyright_pay>img{cursor: pointer;}
    .patent_sort{max-width: 1200px;margin: 0 auto;height: 50px;background-color: #fff;color: #666;font-size: 14px;display: flex;align-items: center;border: 1px solid #eceff6;margin-bottom: 20px;position: relative;}
    .patent_sort>span{width: 135px;text-align: center;cursor: pointer;height: 50px;line-height: 50px;border-right: 1px solid #f1f1f1;}
    .patent_sorticon{font-weight: bold;}

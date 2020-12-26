@@ -4,7 +4,7 @@
                         <div class="copyright_title">
                                 <div class="copyright_copy">
                                         <h2>没有找到您心仪的版权？</h2>
-                                        <a href="#"  @click="tankuang">
+                                        <a href="#"  @click="kefu">
                                                 <p>联系客服帮您找</p>
                                         </a>
                                         <span>或</span>
@@ -47,37 +47,32 @@
                                 </div>
                         </div>
                 </div>
-                <div class="tanchuang" v-show="isshow" @click.self="shows">
-                        <v-customer @shows="shows"></v-customer>
-                </div>
+               
 
         </div>
 </template>
 
 <script>
-        import customer from '@/components/customers/customer_services.vue'
         export default {
                 data() {
                         return {
-                                isshow:false,
+                                
                         }
                 },
                 props:{
                         listdata:''
                 },
                 methods: {
-
-                        tankuang(){
-                                this.isshow=true
+                        kefu(){
+                                this.$emit("kefu")
                         },
-                        shows(){
-                                this.isshow = false
+                        tanchuang(){
+                                this.$emit("tanchuang")
                         },
+                        
 
                 },
-                components:{
-                        'v-customer':customer,
-                },
+                
         }
 </script>
 
