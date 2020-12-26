@@ -1,24 +1,33 @@
 <template>
-     <div id="paytime">
-        <div class="pay_header">
-            <div><span>下单时间：</span><span>2020-09-01 13:25:33</span></div>
-            <div><span>订单编号：</span><span>452B154G1236S4</span></div>
-            <div><span>订单状态：</span><span>待支付</span></div>
-        </div>
-        <div class="time_content">
-            <div><img src="https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1938692794,1846043279&fm=26&gp=0.jpg" alt=""></div>
-            <dl>
-                <dt>商标撤删申请</dt>
-                <dd><span>商标注册时间：</span><span>2018-12-15</span></dd>
-                <dd><span>商标分类：</span><span>食用色素，饮料色素，刷墙粉，粉刷用石灰浆，陶瓷涂料，油漆，染料，水彩固定剂，画家，装饰家，印刷商和艺术家用金属箔，木材涂料(油漆)</span></dd>
-                <dd><span>待支付：</span><span>￥18800</span><span>（不含官费）</span></dd>
-            </dl>
+    <div class="pay_all">
+        <div id="paytime">
+            <div class="pay_header">
+                <div><span>下单时间：</span><span>{{uqdata.createtime}}</span></div>
+                <div><span>订单编号：</span><span>{{uqdata.order_sn}}</span></div>
+                <div><span>订单状态：</span><span>待支付</span></div>
+            </div>
+            <div class="time_content"   v-for="(item,index) in uqdata.product" v-if="item !== null" :key="index">
+                <div><img :src="item.images" alt=""></div>
+                <dl>
+                    <dt>{{item.contenttitle}}</dt>
+                    <dd><span>商标注册时间：</span><span>{{item.creatime_text}}</span></dd>
+                    <dd><span>商标分类：</span><span>{{item.name}}</span></dd>
+                    <dd><span>待支付：</span><span>￥{{item.fee}}</span><span>（不含官费）</span></dd>
+                </dl>
+            </div>
         </div>
     </div>
 </template>
 <script>
 export default {
-    
+    props:{
+        uqdata:{}
+    },
+    data(){
+        return{
+
+        }
+    },
 }
 </script>
 <style scoped>
@@ -27,6 +36,12 @@ export default {
             padding: 0;
             box-sizing: border-box;
             font-size: 13px;
+        }
+        .pay_all{
+            width: 1200px;
+            background:#fff;
+            margin: 20px auto;
+            height: auto;
         }
         #paytime{
             width: 1200px;
