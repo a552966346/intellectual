@@ -66,12 +66,10 @@
                 },
                 methods:{
                         running(id){
+                                this.$el.scrollIntoView()
                                 this.$api.getnews(id)
                                         .then(res => {
-                                                console.log(321)
-                                                console.log(res)
                                                 this.news = res.data
-
                                         })
                         }
                 }

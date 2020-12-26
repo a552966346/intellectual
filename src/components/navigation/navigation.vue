@@ -60,12 +60,16 @@
      	width:-webkit-fit-content;
      	width:fit-content; */
      }
+     .menu > li:last-child{
+             border: none;
+     }
      .menu > li{
              flex: 1;
      	background:#1495E7;
      	float:left;
      	position:relative;
      	transform:skewX(25deg);
+        border-right: 1px solid #aaa;
      }
      .menu a{
      	display:block;
