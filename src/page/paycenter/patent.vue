@@ -28,18 +28,22 @@
                         </div>
 
                         <!-- 猜你喜欢 -->
-                        <patentbottom :listdata="listdata"></patentbottom>
+                        <patentbottom :listdata="listdata" @kefu="kefu" @tanchuang="tanchuang"></patentbottom>
                 </div>
                 <v-combotttom></v-combotttom>
                 <div class="tanchuang" v-show="isshow" @click.self="shows">
-                         <v-tanchuangsb @close="close"  @fabu="fabu"></v-tanchuangsb>
+                         <v-tanchuangzl @close="close"  @fabu="fabu" @kefu="kefu"></v-tanchuangzl>
+                </div>
+                <!-- 客服弹窗 -->
+                <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
+                        <v-customer @shows="showstwo"></v-customer>
                 </div>
         </div>
 </template>
 
 <script>
-import tanchuangsb from '@/components/copyright/tanchauangzl.vue';//专利弹窗
-
+import tanchuangzl from '@/components/copyright/tanchauangzl.vue';//专利弹窗
+ import customer from '@/components/customers/customer_services.vue'//客服弹窗
 import patentscreen from '@/components/paycenter/patentscreen.vue'; //专利筛选组件
 import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
 import patentbottom from '@/components/paycenter/patentbottom.vue'
@@ -58,6 +62,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                 banner:'../../../static/img/paycenter/patent_bg.jpg',
                                 category_id:'',
                                 isshow:false,
+                                isshowtwo:false,
                                 name:'',
                                 // 分页
                                 currentPage: 1,
@@ -100,6 +105,15 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                 }else{
                                          this.ispost()
                                 }
+                        },
+                        //商标弹框隐藏
+                        kefu(){
+                                 this.isshow = false
+                                this.isshowtwo = true
+                        },
+                        //客服弹框隐藏
+                        showstwo(){
+                                this.isshowtwo =false
                         },
                         //搜索
                         search(id){
@@ -158,7 +172,6 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         },
                         //显示弹框
                         tanchuang(){
-                                console.log(111)
                           this.isshow = true
                         },
                         //隐藏弹框
@@ -167,11 +180,12 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         },
                 },
                 components: {
-                        'v-tanchuangsb':tanchuangsb,//专利弹窗
+                        'v-tanchuangzl':tanchuangzl,//专利弹窗
                         copyrightOrdinary,
                         patentbottom,
                         patentscreen,
-                        patentcon
+                        patentcon,
+                        'v-customer':customer
                 }
         }
 </script>
@@ -179,6 +193,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
 <style scoped>
         *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
        .patent_pay{background: #f6f6f6;padding-bottom: 20px;}
+       .patent_pay>img{cursor: pointer;}
        .patent_sort{max-width: 1200px;margin: 0 auto;height: 50px;background-color: #fff;color: #666;font-size: 14px;display: flex;align-items: center;border: 1px solid #eceff6;margin-bottom: 20px;position: relative;}
        .patent_sort>span{width: 135px;text-align: center;cursor: pointer;height: 50px;line-height: 50px;border-right: 1px solid #f1f1f1;}
        .patent_sorticon{font-weight: bold;}

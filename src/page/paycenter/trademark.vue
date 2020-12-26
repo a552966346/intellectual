@@ -42,7 +42,7 @@
                 </div>
                 <!-- 客服弹窗 -->
                 <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
-                                        <v-customer @shows="showstwo"></v-customer>
+                        <v-customer @shows="showstwo"></v-customer>
                 </div>
         </div>
 </template>

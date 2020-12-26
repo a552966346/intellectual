@@ -4,7 +4,7 @@
         <div class="patent_title">
             <div class="patent_copy">
                 <h2>没有找到您心仪的专利？</h2>
-                <a href="#"  @click="tankuang">
+                <a href="#"  @click="kefu">
                     <p>联系客服帮您找</p>
                 </a>
                 <span>或</span>
@@ -43,23 +43,14 @@
              </div>
         </div>
     </div>
-    <div class="tanchuang" v-show="isshow" @click.self="shows">
-            <v-customer @shows="shows"></v-customer>
-    </div>
-    <div class="tanchuang" v-show="isshows" @click.self="shows" >
-             <v-tanchuangsb @close="close" ></v-tanchuangsb>
-    </div>
+    
 </div>
 </template>
 
 <script>
-import tanchuangsb from '../../components/copyright/tanchuangsb.vue'//商标弹窗
-import customer from '@/components/customers/customer_services.vue'
 export default {
      data(){
         return{
-            isshow:false,
-            isshows:false,
 
              arr: [{
                 url: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3504410683,1736346119&fm=26&gp=0.jpg',
@@ -102,25 +93,17 @@ export default {
     props:{
             listdata:''
     },
-    components:{
-                        'v-customer':customer,
-                        'v-tanchuangsb':tanchuangsb,//商标弹窗
-    },
     methods:{
 
-        tankuang(){
-                this.isshow=true
+        kefu(){
+                this.$emit("kefu")
         },
-        shows(){
-                this.isshow = false
-        },
+        
         //显示商标弹框
         tanchuang(){
-          this.isshows = true
+          this.$emit("tanchuang")
         },
-        close(){//隐藏弹框
-                this.isshows = false
-        },
+        
     }
 }
 </script>

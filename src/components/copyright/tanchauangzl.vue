@@ -57,20 +57,17 @@
                                         <el-form-item>
                                                 <el-button type="primary" style="color: #fff; background: #2b3d63; width: 42%;margin-bottom:20px"
                                                         @click="fabu('formrul')">确认发布</el-button>
-                                                <el-button type="primary" style="border: 1px solid #ceaa88;background: #fff;color: #eb9848;width: 42%;">联系创建</el-button>
+                                                <el-button  type="primary" style="border: 1px solid #ceaa88;background: #fff;color: #eb9848;width: 42%;" @click="kefu">联系客服</el-button>
                                         </el-form-item>
                                 </el-form>
                         </div>
 
                 </div>
-                <div class="tanchuang" v-show="isshow" @click.self="shows">
-                        <v-customer @shows="shows"></v-customer>
-                </div>
+                
         </div>
 </template>
 
 <script>
-        import customer from '@/components/customers/customer_services.vue'
         import {
                 validatePhone
         } from '@/util/rules.js'
@@ -124,13 +121,15 @@
                                                 message: '验证码错误'
                                         }],
                                 },
-                                isshow:false
                         };
                 },
                 methods: {
                         close() {
                                 console.log(123)
                                 this.$emit("close")
+                        },
+                        kefu(){
+                                this.$emit("kefu")
                         },
                         // 获取验证码
                         getVerification() {
@@ -159,9 +158,7 @@
                                                 })
                                 })
                         },
-                        shows(){
-                                this.isshow = false
-                        }
+                        
                 },
                 mounted() {
                         this.$api.getrankingdata()
@@ -172,7 +169,6 @@
                                 })
                 },
                 components:{
-                        'v-customer':customer
                 }
         };
 </script>
