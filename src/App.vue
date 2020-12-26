@@ -85,6 +85,9 @@ export default {
 body{
        font-family: "微软雅黑";
 }
+a{
+	text-decoration: none;
+}
 #app {
   height: calc(100%);
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif;

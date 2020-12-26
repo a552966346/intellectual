@@ -6,7 +6,7 @@
                         <v-navigation></v-navigation>
                         <!--  -->
                         <div class="consultation_all_Center">
-                                <div class="consultation_all_text"><p>服务中心>实用新型</p></div>
+                                <div class="consultation_all_text"><p style="font-size: 13px; color: #666;"><router-link to="/servicecenter" style="color: #666;">服务中心</router-link>>实用新型</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
                                         <v-servicet :qiye="title" :top_data = 'top_data' :image="image" :nub ="nub">
