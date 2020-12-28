@@ -552,6 +552,7 @@ const api = {
                     uid:uid
             }
             return requestAll.requset(baseUrl + '/api/userorder/allorder',data);
+   },
     //投诉建议
     complaint(opinions,appellation,mobile,status){
             let data={
