@@ -175,7 +175,7 @@
                      <el-submenu index="/usercenter/usershop">
                        <template slot="title">
                          <img class="left_b" src="../../../static/img/usercenter/shopperson.png" alt="">
-                         我是买家
+                         我是卖家
                        </template>
                        <el-submenu index="/usercenter/usershop">
                          <template slot="title">出售知识产权</template>
