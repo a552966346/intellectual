@@ -1,0 +1,148 @@
+<template>
+<div class="all">
+    <div class="cssb_all">
+       <div class="cszl_head">
+           <div class="cszl_head_container">
+               <div class="cszl_head_item">登记商品信息</div>
+               <div class="cszl_head_item">等待客服审核</div>
+               <div class="cszl_head_item">成功上架出售</div>
+               <div class="cszl_head_item">买家出价购买</div>
+               <div class="cszl_head_item">签署合同交易商品</div>
+               <div class="cszl_head_item">出售成功提现</div>
+           </div>
+       </div>
+        <div class="cssb_body">
+            <el-form ref="formrul" :model="sbform" label-width="150px" :rules="formrule">
+                    <el-form-item label="您要出售的商品：" >
+                        <div class="cssc_con">
+                            <div class="top_sb">单个发布商标</div>
+                            <div class="top_sb">批量发布商标</div>
+                        </div>
+                    </el-form-item>
+                    <el-form-item label="商标注册号：">
+                            <select name="shangbiao" v-model="select" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
+                                    <option value="">请填写商标注册号，并点击开始查询按钮</option>
+                                    <option v-for="item in data" :value="item.id">{{item.name}}</option>
+                            </select>
+                            <el-button type="danger">开始查询</el-button>
+                    </el-form-item>
+                    <el-form-item label="商标名称：" prop="name">
+                            <el-input v-model="sbform.name" placeholder="请输入商标名称：" style="width: 300px;"></el-input>
+                    </el-form-item>
+                    <el-form-item label="使用范围：" prop="region">
+                            <el-input v-model="sbform.region" placeholder="请输入使用范围：" style="width: 300px;"></el-input>
+                    </el-form-item>
+                    <el-form-item label="商标价格：" prop="sellprice">
+                            <el-input v-model="sbform.sellprice" placeholder="请输入您的商标出售价格" style="width: 300px;"></el-input>
+                    </el-form-item>
+                    <el-form-item label="创意说明：" >
+                            <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="textarea"></el-input>
+                    </el-form-item>
+                    <el-form-item label="联系QQ：" prop="qq">
+                            <el-input v-model="sbform.qq" placeholder="请输入您的联系QQ" style="width: 300px;"></el-input>
+                    </el-form-item>
+                    <el-form-item label="" >
+                        <div class="fabu">
+                            <el-button type="success">立即发布</el-button>
+                        </div>
+                    </el-form-item>
+            </el-form>
+        </div>
+    </div>
+</div>
+</template>
+<script>
+export default {
+    data(){
+        return{
+            
+            sbform: {
+                    sbname:'',//商标名称
+                    // select: '',
+                    register:'',//注册号
+                    sellprice: '', //售价
+                    qq:''
+            },
+            textarea:'',
+            select: '',
+            // 验证规则
+            formrule: {
+                    name: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请输入商标名称'
+                    }, ],
+                    num: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请输入商标号'
+                    }, ],
+                    minprice: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请输入出售低价'
+                    }, ],
+                    
+            },
+            pickerOptions: {
+                disabledDate(time) {
+                    return time.getTime() > Date.now();
+                },
+                
+                value1: '',
+            },
+            radio1: '1',
+            radio: '3',
+
+            
+        }
+    },
+    props:{
+        isshowsb:false,
+    }
+}
+</script>
+<style scoped>
+.cszl_head{
+    height: 90px;
+    padding: 20px;
+}
+.cszl_head_container{
+    height: 100%;
+    display: flex;
+}
+.cszl_head_item{
+    background-color: #fafafa;
+    flex: 1;
+    border: 1px solid #e9e9e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cssc_con{
+    display: flex;
+}
+.cssb_top{
+    display: flex;
+    align-items: center;
+    margin: 20px ;
+   
+}
+.top_sb{
+    width: 120px;
+    margin: 5px 20px 5px 0;
+    display: flex;
+    justify-content: center;
+    line-height: 27px;
+    color:red;
+    border: 1px solid red;
+    cursor: pointer;
+}
+.top_sb:first-of-type{
+    background: url('../../../static/img/usercenter/redtitle.png') no-repeat 0 0 ;
+    background-size: 120px 27px;
+    border: none;
+}
+
+
+</style>

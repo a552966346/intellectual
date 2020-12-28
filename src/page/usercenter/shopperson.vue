@@ -4,7 +4,7 @@
             <div class="top_text">我是卖家/我出售的商标</div>
             <div class="top_shopcar">
                 <img src="../../../static/img/usercenter/shopcar.png" alt="">
-                <span>我要出售</span> 
+                <span @click="sell">我要出售</span> 
             </div>
             
         </div>
@@ -13,9 +13,12 @@
                     <input type="s_text" placeholder="请输入您要查找的商品编号或注册号">
                     <div class="s_search">搜索</div>
             </div>
-            <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+            <el-tabs v-model="activeName" type="card" @tab-click="handleClick" width="40px">
                 
               <el-tab-pane label="出售商标" name="first" >
+                <div class="cssb_all" v-show="isshowsb" @click.self="showssb">
+                    <v-cssb ></v-cssb>
+                </div>
                 <ul class="s_con_b">
                     <li class="s_con_b_item">商品</li>
                     <li class="s_con_b_item">出售信息</li>
@@ -42,24 +45,15 @@
                     <li class="s_con_b_item">当前状态</li>
                     <li class="s_con_b_item">商品操作</li>
                 </ul>
-                 <ul class="s_con_b selltrademark1">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">4</li>
-                        <li class="s_con_b_item">5</li>
-                        <li class="s_con_b_item">6</li>
-                  </ul> 
-                  <ul class="s_con_b sellpatent1">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">4</li>
-                        <li class="s_con_b_item">5</li>
-                        <li class="s_con_b_item">6</li>
-                    </ul>
+                <div class="cszl_all" v-show="isshowzl" @click.self="showszl">
+                    <v-cszl ></v-cszl>
+                </div>
+                  
               </el-tab-pane>
               <el-tab-pane label="出售版权" name="third">
+                <div class="csbq_all" v-show="isshowbq" @click.self="showsbq">
+                    <v-csbq ></v-csbq>
+                </div>
                 <ul class="s_con_b">
                     <li class="s_con_b_item">商品</li>
                     <li class="s_con_b_item">出售信息</li>
@@ -78,6 +72,9 @@
                 </ul>
               </el-tab-pane>
               <el-tab-pane label="技术转让" name="fourth">
+                <div class="jszr_all" v-show="isshowjs" @click.self="showsjs">
+                    <v-jszr ></v-jszr>
+                </div>
                 <ul class="s_con_b">
                     <li class="s_con_b_item">商品</li>
                     <li class="s_con_b_item">出售信息</li>
@@ -97,21 +94,26 @@
                   
               </el-tab-pane>  
             </el-tabs>
-            
-            
-                
-            
-            
         </div> 
     </div>
 </template>
 <script>
+import cszl from '../../components/usercenter/cszl.vue'
+import cssb from '../../components/usercenter/cssb.vue'
+import csbq from '../../components/usercenter/csbq.vue'
+import jszr from '../../components/usercenter/jszr.vue'
+
 export default{
     data(){
         return{
             msg:'这是测试内容',
-            activeName: 'first'
-              }
+            activeName: 'first',
+            isshowzl:false,
+            isshowsb:false,
+            isshowbq:false,
+            isshowjs:false,
+        }
+            
     },
     mounted() {
             // 卖家   商标订单
@@ -138,8 +140,20 @@ export default{
     methods: {
       handleClick(tab, event) {
         console.log(tab, event);
+      },
+      sell(){
+           this.isshowzl=true
+           this.isshowsb=true
+           this.isshowbq=true
+           this.isshowjs=true
       }
     },
+    components:{
+        "v-cszl": cszl,
+        "v-cssb": cssb,
+        "v-csbq": csbq,
+        "v-jszr": jszr,
+    }
     
 }
 </script>
@@ -171,6 +185,7 @@ export default{
     color: #fff;
     font-size: 13px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .top_shopcar img{
     margin-right: 8px;
@@ -284,4 +299,6 @@ export default{
 .s_content_d>.con_b{
     border: none;
 }
+
+
 </style>
