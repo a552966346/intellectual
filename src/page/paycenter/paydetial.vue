@@ -1,19 +1,19 @@
 <template>
     <div id="all">
-        <v-topsearch></v-topsearch> 
+        <v-topsearch></v-topsearch>
         <v-navigation></v-navigation>
         <!-- 交易中心流程详情 -->
         <div>
             <v-flow></v-flow>
         </div>
         <!-- 下单时间 -->
-        <div>
+        <div style="width: 1200px;">
             <v-paytime :uqdata="uqdata"></v-paytime>
         </div>
         <!-- 个人发票与单位发票 -->
         <div>
             <v-invoice></v-invoice>
-        </div> 
+        </div>
         <!-- 支付方式 -->
         <div>
             <v-paymode :uqdata="uqdata"></v-paymode>
@@ -39,7 +39,6 @@ export default {
          beforeMount(uqdata){
               this.uqdata =JSON.parse(sessionStorage['data']);
               console.log(this.uqdata);
-              console.log(456465)
          },
          components:{
             copyrightOrdinary,
@@ -55,6 +54,9 @@ export default {
 <style scoped>
     #all{
         background: #fafafa;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
     }
-    
+
 </style>

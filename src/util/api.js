@@ -272,12 +272,36 @@ const api = {
         return requestAll.requset(baseUrl + '/api/Userorder/trademark_order',data);
     },
     // 卖家   专利订单
-    getuserPatentsOrder() {
-        return requestAll.requset(baseUrl + '/api/Userorder/patents_order');
+    getuserPatentsOrder(uid,status) {
+            let data={
+                     uid:uid,
+                     status:status
+            }
+        return requestAll.requset(baseUrl + '/api/Userorder/patents_order',data);
     },
     // 卖家   版权订单
-    getuserCopyrightOrder() {
-        return requestAll.requset(baseUrl + '/api/Userorder/copyright_order');
+    getuserCopyrightOrder(uid,status) {
+            let data={
+                     uid:uid,
+                     status:status
+            }
+        return requestAll.requset(baseUrl + '/api/Userorder/copyright_order',data);
+    },
+    //技术转移
+    getusertechnology(uid,status) {
+            let data={
+                     uid:uid,
+                     status:status
+            }
+        return requestAll.requset(baseUrl + '/api/Userorder/technology_order',data);
+    },
+    // 服务中心
+    getuserservicecenter(uid,status) {
+            let data={
+                     uid:uid,
+                     status:status
+            }
+        return requestAll.requset(baseUrl + '/api/Userorder/service_order',data);
     },
     // 账号设置  收货地址
 
@@ -498,6 +522,46 @@ const api = {
     //版权分类
     getbanquan(){
              return requestAll.requset(baseUrl + '/api/Copyright/sellcategory');
+    },
+    //收藏
+    getCollection(product_id,type,uid){
+            let data={
+                    uid:uid,
+                    product_id:product_id,
+                    type:type
+            }
+             return requestAll.requset(baseUrl + '/api/Userorder/add_collect',data);
+    },
+    //取消收藏
+    getdelCollection(id,uid){
+            let data={
+                    id:id,
+                    uid:uid
+            }
+             return requestAll.requset(baseUrl + '/api/Userorder/uncollect',data);
+    },
+    //产品收藏
+    getallCollection(uid){
+            let data={
+                    uid:uid
+            }
+            return requestAll.requset(baseUrl + '/api/Userorder/collect',data);
+    },
+    getuseindex(uid){
+            let data={
+                    uid:uid
+            }
+            return requestAll.requset(baseUrl + '/api/userorder/allorder',data);
+   },
+    //投诉建议
+    complaint(opinions,appellation,mobile,status){
+            let data={
+                opinions:opinions,
+                appellation:appellation,
+                mobile:mobile,
+                status:status
+            }
+            return requestAll.requset(baseUrl + '/api/opinion/opinion',data);
     }
 }
 

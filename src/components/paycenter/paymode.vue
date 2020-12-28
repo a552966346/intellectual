@@ -18,15 +18,18 @@
         <div class="mode_detail">
             <div class="detail_list">
                 <div><span>{{uqdata.length}}</span><span>类商品，总商品金额：</span></div>
-                <div>￥{{uqdata.total_prices}}</div>
+                <div v-if="uqdata.total_prices>=10000">￥{{uqdata.total_prices/10000}}万元</div>
+                <div v-else>￥{{uqdata.total_prices}}</div>
             </div>
             <div class="detail_list">
                 <div><span>应支付金额：</span></div>
-                <div>￥{{uqdata.total_prices}}</div>
+                <div v-if="uqdata.total_prices>=10000">￥{{uqdata.total_prices/10000}}万元</div>
+                <div v-else>￥{{uqdata.total_prices}}</div>
             </div>
             <div class="detail_list list3">
                 <div><span>本次支付金额：</span></div>
-                <div>￥{{uqdata.total_prices}}</div>
+                <div v-if="uqdata.total_prices>=10000">￥{{uqdata.total_prices/10000}}万元</div>
+                <div v-else>￥{{uqdata.total_prices}}</div>
             </div>
 
             <div class="detail_pay">立即支付</div>

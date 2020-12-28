@@ -424,9 +424,9 @@
                                          if(res.data.server_data40.length != 0){
                                                 this.zl_right_lie_o = res.data.server_data40[0]
                                          }
-                                         this.fu_cen_right_lie =res.data.server_data45
-                                         if(res.data.server_data45.length != 0){
-                                                 this.fu_cen_right_lie_o = res.data.server_data45[0]
+                                         this.fu_cen_right_lie =res.data.server_data46
+                                         if(res.data.server_data46.length != 0){
+                                                 this.fu_cen_right_lie_o = res.data.server_data46[0]
                                          }
                                          // this.qy_right_lie = res.data.server_data46
                                          // if(res.data.server_data46.length != 0){
@@ -527,10 +527,20 @@
                                         that.$api.severfastdatas(this.value1,this.value2,this.formInline.phones,this.formInline.authcode)
                                         .then(res=>{
                                                 console.log(res)
+                                                if(res.code==1){
+                                                        this.$message({
+                                                                  message: '提交成功，请耐心等待客服人员与您联系',
+                                                                  type: 'success'
+                                                                });
+                                                }
+                                                this.value1=''
+                                                this.value2=''
+                                                this.formInline.phones=''
+                                                this.formInline.authcode=''
                                         })
                                         console.log(valid)
                                 })
-
+                                 this.html = Math.random();
                         },
                         getVerification() {
                                 this.html = Math.random();

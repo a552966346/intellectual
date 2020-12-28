@@ -4,15 +4,20 @@
             <div class="pay_header">
                 <div><span>下单时间：</span><span>{{item.creatime_text}}</span></div>
                 <div><span>订单编号：</span><span>{{item.order_sn}}</span></div>
-                <div><span>订单状态：</span><span>待支付</span></div>
+                <div><span>订单状态：</span>
+                <span v-if="item.status==0">待付款</span>
+               <span v-if="item.status==1">已支付</span>
+                <span v-if="item.status==2">已完成</span>
+                <span v-if="item.status==3">已取消</span>
+                </div>
             </div>
             <div class="time_content"   v-for="(item1,index) in item.product_data" v-if="item1 !== null" :key="item1.id">
                 <div><img :src="item1.images_text[0]" alt=""></div>
                 <dl>
                     <dt>{{item1.name}}</dt>
-
                     <dd><span>商标注册时间：</span><span>{{item1.creatime_text}}</span></dd>
-                    <dd v-if="item1.categoryid_text.name"><span>商标分类：</span><span>{{item1.categoryid_text.name}}</span></dd>
+                    <dd v-if="item1.categoryid_text&&item1.categoryid_text.name"><span>商标分类：</span><span>{{item1.categoryid_text.name}}</span></dd>
+                    <dd v-else-if="item1.categoryid_text&&item1.categoryid_text==null"><span>商标分类：</span><span>无</span></dd>
                     <dd v-else><span>商标分类：</span><span>{{item1.categoryid_text}}</span></dd>
                     <dd><span>购买数量：</span><span>{{item1.number}}件</span></dd>
                     <dd><span>待支付商品单价：</span><span>￥{{item1.fee}}</span><span>/件（不含官费）</span></dd>
@@ -31,11 +36,6 @@ export default {
 
         }
     },
-    methods:{
-            getLocalTime(nS) {
-               return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
-            }
-    }
 }
 </script>
 <style scoped>
@@ -46,14 +46,15 @@ export default {
             font-size: 13px;
         }
         .pay_all{
-            width: 1200px;
+                width: 100%;
+            /* width: 1200px; */
             background:#fff;
             margin: 20px auto;
             height: auto;
         }
         #paytime{
-
-            width: 1200px;
+             width: 100%;
+            /* width: 1200px; */
             margin: 20px auto;
             padding-bottom: 30px;
             background:#fff;

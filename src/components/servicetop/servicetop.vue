@@ -10,7 +10,14 @@
                         </div>
                         <div class="topall_text">
                                 <div class="text_top">
-                                        <h2>{{top_data.name}}</h2>
+                                        <div style="display: flex;justify-content: space-between;">
+                                                <h2>{{top_data.name}}</h2>
+                                                <div style="cursor: pointer;" @click="top_sc(top_data.id)">
+                                                       <img :src="img" alt="" v-show="isimg">
+                                                       <img :src="img2" alt="" v-show="!isimg">
+                                                </div>
+                                        </div>
+
                                         <p>{{top_data.sketch}}</p>
                                 </div>
                                 <div class="topall_center">
@@ -67,8 +74,10 @@
                         return {
                                 // qiye: '企业知识产贯�,
                                 nub: 1,
-                                isshow:false
-
+                                isshow:false,
+                                img:'../../../static/img/index/inde_sc_one.png',
+                                img2:'../../../static/img/index/inde_sc_two.png',
+                                isimg:false
                         }
                 },
                 props: {
@@ -94,7 +103,6 @@
                         },
                         shop(id,nub,uid){
                                 if (this.$store.state.user == ''|| this.$store.state.user ==null || this.$store.state.user ==undefined) {
-                                        console.log(1111)
                                         this.$message({
                                                   showClose: true,
                                                   message: '请登录后操作'
@@ -107,7 +115,10 @@
                                         this.$api.getshop(id,1,nub,uid)
                                         .then(res=>{
                                         if(res.code == 1){
-                                                console.log(res.data)
+                                                this.$message({
+                                                          message: res.msg,
+                                                          type: 'success'
+                                                        });
                                                 this.$router.push({
                                                 path:'/shopcart',
                                                 query:{
@@ -130,6 +141,35 @@
                         shows(){
                                 this.isshow = false
                         },
+                        top_sc(id){
+                                if (this.$store.state.user == ''|| this.$store.state.user ==null || this.$store.state.user ==undefined) {
+                                        this.$message({
+                                                  showClose: true,
+                                                  message: '请登录后操作'
+                                                });
+                                         this.$router.push({path:'/login'});
+                                }else{
+                                      if(!this.isimg){
+                                              this.$api.getCollection(id,1,this.$store.state.user.user_id)
+                                              .then(res=>{
+                                                   this.$message({
+                                                             message: res.msg,
+                                                             type: 'success'
+                                                           });
+                                                        this.isimg = true
+                                              })
+                                      }else{
+                                             this.$api.getdelCollection(id,this.$store.state.user.user_id)
+                                             .then(res=>{
+                                                     this.$message({
+                                                               message: res.msg,
+                                                               type: 'success'
+                                                             });
+                                                          this.isimg = false
+                                             })
+                                      }
+                                }
+                        }
 
                 },
                 components:{
@@ -190,7 +230,10 @@
                 padding: 5px 0;
                 color: #555;
         }
-
+        .text_top img{
+                width: 25px;
+                height: 25px;
+        }
         .text_top>p {
                 padding: 10px;
                 color: #A7A7A7;

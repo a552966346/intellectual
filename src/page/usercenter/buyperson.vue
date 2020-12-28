@@ -1,16 +1,15 @@
 <template>
         <div class="buyperson">
-                <div class="buy_top">
+                <div class="buy_top"  v-if="style !=5">
                         我是买家/我的购买订单
                 </div>
-                <div class="buy_con">
-                        <ul class="con_t">
-                                <li class="con_t_item" v-for="(item, i) in nav" :key="i"  v-bind:class="{ active: i == num }"
-                                                 @click="tab(i)">{{ item }}</li>
-                                <!-- <li class="con_t_item">未付款订单</li>
-                <li class="con_t_item">已预约的订单</li>
-                <li class="con_t_item">交接中的订单</li>
-                <li class="con_t_item">已完成的订单</li> -->
+                <div class="buy_top"  v-else>
+                        我是买家/我的收藏
+                </div>
+                <div class="buy_con" >
+                        <ul class="con_t" v-if="style !=5">
+                                <li class="con_t_item" v-for="(item, i) in nav" :key="i"  v-bind:class="{ active: item.id == num }"
+                                                 @click="tab(i,item.id)"  >{{ item.name }}</li>
                                 <li class="con_t_search">
                                         <div class="t_sea">
                                                 <input type="text" placeholder="请输入您要查找的订单号">
@@ -19,79 +18,88 @@
 
                                 </li>
                         </ul>
-                        <ul class="con_b">
+                       <!-- <ul class="con_b">
                                 <li class="con_b_item">订单详情</li>
                                 <li class="con_b_item">数量</li>
                                 <li class="con_b_item">价格</li>
                                 <li class="con_b_item">订单状态</li>
                                 <li class="con_b_item">订单操作</li>
                                 <li class="con_b_item">客服信息</li>
-                        </ul>
-                        <div class="b_content">
-                                <div class="b_content_c">
+                        </ul> -->
+                        <serviceClass v-if="style ==5" :uqdata="zsdlist"></serviceClass>
+                        <div class="b_content" id="buy_con">
+                                <div class="b_content_c"  v-if="zsdlist.length != 0">
+                                        <paytime :uqdata="zsdlist"></paytime>
+                                </div>
+                                <div class="b_content_c" v-else>
                                         <img src="../../../static/img/usercenter/order.png" alt=""><span>您还没有订单，去逛逛吧~</span>
                                 </div>
-                                <!-- <div class="b_content_c">
-                                        <div class="shopcart_zsdcet" v-for="(item,index) in zsdlist" :key="index">
-                                            <div class="shopcart_zsdcetret">
-                                                <div class="shopcart_zsdcetrettop">
-                                                    {{item.product.name}}
-                                                </div>
-                                                <div class="shopcart_zsdcetretcet">
-                                                    {{item.product.sketch}}
-                                                </div>
-                                            </div>
-                                            <div class="shopcart_zsdceterrn">
-                                                <div>￥{{item.product.fee}}</div>
-                                            </div>
-                                            <div class="shopcart_zsdcefhtea">
-                                                <el-input-number class="shopcart_zsdcefhin" size="mini" v-model="item.num" @change="handleChange(item.product.fee,item.num,index,item.checkModel)"  :min="1" :max="10" label="描述文字"></el-input-number>
-                                            </div>
-                                            <div class="shopcart_zsdcefviet">
-                                                 <div >￥{{zong(item.product.fee,item.num,index)}}</div>
-                                            </div>
-                                        </div>
-                                </div> -->
                         </div>
-
                 </div>
 
         </div>
 </template>
 <script>
+        import paytime from '@/components/paycenter/paytime.vue'
+        import serviceClass  from'@/components/paycenter/serviceClass.vue'
+        import { Loading } from 'element-ui';
         export default {
                 data() {
                         return {
-                                nav: ["全部订单", "未付款订单", "已预约的订单", "交接中的订单", "已完成的订单"],
-                                num: 0,
+                                nav: [
+                                        {name:"全部订单"},
+                                        {name:'未付款订单',id:'0'},
+                                        {name:'已完成',id:'1'},
+                                        {name:'已取消',id:'2'}
+                                        ],
+                                num: '',
                                 data:{},
                                 zsdlist:[],
-                                style:''
+                                style:0,
+                                fullscreenLoading:false
                         }
                 },
                 watch: {
                 	$route(to, from){
+                                let loadingInstance = Loading.service(document.querySelector("#buy_con"));
                 		this.num=this.$route.query.type
                                 this.style = this.$route.query.style
+                                // console.log(this.style,2222222)
                                  this.ispost(this.style,this.num)
+                                 this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
+                                   loadingInstance.close();
+                                 });
                 	}
                 },
                 mounted() {
-                        this.data = JSON.parse(sessionStorage['user']);
+                         this.style = this.$route.query.style
+                         console.log(this.style,1111111)
+                          this.data = JSON.parse(sessionStorage['user']);
+                        this.ispost(this.style,this.num)
+                },
+                components:{
+                        paytime,
+                        serviceClass
                 },
                 methods: {
-                        tab(index) {
-                                this.num = index;
-                                this.ispost(index)
+                        tab(index,id) {
+                                let loadingInstance = Loading.service(document.querySelector("#buy_con"));
+                                this.num = id;
+                                this.ispost(this.style,id)
+                                this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
+                                  loadingInstance.close();
+                                });
                         },
                         ispost(style,index){
                                 console.log(this.data)
                                 //我的商标
+                                this.zsdlist=[]
                                 if(style==0){
                                     this.$api.getuserTrademarkOrder(this.data.id,index)
                                     .then(res=>{
                                             console.log(res)
                                             this.zsdlist = res.data.data
+                                            console.log(this.zsdlist)
                                     })
                                     //我的专利
                                 }else if(style==1){
@@ -109,14 +117,20 @@
                                         })
                                         //技术转移
                                 }else if(style==3){
-                                        this.$api.getuserTrademarkOrder(this.data.id,index)
+                                        this.$api.getusertechnology(this.data.id,index)
                                         .then(res=>{
                                                 console.log(res)
                                                 this.zsdlist = res.data.data
                                         })
                                         //服务中心
                                 }else if(style==4){
-                                        this.$api.getuserTrademarkOrder(this.data.id,index)
+                                        this.$api.getuserservicecenter(this.data.id,index)
+                                        .then(res=>{
+                                                console.log(res)
+                                                this.zsdlist = res.data.data
+                                        })
+                                }else{
+                                        this.$api.getallCollection(this.data.id)
                                         .then(res=>{
                                                 console.log(res)
                                                 this.zsdlist = res.data.data
@@ -127,7 +141,7 @@
                 }
         }
 </script>
-<style>
+<style >
         .buyperson {
                 width: 100%;
                 height: 100%;
@@ -150,6 +164,7 @@
                 margin-top: 20px;
                 border: 1px solid #efefef;
                 border-radius: 5px;
+                height: 100%;
         }
 
         .con_t {
@@ -221,7 +236,8 @@
         }
 
         .b_content {
-                height: 300px;
+                width: 100%;
+                /* height: 300px; */
                 margin-top: 15px;
                 display: flex;
                 align-items: center;
@@ -229,11 +245,15 @@
                 vertical-align: middle;
                 justify-content: center;
         }
-
+        .time_content>dl{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+        }
         .b_content_c {
+                width: 100%;
                 text-align: center;
                 vertical-align: middle;
-
                 /* padding: 26px; */
         }
 
