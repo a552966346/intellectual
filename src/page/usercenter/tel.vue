@@ -14,35 +14,38 @@
                 <li class="con_t_item" v-for="(item,i) in titles" :key="i"
                 v-bind:class="{active:i == num}"
                 @click="tab(i)">{{item}}</li>
-                <!-- <li class="con_t_item">真假客服验证</li>
-                <li class="con_t_item">举报假客服</li> -->
             </ul>
             
             <div class="content">
-                <div class="content_c">
+                <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="130px" class="demo-ruleForm">
                     <p>亲爱的用户：</p>
                     <p>您好！为了给您提供更好的服务，我们希望收集您在使用伊甸网时的投诉和建议。对您的配合和支持表示衷心感谢！</p>
-                    <div class="c_choose">
-                        <div class="choose_item current">
-                            <img src="../../../static/img/usercenter/tick_active.png" alt="">
-                            我要投诉
-                        </div>
-                        <div class="choose_item">
-                            <img src="../../../static/img/usercenter/tick.png" alt="">
-                            我要建议
-                        </div>
-                    </div>
-                    <div class="store1">
-                        <input class="input store" type="text" placeholder="网店"><img src="../../../static/img/usercenter/arrow.png" alt="">
-                    </div>
-                    
-                    <textarea name="" id="" cols="30" rows="10" placeholder="您可以在这里填写您对伊甸的各方面不满的地方"></textarea>
-                    <div class="in2">
-                        <input class="input in2-item" type="text" placeholder="您的称呼">
-                        <input class="input in2-item" type="text" placeholder="您的电话">
-                    </div>
-                    <button>立即提交</button>
-                </div>
+                    <el-form-item label="请选择提交类型" prop="resource">
+                        <el-radio-group v-model="ruleForm.resource">
+                            <el-radio label="我要投诉" value='2'></el-radio>
+                            <el-radio label="我要建议" value='1'></el-radio>
+                        </el-radio-group>
+                    </el-form-item>
+                    <el-form-item label="活动区域" prop="region">
+                        <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
+                        <el-option label="区域一" value="shanghai"></el-option>
+                        <el-option label="区域二" value="beijing"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="提出内容" prop="desc" >
+                        <el-input type="textarea" v-model="ruleForm.desc" placeholder="您可以在这填写您对伊甸城的各个不满的地方"></el-input>
+                    </el-form-item>
+                    <el-form-item label="您的称呼" prop="name">
+                        <el-input v-model="ruleForm.name" placeholder="请输入称呼"></el-input>
+                    </el-form-item>
+                    <el-form-item label="您的电话" prop="telephone">
+                        <el-input v-model="ruleForm.telephone" placeholder="请输入电话号"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="submitForm('ruleForm')">立即提交</el-button>
+                        <el-button @click="resetForm('ruleForm')">重置</el-button>
+                    </el-form-item>
+                </el-form>
             </div>
             
         </div> 
@@ -55,13 +58,59 @@ export default{
             msg:'这是测试内容',
             teloption:[],
             titles:["投诉建议","真假客服验证","举报假客服"],
-            num:0
-              }
+            num:0,
+            ruleForm: {
+                resource:'',
+                region:'',
+                desc:'',
+                name:'',
+                telephone:''
+            },
+            rules:{
+                resource: [
+                    { required: true, message: '请选择提交类型', trigger: 'change' }
+                ],
+                region: [
+                    { required: true, message: '请选择活动区域', trigger: 'change' }
+                ],
+                desc:[
+                    { required: true, message: '请输入内容', trigger: 'change' }
+                ],
+                name:[
+                    { required: true, message: '请选择名称', trigger: 'change' }
+                ],
+                telephone:[
+                    { required: true, message: '请输入电话号', trigger: 'change' }
+                ]
+            }
+        }
    },
    methods:{
        tab(i){
            this.num=i;
-       }
+       },
+       submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+            if (valid) {
+                console.log(this.desc,this.name,this.name,this.telephone,this.resource);
+                let opinions = this.desc;
+                let appellation =this.name;
+                let mobile = this.telephone;
+                let status = this.resource;
+                this.$api.complaint(opinions,appellation,mobile,status)
+                    .then(res=>{
+                            console.log(res)
+                            alert(res.msg);
+                    })
+            } else {
+                console.log('error submit!!');
+                return false;
+            }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      }
    }
 }
 </script>
@@ -97,11 +146,6 @@ export default{
 .top_shopcar img{
     margin-right: 8px;
 }
-
-
-
-
-
 .tel_con{
     background-color: #fff;
     font-size: 14px;
@@ -148,7 +192,7 @@ export default{
 .c_choose{
     margin-top: 20px;
     width: 100%;
-    height: 64px;
+    height: 40px;
     background-color: #f2f2f2;
     display: flex;
     border-radius: 5px;
@@ -215,5 +259,4 @@ export default{
     font-size: 14px;
     border-radius: 3px;
 }
-
 </style>
