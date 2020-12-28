@@ -546,6 +546,12 @@ const api = {
                     uid:uid
             }
             return requestAll.requset(baseUrl + '/api/Userorder/collect',data);
+    },
+    getuseindex(uid){
+            let data={
+                    uid:uid
+            }
+            return requestAll.requset(baseUrl + '/api/userorder/allorder',data);
     }
 }
 

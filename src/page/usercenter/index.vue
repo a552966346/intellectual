@@ -4,26 +4,26 @@
                 <!-- 名字 -->
                 <div class="r1_top"  v-show="berl">
                     <div class="r1_top_tou">
-                        <img :src="userIn.avatar">
+                        <img :src="this.$store.state.user.avatar">
                     </div>
                     <div class="r1_top_name">
-                        <h4>{{userIn.username}} <img src="../../../static/img/usercenter/woman.png" alt=""></h4>
+                        <h4>{{this.$store.state.user.username}} <img src="../../../static/img/usercenter/woman.png" alt=""></h4>
                         <p>晋中市华迅网络科技股份有限公司</p>
                     </div>
                     <div class="r1_top_money money1">
                         <p>账户余额</p>
-                        <span>{{userIn.money}}元</span>
+                        <span>{{this.$store.state.user.money}}元</span>
                         <input class="money1_button" type="button" value="提现">
                         <br> <a href="#">查看详情</a>
                     </div>
                     <div class="r1_top_money money2">
                         <p>冻结资金</p>
-                        <span>{{userIn.frozen}}元</span> <br/>
+                        <span>{{this.$store.state.user.frozen}}元</span> <br/>
                         <a href="#">查看详情</a>
                     </div>
                     <div class="r1_top_money money3">
                         <p>押金</p>
-                        <span>{{userIn.pledge}}元</span>
+                        <span>{{this.$store.state.user.pledge}}元</span>
                     </div>
                 </div>
                 <div class="r1_top denglu" v-show="!berl">
@@ -32,18 +32,18 @@
                               </router-link>
                 </div>
                 <!-- 3个图 -->
-                <div class="r2_top">
+                <div class="r2_top" @click="security">
                     <div class="r2_top_item">
                         <img src="../../../static/img/usercenter/safe.png" alt="">
-                        <span>安全设置</span>
+                        <span >安全设置</span>
                     </div>
-                    <div class="r2_top_item">
+                    <div class="r2_top_item" @click="capital">
                         <img src="../../../static/img/usercenter/money.png" alt="">
-                        <span>资金明细</span>
+                        <span >资金明细</span>
                     </div>
-                    <div class="r2_top_item">
+                    <div class="r2_top_item" @click="contract">
                         <img src="../../../static/img/usercenter/contract.png" alt="">
-                        <span>我的合同</span>
+                        <span >我的合同</span>
                     </div>
 
                 </div>
@@ -62,10 +62,42 @@
 
                     </div>
                     <div class="order_content">
-                        <div class="order_content_c">
+                        <!-- <div class="order_content_c">
                             <img src="../../../static/img/usercenter/order.png" alt=""><span>您还没有订单，去逛逛吧~</span>
-                        </div>
-
+                        </div> -->
+                        <el-table
+                              :data="tableData"
+                               :row-class-name="tableRowClassName"
+                               stripe
+                              style="width: 100%">
+                              <el-table-column
+                                property="order_sn"
+                                label="订单编号"
+                                >
+                              </el-table-column>
+                              <el-table-column
+                                property="creatime_text"
+                                label="订单生成时间"
+                                >
+                              </el-table-column>
+                              <el-table-column
+                                property="status"
+                                label="服务类型"
+                                >
+                              </el-table-column>
+                              <el-table-column
+                                property="type"
+                                label="订单状态">
+                              </el-table-column>
+                              <!-- <el-table-column
+                                prop="address"
+                                label="数量">
+                              </el-table-column> -->
+                              <el-table-column
+                                property="total_fee"
+                                label="价格">
+                              </el-table-column>
+                            </el-table>
                     </div>
                 </div>
                 <!-- 收益总览 -->
@@ -86,21 +118,21 @@
                             </div>
                         </div>
                         <ul class="notice_content">
-                            <li>
+                            <li v-for="item in newnow.news" :key="item.name">
 
-                                <img src="../../../static/img/usercenter/gg.png" alt="">
+                                <img :src="item.image" alt="">
                                 <div class="notice_content_c">
-                                    <h4>山西省知识产权战略纲要</h4>
+                                    <h4>{{item.title}}</h4>
                                     <div>
                                         <p>
-                                            为全面贯彻落实国家知识产权战略，推进我省国家资源型经济转型综合配置改革试验区建设，大力提升知识产权创造推进我省国家资源型经济转型综合
+                                           {{item.desc}}
                                         </p>
-                                        <a href="#">[详情]</a>
+                                        <router-link :to="'newsint?id=' + item.id">[详情]</router-link>
                                     </div>
                                 </div>
 
                             </li>
-                            <li>
+                            <!-- <li>
                                 <img src="../../../static/img/usercenter/gg.png" alt="">
                                 <div class="notice_content_c">
                                     <h4>山西省知识产权战略纲要</h4>
@@ -123,7 +155,7 @@
                                         <a href="#">[详情]</a>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <!-- 收藏 -->
@@ -134,7 +166,30 @@
                             </div>
                         </div>
                         <div class="collection_content">
-                            <div class="collection_content_item">
+                            <div class="collection_content_item" v-for="(item,index) in zsdlist" :key="item.id" v-if="index<=3">
+                                <img :src="item.product.images_text[0]" alt="">
+                                <p>{{item.product.name}}</p>
+                                <div class="collection_content_item_cc">
+                                    <span>￥{{item.product.fee}}</span>
+                                    <div class="collection_content_item_ccc">
+                                        <span>100%</span><span>好评</span> <br>
+                                    </div>
+                                </div>
+                                <el-button type="primary" class="button" size="medium" @click="banli(item.product.categoryid_text,item.product.category_id)">立即办理</el-button>
+                            </div>
+                            <!-- <div class="collection_content_item">
+                                <img src="../../../static/img/usercenter/collection.png" alt="">
+                                <p>画册设计</p>
+                                <div class="collection_content_item_cc">
+                                    <span>￥300</span>
+                                    <div class="collection_content_item_ccc">
+                                        <span>100%</span><span>好评</span> <br>
+                                    </div>
+
+                                </div>
+                                <el-button type="primary" class="button" size="medium" >立即办理</el-button>
+                            </div> -->
+                            <!-- <div class="collection_content_item">
                                 <img src="../../../static/img/usercenter/collection.png" alt="">
                                 <p>画册设计</p>
                                 <div class="collection_content_item_cc">
@@ -157,31 +212,7 @@
 
                                 </div>
                                 <el-button type="primary" class="button" size="medium">立即办理</el-button>
-                            </div>
-                            <div class="collection_content_item">
-                                <img src="../../../static/img/usercenter/collection.png" alt="">
-                                <p>画册设计</p>
-                                <div class="collection_content_item_cc">
-                                    <span>￥300</span>
-                                    <div class="collection_content_item_ccc">
-                                        <span>100%</span><span>好评</span> <br>
-                                    </div>
-
-                                </div>
-                                <el-button type="primary" class="button" size="medium">立即办理</el-button>
-                            </div>
-                            <div class="collection_content_item">
-                                <img src="../../../static/img/usercenter/collection.png" alt="">
-                                <p>画册设计</p>
-                                <div class="collection_content_item_cc">
-                                    <span>￥300</span>
-                                    <div class="collection_content_item_ccc">
-                                        <span>100%</span><span>好评</span> <br>
-                                    </div>
-
-                                </div>
-                                <el-button type="primary" class="button" size="medium">立即办理</el-button>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>
@@ -197,13 +228,19 @@ export default {
                 {pledge:0.00}
             ],//用户信息,
             userIn:'',
-            berl:false
+            berl:false,
+            newnow:[],
+            zsdlist:[],
+            tableData:[{
+                    order_sn:'',
+                    creatime_text:'',
+                    status:'',
+                    type:'',
+                    total_fee:''
+            }]
         }
     },
     mounted(){
-            // if(JSON.parse(sessionStorage['data'])){
-            //         this.$store.state.data =  JSON.parse(sessionStorage['data']);
-            // }
             if(this.$store.state.user){
                      this.userIn =   this.$store.state.user
                      this.berl = true
@@ -212,8 +249,89 @@ export default {
                             path:"/login"
                     })
             }
+            //伊甸公告
+            this.$api.getindexnew().then((res) => {
+              this.news = res.data;
+              this.newnow = res.data[2]
+              console.log(this.newnow, "新闻中心1")
+            });
+            // 收藏
+            this.$nextTick(function(){
+                    this.$api.getallCollection(this.$store.state.user.id)
+                     .then(res=>{
+                             console.log(res)
+                             this.zsdlist = res.data.data
+                     })
+                    // 订单
+                    this.$api.getuseindex(this.$store.state.user.id)
+                    .then(res=>{
+                            console.log(res.data.data)
+                            for(let i=0;i<=res.data.data.length;i++){
+                                    // this.tableData[i].order_sn=res.data.data[i].order_sn
+                                    // this.tableData[i].creatime_text=res.data.data[i].creatime_text
+                                    switch(res.data.data[i].status) {
+                                         case 0:
+                                            res.data.data[i].status = "未支付"
+                                            break;
+                                         case 1:
+                                             res.data.data[i].status = "已支付"
+                                            break;
+                                         case 3:
+                                                res.data.data[i].status = "已完成"
+                                        break;
+                                        case 4:
+                                                res.data.data[i].status = "已取消"
+                                        break;
+                                    }
+                                    // this.tableData[i].type=res.data.data[i].type
+                                    // this.tableData[i].total_fee=res.data.data[i].total_fee
+                                    this.tableData[i].push({
+                                            order_sn:res.data.data[i].order_sn,
+                                            creatime_text:res.data.data[i].creatime_text,
+                                            status:res.data.data[i].status
+                                    })
+                            }
+
+                    })
+
+            })
+
 
     },
+    methods:{
+            banli(text,id){
+                this.$router.push({
+                        path:text.keywords,
+                        query:{
+                                id:id
+                        }
+                })
+            },
+             tableRowClassName({row, rowIndex}) {
+                    if (rowIndex === 1) {
+                      return 'warning-row';
+                    } else if (rowIndex === 3) {
+                      return 'success-row';
+                    }
+                    return '';
+                  },
+            //安全设置
+            security(){
+                    this.$router.push({
+
+                    })
+            },
+            capital(){
+                        this.$router.push({
+                                path:"/usercenter/usermanage"
+                        })
+            },
+            contract(){
+                        this.$router.push({
+                                path:"/usercenter/usercontract"
+                        })
+            }
+    }
 }
 </script>
 <style scoped>
@@ -225,6 +343,9 @@ a {
     /* justify-content: space-between; */
     margin: 20px 3% 0;
     width: 93%;
+}
+button{
+        outline: none;
 }
 .main_r{
     /* width: 355px; */
@@ -238,6 +359,13 @@ a {
     width: 47%;
 
 }
+.el-table .warning-row {
+    background: oldlace;
+  }
+
+  .el-table .success-row {
+    background: #f0f9eb;
+  }
 
 /* .main_r */
 .notice{
@@ -256,6 +384,7 @@ a {
     line-height: 12px;
 }
 .notice_content{
+        width: 100%;
     padding: 5px 10px;
     display: flex;
     flex-direction: column;
@@ -275,6 +404,7 @@ a {
     border-bottom: none;
 }
 .notice_content_c{
+        width: 50%;
     flex-direction: column;
     display: flex;
     margin-left: 1%;
@@ -282,6 +412,11 @@ a {
 .notice_content h4{
     font-size: 14px;
     line-height: 23px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
 }
 .notice_content_c div{
     font-size: 4px;

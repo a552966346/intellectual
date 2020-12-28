@@ -107,13 +107,17 @@
                                         <el-form-item label="手机校验码" prop="code">
                                                 <el-input v-model="ruleForm.code"></el-input>
                                         </el-form-item>
-                                        <el-form-item>
+                                        <el-form-item >
+                                                <el-col :span="5">
                                                 <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
-                                                <div class="sub_text">
+                                                </el-col>
+                                                <el-col :span="15">
+                                                <div class="sub_text" style="float: right;">
                                                         <img src="../../../static/img/usercenter/exclamationpoint.png"
                                                                 alt="">
                                                         <span>请填写真实信息，一旦填写，不可更改！</span>
                                                 </div>
+                                                </el-col>
                                         </el-form-item>
                                 </el-form>
                                 <!-- <div class="name"><p>真实姓名:</p>
@@ -512,15 +516,18 @@
 
         .sub_text {
                 display: flex;
+                align-items: center;
                 margin: 3px;
                 padding: 5px;
                 color: #fc8c8d;
                 border: 1px solid #fc8c8d;
                 background-color: #f9edef;
                 font-size: 10px;
+                line-height: 2;
         }
 
         .sub_text img {
+                height: 15px;
                 margin: 0 5px;
         }
 

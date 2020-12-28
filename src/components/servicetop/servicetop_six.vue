@@ -49,7 +49,7 @@
                                                         <h1 v-if="top_data.fee>=10000">{{(top_data.fee/10000)}}万元</h1>
                                                         <h1 v-else>{{top_data.fee}}元</h1>
                                                         <div>
-                                                                <span><img src="" alt="">{{top_data.clicks}}</span>
+                                                                <span><img src="" alt="">浏览：{{top_data.clicks}}次</span>
                                                                 <!-- <span><img src="" alt="">分享</span>
                                                                 <span><img src="" alt="">收藏</span> -->
                                                         </div>

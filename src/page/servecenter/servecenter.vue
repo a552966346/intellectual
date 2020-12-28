@@ -424,9 +424,9 @@
                                          if(res.data.server_data40.length != 0){
                                                 this.zl_right_lie_o = res.data.server_data40[0]
                                          }
-                                         this.fu_cen_right_lie =res.data.server_data45
-                                         if(res.data.server_data45.length != 0){
-                                                 this.fu_cen_right_lie_o = res.data.server_data45[0]
+                                         this.fu_cen_right_lie =res.data.server_data46
+                                         if(res.data.server_data46.length != 0){
+                                                 this.fu_cen_right_lie_o = res.data.server_data46[0]
                                          }
                                          // this.qy_right_lie = res.data.server_data46
                                          // if(res.data.server_data46.length != 0){

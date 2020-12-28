@@ -257,9 +257,6 @@ export default {
                    console.log(key, keyPath);
                  },
                  select(index,path){
-                         let str = index.split("?")
-                         let istr = str[1].split(('&&'))
-                         console.log(istr)
                  }
    }
 
