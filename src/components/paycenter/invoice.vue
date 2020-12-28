@@ -9,59 +9,81 @@
         </div>
         <!-- 个人发票 -->
         <div class="invoice_content" v-if="isShow">
-            <div class="content_select">
-                <div>
-                    <span>发票信息:</span>
-                    <el-radio v-model="radio1" label="1" key="1">纸质发票</el-radio>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <el-radio v-model="radio1" label="2" key="2">电子发票</el-radio>
-                </div>
-                <div>
-                    <span>发票类型：</span>
-                    <span>增值税普通发票</span>
-                </div>
-            </div>
-            <div class="content_input">
-                <div><span>姓名：</span><el-input v-model="input1" ></el-input></div>  
-                <div><span>电话：</span><el-input v-model="input2"></el-input></div> 
-            </div>
-            <div class="content_input">
-                <div><span>邮箱：</span><el-input v-model="input3" ></el-input></div>  
-                <div><span>地址：</span><el-input v-model="input4" ></el-input></div> 
-            </div>
+            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+            <el-form-item label="发票信息" prop="resource">
+                <el-radio-group v-model="ruleForm.resource">
+                <el-radio label="纸质发票"></el-radio> 
+                <el-radio label="电子发票"></el-radio>
+                </el-radio-group>
+            </el-form-item>
+            <el-form-item label="姓名" prop="name">
+                <el-input v-model="ruleForm.name"></el-input>
+            </el-form-item>
+            <el-form-item label="邮箱" prop="mailbox">
+                <el-input v-model="ruleForm.mailbox"></el-input>
+            </el-form-item>
+            <el-form-item label="发票信息:" prop="resource">
+                <div>增值税普通发票</div>
+            </el-form-item>
+              <el-form-item label="电话" prop="Telephone">
+                <el-input v-model="ruleForm.Telephone"></el-input>
+            </el-form-item>
+            <el-form-item label="地址" prop="address">
+                <el-input v-model="ruleForm.address"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
+                <el-button @click="resetForm('ruleForm')">重置</el-button>
+            </el-form-item>
+        </el-form>
         </div>
         <!-- 单位发票 -->
         <div class="invoice_content" v-else>
-            <div class="content_select">
-                <div>
-                    <span>发票信息:</span>
-                    <el-radio v-model="radio2" label="3" key="3">纸质发票</el-radio>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <el-radio v-model="radio2" label="4" key="4">电子发票</el-radio>
-                </div>
-                <div>
-                    <span>发票类型：</span>
-                    <span>增值税普通发票</span>
-                </div>
-            </div>
-            <div class="content_input">
-                <div><span>单位名称：</span><el-input v-model="input5" ></el-input></div>  
-                <div><span>税号：</span><el-input v-model="input6" ></el-input></div> 
-            </div>
-            <div class="content_input">
-                <div><span>注册地址：</span><el-input v-model="input7"></el-input></div>  
-                <div><span>联系电话：</span><el-input v-model="input8"></el-input></div> 
-            </div>
-            <div class="content_input">
-                <div><span>账号：</span><el-input v-model="input9" ></el-input></div>  
-                <div><span>开户行：</span><el-input v-model="input10"></el-input></div> 
-            </div>
-            <div class="content_input">
-                <div><span>收票人姓名：</span><el-input v-model="input11"></el-input></div>  
-                <div><span>收票人地址：</span><el-input v-model="input12"></el-input></div> 
-            </div>
-            <div class="content_input">
-                <div><span>收票人电话：</span><el-input v-model="input13" ></el-input></div>  
-                <div><span>收票人邮箱：</span><el-input v-model="input14"></el-input></div> 
-            </div>
+            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+                <el-form-item label="发票信息" prop="resource">
+                    <el-radio-group v-model="ruleForm.resource">
+                    <el-radio label="纸质发票"></el-radio> 
+                    <el-radio label="电子发票"></el-radio>
+                    </el-radio-group>
+                </el-form-item>
+                <el-form-item label="单位名称" prop="unitname">
+                    <el-input v-model="ruleForm.unitname" class="el-input__inner"></el-input>
+                </el-form-item>
+                <el-form-item label="注册地址" prop="comaddress">
+                    <el-input v-model="ruleForm.comaddress" class="el-input__inner"></el-input>
+                </el-form-item>
+                <el-form-item label="账号" prop="account">
+                    <el-input v-model="ruleForm.account" class="el-input__inner"></el-input>
+                </el-form-item>
+                <el-form-item label="收票人姓名" prop="tickname">
+                    <el-input v-model="ruleForm.tickname" class="el-input__inner"></el-input>
+                </el-form-item>
+                <el-form-item label="收票人电话" prop="ticktele">
+                    <el-input v-model="ruleForm.ticktele" class="el-input__inner"></el-input>
+                </el-form-item>
+                <el-form-item label="发票信息:" prop="resource">
+                    <div>增值税普通发票</div>
+                </el-form-item>
+                <el-form-item label="税号" prop="paragraph">
+                    <el-input v-model="ruleForm.paragraph" class="el-input__inner"></el-input>
+                </el-form-item>
+                <el-form-item label="联系电话" prop="contact">
+                    <el-input v-model="ruleForm.contact" class="el-input__inner"></el-input>
+                </el-form-item>
+                <el-form-item label="开户行" prop="bankdeposit">
+                    <el-input v-model="ruleForm.bankdeposit" class="el-input__inner"></el-input>
+                </el-form-item>
+                <el-form-item label="收票人地址" prop="tickaddress">
+                    <el-input v-model="ruleForm.tickaddress" class="el-input__inner"></el-input>
+                </el-form-item>
+                <el-form-item label="收票人邮箱" prop="emailaddress">
+                    <el-input v-model="ruleForm.emailaddress" class="el-input__inner"></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
+                    <el-button @click="resetForm('ruleForm')">重置</el-button>
+                </el-form-item>
+            </el-form>
         </div>
     </div>
 </template>
@@ -85,12 +107,110 @@ export default {
         input12: '',
         input13: '',
         input14: '',
-        isShow:true
+        isShow:true,
+
+         ruleForm: {
+          name: '',
+          mailbox: '',
+          Telephone: '',
+          address: '',
+          
+          unitname:'',
+          comaddress:'',
+          account:'',
+          tickname:'',
+          ticktele:'',
+          paragraph:'',
+          contact:'',
+          bankdeposit:'',
+          tickaddress:'',
+          emailaddress:'',
+          delivery: false,
+          type: [],
+          resource: '',
+          desc: ''
+        },
+         rules: {
+          name: [
+            { required: true, message: '请输入姓名', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+          mailbox: [
+            { required: true, message: '请输入邮箱号', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+          Telephone: [
+            { required: true, message: '请输入手机号', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+           address: [
+            { required: true, message: '请输入地址', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+           unitname: [
+            { required: true, message: '请输入单位名称', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+           address: [
+            { required: true, message: '请输入注册地址', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+           address: [
+            { required: true, message: '请输入账号', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+           address: [
+            { required: true, message: '请输入收票人姓名', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+           address: [
+            { required: true, message: '请输入收票人电话', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+
+           address: [
+            { required: true, message: '请输入税号', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ], address: [
+            { required: true, message: '请输入联系电话', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+
+           address: [
+            { required: true, message: '请输入开户行', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+           address: [
+            { required: true, message: '请输入收票人地址', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+           address: [
+            { required: true, message: '请输入收票人邮箱', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+          resource: [
+            { required: true, message: '请选择发票信息', trigger: 'change' }
+          ],
+        }
+
       };
     },
      methods: {
       handleTab(bool=true){
         this.isShow = bool
+      },
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            alert('submit!');
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
       }
     },
 }
@@ -157,7 +277,6 @@ export default {
         .content_select>div>span:nth-child(2n){
             margin-right: 10px;
         }
-       
         .content_input{
             margin-bottom: 10px;
             display: flex;
@@ -173,5 +292,7 @@ export default {
             width: 110px;
             text-align: right;
         }
-        
+        .el-input{width: 25% !important;}
+        .el-button{width: 124px;height: 30px;}
+        .el-form-item{margin: 20px 0;}
     </style>
