@@ -137,45 +137,40 @@
                         </template>
                         <el-submenu index="/usercenter/userbuy?style=0">
                           <template slot="title">我的商标</template>
-                          <el-menu-item index="/usercenter/userbuy?style=0&&type=0">全部订单</el-menu-item>
-                          <el-menu-item index="/usercenter/userbuy?style=0&&type=1">未付款订单</el-menu-item>
-                          <el-menu-item index="/usercenter/userbuy?style=0&&type=2">已预订订单</el-menu-item>
-                          <el-menu-item index="/usercenter/userbuy?style=0&&type=3">交接中订单</el-menu-item>
-                          <el-menu-item index="/usercenter/userbuy?style=0&&type=4">已完成订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?style=0">全部订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?style=0&&type=0">未付款订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?style=0&&type=1">已完成订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?style=0&&type=2">已取消订单</el-menu-item>
                         </el-submenu>
                         <el-submenu index="/usercenter/userbuy?style=1">
                           <template slot="title">我的专利</template>
-                          <el-menu-item index="/usercenter/userbuy?style=1&&type=0">全部订单</el-menu-item>
-                          <el-menu-item index="/usercenter/userbuy?style=1&&type=1">未付款订单</el-menu-item>
-                          <el-menu-item index="/usercenter/userbuy?style=1&&type=2">已预订订单</el-menu-item>
-                          <el-menu-item index="/usercenter/userbuy?style=1&&type=3">交接中订单</el-menu-item>
-                          <el-menu-item index="/usercenter/userbuy?style=1&&type=4">已完成订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?style=1">全部订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?style=1&&type=0">未付款订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?style=1&&type=1">已完成订单</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?style=1&&type=2">已取消订单</el-menu-item>
                         </el-submenu>
                           <el-submenu index="/usercenter/userbuy?style=2">
                             <template slot="title">我的版权</template>
-                            <el-menu-item index="/usercenter/userbuy?style=2&&type=0">全部订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=2&&type=1">未付款订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=2&&type=2">已预订订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=2&&type=3">交接中订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=2&&type=4">已完成订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=2">全部订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=2&&type=0">未付款订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=2&&type=1">已完成订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=2&&type=2">已取消订单</el-menu-item>
                           </el-submenu>
                           <el-submenu index="/usercenter/userbuy?style=3">
                             <template slot="title">技术转移</template>
-                            <el-menu-item index="/usercenter/userbuy?style=3&&type=0">全部订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=3&&type=1">未付款订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=3&&type=2">已预订订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=3&&type=3">交接中订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=3&&type=4">已完成订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=3">全部订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=3&&type=0">未付款订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=3&&type=1">已完成订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=3&&type=2">已取消订单</el-menu-item>
                           </el-submenu>
                           <el-submenu index="/usercenter/userbuy?style=4">
                             <template slot="title">服务中心</template>
-                            <el-menu-item index="/usercenter/userbuy?style=4&&type=0">全部订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=4&&type=1">未付款订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=4&&type=2">已预订订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=4&&type=3">交接中订单</el-menu-item>
-                            <el-menu-item index="/usercenter/userbuy?style=4&&type=4">已完成订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=4">全部订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=4&&type=0">未付款订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=4&&type=1">已完成订单</el-menu-item>
+                            <el-menu-item index="/usercenter/userbuy?style=4&&type=2">已取消订单</el-menu-item>
                           </el-submenu>
-                          <el-menu-item index="/usercenter/userbuy?type=5">我的收藏</el-menu-item>
+                          <el-menu-item index="/usercenter/userbuy?style=5">我的收藏</el-menu-item>
                       </el-submenu>
                      <el-submenu index="/usercenter/usershop">
                        <template slot="title">

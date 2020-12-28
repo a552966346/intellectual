@@ -527,10 +527,20 @@
                                         that.$api.severfastdatas(this.value1,this.value2,this.formInline.phones,this.formInline.authcode)
                                         .then(res=>{
                                                 console.log(res)
+                                                if(res.code==1){
+                                                        this.$message({
+                                                                  message: '提交成功，请耐心等待客服人员与您联系',
+                                                                  type: 'success'
+                                                                });
+                                                }
+                                                this.value1=''
+                                                this.value2=''
+                                                this.formInline.phones=''
+                                                this.formInline.authcode=''
                                         })
                                         console.log(valid)
                                 })
-
+                                 this.html = Math.random();
                         },
                         getVerification() {
                                 this.html = Math.random();

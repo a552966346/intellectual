@@ -10,7 +10,13 @@
                         </div>
                         <div class="topRight">
                                 <div class="topHeader">
-                                        <p>{{top_data.name}}</p>
+                                        <div style="display: flex;justify-content: space-between;">
+                                                <h2>{{top_data.name}}</h2>
+                                                <div style="cursor: pointer;" @click="top_sc(top_data.id)">
+                                                       <img :src="img" alt="" v-show="isimg">
+                                                       <img :src="img2" alt="" v-show="!isimg">
+                                                </div>
+                                        </div>
                                         <p v-html="top_data.sketch"></p>
                                 </div>
                                 <div class="topSelect">
@@ -69,7 +75,10 @@
                 data() {
                         return {
                                 nub:1,
-                                isshow:false
+                                isshow:false,
+                                img:'../../../static/img/index/inde_sc_one.png',
+                                img2:'../../../static/img/index/inde_sc_two.png',
+                                isimg:false
                         }
                 },
                 props: {
@@ -100,7 +109,10 @@
                                         this.$api.getshop(id,1,nub,uid)
                                         .then(res=>{
                                         if(res.code == 1){
-                                                console.log(res.data)
+                                                this.$message({
+                                                          message: res.msg,
+                                                          type: 'success'
+                                                        });
                                                 this.$router.push({
                                                 path:'/shopcart',
                                                 query:{
@@ -115,7 +127,7 @@
                                         console.log(err)
                                         })
                                 }
-                        
+
                         },
                         tankuang(){
                                 this.isshow=true
@@ -123,6 +135,35 @@
                         shows(){
                                 this.isshow = false
                         },
+                        top_sc(id){
+                                if (this.$store.state.user == ''|| this.$store.state.user ==null || this.$store.state.user ==undefined) {
+                                        this.$message({
+                                                  showClose: true,
+                                                  message: '请登录后操作'
+                                                });
+                                         this.$router.push({path:'/login'});
+                                }else{
+                                      if(!this.isimg){
+                                              this.$api.getCollection(id,1,this.$store.state.user.user_id)
+                                              .then(res=>{
+                                                   this.$message({
+                                                             message: res.msg,
+                                                             type: 'success'
+                                                           });
+                                                        this.isimg = true
+                                              })
+                                      }else{
+                                             this.$api.getdelCollection(id,this.$store.state.user.user_id)
+                                             .then(res=>{
+                                                     this.$message({
+                                                               message: res.msg,
+                                                               type: 'success'
+                                                             });
+                                                          this.isimg = false
+                                             })
+                                      }
+                                }
+                        }
                 },
                 components:{
                         'v-customer':customer
@@ -180,7 +221,10 @@
                 color: #2f2f2f;
 
         }
-
+        .topHeader img{
+                width: 25px;
+                height: 25px;
+        }
         .topHeader>p:nth-child(2) {
                 font-size: 13px;
                 width: 100%;

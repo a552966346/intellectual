@@ -2,7 +2,7 @@
         <div>
                 <v-topsearch></v-topsearch>
                 <v-navigation></v-navigation>
-                <div class="copyright_pay">
+                <div class="copyright_pay" id="transfer">
                         <img :src="banner" alt="" @click="tanchuang" />
                         <!-- 分类 -->
                         <trademarkscreen :type='true' @choosecon="choosecon" @ischange="ischange" @search="search" @choosenull="choosenull"
@@ -197,6 +197,7 @@
                             console.log(`当前页: ${val}`);
                             this.id[12] = val
                             this.ispost(this.id)
+                            document.getElementById("transfer").scrollIntoView()
                         }
 
                 },

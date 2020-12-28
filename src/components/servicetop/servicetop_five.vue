@@ -10,7 +10,13 @@
                         </div>
                         <div class="topRight">
                                 <div class="topHeader">
-                                        <h3>{{top_data.name}}</h3>
+                                        <div style="display: flex;justify-content: space-between;">
+                                                <h2>{{top_data.name}}</h2>
+                                                <div style="cursor: pointer;" @click="top_sc(top_data.id)">
+                                                       <img :src="img" alt="" v-show="isimg">
+                                                       <img :src="img2" alt="" v-show="!isimg">
+                                                </div>
+                                        </div>
                                         <p><span>创建时间：{{top_data.creatime_text}}</span></p>
                                 </div>
                                 <div class="topBody">
@@ -61,9 +67,9 @@
                                                         <h1 v-if="top_data.fee>=10000">{{(top_data.fee/10000)}}万元</h1>
                                                         <h1 v-else>{{top_data.fee}}元</h1>
                                                         <div>
-                                                                <span><img src="" alt="">{{top_data.clicks}}</span>
-                                                                <span><img src="" alt="">分享</span>
-                                                                <span><img src="" alt="">收藏</span>
+                                                                <span><img src="" alt="">浏览：{{top_data.clicks}}次</span>
+                                                                <!-- <span><img src="" alt="">分享</span>
+                                                                <span><img src="" alt="">收藏</span> -->
                                                         </div>
                                                 </div>
                                         </div>
@@ -101,7 +107,10 @@
                 data() {
                         return {
                                 nub: 1,
-                                isshow:false
+                                isshow:false,
+                                img:'../../../static/img/index/inde_sc_one.png',
+                                img2:'../../../static/img/index/inde_sc_two.png',
+                                isimg:false
                         }
                 },
                 props: {
@@ -135,7 +144,10 @@
                                         this.$api.getshop(id,5,nub,uid)
                                         .then(res=>{
                                         if(res.code == 1){
-                                                console.log(res.data)
+                                                this.$message({
+                                                          message: res.msg,
+                                                          type: 'success'
+                                                        });
                                                 this.$router.push({
                                                 path:'/shopcart',
                                                 query:{
@@ -150,7 +162,7 @@
                                         console.log(err)
                                         })
                                 }
-                        
+
                         },
                         tankuang(){
                                 this.isshow=true
@@ -158,6 +170,35 @@
                         shows(){
                                 this.isshow = false
                         },
+                        top_sc(id){
+                                if (this.$store.state.user == ''|| this.$store.state.user ==null || this.$store.state.user ==undefined) {
+                                        this.$message({
+                                                  showClose: true,
+                                                  message: '请登录后操作'
+                                                });
+                                         this.$router.push({path:'/login'});
+                                }else{
+                                      if(!this.isimg){
+                                              this.$api.getCollection(id,1,this.$store.state.user.user_id)
+                                              .then(res=>{
+                                                   this.$message({
+                                                             message: res.msg,
+                                                             type: 'success'
+                                                           });
+                                                        this.isimg = true
+                                              })
+                                      }else{
+                                             this.$api.getdelCollection(id,this.$store.state.user.user_id)
+                                             .then(res=>{
+                                                     this.$message({
+                                                               message: res.msg,
+                                                               type: 'success'
+                                                             });
+                                                          this.isimg = false
+                                             })
+                                      }
+                                }
+                        }
                 },
                 components:{
                         'v-customer':customer
@@ -226,7 +267,10 @@
                 padding: 1px 20px 1px 5px;
                 font-size: 11px;
         }
-
+        .topHeader img{
+                width: 25px;
+                height: 25px;
+        }
         .topHeader>p:nth-child(2)>span:nth-child(2)>span {
                 display: inline-block;
                 text-align: center;

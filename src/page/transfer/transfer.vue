@@ -8,7 +8,7 @@
                                 <v-transfertop :top_data="top_data" :iscolor ='iscolor' @xuanze="xuanze" @qinchu="qinchu" @delet="delet" @sousuo="sousuo"></v-transfertop>
                                 <div class="transfer_cen">
                                         <!-- 列表内容 -->
-                                        <div class="transfer_cen_left">
+                                        <div class="transfer_cen_left" id="liebiao">
                                                 <!-- 列表内容 -->
                                                 <div>
                                                         <v-transferleft :left_data="left_data"  @shaixuan ="shaixuan" ></v-transferleft>
@@ -108,9 +108,9 @@
                         },
                         handleCurrentChange(val) {
                             // 输入页数
-                            console.log(`当前页: ${val}`);
                             this.id[9] = val
                             this.ispost(this.id)
+                             document.getElementById("transfer").scrollIntoView()
                         }
                 },
                 components:{

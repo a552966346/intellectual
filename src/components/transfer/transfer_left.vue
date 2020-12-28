@@ -83,12 +83,12 @@
                                         </div>
                                 </div>
                         </div>
-                        <div class="transfer_left_center_bottom">
+                        <!-- <div class="transfer_left_center_bottom">
                                 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
                                         :current-page.sync="currentPage" :page-size="10" layout="prev, pager, next, jumper"
                                         :total="nub">
                                 </el-pagination>
-                        </div>
+                        </div> -->
                 </div>
                 <div v-else>
                         <p style="font-size: 15px;text-align: center;padding: 10px;">暂无数据!!!!</p>

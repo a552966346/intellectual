@@ -2,7 +2,7 @@
         <div>
                 <v-topsearch></v-topsearch>
                 <v-navigation></v-navigation>
-                <div class="patent_pay">
+                <div class="patent_pay" id="transfer">
                         <img :src="banner" alt="" @click="tanchuang">
                         <!-- 分类 -->
                         <patentscreen :zlTop = "zlTop" :iscolor="iscolor" @choosecon="choosecon" @choosenull="choosenull" @delet="delet" @search="search"></patentscreen>
@@ -119,7 +119,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         search(id){
                                 this.ispost(id)
                         },
-                       
+
                         listsort(index){
                                 this.listsortnum=index
                         },
@@ -161,6 +161,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                             console.log(`当前页: ${val}`);
                             this.id[6] = val
                             this.ispost(this.id)
+                            document.getElementById("transfer").scrollIntoView()
                         },
                         // 确认按钮
                         fabu(){

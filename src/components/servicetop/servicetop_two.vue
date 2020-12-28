@@ -9,7 +9,15 @@
                                 </el-carousel>
                         </div>
                         <div class="right">
-                                <div class="rHeader">{{top_data.name}}</div>
+                                <div class="rHeader">
+                                        <div style="display: flex;justify-content: space-between;">
+                                                <h3>{{top_data.name}}</h3>
+                                                <div style="cursor: pointer;" @click="top_sc(top_data.id)">
+                                                       <img :src="img" alt="" v-show="isimg">
+                                                       <img :src="img2" alt="" v-show="!isimg">
+                                                </div>
+                                        </div>
+                                </div>
                                 <div class="rHeadercont">{{top_data.sketch}}</div>
                                 <div class="rServiceType">
                                         <span>服务类型：</span>
@@ -60,7 +68,7 @@
                                                                 </div>
                                                         </div>
 
-                                                        <div class="car" @click="shop(top_data.id)">
+                                                        <div class="car" @click="shop(top_data.id,isnub,)">
                                                                 <div>加入购物车</div>
                                                                 <div>
                                                                         <p>---<img src="../../../static/img/transfer/transfer_right.png" alt="">---</p>
@@ -92,7 +100,10 @@
                                 nub1:0,
                                 fee:['减缓85%','减缓70%','无减缓'],
                                 nub2:0,
-                                isshow:false
+                                isshow:false,
+                                img:'../../../static/img/index/inde_sc_one.png',
+                                img2:'../../../static/img/index/inde_sc_two.png',
+                                isimg:false
 			}
 		},
 		props:{
@@ -108,7 +119,6 @@
                                 this.nub2= index
                         },
                         but2() {
-                                console.log(11111)
                                 if(this.isnub>=1){
                                         this.isnub--
                                 }
@@ -117,7 +127,7 @@
                                         this.isnub++
 
                         },
-                        shop(id,nub,uid){
+                        shop(id,nub){
                                 if (this.$store.state.user == ''|| this.$store.state.user ==null || this.$store.state.user ==undefined) {
                                         this.$message({
                                                   showClose: true,
@@ -126,12 +136,14 @@
                                          this.$router.push({path:'/login'});
                                 }else{
                                         let user =JSON.parse(sessionStorage['user']);
-                                        uid = user.id;
-                                        nub = this.nub;
+                                       let uid = user.id;
                                         this.$api.getshop(id,1,nub,uid)
                                         .then(res=>{
                                         if(res.code == 1){
-                                                console.log(res.data)
+                                                this.$message({
+                                                          message: res.msg,
+                                                          type: 'success'
+                                                        });
                                                 this.$router.push({
                                                 path:'/shopcart',
                                                 query:{
@@ -146,7 +158,7 @@
                                         console.log(err)
                                         })
                                 }
-                        
+
                         },
                         tankuang(){
                                 this.isshow=true
@@ -154,6 +166,35 @@
                         shows(){
                                 this.isshow = false
                         },
+                        top_sc(id){
+                                if (this.$store.state.user == ''|| this.$store.state.user ==null || this.$store.state.user ==undefined) {
+                                        this.$message({
+                                                  showClose: true,
+                                                  message: '请登录后操作'
+                                                });
+                                         this.$router.push({path:'/login'});
+                                }else{
+                                      if(!this.isimg){
+                                              this.$api.getCollection(id,1,this.$store.state.user.user_id)
+                                              .then(res=>{
+                                                   this.$message({
+                                                             message: res.msg,
+                                                             type: 'success'
+                                                           });
+                                                        this.isimg = true
+                                              })
+                                      }else{
+                                             this.$api.getdelCollection(id,this.$store.state.user.user_id)
+                                             .then(res=>{
+                                                     this.$message({
+                                                               message: res.msg,
+                                                               type: 'success'
+                                                             });
+                                                          this.isimg = false
+                                             })
+                                      }
+                                }
+                        }
                 },
                 components:{
                         'v-customer':customer
@@ -226,7 +267,10 @@
                 margin: 10px 0 17px 0;
                 color: #8a8b8f;
         }
-
+        .rHeader img{
+                width: 25px;
+                height: 25px;
+        }
         .rServiceType,
         .costSlow {
                 width: 100%;
