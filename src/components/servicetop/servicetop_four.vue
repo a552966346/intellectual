@@ -87,8 +87,14 @@
                                 }
                         },
                         shop(id,nub,uid){
-                                if (sessionStorage.getItem("user") !== null) {
-                                        let user =JSON.parse(sessionStorage['user']); 
+                                if (this.$store.state.user == ''|| this.$store.state.user ==null || this.$store.state.user ==undefined) {
+                                        this.$message({
+                                                  showClose: true,
+                                                  message: '请登录后操作'
+                                                });
+                                         this.$router.push({path:'/login'});
+                                }else{
+                                        let user =JSON.parse(sessionStorage['user']);
                                         uid = user.id;
                                         nub = this.nub;
                                         this.$api.getshop(id,1,nub,uid)
@@ -108,11 +114,8 @@
                                         .catch(err => {
                                         console.log(err)
                                         })
-                                }else{
-                                        this.$router.push({path:'/login'});
-                                }        
-
-                               
+                                }
+                        
                         },
                         tankuang(){
                                 this.isshow=true

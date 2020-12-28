@@ -123,6 +123,7 @@
                       router
                       unique-opened
                       class="el-menu-vertical-demo"
+                      @select="select"
                       @open="handleOpen"
                       @close="handleClose">
                       <el-menu-item index="/usercenter">
@@ -259,6 +260,11 @@ export default {
                  },
                  handleClose(key, keyPath) {
                    console.log(key, keyPath);
+                 },
+                 select(index,path){
+                         let str = index.split("?")
+                         let istr = str[1].split(('&&'))
+                         console.log(istr)
                  }
    }
 

@@ -11,7 +11,7 @@
                                     <input type="checkbox" name="" id="">
                                     <div class="shopcart_zsall">专利交易</div>
                                 </div>
-                                <div class="shopcart_zsdcet" v-for="(item,index) in zsdlist" :key="index">
+                                <div class="shopcart_zsdcet" v-for="(item,index) in zsdlist" :key="index" v-if="item.product">
                                     <div class="shopcart_zsdcetlet">
                                         <el-checkbox v-model="item.checkModel"  @change="handleCheckItemChange(index,item.num,item.checkModel)" style="vertical-align:top;margin-top:20px;"></el-checkbox>
                                         <div class="shopcart_zsdcettop">
@@ -35,7 +35,8 @@
                                         </div>
                                     </div>
                                     <div class="shopcart_zsdceterrn">
-                                        <div>￥{{item.product.fee}}</div>
+                                        <div v-if="item.product.fee>=10000">￥{{(item.product.fee/10000)}}万元</div>
+                                        <div v-else>￥{{item.product.fee}}</div>
                                     </div>
                                     <div class="shopcart_zsdcefhtea">
                                         <el-input-number class="shopcart_zsdcefhin" size="mini" v-model="item.num" @change="handleChange(item.product.fee,item.num,index,item.checkModel)"  :min="1" :max="10" label="描述文字"></el-input-number>
@@ -53,7 +54,7 @@
                                     </div>
                                     <div class="shopcart_zsdfotret">
                                         <div>已选择<span>{{checkedNum}}</span>件</div>
-                                        <div>共计:￥<span>{{cartTotalPrice}}</span></div>
+                                        <div>共计:￥<span v-if="cartTotalPrice>=10000">{{cartTotalPrice/10000}}万元</span><span v-else>{{cartTotalPrice}}</span></div>
                                         <div class="shopcart_zsdfotretmt">
                                              <div class="shopcart_zsdfotretzf" @click="setment">去结算</div>
                                         </div>
@@ -153,13 +154,18 @@
                     zong(fee,num,index){
                              let money = fee * num
                             this.sole[index] = money
-                            return money
+                            if(money>=10000){
+                                  return money/10000+'万元'
+                            }else{
+                                     return money
+                            }
                     },
                     ispost(){
                      let user =JSON.parse(sessionStorage['user']);
                      this.uid = user.id;
                      this.$api.shopdata(this.uid)
                      .then(res=>{
+                             console.log(res)
                         this.zsdlist = res.data;
                      })
                     },
