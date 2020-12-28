@@ -151,40 +151,41 @@ export default {
             { required: true, message: '请输入单位名称', trigger: 'blur' },
             { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
-           address: [
+           comaddress: [
             { required: true, message: '请输入注册地址', trigger: 'blur' },
             { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
-           address: [
+           account: [
             { required: true, message: '请输入账号', trigger: 'blur' },
             { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
-           address: [
+           tickname: [
             { required: true, message: '请输入收票人姓名', trigger: 'blur' },
             { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
-           address: [
+           ticktele: [
             { required: true, message: '请输入收票人电话', trigger: 'blur' },
             { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
 
-           address: [
+           paragraph: [
             { required: true, message: '请输入税号', trigger: 'blur' },
             { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-          ], address: [
+          ], 
+          contact: [
             { required: true, message: '请输入联系电话', trigger: 'blur' },
             { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
 
-           address: [
+           bankdeposit: [
             { required: true, message: '请输入开户行', trigger: 'blur' },
             { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
-           address: [
+           tickaddress: [
             { required: true, message: '请输入收票人地址', trigger: 'blur' },
             { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
-           address: [
+           emailaddress: [
             { required: true, message: '请输入收票人邮箱', trigger: 'blur' },
             { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
@@ -211,7 +212,7 @@ export default {
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
-      }
+      },
     },
 }
 </script>
