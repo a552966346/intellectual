@@ -25,7 +25,7 @@
             <el-form-item label="发票信息:" prop="resource">
                 <div>增值税普通发票</div>
             </el-form-item>
-              <el-form-item label="电话" prop="Telephone">
+            <el-form-item label="电话" prop="Telephone">
                 <el-input v-model="ruleForm.Telephone"></el-input>
             </el-form-item>
             <el-form-item label="地址" prop="address">
@@ -42,7 +42,7 @@
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
                 <el-form-item label="发票信息" prop="resource">
                     <el-radio-group v-model="ruleForm.resource">
-                    <el-radio label="纸质发票"></el-radio> 
+                    <el-radio label="纸质发票"></el-radio>
                     <el-radio label="电子发票"></el-radio>
                     </el-radio-group>
                 </el-form-item>
@@ -114,7 +114,7 @@ export default {
           mailbox: '',
           Telephone: '',
           address: '',
-          
+
           unitname:'',
           comaddress:'',
           account:'',
@@ -137,59 +137,60 @@ export default {
           ],
           mailbox: [
             { required: true, message: '请输入邮箱号', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { message: '请带@符号', trigger: 'blur' }
           ],
           Telephone: [
             { required: true, message: '请输入手机号', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 11, max: 11, message: '长度在11个字符', trigger: 'blur' }
           ],
            address: [
             { required: true, message: '请输入地址', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 1, message: '请输入地址', trigger: 'blur' }
           ],
            unitname: [
             { required: true, message: '请输入单位名称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 1, message: '请输入单位名称', trigger: 'blur' }
           ],
-           address: [
+           comaddress: [
             { required: true, message: '请输入注册地址', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 1, message: '请输入注册地址', trigger: 'blur' }
           ],
-           address: [
+           account: [
             { required: true, message: '请输入账号', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 1, message: '请输入账号', trigger: 'blur' }
           ],
-           address: [
+           tickname: [
             { required: true, message: '请输入收票人姓名', trigger: 'blur' },
             { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
-           address: [
+           ticktele: [
             { required: true, message: '请输入收票人电话', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 11, max: 11, message: '长度在11字符', trigger: 'blur' }
           ],
 
-           address: [
+           paragraph: [
             { required: true, message: '请输入税号', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-          ], address: [
+            { min: 1, message: '请输入税号', trigger: 'blur' }
+          ], 
+          contact: [
             { required: true, message: '请输入联系电话', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 11, max: 11, message: '长度在 11个字符', trigger: 'blur' }
           ],
 
-           address: [
+           bankdeposit: [
             { required: true, message: '请输入开户行', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 1, message: '请输入开户行', trigger: 'blur'}
           ],
-           address: [
+           tickaddress: [
             { required: true, message: '请输入收票人地址', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 1, message: '请输入收票人地址', trigger: 'blur'}
           ],
-           address: [
-            { required: true, message: '请输入收票人邮箱', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+           emailaddress: [
+            {required: true, message: '请输入收票人邮箱', trigger: 'blur' },
+            {min: 3, max: 5, message: '请输入带@字符', trigger: 'blur'}
           ],
           resource: [
-            { required: true, message: '请选择发票信息', trigger: 'change' }
+            {required: true, message: '请选择发票信息', trigger: 'change'}
           ],
         }
 
@@ -211,7 +212,7 @@ export default {
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
-      }
+      },
     },
 }
 </script>
