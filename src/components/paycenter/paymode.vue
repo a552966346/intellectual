@@ -2,7 +2,7 @@
     <div id="paymode">
         <div class="pay_header">
             <div>支付方式：</div>
-            
+
         </div>
         <div class="mode_header">
             <div>
@@ -17,16 +17,16 @@
         </div>
         <div class="mode_detail">
             <div class="detail_list">
-                <div><span>{{uqdata.order.length}}</span><span>类商品，总商品金额：</span></div>
-                <div>￥{{uqdata.total_fee}}</div>
+                <div><span>{{uqdata.length}}</span><span>类商品，总商品金额：</span></div>
+                <div>￥{{uqdata.total_prices}}</div>
             </div>
             <div class="detail_list">
                 <div><span>应支付金额：</span></div>
-                <div>￥{{uqdata.total_fee}}</div>
+                <div>￥{{uqdata.total_prices}}</div>
             </div>
             <div class="detail_list list3">
                 <div><span>本次支付金额：</span></div>
-                <div>￥{{uqdata.total_fee}}</div>
+                <div>￥{{uqdata.total_prices}}</div>
             </div>
 
             <div class="detail_pay">立即支付</div>
@@ -43,7 +43,7 @@ export default {
         radio: '1'
       };
     },
-   
+
 }
 </script>
 <style scoped>

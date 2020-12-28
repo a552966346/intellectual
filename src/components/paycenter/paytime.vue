@@ -1,17 +1,19 @@
 <template>
     <div class="pay_all">
-        <div id="paytime" v-for="item in uqdata.order" :key="item.id">
+        <div id="paytime" v-for="item in uqdata" :key="item.id" v-if="item.product_data">
             <div class="pay_header">
-                <div><span>下单时间：</span><span>{{getLocalTime(item.createtime)}}</span></div>
+                <div><span>下单时间：</span><span>{{item.creatime_text}}</span></div>
                 <div><span>订单编号：</span><span>{{item.order_sn}}</span></div>
                 <div><span>订单状态：</span><span>待支付</span></div>
             </div>
-            <div class="time_content"   v-for="(item1,index) in item.product" v-if="item1 !== null" :key="item1.id">
-                <div><img :src="item1.images" alt=""></div>
+            <div class="time_content"   v-for="(item1,index) in item.product_data" v-if="item1 !== null" :key="item1.id">
+                <div><img :src="item1.images_text[0]" alt=""></div>
                 <dl>
-                    <dt>{{item1.contenttitle}}</dt>
+                    <dt>{{item1.name}}</dt>
+
                     <dd><span>商标注册时间：</span><span>{{item1.creatime_text}}</span></dd>
-                    <dd><span>商标分类：</span><span>{{item1.name}}</span></dd>
+                    <dd v-if="item1.categoryid_text.name"><span>商标分类：</span><span>{{item1.categoryid_text.name}}</span></dd>
+                    <dd v-else><span>商标分类：</span><span>{{item1.categoryid_text}}</span></dd>
                     <dd><span>购买数量：</span><span>{{item1.number}}件</span></dd>
                     <dd><span>待支付商品单价：</span><span>￥{{item1.fee}}</span><span>/件（不含官费）</span></dd>
                 </dl>

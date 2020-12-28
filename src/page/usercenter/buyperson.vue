@@ -65,27 +65,64 @@
                                 nav: ["全部订单", "未付款订单", "已预约的订单", "交接中的订单", "已完成的订单"],
                                 num: 0,
                                 data:{},
-                                zsdlist:[]
+                                zsdlist:[],
+                                style:''
                         }
                 },
+                watch: {
+                	$route(to, from){
+                		this.num=this.$route.query.type
+                                this.style = this.$route.query.style
+                                 this.ispost(this.style,this.num)
+                	}
+                },
                 mounted() {
-                        this.num=this.$route.query.type
-                        console.log(this.num)
                         this.data = JSON.parse(sessionStorage['user']);
-                        this.ispost(this.num)
                 },
                 methods: {
                         tab(index) {
                                 this.num = index;
                                 this.ispost(index)
                         },
-                        ispost(index){
+                        ispost(style,index){
                                 console.log(this.data)
-                               this.$api.getuserTrademarkOrder(this.data.id,index)
-                               .then(res=>{
-                                       console.log(res)
-                                       this.zsdlist = res.data.data
-                               })
+                                //我的商标
+                                if(style==0){
+                                    this.$api.getuserTrademarkOrder(this.data.id,index)
+                                    .then(res=>{
+                                            console.log(res)
+                                            this.zsdlist = res.data.data
+                                    })
+                                    //我的专利
+                                }else if(style==1){
+                                        this.$api.getuserPatentsOrder(this.data.id,index)
+                                        .then(res=>{
+                                                console.log(res)
+                                                this.zsdlist = res.data.data
+                                        })
+                                        // 我的版权
+                                }else if(style==2){
+                                        this.$api.getuserCopyrightOrder(this.data.id,index)
+                                        .then(res=>{
+                                                console.log(res)
+                                                this.zsdlist = res.data.data
+                                        })
+                                        //技术转移
+                                }else if(style==3){
+                                        this.$api.getuserTrademarkOrder(this.data.id,index)
+                                        .then(res=>{
+                                                console.log(res)
+                                                this.zsdlist = res.data.data
+                                        })
+                                        //服务中心
+                                }else if(style==4){
+                                        this.$api.getuserTrademarkOrder(this.data.id,index)
+                                        .then(res=>{
+                                                console.log(res)
+                                                this.zsdlist = res.data.data
+                                        })
+                                }
+
                         }
                 }
         }

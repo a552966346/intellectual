@@ -117,32 +117,36 @@
 
                        },
                        shop(id,nub,uid){
-                               if (sessionStorage.getItem("user") !== null) {
-                                        let user =JSON.parse(sessionStorage['user']); 
-                                        uid = user.id;
-                                        nub = this.nub;
-                                        this.$api.getshop(id,2,nub,uid)
-                                        .then(res=>{
-                                        if(res.code == 1){
-                                                console.log(res.data)
-                                                this.$router.push({
-                                                path:'/shopcart',
-                                                query:{
-                                                        id:id
-                                                }
-                                        })
-                                        }else{
-                                                console.log(res.msg)
-                                        }
-                                        })
-                                        .catch(err => {
-                                        console.log(err)
-                                        })
+                               if (this.$store.state.user == ''|| this.$store.state.user ==null || this.$store.state.user ==undefined) {
+                                       this.$message({
+                                                 showClose: true,
+                                                 message: '请登录后操作'
+                                               });
+                                        this.$router.push({path:'/login'});
                                }else{
-                                       this.$router.push({path:'/login'});
+                                       let user =JSON.parse(sessionStorage['user']);
+                                       uid = user.id;
+                                       nub = this.nub;
+                                       this.$api.getshop(id,2,nub,uid)
+                                       .then(res=>{
+                                       if(res.code == 1){
+                                               console.log(res.data)
+                                               this.$router.push({
+                                               path:'/shopcart',
+                                               query:{
+                                                       id:id
+                                               }
+                                       })
+                                       }else{
+                                               console.log(res.msg)
+                                       }
+                                       })
+                                       .catch(err => {
+                                       console.log(err)
+                                       })
                                }
-                               
-                        },
+                       
+                       },
                         tankuang(){
                                 this.isshow=true
                         },
