@@ -70,6 +70,7 @@
                 },
                 mounted() {
                         this.num=this.$route.query.type
+                        console.log(this.num)
                         this.data = JSON.parse(sessionStorage['user']);
                         this.ispost(this.num)
                 },

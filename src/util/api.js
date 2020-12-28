@@ -467,13 +467,13 @@ const api = {
         return requestAll.requset(baseUrl + '/api/order/deletecart', data);
     },
     // 创建订单
-    createorder(ids,type,number,uid,total_fee){
+    createorder(ids,type,number,uid){
         let data = {
             ids:ids,
             type:type,
             number:number,
             uid:uid,
-            total_fee:total_fee
+            // total_fee:total_fee
         }
         return requestAll.requset(baseUrl + '/api/order/createorder', data);
     },

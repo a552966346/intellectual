@@ -219,7 +219,7 @@
                             tys += item.type+',';
                             numb += item.num+',';
                         });
-                        this.$api.createorder(ids,tys,numb,uid,this.cartTotalPrice)
+                        this.$api.createorder(ids,tys,numb,uid)
                         .then(res=>{
                             sessionStorage['data']=JSON.stringify(res.data);
                             this.$router.push({path: '/paydetial'});
