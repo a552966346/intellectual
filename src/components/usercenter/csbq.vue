@@ -108,6 +108,15 @@
                     <el-form-item label="作品介绍/剧情简介：" >
                             <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="bqform.textarea"></el-input>
                     </el-form-item>
+                    <el-form-item label="业务简介：" style="height:250px ;">
+                            <quill-editor
+                                        v-model="content"
+                                    ref="myQuillEditor"
+                                    :options="editorOption"
+                                    @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+                                    @change="onEditorChange($event)">
+                                    </quill-editor>
+                    </el-form-item>
                     <el-form-item label="联系QQ：" prop="qq">
                             <el-input v-model="bqform.qq" placeholder="请输入您的联系QQ" style="width: 300px;"></el-input>
                     </el-form-item>
@@ -132,6 +141,8 @@
 export default {
     data(){
         return{
+                content: ``,
+                editorOption: {},
             bqform: {
                     name: '', //名称
                     theme:'',//题材
@@ -185,6 +196,7 @@ export default {
     methods:{
         onSubmit(formrul){
             console.log(bqform.radio3)
+
             // this.$refs[formrul].validate((valid) => {
             //     console.log(valid)
             // })
@@ -286,4 +298,11 @@ export default {
 .submit_text>p>span{
     color: red;
 }
+ .edit_container {
+    margin: 10px 0;
+  }
+  .quill-editor {
+    height: 180px;
+    width: 80%;
+  }
 </style>

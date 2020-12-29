@@ -42,12 +42,21 @@
                     <el-form-item label="创意说明：" >
                             <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="textarea"></el-input>
                     </el-form-item>
+                    <el-form-item label="商标简介：" style="height:250px ;">
+                            <quill-editor
+                                        v-model="content"
+                                    ref="myQuillEditor"
+                                    :options="editorOption"
+                                    @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+                                    @change="onEditorChange($event)">
+                                    </quill-editor>
+                    </el-form-item>
                     <el-form-item label="联系QQ：" prop="qq">
                             <el-input v-model="sbform.qq" placeholder="请输入您的联系QQ" style="width: 300px;"></el-input>
                     </el-form-item>
                     <el-form-item label="" >
                         <div class="fabu">
-                            <el-button type="success">立即发布</el-button>
+                            <el-button type="success" @click="submit('formrul')">立即发布</el-button>
                         </div>
                     </el-form-item>
             </el-form>
@@ -59,7 +68,8 @@
 export default {
     data(){
         return{
-
+            content: ``,
+            editorOption: {},
             sbform: {
                     sbname:'',//商标名称
                     select: '',
@@ -70,6 +80,7 @@ export default {
                     region:''
             },
             // 验证规则
+            textarea:'',
             formrule: {
                     name: [{
                             required: true,
@@ -116,7 +127,29 @@ export default {
                     console.log(res)
                     this.sbclass = res.data
             })
-    }
+
+    },
+    methods:{
+            submit(formname){
+                    console.log(this.content)
+                    // this.$refs[formname].validate((valid) => {
+                    //         if(valid){
+                        
+                    //         }
+                    // })
+            },
+             onEditorReady(editor) { // 准备编辑器
+
+                    },
+            onEditorBlur(){}, // 失去焦点事件
+            onEditorFocus(){}, // 获得焦点事件
+            onEditorChange(){}, // 内容改变事件
+    },
+     computed: {
+            editor() {
+                return this.$refs.myQuillEditor.quill;
+            },
+        }
 }
 </script>
 <style scoped>
@@ -164,6 +197,12 @@ export default {
     color:red;
     border:none;
 }
-
+ .edit_container {
+    margin: 10px 0;
+  }
+  .quill-editor {
+    height: 180px;
+    width: 80%;
+  }
 
 </style>

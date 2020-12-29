@@ -60,8 +60,15 @@
                     <el-form-item label="专利描述：" >
                             <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="zlform.textarea"></el-input>
                     </el-form-item>
-                    
-
+                    <el-form-item label="专利简介：" style="height:250px ;">
+                            <quill-editor
+                                        v-model="content"
+                                    ref="myQuillEditor"
+                                    :options="editorOption"
+                                    @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+                                    @change="onEditorChange($event)">
+                                    </quill-editor>
+                    </el-form-item>
                     <el-form-item label="出售金额：" prop="sellprice">
                             <el-input v-model="zlform.sellprice" placeholder="请输入出售金额 单位：元" style="width: 300px;"></el-input>
                     </el-form-item>
@@ -74,7 +81,7 @@
                             <div class="submit_text">
                                 <div class="submit_text_top">
                                     <div class="submit_text_top_img"><img src="../../../static/img/usercenter/greendg.png" alt=""></div>
-                                    <p>我已阅读并同意<span>《伊甸网用户出售协议》</span> </p>    
+                                    <p>我已阅读并同意<span>《伊甸网用户出售协议》</span> </p>
                                 </div>
                                 <p>温馨提示：出售专利，成功交易后，伊甸网将收取专利成交价格的<span>10%</span>作为手续费！</p>
                             </div>
@@ -89,7 +96,8 @@
 export default {
     data(){
         return{
-            
+                content: ``,
+                editorOption: {},
             zlform: {
                     name: '', //名称
                     // select: '',
@@ -120,19 +128,19 @@ export default {
                             trigger: 'blur',
                             message: '请输入出售低价'
                     }, ],
-                    
+
             },
             pickerOptions: {
                 disabledDate(time) {
                     return time.getTime() > Date.now();
                 },
-                
+
                 time: '',
                 date:''
             },
-            
 
-            
+
+
         }
     },
     props:{
@@ -191,8 +199,8 @@ export default {
     flex-direction: column;
 }
 .el-form-item__content>.tu>.tu_img{
-    height: 50px; 
-    width: 50px;   
+    height: 50px;
+    width: 50px;
     margin-bottom: 24px;
 }
 .el-form-item__content>.tu>.tu_img>img{
@@ -208,7 +216,7 @@ export default {
 .fabu p{
     line-height: 1;
     color: #bcbcbc;
-    
+
 }
 .submit_text{
       margin-left: 10px;
@@ -232,4 +240,11 @@ export default {
 .submit_text>p>span{
     color: red;
 }
+ .edit_container {
+    margin: 10px 0;
+  }
+  .quill-editor {
+    height: 180px;
+    width: 80%;
+  }
 </style>

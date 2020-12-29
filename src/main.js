@@ -15,6 +15,13 @@ Vue.component('v-combotttom', combotttom)
 Vue.component('v-comtitle', comtitle)
 Vue.component('v-navigation', navigation)
 
+//quill
+
+import QuillEditor from "vue-quill-editor"; //调用编辑器
+import 'quill/dist/quill.core.css';
+import 'quill/dist/quill.snow.css';
+import 'quill/dist/quill.bubble.css';
+Vue.use(QuillEditor)
 // vuex
 import store from "./store/store"
 
