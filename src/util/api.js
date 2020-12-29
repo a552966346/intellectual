@@ -562,6 +562,29 @@ const api = {
                 status:status
             }
             return requestAll.requset(baseUrl + '/api/opinion/opinion',data);
+    },
+    //站内消息
+    usermessage(uid){
+            let data={
+                    uid:uid
+            }
+            return requestAll.requset(baseUrl + '/api/message/getlist',data);
+    },
+    //消息已读
+    usermessageread(uid,id){
+            let data={
+                    uid:uid,
+                    rec_id:id
+            }
+            return requestAll.requset(baseUrl + '/api/message/setMessageForRead',data);
+    },
+    //消息删除
+    userdelemsg(uid,id){
+            let data={
+                    uid:uid,
+                    rec_id:id
+            }
+            return requestAll.requset(baseUrl + '/api/message/deletedMessage',data);
     }
 }
 

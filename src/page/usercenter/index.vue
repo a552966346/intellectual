@@ -3,27 +3,38 @@
         <div class="main_l" >
                 <!-- 名字 -->
                 <div class="r1_top"  v-show="berl">
-                    <div class="r1_top_tou">
-                        <img :src="this.$store.state.user.avatar">
+                    <div class="left">
+                            <div class="r1_top_tou">
+                                <img :src="this.$store.state.user.avatar">
+                            </div>
+                            <div class="r1_top_name">
+                                <h4>{{this.$store.state.user.username}} <img src="../../../static/img/usercenter/woman.png" alt=""></h4>
+                                <p>晋中市华迅网络科技股份有限公司</p>
+                            </div>
                     </div>
-                    <div class="r1_top_name">
-                        <h4>{{this.$store.state.user.username}} <img src="../../../static/img/usercenter/woman.png" alt=""></h4>
-                        <p>晋中市华迅网络科技股份有限公司</p>
-                    </div>
-                    <div class="r1_top_money money1">
-                        <p>账户余额</p>
-                        <span>{{this.$store.state.user.money}}元</span>
-                        <input class="money1_button" type="button" value="提现">
-                        <br> <a href="#">查看详情</a>
-                    </div>
-                    <div class="r1_top_money money2">
-                        <p>冻结资金</p>
-                        <span>{{this.$store.state.user.frozen}}元</span> <br/>
-                        <a href="#">查看详情</a>
-                    </div>
-                    <div class="r1_top_money money3">
-                        <p>押金</p>
-                        <span>{{this.$store.state.user.pledge}}元</span>
+                    <div class="right">
+                            <div class="r1_top_money money1">
+                                <p>账户余额</p>
+                                <!-- <p style="display: flex;"> -->
+                                        <span>{{this.$store.state.user.money}}元</span>
+                                        <input class="money1_button" type="button" value="提现">
+                                <!-- </p> -->
+                                <br> <a href="#">查看详情</a>
+                            </div>
+                            <div class="r1_top_money money2">
+                                <p>冻结资金</p>
+                                <p>
+                                        <span>{{this.$store.state.user.frozen}}元</span>
+                                </p>
+
+                                <a href="#">查看详情</a>
+                            </div>
+                            <div class="r1_top_money money3">
+                                <p>押金</p>
+                                <p>
+                                        <span>{{this.$store.state.user.pledge}}元</span>
+                                </p>
+                            </div>
                     </div>
                 </div>
                 <div class="r1_top denglu" v-show="!berl">
@@ -32,10 +43,10 @@
                               </router-link>
                 </div>
                 <!-- 3个图 -->
-                <div class="r2_top" @click="security">
-                    <div class="r2_top_item">
+                <div class="r2_top">
+                    <div class="r2_top_item"  @click="security">
                         <img src="../../../static/img/usercenter/safe.png" alt="">
-                        <span >安全设置</span>
+                        <span >账号设置</span>
                     </div>
                     <div class="r2_top_item" @click="capital">
                         <img src="../../../static/img/usercenter/money.png" alt="">
@@ -101,13 +112,13 @@
                     </div>
                 </div>
                 <!-- 收益总览 -->
-                <div class="overview">
+               <!-- <div class="overview">
                     <div class="overview_title">
                         <div class="myoverview">
                             收益总览
                         </div>
                     </div>
-                </div>
+                </div> -->
         </div>
         <div class="main_r">
                     <!-- 公告 -->
@@ -132,30 +143,6 @@
                                 </div>
 
                             </li>
-                            <!-- <li>
-                                <img src="../../../static/img/usercenter/gg.png" alt="">
-                                <div class="notice_content_c">
-                                    <h4>山西省知识产权战略纲要</h4>
-                                    <div>
-                                        <p>
-                                            为全面贯彻落实国家知识产权战略，推进我省国家资源型经济转型综合配置改革试验区建设，大力提升知识产权创造推进我省国家资源型经济转型综合
-                                        </p>
-                                        <a href="#">[详情]</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="../../../static/img/usercenter/gg.png" alt="">
-                                <div class="notice_content_c">
-                                    <h4>山西省知识产权战略纲要</h4>
-                                    <div>
-                                        <p>
-                                            为全面贯彻落实国家知识产权战略，推进我省国家资源型经济转型综合配置改革试验区建设，大力提升知识产权创造推进我省国家资源型经济转型综合
-                                        </p>
-                                        <a href="#">[详情]</a>
-                                    </div>
-                                </div>
-                            </li> -->
                         </ul>
                     </div>
                     <!-- 收藏 -->
@@ -175,45 +162,8 @@
                                         <span>100%</span><span>好评</span> <br>
                                     </div>
                                 </div>
-                                <el-button type="primary" class="button" size="medium" @click="banli(item.product.categoryid_text,item.product.category_id)">立即办理</el-button>
+                                <el-button type="primary" class="button" size="medium" @click="banli(item.type,item.product.categoryid_text,item.product_id,item.product.category_id)">立即办理</el-button>
                             </div>
-                            <!-- <div class="collection_content_item">
-                                <img src="../../../static/img/usercenter/collection.png" alt="">
-                                <p>画册设计</p>
-                                <div class="collection_content_item_cc">
-                                    <span>￥300</span>
-                                    <div class="collection_content_item_ccc">
-                                        <span>100%</span><span>好评</span> <br>
-                                    </div>
-
-                                </div>
-                                <el-button type="primary" class="button" size="medium" >立即办理</el-button>
-                            </div> -->
-                            <!-- <div class="collection_content_item">
-                                <img src="../../../static/img/usercenter/collection.png" alt="">
-                                <p>画册设计</p>
-                                <div class="collection_content_item_cc">
-                                    <span>￥300</span>
-                                    <div class="collection_content_item_ccc">
-                                        <span>100%</span><span>好评</span> <br>
-                                    </div>
-
-                                </div>
-                                <el-button type="primary" class="button" size="medium">立即办理</el-button>
-                            </div>
-                            <div class="collection_content_item">
-                                <img src="../../../static/img/usercenter/collection.png" alt="">
-                                <p>画册设计</p>
-                                <div class="collection_content_item_cc">
-                                    <span>￥300</span>
-                                    <div class="collection_content_item_ccc">
-                                        <span>100%</span><span>好评</span> <br>
-                                    </div>
-
-                                </div>
-                                <el-button type="primary" class="button" size="medium">立即办理</el-button>
-                            </div> -->
-
                         </div>
                     </div>
         </div>
@@ -263,14 +213,13 @@ export default {
             this.$nextTick(function(){
                     this.$api.getallCollection(this.$store.state.user.id)
                      .then(res=>{
-                             console.log(res,"收藏")
+                             console.log(res)
                              this.zsdlist = res.data.data
                      })
                     // 订单
                     this.$api.getuseindex(this.$store.state.user.id)
                     .then(res=>{
-                            console.log(res.data.data,"订单")
-                            for(let i=0;i<=res.data.data.length;i++){
+                            for(let i=0;i<res.data.data.length;i++){
                                     // this.tableData[i].order_sn=res.data.data[i].order_sn
                                     // this.tableData[i].creatime_text=res.data.data[i].creatime_text
                                     switch(res.data.data[i].status) {
@@ -321,7 +270,6 @@ export default {
                                             total_fee:res.data.data[i].total_fee
 
                                     })
-                                    console.log(this.tableData)
                             }
 
                     })
@@ -331,13 +279,38 @@ export default {
 
     },
     methods:{
-            banli(text,id){
-                this.$router.push({
-                        path:text.keywords,
-                        query:{
-                                id:id
-                        }
-                })
+            banli(type,key,id,ids){
+                    console.log(type,key,id,ids)
+               if(type==1){
+                       this.$router.push({
+                               path:key.keywords,
+                               query:{id:ids}
+                       })
+               }
+               else if(type ==2){
+                       this.$router.push({
+                               path:'/service_xlj',
+                               query:{id:id}
+                       })
+               }
+               else if(type ==3){
+                       this.$router.push({
+                               path:'/service_xlj_three',
+                               query:{id:id}
+                       })
+               }
+               else if(type ==4){
+                       this.$router.push({
+                               path:'/service_xlj_four',
+                               query:{id:id}
+                       })
+               }
+               else if(type ==5){
+                       this.$router.push({
+                               path:'/service_xlj_two',
+                               query:{id:id}
+                       })
+               }
             },
              tableRowClassName({row, rowIndex}) {
                     if (rowIndex === 1) {
@@ -350,7 +323,7 @@ export default {
             //安全设置
             security(){
                     this.$router.push({
-
+                        path:'/usercenter/userid'
                     })
             },
             capital(){
@@ -534,15 +507,28 @@ button{
     width: 100%;
 }
 
-
+a{
+        color: #007AFF;
+}
 /* .main_l */
 .r1_top{
-    height: 138px;
-    padding: 12px;
-    position: relative;
+    /* height: 138px; */
+    padding: 25px 15px;
     border: 1px solid rgba(0,0,0,0.16);
     border-radius: 8px;
+    display: flex;
     /* width: 806px; */
+}
+.left{
+        width: 50%;
+        display: flex;
+        align-items: center;
+}
+.right{
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 }
 .denglu{
         display: flex;
@@ -557,9 +543,39 @@ button{
         font-size: 17px;
 }
 .r1_top_tou {
-    position: absolute;
-    top: 26px;
-    left: 15px;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+}
+.r1_top_tou img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+}
+.r1_top_name{
+        padding: 0 10px;
+}
+.r1_top_name p{
+    color: #aaa;
+    font-size: 13px;
+    line-height: 20px;
+}
+.r1_top_money{
+        font-size: 15px;
+}
+.money1_button{
+        border: 1px solid #ccc;
+        background-color: #f5f5f5;
+        color: #555;
+        padding: 3px 5px;
+        border-radius: 5px;
+        outline: none;
+        margin-left: 5px;
+}
+.r1_top_money span{
+        padding: 5px 0;
+}
+/* .r1_top_tou {
     width: 76px;
     height: 76px;
     border-radius: 50%;
@@ -568,7 +584,6 @@ button{
 .r1_top_tou img{
     width: 100%;
 }
-
 .r1_top_name{
     position: absolute;
     left: 100px;
@@ -612,7 +627,7 @@ button{
 }
 .money3{
     right: 26px;
-}
+}*/
 .r2_top{
     margin-top: 20px;
     height: 64px;
@@ -638,7 +653,7 @@ button{
     vertical-align: middle;
 }
 .r2_top_item span{
-    padding-l: 5px;
+    padding-left: 5px;
     text-align: center;
 }
 .order{

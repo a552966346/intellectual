@@ -249,12 +249,37 @@ export default {
 
               }
    },
+   watch:{
+           $route(to, from){
+           	let path=this.$route.path
+               if(path=="/usercenter/usermanage"){
+                        this.$alert('功能正在开发中。。。请耐心等待', '正在开发', {
+                                 confirmButtonText: '确定',
+                                 callback: action => {
+                                   this.$router.push({
+                                           path:'/usercenter'
+                                   })
+                                 }
+                               });
+               }
+           }
+   },
    methods:{
                 handleOpen(key, keyPath) {
-                   console.log(key, keyPath);
+                   console.log(key, keyPath,"11111111");
+                   if(key=="/usercenter/usermanage"){
+                            this.$alert('功能正在开发中。。。请耐心等待', '正在开发', {
+                                     confirmButtonText: '确定',
+                                     callback: action => {
+                                       this.$router.push({
+                                               path:'/usercenter'
+                                       })
+                                     }
+                                   });
+                   }
                  },
                  handleClose(key, keyPath) {
-                   console.log(key, keyPath);
+                   console.log(key, keyPath,"2222222222");
                  },
                  select(index,path){
                  }
@@ -274,7 +299,7 @@ a {
 }
 /* .user_left */
 .user{
-    height: 100%;
+    /* height: 100%; */
 }
  .user_left{
     width:200px;
