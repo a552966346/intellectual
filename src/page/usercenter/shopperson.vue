@@ -2,7 +2,7 @@
     <div class="shopperson">
         <div class="shop_top">
             <div class="top_text">我是卖家/我出售的商标</div>
-            <div class="top_shopcar"@click="sell">
+            <div class="top_shopcar" @click="sell">
                 <img src="../../../static/img/usercenter/shopcar.png" alt="">
                 <span v-show="show">我的出售</span>
                 <span v-show="!show">我要出售</span>
