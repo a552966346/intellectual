@@ -6,9 +6,24 @@
                 <img src="../../../static/img/usercenter/shopcar.png" alt="">
                 <span @click="sell">我要出售</span> 
             </div>
-            
         </div>
-        <div class="shop_con">
+        <!-- 订单 -->
+        <div class="shop_order" v-show="showorder" >
+                <div class="sborder_all" v-show="showsborder" @click.self="showssb" v-if="type==1">
+                    <v-sborder ></v-sborder>
+                </div>
+                <div class="zlorder_all" v-show="showzlorder" @click.self="showszl" v-else-if="type==2">
+                    <v-zlorder ></v-zlorder>
+                </div>
+                <div class="bqorder_all" v-show="showbqorder" @click.self="showsbq" v-else-if="type==3" >
+                    <v-bqorder ></v-bqorder>
+                </div>
+                <div class="jsorder_all" v-show="showjsorder" @click.self="showsjs" v-else>
+                    <v-jsorder ></v-jsorder>
+                </div>
+        </div>
+        <!-- 出售 -->
+        <div class="shop_con" v-show="show">
             <div class="s_t_sea">
                     <input type="s_text" placeholder="请输入您要查找的商品编号或注册号">
                     <div class="s_search">搜索</div>
@@ -16,37 +31,25 @@
             <el-tabs v-model="activeName" type="card" @tab-click="handleClick" width="40px">
                 
               <el-tab-pane label="出售商标" name="first" >
-                <div class="sborder_all" v-show="showsborder" @click.self="showssb">
-                    <v-sborder ></v-sborder>
-                </div>
-                <div class="cssb_all" v-show="isshowsb" @click.self="showssb">
+                <div class="cssb_all" >
                     <v-cssb ></v-cssb>
                 </div>
               </el-tab-pane>
               <el-tab-pane label="出售专利" name="second">
-                <div class="zlorder_all" v-show="showzlorder" @click.self="showszl">
-                    <v-zlorder ></v-zlorder>
-                </div>
-                <div class="cszl_all" v-show="isshowzl" @click.self="showszl">
+                <div class="cszl_all" >
                     <v-cszl ></v-cszl>
                 </div>
-                  
               </el-tab-pane>
               <el-tab-pane label="出售版权" name="third">
-                <div class="csbq_all" v-show="isshowbq" @click.self="showsbq">
+                <div class="csbq_all" >
                     <v-csbq ></v-csbq>
-                </div>
-                <div class="bqorder_all" v-show="showbqorder" @click.self="showsbq">
-                    <v-bqorder ></v-bqorder>
                 </div>
               </el-tab-pane>
               <el-tab-pane label="技术转让" name="fourth">
-                <div class="jszr_all" v-show="isshowjs" @click.self="showsjs">
+                <div class="jszr_all" >
                     <v-jszr ></v-jszr>
                 </div>
-                <div class="jsorder_all" v-show="showjsorder" @click.self="showsjs">
-                    <v-jsorder ></v-jsorder>
-                </div>
+                
               </el-tab-pane>  
             </el-tabs>
         </div> 
@@ -68,14 +71,13 @@ export default{
         return{
             msg:'这是测试内容',
             activeName: 'first',
-            isshowzl:false,
-            isshowsb:false,
-            isshowbq:false,
-            isshowjs:false,
             showjsorder:true,
             showzlorder:true,
             showbqorder:true,
             showsborder:true,
+            showorder:true,
+            show:false,
+            type:1,
         }
             
     },
@@ -106,14 +108,12 @@ export default{
         console.log(tab, event);
       },
       sell(){
-           this.isshowzl=true
-           this.isshowsb=true
-           this.isshowbq=true
-           this.isshowjs=true
-           this.showzlorder=false
-           this.showsborder=false
-           this.showbqorder=false
-           this.showjsorder=false
+            this.show=true
+            this.showorder=false
+            this.isshowzl=true
+            this.isshowsb=true
+            this.isshowbq=true
+            this.isshowjs=true
       }
     },
     components:{
@@ -163,15 +163,16 @@ export default{
 .top_shopcar img{
     margin-right: 8px;
 }
-.shop_con{
+
+.shop_con,
+.shop_order{
     background-color: #fff;
     font-size: 14px;
     padding: 10px;
-    margin-top: 20px;
+    margin: 20px 0;
     border: 1px solid #efefef;
     border-radius: 5px;
     position: relative;
-
 }
 .s_con_t{
     display: flex;

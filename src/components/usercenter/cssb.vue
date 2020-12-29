@@ -139,7 +139,7 @@ export default {
     line-height: 27px;
     cursor: pointer;
     border: 1px solid rgb(208 196 196 / 75%);
-    border-radius: 2px;
+    border-radius: 5px;
 }
 .top_sb:first-of-type{
     background: url('../../../static/img/usercenter/redtitle.png') no-repeat 0 0 ;

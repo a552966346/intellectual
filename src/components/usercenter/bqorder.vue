@@ -8,7 +8,7 @@
         <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
             
             <el-tab-pane label="全部版权" name="first">
-                <div class="allbq">
+                <div class="allbq" v-if="bqlist.length!= 0">
                     <ul class="s_con_b">
                         <li class="s_con_b_item">商品</li>
                         <li class="s_con_b_item">出售信息</li>
@@ -26,7 +26,7 @@
                         <li class="s_con_b_item">2</li>
                     </ul>
                 </div>
-                <div class="none">
+                <div class="none" v-else>
                     <div class="s_content">
                       <div class="s_content_c">
                         <img src="../../../static/img/usercenter/nomessage.png" alt="">
@@ -37,7 +37,7 @@
                 </div>
             </el-tab-pane>
             <el-tab-pane label="审核中的版权" name="second">
-                <div class="shbq">
+                <div class="shbq" v-if="bqlist.length!= 0">
                     <ul class="s_con_b">
                         <li class="s_con_b_item">商品</li>
                         <li class="s_con_b_item">出售信息</li>
@@ -55,7 +55,7 @@
                         <li class="s_con_b_item">2</li>
                     </ul>
                 </div>
-                <div class="none">
+                <div class="none" v-else>
                     <div class="s_content">
                       <div class="s_content_c">
                         <img src="../../../static/img/usercenter/nomessage.png" alt="">
@@ -66,7 +66,7 @@
                 </div>
             </el-tab-pane>
             <el-tab-pane label="在售中的版权" name="third">
-                <div class="zsbq">
+                <div class="zbqq" v-if="bqlist.length!= 0">
                     <ul class="s_con_b">
                         <li class="s_con_b_item">商品</li>
                         <li class="s_con_b_item">出售信息</li>
@@ -84,7 +84,7 @@
                         <li class="s_con_b_item">2</li>
                     </ul>
                 </div>
-                <div class="none">
+                <div class="none" v-else>
                     <div class="s_content">
                       <div class="s_content_c">
                         <img src="../../../static/img/usercenter/nomessage.png" alt="">
@@ -95,7 +95,7 @@
                 </div>
             </el-tab-pane>
             <el-tab-pane label="交接中的版权" name="fourth">
-                <div class="jjbq">
+                <div class="jjbq" v-if="bqlist.length!= 0">
                     <ul class="s_con_b">
                         <li class="s_con_b_item">商品</li>
                         <li class="s_con_b_item">出售信息</li>
@@ -113,7 +113,7 @@
                         <li class="s_con_b_item">2</li>
                     </ul>
                 </div>
-                <div class="none">
+                <div class="none" v-else>
                     <div class="s_content">
                       <div class="s_content_c">
                         <img src="../../../static/img/usercenter/nomessage.png" alt="">
@@ -124,7 +124,7 @@
                 </div>
             </el-tab-pane>
             <el-tab-pane label="已完成的版权" name="fifth">
-                <div class="overbq">
+                <div class="overbq" v-if="bqlist.length!= 0">
                     <ul class="s_con_b">
                         <li class="s_con_b_item">商品</li>
                         <li class="s_con_b_item">出售信息</li>
@@ -142,7 +142,7 @@
                         <li class="s_con_b_item">2</li>
                     </ul>
                 </div>
-                <div class="none">
+                <div class="none" v-else>
                     <div class="s_content">
                       <div class="s_content_c">
                         <img src="../../../static/img/usercenter/nomessage.png" alt="">
@@ -160,7 +160,8 @@
 export default {
     data(){
         return{
-            activeName: 'first'
+            activeName: 'first',
+            bqlist:[]
         }
     },
     methods: {
@@ -171,9 +172,7 @@ export default {
 }
 </script>
 <style scoped>
-.none{
-    display: none;
-}
+
 .bqorder_all{
     position: relative;
 }
