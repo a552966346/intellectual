@@ -1,14 +1,15 @@
 <template>
 <div class="all">
     <div class="csbq_all">
-       <div class="cszl_head">
-           <div class="cszl_head_container">
-               <div class="cszl_head_item">登记商品信息</div>
-               <div class="cszl_head_item">等待客服审核</div>
-               <div class="cszl_head_item">成功上架出售</div>
-               <div class="cszl_head_item">买家出价购买</div>
-               <div class="cszl_head_item">签署合同交易商品</div>
-               <div class="cszl_head_item">出售成功提现</div>
+        
+       <div class="csbq_head">
+           <div class="csbq_head_container">
+               <div class="csbq_head_item">登记商品信息</div>
+               <div class="csbq_head_item">等待客服审核<em>&#9670;</em><span>&#9670;</span></div>
+               <div class="csbq_head_item">成功上架出售<em>&#9670;</em><span>&#9670;</span></div>
+               <div class="csbq_head_item">买家出价购买<em>&#9670;</em><span>&#9670;</span></div>
+               <div class="csbq_head_item">签署合同交易商品<em>&#9670;</em><span>&#9670;</span></div>
+               <div class="csbq_head_item">出售成功提现<em>&#9670;</em><span>&#9670;</span></div>
            </div>
        </div>
         <div class="csbq_body">
@@ -193,21 +194,24 @@ export default {
 }
 </script>
 <style scoped>
-.cszl_head{
+.csbq_head_item em,.csbq_head_item span{font-style:normal;font-size:30px;position:absolute;left: -10px;top: 4px;color:  #ebdbdb;}
+.csbq_head_item span{left: -11px;color: #fafafa;}
+.csbq_head{
     height: 90px;
     padding: 20px;
 }
-.cszl_head_container{
+.csbq_head_container{
     height: 100%;
     display: flex;
 }
-.cszl_head_item{
+.csbq_head_item{
     background-color: #fafafa;
     flex: 1;
     border: 1px solid #e9e9e9;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 .csbq_top{
     display: flex;

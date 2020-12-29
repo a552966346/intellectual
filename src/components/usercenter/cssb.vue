@@ -1,14 +1,14 @@
 <template>
 <div class="all">
     <div class="cssb_all">
-       <div class="cszl_head">
-           <div class="cszl_head_container">
-               <div class="cszl_head_item">登记商品信息</div>
-               <div class="cszl_head_item">等待客服审核</div>
-               <div class="cszl_head_item">成功上架出售</div>
-               <div class="cszl_head_item">买家出价购买</div>
-               <div class="cszl_head_item">签署合同交易商品</div>
-               <div class="cszl_head_item">出售成功提现</div>
+       <div class="cssb_head">
+           <div class="cssb_head_container">
+               <div class="cssb_head_item">登记商品信息</div>
+               <div class="cssb_head_item">等待客服审核<em>&#9670;</em><span>&#9670;</span></div>
+               <div class="cssb_head_item">成功上架出售<em>&#9670;</em><span>&#9670;</span></div>
+               <div class="cssb_head_item">买家出价购买<em>&#9670;</em><span>&#9670;</span></div>
+               <div class="cssb_head_item">签署合同交易商品<em>&#9670;</em><span>&#9670;</span></div>
+               <div class="cssb_head_item">出售成功提现<em>&#9670;</em><span>&#9670;</span></div>
            </div>
        </div>
         <div class="cssb_body">
@@ -103,15 +103,18 @@ export default {
 }
 </script>
 <style scoped>
-.cszl_head{
+.cssb_head_item em,.cssb_head_item span{font-style:normal;font-size:30px;position:absolute;left: -10px;top: 4px;color:  #ebdbdb;}
+.cssb_head_item span{left: -11px;color: #fafafa;}
+.cssb_head{
     height: 90px;
     padding: 20px;
 }
-.cszl_head_container{
+.cssb_head_container{
     height: 100%;
     display: flex;
 }
-.cszl_head_item{
+.cssb_head_item{
+    position: relative;
     background-color: #fafafa;
     flex: 1;
     border: 1px solid #e9e9e9;
@@ -134,14 +137,15 @@ export default {
     display: flex;
     justify-content: center;
     line-height: 27px;
-    color:red;
-    border: 1px solid red;
     cursor: pointer;
+    border: 1px solid rgb(208 196 196 / 75%);
+    border-radius: 2px;
 }
 .top_sb:first-of-type{
     background: url('../../../static/img/usercenter/redtitle.png') no-repeat 0 0 ;
     background-size: 120px 27px;
-    border: none;
+    color:red;
+    border:none;
 }
 
 

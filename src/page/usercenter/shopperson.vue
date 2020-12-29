@@ -16,35 +16,17 @@
             <el-tabs v-model="activeName" type="card" @tab-click="handleClick" width="40px">
                 
               <el-tab-pane label="出售商标" name="first" >
+                <div class="sborder_all" v-show="showsborder" @click.self="showssb">
+                    <v-sborder ></v-sborder>
+                </div>
                 <div class="cssb_all" v-show="isshowsb" @click.self="showssb">
                     <v-cssb ></v-cssb>
                 </div>
-                <ul class="s_con_b">
-                    <li class="s_con_b_item">商品</li>
-                    <li class="s_con_b_item">出售信息</li>
-                    <li class="s_con_b_item">价格</li>
-                    <li class="s_con_b_item">发布时间</li>
-                    <li class="s_con_b_item">当前状态</li>
-                    <li class="s_con_b_item">商品操作</li>
-                </ul>
-                
-                <div class="s_content">
-                  <div class="s_content_c">
-                    <img src="../../../static/img/usercenter/nomessage.png" alt="">
-                    <p>没有看到您的商品信息。</p>
-                    <p>如果您有商品，您可以去<a href="#">登记出售信息</a></p>
-                  </div>    
-                </div>
               </el-tab-pane>
               <el-tab-pane label="出售专利" name="second">
-                <ul class="s_con_b">
-                    <li class="s_con_b_item">商品</li>
-                    <li class="s_con_b_item">出售信息</li>
-                    <li class="s_con_b_item">价格</li>
-                    <li class="s_con_b_item">发布时间</li>
-                    <li class="s_con_b_item">当前状态</li>
-                    <li class="s_con_b_item">商品操作</li>
-                </ul>
+                <div class="zlorder_all" v-show="showzlorder" @click.self="showszl">
+                    <v-zlorder ></v-zlorder>
+                </div>
                 <div class="cszl_all" v-show="isshowzl" @click.self="showszl">
                     <v-cszl ></v-cszl>
                 </div>
@@ -54,44 +36,17 @@
                 <div class="csbq_all" v-show="isshowbq" @click.self="showsbq">
                     <v-csbq ></v-csbq>
                 </div>
-                <ul class="s_con_b">
-                    <li class="s_con_b_item">商品</li>
-                    <li class="s_con_b_item">出售信息</li>
-                    <li class="s_con_b_item">价格</li>
-                    <li class="s_con_b_item">发布时间</li>
-                    <li class="s_con_b_item">当前状态</li>
-                    <li class="s_con_b_item">商品操作</li>
-                </ul>
-                <ul class="s_con_b sellcopyright1">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">4</li>
-                        <li class="s_con_b_item">5</li>
-                        <li class="s_con_b_item">6</li>
-                </ul>
+                <div class="bqorder_all" v-show="showbqorder" @click.self="showsbq">
+                    <v-bqorder ></v-bqorder>
+                </div>
               </el-tab-pane>
               <el-tab-pane label="技术转让" name="fourth">
                 <div class="jszr_all" v-show="isshowjs" @click.self="showsjs">
                     <v-jszr ></v-jszr>
                 </div>
-                <ul class="s_con_b">
-                    <li class="s_con_b_item">商品</li>
-                    <li class="s_con_b_item">出售信息</li>
-                    <li class="s_con_b_item">价格</li>
-                    <li class="s_con_b_item">发布时间</li>
-                    <li class="s_con_b_item">当前状态</li>
-                    <li class="s_con_b_item">商品操作</li>
-                </ul>
-                <ul class="s_con_b technologytransfer1">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">4</li>
-                        <li class="s_con_b_item">5</li>
-                        <li class="s_con_b_item">6</li>
-                </ul>
-                  
+                <div class="jsorder_all" v-show="showjsorder" @click.self="showsjs">
+                    <v-jsorder ></v-jsorder>
+                </div>
               </el-tab-pane>  
             </el-tabs>
         </div> 
@@ -102,6 +57,11 @@ import cszl from '../../components/usercenter/cszl.vue'
 import cssb from '../../components/usercenter/cssb.vue'
 import csbq from '../../components/usercenter/csbq.vue'
 import jszr from '../../components/usercenter/jszr.vue'
+import jsorder from '../../components/usercenter/jsorder.vue'
+import sborder from '../../components/usercenter/sborder.vue'
+import bqorder from '../../components/usercenter/bqorder.vue'
+import zlorder from '../../components/usercenter/zlorder.vue'
+
 
 export default{
     data(){
@@ -112,6 +72,10 @@ export default{
             isshowsb:false,
             isshowbq:false,
             isshowjs:false,
+            showjsorder:true,
+            showzlorder:true,
+            showbqorder:true,
+            showsborder:true,
         }
             
     },
@@ -146,6 +110,10 @@ export default{
            this.isshowsb=true
            this.isshowbq=true
            this.isshowjs=true
+           this.showzlorder=false
+           this.showsborder=false
+           this.showbqorder=false
+           this.showjsorder=false
       }
     },
     components:{
@@ -153,11 +121,16 @@ export default{
         "v-cssb": cssb,
         "v-csbq": csbq,
         "v-jszr": jszr,
+        "v-zlorder": zlorder,
+        "v-sborder": sborder,
+        "v-bqorder": bqorder,
+        "v-jsorder": jsorder,
     }
     
 }
 </script>
 <style scoped>
+
 .shopperson{
     width: 100%;
     height: 100%;
