@@ -40,7 +40,7 @@
                             <el-input v-model="sbform.minprice" placeholder="请输入您的商标出售价格" style="width: 300px;"></el-input>
                     </el-form-item>
                     <el-form-item label="创意说明：" >
-                            <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="textarea"></el-input>
+                            <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="sbform.textarea"></el-input>
                     </el-form-item>
                     <el-form-item label="联系QQ：" prop="qq">
                             <el-input v-model="sbform.qq" placeholder="请输入您的联系QQ" style="width: 300px;"></el-input>
@@ -67,7 +67,8 @@ export default {
                     minprice: '', //售价
                     qq:'',
                     nuber:'',
-                    region:''
+                    region:'',
+                    textarea:''
             },
             // 验证规则
             formrule: {
