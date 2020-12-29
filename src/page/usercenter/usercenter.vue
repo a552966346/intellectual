@@ -203,8 +203,8 @@
                          投诉与咨询
                        </template>
                         <el-menu-item index="/usercenter/usertel?type=0">我要投诉建议</el-menu-item>
-                         <el-menu-item index="/usercenter/usertel?type=1">真假客服验证</el-menu-item>
-                         <el-menu-item index="/usercenter/usertel?type=2">举报客服</el-menu-item>
+                        <!-- <el-menu-item index="/usercenter/usertel?type=1">真假客服验证</el-menu-item>
+                         <el-menu-item index="/usercenter/usertel?type=2">举报客服</el-menu-item> -->
                      </el-submenu>
                      <el-submenu index="/usercenter/userid">
                        <template slot="title">

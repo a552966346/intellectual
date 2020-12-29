@@ -5,17 +5,17 @@
 
             <div class="top_shopcar">
                 <img src="../../../static/img/usercenter/shopcar.png" alt="">
-                <span>我要出售</span> 
+                <span>我要出售</span>
             </div>
         </div>
-        
+
         <div class="tel_con">
             <ul class="con_t">
                 <li class="con_t_item" v-for="(item,i) in titles" :key="i"
                 v-bind:class="{active:i == num}"
                 @click="tab(i)">{{item}}</li>
             </ul>
-            
+
             <div class="content">
                 <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="130px" class="demo-ruleForm">
                     <p>亲爱的用户：</p>
@@ -26,12 +26,12 @@
                             <el-radio label="我要建议" value='1'></el-radio>
                         </el-radio-group>
                     </el-form-item>
-                    <el-form-item label="活动区域" prop="region">
+                    <!-- <el-form-item label="活动区域" prop="region">
                         <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
                         <el-option label="区域一" value="shanghai"></el-option>
                         <el-option label="区域二" value="beijing"></el-option>
                         </el-select>
-                    </el-form-item>
+                    </el-form-item> -->
                     <el-form-item label="提出内容" prop="desc" >
                         <el-input type="textarea" v-model="ruleForm.desc" placeholder="您可以在这填写您对伊甸城的各个不满的地方"></el-input>
                     </el-form-item>
@@ -47,21 +47,23 @@
                     </el-form-item>
                 </el-form>
             </div>
-            
-        </div> 
+
+        </div>
     </div>
 </template>
 <script>
+        import {validatePhone} from '@/util/rules.js'
 export default{
+
     data(){
         return{
             msg:'这是测试内容',
             teloption:[],
-            titles:["投诉建议","真假客服验证","举报假客服"],
+            titles:["投诉建议"],/* ,"真假客服验证","举报假客服" */
             num:0,
             ruleForm: {
-                resource:'',
-                region:'',
+                resource:2,
+                // region:'',
                 desc:'',
                 name:'',
                 telephone:''
@@ -70,9 +72,9 @@ export default{
                 resource: [
                     { required: true, message: '请选择提交类型', trigger: 'change' }
                 ],
-                region: [
-                    { required: true, message: '请选择活动区域', trigger: 'change' }
-                ],
+                // region: [
+                //     { required: true, message: '请选择活动区域', trigger: 'change' }
+                // ],
                 desc:[
                     { required: true, message: '请输入内容', trigger: 'change' }
                 ],
@@ -80,7 +82,8 @@ export default{
                     { required: true, message: '请选择名称', trigger: 'change' }
                 ],
                 telephone:[
-                    { required: true, message: '请输入电话号', trigger: 'change' }
+                    { required: true, message: '请输入电话号', trigger: 'change' },
+                    {validator: validatePhone, trigger: 'blur'}
                 ]
             }
         }
@@ -100,7 +103,15 @@ export default{
                 this.$api.complaint(opinions,appellation,mobile,status)
                     .then(res=>{
                             console.log(res)
-                            alert(res.msg);
+                           this.$alert(res.msg, '提交成功', {
+                                     confirmButtonText: '确定',
+                                     callback: action => {
+                                       this.$message({
+                                         type: 'info',
+                                         message: `action: ${ action }`
+                                       });
+                                     }
+                                   });
                     })
             } else {
                 console.log('error submit!!');
@@ -208,7 +219,7 @@ export default{
 }
 .c_shoose .current{
     color: #388bca;
-    
+
 }
 
 .content_c textarea{
@@ -230,7 +241,7 @@ export default{
 }
 .store{
     width: 100%;
-   
+
 }
 .store1{
     position: relative;
@@ -243,7 +254,7 @@ export default{
 .in2{
     display: flex;
     justify-content: space-between;
-    
+
 }
 .in2-item{
    width: 48%;

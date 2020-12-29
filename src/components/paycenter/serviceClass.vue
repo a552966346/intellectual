@@ -1,6 +1,6 @@
 <template>
         <div class="all">
-                <div v-for="item in uqdata" :key="item.id">
+                <div v-for="item in uqdata" :key="item.id" v-if="item !== null" >
                         <div>
                                 <p v-if="item.type==1">服务中心</p>
                                 <p v-if="item.type==2">商标交易</p>
@@ -8,20 +8,18 @@
                                 <p v-if="item.type==4">版权交易</p>
                                 <p v-if="item.type==5">技术转移</p>
                         </div>
-                        <router-link :to="'/'+item.product.categoryid_text.keywords+'?id='+item.product.category_id"  v-if="item !== null" :key="item.id">
-                                <div class="time_content">
-                                    <div><img :src="item.product.images_text[0]" alt=""></div>
-                                    <dl>
-                                        <dt>{{item.product.name}}</dt>
-                                        <dd><span>商标注册时间：</span><span>{{item.product.creatime_text}}</span></dd>
-                                        <dd v-if="item.product.categoryid_text&&item.product.categoryid_text.name"><span>商标分类：</span><span>{{item.product.categoryid_text.name}}</span></dd>
-                                        <dd v-else-if="item.product.categoryid_text&&item.product.categoryid_text==null"><span>商标分类：</span><span>无</span></dd>
-                                        <dd v-else><span>商标分类：</span><span>{{item.product.categoryid_text}}</span></dd>
-                                        <!-- <dd><span>购买数量：</span><span>{{item1.number}}件</span></dd> -->
-                                        <dd><span>商品单价：</span><span>￥{{item.product.fee}}</span><span>/件（不含官费）</span></dd>
-                                    </dl>
-                                </div>
-                        </router-link>
+                        <div class="time_content" @click="run(item.type,item.product.categoryid_text,item.product_id,item.category_id)">
+                            <div><img :src="item.product.images_text[0]" alt=""></div>
+                            <dl>
+                                <dt>{{item.product.name}}</dt>
+                                <dd><span>商标注册时间：</span><span>{{item.product.creatime_text}}</span></dd>
+                                <dd v-if="item.product.categoryid_text&&item.product.categoryid_text.name"><span>商标分类：</span><span>{{item.product.categoryid_text.name}}</span></dd>
+                                <dd v-else-if="item.product.categoryid_text&&item.product.categoryid_text==null"><span>商标分类：</span><span>无</span></dd>
+                                <dd v-else><span>商标分类：</span><span>{{item.product.categoryid_text}}</span></dd>
+                                <!-- <dd><span>购买数量：</span><span>{{item1.number}}件</span></dd> -->
+                                <dd><span>商品单价：</span><span>￥{{item.product.fee}}</span><span>/件（不含官费）</span></dd>
+                            </dl>
+                        </div>
                 </div>
         </div>
 </template>
@@ -36,6 +34,40 @@ export default {
 
         }
     },
+    methods:{
+            run(type,key,id,ids){
+                    if(type==1){
+                            this.$router.push({
+                                    path:key.keywords,
+                                    query:{id:ids}
+                            })
+                    }
+                    else if(type ==2){
+                            this.$router.push({
+                                    path:'/service_xlj',
+                                    query:{id:id}
+                            })
+                    }
+                    else if(type ==3){
+                            this.$router.push({
+                                    path:'/service_xlj_three',
+                                    query:{id:id}
+                            })
+                    }
+                    else if(type ==4){
+                            this.$router.push({
+                                    path:'/service_xlj_four',
+                                    query:{id:id}
+                            })
+                    }
+                    else if(type ==5){
+                            this.$router.push({
+                                    path:'/service_xlj_two',
+                                    query:{id:id}
+                            })
+                    }
+            }
+    }
 }
 </script>
 
@@ -48,7 +80,12 @@ export default {
         .all{
                 width: 100%;
                 display: flex;
-                flex-direction: column;
+                /* flex-direction: column; */
+                flex-wrap: wrap;
+        }
+        .all>div{
+                width: 23%;
+                margin: 0 10px 10px 0;
         }
         .all>div>div:nth-child(1){
                 padding: 10px 0;
@@ -65,14 +102,17 @@ export default {
             background: #f9f9f9;
         }
         .time_content>div{
-            width: 225px;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .time_content>div>img{
             width: 100%;
-            height: 100%;
+            /* height: 100%; */
         }
         .time_content>dl{
-            padding: 30px;
+            padding: 15px 10px;
             color: #222;
         }
         .time_content dt{

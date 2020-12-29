@@ -179,7 +179,7 @@
                                          this.$router.push({path:'/login'});
                                 }else{
                                       if(!this.isimg){
-                                              this.$api.getCollection(id,1,this.$store.state.user.user_id)
+                                              this.$api.getCollection(id,5,this.$store.state.user.user_id)
                                               .then(res=>{
                                                    this.$message({
                                                              message: res.msg,
