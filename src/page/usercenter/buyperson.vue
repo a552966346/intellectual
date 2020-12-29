@@ -83,16 +83,15 @@
                 },
                 methods: {
                         tab(index,id) {
-                                let loadingInstance = Loading.service(document.querySelector("#buy_con"));
+                                
                                 this.num = id;
                                 this.ispost(this.style,id)
-                                this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
-                                  loadingInstance.close();
-                                });
+                               
                         },
                         ispost(style,index){
                                 console.log(this.data)
                                 //我的商标
+                                let loadingInstance = Loading.service(document.querySelector("#buy_con"));
                                 this.zsdlist=[]
                                 if(style==0){
                                     this.$api.getuserTrademarkOrder(this.data.id,index)
@@ -136,7 +135,9 @@
                                                 this.zsdlist = res.data.data
                                         })
                                 }
-
+                                this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
+                                  loadingInstance.close();
+                                });
                         }
                 }
         }

@@ -21,7 +21,7 @@
                     <el-form-item label="技术类型：">
                             <select name="leixing" v-model="jsform.leixing" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择技术类型</option>
-                                    <option v-for="(item,index) in data" :value="item.id" :key="index">{{item.name}}</option>
+                                    <!-- <option v-for="(item,index) in data" :value="item.id" :key="index">{{item.name}}</option> -->
                             </select>
                     </el-form-item>
                     <el-form-item label="成果名称：" prop="name">
@@ -33,25 +33,25 @@
                     <el-form-item label="行业分类：">
                             <select name="fenlei" v-model="jsform.fenlei" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择行业分类</option>
-                                    <option v-for="item in data" :value="item.id">{{item.name}}</option>
+                                    <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
                             </select>
                     </el-form-item>
                     <el-form-item label="应用领域：">
                             <select name="lingyu" v-model="jsform.lingyu" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择应用领域</option>
-                                    <option v-for="item in data" :value="item.id">{{item.name}}</option>
+                                    <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
                             </select>
                     </el-form-item>
                     <el-form-item label="成熟程度：">
                             <select name="chengshu" v-model="jsform.chengshu" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择成熟程度</option>
-                                    <option v-for="item in data" :value="item.id">{{item.name}}</option>
+                                    <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
                             </select>
                     </el-form-item>
                     <el-form-item label="出售方式：">
                             <select name="csfs" v-model="jsform.csfs" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择出售方式</option>
-                                    <option v-for="item in data" :value="item.id">{{item.name}}</option>
+                                    <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
                             </select>
                     </el-form-item>
                     <el-form-item label="商品主图：" >
@@ -78,7 +78,7 @@
                             <div class="submit_text">
                                 <div class="submit_text_top">
                                     <div class="submit_text_top_img"><img src="../../../static/img/usercenter/greendg.png" alt=""></div>
-                                    <p>我已阅读并同意<span>《伊甸网用户出售协议》</span> </p>    
+                                    <p>我已阅读并同意<span>《伊甸网用户出售协议》</span> </p>
                                 </div>
                                 <p>温馨提示：出售专利，成功交易后，伊甸网将收取专利成交价格的<span>10%</span>作为手续费！</p>
                             </div>
@@ -93,7 +93,7 @@
 export default {
     data(){
         return{
-            
+
             jsform: {
                     name:'',//商标名称
                     // select: '',
@@ -124,10 +124,10 @@ export default {
                             trigger: 'blur',
                             message: '请输入出售低价'
                     }, ],
-                    
+
             },
 
-            
+
         }
     },
     props:{
@@ -162,7 +162,7 @@ export default {
     display: flex;
     align-items: center;
     margin: 20px ;
-   
+
 }
 .top_js{
     width: 120px;
@@ -188,8 +188,8 @@ export default {
     flex-direction: column;
 }
 .el-form-item__content>.tu>.tu_img{
-    height: 50px; 
-    width: 50px;   
+    height: 50px;
+    width: 50px;
     margin-bottom: 24px;
 }
 .el-form-item__content>.tu>.tu_img>img{
@@ -207,7 +207,7 @@ export default {
 .fabu p{
     line-height: 1;
     color: #bcbcbc;
-    
+
 }
 .submit_text{
       margin-left: 10px;

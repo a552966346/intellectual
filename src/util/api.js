@@ -585,6 +585,23 @@ const api = {
                     rec_id:id
             }
             return requestAll.requset(baseUrl + '/api/message/deletedMessage',data);
+    },
+    // 卖家商标分类
+    shopsbclass(){
+             return requestAll.requset(baseUrl + '/api/seller/category');
+    },
+    //商标信息添加
+    shiosbadd(category_id,number,name,fee,summarize,images){
+            let data={
+                    category_id:category_id  ,//商标大类
+                    number:number ,//商标注册号
+                    name:name,//专利注册号
+                    fee:fee,//价格
+                    summarize:summarize,//创意说明
+                    images:images,//图片
+                    
+            }
+             return requestAll.requset(baseUrl + '/api/seller/add_patents',data);
     }
 }
 

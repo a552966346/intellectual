@@ -22,13 +22,13 @@
                     <el-form-item label="专利行业：">
                             <select name="zhuanli" v-model="select" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择专利行业</option>
-                                    <option v-for="item in data" :value="item.id">{{item.name}}</option>
+                                    <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
                             </select>
                     </el-form-item>
                     <el-form-item label="专利分类：">
                             <select name="zhuanlilei" v-model="select" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择专利分类</option>
-                                    <option v-for="item in data" :value="item.id">{{item.name}}</option>
+                                    <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
                             </select>
                     </el-form-item>
                     <el-form-item label="专利注册号：" prop="register">
@@ -38,7 +38,7 @@
                         <el-date-picker v-model="zlform.time" type="date" placeholder="选择日期"></el-date-picker>
                     </el-form-item>
                     <el-form-item label="过期时间：" prop="date">
-                        <el-date-picker v-model="zlform.date" type="date" placeholder="选择日期"></el-date-picker>
+                        <!-- <el-date-picker v-model="zlform.date" type="date" placeholder="选择日期"></el-date-picker> -->
                     </el-form-item>
                     <el-form-item label="申请状态：" prop="radio1" name="sqzt">
                         <el-radio v-model="zlform.radio1" label="1">授权未下证</el-radio>

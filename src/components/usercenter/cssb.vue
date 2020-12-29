@@ -19,11 +19,15 @@
                             <div class="top_sb">批量发布商标</div>
                         </div>
                     </el-form-item>
-                    <el-form-item label="商标注册号：">
-                            <select name="shangbiao" v-model="select" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
-                                    <option value="">请填写商标注册号，并点击开始查询按钮</option>
-                                    <option v-for="item in data" :value="item.id">{{item.name}}</option>
+                    <el-form-item label="商标大类：" prop="select">
+                            <select name="shangbiao" v-model="sbform.select" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
+                                    <option value="">请选择您的商标大类</option>
+                                    <option v-for="item in sbclass" :value="item.id">{{item.name}}</option>
                             </select>
+
+                    </el-form-item>
+                    <el-form-item label="商标注册号：" prop="nuber">
+                            <el-input v-model="sbform.nuber" placeholder="请输入商标注册号：" style="width: 300px;"></el-input>
                             <el-button type="danger">开始查询</el-button>
                     </el-form-item>
                     <el-form-item label="商标名称：" prop="name">
@@ -32,8 +36,8 @@
                     <el-form-item label="使用范围：" prop="region">
                             <el-input v-model="sbform.region" placeholder="请输入使用范围：" style="width: 300px;"></el-input>
                     </el-form-item>
-                    <el-form-item label="商标价格：" prop="sellprice">
-                            <el-input v-model="sbform.sellprice" placeholder="请输入您的商标出售价格" style="width: 300px;"></el-input>
+                    <el-form-item label="商标价格：" prop="minprice">
+                            <el-input v-model="sbform.minprice" placeholder="请输入您的商标出售价格" style="width: 300px;"></el-input>
                     </el-form-item>
                     <el-form-item label="创意说明：" >
                             <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="textarea"></el-input>
@@ -55,16 +59,16 @@
 export default {
     data(){
         return{
-            
+
             sbform: {
                     sbname:'',//商标名称
-                    // select: '',
+                    select: '',
                     register:'',//注册号
-                    sellprice: '', //售价
-                    qq:''
+                    minprice: '', //售价
+                    qq:'',
+                    nuber:'',
+                    region:''
             },
-            textarea:'',
-            select: '',
             // 验证规则
             formrule: {
                     name: [{
@@ -82,23 +86,36 @@ export default {
                             trigger: 'blur',
                             message: '请输入出售低价'
                     }, ],
-                    
+                   nuber:[{
+                        required: true,
+                        trigger: 'blur',
+                        message: '请输入商标注册号'
+                   }],
+                   region:[{
+                           required: true,
+                           trigger: 'blur',
+                           message: '请输入商标使用范围'
+                   }],
+                   select:[{
+                           required: true,
+                           trigger: 'change',
+                           message: '请选择商标大类'
+                   }],
+                   qq:[{
+                           required: true,
+                           trigger: 'blur',
+                           message: '请输入qq号码'
+                   }]
             },
-            pickerOptions: {
-                disabledDate(time) {
-                    return time.getTime() > Date.now();
-                },
-                
-                value1: '',
-            },
-            radio1: '1',
-            radio: '3',
-
-            
+            sbclass:[]
         }
     },
-    props:{
-        isshowsb:false,
+    mounted() {
+            this.$api.shopsbclass()
+            .then(res=>{
+                    console.log(res)
+                    this.sbclass = res.data
+            })
     }
 }
 </script>
@@ -129,7 +146,7 @@ export default {
     display: flex;
     align-items: center;
     margin: 20px ;
-   
+
 }
 .top_sb{
     width: 120px;

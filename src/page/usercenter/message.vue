@@ -73,7 +73,11 @@ export default{
            }
    },
    mounted(){
-           this.news(this.num)
+           console.log(this.num)
+           this.$nextTick(function(){
+                    this.news(this.num)
+           })
+          
    },
    methods:{
        tab(i){
@@ -126,7 +130,13 @@ export default{
 
        },
        chexdel(){
-                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+               let str = ''
+               if(this.ischex==''){
+                        str = "未选择将删除全部消息, 是否继续?"
+               }else{
+                       str = "此操作将永久删除该文件, 是否继续?"
+               }
+                this.$confirm(str, '提示', {
                          confirmButtonText: '确定',
                          cancelButtonText: '取消',
                          type: 'warning'
@@ -147,7 +157,6 @@ export default{
                          });
                          this.chex = false
                        });
-
        },
       getLocalTime(nS) {
           return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
@@ -210,6 +219,7 @@ export default{
 .t_del{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .t_del img{
     width: 16px;

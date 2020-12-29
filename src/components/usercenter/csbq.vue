@@ -1,7 +1,7 @@
 <template>
 <div class="all">
     <div class="csbq_all">
-        
+
        <div class="csbq_head">
            <div class="csbq_head_container">
                <div class="csbq_head_item">登记商品信息</div>
@@ -20,7 +20,7 @@
                     <el-form-item label="版权类别：">
                             <select name="banquan" v-model="select" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px;color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择版权分类</option>
-                                    <option v-for="item in data" :value="item.id">{{item.name}}</option>
+                                    <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
                             </select>
                     </el-form-item>
                     <el-form-item label="题材：" prop="theme">
@@ -94,12 +94,12 @@
                         <el-checkbox label="翻译权"></el-checkbox>
                         <el-checkbox label="汇编权"></el-checkbox>
                         <el-checkbox label="其他权利"></el-checkbox>
-                        
+
                     </el-form-item>
                     <el-form-item label="所属年代：">
                             <select name="niandai" v-model="bqform.niandai" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px;color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择年代</option>
-                                    <option v-for="item in data" :value="item.id">{{item.name}}</option>
+                                    <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
                             </select>
                     </el-form-item>
                     <el-form-item label="作者介绍/作品简介：" >
@@ -117,7 +117,7 @@
                             <div class="submit_text">
                                 <div class="submit_text_top">
                                     <div class="submit_text_top_img"><img src="../../../static/img/usercenter/greendg.png" alt=""></div>
-                                    <p>我已阅读并同意<span>《伊甸网用户出售协议》</span> </p>    
+                                    <p>我已阅读并同意<span>《伊甸网用户出售协议》</span> </p>
                                 </div>
                                 <p>温馨提示：出售专利，成功交易后，伊甸网将收取专利成交价格的<span>10%</span>作为手续费！</p>
                             </div>
@@ -132,7 +132,6 @@
 export default {
     data(){
         return{
-            
             bqform: {
                     name: '', //名称
                     theme:'',//题材
@@ -172,12 +171,12 @@ export default {
                             trigger: 'blur',
                             message: '请输入出售低价'
                     }, ],
-                    
-            },
-            
-        
 
-            
+            },
+
+
+
+
         }
     },
     props:{
@@ -244,8 +243,8 @@ export default {
     flex-direction: column;
 }
 .el-form-item__content>.tu>.tu_img{
-    height: 50px; 
-    width: 50px;   
+    height: 50px;
+    width: 50px;
     margin-bottom: 24px;
 }
 .el-form-item__content>.tu>.tu_img>img{
@@ -263,7 +262,7 @@ export default {
 .fabu p{
     line-height: 1;
     color: #bcbcbc;
-    
+
 }
 .submit_text{
       margin-left: 10px;

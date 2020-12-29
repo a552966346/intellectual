@@ -2,23 +2,24 @@
     <div class="shopperson">
         <div class="shop_top">
             <div class="top_text">我是卖家/我出售的商标</div>
-            <div class="top_shopcar">
+            <div class="top_shopcar"@click="sell">
                 <img src="../../../static/img/usercenter/shopcar.png" alt="">
-                <span @click="sell">我要出售</span> 
+                <span v-show="show">我的出售</span>
+                <span v-show="!show">我要出售</span>
             </div>
         </div>
         <!-- 订单 -->
-        <div class="shop_order" v-show="showorder" >
-                <div class="sborder_all" v-show="showsborder" @click.self="showssb" v-if="type==1">
+        <div class="shop_order" v-show="!show" >
+                <div class="sborder_all" v-show="type==1" @click.self="showssb">
                     <v-sborder ></v-sborder>
                 </div>
-                <div class="zlorder_all" v-show="showzlorder" @click.self="showszl" v-else-if="type==2">
+                <div class="zlorder_all" v-show="type==2" @click.self="showszl" >
                     <v-zlorder ></v-zlorder>
                 </div>
-                <div class="bqorder_all" v-show="showbqorder" @click.self="showsbq" v-else-if="type==3" >
+                <div class="bqorder_all" v-show="type==3" @click.self="showsbq" >
                     <v-bqorder ></v-bqorder>
                 </div>
-                <div class="jsorder_all" v-show="showjsorder" @click.self="showsjs" v-else>
+                <div class="jsorder_all" v-show="type==4" @click.self="showsjs" >
                     <v-jsorder ></v-jsorder>
                 </div>
         </div>
@@ -29,7 +30,6 @@
                     <div class="s_search">搜索</div>
             </div>
             <el-tabs v-model="activeName" type="card" @tab-click="handleClick" width="40px">
-                
               <el-tab-pane label="出售商标" name="first" >
                 <div class="cssb_all" >
                     <v-cssb ></v-cssb>
@@ -49,10 +49,10 @@
                 <div class="jszr_all" >
                     <v-jszr ></v-jszr>
                 </div>
-                
-              </el-tab-pane>  
+
+              </el-tab-pane>
             </el-tabs>
-        </div> 
+        </div>
     </div>
 </template>
 <script>
@@ -75,25 +75,40 @@ export default{
             showzlorder:true,
             showbqorder:true,
             showsborder:true,
-            showorder:true,
             show:false,
             type:1,
         }
-            
+
+    },
+    watch: {
+    	$route(to, from){
+    		this.type=this.$route.query.type
+                        if(this.type==1){
+                                this.activeName="first"
+                        }
+                        else if( this.type==2){
+                                this.activeName="second"
+                        }
+                        else if(this.type==3){
+                                this.activeName = "third"
+                        }else{
+                                this.activeName="fourth"
+                        }
+    	}
     },
     mounted() {
             // 卖家   商标订单
             this.$api.getuserTrademarkOrder()
             .then(res=>{
                     this.traOrder = res.data
-                    
+
 
             })
             // 卖家   专利订单
             this.$api.getuserPatentsOrder()
             .then(res=>{
                     this.patOrder = res.data
-                    
+
 
             })
             // 卖家   版权订单
@@ -105,15 +120,10 @@ export default{
     },
     methods: {
       handleClick(tab, event) {
-        console.log(tab, event);
+        // console.log(tab, event);
       },
       sell(){
-            this.show=true
-            this.showorder=false
-            this.isshowzl=true
-            this.isshowsb=true
-            this.isshowbq=true
-            this.isshowjs=true
+            this.show=!this.show
       }
     },
     components:{
@@ -126,7 +136,7 @@ export default{
         "v-bqorder": bqorder,
         "v-jsorder": jsorder,
     }
-    
+
 }
 </script>
 <style scoped>
@@ -256,7 +266,7 @@ export default{
    font-size: 16px;
    color: #5f5f5f;
    line-height: 1.5;
-   
+
 }
 .s_content_c p:nth-of-type(2){
     font-size: 12px;
