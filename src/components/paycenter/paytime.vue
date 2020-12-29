@@ -12,16 +12,21 @@
                 </div>
             </div>
             <div class="time_content"   v-for="(item1,index) in item.product_data" v-if="item1 !== null" :key="item1.id">
-                <div><img :src="item1.images_text[0]" alt=""></div>
-                <dl>
+                <div class="img"><img :src="item1.images_text[0]" alt=""></div>
+                <dl class="text">
                     <dt>{{item1.name}}</dt>
-                    <dd><span>商标注册时间：</span><span>{{item1.creatime_text}}</span></dd>
-                    <dd v-if="item1.categoryid_text&&item1.categoryid_text.name"><span>商标分类：</span><span>{{item1.categoryid_text.name}}</span></dd>
-                    <dd v-else-if="item1.categoryid_text&&item1.categoryid_text==null"><span>商标分类：</span><span>无</span></dd>
-                    <dd v-else><span>商标分类：</span><span>{{item1.categoryid_text}}</span></dd>
+                    <dd><span>商品注册时间：</span><span>{{item1.creatime_text}}</span></dd>
+                    <dd><span>商品简介：</span><span>{{item1.summarize}}</span></dd>
+                    <dd v-if="item1.categoryid_text&&item1.categoryid_text.name"><span>商品分类：</span><span>{{item1.categoryid_text.name}}</span></dd>
+                    <dd v-else-if="item1.categoryid_text&&item1.categoryid_text==null"><span>商品分类：</span><span>无</span></dd>
+                    <dd v-else><span>商品分类：</span><span>{{item1.categoryid_text}}</span></dd>
                     <dd><span>购买数量：</span><span>{{item1.number}}件</span></dd>
-                    <dd><span>待支付商品单价：</span><span>￥{{item1.fee}}</span><span>/件（不含官费）</span></dd>
+                    <dd v-if="item1.fee>=10000"><span>待支付商品单价：</span><span>￥{{item1.fee/10000}}万元</span><span>/件（不含官费）</span></dd>
+                    <dd v-else><span>待支付商品单价：</span><span>￥{{item1.fee}}</span><span>/件（不含官费）</span></dd>
                 </dl>
+                <div class="button" v-show="isshows">
+                        <button  v-if="item.status==0">去支付</button>
+                </div>
             </div>
         </div>
     </div>
@@ -29,13 +34,20 @@
 <script>
 export default {
     props:{
-        uqdata:{}
+        uqdata:{},
+       
     },
     data(){
         return{
-
+                 isshows:false
         }
     },
+    beforeMount() {
+            console.log(this.$route.path)
+            if(this.$route.path=="/usercenter/userbuy"){
+                this.isshows = true
+            }
+    }
 }
 </script>
 <style scoped>
@@ -67,7 +79,6 @@ export default {
         .pay_header>div{
             padding: 5px 15px;
             margin-right: 130px;
-
         }
         .pay_header>div:nth-child(1){
             border-left: 4px solid #187fc2;
@@ -82,7 +93,7 @@ export default {
             background: #f9f9f9;
         }
         .time_content>div{
-            width: 225px;
+            /* width: 225px; */
         }
         .time_content>div>img{
             width: 100%;
@@ -106,5 +117,24 @@ export default {
             color: #e00000;
             font-size: 16px;
             font-weight: 600;
+        }
+        .img{
+                width: 20%;
+        }
+        .text{
+                width: 50%;
+        }
+        .button{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+        }
+        .button button{
+                padding: 10px 50px;
+                background-color: #F56C6C;
+                color: #fff;
+                border: 1px solid #555;
+                border-radius: 50px;
+                outline: none;
         }
 </style>

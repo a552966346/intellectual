@@ -53,10 +53,10 @@
                         <div class="myorder">
                             我的订单
                             <div class="order_r">
-                                <span class="span">待付款<span class="blue">[0]</span></span>
-                                <span class="span">已预订<span class="blue">[0]</span></span>
-                                <span class="span">交接中<span class="blue">[0]</span></span>
-                                <span class="span">已完成<span class="blue">[0]</span></span>
+                                <span class="span">待付款<span class="blue">[{{Unpaid}}]</span></span>
+                                <span class="span">已支付<span class="blue">[{{Paid}}]</span></span>
+                                <span class="span">已完成<span class="blue">[{{Completed}}]</span></span>
+                                <span class="span">已取消<span class="blue">[{{cancel}}]</span></span>
                             </div>
                         </div>
 
@@ -237,7 +237,11 @@ export default {
                     status:'',
                     type:'',
                     total_fee:''
-            }]
+            }],
+             Unpaid:0, //未支付
+            Paid:0,//已支付
+            Completed:0,//已完成
+            cancel:0//已取消
         }
     },
     mounted(){
@@ -253,43 +257,71 @@ export default {
             this.$api.getindexnew().then((res) => {
               this.news = res.data;
               this.newnow = res.data[2]
-              console.log(this.newnow, "新闻中心1")
+              // console.log(this.newnow, "新闻中心1")
             });
             // 收藏
             this.$nextTick(function(){
                     this.$api.getallCollection(this.$store.state.user.id)
                      .then(res=>{
-                             console.log(res)
+                             console.log(res,"收藏")
                              this.zsdlist = res.data.data
                      })
                     // 订单
                     this.$api.getuseindex(this.$store.state.user.id)
                     .then(res=>{
-                            console.log(res.data.data)
+                            console.log(res.data.data,"订单")
                             for(let i=0;i<=res.data.data.length;i++){
                                     // this.tableData[i].order_sn=res.data.data[i].order_sn
                                     // this.tableData[i].creatime_text=res.data.data[i].creatime_text
                                     switch(res.data.data[i].status) {
                                          case 0:
                                             res.data.data[i].status = "未支付"
+                                            this.Unpaid++
                                             break;
                                          case 1:
                                              res.data.data[i].status = "已支付"
+                                             this.Paid++
                                             break;
                                          case 3:
                                                 res.data.data[i].status = "已完成"
+                                                this.Completed++
                                         break;
                                         case 4:
                                                 res.data.data[i].status = "已取消"
+                                                this.cancel++
                                         break;
+                                    }
+                                    switch(res.data.data[i].type) {
+                                         case 1:
+                                             res.data.data[i].type = "服务中心"
+                                            break;
+                                         case 2:
+                                                res.data.data[i].type = "商标交易"
+                                        break;
+                                        case 3:
+                                                res.data.data[i].type = "专利交易"
+                                        break;
+                                        case 4:
+                                                res.data.data[i].type = "版权转让"
+                                        break;
+                                        case 5:
+                                           res.data.data[i].type = "技术转移"
+                                        break;
+                                    }
+                                    if(res.data.data[i].total_fee>=10000){
+                                         res.data.data[i].total_fee=res.data.data[i].total_fee/10000+"万元"
                                     }
                                     // this.tableData[i].type=res.data.data[i].type
                                     // this.tableData[i].total_fee=res.data.data[i].total_fee
-                                    this.tableData[i].push({
+                                    this.tableData.push({
                                             order_sn:res.data.data[i].order_sn,
                                             creatime_text:res.data.data[i].creatime_text,
-                                            status:res.data.data[i].status
+                                            status:res.data.data[i].status,
+                                            type:res.data.data[i].type,
+                                            total_fee:res.data.data[i].total_fee
+
                                     })
+                                    console.log(this.tableData)
                             }
 
                     })
@@ -478,7 +510,7 @@ button{
     display: block;
     margin: 0 auto 5px;
     width: 100%;
-
+    height: 135px;
 }
 .collection_content_item .span_r{
     justify-content: space-between;
@@ -641,7 +673,7 @@ button{
     color: #41a3fe;
 }
 .order_content{
-    height: 104px;
+    /* height: 104px; */
     display: flex;
     align-items: center;
     text-align: center;
