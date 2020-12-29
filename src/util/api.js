@@ -599,9 +599,28 @@ const api = {
                     fee:fee,//价格
                     summarize:summarize,//创意说明
                     images:images,//图片
-                    
+
             }
              return requestAll.requset(baseUrl + '/api/seller/add_patents',data);
+    },
+    userauthentication(uid,realname,idnumber,idfront,idrear,idhand,bank,subbranch,province,city,cardnumber,type,mobile,captcha){
+            let data={
+                    uid:uid,
+                    realname:realname,//真实姓名
+                    idnumber:idnumber,//身份证/营业执照
+                    idfront:idfront,//身份证人面像
+                    idrear:idrear,//身份证国徽
+                    idhand:idhand,//身份证手持
+                    bank:bank,//开户银行
+                    subbranch:subbranch,//支行名称
+                    province:province,//省
+                    city:city,//市
+                    cardnumber:cardnumber,//卡号
+                    type:type,//类型
+                    mobile:mobile,
+                    captcha:captcha
+            }
+            return requestAll.requset(baseUrl + '/api/account/attestation',data);
     }
 }
 
