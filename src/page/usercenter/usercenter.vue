@@ -297,10 +297,6 @@ a {
     height: 96%;
     overflow: auto;
 }
-/* .user_left */
-.user{
-    /* height: 100%; */
-}
  .user_left{
     width:200px;
     height: 100%;

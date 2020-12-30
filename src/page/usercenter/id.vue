@@ -128,7 +128,7 @@
                                                                 <el-select v-model="ruleForm.select1" placeholder="省"
                                                                         @change="select">
                                                                         <el-option :label="item.name" :value="item.id"
-                                                                                v-for="item in province"></el-option>
+                                                                                v-for="item in province" :key="item.id"></el-option>
                                                                 </el-select>
                                                         </el-form-item>
                                                 </el-col>
@@ -136,7 +136,7 @@
                                                         <el-form-item prop="select2">
                                                                 <el-select v-model="ruleForm.select2" placeholder="市">
                                                                         <el-option :label="item.name" :value="item.id"
-                                                                                v-for="item in city"></el-option>
+                                                                                v-for="item in city" :key="item.id"></el-option>
 
                                                                 </el-select>
                                                         </el-form-item>
@@ -295,7 +295,7 @@
                                                                 <el-select v-model="ruleForm2.select12" placeholder="省"
                                                                         @change="select">
                                                                         <el-option :label="item.name" :value="item.id"
-                                                                                v-for="item in province"></el-option>
+                                                                                v-for="item in province" :key="item.id"></el-option>
                                                                 </el-select>
                                                         </el-form-item>
                                                 </el-col>
@@ -303,7 +303,7 @@
                                                         <el-form-item prop="select2">
                                                                 <el-select v-model="ruleForm2.select22" placeholder="市">
                                                                         <el-option :label="item.name" :value="item.id"
-                                                                                v-for="item in city"></el-option>
+                                                                                v-for="item in city" :key="item.id"></el-option>
 
                                                                 </el-select>
                                                         </el-form-item>

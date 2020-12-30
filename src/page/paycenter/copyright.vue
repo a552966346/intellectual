@@ -33,7 +33,7 @@
 
         <!-- 猜你喜欢 -->
         <div>
-            <copyrightBottom :listdata="listdata" @kefu="kefu" @tanchuang="tanchuang"></copyrightBottom>
+            <copyrightBottom :listdata="listdata" @kefu="kefu" @qiugou="qiugou"></copyrightBottom>
         </div>
 
       </div>
@@ -44,12 +44,17 @@
       <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
                               <v-customer @shows="showstwo"></v-customer>
       </div>
+      <!-- 我要求购 -->
+                <div class="tanchuang" v-show="isshowthree" @click.self="showsthree">
+                        <v-purchasebq @closetc="closetc" @fabu="fabu" @kefux="kefux"></v-purchasebq>
+                </div>
   </div>
 </template>
 
 <script>
+import purchasebq from '@/components/copyright/purchasebq.vue'//求购弹窗
  import customer from '@/components/customers/customer_services.vue'
-import tanchuangbq from '@/components/copyright/tanchuangbq.vue';//专利弹窗
+import tanchuangbq from '@/components/copyright/tanchuangbq.vue';//版权弹窗
 import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
 import patentscreen from '@/components/paycenter/patentscreen.vue'
 import copyrightBottom from '@/components/paycenter/copyrightBottom.vue'
@@ -71,7 +76,8 @@ export default {
             currentPage: 1,
             pagesize: 0,
             total:0,
-            isshowtwo:false
+            isshowtwo:false,
+            isshowthree:false,
         }
 
     },
@@ -112,6 +118,20 @@ export default {
                 search(id){
                         this.ispost(id)
                 },
+                //求购
+                        qiugou(){
+                                this.isshowthree = true
+                        },
+                        showsthree(){
+                                this.isshowthree = false
+                        },
+                        closetc(){
+                                this.isshowthree = false
+                        },
+                        kefux(){
+                                this.isshowthree = false
+                                this.isshowtwo = true
+                        },
                      //商标显示弹框
                      tanchuang(){
                        this.isshow = true
@@ -179,7 +199,8 @@ export default {
                 }
                 },
     components:{
-        'v-tanchuangbq':tanchuangbq,//专利弹窗
+        'v-purchasebq':purchasebq,//购买弹窗
+        'v-tanchuangbq':tanchuangbq,//版权弹窗
         copyrightOrdinary,
         patentscreen,copyrightBottom,
         'v-customer':customer

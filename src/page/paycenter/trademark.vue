@@ -33,7 +33,7 @@
                                 <!-- :current-page.sync="currentPage3" -->
                                 <!-- 当前业数 -->
                         </div>
-                        <trademarkbo :listdata="listdata" @kefu="kefu" @tanchuang="tanchuang"></trademarkbo>
+                        <trademarkbo :listdata="listdata" @kefu="kefu" @qiugou="qiugou"></trademarkbo>
                 </div>
                 <v-combotttom></v-combotttom>
                 <!-- 商标弹窗 -->
@@ -44,10 +44,15 @@
                 <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
                         <v-customer @shows="showstwo"></v-customer>
                 </div>
+                <!-- 我要求购 -->
+                <div class="tanchuang" v-show="isshowthree" @click.self="showsthree">
+                        <v-purchasesb @closetc="closetc" @fabu="fabu" @kefux="kefux"></v-purchasesb>
+                </div>
         </div>
 </template>
 
 <script>
+        import purchasesb from '@/components/copyright/purchasesb.vue'//求购弹窗
          import customer from '@/components/customers/customer_services.vue'//客服弹窗
         import tanchuangsb from '../../components/copyright/tanchuangsb.vue'//商标弹窗
         import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
@@ -76,7 +81,8 @@
                                 pagesize: 0,
                                 total:0,
                                 data:[],
-                                isshowtwo:false
+                                isshowtwo:false,
+                                isshowthree:false,
                         }
 
                 },
@@ -116,6 +122,20 @@
                                         this.ispost()
                                 }
 
+                        },
+                        //求购
+                        qiugou(){
+                                this.isshowthree = true
+                        },
+                        showsthree(){
+                                this.isshowthree = false
+                        },
+                        closetc(){
+                                this.isshowthree = false
+                        },
+                        kefux(){
+                                this.isshowthree = false
+                                this.isshowtwo = true
                         },
                         //商标显示弹框
                         tanchuang(){
@@ -203,6 +223,7 @@
                 },
                 components: {
                         'v-tanchuangsb':tanchuangsb,//商标弹窗
+                        'v-purchasesb':purchasesb,//购买弹窗
                         copyrightOrdinary,
                         trademarkscreen,
                         trademarkcon,

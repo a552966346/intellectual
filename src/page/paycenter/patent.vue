@@ -28,7 +28,7 @@
                         </div>
 
                         <!-- 猜你喜欢 -->
-                        <patentbottom :listdata="listdata" @kefu="kefu" @tanchuang="tanchuang"></patentbottom>
+                        <patentbottom :listdata="listdata" @kefu="kefu" @qiugou="qiugou"></patentbottom>
                 </div>
                 <v-combotttom></v-combotttom>
                 <div class="tanchuang" v-show="isshow" @click.self="shows">
@@ -38,12 +38,17 @@
                 <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
                         <v-customer @shows="showstwo"></v-customer>
                 </div>
+                <!-- 我要求购 -->
+                <div class="tanchuang" v-show="isshowthree" @click.self="showsthree">
+                        <v-purchasezl @closetc="closetc" @fabu="fabu" @kefux="kefux"></v-purchasezl>
+                </div>
         </div>
 </template>
 
 <script>
+import purchasezl from '@/components/copyright/purchasezl.vue'//求购弹窗
 import tanchuangzl from '@/components/copyright/tanchauangzl.vue';//专利弹窗
- import customer from '@/components/customers/customer_services.vue'//客服弹窗
+import customer from '@/components/customers/customer_services.vue'//客服弹窗
 import patentscreen from '@/components/paycenter/patentscreen.vue'; //专利筛选组件
 import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
 import patentbottom from '@/components/paycenter/patentbottom.vue'
@@ -67,7 +72,8 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                 // 分页
                                 currentPage: 1,
                                 pagesize: 0,
-                                total:0
+                                total:0,
+                                isshowthree:false,
                         }
                 },
                 beforeMount() {
@@ -105,6 +111,20 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                 }else{
                                          this.ispost()
                                 }
+                        },
+                        //求购
+                        qiugou(){
+                                this.isshowthree = true
+                        },
+                        showsthree(){
+                                this.isshowthree = false
+                        },
+                        closetc(){
+                                this.isshowthree = false
+                        },
+                        kefux(){
+                                this.isshowthree = false
+                                this.isshowtwo = true
                         },
                         //商标弹框隐藏
                         kefu(){
@@ -182,6 +202,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                 },
                 components: {
                         'v-tanchuangzl':tanchuangzl,//专利弹窗
+                        'v-purchasezl':purchasezl,//购买弹窗
                         copyrightOrdinary,
                         patentbottom,
                         patentscreen,
