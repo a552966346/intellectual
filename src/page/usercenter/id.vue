@@ -120,42 +120,6 @@
                                                 </el-col>
                                         </el-form-item>
                                 </el-form>
-                                <!-- <div class="name"><p>真实姓名:</p>
-                    <el-input v-model="realname" placeholder="请输入您的真实姓名，认证后不可更改"></el-input>
-                </div>
-                <div class="ids"><p>证件号码:</p>
-                    <el-input v-model="idnumber" placeholder="请输入您真实姓名对应的证件号码"></el-input>
-                </div>
-
-
-                <div class="bank"><p>开户银行:</p>
-                    <el-input v-model="bank" placeholder="请选择您的账号"></el-input>
-                    <img src="../../../static/img/usercenter/arrow.png" alt="">
-                </div>
-                <div class="bankname"><p>支行名称:</p>
-                    <el-input v-model="subbranch" placeholder="请输入支行名称"></el-input>
-                </div>
-                <div class="openingaccount"><p>开户地区:</p>
-                    <el-input v-model="subbranch" placeholder="请选择开户身份"></el-input><img class="arrow1" src="../../../static/img/usercenter/arrow.png" alt="">
-                    <el-input v-model="city" placeholder="请选择开户市级"></el-input><img class="arrow2" src="../../../static/img/usercenter/arrow.png" alt="">
-                </div>
-                <div class="name"><p>银行卡号:</p>
-                    <el-input v-model="cardnumber" placeholder="请输入对应真实姓名开户的银行卡号"></el-input>
-                </div>
-                <div class="phone"><p>绑定手机:</p>
-                    <el-input v-model="mobile" placeholder="155****2220"></el-input>
-                    <button>免费获取校验码</button>
-                </div>
-                <div class="phonenumber"><span>手机校验码:</span>
-                    <el-input v-model="captcha" placeholder="请输入您收到的手机校验码"></el-input>
-                </div>
-                <div class="submit">
-                    <button  @click="ispost">提交</button>
-                    <div class="sub_text">
-                        <img src="../../../static/img/usercenter/exclamationpoint.png" alt="">
-                        <span>请填写真实信息，一旦填写，不可更改！</span>
-                    </div>
-                </div> -->
                         </div>
                 </div>
         </div>
@@ -243,9 +207,9 @@
                                 console.log(this.realname);
                                 console.log(this.idnumber);
                                 this.$api.authentication()
-                                        .then(res => {
-                                                console.log(res);
-                                        })
+                                .then(res => {
+                                        console.log(res);
+                                })
                         }
                 }
 
