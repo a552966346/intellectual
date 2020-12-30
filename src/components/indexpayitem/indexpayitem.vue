@@ -24,7 +24,7 @@
                                 </div>
                         </div>
                 </div>
-                <!-- 版权交易 -->
+                <!-- 版权交易  软著交易-->
                 <div class="indexpay_right" v-if="istrades">
                         <!-- 查看更多 -->
                         <div>
@@ -59,7 +59,7 @@
                                                 @click="active_top(index,item.id,item.name)">{{item.name}}</span>
                                 </div>
                                 <div class="indexpay_right_item_list">
-                                        <div class="indexpay_right_item_item" v-for="(item,index) in transaction" v-if="index<9">
+                                        <div class="indexpay_right_item_item" v-for="(item,index) in transaction" :key="item.id" v-if="index<9">
                                                 <router-link :to="'service_xlj_three?id='+item.id">
                                                         <p class="title">{{item.name}}</p>
                                                         <div class="er">

@@ -43,12 +43,13 @@
                     </el-form-item>
                     <el-form-item label="商品主图：" >
                             <span>请选择图片上传方式，丰富真实的图片信息将加速商品出售</span>
-                            <div class="tu">
-                                <div class="tu_img"><img src="../../../static/img/usercenter/add.png" alt=""></div>
-                                <div class="tu_text">
-                                    <p>添加图片</p><p>如产品效果图</p>
-                                </div>
-                            </div>
+                            <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview"
+                                        :on-remove="handleRemove">
+                                        <i class="el-icon-plus"></i>
+                            </el-upload>
+                            <el-dialog :visible.sync="dialogVisible">
+                                        <img width="100%" :src="dialogImageUrl" alt="">
+                            </el-dialog>
                     </el-form-item>
                     <el-form-item label="登记状态：" prop="radio1" name="djzt">
                         <el-radio v-model="bqform.radio1" label="1">已下证</el-radio>
@@ -144,11 +145,13 @@ export default {
                 content: ``,
                 editorOption: {},
             bqform: {
+                    dialogImageUrl: '',
+                    dialogVisible: false,
                     name: '', //名称
                     theme:'',//题材
                     author:'',//作者
                     owner:'',//著作权人
-                    niandai:'',
+                    niandai:'',//年代
                     // select: '',
                     num: '', //专利号
                     register:'',//注册号
@@ -172,12 +175,42 @@ export default {
                             trigger: 'blur',
                             message: '请输入专利名称'
                     }, ],
-                    num: [{
+                    theme: [{
                             required: true,
                             trigger: 'blur',
-                            message: '请输入专利号'
+                            message: '请输入题材'
                     }, ],
-                    minprice: [{
+                    author: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请输入作者'
+                    }, ],
+                    owner: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请输入著作权人'
+                    }, ],
+                    register: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请输入登记号'
+                    }, ],
+                    period: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请输入授权年限'
+                    }, ],
+                    name: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请输入专利名称'
+                    }, ],
+                    qq: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请输入qq号'
+                    }, ],
+                    sellprice: [{
                             required: true,
                             trigger: 'blur',
                             message: '请输入出售低价'
@@ -245,29 +278,7 @@ export default {
 .el-form-item__content>span{
     color: #d2d2d2;
 }
-.el-form-item__content>.tu{
-    width: 180px;
-    height: 180px;
-    background-color: #dadada;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.el-form-item__content>.tu>.tu_img{
-    height: 50px;
-    width: 50px;
-    margin-bottom: 24px;
-}
-.el-form-item__content>.tu>.tu_img>img{
-    width: 100%;
-}
-.el-form-item__content>.tu>.tu_text>p{
-    line-height: 2;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-}
+
 .fabu{
     display: flex;
 }
