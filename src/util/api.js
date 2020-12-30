@@ -648,13 +648,25 @@ const api = {
             }
          return requestAll.requset(baseUrl + '/api/user/changemobile',data);
     },
-    password(){
+    password(uid,password,code){
             let data={
                     uid:uid,
                     password:password,
                     code:code
             }
             return requestAll.requset(baseUrl + '/api/user/resetpwd',data);
+    },
+    uersname(uid,avatar,nickname,truename,birthday,email,gender){
+            let data={
+                    uid:uid,
+                    avatar:avatar,
+                    nickname:nickname,
+                    truename:truename,
+                    birthday:birthday,
+                    email:email,
+                    gender:gender
+            }
+            return requestAll.requset(baseUrl + '/api/user/saveuserinfo',data);
     }
 }
 export default api;

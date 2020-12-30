@@ -57,7 +57,7 @@
         data(){
             return{
                 ruleForm: {
-                    phone: '',
+                    password: '',
                     code: ''
                 },
                 rules: {
