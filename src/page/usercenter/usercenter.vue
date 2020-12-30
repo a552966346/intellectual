@@ -212,11 +212,11 @@
                          账号设置
                        </template>
                         <el-menu-item index="/usercenter/userid?type=0">实名认证</el-menu-item>
-                         <el-menu-item index="/usercenter/userid?type=1">修改手机号</el-menu-item>
+                         <el-menu-item index="/usercenter/usermoilephone">修改手机号</el-menu-item>
                          <el-menu-item index="/usercenter/userid?type=2">修改登录密码</el-menu-item>
-                         <el-menu-item index="/usercenter/userid?type=3">个人信息</el-menu-item>
-                         <el-menu-item index="/usercenter/userid?type=4">收货地址</el-menu-item>
-                         <el-menu-item index="/usercenter/userid?type=5">我的邮箱</el-menu-item>
+                         <el-menu-item index="/usercenter/userpersonal">个人信息</el-menu-item>
+                         <el-menu-item index="/usercenter/userreceadd">收货地址</el-menu-item>
+                         <el-menu-item index="/usercenter/usermail">我的邮箱</el-menu-item>
                      </el-submenu>
                       <el-submenu index="/usercenter/usermessage">
                         <template slot="title">

@@ -337,7 +337,6 @@
                         isrightpost() {
                                 this.$api.userregistervertisement()
                                         .then(res => {
-                                                console.log(res)
                                                 this.bgimage = res.data.images
                                         })
                         },
@@ -347,13 +346,9 @@
                                 this.$refs[formName].validate((valid) => {
                                         if (valid) {
                                                 if (this.toggle_page) {
-
-                                                        console.log(this.login_ruleForm.username, this.login_ruleForm
-                                                                .pass)
                                                         this.$api.userlogin(this.login_ruleForm.username,
                                                                         this.login_ruleForm.pass)
                                                                 .then(res => {
-                                                                        console.log(res)
                                                                         if (res.code == 1) {
                                                                                 if(that.automatic){
                                                                                         localStorage['user']=JSON.stringify(res.data.userinfo)

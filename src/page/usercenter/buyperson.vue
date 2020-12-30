@@ -61,14 +61,10 @@
                 },
                 watch: {
                 	$route(to, from){
-                                let loadingInstance = Loading.service(document.querySelector("#buy_con"));
                 		this.num=this.$route.query.type
                                 this.style = this.$route.query.style
                                 // console.log(this.style,2222222)
                                  this.ispost(this.style,this.num)
-                                 this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
-                                   loadingInstance.close();
-                                 });
                 	}
                 },
                 mounted() {
@@ -83,10 +79,8 @@
                 },
                 methods: {
                         tab(index,id) {
-                                
                                 this.num = id;
                                 this.ispost(this.style,id)
-                               
                         },
                         ispost(style,index){
                                 console.log(this.data)
