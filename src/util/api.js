@@ -603,7 +603,7 @@ const api = {
             }
              return requestAll.requset(baseUrl + '/api/seller/add_patents',data);
     },
-    userauthentication(uid,realname,idnumber,idfront,idrear,idhand,bank,subbranch,province,city,cardnumber,type,mobile,captcha){
+    userauthentication(uid,realname,idnumber,idfront,idrear,idhand,bank,subbranch,province,city,cardnumber,type,email,mobile,captcha){
             let data={
                     uid:uid,
                     realname:realname,//真实姓名
@@ -617,10 +617,20 @@ const api = {
                     city:city,//市
                     cardnumber:cardnumber,//卡号
                     type:type,//类型
+                    email:email,
                     mobile:mobile,
                     captcha:captcha
             }
             return requestAll.requset(baseUrl + '/api/account/attestation',data);
+    },
+    areadata(){
+            return requestAll.requset(baseUrl + '/api/account/areadata');
+    },
+    citydata(id){
+            let data={
+                    pid:id
+            }
+          return requestAll.requset(baseUrl + '/api/account/citydata',data);
     }
 }
 

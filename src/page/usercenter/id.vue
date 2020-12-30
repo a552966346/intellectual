@@ -4,20 +4,20 @@
                         <div class="top_text">账号设置/实名认证</div>
                 </div>
                 <ul class="id_con">
-                        <button class="con_t_item">个人实名认证</button>
-                        <button class="con_t_item">企业实名认证</button>
+                        <button class="con_t_item":class="{back:isshow==1}" @click="isshow1">个人实名认证</button>
+                        <button class="con_t_item" :class="{back:isshow==2}" @click="isshow2">企业实名认证</button>
                         <li class="t_right">
                                 <button>联系认证客服</button>
                         </li>
                 </ul>
-                <div class="id_center">
+                <div class="id_center" v-show="isshow==1">
                         <div class="center_t">
                                 <span>实名认证</span>
                                 <img src="../../../static/img/usercenter/exclamationpoint.png" alt="">
-                                <span>未认证实名认证后，可提升账号安全等级，资金提现，绑定银行卡等操作</span>
+                                <span>实名认证后，可提升账号安全等级，资金提现，绑定银行卡等操作</span>
                         </div>
                         <div class="center_b">
-                                <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+                                <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="130px" class="demo-ruleForm">
                                         <el-form-item label="真实姓名" prop="name">
                                                 <el-input v-model="ruleForm.name"></el-input>
                                         </el-form-item>
@@ -25,50 +25,95 @@
                                                 <el-input v-model="ruleForm.number"></el-input>
                                         </el-form-item>
                                         <p>温馨提示：证件必须是清洗彩色原件版本。可以是扫描件或者数码拍摄照片。仅支持jpg、png、jpeg的图片格式。2M以内。</p>
-                                        <div class="ids_1">身份证人像面:
-                                                <div class="ids_11">
-                                                        <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/"
-                                                                :show-file-list="false" :on-success="handleAvatarSuccess"
-                                                                :before-upload="beforeAvatarUpload">
-                                                                <img v-if="imageUrl" :src="imageUrl" class="avatar">
-                                                                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                                                        </el-upload>
-                                                </div>
-                                                示例:
-                                                <div class="ids_12">
-                                                        <div class="img"><img src="../../../static/img/usercenter/example-1.png"
-                                                                        alt=""></div>
-                                                        <p>请提供清晰照片，漏出证件四角</p>
-                                                </div>
-                                        </div>
-                                        <div class="ids_1">身份证国徽面:
-                                                <div class="ids_11">
-                                                        <img src="../../../static/img/usercenter/photo.png" alt="">
-                                                        <button>上传图片</button>
-                                                </div>
-                                                示例:
-                                                <div class="ids_12">
-                                                        <div class="img"><img src="../../../static/img/usercenter/example-1.png"
-                                                                        alt=""></div>
-                                                        <p>请提供清晰照片，漏出证件四角</p>
-                                                </div>
-                                        </div>
-                                        <div class="ids_1 photo">手持身份证照片:
-                                                <div class="ids_11">
-                                                        <img src="../../../static/img/usercenter/photo.png" alt="">
-                                                        <button>上传图片</button>
-                                                </div>
-                                                示例:
-                                                <div class="ids_12">
-                                                        <div class="img"><img src="../../../static/img/usercenter/example-1.png"
-                                                                        alt=""></div>
-                                                        <p>请提供清晰照片，漏出证件四角</p>
-                                                </div>
-                                        </div>
+                                        <el-form-item label="身份证人像面:" prop="imageUrl">
+                                                <el-col :span="11">
+                                                        <div class="ids_11">
+                                                                <el-upload class="avatar-uploader" action="aaaa"
+                                                                        :show-file-list="false" :on-success="handleAvatarSuccess"
+                                                                        :on-change="fileChange" :auto-upload="false"
+                                                                        :before-upload="beforeAvatarUpload">
+                                                                        <img v-if="ruleForm.imageUrl" :src="ruleForm.imageUrl"
+                                                                                class="avatar">
+                                                                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                                                                </el-upload>
+                                                        </div>
+                                                </el-col>
+                                                <el-col :span="11">
+                                                        <div style="display: flex;">
+                                                                <p>示例:</p>
+                                                                <div class="ids_12">
+                                                                        <div class="img"><img src="../../../static/img/usercenter/example-1.png"
+                                                                                        alt=""></div>
+                                                                        <p>请提供清晰照片，漏出证件四角</p>
+                                                                </div>
+                                                        </div>
+                                                </el-col>
+                                        </el-form-item>
+                                        <el-form-item label="身份证国徽面:" prop="imageUrl">
+                                                <el-col :span="11">
+                                                        <div class="ids_11">
+                                                                <el-upload class="avatar-uploader" action="aaaa"
+                                                                        :show-file-list="false" :on-success="handleAvatarSuccess"
+                                                                        :on-change="fileChange2" :auto-upload="false"
+                                                                        :before-upload="beforeAvatarUpload">
+                                                                        <img v-if="ruleForm.imageUrl2" :src="ruleForm.imageUrl2"
+                                                                                class="avatar">
+                                                                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                                                                </el-upload>
+                                                        </div>
+                                                </el-col>
+                                                <el-col :span="11">
+                                                        <div style="display: flex;">
+                                                                <p>示例:</p>
+                                                                <div class="ids_12">
+                                                                        <div class="img"><img src="../../../static/img/usercenter/example-1.png"
+                                                                                        alt=""></div>
+                                                                        <p>请提供清晰照片，漏出证件四角</p>
+                                                                </div>
+                                                        </div>
+                                                </el-col>
+                                        </el-form-item>
+                                        <el-form-item label="手持身份证照片:" prop="imageUrl">
+                                                <el-col :span="11">
+                                                        <div class="ids_11">
+                                                                <el-upload class="avatar-uploader" action="aaaa"
+                                                                        :show-file-list="false" :on-success="handleAvatarSuccess"
+                                                                        :on-change="fileChange3" :auto-upload="false"
+                                                                        :before-upload="beforeAvatarUpload">
+                                                                        <img v-if="ruleForm.imageUrl3" :src="ruleForm.imageUrl3"
+                                                                                class="avatar">
+                                                                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                                                                </el-upload>
+                                                        </div>
+                                                </el-col>
+                                                <el-col :span="11">
+                                                        <div style="display: flex;">
+                                                                <p>示例:</p>
+                                                                <div class="ids_12">
+                                                                        <div class="img"><img src="../../../static/img/usercenter/example-1.png"
+                                                                                        alt=""></div>
+                                                                        <p>请提供清晰照片，漏出证件四角</p>
+                                                                </div>
+                                                        </div>
+                                                </el-col>
+                                        </el-form-item>
                                         <el-form-item label="开户银行" prop="bank">
                                                 <el-select v-model="ruleForm.bank" placeholder="请选择开户银行">
-                                                        <el-option label="区域一" value="shanghai"></el-option>
-                                                        <el-option label="区域二" value="beijing"></el-option>
+                                                        <el-option label="中国工商银行" value="1"></el-option>
+                                                        <el-option label="中国建设银行" value="2"></el-option>
+                                                        <el-option label="中国银行" value="3"></el-option>
+                                                        <el-option label="交通银行" value="4"></el-option>
+                                                        <el-option label="中国农业银行" value="5"></el-option>
+                                                        <el-option label="招商银行" value="6"></el-option>
+                                                        <el-option label="邮政储蓄银行" value="7"></el-option>
+                                                        <el-option label="广大银行" value="8"></el-option>
+                                                        <el-option label="民生银行" value="9"></el-option>
+                                                        <el-option label="平安银行" value="10"></el-option>
+                                                        <el-option label="浦发银行" value="11"></el-option>
+                                                        <el-option label="中信银行" value="12"></el-option>
+                                                        <el-option label="兴业银行" value="13"></el-option>
+                                                        <el-option label="华夏银行" value="14"></el-option>
+                                                        <el-option label="晋中银行" value="15"></el-option>
                                                 </el-select>
                                         </el-form-item>
                                         <el-form-item label="支行名称" prop="bankname">
@@ -78,17 +123,19 @@
                                         <el-form-item label="开户地区" required>
                                                 <el-col :span="11">
                                                         <el-form-item prop="select1">
-                                                                <el-select v-model="ruleForm.select1" placeholder="请选择开户身份">
-                                                                        <el-option label="区域一" value="shanghai"></el-option>
-                                                                        <el-option label="区域二" value="beijing"></el-option>
+                                                                <el-select v-model="ruleForm.select1" placeholder="省"
+                                                                        @change="select">
+                                                                        <el-option :label="item.name" :value="item.id"
+                                                                                v-for="item in province"></el-option>
                                                                 </el-select>
                                                         </el-form-item>
                                                 </el-col>
                                                 <el-col :span="11">
                                                         <el-form-item prop="select2">
-                                                                <el-select v-model="ruleForm.select2" placeholder="请选择开户身份">
-                                                                        <el-option label="区域一" value="shanghai"></el-option>
-                                                                        <el-option label="区域二" value="beijing"></el-option>
+                                                                <el-select v-model="ruleForm.select2" placeholder="市">
+                                                                        <el-option :label="item.name" :value="item.id"
+                                                                                v-for="item in city"></el-option>
+
                                                                 </el-select>
                                                         </el-form-item>
                                                 </el-col>
@@ -96,71 +143,211 @@
                                         <el-form-item label="银行卡号" prop="idcard">
                                                 <el-input v-model="ruleForm.idcard" placeholder="请输入开户银行卡号"></el-input>
                                         </el-form-item>
-                                       <el-form-item label="绑定手机" >
-                                                <el-col :span="11">
-                                                         <el-input v-model="ruleForm.phone"></el-input>
-                                                </el-col>
-                                                <el-col :span="3">
-                                                        <el-button @click="iscode">免费获取验证码</el-button>
-                                                </el-col>
+                                        <el-form-item label="绑定邮箱" prop="emil">
+                                                <el-input v-model="ruleForm.emil"></el-input>
                                         </el-form-item>
-                                        <el-form-item label="手机校验码" prop="code">
-                                                <el-input v-model="ruleForm.code"></el-input>
-                                        </el-form-item>
-                                        <el-form-item >
+                                      <el-form-item label="手机号" prop="phone">
+                                              <el-input v-model="ruleForm.phone"></el-input>
+                                      </el-form-item>
+                                      <el-form-item label="验证码" prop="code">
+                                              <el-col :span="11">
+                                              <el-input v-model="ruleForm.code"></el-input>
+                                              </el-col>
+                                              <el-col :span="3">
+                                                      <div class="grid-content">
+                                                              <div><img :src="'http://intellectual.jzhxwl.com/captcha.html?r='+html"
+                                                                              alt="" @click="getVerification"></div>
+                                                      </div>
+                                              </el-col>
+                                      </el-form-item>
+                                        <el-form-item>
                                                 <el-col :span="5">
-                                                <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
+                                                        <el-button type="primary" @click="submitForm('ruleForm')">资料上传</el-button>
                                                 </el-col>
                                                 <el-col :span="15">
-                                                <div class="sub_text" style="float: right;">
-                                                        <img src="../../../static/img/usercenter/exclamationpoint.png"
-                                                                alt="">
-                                                        <span>请填写真实信息，一旦填写，不可更改！</span>
-                                                </div>
+                                                        <div class="sub_text" style="float: right;">
+                                                                <img src="../../../static/img/usercenter/exclamationpoint.png"
+                                                                        alt="">
+                                                                <span>请填写真实信息，一旦填写，不可更改！</span>
+                                                        </div>
                                                 </el-col>
                                         </el-form-item>
                                 </el-form>
-                                <!-- <div class="name"><p>真实姓名:</p>
-                    <el-input v-model="realname" placeholder="请输入您的真实姓名，认证后不可更改"></el-input>
+                        </div>
                 </div>
-                <div class="ids"><p>证件号码:</p>
-                    <el-input v-model="idnumber" placeholder="请输入您真实姓名对应的证件号码"></el-input>
-                </div>
+                <div class="id_center" v-show="isshow==2">
+                        <div class="center_t">
+                                <span>企业认证</span>
+                                <img src="../../../static/img/usercenter/exclamationpoint.png" alt="">
+                                <span>企业认证后，可提升账号安全等级，资金提现，绑定银行卡等操作</span>
+                        </div>
+                        <div class="center_b">
+                                <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="130px" class="demo-ruleForm">
+                                        <el-form-item label="真实姓名" prop="name">
+                                                <el-input v-model="ruleForm.name"></el-input>
+                                        </el-form-item>
+                                        <el-form-item label="营业执照号" prop="number">
+                                                <el-input v-model="ruleForm.number"></el-input>
+                                        </el-form-item>
+                                        <p>温馨提示：证件必须是清洗彩色原件版本。可以是扫描件或者数码拍摄照片。仅支持jpg、png、jpeg的图片格式。2M以内。</p>
+                                        <el-form-item label="营业执照:" prop="imageUrl">
+                                                <el-col :span="11">
+                                                        <div class="ids_11">
+                                                                <el-upload class="avatar-uploader" action="aaaa"
+                                                                        :show-file-list="false" :on-success="handleAvatarSuccess"
+                                                                        :on-change="fileChange" :auto-upload="false"
+                                                                        :before-upload="beforeAvatarUpload">
+                                                                        <img v-if="ruleForm.imageUrl" :src="ruleForm.imageUrl"
+                                                                                class="avatar">
+                                                                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                                                                </el-upload>
+                                                        </div>
+                                                </el-col>
+                                                <el-col :span="11">
+                                                        <div style="display: flex;">
+                                                                <p>示例:</p>
+                                                                <div class="ids_12">
+                                                                        <div class="img"><img src="../../../static/img/usercenter/example-1.png"
+                                                                                        alt=""></div>
+                                                                        <p>请提供清晰照片，漏出证件四角</p>
+                                                                </div>
+                                                        </div>
+                                                </el-col>
+                                        </el-form-item>
+                                        <el-form-item label="身份证国徽面:" prop="imageUrl">
+                                                <el-col :span="11">
+                                                        <div class="ids_11">
+                                                                <el-upload class="avatar-uploader" action="aaaa"
+                                                                        :show-file-list="false" :on-success="handleAvatarSuccess"
+                                                                        :on-change="fileChange2" :auto-upload="false"
+                                                                        :before-upload="beforeAvatarUpload">
+                                                                        <img v-if="ruleForm.imageUrl2" :src="ruleForm.imageUrl2"
+                                                                                class="avatar">
+                                                                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                                                                </el-upload>
+                                                        </div>
+                                                </el-col>
+                                                <el-col :span="11">
+                                                        <div style="display: flex;">
+                                                                <p>示例:</p>
+                                                                <div class="ids_12">
+                                                                        <div class="img"><img src="../../../static/img/usercenter/example-1.png"
+                                                                                        alt=""></div>
+                                                                        <p>请提供清晰照片，漏出证件四角</p>
+                                                                </div>
+                                                        </div>
+                                                </el-col>
+                                        </el-form-item>
+                                        <el-form-item label="手持身份证照片:" prop="imageUrl">
+                                                <el-col :span="11">
+                                                        <div class="ids_11">
+                                                                <el-upload class="avatar-uploader" action="aaaa"
+                                                                        :show-file-list="false" :on-success="handleAvatarSuccess"
+                                                                        :on-change="fileChange3" :auto-upload="false"
+                                                                        :before-upload="beforeAvatarUpload">
+                                                                        <img v-if="ruleForm.imageUrl3" :src="ruleForm.imageUrl3"
+                                                                                class="avatar">
+                                                                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                                                                </el-upload>
+                                                        </div>
+                                                </el-col>
+                                                <el-col :span="11">
+                                                        <div style="display: flex;">
+                                                                <p>示例:</p>
+                                                                <div class="ids_12">
+                                                                        <div class="img"><img src="../../../static/img/usercenter/example-1.png"
+                                                                                        alt=""></div>
+                                                                        <p>请提供清晰照片，漏出证件四角</p>
+                                                                </div>
+                                                        </div>
+                                                </el-col>
+                                        </el-form-item>
+                                        <el-form-item label="开户银行" prop="bank">
+                                                <el-select v-model="ruleForm.bank" placeholder="请选择开户银行">
+                                                        <el-option label="中国工商银行" value="1"></el-option>
+                                                        <el-option label="中国建设银行" value="2"></el-option>
+                                                        <el-option label="中国银行" value="3"></el-option>
+                                                        <el-option label="交通银行" value="4"></el-option>
+                                                        <el-option label="中国农业银行" value="5"></el-option>
+                                                        <el-option label="招商银行" value="6"></el-option>
+                                                        <el-option label="邮政储蓄银行" value="7"></el-option>
+                                                        <el-option label="广大银行" value="8"></el-option>
+                                                        <el-option label="民生银行" value="9"></el-option>
+                                                        <el-option label="平安银行" value="10"></el-option>
+                                                        <el-option label="浦发银行" value="11"></el-option>
+                                                        <el-option label="中信银行" value="12"></el-option>
+                                                        <el-option label="兴业银行" value="13"></el-option>
+                                                        <el-option label="华夏银行" value="14"></el-option>
+                                                        <el-option label="晋中银行" value="15"></el-option>
+                                                </el-select>
+                                        </el-form-item>
+                                        <el-form-item label="支行名称" prop="bankname">
+                                                <el-input v-model="ruleForm.bankname" placeholder="请输入支行名称"></el-input>
+                                        </el-form-item>
 
+                                        <el-form-item label="开户地区" required>
+                                                <el-col :span="11">
+                                                        <el-form-item prop="select1">
+                                                                <el-select v-model="ruleForm.select1" placeholder="省"
+                                                                        @change="select">
+                                                                        <el-option :label="item.name" :value="item.id"
+                                                                                v-for="item in province"></el-option>
+                                                                </el-select>
+                                                        </el-form-item>
+                                                </el-col>
+                                                <el-col :span="11">
+                                                        <el-form-item prop="select2">
+                                                                <el-select v-model="ruleForm.select2" placeholder="市">
+                                                                        <el-option :label="item.name" :value="item.id"
+                                                                                v-for="item in city"></el-option>
 
-                <div class="bank"><p>开户银行:</p>
-                    <el-input v-model="bank" placeholder="请选择您的账号"></el-input>
-                    <img src="../../../static/img/usercenter/arrow.png" alt="">
-                </div>
-                <div class="bankname"><p>支行名称:</p>
-                    <el-input v-model="subbranch" placeholder="请输入支行名称"></el-input>
-                </div>
-                <div class="openingaccount"><p>开户地区:</p>
-                    <el-input v-model="subbranch" placeholder="请选择开户身份"></el-input><img class="arrow1" src="../../../static/img/usercenter/arrow.png" alt="">
-                    <el-input v-model="city" placeholder="请选择开户市级"></el-input><img class="arrow2" src="../../../static/img/usercenter/arrow.png" alt="">
-                </div>
-                <div class="name"><p>银行卡号:</p>
-                    <el-input v-model="cardnumber" placeholder="请输入对应真实姓名开户的银行卡号"></el-input>
-                </div>
-                <div class="phone"><p>绑定手机:</p>
-                    <el-input v-model="mobile" placeholder="155****2220"></el-input>
-                    <button>免费获取校验码</button>
-                </div>
-                <div class="phonenumber"><span>手机校验码:</span>
-                    <el-input v-model="captcha" placeholder="请输入您收到的手机校验码"></el-input>
-                </div>
-                <div class="submit">
-                    <button  @click="ispost">提交</button>
-                    <div class="sub_text">
-                        <img src="../../../static/img/usercenter/exclamationpoint.png" alt="">
-                        <span>请填写真实信息，一旦填写，不可更改！</span>
-                    </div>
-                </div> -->
+                                                                </el-select>
+                                                        </el-form-item>
+                                                </el-col>
+                                        </el-form-item>
+                                        <el-form-item label="银行卡号" prop="idcard">
+                                                <el-input v-model="ruleForm.idcard" placeholder="请输入开户银行卡号"></el-input>
+                                        </el-form-item>
+                                        <el-form-item label="绑定邮箱" prop="emil">
+                                                <el-input v-model="ruleForm.emil"></el-input>
+                                        </el-form-item>
+                                        <el-form-item label="手机号" prop="phone">
+                                                <el-input v-model="ruleForm.phone"></el-input>
+                                        </el-form-item>
+                                        <el-form-item label="验证码" prop="code">
+                                                <el-col :span="11">
+                                                <el-input v-model="ruleForm.code"></el-input>
+                                                </el-col>
+                                                <el-col :span="3">
+                                                        <div class="grid-content">
+                                                                <div><img :src="'http://intellectual.jzhxwl.com/captcha.html?r='+html"
+                                                                                alt="" @click="getVerification"></div>
+                                                        </div>
+                                                </el-col>
+                                        </el-form-item>
+                                        <el-form-item>
+                                                <el-col :span="5">
+                                                        <el-button type="primary" @click="submitForm('ruleForm')">资料上传</el-button>
+                                                </el-col>
+                                                <el-col :span="15">
+                                                        <div class="sub_text" style="float: right;">
+                                                                <img src="../../../static/img/usercenter/exclamationpoint.png"
+                                                                        alt="">
+                                                                <span>请填写真实信息，一旦填写，不可更改！</span>
+                                                        </div>
+                                                </el-col>
+                                        </el-form-item>
+                                </el-form>
                         </div>
                 </div>
         </div>
 </template>
 <script>
+        import {
+                validatePhone,
+                validateIdNo,
+                validateEMail
+        } from '@/util/rules.js'
         export default {
                 data() {
                         return {
@@ -171,12 +358,17 @@
                                         bank: '',
                                         bankname: '',
                                         select1: '',
-                                        select2: '',
+                                        select2: '请先选择省级单位',
                                         idcard: '',
                                         imageUrl: '',
+                                        imageUrl3: '',
+                                        imageUrl2: '',
                                         phone: '',
-                                        code: ''
+                                        code: '',
+                                        file: '',
+                                        emil: ''
                                 },
+                                isshow:1,
                                 rules: {
                                         name: [{
                                                 required: true,
@@ -187,21 +379,21 @@
                                                 required: true,
                                                 message: '请输入身份证号',
                                                 trigger: 'blur'
+                                        }, {
+                                                validator: validateIdNo,
+                                                trigger: 'blur'
                                         }],
                                         bank: [{
-                                                type: 'date',
                                                 required: true,
                                                 message: '请选择开户银行',
                                                 trigger: 'change'
                                         }],
                                         select1: [{
-                                                type: 'date',
                                                 required: true,
                                                 message: '请选择开户身份',
                                                 trigger: 'change'
                                         }],
                                         select2: [{
-                                                type: 'date',
                                                 required: true,
                                                 message: '请选择开户市级',
                                                 trigger: 'change'
@@ -216,19 +408,65 @@
                                                 message: '请填写活动形式',
                                                 trigger: 'blur'
                                         }],
-                                        code:[{
+                                        code: [{
                                                 required: true,
                                                 message: '请输入验证码',
                                                 trigger: 'blur'
                                         }],
-                                }
+                                        phone: [{
+                                                required: true,
+                                                trigger: 'blur',
+                                                message: '请输入手机号'
+                                        }, {
+                                                validator: validatePhone,
+                                                trigger: 'blur'
+                                        }],
+                                        imageUrl: [{
+                                                required: true,
+                                                message: '请上传图片'
+                                        }],
+                                        emil: [{
+                                                required: true,
+                                                message: '请输入您的邮箱',
+                                                trigger: 'blur'
+                                        }, {
+                                                validator: validateEMail,
+                                                trigger: 'blur'
+                                        }],
+                                        bankname: [{
+                                                required: true,
+                                                message: '请输入支行名称',
+                                                trigger: 'blur'
+                                        }],
+                                },
+                                province: [],
+                                city: [],
+                                html: 0
                         };
                 },
+                mounted() {
+                        this.getVerification()
+                        //省分类
+                        this.$api.areadata()
+                                .then(res => {
+                                        console.log(res)
+                                        this.province = res.data
+                                })
+                },
                 methods: {
+                        //切换
+                        isshow1(){
+                                this.isshow=1
+                        },
+                        isshow2(){
+                                this.isshow=2
+                        },
                         handleAvatarSuccess(res, file) {
-                                this.imageUrl = URL.createObjectURL(file.raw);
+                                this.ruleForm.imageUrl = URL.createObjectURL(file.raw);
+                                console.log(this.ruleForm.imageUrl, 111111)
                         },
                         beforeAvatarUpload(file) {
+                                console.log(file)
                                 const isJPG = file.type === 'image/jpeg';
                                 const isLt2M = file.size / 1024 / 1024 < 2;
                                 if (!isJPG) {
@@ -239,12 +477,69 @@
                                 }
                                 return isJPG && isLt2M;
                         },
-                        ispost() {
-                                console.log(this.realname);
-                                console.log(this.idnumber);
-                                this.$api.authentication()
+                        fileChange(file, fileList) {
+                                this.image2Base64(file.raw).then(res => {
+                                        console.log(res)
+                                        this.ruleForm.imageUrl = res
+                                });
+                        },
+                        fileChange2(file, fileList) {
+                                this.image2Base64(file.raw).then(res => {
+                                        console.log(res)
+                                        this.ruleForm.imageUrl2 = res
+                                });
+                        },
+                        fileChange3(file, fileList) {
+                                this.image2Base64(file.raw).then(res => {
+                                        this.ruleForm.imageUrl3 = res
+                                });
+                        },
+                        submitForm(form) {
+                                console.log(this.$refs[form].validate)
+                                 this.$refs[form].validate((valid) => {
+                                         if(valid){
+                                                 this.$api.userauthentication(this.$store.state.user.id, this.ruleForm.name, this.ruleForm
+                                                         .number, this.ruleForm.imageUrl, this.ruleForm.imageUrl2, this.ruleForm.imageUrl3,
+                                                         this.ruleForm.bank, this.ruleForm.bankname,this.ruleForm.select1,this.ruleForm.select2,this.ruleForm.idcard,
+                                                         this.isshow,this.ruleForm.emil,
+                                                          this.ruleForm.phone,this.ruleForm.code
+                                                          )
+                                                 .then(res => {
+                                                         this.$message({
+                                                                   message:res.msg,
+                                                                   type: 'success'
+                                                                 });
+                                                 })
+                                         }
+                                 })
+
+                        },
+                        getVerification() {
+                                this.html = Math.random();
+                        },
+                        image2Base64(file) {
+                                return new Promise(function(resolve, reject) {
+                                        let reader = new FileReader();
+                                        let imgResult = "";
+                                        reader.readAsDataURL(file);
+                                        reader.onload = function() {
+                                                imgResult = reader.result;
+                                        };
+                                        reader.onerror = function(error) {
+                                                reject(error);
+                                        };
+                                        reader.onloadend = function() {
+                                                resolve(imgResult);
+                                        };
+                                });
+                        },
+                        //市级获取
+                        select() {
+                                this.ruleForm.select2 = '请选择市级单位'
+                                this.$api.citydata(this.ruleForm.select1)
                                         .then(res => {
-                                                console.log(res);
+                                                console.log(res)
+                                                this.city = res.data
                                         })
                         }
                 }
@@ -298,14 +593,14 @@
                 font-size: 14px;
         }
 
-        .con_t_item:nth-of-type(1) {
-                background-color: #1a7fc3;
-                color: #fff;
+        .back{
+                background-color: #1a7fc3!important;
+                color: #fff!important;
         }
-
-        .con_t_item:nth-of-type(2) {
+        .con_t_item {
                 background-color: #eeeeee;
                 color: #878787;
+                cursor: pointer;
         }
 
         .t_right {
@@ -401,7 +696,7 @@
         }
 
         .ids_11 img {
-                width: 20%;
+                /* width: 20%; */
         }
 
         .ids_11 button {
@@ -553,8 +848,8 @@
         }
 
         .avatar {
-                width: 178px;
-                height: 178px;
+                width: 100%;
+                height: 100%;
                 display: block;
         }
 </style>
