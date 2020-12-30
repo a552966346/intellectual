@@ -10,25 +10,42 @@
         </div>
         <div class="receadd_cent">
             <span class="receadd_sapn">您已创建0个收件地址，最多可创建10个</span>
-            <button class="receadd_btn">新建收货地址</button>
+            <button class="receadd_btn" @click="create">新建收货地址</button>
+        </div>
+        <div class="tanchuang" v-show="isshow" @click.self="shows" >
+            <v-receadd @close="close" @submit="submit"> </v-receadd>
         </div>
     </div>
+    
 </template>
 
 <script>
+import receadd from '@/components/usercenter/receadd.vue'//求购弹窗
     export default {
         data(){
             return{
-
+                isshow:false
             }
         },
         methods: {
-
+            create(){
+                this.isshow = true
+            },
+            shows(){
+                 this.isshow = false
+            },
+            close(){//商标隐藏弹框
+                             this.isshow = false
+                     },
+        },
+        components:{
+        'v-receadd':receadd,//购买弹窗
         }
     }
 </script>
 
 <style scoped>
+   .tanchuang{position: fixed;z-index: 9999;background: rgba(0,0,0,0.2);width: 100%;height: 100%;top:0;right:0;left:0;bottom:0;display: flex;justify-content: center;align-items: center;}
     .receadd_all{
         height: 100%;
         width: 100%;
