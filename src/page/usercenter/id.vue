@@ -14,6 +14,8 @@
                         <div class="center_t">
                                 <span>实名认证</span>
                                 <img src="../../../static/img/usercenter/exclamationpoint.png" alt="">
+                                <span style="color: red;padding-right: 5px;" v-if="status !=1">{{msg}}</span>
+                                <span style="color: green;" v-else>{{msg}}</span>
                                 <span>实名认证后，可提升账号安全等级，资金提现，绑定银行卡等操作</span>
                         </div>
                         <div class="center_b">
@@ -179,15 +181,17 @@
                         <div class="center_t">
                                 <span>企业认证</span>
                                 <img src="../../../static/img/usercenter/exclamationpoint.png" alt="">
+                                <span style="color: red;padding-right: 5px;" v-if="status != 1">{{msg2}}</span>
+                                <span style="color: green;" v-else>{{msg2}}</span>
                                 <span>企业认证后，可提升账号安全等级，资金提现，绑定银行卡等操作</span>
                         </div>
                         <div class="center_b">
-                                <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="130px" class="demo-ruleForm">
+                                <el-form :model="ruleForm2" :rules="rules" ref="ruleForm2" label-width="130px" class="demo-ruleForm">
                                         <el-form-item label="真实姓名" prop="name">
-                                                <el-input v-model="ruleForm.name"></el-input>
+                                                <el-input v-model="ruleForm2.name2"></el-input>
                                         </el-form-item>
                                         <el-form-item label="营业执照号" prop="number">
-                                                <el-input v-model="ruleForm.number"></el-input>
+                                                <el-input v-model="ruleForm2.number2"></el-input>
                                         </el-form-item>
                                         <p>温馨提示：证件必须是清洗彩色原件版本。可以是扫描件或者数码拍摄照片。仅支持jpg、png、jpeg的图片格式。2M以内。</p>
                                         <el-form-item label="营业执照:" prop="imageUrl">
@@ -197,7 +201,7 @@
                                                                         :show-file-list="false" :on-success="handleAvatarSuccess"
                                                                         :on-change="fileChange" :auto-upload="false"
                                                                         :before-upload="beforeAvatarUpload">
-                                                                        <img v-if="ruleForm.imageUrl" :src="ruleForm.imageUrl"
+                                                                        <img v-if="ruleForm2.imageUrl2" :src="ruleForm2.imageUrl2"
                                                                                 class="avatar">
                                                                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                                                                 </el-upload>
@@ -221,7 +225,7 @@
                                                                         :show-file-list="false" :on-success="handleAvatarSuccess"
                                                                         :on-change="fileChange2" :auto-upload="false"
                                                                         :before-upload="beforeAvatarUpload">
-                                                                        <img v-if="ruleForm.imageUrl2" :src="ruleForm.imageUrl2"
+                                                                        <img v-if="ruleForm2.imageUrl22" :src="ruleForm2.imageUrl22s"
                                                                                 class="avatar">
                                                                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                                                                 </el-upload>
@@ -245,7 +249,7 @@
                                                                         :show-file-list="false" :on-success="handleAvatarSuccess"
                                                                         :on-change="fileChange3" :auto-upload="false"
                                                                         :before-upload="beforeAvatarUpload">
-                                                                        <img v-if="ruleForm.imageUrl3" :src="ruleForm.imageUrl3"
+                                                                        <img v-if="ruleForm2.imageUrl32" :src="ruleForm2.imageUrl32"
                                                                                 class="avatar">
                                                                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                                                                 </el-upload>
@@ -263,7 +267,7 @@
                                                 </el-col>
                                         </el-form-item>
                                         <el-form-item label="开户银行" prop="bank">
-                                                <el-select v-model="ruleForm.bank" placeholder="请选择开户银行">
+                                                <el-select v-model="ruleForm2.bank2" placeholder="请选择开户银行">
                                                         <el-option label="中国工商银行" value="1"></el-option>
                                                         <el-option label="中国建设银行" value="2"></el-option>
                                                         <el-option label="中国银行" value="3"></el-option>
@@ -282,13 +286,13 @@
                                                 </el-select>
                                         </el-form-item>
                                         <el-form-item label="支行名称" prop="bankname">
-                                                <el-input v-model="ruleForm.bankname" placeholder="请输入支行名称"></el-input>
+                                                <el-input v-model="ruleForm2.bankname2" placeholder="请输入支行名称"></el-input>
                                         </el-form-item>
 
                                         <el-form-item label="开户地区" required>
                                                 <el-col :span="11">
                                                         <el-form-item prop="select1">
-                                                                <el-select v-model="ruleForm.select1" placeholder="省"
+                                                                <el-select v-model="ruleForm2.select12" placeholder="省"
                                                                         @change="select">
                                                                         <el-option :label="item.name" :value="item.id"
                                                                                 v-for="item in province"></el-option>
@@ -297,7 +301,7 @@
                                                 </el-col>
                                                 <el-col :span="11">
                                                         <el-form-item prop="select2">
-                                                                <el-select v-model="ruleForm.select2" placeholder="市">
+                                                                <el-select v-model="ruleForm2.select22" placeholder="市">
                                                                         <el-option :label="item.name" :value="item.id"
                                                                                 v-for="item in city"></el-option>
 
@@ -306,17 +310,17 @@
                                                 </el-col>
                                         </el-form-item>
                                         <el-form-item label="银行卡号" prop="idcard">
-                                                <el-input v-model="ruleForm.idcard" placeholder="请输入开户银行卡号"></el-input>
+                                                <el-input v-model="ruleForm2.idcard2" placeholder="请输入开户银行卡号"></el-input>
                                         </el-form-item>
                                         <el-form-item label="绑定邮箱" prop="emil">
-                                                <el-input v-model="ruleForm.emil"></el-input>
+                                                <el-input v-model="ruleForm2.emil2"></el-input>
                                         </el-form-item>
                                         <el-form-item label="手机号" prop="phone">
-                                                <el-input v-model="ruleForm.phone"></el-input>
+                                                <el-input v-model="ruleForm2.phone2"></el-input>
                                         </el-form-item>
                                         <el-form-item label="验证码" prop="code">
                                                 <el-col :span="11">
-                                                <el-input v-model="ruleForm.code"></el-input>
+                                                <el-input v-model="ruleForm2.code2"></el-input>
                                                 </el-col>
                                                 <el-col :span="3">
                                                         <div class="grid-content">
@@ -367,6 +371,22 @@
                                         code: '',
                                         file: '',
                                         emil: ''
+                                },
+                                ruleForm2:{
+                                        name2: '',
+                                        number2: '',
+                                        bank2: '',
+                                        bankname2: '',
+                                        select12: '',
+                                        select22: '请先选择省级单位',
+                                        idcard2: '',
+                                        imageUrl2: '',
+                                        imageUrl32: '',
+                                        imageUrl22: '',
+                                        phone2: '',
+                                        code2: '',
+                                        file2: '',
+                                        emil2: ''
                                 },
                                 isshow:1,
                                 rules: {
@@ -441,10 +461,69 @@
                                 },
                                 province: [],
                                 city: [],
-                                html: 0
+                                html: 0,
+                                msg:'',
+                                msg2:'',
+                                status:0
                         };
                 },
                 mounted() {
+                        this.$api.attestation_data(this.$store.state.user.id)
+                        .then(res=>{
+                                console.log(res)
+                                this.status = res.data.status
+                                if(res.code==0){
+                                         this.msg = "未实名认证"
+                                }else{
+                                        if(res.data.type==1){
+                                                 this.msg2 = "未实名认证"
+                                                if(res.data.status==0){
+                                                        this.msg = "资料审核中"
+                                                }
+                                                else if(res.data.status==1){
+                                                        this.msg = "认证成功"
+                                                }else{
+                                                         this.msg = "认证失败,请重新认证"
+                                                }
+                                                this.ruleForm.name = res.data.realname
+                                                this.ruleForm.number =res.data.idnumber
+                                                this.ruleForm.imageUrl =res.data.idfront
+                                                this.ruleForm.imageUrl2 = res.data.idrear
+                                                this.ruleForm.imageUrl3 = res.data.idhand
+                                                this.ruleForm.bank =res.data.subbranch
+                                                this.ruleForm.bankname = res.data.subbranch
+                                                this.ruleForm.select1 =res.data.province
+                                                this.ruleForm.select2 =res.data.city_text
+                                                this.ruleForm.idcard = res.data.cardnumber
+                                                this.isshow =res.data.type
+                                                this.ruleForm.emil =res.data.email
+                                                 this.ruleForm.phone =res.data.mobile
+                                        }else{
+                                                this.msg = "未实名认证"
+                                                if(res.data.status==0){
+                                                        this.msg2 = "资料审核中"
+                                                }
+                                                else if(res.data.status==1){
+                                                        this.msg2 = "认证成功"
+                                                }else{
+                                                         this.msg2 = "认证失败,请重新认证"
+                                                }
+                                                this.ruleForm2.name2 = res.data.realname
+                                                this.ruleForm2.number2=res.data.idnumber
+                                                this.ruleForm2.imageUrl2 =res.data.idfront
+                                                this.ruleForm2.imageUrl22 = res.data.idrear
+                                                this.ruleForm2.imageUrl32 = res.data.idhand
+                                                this.ruleForm2.bank2 =res.data.subbranch
+                                                this.ruleForm2.bankname2 = res.data.subbranch
+                                                this.ruleForm2.select12 =res.data.province
+                                                this.ruleForm2.select22 =res.data.city_text
+                                                this.ruleForm2.idcard2 = res.data.cardnumber
+                                                this.isshow =res.data.type
+                                                this.ruleForm2.emil2 =res.data.email
+                                                 this.ruleForm2.phone2 =res.data.mobile
+                                        }
+                                }
+                        })
                         this.getVerification()
                         //省分类
                         this.$api.areadata()
@@ -452,6 +531,7 @@
                                         console.log(res)
                                         this.province = res.data
                                 })
+
                 },
                 methods: {
                         //切换
@@ -498,18 +578,34 @@
                                 console.log(this.$refs[form].validate)
                                  this.$refs[form].validate((valid) => {
                                          if(valid){
-                                                 this.$api.userauthentication(this.$store.state.user.id, this.ruleForm.name, this.ruleForm
-                                                         .number, this.ruleForm.imageUrl, this.ruleForm.imageUrl2, this.ruleForm.imageUrl3,
-                                                         this.ruleForm.bank, this.ruleForm.bankname,this.ruleForm.select1,this.ruleForm.select2,this.ruleForm.idcard,
-                                                         this.isshow,this.ruleForm.emil,
-                                                          this.ruleForm.phone,this.ruleForm.code
-                                                          )
-                                                 .then(res => {
-                                                         this.$message({
-                                                                   message:res.msg,
-                                                                   type: 'success'
-                                                                 });
-                                                 })
+                                                 if(isshow==1){
+                                                         this.$api.userauthentication(this.$store.state.user.id, this.ruleForm.name, this.ruleForm
+                                                                 .number, this.ruleForm.imageUrl, this.ruleForm.imageUrl2, this.ruleForm.imageUrl3,
+                                                                 this.ruleForm.bank, this.ruleForm.bankname,this.ruleForm.select1,this.ruleForm.select2,this.ruleForm.idcard,
+                                                                 this.isshow,this.ruleForm.emil,
+                                                                  this.ruleForm.phone,this.ruleForm.code
+                                                                  )
+                                                         .then(res => {
+                                                                 this.$message({
+                                                                           message:res.msg,
+                                                                           type: 'success'
+                                                                         });
+                                                         })
+                                                 }else{
+                                                         this.$api.userauthentication(this.$store.state.user.id, this.ruleForm2.name2, this.ruleForm2
+                                                                 .number2, this.ruleForm2.imageUrl2, this.ruleForm2.imageUrl22, this.ruleForm2.imageUrl32,
+                                                                 this.ruleForm2.bank2, this.ruleForm2.bankname2,this.ruleForm2.select12,this.ruleForm2.select22,this.ruleForm2.idcard2,
+                                                                 this.isshow,this.ruleForm2.emil2,
+                                                                  this.ruleForm2.phone2,this.ruleForm2.code2
+                                                                  )
+                                                         .then(res => {
+                                                                 this.$message({
+                                                                           message:res.msg,
+                                                                           type: 'success'
+                                                                         });
+                                                         })
+                                                 }
+
                                          }
                                  })
 

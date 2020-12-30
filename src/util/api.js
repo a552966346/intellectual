@@ -631,8 +631,30 @@ const api = {
                     pid:id
             }
           return requestAll.requset(baseUrl + '/api/account/citydata',data);
+    },
+    //判断是否认证
+    attestation_data(uid){
+            let data={
+                    uid:uid
+            }
+          return requestAll.requset(baseUrl + '/api/account/attestation_data',data);
+    },
+    //手机号修改
+    changemobile(mobile,captcha,uid){
+            let data={
+                    uid:uid,
+                    mobile:mobile,
+                    captcha:captcha
+            }
+         return requestAll.requset(baseUrl + '/api/user/changemobile',data);
+    },
+    password(){
+            let data={
+                    uid:uid,
+                    password:password,
+                    code:code
+            }
+            return requestAll.requset(baseUrl + '/api/user/resetpwd',data);
     }
 }
-
-
 export default api;
