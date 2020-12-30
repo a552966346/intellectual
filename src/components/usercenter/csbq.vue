@@ -17,10 +17,10 @@
                     <el-form-item label="您要出售的商品：" >
                             <div class="top_bq">版权交易</div>
                     </el-form-item>
-                    <el-form-item label="版权类别：">
+                    <el-form-item label="版权类别：" prop="select">
                             <select name="banquan" v-model="select" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px;color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择版权分类</option>
-                                    <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
+                                    <option v-for="item in option" :value="item.id">{{item.name}}</option>
                             </select>
                     </el-form-item>
                     <el-form-item label="题材：" prop="theme">
@@ -100,7 +100,7 @@
                     <el-form-item label="所属年代：">
                             <select name="niandai" v-model="bqform.niandai" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px;color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择年代</option>
-                                    <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
+                                    <!-- <option v-for="item in option" :value="item.id">{{item.name}}</option> -->
                             </select>
                     </el-form-item>
                     <el-form-item label="作者介绍/作品简介：" >
@@ -152,7 +152,7 @@ export default {
                     author:'',//作者
                     owner:'',//著作权人
                     niandai:'',//年代
-                    // select: '',
+                    select: '',//版权分类
                     num: '', //专利号
                     register:'',//注册号
                     num1:'',
@@ -167,7 +167,7 @@ export default {
                     checkList2:[],
             },
             textarea:'',
-            select: '',
+            // select: '',
             // 验证规则
             formrule: {
                     name: [{
@@ -180,6 +180,11 @@ export default {
                             trigger: 'blur',
                             message: '请输入题材'
                     }, ],
+                    select: [{
+                            required: true,
+                            trigger: 'change',
+                            message: '请选择版权类别'
+                    } ],
                     author: [{
                             required: true,
                             trigger: 'blur',
@@ -215,13 +220,16 @@ export default {
                             trigger: 'blur',
                             message: '请输入出售低价'
                     }, ],
-
             },
-
-
-
-
+            option:[]
         }
+    },
+    mounted() {
+            this.$api.bqclass()
+            .then(res=>{
+                    console.log(res)
+                    this.option = res.data
+            })
     },
     props:{
         isshowbq:false,
