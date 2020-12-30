@@ -4,7 +4,7 @@
                         <div class="top_text">账号设置/实名认证</div>
                 </div>
                 <ul class="id_con">
-                        <button class="con_t_item":class="{back:isshow==1}" @click="isshow1">个人实名认证</button>
+                        <button class="con_t_item" :class="{back:isshow==1}" @click="isshow1">个人实名认证</button>
                         <button class="con_t_item" :class="{back:isshow==2}" @click="isshow2">企业实名认证</button>
                         <li class="t_right">
                                 <button>联系认证客服</button>
@@ -791,9 +791,6 @@
                 align-items: center;
         }
 
-        .ids_11 img {
-                /* width: 20%; */
-        }
 
         .ids_11 button {
                 background-color: #1a7fc3;

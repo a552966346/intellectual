@@ -293,7 +293,7 @@ export default {
             width: 110px;
             text-align: right;
         }
-        .el-input{width: 25% !important;}
+        .el-input{width: 25% !important;border: none !important;}
         .el-button{width: 124px;height: 30px;}
         .el-form-item{margin: 20px 0;}
     </style>
