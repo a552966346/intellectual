@@ -130,9 +130,8 @@ export default {
     },
     submit(fromname) {
             this.$refs[fromname].validate((valid) => {
-                    this.$api.getsellpost(this.select, '', this.form1
-                                    .phone, this.form1.name, '', 3,
-                                    this.form1.authcode)
+                    this.$api.getsellpost( this.form1.phone, this.form1.name, '', 3,
+                                    this.form1.address)
                             .then(res => {
                                     console.log(res)
                                     if (res.code == 1) {
