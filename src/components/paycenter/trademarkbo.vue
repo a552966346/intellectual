@@ -8,7 +8,7 @@
                                                 <p >联系客服帮您找</p>
                                         </a>
                                         <span>或</span>
-                                        <a href="#" @click="tanchuang" >
+                                        <a href="#" @click="qiugou" >
                                                 <p style="background-color:#3c568f">发布求购需求</p>
                                         </a>
                                 </div>
@@ -87,8 +87,8 @@
                         },
                         
                         //显示商标弹框
-                        tanchuang(){
-                          this.$emit("tanchuang")
+                        qiugou(){
+                          this.$emit("qiugou")
                         },
                         
 
