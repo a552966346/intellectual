@@ -33,11 +33,44 @@
                     <el-form-item label="商标名称：" prop="name">
                             <el-input v-model="sbform.name" placeholder="请输入商标名称：" style="width: 300px;"></el-input>
                     </el-form-item>
-                    <el-form-item label="使用范围：" prop="region">
-                            <el-input v-model="sbform.region" placeholder="请输入使用范围：" style="width: 300px;"></el-input>
-                    </el-form-item>
                     <el-form-item label="商标价格：" prop="minprice">
                             <el-input v-model="sbform.minprice" placeholder="请输入您的商标出售价格" style="width: 300px;"></el-input>
+                    </el-form-item>
+                    <el-form-item label="国籍：" prop="nationality">
+                            <el-input v-model="sbform.nationality" placeholder="请输入您的商标国籍" style="width: 300px;"></el-input>                       
+                    </el-form-item>
+                    <el-form-item label="注册年限：" prop="time">
+                        <el-date-picker v-model="sbform.time" type="date" placeholder="选择日期"></el-date-picker>
+                    </el-form-item>
+                    <el-form-item label="申请时间：" prop="applytime">
+                        <el-date-picker v-model="sbform.applytime" type="date" placeholder="选择日期"></el-date-picker>
+                    </el-form-item>
+                    <el-form-item label="商品主图："  prop="tu">
+                                <span>请选择图片上传方式，丰富真实的图片信息将加速商品出售</span>
+                                <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview"
+                                        :on-remove="handleRemove">
+                                        <i class="el-icon-plus"></i>
+                                </el-upload>
+                                <el-dialog :visible.sync="dialogVisible">
+                                        <img width="100%" :src="dialogImageUrl" alt="">
+                                </el-dialog>
+                    </el-form-item>
+                    <el-form-item label="授权方式：" prop="radio2" name="sqfs">
+                        <el-radio v-model="sbform.radio2" label="1">独家</el-radio>
+                        <el-radio v-model="sbform.radio2" label="2">非独家</el-radio>
+                    </el-form-item>
+                    <el-form-item label="组合方式：" prop="radio1" name="zhfs">
+                        <el-radio v-model="sbform.radio1" label="1">中文</el-radio>
+                        <el-radio v-model="sbform.radio1" label="2">英文</el-radio>
+                        <el-radio v-model="sbform.radio1" label="3">中文+英文</el-radio>
+                        <el-radio v-model="sbform.radio1" label="4">图像</el-radio>
+                        <el-radio v-model="sbform.radio1" label="5">图像+中文</el-radio>
+                        <el-radio v-model="sbform.radio1" label="6">组合</el-radio>
+                        <el-radio v-model="sbform.radio1" label="7">数字</el-radio>
+                        <el-radio v-model="sbform.radio1" label="8">拼音</el-radio>
+                        <el-radio v-model="sbform.radio1" label="9">英文+图像</el-radio>
+                        <el-radio v-model="sbform.radio1" label="10">英文+拼音</el-radio>
+                        <el-radio v-model="sbform.radio1" label="11">中文+英文+图像</el-radio>
                     </el-form-item>
                     <el-form-item label="创意说明：" >
                             <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="sbform.textarea"></el-input>
@@ -71,14 +104,20 @@ export default {
             content: ``,
             editorOption: {},
             sbform: {
+                    dialogImageUrl: '',
+                    dialogVisible: false,
                     sbname:'',//商标名称
                     select: '',
                     register:'',//注册号
                     minprice: '', //售价
                     qq:'',
                     nuber:'',
-                    region:'',
-                    textarea:''
+                    nationality:'',
+                    textarea:'',
+                    radio1:'1',
+                    radio2:'1',
+                    time:'',
+                    applytime:'',
             },
             // 验证规则
             textarea:'',
@@ -87,6 +126,11 @@ export default {
                             required: true,
                             trigger: 'blur',
                             message: '请输入商标名称'
+                    }, ],
+                    nationality: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请输入商标国籍'
                     }, ],
                     num: [{
                             required: true,
@@ -103,11 +147,6 @@ export default {
                         trigger: 'blur',
                         message: '请输入商标注册号'
                    }],
-                   region:[{
-                           required: true,
-                           trigger: 'blur',
-                           message: '请输入商标使用范围'
-                   }],
                    select:[{
                            required: true,
                            trigger: 'change',
@@ -117,7 +156,17 @@ export default {
                            required: true,
                            trigger: 'blur',
                            message: '请输入qq号码'
-                   }]
+                   }],
+                   time: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请选择时间'
+                    }, ],
+                    applytime: [{
+                            required: true,
+                            trigger: 'blur',
+                            message: '请选择时间'
+                    }, ],
             },
             sbclass:[]
         }
@@ -131,6 +180,13 @@ export default {
 
     },
     methods:{
+           handleRemove(file, fileList) {
+                console.log(file, fileList);
+           },
+           handlePictureCardPreview(file) {
+                this.dialogImageUrl = file.url;
+                this.dialogVisible = true;
+           },
             submit(formname){
                     console.log(this.content)
                     // this.$refs[formname].validate((valid) => {
@@ -145,6 +201,15 @@ export default {
             onEditorBlur(){}, // 失去焦点事件
             onEditorFocus(){}, // 获得焦点事件
             onEditorChange(){}, // 内容改变事件
+            pickerOptions: {
+                disabledDate(time) {
+                    return time.getTime() > Date.now();
+                },
+
+                time: '',
+                applytime:'',
+            },
+
     },
      computed: {
             editor() {
@@ -164,6 +229,19 @@ export default {
     height: 100%;
     display: flex;
 }
+.el-form-item__content>span{
+    color: #d2d2d2;
+}
+.el-form-item__content>.tu {
+        width: 180px;
+        height: 180px;
+        background-color: #dadada;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+}
+
 .cssb_head_item{
     position: relative;
     background-color: #fafafa;

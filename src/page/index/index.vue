@@ -377,11 +377,11 @@ export default {
   data() {
     return {
       // 交易中心
-      num1: "", //交易中心数量
+      num1: "", //交易专利中心数量
       num2: "", //商标交易数量
       num3: "", //软著交易数量
       hot: [], //交易中心的热门推荐
-      transaction: [], //交易中心的块内容
+      transaction: [], //交易中心专利的块内容
       trade: [], //商标交易的块内容
       soft: [], //软著交易的块内容
       isshow: false,

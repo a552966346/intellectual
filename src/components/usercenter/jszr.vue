@@ -18,52 +18,65 @@
                                                         <div class="top_js">科技成果</div>
                                                 </div>
                                         </el-form-item>
-                                        <el-form-item label="技术类型：">
-                                                <select name="leixing" v-model="jsform.leixing" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
-                                                        <option value="">请选择技术类型</option>
-                                                        <!-- <option v-for="(item,index) in data" :value="item.id" :key="index">{{item.name}}</option> -->
-                                                </select>
-                                        </el-form-item>
                                         <el-form-item label="成果名称：" prop="name">
                                                 <el-input v-model="jsform.name" placeholder="请输入成果名称" style="width: 300px;"></el-input>
                                         </el-form-item>
-                                        <el-form-item label="成果编号：" prop="id">
-                                                <el-input v-model="jsform.id" placeholder="请输入成果编号" style="width: 300px;"></el-input>
-                                        </el-form-item>
+                                        
                                         <el-form-item label="行业分类：">
                                                 <select name="fenlei" v-model="jsform.fenlei" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
                                                         <option value="">请选择行业分类</option>
                                                         <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
                                                 </select>
                                         </el-form-item>
-                                        <el-form-item label="应用领域：">
-                                                <select name="lingyu" v-model="jsform.lingyu" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
-                                                        <option value="">请选择应用领域</option>
-                                                        <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
-                                                </select>
+                                        <el-form-item label="应用领域：" prop="radio1" name="lingyu">
+                                                <el-radio v-model="jsform.radio1" label="1">高技术服务</el-radio>
+                                                <el-radio v-model="jsform.radio1" label="2">建筑业</el-radio>
+                                                <el-radio v-model="jsform.radio1" label="3">新材料</el-radio>
+                                                <el-radio v-model="jsform.radio1" label="4">新能源与节能</el-radio>
+                                                <el-radio v-model="jsform.radio1" label="5">环境与资源</el-radio>
+                                                <el-radio v-model="jsform.radio1" label="6">现代农业</el-radio>
+                                                <el-radio v-model="jsform.radio1" label="7">生物与新医药</el-radio>
+                                                <el-radio v-model="jsform.radio1" label="8">航天航空</el-radio>
+                                                <el-radio v-model="jsform.radio1" label="9">其他</el-radio>
                                         </el-form-item>
-                                        <el-form-item label="成熟程度：">
-                                                <select name="chengshu" v-model="jsform.chengshu" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
-                                                        <option value="">请选择成熟程度</option>
-                                                        <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
-                                                </select>
+                                        <el-form-item label="技术类型：" prop="radio" name="leixing">
+                                                <el-radio v-model="jsform.radio" label="1">非专利</el-radio>
+                                                <el-radio v-model="jsform.radio" label="2">发明专利</el-radio>
+                                                <el-radio v-model="jsform.radio" label="3">实用新型专利</el-radio>
+                                                <el-radio v-model="jsform.radio" label="4">外观专利</el-radio>
+                                                <el-radio v-model="jsform.radio" label="5">版权</el-radio>
                                         </el-form-item>
-                                        <el-form-item label="出售方式：">
-                                                <select name="csfs" v-model="jsform.csfs" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
-                                                        <option value="">请选择出售方式</option>
-                                                        <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
-                                                </select>
+                                        <el-form-item label="成熟程度：" prop="radio2" name="chengshu">
+                                                <el-radio v-model="jsform.radio2" label="1">正在研发</el-radio>
+                                                <el-radio v-model="jsform.radio2" label="2">已有样品</el-radio>
+                                                <el-radio v-model="jsform.radio2" label="3">通过小试</el-radio>
+                                                <el-radio v-model="jsform.radio2" label="4">通过中试</el-radio>
+                                                <el-radio v-model="jsform.radio2" label="5">可以量产</el-radio>
+                                        </el-form-item>
+                                        <el-form-item label="交易方式：" prop="radio3" name="jyfs">
+                                                <el-radio v-model="jsform.radio3" label="1">完全转让</el-radio>
+                                                <el-radio v-model="jsform.radio3" label="2">许可转让</el-radio>
+                                                <el-radio v-model="jsform.radio3" label="3">技术入股</el-radio>
+                                        </el-form-item>
+                                        <el-form-item label="是否最新：" prop="radio4" name="zx">
+                                                <el-radio v-model="jsform.radio4" label="1">否</el-radio>
+                                                <el-radio v-model="jsform.radio4" label="2">是</el-radio>
+                                                <el-radio v-model="jsform.radio4" label="3">热门需求</el-radio>
+                                                <el-radio v-model="jsform.radio4" label="4">热门推荐</el-radio>
+                                        </el-form-item>
+                                        <el-form-item label="技术需求：" prop="radio5" name="jsxq">
+                                                <el-radio v-model="jsform.radio5" label="1">否</el-radio>
+                                                <el-radio v-model="jsform.radio5" label="2">是</el-radio>
                                         </el-form-item>
                                         <el-form-item label="商品主图：">
                                                 <span>请选择图片上传方式，丰富真实的图片信息将加速商品出售</span>
-                                                <div class="tu">
-                                                        <div class="tu_img"><img src="../../../static/img/usercenter/add.png"
-                                                                        alt=""></div>
-                                                        <div class="tu_text">
-                                                                <p>添加图片</p>
-                                                                <p>如产品效果图</p>
-                                                        </div>
-                                                </div>
+                                                <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview"
+                                                        :on-remove="handleRemove">
+                                                        <i class="el-icon-plus"></i>
+                                                </el-upload>
+                                                <el-dialog :visible.sync="dialogVisible">
+                                                        <img width="100%" :src="dialogImageUrl" alt="">
+                                                </el-dialog>
                                         </el-form-item>
                                         <el-form-item label="出售金额：" prop="price">
                                                 <el-input v-model="jsform.price" placeholder="请输入出售金额 单位：元" style="width: 300px;"></el-input>
@@ -106,17 +119,21 @@
                                 content: ``,
                                 editorOption: {},
                                 jsform: {
+                                        dialogImageUrl: '',
+                                        dialogVisible: false,
                                         name: '', //商标名称
                                         // select: '',
-                                        leixing: '', //类型
                                         fenlei: '', //分类
-                                        lingyu: '', //领域
-                                        chengshu: '', //成熟程度
                                         csfs: '', //出售方式
                                         price: '', //售价
                                         qq: '',
-                                        id: '',
-                                        textarea: ''
+                                        textarea: '',
+                                        radio1:'1',//应用领域
+                                        radio:'1',//技术类型：
+                                        radio2:'1',//成熟程度：
+                                        radio3:'1',//交易方式
+                                        radio4:'1',//是否最新
+                                        radio5:'1',//技术需求
                                 },
                                 // 验证规则
                                 formrule: {
@@ -124,6 +141,36 @@
                                                 required: true,
                                                 trigger: 'blur',
                                                 message: '请输入商标名称'
+                                        }, ],
+                                        num: [{
+                                                required: true,
+                                                trigger: 'blur',
+                                                message: '请输入商标号'
+                                        }, ],
+                                        price: [{
+                                                required: true,
+                                                trigger: 'blur',
+                                                message: '请输入金额'
+                                        }, ],
+                                        qq: [{
+                                                required: true,
+                                                trigger: 'blur',
+                                                message: '请输入qq号'
+                                        }, ],
+                                        num: [{
+                                                required: true,
+                                                trigger: 'blur',
+                                                message: '请输入商标号'
+                                        }, ],
+                                        num: [{
+                                                required: true,
+                                                trigger: 'blur',
+                                                message: '请输入商标号'
+                                        }, ],
+                                        num: [{
+                                                required: true,
+                                                trigger: 'blur',
+                                                message: '请输入商标号'
                                         }, ],
                                         num: [{
                                                 required: true,
@@ -209,33 +256,7 @@
                 color: #d2d2d2;
         }
 
-        .el-form-item__content>.tu {
-                width: 180px;
-                height: 180px;
-                background-color: #dadada;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-        }
-
-        .el-form-item__content>.tu>.tu_img {
-                height: 50px;
-                width: 50px;
-                margin-bottom: 24px;
-        }
-
-        .el-form-item__content>.tu>.tu_img>img {
-                width: 100%;
-        }
-
-        .el-form-item__content>.tu>.tu_text>p {
-                line-height: 2;
-                color: #fff;
-                display: flex;
-                justify-content: center;
-        }
-
+        
         .fabu {
                 display: flex;
         }
