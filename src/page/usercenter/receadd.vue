@@ -36,7 +36,10 @@ import receadd from '@/components/usercenter/receadd.vue'//求购弹窗
             },
             close(){//商标隐藏弹框
                              this.isshow = false
-                     },
+            },
+            submit(){
+                              this.isshow = false
+            },
         },
         components:{
         'v-receadd':receadd,//购买弹窗
