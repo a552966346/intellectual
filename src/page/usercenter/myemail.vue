@@ -31,12 +31,12 @@
 <script>
 import index from '../index/index.vue'
     export default {
-  components: { index },
-        data(){
-            return{
+        components: { index },
+            data(){
+                return{
 
-            }
-        },
+                }
+            },
         methods: {
 
         }
@@ -80,9 +80,10 @@ import index from '../index/index.vue'
         border-bottom: 2px solid #f0f0f0;
     }
     .myemail_tos{
-        color: red;
+        color: orange;
         font-size: 18px;
         font-weight: bold;
+        border-bottom: 2px solid orange;
     }
     .myemail_toft{
         font-size: 14px;
