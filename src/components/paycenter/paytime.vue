@@ -10,6 +10,9 @@
                 <span v-if="item.status==2">已完成</span>
                 <span v-if="item.status==3">已取消</span>
                 </div>
+                <div class="button" v-show="isshows">
+                        <button  v-if="item.status==0">去支付</button>
+                </div>
             </div>
             <div class="time_content"   v-for="(item1,index) in item.product_data" v-if="item1 !== null" :key="item1.id">
                 <div class="img"><img :src="item1.images_text[0]" alt=""></div>
@@ -24,9 +27,6 @@
                     <dd v-if="item1.fee>=10000"><span>待支付商品单价：</span><span>￥{{item1.fee/10000}}万元</span><span>/件（不含官费）</span></dd>
                     <dd v-else><span>待支付商品单价：</span><span>￥{{item1.fee}}</span><span>/件（不含官费）</span></dd>
                 </dl>
-                <div class="button" v-show="isshows">
-                        <button  v-if="item.status==0">去支付</button>
-                </div>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
 export default {
     props:{
         uqdata:{},
-       
+
     },
     data(){
         return{
@@ -74,11 +74,14 @@ export default {
         }
         .pay_header{
             display: flex;
-            padding: 20px 0;
+            justify-content: space-between;
+            padding: 15px 0;
+            padding-right: 150px;
         }
         .pay_header>div{
-            padding: 5px 15px;
-            margin-right: 130px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
         }
         .pay_header>div:nth-child(1){
             border-left: 4px solid #187fc2;
@@ -96,22 +99,23 @@ export default {
             /* width: 225px; */
         }
         .time_content>div>img{
+            height: 198px;
             width: 100%;
-            height: 100%;
         }
         .time_content>dl{
-            padding: 30px;
+            padding: 15px 30px;
         }
         .time_content dt{
             font-size: 16px;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             font-weight: 600;
         }
         .time_content dd{
-            margin-bottom: 10px;
+            /* margin-bottom: 10px; */
+            padding-bottom: 5px;
         }
         .time_content dd:last-child{
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .time_content >dl>dd:last-child>span:nth-child(2){
             color: #e00000;
@@ -119,7 +123,7 @@ export default {
             font-weight: 600;
         }
         .img{
-                width: 20%;
+                width: 16%;
         }
         .text{
                 width: 50%;
@@ -130,7 +134,7 @@ export default {
                 align-items: center;
         }
         .button button{
-                padding: 10px 50px;
+                padding: 5px 50px;
                 background-color: #F56C6C;
                 color: #fff;
                 border: 1px solid #555;

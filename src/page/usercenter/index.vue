@@ -5,18 +5,18 @@
                 <div class="r1_top"  v-show="berl">
                     <div class="left">
                             <div class="r1_top_tou">
-                                <img :src="this.$store.state.user.avatar">
+                                <img :src="user.avatar">
                             </div>
                             <div class="r1_top_name">
-                                <h4>{{this.$store.state.user.username}} <img src="../../../static/img/usercenter/woman.png" alt=""></h4>
-                                <p>晋中市华迅网络科技股份有限公司</p>
+                                <h4>{{user.nickname}} <img src="../../../static/img/usercenter/woman.png" alt="" v-if="user.gender==0"><img src="../../../static/img/usercenter/man.png" alt=""v-if="user.gender==1"></h4>
+                                <p>{{user.email}}<span v-if="user.is_verify==1" style="padding-left: 5px; color: #008A00;font-size: 12px;">已验证</span><span else style="padding-left: 5px;color: red; font-size: 12px;">未验证</span></p>
                             </div>
                     </div>
                     <div class="right">
                             <div class="r1_top_money money1">
                                 <p>账户余额</p>
                                 <!-- <p style="display: flex;"> -->
-                                        <span>{{this.$store.state.user.money}}元</span>
+                                        <span>{{user.money}}元</span>
                                         <input class="money1_button" type="button" value="提现">
                                 <!-- </p> -->
                                 <br> <a href="#">查看详情</a>
@@ -24,7 +24,7 @@
                             <div class="r1_top_money money2">
                                 <p>冻结资金</p>
                                 <p>
-                                        <span>{{this.$store.state.user.frozen}}元</span>
+                                        <span>{{user.frozen}}元</span>
                                 </p>
 
                                 <a href="#">查看详情</a>
@@ -32,7 +32,7 @@
                             <div class="r1_top_money money3">
                                 <p>押金</p>
                                 <p>
-                                        <span>{{this.$store.state.user.pledge}}元</span>
+                                        <span>{{user.pledge}}元</span>
                                 </p>
                             </div>
                     </div>
@@ -177,7 +177,7 @@ export default {
                 {frozen:0.00},
                 {pledge:0.00}
             ],//用户信息,
-            userIn:'',
+            user:'',
             berl:false,
             newnow:[],
             zsdlist:[],
@@ -203,78 +203,89 @@ export default {
                             path:"/login"
                     })
             }
+            //用户个人信息
+            this.$nextTick(function(){
+                    this.$api.getuserIndex(this.$store.state.user.id)
+                    .then(res=>{
+                            console.log(res)
+                            this.user= res.data
+                    })
+                    // 收藏
+                    this.$nextTick(function(){
+                            this.$api.getallCollection(this.$store.state.user.id)
+                             .then(res=>{
+                                     console.log(res)
+                                     this.zsdlist = res.data.data
+                             })
+                            // 订单
+                    this.$api.getuseindex(this.$store.state.user.id)
+                            .then(res=>{
+                                    for(let i=0;i<res.data.data.length;i++){
+                                            // this.tableData[i].order_sn=res.data.data[i].order_sn
+                                            // this.tableData[i].creatime_text=res.data.data[i].creatime_text
+                                            switch(res.data.data[i].status) {
+                                                 case 0:
+                                                    res.data.data[i].status = "未支付"
+                                                    this.Unpaid++
+                                                    break;
+                                                 case 1:
+                                                     res.data.data[i].status = "已支付"
+                                                     this.Paid++
+                                                    break;
+                                                 case 3:
+                                                        res.data.data[i].status = "已完成"
+                                                        this.Completed++
+                                                break;
+                                                case 4:
+                                                        res.data.data[i].status = "已取消"
+                                                        this.cancel++
+                                                break;
+                                            }
+                                            switch(res.data.data[i].type) {
+                                                 case 1:
+                                                     res.data.data[i].type = "服务中心"
+                                                    break;
+                                                 case 2:
+                                                        res.data.data[i].type = "商标交易"
+                                                break;
+                                                case 3:
+                                                        res.data.data[i].type = "专利交易"
+                                                break;
+                                                case 4:
+                                                        res.data.data[i].type = "版权转让"
+                                                break;
+                                                case 5:
+                                                   res.data.data[i].type = "技术转移"
+                                                break;
+                                            }
+                                            if(res.data.data[i].total_fee>=10000){
+                                                 res.data.data[i].total_fee=res.data.data[i].total_fee/10000+"万元"
+                                            }
+                                            // this.tableData[i].type=res.data.data[i].type
+                                            // this.tableData[i].total_fee=res.data.data[i].total_fee
+                                            this.tableData.push({
+                                                    order_sn:res.data.data[i].order_sn,
+                                                    creatime_text:res.data.data[i].creatime_text,
+                                                    status:res.data.data[i].status,
+                                                    type:res.data.data[i].type,
+                                                    total_fee:res.data.data[i].total_fee
+                    
+                                            })
+                                    }
+                    
+                            })
+                    
+                    })
+            })
+            
             //伊甸公告
             this.$api.getindexnew().then((res) => {
               this.news = res.data;
               this.newnow = res.data[2]
               // console.log(this.newnow, "新闻中心1")
             });
-            // 收藏
-            this.$nextTick(function(){
-                    this.$api.getallCollection(this.$store.state.user.id)
-                     .then(res=>{
-                             console.log(res)
-                             this.zsdlist = res.data.data
-                     })
-                    // 订单
-                    this.$api.getuseindex(this.$store.state.user.id)
-                    .then(res=>{
-                            for(let i=0;i<res.data.data.length;i++){
-                                    // this.tableData[i].order_sn=res.data.data[i].order_sn
-                                    // this.tableData[i].creatime_text=res.data.data[i].creatime_text
-                                    switch(res.data.data[i].status) {
-                                         case 0:
-                                            res.data.data[i].status = "未支付"
-                                            this.Unpaid++
-                                            break;
-                                         case 1:
-                                             res.data.data[i].status = "已支付"
-                                             this.Paid++
-                                            break;
-                                         case 3:
-                                                res.data.data[i].status = "已完成"
-                                                this.Completed++
-                                        break;
-                                        case 4:
-                                                res.data.data[i].status = "已取消"
-                                                this.cancel++
-                                        break;
-                                    }
-                                    switch(res.data.data[i].type) {
-                                         case 1:
-                                             res.data.data[i].type = "服务中心"
-                                            break;
-                                         case 2:
-                                                res.data.data[i].type = "商标交易"
-                                        break;
-                                        case 3:
-                                                res.data.data[i].type = "专利交易"
-                                        break;
-                                        case 4:
-                                                res.data.data[i].type = "版权转让"
-                                        break;
-                                        case 5:
-                                           res.data.data[i].type = "技术转移"
-                                        break;
-                                    }
-                                    if(res.data.data[i].total_fee>=10000){
-                                         res.data.data[i].total_fee=res.data.data[i].total_fee/10000+"万元"
-                                    }
-                                    // this.tableData[i].type=res.data.data[i].type
-                                    // this.tableData[i].total_fee=res.data.data[i].total_fee
-                                    this.tableData.push({
-                                            order_sn:res.data.data[i].order_sn,
-                                            creatime_text:res.data.data[i].creatime_text,
-                                            status:res.data.data[i].status,
-                                            type:res.data.data[i].type,
-                                            total_fee:res.data.data[i].total_fee
-
-                                    })
-                            }
-
-                    })
-
-            })
+           
+                    
 
 
     },

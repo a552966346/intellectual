@@ -37,9 +37,9 @@
                             </el-col>
                             <el-col :span="15">
                             <div class="sub_text" style="float: right;">
-                                    <img src="../../../static/img/usercenter/exclamationpoint.png"
-                                            alt="">
-                                    <span>请在30分钟内进行验证！</span>
+                                    <!-- <img src="../../../static/img/usercenter/exclamationpoint.png"
+                                            alt=""> -->
+                                    <!-- <span>请在30分钟内进行验证！</span> -->
                             </div>
                             </el-col>
                     </el-form-item>
@@ -57,7 +57,7 @@
         data(){
             return{
                 ruleForm: {
-                    phone: '',
+                    password: '',
                     code: ''
                 },
                 rules: {

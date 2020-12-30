@@ -260,8 +260,11 @@ const api = {
      * 个人中心
      */
     // 首页
-    getuserIndex() {
-        return requestAll.requset(baseUrl + '/api/user/index');
+    getuserIndex(uid) {
+           let data={
+                    uid:uid
+            }
+        return requestAll.requset(baseUrl + '/api/user/index',data);
     },
     // 卖家   商标订单
     getuserTrademarkOrder(uid,status) {
@@ -648,13 +651,25 @@ const api = {
             }
          return requestAll.requset(baseUrl + '/api/user/changemobile',data);
     },
-    password(){
+    password(uid,password,code){
             let data={
                     uid:uid,
                     password:password,
                     code:code
             }
             return requestAll.requset(baseUrl + '/api/user/resetpwd',data);
+    },
+    uersname(uid,avatar,nickname,truename,birthday,email,gender){
+            let data={
+                    uid:uid,
+                    avatar:avatar,
+                    nickname:nickname,
+                    truename:truename,
+                    birthday:birthday,
+                    email:email,
+                    gender:gender
+            }
+            return requestAll.requset(baseUrl + '/api/user/saveuserinfo',data);
     }
 }
 export default api;

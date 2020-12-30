@@ -216,7 +216,7 @@
                          <el-menu-item index="/usercenter/password">修改登录密码</el-menu-item>
                          <el-menu-item index="/usercenter/userpersonal">个人信息</el-menu-item>
                          <el-menu-item index="/usercenter/userreceadd">收货地址</el-menu-item>
-                         <el-menu-item index="/usercenter/usermail">我的邮箱</el-menu-item>
+                         <!-- <el-menu-item index="/usercenter/usermail">我的邮箱</el-menu-item> -->
                      </el-submenu>
                       <el-submenu index="/usercenter/usermessage">
                         <template slot="title">
