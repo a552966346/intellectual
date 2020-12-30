@@ -540,7 +540,7 @@
                                         .then(res => {
                                                 console.log(res)
                                                 this.city = res.data
-                                        })
+                                })
                         }
                 }
 
