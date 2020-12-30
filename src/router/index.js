@@ -50,6 +50,7 @@ import usermanage from '@/page/usercenter/zjmanage' //个人资金管理
 import usertel from '@/page/usercenter/tel' //个人资金管理
 import userid from '@/page/usercenter/id' //个人账号设置
 import usermoilephone from '@/page/usercenter/mobilephone' //修改手机号
+import password from '@/page/usercenter/password' //修改手机号
 import usermessage from '@/page/usercenter/message' //个人全部信息
 import userpersonal from '@/page/usercenter/personal' //个人信息
 import userreceadd from '@/page/usercenter/receadd' //收货地址
@@ -304,6 +305,10 @@ export default new Router({
             },{
                 path: '/usercenter/usercontract',
                 component: usercontract,
+            },
+            {
+                path: '/usercenter/password',
+                component: password,
             }]
         },
         {

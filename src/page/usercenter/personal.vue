@@ -4,20 +4,19 @@
             账号设置/个人信息
         </div>
         <div class="personal_top">
-            <span class="personal_tos">修改手机号</span>
+            <span class="personal_tos">修改个人信息</span>
             <img class="personal_toimg" src="../../../static/img/usercenter/exclamationpoint.png" alt="">
             <span class="personal_toft">完善信息有助于伊甸城进行一步了解您，给您更多推荐。</span>
         </div>
         <div class="personal_cent">
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
-                <el-upload
-                class="avatar-uploader"
-                action="https://jsonplaceholder.typicode.com/posts/"
-                :show-file-list="false"
-                :on-success="handleAvatarSuccess"
-                :before-upload="beforeAvatarUpload">
-                <img v-if="imageUrl" :src="imageUrl" class="avatar">
-                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                <el-upload class="avatar-uploader" action="aaaa"
+                        :show-file-list="false" :on-success="handleAvatarSuccess"
+                        :on-change="fileChange" :auto-upload="false"
+                        :before-upload="beforeAvatarUpload">
+                        <img v-if="ruleForm.imageUrl" :src="ruleForm.imageUrl"
+                                class="avatar">
+                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                 </el-upload>
                 <el-form-item label="用户名/昵称:" prop="name">
                     <el-input v-model="ruleForm.name"></el-input>
@@ -109,6 +108,12 @@
                 }
                 return isJPG && isLt2M;
             },
+            fileChange(file, fileList) {
+                    this.image2Base64(file.raw).then(res => {
+                            console.log(res)
+                            this.ruleForm.imageUrl = res
+                    });
+            },
              submitForm(formName) {
                 this.$refs[formName].validate((valid) => {
                 if (valid) {
@@ -121,7 +126,23 @@
             },
             resetForm(formName) {
                 this.$refs[formName].resetFields();
-            }
+            },
+            image2Base64(file) {
+                    return new Promise(function(resolve, reject) {
+                            let reader = new FileReader();
+                            let imgResult = "";
+                            reader.readAsDataURL(file);
+                            reader.onload = function() {
+                                    imgResult = reader.result;
+                            };
+                            reader.onerror = function(error) {
+                                    reject(error);
+                            };
+                            reader.onloadend = function() {
+                                    resolve(imgResult);
+                            };
+                    });
+            },
         }
     }
 </script>

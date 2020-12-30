@@ -213,7 +213,7 @@
                        </template>
                         <el-menu-item index="/usercenter/userid?type=0">实名认证</el-menu-item>
                          <el-menu-item index="/usercenter/usermoilephone">修改手机号</el-menu-item>
-                         <el-menu-item index="/usercenter/userid?type=2">修改登录密码</el-menu-item>
+                         <el-menu-item index="/usercenter/password">修改登录密码</el-menu-item>
                          <el-menu-item index="/usercenter/userpersonal">个人信息</el-menu-item>
                          <el-menu-item index="/usercenter/userreceadd">收货地址</el-menu-item>
                          <el-menu-item index="/usercenter/usermail">我的邮箱</el-menu-item>
@@ -296,10 +296,6 @@ a {
     display: flex;
     height: 96%;
     overflow: auto;
-}
-/* .user_left */
-.user{
-    /* height: 100%; */
 }
  .user_left{
     width:200px;

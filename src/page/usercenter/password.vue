@@ -1,10 +1,10 @@
 <template>
     <div class="mobilephone_all">
         <div class="mobilephone_tpw">
-            账号设置/修改手机号
+            账号设置/修改密码
         </div>
         <div class="mobile_top">
-            <span class="mobile_tos">修改手机号</span>
+            <span class="mobile_tos">修改密码</span>
             <img class="mobile_toimg" src="../../../static/img/usercenter/exclamationpoint.png" alt="">
             <span class="mobile_toft">请修改</span>
             <span class="mobile_toft">可以通过验证手机号进行相关安全操作</span>
@@ -12,7 +12,7 @@
         <div class="mobile_cent">
             <el-steps :space="200" :active="active" finish-status="success" :align-center="true">
               <el-step title="身份验证"></el-step>
-              <el-step title="输入手机号"></el-step>
+              <el-step title="输入密码"></el-step>
               <el-step title="修改成功"></el-step>
             </el-steps>
             <div class="mobil_tctton">
