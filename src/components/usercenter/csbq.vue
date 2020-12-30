@@ -238,6 +238,9 @@ export default {
 }
 </script>
 <style scoped>
+.all{
+	width: 100%;
+}
 .csbq_head_item em,.csbq_head_item span{font-style:normal;font-size:30px;position:absolute;left: -10px;top: 4px;color:  #ebdbdb;}
 .csbq_head_item span{left: -11px;color: #fafafa;}
 .csbq_head{

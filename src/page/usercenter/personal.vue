@@ -26,7 +26,8 @@
                                         <el-input v-model="ruleForm.name"></el-input>
                                 </el-form-item>
                                 <el-form-item label="性别:" prop="gender">
-                                        <el-input v-model="ruleForm.gender"></el-input>
+                                       <el-radio v-model="ruleForm.gender" label="0">女</el-radio>
+                                         <el-radio v-model="ruleForm.gender" label="1">男</el-radio>
                                 </el-form-item>
                                 <el-form-item label="出生日期:" prop="birthday">
                                         <el-date-picker type="date" placeholder="选择出生日期" v-model="ruleForm.birthday"></el-date-picker>
@@ -145,9 +146,9 @@
                                                                         .imageUrl, this
                                                                         .ruleForm.nickname,
                                                                         this.ruleForm.name,
-                                                                        this.ruleForm.gender,
                                                                         this.ruleForm.birthday,
-                                                                        this.ruleForm.emile
+                                                                        this.ruleForm.emile,
+                                                                        this.ruleForm.gender,
                                                                 )
                                                                 .then(res => {
                                                                         console.log(res)

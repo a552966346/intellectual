@@ -37,7 +37,10 @@
                             <el-input v-model="sbform.minprice" placeholder="请输入您的商标出售价格" style="width: 300px;"></el-input>
                     </el-form-item>
                     <el-form-item label="国籍：" prop="nationality">
-                            <el-input v-model="sbform.nationality" placeholder="请输入您的商标国籍" style="width: 300px;"></el-input>                       
+                            <el-input v-model="sbform.nationality" placeholder="请输入您的商标国籍" style="width: 300px;"></el-input>
+                    </el-form-item>
+                    <el-form-item label="商标长度：" prop="length">
+                            <el-input v-model="sbform.length" placeholder="请输入您的商标长度" style="width: 300px;"></el-input>
                     </el-form-item>
                     <el-form-item label="注册年限：" prop="time">
                         <el-date-picker v-model="sbform.time" type="date" placeholder="选择日期"></el-date-picker>
@@ -45,15 +48,14 @@
                     <el-form-item label="申请时间：" prop="applytime">
                         <el-date-picker v-model="sbform.applytime" type="date" placeholder="选择日期"></el-date-picker>
                     </el-form-item>
-                    <el-form-item label="商品主图："  prop="tu">
+                    <el-form-item label="商品主图："  prop="dialogImageUrl">
                                 <span>请选择图片上传方式，丰富真实的图片信息将加速商品出售</span>
-                                <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview"
-                                        :on-remove="handleRemove">
-                                        <i class="el-icon-plus"></i>
+                                <el-upload class="avatar-uploader" action="aaaa" :show-file-list="false"
+                                        :on-success="handleAvatarSuccess" :on-change="fileChange" :auto-upload="false"
+                                        :before-upload="beforeAvatarUpload">
+                                        <img v-if="sbform.dialogImageUrl" :src="sbform.dialogImageUrl" class="avatar">
+                                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                                 </el-upload>
-                                <el-dialog :visible.sync="dialogVisible">
-                                        <img width="100%" :src="dialogImageUrl" alt="">
-                                </el-dialog>
                     </el-form-item>
                     <el-form-item label="授权方式：" prop="radio2" name="sqfs">
                         <el-radio v-model="sbform.radio2" label="1">独家</el-radio>
@@ -75,7 +77,7 @@
                     <el-form-item label="创意说明：" >
                             <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="sbform.textarea"></el-input>
                     </el-form-item>
-                    <el-form-item label="商标简介：" style="height:250px ;">
+                    <el-form-item label="商标简介：" style="height:280px ;">
                             <quill-editor
                                         v-model="content"
                                     ref="myQuillEditor"
@@ -118,6 +120,7 @@ export default {
                     radio2:'1',
                     time:'',
                     applytime:'',
+                    length:''
             },
             // 验证规则
             textarea:'',
@@ -127,6 +130,23 @@ export default {
                             trigger: 'blur',
                             message: '请输入商标名称'
                     }, ],
+                    dialogImageUrl:[
+                            {
+                                    required: true,
+                                    trigger: 'change',
+                                    message: '请选择图片'
+                            }
+                    ],
+                    radio1:[{
+                            required: true,
+                            trigger: 'change',
+                            message: '请选择授权方式'
+                    }],
+                    radio2:[{
+                            required: true,
+                            trigger: 'change',
+                            message: '请选择授权方式'
+                    }],
                     nationality: [{
                             required: true,
                             trigger: 'blur',
@@ -146,6 +166,11 @@ export default {
                         required: true,
                         trigger: 'blur',
                         message: '请输入商标注册号'
+                   }],
+                   length:[{
+                           required: true,
+                           trigger: 'blur',
+                           message: '请输入商标长度'
                    }],
                    select:[{
                            required: true,
@@ -180,18 +205,39 @@ export default {
 
     },
     methods:{
-           handleRemove(file, fileList) {
+           handleAvatarSuccess(file, fileList) {
                 console.log(file, fileList);
            },
-           handlePictureCardPreview(file) {
+           beforeAvatarUpload(file) {
                 this.dialogImageUrl = file.url;
                 this.dialogVisible = true;
            },
+           fileChange(file, fileList) {
+                   this.image2Base64(file.raw).then(res => {
+                           console.log(res)
+                           this.sbform.dialogImageUrl = res
+                   });
+           },image2Base64(file) {
+                                return new Promise(function(resolve, reject) {
+                                        let reader = new FileReader();
+                                        let imgResult = "";
+                                        reader.readAsDataURL(file);
+                                        reader.onload = function() {
+                                                imgResult = reader.result;
+                                        };
+                                        reader.onerror = function(error) {
+                                                reject(error);
+                                        };
+                                        reader.onloadend = function() {
+                                                resolve(imgResult);
+                                        };
+                                });
+                        },
             submit(formname){
                     console.log(this.content)
                     // this.$refs[formname].validate((valid) => {
                     //         if(valid){
-                        
+
                     //         }
                     // })
             },
@@ -201,14 +247,6 @@ export default {
             onEditorBlur(){}, // 失去焦点事件
             onEditorFocus(){}, // 获得焦点事件
             onEditorChange(){}, // 内容改变事件
-            pickerOptions: {
-                disabledDate(time) {
-                    return time.getTime() > Date.now();
-                },
-
-                time: '',
-                applytime:'',
-            },
 
     },
      computed: {
@@ -219,6 +257,9 @@ export default {
 }
 </script>
 <style scoped>
+.all{
+        width: 100%;
+}
 .cssb_head_item em,.cssb_head_item span{font-style:normal;font-size:30px;position:absolute;left: -10px;top: 4px;color:  #ebdbdb;}
 .cssb_head_item span{left: -11px;color: #fafafa;}
 .cssb_head{
@@ -232,7 +273,7 @@ export default {
 .el-form-item__content>span{
     color: #d2d2d2;
 }
-.el-form-item__content>.tu {
+/* .el-form-item__content>.tu {
         width: 180px;
         height: 180px;
         background-color: #dadada;
@@ -240,7 +281,22 @@ export default {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-}
+} */
+  .avatar-uploader-icon {
+                font-size: 28px;
+                color: #8c939d;
+                width: 178px;
+                height: 178px;
+                line-height: 178px;
+                text-align: center;
+                background-color: #f5f5f5;
+        }
+
+        .avatar {
+                width: 178px;
+                height: 178px;
+                display: block;
+        }
 
 .cssb_head_item{
     position: relative;

@@ -260,8 +260,11 @@ const api = {
      * 个人中心
      */
     // 首页
-    getuserIndex() {
-        return requestAll.requset(baseUrl + '/api/user/index');
+    getuserIndex(uid) {
+           let data={
+                    uid:uid
+            }
+        return requestAll.requset(baseUrl + '/api/user/index',data);
     },
     // 卖家   商标订单
     getuserTrademarkOrder(uid,status) {
