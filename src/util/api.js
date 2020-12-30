@@ -594,18 +594,53 @@ const api = {
              return requestAll.requset(baseUrl + '/api/seller/category');
     },
     //商标信息添加
-    shiosbadd(category_id,number,name,fee,summarize,images){
+    shiosbadd(uid,category_id,number,name,fee,summarize,images,yearsnumber,is_exclusive,combination,strlenlength,nationality,application){
             let data={
+                    uid:uid,
                     category_id:category_id  ,//商标大类
                     number:number ,//商标注册号
                     name:name,//专利注册号
                     fee:fee,//价格
                     summarize:summarize,//创意说明
                     images:images,//图片
-
+                    yearsnumber:yearsnumber,//时间戳
+                    is_exclusive:is_exclusive,//是否独家
+                    combination:combination,//组合
+                    strlenlength:strlenlength,//长度
+                    nationality:nationality,//国籍
+                    application:application,//申请时间
+                    // content:content//业务介绍
+            }
+             return requestAll.requset(baseUrl + '/api/seller/add_trademark',data);
+    },
+    //专利分类
+    zlclass(){
+         return requestAll.requset(baseUrl + '/api/seller/patents_c');
+    },
+    //专利信息添加
+    shopzladd(uid,category_id,number,name,fee,content,images,yearsnumber,condition,sell,strlenlength,creatime){
+            let data={
+                    uid:uid,
+                    category_id:category_id  ,//商标大类
+                    number:number ,//商标注册号
+                    name:name,//专利注册号
+                    fee:fee,//价格
+                    content:content,//创意说明
+                    images:images,//图片
+                    yearsnumber:yearsnumber,//过期时间
+                    condition:condition,//是否独家
+                    sell:sell,//组合
+                    patenttype:patenttype,//长度
+                    creatime:creatime,//申请时间
+                    // content:content//业务介绍
             }
              return requestAll.requset(baseUrl + '/api/seller/add_patents',data);
     },
+    //版权分类
+    bqclass(){
+             return requestAll.requset(baseUrl + '/api/seller/copyright_c');
+    },
+    //实名认证
     userauthentication(uid,realname,idnumber,idfront,idrear,idhand,bank,subbranch,province,city,cardnumber,type,email,mobile,captcha){
             let data={
                     uid:uid,

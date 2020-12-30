@@ -30,8 +30,8 @@
                             <el-input v-model="sbform.nuber" placeholder="请输入商标注册号：" style="width: 300px;"></el-input>
                             <el-button type="danger">开始查询</el-button>
                     </el-form-item>
-                    <el-form-item label="商标名称：" prop="name">
-                            <el-input v-model="sbform.name" placeholder="请输入商标名称：" style="width: 300px;"></el-input>
+                    <el-form-item label="商标名称：" prop="sbname">
+                            <el-input v-model="sbform.sbname" placeholder="请输入商标名称：" style="width: 300px;"></el-input>
                     </el-form-item>
                     <el-form-item label="商标价格：" prop="minprice">
                             <el-input v-model="sbform.minprice" placeholder="请输入您的商标出售价格" style="width: 300px;"></el-input>
@@ -77,7 +77,7 @@
                     <el-form-item label="创意说明：" >
                             <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="sbform.textarea"></el-input>
                     </el-form-item>
-                    <el-form-item label="商标简介：" style="height:280px ;">
+                    <!-- <el-form-item label="商标简介：" style="height:280px ;">
                             <quill-editor
                                         v-model="content"
                                     ref="myQuillEditor"
@@ -85,10 +85,10 @@
                                     @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
                                     @change="onEditorChange($event)">
                                     </quill-editor>
-                    </el-form-item>
-                    <el-form-item label="联系QQ：" prop="qq">
+                    </el-form-item> -->
+                    <!-- <el-form-item label="联系QQ：" prop="qq">
                             <el-input v-model="sbform.qq" placeholder="请输入您的联系QQ" style="width: 300px;"></el-input>
-                    </el-form-item>
+                    </el-form-item> -->
                     <el-form-item label="" >
                         <div class="fabu">
                             <el-button type="success" @click="submit('formrul')">立即发布</el-button>
@@ -110,7 +110,6 @@ export default {
                     dialogVisible: false,
                     sbname:'',//商标名称
                     select: '',
-                    register:'',//注册号
                     minprice: '', //售价
                     qq:'',
                     nuber:'',
@@ -125,7 +124,7 @@ export default {
             // 验证规则
             textarea:'',
             formrule: {
-                    name: [{
+                    sbname: [{
                             required: true,
                             trigger: 'blur',
                             message: '请输入商标名称'
@@ -217,7 +216,8 @@ export default {
                            console.log(res)
                            this.sbform.dialogImageUrl = res
                    });
-           },image2Base64(file) {
+           },
+           image2Base64(file) {
                                 return new Promise(function(resolve, reject) {
                                         let reader = new FileReader();
                                         let imgResult = "";
@@ -234,12 +234,32 @@ export default {
                                 });
                         },
             submit(formname){
-                    console.log(this.content)
-                    // this.$refs[formname].validate((valid) => {
-                    //         if(valid){
+                    this.$confirm('是否确认发布?', '提示', {
+                              confirmButtonText: '确定',
+                              cancelButtonText: '取消',
+                              type: 'warning'
+                            }).then(() => {
+                            this.sbform.time = new Date(this.sbform.time).getTime();
+                            this.sbform.applytime = new Date(this.sbform.applytime).getTime();
+                                    this.$refs[formname].validate((valid) => {
+                                            if(valid){
+                                                this.$api.shiosbadd(this.$store.state.user.id,this.sbform.select,this.sbform.nuber,this.sbform.sbname,this.sbform.minprice,this.sbform.textarea,
+                                                this.sbform.dialogImageUrl,this.sbform.time,this.sbform.radio1,this.sbform.radio2,this.sbform.length,this.sbform.nationality,this.sbform.applytime)
+                                                .then(res=>{
+                                                      this.$message({
+                                                        type: 'success',
+                                                        message: res.msg
+                                                      });
+                                                })
+                                            }
+                                    })
+                            }).catch(() => {
+                              this.$message({
+                                type: 'info',
+                                message: '已取消发布'
+                              });
+                            });
 
-                    //         }
-                    // })
             },
              onEditorReady(editor) { // 准备编辑器
 

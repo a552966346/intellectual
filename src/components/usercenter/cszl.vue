@@ -12,17 +12,17 @@
            </div>
        </div>
         <div class="cszl_body">
-            <el-form ref="formrul" :model="zlform" label-width="150px" :rules="formrule">
+            <el-form ref="formrule" :model="zlform" label-width="150px" :rules="formrule">
                     <el-form-item label="您要出售的商品：" >
                             <div class="top_zl">专利交易</div>
                     </el-form-item>
                     <el-form-item label="专利名称：" prop="name">
                             <el-input v-model="zlform.name" placeholder="请填写专利名称" style="width: 300px;"></el-input>
                     </el-form-item>
-                    <el-form-item label="专利行业：">
-                            <select name="zhuanli" v-model="select" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
+                    <el-form-item label="专利行业：" prop="select">
+                            <select name="zhuanli" v-model="zlform.select" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
                                     <option value="">请选择专利行业</option>
-                                    <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
+                                    <option v-for="item in option" :value="item.id">{{item.name}}</option>
                             </select>
                     </el-form-item>
                     <el-form-item label="专利分类：" prop="radio2" name="zlfl">
@@ -48,20 +48,19 @@
                         <el-radio v-model="zlform.radio" label="3">出售专利</el-radio>
                         <el-radio v-model="zlform.radio" label="4">授权专利</el-radio>
                     </el-form-item>
-                    <el-form-item label="专利图片上传：" >
+                    <el-form-item label="专利图片上传："  prop="dialogImageUrl">
                             <span>请选择图片上传方式，丰富真实的图片信息将加速商品出售</span>
-                            <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview"
-                                :on-remove="handleRemove">
-                                <i class="el-icon-plus"></i>
+                            <el-upload class="avatar-uploader" action="aaaa" :show-file-list="false"
+                                    :on-success="handleAvatarSuccess" :on-change="fileChange" :auto-upload="false"
+                                    :before-upload="beforeAvatarUpload">
+                                    <img v-if="zlform.dialogImageUrl" :src="zlform.dialogImageUrl" class="avatar">
+                                    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                             </el-upload>
-                            <el-dialog :visible.sync="dialogVisible">
-                              <img width="100%" :src="dialogImageUrl" alt="">
-                            </el-dialog>
                     </el-form-item>
                     <el-form-item label="专利描述：" >
                             <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="zlform.textarea"></el-input>
                     </el-form-item>
-                    <el-form-item label="专利简介：" style="height:250px ;">
+                  <!--  <el-form-item label="专利简介：" style="height:300px ;">
                             <quill-editor
                                         v-model="content"
                                     ref="myQuillEditor"
@@ -69,16 +68,16 @@
                                     @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
                                     @change="onEditorChange($event)">
                                     </quill-editor>
-                    </el-form-item>
+                    </el-form-item> -->
                     <el-form-item label="出售金额：" prop="sellprice">
                             <el-input v-model="zlform.sellprice" placeholder="请输入出售金额 单位：元" style="width: 300px;"></el-input>
                     </el-form-item>
-                    <el-form-item label="联系QQ：" prop="qq">
+                    <!-- <el-form-item label="联系QQ：" prop="qq">
                             <el-input v-model="zlform.qq" placeholder="请输入您的联系QQ" style="width: 300px;"></el-input>
-                    </el-form-item>
+                    </el-form-item> -->
                     <el-form-item label="" >
                         <div class="fabu">
-                            <el-button type="success">立即发布</el-button>
+                            <el-button type="success" @click="submit('formrule')">立即发布</el-button>
                             <div class="submit_text">
                                 <div class="submit_text_top">
                                     <div class="submit_text_top_img"><img src="../../../static/img/usercenter/greendg.png" alt=""></div>
@@ -103,7 +102,7 @@ export default {
                     dialogImageUrl: '',
                     dialogVisible: false,
                     name: '', //名称
-                    // select: '',
+                    select: '',
                     register:'',//注册号
                     time:'',//申请时间
                     date:'',//注册时间
@@ -114,7 +113,7 @@ export default {
                     radio1: '1',//申请状态
                     radio: '3',//出售or授权：
             },
-            select: '',
+            // select: '',
             // 验证规则
             formrule: {
                     name: [{
@@ -132,47 +131,95 @@ export default {
                             trigger: 'blur',
                             message: '请输入出售低价'
                     }, ],
-                    qq: [{
+                    // qq: [{
+                    //         required: true,
+                    //         trigger: 'blur',
+                    //         message: '请输入qq'
+                    // }, ],
+                    time: [{ type: 'date', required: true, message: '请选择申请时间', trigger: 'change' } ],
+                    date: [{ type: 'date', required: true, message: '请选择到期时间', trigger: 'change' }  ],
+                    select:[{
                             required: true,
-                            trigger: 'blur',
-                            message: '请输入qq'
-                    }, ],
-                    time: [{
+                            trigger: 'change',
+                            message: '请选择专利分类'
+                    }],
+                    dialogImageUrl:[{
                             required: true,
-                            trigger: 'blur',
-                            message: '请选择时间'
-                    }, ],
-                    date: [{
-                            required: true,
-                            trigger: 'blur',
-                            message: '请选择时间'
-                    }, ],
-
+                            trigger: 'change',
+                            message: '请选择图片'
+                    }]
             },
-            pickerOptions: {
-                disabledDate(time) {
-                    return time.getTime() > Date.now();
-                },
-
-                time: '',
-                date:''
-            },
-
-
-
+            option:[]
         }
     },
     props:{
         isshowzl:false,
     },
+    mounted() {
+                this.$api.zlclass()
+                .then(res=>{
+                        console.log(res)
+                                this.option = res.data
+                })
+    },
     methods:{
-        handleRemove(file, fileList) {
+        beforeAvatarUpload(file, fileList) {
             console.log(file, fileList);
         },
-        handlePictureCardPreview(file) {
-            this.dialogImageUrl = file.url;
+        handleAvatarSuccess(file) {
+            this.sbform.dialogImageUrl = file.url;
             this.dialogVisible = true;
-        }
+        },
+        fileChange(file, fileList) {
+                this.image2Base64(file.raw).then(res => {
+                        console.log(res)
+                        this.zlform.dialogImageUrl = res
+                });
+        },
+        image2Base64(file) {
+                             return new Promise(function(resolve, reject) {
+                                     let reader = new FileReader();
+                                     let imgResult = "";
+                                     reader.readAsDataURL(file);
+                                     reader.onload = function() {
+                                             imgResult = reader.result;
+                                     };
+                                     reader.onerror = function(error) {
+                                             reject(error);
+                                     };
+                                     reader.onloadend = function() {
+                                             resolve(imgResult);
+                                     };
+                             });
+                     },
+                     submit(formname){
+                             this.$confirm('是否确认发布?', '提示', {
+                                       confirmButtonText: '确定',
+                                       cancelButtonText: '取消',
+                                       type: 'warning'
+                                     }).then(() => {
+                                     this.zlform.time = new Date(this.zlform.time).getTime();
+                                     this.zlform.data = new Date(this.zlform.data).getTime();
+                                             this.$refs[formname].validate((valid) => {
+                                                     if(valid){
+                                                         this.$api.shiosbadd(this.$store.state.user.id,this.zlform.select,this.zlform.register,this.zlform.name,this.zlform.sellprice,this.zlform.textarea,
+                                                         this.zlform.dialogImageUrl,this.zlform.time,this.zlform.radio1,this.zlform.radio3,this.zlform.radio2,this.zlform.date)
+                                                         .then(res=>{
+                                                               this.$message({
+                                                                 type: 'success',
+                                                                 message: res.msg
+                                                               });
+                                                         })
+                                                     }
+                                             })
+                                     }).catch(() => {
+                                       this.$message({
+                                         type: 'info',
+                                         message: '已取消发布'
+                                       });
+                                     });
+
+                     },
     },
 }
 </script>
@@ -258,4 +305,20 @@ export default {
     height: 180px;
     width: 80%;
   }
+  .avatar-uploader-icon {
+                font-size: 28px;
+                color: #8c939d;
+                width: 178px;
+                height: 178px;
+                line-height: 178px;
+                text-align: center;
+                background-color: #f5f5f5;
+        }
+
+        .avatar {
+                width: 178px;
+                height: 178px;
+                display: block;
+        }
+
 </style>
