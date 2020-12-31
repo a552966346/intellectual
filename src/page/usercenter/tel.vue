@@ -3,10 +3,6 @@
         <div class="tel_top">
             <div class="top_text">投诉与咨询/我的专属客服</div>
 
-            <div class="top_shopcar">
-                <img src="../../../static/img/usercenter/shopcar.png" alt="">
-                <span>我要出售</span>
-            </div>
         </div>
 
         <div class="tel_con">
@@ -143,20 +139,7 @@ export default{
     font-size: 14px;
     padding: 15px;
 }
-.top_shopcar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 108px;
-    margin: 4px;
-    background-color:#1b7fc3;
-    color: #fff;
-    font-size: 13px;
-    border-radius: 5px;
-}
-.top_shopcar img{
-    margin-right: 8px;
-}
+
 .tel_con{
     background-color: #fff;
     font-size: 14px;

@@ -23,7 +23,7 @@
                 <div class="content_c" >
                     <img src="../../../static/img/usercenter/nomessage.png" alt="">
                     <p>您现在还没有收到信息哦~</p>
-                    <button class="top_shopcar">去首页看看</button>
+                    <button class="top_shopcar" @click="go">去首页看看</button>
                 </div>
             </div>
             <div class="content_two" id="buy_con">
@@ -58,7 +58,7 @@ export default{
             titles:["全部消息","未读消息","已读消息"],
             num:0,
             isnew:[],
-            chex:false,
+            chex:true,
             checked:[],
             ischex:''
             // Unread:[],
@@ -80,6 +80,9 @@ export default{
           
    },
    methods:{
+       go(){
+           this.$router.push({path:'/'})
+       },
        tab(i){
            this.num=i;
            this.news(i)
@@ -155,7 +158,7 @@ export default{
                            type: 'info',
                            message: '已取消删除'
                          });
-                         this.chex = false
+                         this.chex = true
                        });
        },
       getLocalTime(nS) {
@@ -223,6 +226,10 @@ export default{
 }
 .t_del img{
     width: 16px;
+}
+.t_del>.el-button{
+    margin: -5px 0 5px 0;
+
 }
 
 .del{

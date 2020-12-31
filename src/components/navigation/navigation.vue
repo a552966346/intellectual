@@ -4,7 +4,7 @@
                	<li><router-link to="/">网站首页</router-link></li>
                	<li v-for="item in this.$store.state.navbarlist" :key="item.id">
                		<router-link to="#" v-if="item.name !='服务中心'&&item.name!='技术转移'&&item.name!='跳蚤市场'">{{item.name}}</router-link>
-                        <router-link :to="item.type"v-else>{{item.name}}</router-link>
+                        <router-link :to="item.type" v-else>{{item.name}}</router-link>
                		<ul class="submenu" v-if="item.name !='服务中心'&&item.name!='技术转移'">
                			<li v-for="item1 in item.children" :key="item1.id"><router-link :to="item1.keywords">{{item1.name}}</router-link></li>
                		</ul>

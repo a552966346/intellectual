@@ -7,7 +7,7 @@
                         <button class="con_t_item" :class="{back:isshow==1}" @click="isshow1">个人实名认证</button>
                         <button class="con_t_item" :class="{back:isshow==2}" @click="isshow2">企业实名认证</button>
                         <li class="t_right">
-                                <button>联系认证客服</button>
+                                <button @click="kefu">联系认证客服</button>
                         </li>
                 </ul>
                 <div class="id_center" v-show="isshow==1">
@@ -190,7 +190,7 @@
                                         <el-form-item label="真实姓名" prop="name">
                                                 <el-input v-model="ruleForm2.name2"></el-input>
                                         </el-form-item>
-                                        <el-form-item label="营业执照号" prop="number">
+                                        <el-form-item label="营业执照号" prop="number2">
                                                 <el-input v-model="ruleForm2.number2"></el-input>
                                         </el-form-item>
                                         <p>温馨提示：证件必须是清洗彩色原件版本。可以是扫描件或者数码拍摄照片。仅支持jpg、png、jpeg的图片格式。2M以内。</p>
@@ -331,7 +331,7 @@
                                         </el-form-item>
                                         <el-form-item>
                                                 <el-col :span="5">
-                                                        <el-button type="primary" @click="submitForm('ruleForm')">资料上传</el-button>
+                                                        <el-button type="primary" @click="submitForm('ruleForm2')">资料上传</el-button>
                                                 </el-col>
                                                 <el-col :span="15">
                                                         <div class="sub_text" style="float: right;">
@@ -344,9 +344,13 @@
                                 </el-form>
                         </div>
                 </div>
+                <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
+                        <v-customer @shows="showstwo"></v-customer>
+                </div>
         </div>
 </template>
 <script>
+        import customer from '@/components/customers/customer_services.vue'
         import {
                 validatePhone,
                 validateIdNo,
@@ -389,6 +393,7 @@
                                         emil2: ''
                                 },
                                 isshow:1,
+                                isshowtwo:false,
                                 rules: {
                                         name: [{
                                                 required: true,
@@ -398,6 +403,14 @@
                                         number: [{
                                                 required: true,
                                                 message: '请输入身份证号',
+                                                trigger: 'blur'
+                                        }, {
+                                                validator: validateIdNo,
+                                                trigger: 'blur'
+                                        }],
+                                        number2: [{
+                                                required: true,
+                                                message: '请输入营业执照号',
                                                 trigger: 'blur'
                                         }, {
                                                 validator: validateIdNo,
@@ -422,6 +435,10 @@
                                                 required: true,
                                                 message: '请输入对应真实身份开户的银行卡号',
                                                 trigger: 'blur'
+                                        },{ 
+                                                min: 13, max: 19, 
+                                                message: "长度为 13 到 19 个字符",
+                                                trigger: "blur" 
                                         }],
                                         desc: [{
                                                 required: true,
@@ -497,7 +514,7 @@
                                                 this.ruleForm.idcard = res.data.cardnumber
                                                 this.isshow =res.data.type
                                                 this.ruleForm.emil =res.data.email
-                                                 this.ruleForm.phone =res.data.mobile
+                                                this.ruleForm.phone =res.data.mobile
                                         }else{
                                                 this.msg = "未实名认证"
                                                 if(res.data.status==0){
@@ -637,7 +654,17 @@
                                                 console.log(res)
                                                 this.city = res.data
                                 })
-                        }
+                        },
+                        kefu(){
+                             this.isshowtwo = true
+                        },
+                        //客服弹框隐藏
+                        showstwo(){
+                             this.isshowtwo =false
+                        },
+                },
+                components:{
+                        'v-customer':customer
                 }
 
         }
@@ -708,7 +735,7 @@
 
         .t_right button {
                 background-color: #e4404b;
-
+                cursor: pointer;
         }
 
         .id_center {
