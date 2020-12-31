@@ -119,6 +119,7 @@ export default{
     padding: 2px 20px;
     border-radius: 3px;
     font-size: 14px;
+    outline: none;
 }
 .contract_con .con_t button:first-of-type{
     background-color: #e4404b;
