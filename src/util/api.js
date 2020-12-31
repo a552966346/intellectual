@@ -126,7 +126,9 @@ const api = {
                          is_exclusive:id[4],
                          combination:id[5],
                          strlenlength:id[6],
-                         keyword:id[7]
+                         keyword:id[7],
+                         creatime:id[8],
+                         feeorder:id[9]
 		 }
 	    }
         return requestAll.requset(baseUrl + '/api/trademark/trademark_list', data);
