@@ -12,8 +12,8 @@
             <span class="receadd_sapn">您已创建0个收件地址，最多可创建10个</span>
             <button class="receadd_btn" @click="create">新建收货地址</button>
         </div>
-        <div class="tanchuang" v-show="isshow" @click.self="shows" >
-            <v-receadd @close="close" @submit="submit"> </v-receadd>
+        <div class="tanchuang" v-show="isshow" @click.self="shows">
+            <v-receadd @close="close" @submit="submit" ></v-receadd>
         </div>
     </div>
     
@@ -32,13 +32,13 @@ import receadd from '@/components/usercenter/receadd.vue'//求购弹窗
                 this.isshow = true
             },
             shows(){
-                 this.isshow = false
+                this.isshow = false
             },
             close(){//商标隐藏弹框
-                             this.isshow = false
+                this.isshow = false
             },
             submit(){
-                              this.isshow = false
+                this.isshow = false
             },
         },
         components:{

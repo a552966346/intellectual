@@ -21,13 +21,13 @@
                                                 <select name="banquan" v-model="bqform.select" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px;color: rgb(191 183 183);padding-left: 15px;"
                                                         @change="isselect">
                                                         <option>请选择版权分类</option>
-                                                        <option v-for="item in option" :value="item.id">{{item.name}}</option>
+                                                        <option v-for="item in option" :value="item.id" :key="item.id">{{item.name}}</option>
                                                 </select>
                                         </el-form-item>
                                         <el-form-item label="题材：" prop="theme">
                                                 <select name="banquan" v-model="bqform.theme" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px;color: rgb(191 183 183);padding-left: 15px;">
                                                         <option>请选择题材</option>
-                                                        <option v-for="item in option2" :value="item.id">{{item.name}}</option>
+                                                        <option v-for="item in option2" :value="item.id" :key="item.id">{{item.name}}</option>
                                                 </select>
                                         </el-form-item>
                                         <el-form-item label="商品名称：" prop="name">
@@ -60,23 +60,23 @@
                                                 <el-radio v-model="bqform.radio1" label="2">已下证</el-radio>
                                         </el-form-item>
                                         <el-form-item label="交易方式：" v-model="bqform.checkList" prop="checkList" name="cs">
-                                                <el-checkbox v-for="(item,index) in checksone" :label="item" @change="ischecksone(index+1)"></el-checkbox>
+                                                <el-checkbox v-for="(item,index) in checksone" :label="item" :key="item" @change="ischecksone(index+1)"></el-checkbox>
                                         </el-form-item>
                                         <el-form-item label="授权方式：" prop="radio2" name="sqfs">
                                                 <el-radio v-model="bqform.radio2" label="1">独家</el-radio>
                                                 <el-radio v-model="bqform.radio2" label="2">非独家</el-radio>
                                         </el-form-item>
                                         <el-form-item label="授权地区：" v-model="bqform.checkList1" prop="checkList1">
-                                                <el-checkbox v-for="(item,index) in checkstwo" :label="item" @change="ischeckstwo(index+1)"></el-checkbox>
+                                                <el-checkbox v-for="(item,index) in checkstwo" :label="item" :key="item" @change="ischeckstwo(index+1)"></el-checkbox>
                                         </el-form-item>
                                         <el-form-item label="所属地区：" v-model="bqform.radio3" prop="radio3" name="ssdq">
-                                                <el-checkbox v-for="(item,index) in checkstwo" :label="item" @change="ischecksthree(index+1)"></el-checkbox>
+                                                <el-checkbox v-for="(item,index) in checkstwo" :label="item" :key="item" @change="ischecksthree(index+1)"></el-checkbox>
                                         </el-form-item>
                                         <!--                    <el-form-item label="授权期限：" prop="period">
                             <el-input v-model="bqform.period" placeholder="请输入授权期限 单位：年" style="width: 300px;"></el-input>
                     </el-form-item> -->
                                         <el-form-item label="授权范围：" v-model="bqform.checkList2" prop="checkList2" name="sqzt">
-                                                <el-checkbox v-for="(item,index) in checks" :label="item" @change="ischeckList2(index+1)"></el-checkbox>
+                                                <el-checkbox v-for="(item,index) in checks" :label="item" :key="item" @change="ischeckList2(index+1)"></el-checkbox>
                                         </el-form-item>
                                         <el-form-item label="所属年代：" prop="niandai">
                                                 <select name="niandai" v-model="bqform.niandai" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px;color: rgb(191 183 183);padding-left: 15px;">
