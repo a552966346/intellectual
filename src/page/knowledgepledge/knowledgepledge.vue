@@ -24,7 +24,7 @@
                 </ul>
             </div>
             <div class="button">
-                <el-button type="primary" style="width:154px">立即申请</el-button>   <el-button type="primary " plain style="width:154px">在线咨询</el-button>     
+                <el-button type="primary" style="width:154px">立即申请</el-button>   <el-button type="primary " plain style="width:154px" @click="kefu">在线咨询</el-button>     
             </div>
         </div>
         <!-- 基本条件 -->
@@ -91,9 +91,14 @@
             </div>
         </div>
         <v-combotttom></v-combotttom>
+         <!-- 客服弹窗 -->
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                        <v-customer @shows="shows"></v-customer>
+                </div>
     </div>
 </template>·    
 <script>
+import customer from '@/components/customers/customer_services.vue'//客服弹窗
 import knowledgepledgeVue from '../knowledgepledge/knowledgepledge.vue'
 export default {
     name:'knowledgepledge',
@@ -110,7 +115,8 @@ export default {
                             '../../../static/img/knowledgepledge/Application_process.png',
                             '../../../static/img/knowledgepledge/Investment_field.png',
                         ],
-            konwlist:[]
+            konwlist:[],
+            isshow:false,
             }
            
    },
@@ -121,6 +127,18 @@ export default {
             console.log(res)
             this.konwlist = res.data
         })
+   },
+   methods:{
+       //客服弹框隐藏
+        shows(){
+                this.isshow =false
+        },
+        kefu(){
+            this.isshow =true
+        },
+   },
+   components:{
+       'v-customer':customer
    }
 }
 </script>

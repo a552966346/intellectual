@@ -736,6 +736,7 @@
         .t_right button {
                 background-color: #e4404b;
                 cursor: pointer;
+                outline: none;
         }
 
         .id_center {

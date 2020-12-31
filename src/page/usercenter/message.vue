@@ -272,6 +272,9 @@ export default{
     vertical-align:middle;
     margin-bottom: 10px;
 }
+.content_c button{
+    outline: none;
+}
 
 .top_shopcar{
     display: flex;
