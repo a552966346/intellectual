@@ -111,12 +111,12 @@
                         comsort(index) {
                                 this.sortnumber = index
                                 if (index == 1) {
-                                        this.$set(this.id, "creatime", "desc")
-                                        this.$set(this.id, "feeorder", "")
+                                        this.$set(this.id, 8, "desc")
+                                        this.$set(this.id, 9, "")
                                         this.ispost(this.id)
                                 } else if (index == 2) {
-                                        this.$set(this.id, "feeorder", "desc")
-                                        this.$set(this.id, "creatime", "")
+                                        this.$set(this.id, 9, "desc")
+                                        this.$set(this.id, 8, "")
                                         this.ispost(this.id)
                                 } else {
                                         this.ispost()
