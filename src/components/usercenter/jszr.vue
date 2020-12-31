@@ -12,7 +12,7 @@
                                 </div>
                         </div>
                         <div class="jszr_body">
-                                <el-form ref="formrul" :model="jsform" label-width="150px" :rules="formrule">
+                                <el-form ref="formrule" :model="jsform" label-width="150px" :rules="formrule">
                                         <el-form-item label="您要出售的商品：">
                                                 <div class="cssc_con">
                                                         <div class="top_js">科技成果</div>
@@ -21,11 +21,11 @@
                                         <el-form-item label="成果名称：" prop="name">
                                                 <el-input v-model="jsform.name" placeholder="请输入成果名称" style="width: 300px;"></el-input>
                                         </el-form-item>
-                                        
-                                        <el-form-item label="行业分类：">
+
+                                        <el-form-item label="行业分类：" prop="fenlei">
                                                 <select name="fenlei" v-model="jsform.fenlei" style="width: 300px;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: rgb(191 183 183);padding-left: 15px;">
                                                         <option value="">请选择行业分类</option>
-                                                        <!-- <option v-for="item in data" :value="item.id">{{item.name}}</option> -->
+                                                        <option v-for="item in option" :value="item.id">{{item.name}}</option>
                                                 </select>
                                         </el-form-item>
                                         <el-form-item label="应用领域：" prop="radio1" name="lingyu">
@@ -58,7 +58,7 @@
                                                 <el-radio v-model="jsform.radio3" label="2">许可转让</el-radio>
                                                 <el-radio v-model="jsform.radio3" label="3">技术入股</el-radio>
                                         </el-form-item>
-                                        <el-form-item label="是否最新：" prop="radio4" name="zx">
+                                        <!-- <el-form-item label="是否最新：" prop="radio4" name="zx">
                                                 <el-radio v-model="jsform.radio4" label="1">否</el-radio>
                                                 <el-radio v-model="jsform.radio4" label="2">是</el-radio>
                                                 <el-radio v-model="jsform.radio4" label="3">热门需求</el-radio>
@@ -67,16 +67,16 @@
                                         <el-form-item label="技术需求：" prop="radio5" name="jsxq">
                                                 <el-radio v-model="jsform.radio5" label="1">否</el-radio>
                                                 <el-radio v-model="jsform.radio5" label="2">是</el-radio>
-                                        </el-form-item>
-                                        <el-form-item label="商品主图：">
+                                        </el-form-item> -->
+                                        <el-form-item label="商品主图：" prop="dialogImageUrl">
                                                 <span>请选择图片上传方式，丰富真实的图片信息将加速商品出售</span>
-                                                <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview"
-                                                        :on-remove="handleRemove">
-                                                        <i class="el-icon-plus"></i>
+                                                <el-upload class="avatar-uploader" action="aaaa" :show-file-list="false"
+                                                        :on-success="handleAvatarSuccess" :on-change="fileChange"
+                                                        :auto-upload="false" :before-upload="beforeAvatarUpload">
+                                                        <img v-if="jsform.dialogImageUrl" :src="jsform.dialogImageUrl"
+                                                                class="avatar">
+                                                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                                                 </el-upload>
-                                                <el-dialog :visible.sync="dialogVisible">
-                                                        <img width="100%" :src="dialogImageUrl" alt="">
-                                                </el-dialog>
                                         </el-form-item>
                                         <el-form-item label="出售金额：" prop="price">
                                                 <el-input v-model="jsform.price" placeholder="请输入出售金额 单位：元" style="width: 300px;"></el-input>
@@ -85,18 +85,18 @@
                                                 <el-input v-model="jsform.textarea" type="textarea" :rows="5"
                                                         placeholder="请输入内容" style="width: 300px;"></el-input>
                                         </el-form-item>
-                                        <el-form-item label="业务简介：" style="height:250px ;">
+                                        <!-- <el-form-item label="业务简介：" style="height:250px ;">
                                                 <quill-editor v-model="content" ref="myQuillEditor" :options="editorOption"
                                                         @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
                                                         @change="onEditorChange($event)">
                                                 </quill-editor>
-                                        </el-form-item>
-                                        <el-form-item label="联系QQ：" prop="qq">
+                                        </el-form-item> -->
+                                        <!-- <el-form-item label="联系QQ：" prop="qq">
                                                 <el-input v-model="jsform.qq" placeholder="请输入您的联系QQ" style="width: 300px;"></el-input>
-                                        </el-form-item>
+                                        </el-form-item> -->
                                         <el-form-item label="">
                                                 <div class="fabu">
-                                                        <el-button type="success" @click="onSubmit(formrul)">立即发布</el-button>
+                                                        <el-button type="success" @click="onSubmit('formrule')">立即发布</el-button>
                                                         <div class="submit_text">
                                                                 <div class="submit_text_top">
                                                                         <div class="submit_text_top_img"><img src="../../../static/img/usercenter/greendg.png"
@@ -126,14 +126,13 @@
                                         fenlei: '', //分类
                                         csfs: '', //出售方式
                                         price: '', //售价
-                                        qq: '',
                                         textarea: '',
-                                        radio1:'1',//应用领域
-                                        radio:'1',//技术类型：
-                                        radio2:'1',//成熟程度：
-                                        radio3:'1',//交易方式
-                                        radio4:'1',//是否最新
-                                        radio5:'1',//技术需求
+                                        radio1: '1', //应用领域
+                                        radio: '1', //技术类型：
+                                        radio2: '1', //成熟程度：
+                                        radio3: '1', //交易方式
+                                        // radio4: '1', //是否最新
+                                        // radio5: '1', //技术需求
                                 },
                                 // 验证规则
                                 formrule: {
@@ -142,40 +141,25 @@
                                                 trigger: 'blur',
                                                 message: '请输入商标名称'
                                         }, ],
+                                        fenlei: [{
+                                                required: true,
+                                                trigger: 'change',
+                                                message: '请输入选择行业分类'
+                                        }],
                                         num: [{
                                                 required: true,
                                                 trigger: 'blur',
                                                 message: '请输入商标号'
                                         }, ],
+                                        dialogImageUrl: [{
+                                                required: true,
+                                                trigger: 'change',
+                                                message: '请输入图片'
+                                        }],
                                         price: [{
                                                 required: true,
                                                 trigger: 'blur',
                                                 message: '请输入金额'
-                                        }, ],
-                                        qq: [{
-                                                required: true,
-                                                trigger: 'blur',
-                                                message: '请输入qq号'
-                                        }, ],
-                                        num: [{
-                                                required: true,
-                                                trigger: 'blur',
-                                                message: '请输入商标号'
-                                        }, ],
-                                        num: [{
-                                                required: true,
-                                                trigger: 'blur',
-                                                message: '请输入商标号'
-                                        }, ],
-                                        num: [{
-                                                required: true,
-                                                trigger: 'blur',
-                                                message: '请输入商标号'
-                                        }, ],
-                                        num: [{
-                                                required: true,
-                                                trigger: 'blur',
-                                                message: '请输入商标号'
                                         }, ],
                                         minprice: [{
                                                 required: true,
@@ -184,9 +168,85 @@
                                         }, ],
 
                                 },
-
+                                option: []
 
                         }
+                },
+                mounted() {
+                        this.$api.technology_c()
+                                .then(res => {
+                                        console.log(res)
+                                        this.option = res.data
+                                })
+                },
+                methods: {
+                        beforeAvatarUpload(file, fileList) {
+                                console.log(file, fileList);
+                        },
+                        handleAvatarSuccess(file) {
+                                this.jsform.dialogImageUrl = file.url;
+                                this.dialogVisible = true;
+                        },
+                        fileChange(file, fileList) {
+                                this.image2Base64(file.raw).then(res => {
+                                        console.log(res)
+                                        this.jsform.dialogImageUrl = res
+                                });
+                        },
+                        image2Base64(file) {
+                                return new Promise(function(resolve, reject) {
+                                        let reader = new FileReader();
+                                        let imgResult = "";
+                                        reader.readAsDataURL(file);
+                                        reader.onload = function() {
+                                                imgResult = reader.result;
+                                        };
+                                        reader.onerror = function(error) {
+                                                reject(error);
+                                        };
+                                        reader.onloadend = function() {
+                                                resolve(imgResult);
+                                        };
+                                });
+                        },
+                        onSubmit(formname) {
+
+                                this.$confirm('是否确认发布?', '提示', {
+                                        confirmButtonText: '确定',
+                                        cancelButtonText: '取消',
+                                        type: 'warning'
+                                }).then(() => {
+                                        this.$refs[formname].validate((valid) => {
+                                                if (valid) {
+                                                        this.$api.add_technology(this.$store.state
+                                                                        .user.id, this.jsform
+                                                                        .name, this.jsform
+                                                                        .textarea,
+                                                                        this.jsform.dialogImageUrl,
+                                                                        this.jsform.fenlei,
+                                                                        this.jsform.radio1,
+                                                                        this.jsform.radio,
+                                                                        this.jsform.radio2,
+                                                                        this.jsform.radio3,
+                                                                        this.jsform.price
+                                                                )
+                                                                .then(res => {
+                                                                        this.$message({
+                                                                                type: 'success',
+                                                                                message: res
+                                                                                        .msg
+                                                                        });
+                                                                })
+                                                }
+                                        })
+                                }).catch(() => {
+                                        this.$message({
+                                                type: 'info',
+                                                message: '已取消发布'
+                                        });
+                                });
+
+                        },
                 },
                 props: {
                         isshowjs: false,
@@ -256,7 +316,7 @@
                 color: #d2d2d2;
         }
 
-        
+
         .fabu {
                 display: flex;
         }
@@ -294,11 +354,29 @@
         .submit_text>p>span {
                 color: red;
         }
+
         .edit_container {
-           margin: 10px 0;
-         }
-         .quill-editor {
-           height: 180px;
-           width: 80%;
-         }
+                margin: 10px 0;
+        }
+
+        .quill-editor {
+                height: 180px;
+                width: 80%;
+        }
+
+        .avatar-uploader-icon {
+                font-size: 28px;
+                color: #8c939d;
+                width: 178px;
+                height: 178px;
+                line-height: 178px;
+                text-align: center;
+                background-color: #f5f5f5;
+        }
+
+        .avatar {
+                width: 178px;
+                height: 178px;
+                display: block;
+        }
 </style>

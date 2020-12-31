@@ -640,6 +640,56 @@ const api = {
     bqclass(){
              return requestAll.requset(baseUrl + '/api/seller/copyright_c');
     },
+    //题材
+    categorydata(id){
+            let data={
+                    id:id
+            }
+            return requestAll.requset(baseUrl + '/api/seller/categorydata',data);
+    },
+    shopbq(uid,name,number,summarize,category_id,theme,images,fee,author,owner,is_exclusive,meanstype,region,affiliating,chronology,scope){
+            let data={
+                    uid:uid,
+                    name:name, //名字
+                    number:number,//注册号
+                    summarize:summarize,//描述
+                    category_id:category_id,//分类
+                    theme:theme,//题材
+                    images:images,//图片
+                    fee:fee,//价格
+                    author:author,//作者
+                    owner:owner,//著作人
+                    is_exclusive:is_exclusive,//是否独家
+                    meanstype:meanstype,//交易方式
+                    region:region,//授权地区
+                    affiliating:affiliating,//所属地区
+                    chronology:chronology,//所属年代
+                    scope:scope//授权范围
+            }
+            return requestAll.requset(baseUrl + '/api/seller/add_copyright',data);
+    },
+    //技术转移
+    add_technology(uid,name,summarize,images,category_id,territory,type,maturity,means,fee,content,createtime){
+            let data={
+                    uid:uid,
+                    name:name,
+                    summarize:summarize,
+                    images:images,
+                    category_id:category_id,
+                    territory:territory,
+                    type:type,
+                    maturity:maturity,
+                    means:means,
+                    fee:fee,
+                    // content:content,
+                    // createtime:createtime
+            }
+            return requestAll.requset(baseUrl + '/api/seller/add_technology',data);
+    },
+    //行业分类
+    technology_c(){
+            return requestAll.requset(baseUrl + '/api/seller/technology_c');
+    },
     //实名认证
     userauthentication(uid,realname,idnumber,idfront,idrear,idhand,bank,subbranch,province,city,cardnumber,type,email,mobile,captcha){
             let data={
