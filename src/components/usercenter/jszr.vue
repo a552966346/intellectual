@@ -82,7 +82,7 @@
                                                 <el-input v-model="jsform.price" placeholder="请输入出售金额 单位：元" style="width: 300px;"></el-input>
                                         </el-form-item>
                                         <el-form-item label="描述：">
-                                                <el-input v-model="jsform.textarea" type="textarea" :rows="5"
+                                                <el-input v-model="jsform.textarea" resize="none" type="textarea" :rows="5"
                                                         placeholder="请输入内容" style="width: 300px;"></el-input>
                                         </el-form-item>
                                         <!-- <el-form-item label="业务简介：" style="height:250px ;">

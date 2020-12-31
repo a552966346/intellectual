@@ -75,7 +75,7 @@
                         <el-radio v-model="sbform.radio1" label="11">中文+英文+图像</el-radio>
                     </el-form-item>
                     <el-form-item label="创意说明：" >
-                            <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="sbform.textarea"></el-input>
+                            <el-input type="textarea" resize="none"  :rows="5" placeholder="请输入内容" style="width: 300px;"  v-model="sbform.textarea"></el-input>
                     </el-form-item>
                     <!-- <el-form-item label="商标简介：" style="height:280px ;">
                             <quill-editor
@@ -280,6 +280,9 @@ export default {
 .all{
         width: 100%;
 }
+.el-scrollbar__wrap {
+   overflow-y: hidden;
+}
 .cssb_head_item em,.cssb_head_item span{font-style:normal;font-size:30px;position:absolute;left: -10px;top: 4px;color:  #ebdbdb;}
 .cssb_head_item span{left: -11px;color: #fafafa;}
 .cssb_head{
@@ -293,15 +296,7 @@ export default {
 .el-form-item__content>span{
     color: #d2d2d2;
 }
-/* .el-form-item__content>.tu {
-        width: 180px;
-        height: 180px;
-        background-color: #dadada;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-} */
+
   .avatar-uploader-icon {
                 font-size: 28px;
                 color: #8c939d;

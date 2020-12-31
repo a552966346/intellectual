@@ -89,7 +89,7 @@
                                                 </select>
                                         </el-form-item>
                                         <el-form-item label="作者介绍/作品简介：">
-                                                <el-input type="textarea" :rows="5" placeholder="请输入内容" style="width: 300px;"
+                                                <el-input type="textarea" resize="none" :rows="5" placeholder="请输入内容" style="width: 300px;"
                                                         v-model="bqform.textarea"></el-input>
                                         </el-form-item>
                                         <!-- <el-form-item label="作品介绍/剧情简介：" >

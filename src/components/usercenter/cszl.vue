@@ -58,7 +58,7 @@
                             </el-upload>
                     </el-form-item>
                     <el-form-item label="专利描述：" >
-                            <el-input type="textarea" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="zlform.textarea"></el-input>
+                            <el-input type="textarea" resize="none" :rows="5" placeholder="请输入内容"  style="width: 300px;" v-model="zlform.textarea"></el-input>
                     </el-form-item>
                   <!--  <el-form-item label="专利简介：" style="height:300px ;">
                             <quill-editor
