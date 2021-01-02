@@ -40,16 +40,15 @@
                   <el-select
                     size="medium"
                     v-model="provinceCode"
-                    @focus="getProvinces"
                     @change="changeProvince"
                     placeholder="省"
                     filterable
                   >
                     <el-option
                       v-for="item in provinceList"
-                      :key="item.provinceCode"
-                      :label="item.provinceName"
-                      :value="item.provinceCode"
+                      :key="item.code"
+                      :label="item.name"
+                      :value="item.name"
                     >
                     </el-option>
                   </el-select>
@@ -129,6 +128,7 @@ export default {
       cityFlag: false, // 避免重复请求的标志
       provinceFlag: false,
       areaFlag: false,
+      cityid:"",
       form1: {
         name: "",
         phone: "",
@@ -166,20 +166,20 @@ export default {
           },
         ],
       },
-      option: "",
     };
   },
-  created() {
+  beforeMount(){
     this.$api.areadata().then((res) => {
       this.provinceList = res.data;
+         res.data.forEach(function(item){
+         this.cityid = item.id;
+      });
     });
-    this.getProvinces();
   },
   methods: {
     close() {
       this.$emit("close");
     },
-
     getVerification() {
       this.html = Math.random();
     },
@@ -215,58 +215,35 @@ export default {
         method: "get",
         url: url + "/" + code,
       })
-        .then((res) => {
-          if (res.data.code === this.API.SUCCESS) {
-            let body = res.data.body || [];
-            array.splice(0, array.length, ...body);
-          }
-        })
+      .then((res) => {
+        if (res.data.code === this.API.SUCCESS) {
+          let body = res.data.body || [];
+          array.splice(0, array.length, ...body);
+        }
+      })
         .catch((err) => {
           console.log(err);
         })
         .finally((res) => {});
     },
-    // 根据国家编码获取省份列表
-    getProvinces() {
-      if (this.provinceFlag) {
-        return;
-      }
-      this.fetchData(this.provinceList, this.API.province, 156);
-      this.provinceFlag = true;
-    },
     // 省份修改，拉取对应城市列表
     changeProvince(val) {
-      this.fetchData(this.cityList, this.API.city, this.provinceCode);
-      this.cityFlag = true;
-      this.cityCode = "";
-      this.areaCode = "";
-      this.$emit("addressSelect", val);
+      console.log(val);
+        let id = this.cityid;
+        this.$api.cityList(id).then((res) => {
+          console.log(res)
+        this.provinceList = res.data;
+      });
     },
     // 根据省份编码获取城市列表
     getCities() {
-      if (this.cityFlag) {
-        return;
-      }
-      if (this.provinceCode) {
-        this.fetchData(this.cityList, this.API.city, this.provinceCode);
-        this.cityFlag = true;
-      }
     },
     // 城市修改，拉取对应区域列表
     changeCity(val) {
-      this.fetchData(this.areaList, this.API.area, this.cityCode);
-      this.areaFlag = true;
-      this.areaCode = "";
-      this.$emit("addressSelect", val);
+      console.log(val);
     },
     // 根据城市编码获取区域列表
     getAreas() {
-      if (this.areaFlag) {
-        return;
-      }
-      if (this.cityCode) {
-        this.fetchData(this.areaList, this.API.area, this.cityCode);
-      }
     },
     // 区域修改
     changeArea(val) {
@@ -283,20 +260,20 @@ export default {
         method: "get",
         url: this.API.addressCode + "/" + addressCode,
       })
-        .then((res) => {
-          let data = res.data.body;
-          if (!data) return;
-          if (data.provinceCode) {
-            this.provinceCode = data.provinceCode;
-            this.fetchData(this.cityList, this.API.city, this.provinceCode);
-          } else if (data.cityCode) {
-            this.cityCode = data.cityCode;
-            this.fetchData(this.areaList, this.API.area, this.cityCode);
-          } else if (data.areaCode) {
-            this.areaCode = data.areaCode;
-          }
-        })
-        .finally((res) => {});
+      .then((res) => {
+        let data = res.data.body;
+        if (!data) return;
+        if (data.provinceCode) {
+          this.provinceCode = data.provinceCode;
+          this.fetchData(this.cityList, this.API.city, this.provinceCode);
+        } else if (data.cityCode) {
+          this.cityCode = data.cityCode;
+          this.fetchData(this.areaList, this.API.area, this.cityCode);
+        } else if (data.areaCode) {
+          this.areaCode = data.areaCode;
+        }
+      })
+      .finally((res) => {});
     },
   },
   watch: {
