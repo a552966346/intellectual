@@ -33,22 +33,22 @@
               style="width: 100%"
             ></el-input>
           </el-form-item>
-          <el-form-item label="收件地址" prop="address">
+          <el-form-item label="收件地址" >
             <div id="addressHorizontalSelect">
               <el-row>
                 <el-col :span="span">
                   <el-select
                     size="medium"
-                    v-model="provinceCode"
+                    v-model="form1.province"
                     @change="changeProvince"
                     placeholder="省"
                     filterable
                   >
                     <el-option
                       v-for="item in provinceList"
-                      :key="item.code"
+                      :key="item.id"
                       :label="item.name"
-                      :value="item.name"
+                      :value="item.id"
                     >
                     </el-option>
                   </el-select>
@@ -56,17 +56,16 @@
                 <el-col :span="span" v-if="!hideCity">
                   <el-select
                     size="medium"
-                    v-model="cityCode"
-                    @focus="getCities"
+                    v-model="form1.city"
                     @change="changeCity"
                     placeholder="市"
                     filterable
                   >
                     <el-option
                       v-for="item in cityList"
-                      :key="item.cityCode"
-                      :label="item.cityName"
-                      :value="item.cityCode"
+                      :key="item.id"
+                      :label="item.name"
+                      :value="item.id"
                     >
                     </el-option>
                   </el-select>
@@ -76,17 +75,16 @@
                 <el-col :span="span" v-if="!hideCity && !hideArea">
                   <el-select
                     size="medium"
-                    v-model="areaCode"
-                    @focus="getAreas"
+                    v-model="form1.area"
                     @change="changeArea"
                     placeholder="区 / 县"
                     filterable
                   >
                     <el-option
                       v-for="item in areaList"
-                      :key="item.areaCode"
-                      :label="item.areaName"
-                      :value="item.areaCode"
+                      :key="item.id"
+                      :label="item.name"
+                      :value="item.id"
                     >
                     </el-option>
                   </el-select>
@@ -119,6 +117,7 @@ export default {
   name: "addressHorizontalSelect",
   data() {
     return {
+      uid:'',
       provinceList: [], // 省份列表
       cityList: [], // 城市列表
       areaList: [], // 区/县列表
@@ -128,12 +127,13 @@ export default {
       cityFlag: false, // 避免重复请求的标志
       provinceFlag: false,
       areaFlag: false,
-      cityid:"",
       form1: {
         name: "",
         phone: "",
-        address: "",
-        add: "",
+        province:'',
+        city:'',
+        area:'',
+        add:''
       },
       isshow: false,
       select: "",
@@ -172,7 +172,6 @@ export default {
     this.$api.areadata().then((res) => {
       this.provinceList = res.data;
          res.data.forEach(function(item){
-         this.cityid = item.id;
       });
     });
   },
@@ -184,15 +183,13 @@ export default {
       this.html = Math.random();
     },
     submit(fromname) {
+      let user =JSON.parse(sessionStorage['user']);
+      this.uid = user.id;
       this.$refs[fromname].validate((valid) => {
-        this.$api
-          .getsellpost(
-            this.form1.phone,
-            this.form1.name,
-            "",
-            3,
-            this.form1.address
-          )
+        console.log(valid)
+        console.log(123456789)
+        console.log(this.uid)
+        this.$api.receadd(this.uid,this.form1.name,this.form1.phone,this.form1.province,this.form1.city,this.form1.area,this.form1.add,0)
           .then((res) => {
             if (res.code == 1) {
               this.$message({
@@ -209,87 +206,26 @@ export default {
           });
       });
     },
-    //地址栏
-    fetchData(array, url, code) {
-      this.$http({
-        method: "get",
-        url: url + "/" + code,
-      })
-      .then((res) => {
-        if (res.data.code === this.API.SUCCESS) {
-          let body = res.data.body || [];
-          array.splice(0, array.length, ...body);
-        }
-      })
-        .catch((err) => {
-          console.log(err);
-        })
-        .finally((res) => {});
-    },
     // 省份修改，拉取对应城市列表
     changeProvince(val) {
       console.log(val);
-        let id = this.cityid;
-        this.$api.cityList(id).then((res) => {
-          console.log(res)
-        this.provinceList = res.data;
+        this.$api.citydata(val).then((res) => {
+          console.log(res.data,'省')
+        this.cityList = res.data;
       });
     },
-    // 根据省份编码获取城市列表
-    getCities() {
+    changeCity(val){
+          this.$api.citydata(val).then((res) => {
+              console.log(res.data,'区')
+            this.areaList = res.data;
+        })
     },
-    // 城市修改，拉取对应区域列表
-    changeCity(val) {
-      console.log(val);
-    },
-    // 根据城市编码获取区域列表
-    getAreas() {
-    },
-    // 区域修改
-    changeArea(val) {
-      this.$emit("addressSelect", val);
-    },
-    // 重置省市区/县编码
-    reset() {
-      (this.provinceCode = ""), (this.cityCode = ""), (this.areaCode = "");
-    },
-    // 地址编码转换成省市区列表
-    addressCodeToList(addressCode) {
-      if (!addressCode) return false;
-      this.$http({
-        method: "get",
-        url: this.API.addressCode + "/" + addressCode,
-      })
-      .then((res) => {
-        let data = res.data.body;
-        if (!data) return;
-        if (data.provinceCode) {
-          this.provinceCode = data.provinceCode;
-          this.fetchData(this.cityList, this.API.city, this.provinceCode);
-        } else if (data.cityCode) {
-          this.cityCode = data.cityCode;
-          this.fetchData(this.areaList, this.API.area, this.cityCode);
-        } else if (data.areaCode) {
-          this.areaCode = data.areaCode;
-        }
-      })
-      .finally((res) => {});
-    },
-  },
-  watch: {
-    addressCode: {
-      deep: true,
-      immediate: true,
-      handler(newVal) {
-        if (newVal) {
-          this.addressCodeToList(newVal);
-        } else {
-          this.$nextTick(() => {
-            this.reset();
-          });
-        }
-      },
-    },
+    changeArea(val){
+      this.$api.citydata(val).then((res) => {
+          console.log(res.data,'区')
+        this.areaList = res.data;
+    })
+    }
   },
   computed: {
     span() {
@@ -313,7 +249,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    addressCode: null, // 地址编码
   },
   model: {
     prop: "addressCode",
@@ -328,7 +263,6 @@ export default {
   width: 40%;
 }
 .tanchuang_all {
-  /* height: 550px; */
   border-radius: 10px;
   overflow: hidden;
   background: #fff;
