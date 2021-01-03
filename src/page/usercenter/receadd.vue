@@ -73,6 +73,9 @@ import receadd from '@/components/usercenter/receadd.vue'//求购弹窗
         display: flex;
         flex-direction: column;
     }
+    .receadd_cent button{
+        outline: none;
+    }
     .receadd_top{
         margin-top: 15px;
         width: 100%;

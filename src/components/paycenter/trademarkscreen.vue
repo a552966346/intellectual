@@ -21,7 +21,8 @@
                                                         :key="nubs"
                                                         v-if="isitem != 0"
                                                         :label="isitem"
-                                                        :value="nubs">
+                                                        :value="nubs"
+                                                        style="padding-left:10px;">
                                                         </el-option>
                                                     </el-select>
                                         </div>

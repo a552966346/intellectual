@@ -65,7 +65,9 @@
               {{ severtw[1] }}
             </div>
             <div class="index_cmetkaqw">
-              <router-link to="service_qyzs?id=108">  {{ severtr[1] }}</router-link>
+              <router-link to="service_qyzs?id=108">
+                {{ severtr[1] }}</router-link
+              >
             </div>
           </div>
         </div>
@@ -78,8 +80,10 @@
             <div class="index_cmetkaw">
               {{ severtw[2] }}
             </div>
-            <div class="index_cmetkaqw" >
-                    <router-link to="service_gqrd?id=110">  {{ severtr[2] }}</router-link>
+            <div class="index_cmetkaqw">
+              <router-link to="service_gqrd?id=110">
+                {{ severtr[2] }}</router-link
+              >
             </div>
           </div>
         </div>
@@ -128,7 +132,7 @@
             <li
               v-for="(item, index) in news"
               :class="{ active: index == num }"
-              v-if="index!=2"
+              v-if="index != 2"
               @click="tab(index)"
               :key="item.id"
             >
@@ -189,23 +193,33 @@
                 </div>
                 <div class="index_ulxwtr">
                   <div class="index_ulxwsqk">
-                    <div style="width: 100%; height: 100%;">
+                    <div style="width: 100%; height: 100%">
                       <router-link to="">
-                        <div class="newa4" >
-                                <div class="newsrighttitle" >
-                                        <img src="../../../static/img/index/newsright.png" alt="">
-                                </div>
-                                <div style="flex:1;">
-                                        <div class="index_ulwsaq3">山西省知识产权战略纲要</div>
-                          <div class="index_ulwsapq3">为全面贯彻落实国家知识产权战略，推进我省国家资源型经济转型综合配套改革试验区...</div>
-                                </div>
-
+                        <div class="newa4">
+                          <div class="newsrighttitle">
+                            <img
+                              src="../../../static/img/index/newsright.png"
+                              alt=""
+                            />
+                          </div>
+                          <div style="flex: 1">
+                            <div class="index_ulwsaq3">
+                              山西省知识产权战略纲要
+                            </div>
+                            <div class="index_ulwsapq3">
+                              为全面贯彻落实国家知识产权战略，推进我省国家资源型经济转型综合配套改革试验区...
+                            </div>
+                          </div>
                         </div>
                       </router-link>
-                      <router-link :to="'/newsint?id='+item.id" v-for="item in newnow.news" :key="item.id">
+                      <router-link
+                        :to="'/newsint?id=' + item.id"
+                        v-for="item in newnow.news"
+                        :key="item.id"
+                      >
                         <div class="newa3">
-                          <div class="index_ulwsaq3">{{item.title}}</div>
-                          <div class="index_ulwsapq3">{{item.desc}}</div>
+                          <div class="index_ulwsaq3">{{ item.title }}</div>
+                          <div class="index_ulwsapq3">{{ item.desc }}</div>
                         </div>
                       </router-link>
                     </div>
@@ -360,7 +374,7 @@
     </div>
     <!-- 公共底部 -->
     <v-combotttom></v-combotttom>
-   <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
+    <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
       <v-customer @shows="showstwo"></v-customer>
     </div>
   </div>
@@ -385,7 +399,7 @@ export default {
       trade: [], //商标交易的块内容
       soft: [], //软著交易的块内容
       isshow: false,
-      isshowtwo:false,//客服弹窗显示
+      isshowtwo: false, //客服弹窗显示
       title_color: "#fff", // commtitle组件传值所需
       title_all: [
         "交易中心",
@@ -646,8 +660,15 @@ export default {
           },
           { type: "number", message: "手机号必须为数字值" },
         ],
+        name: [
+          {
+            required: true,
+            trigger: "blur",
+            message: "请输入姓名",
+          },
+        ],
       },
-      newnow:[]
+      newnow: [],
     };
   },
   mounted() {
@@ -682,8 +703,8 @@ export default {
     this.$api.getindexnew().then((res) => {
       // console.log(res, "新闻中心");
       this.news = res.data;
-      this.newnow = res.data[2]
-      console.log(this.newnow, "新闻中心")
+      this.newnow = res.data[2];
+      console.log(this.newnow, "新闻中心");
       // this.num3=res.data.count;
     });
     this.$api.getydbrief().then((res) => {
@@ -718,19 +739,21 @@ export default {
     },
     submitForm(fromName) {
       this.$refs[fromName].validate((valid) => {
-        this.$api
-          .getindexpart(this.login_ruleForm.name, this.login_ruleForm.phone)
-          .then((res) => {
-            console.log(res, "合伙人");
-            if (res.code == 1) {
-              this.isshow = false;
-              this.$notify({
-                title: "申请成功",
-                message: "申请成功,请等待客服人员与您联系",
-                type: "success",
-              });
-            }
-          });
+        if (valid) {
+          this.$api
+            .getindexpart(this.login_ruleForm.name, this.login_ruleForm.phone)
+            .then((res) => {
+              console.log(res, "合伙人");
+              if (res.code == 1) {
+                this.isshow = false;
+                this.$notify({
+                  title: "申请成功",
+                  message: "申请成功,请等待客服人员与您联系",
+                  type: "success",
+                });
+              }
+            });
+        }
       });
     },
     jiequ(time) {
@@ -743,9 +766,9 @@ export default {
     shows() {
       this.isshow = false;
     },
-    showstwo(){
-            this.isshowtwo = false;
-    }
+    showstwo() {
+      this.isshowtwo = false;
+    },
   },
   components: {
     "v-indexpayitem": indexpayitem,
@@ -952,21 +975,19 @@ a:hover {
   cursor: pointer;
   border-radius: 10px;
 }
-.index_cmetkaqw>a{
-        color: #fff;
+.index_cmetkaqw > a {
+  color: #fff;
 }
-.index_cmetkaqw:hover{
-         background-color: #fff;
+.index_cmetkaqw:hover {
+  background-color: #fff;
 }
-.index_cmetkaqw:hover >a{
- 
+.index_cmetkaqw:hover > a {
   color: #8582d2;
 }
-.index_cmetkaqw:last-of-type:hover{
-          background-color: #fff;
+.index_cmetkaqw:last-of-type:hover {
+  background-color: #fff;
 }
-.index_cmetkaqw:last-of-type:hover>a {
-
+.index_cmetkaqw:last-of-type:hover > a {
   color: #f28a46;
 }
 /* 跳蚤市场 */
@@ -1457,9 +1478,9 @@ a:hover {
   font-size: 12px;
   padding: 10px;
 }
-.newa4{
-        display: flex;
-        height: 110px;
+.newa4 {
+  display: flex;
+  height: 110px;
   width: 100%;
   background: #f5f7fa;
   margin-bottom: 20px;
@@ -1468,31 +1489,30 @@ a:hover {
   padding: 10px;
 }
 
-.index_ulwsapq3{
-        padding-top: 10px;
-        padding-left: 15px;
-        padding-right: 15px;
-        line-height: 1.5em;
-        color: #666;
-         text-overflow: -o-ellipsis-lastline;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          line-clamp: 2;
-          -webkit-box-orient: vertical;
+.index_ulwsapq3 {
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  line-height: 1.5em;
+  color: #666;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
-.index_ulwsaq3{
-        padding: 0 15px;
-        font-size: 14px;
-        color: black;
+.index_ulwsaq3 {
+  padding: 0 15px;
+  font-size: 14px;
+  color: black;
 }
-.newsrighttitle{
-        width: 40%;
+.newsrighttitle {
+  width: 40%;
 }
-.newsrighttitle>img{
-        width: 100%;
-        height: 100%;
-
+.newsrighttitle > img {
+  width: 100%;
+  height: 100%;
 }
 </style>

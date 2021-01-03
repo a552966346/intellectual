@@ -121,7 +121,7 @@
          </div>
          <div class="activity_zone_right">
             <el-carousel :interval="4000" type="card" height="560px">
-              <el-carousel-item v-for="item in 4" :key="item">
+              <el-carousel-item v-for="item in 4" :key="item" width="300px">
                 <!-- <h3 class="medium">{{ item }}</h3> -->
                 <h4>报名</h4>
                 <p>报名参加2020年伊甸城-圣诞节艺术</p>
@@ -343,7 +343,7 @@ export default {
 .activity_zone_left{
   color:#fff;
   font-size: 28px;
-  width: 40%;
+  width: 38%;
 }
 .activity_zone_left>p:first-of-type{
   font-size: 44px;
@@ -416,8 +416,8 @@ export default {
   border-bottom: none;
 }
 .activity_zone_right{
-  width: 45%;
-  padding: 30px 40px;
+  width: 50%;
+  padding: 30px 0;
 }
 
 /* 轮播图 */
@@ -431,9 +431,9 @@ export default {
     font-size: 14px;
     opacity: 0.75;
     line-height: 200px;
-    margin: 0;
+    margin: 0; 
   } */
-  
+   
   .el-carousel__item:nth-child(2n) {
     background-color: #fff;
     border-radius: 10px;

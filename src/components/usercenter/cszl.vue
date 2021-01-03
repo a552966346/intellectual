@@ -177,49 +177,48 @@ export default {
                 });
         },
         image2Base64(file) {
-                             return new Promise(function(resolve, reject) {
-                                     let reader = new FileReader();
-                                     let imgResult = "";
-                                     reader.readAsDataURL(file);
-                                     reader.onload = function() {
-                                             imgResult = reader.result;
-                                     };
-                                     reader.onerror = function(error) {
-                                             reject(error);
-                                     };
-                                     reader.onloadend = function() {
-                                             resolve(imgResult);
-                                     };
-                             });
-                     },
-                     submit(formname){
-                             this.$confirm('是否确认发布?', '提示', {
-                                       confirmButtonText: '确定',
-                                       cancelButtonText: '取消',
-                                       type: 'warning'
-                                     }).then(() => {
-                                     this.zlform.time = new Date(this.zlform.time).getTime();
-                                     this.zlform.data = new Date(this.zlform.data).getTime();
-                                             this.$refs[formname].validate((valid) => {
-                                                     if(valid){
-                                                         this.$api.shiosbadd(this.$store.state.user.id,this.zlform.select,this.zlform.register,this.zlform.name,this.zlform.sellprice,this.zlform.textarea,
-                                                         this.zlform.dialogImageUrl,this.zlform.time,this.zlform.radio1,this.zlform.radio3,this.zlform.radio2,this.zlform.date)
-                                                         .then(res=>{
-                                                               this.$message({
-                                                                 type: 'success',
-                                                                 message: res.msg
-                                                               });
-                                                         })
-                                                     }
-                                             })
-                                     }).catch(() => {
-                                       this.$message({
-                                         type: 'info',
-                                         message: '已取消发布'
-                                       });
-                                     });
-
-                     },
+                 return new Promise(function(resolve, reject) {
+                         let reader = new FileReader();
+                         let imgResult = "";
+                         reader.readAsDataURL(file);
+                         reader.onload = function() {
+                                 imgResult = reader.result;
+                         };
+                         reader.onerror = function(error) {
+                                 reject(error);
+                         };
+                         reader.onloadend = function() {
+                                 resolve(imgResult);
+                         };
+                 });
+        },
+        submit(formname){
+                this.$confirm('是否确认发布?', '提示', {
+                          confirmButtonText: '确定',
+                          cancelButtonText: '取消',
+                          type: 'warning'
+                }).then(() => {
+                        this.zlform.time = new Date(this.zlform.time).getTime();
+                        this.zlform.data = new Date(this.zlform.data).getTime();
+                        this.$refs[formname].validate((valid) => {
+                                if(valid){
+                                    this.$api.shiosbadd(this.$store.state.user.id,this.zlform.select,this.zlform.register,this.zlform.name,this.zlform.sellprice,this.zlform.textarea,
+                                    this.zlform.dialogImageUrl,this.zlform.time,this.zlform.radio1,this.zlform.radio3,this.zlform.radio2,this.zlform.date)
+                                    .then(res=>{
+                                          this.$message({
+                                            type: 'success',
+                                            message: res.msg
+                                          });
+                                    })
+                                }
+                        })
+                }).catch(() => {
+                  this.$message({
+                    type: 'info',
+                    message: '已取消发布'
+                  });
+                });
+        },
     },
 }
 </script>
