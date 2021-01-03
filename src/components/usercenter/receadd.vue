@@ -170,13 +170,14 @@ export default {
     };
   },
   beforeMount(){
-    this.$api.areadata().then((res) => {
+    this.$api.areadata()
+    .then((res) => {
       this.provinceList = res.data;
          res.data.forEach(function(item){
       })
-      .catch(err =>{
-            console.log(err);
-      });
+    })
+    .catch(err =>{
+        console.log(err);
     });
   },
   methods: {
@@ -216,13 +217,14 @@ export default {
     // 省份修改，拉取对应城市列表
     changeProvince(val) {
       console.log(val);
-        this.$api.citydata(val).then((res) => {
-          console.log(res.data,'省')
+        this.$api.citydata(val)
+        .then((res) => {
+            console.log(res.data,'省')
         this.cityList = res.data;
-      })
-      .catch(err =>{
+        })
+        .catch(err =>{
             console.log(err);
-      });
+        });
     },
     changeCity(val){
           this.$api.citydata(val)
@@ -235,12 +237,14 @@ export default {
           })
     },
     changeArea(val){
-      this.$api.citydata(val).then((res) => {
+      this.$api.citydata(val)
+      .then((res) => {
           console.log(res.data,'区')
         this.areaList = res.data;
-    }).catch(err =>{
-                  console.log(err);
-          })
+      })
+      .catch(err =>{
+          console.log(err);
+      })
     }
   },
   computed: {
