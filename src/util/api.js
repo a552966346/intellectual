@@ -306,8 +306,6 @@ const api = {
             }
         return requestAll.requset(baseUrl + '/api/Userorder/service_order',data);
     },
-    // 账号设置  收货地址
-
 
     /*
      * 页面底部数据
@@ -640,6 +638,54 @@ const api = {
     bqclass(){
              return requestAll.requset(baseUrl + '/api/seller/copyright_c');
     },
+    technology_c(){
+            return requestAll.requset(baseUrl + '/api/seller/technology_c');
+    },
+    add_technology(uid,name,summarize,images,category_id,territory,type,maturity,means,fee,content,createtime){
+                let data={
+                        uid:uid,
+                        name:name,
+                        summarize:summarize,
+                        images:images,
+                        category_id:category_id,
+                        territory:territory,
+                        type:type,
+                        maturity:maturity,
+                        means:means,
+                        fee:fee,
+                        // content:content,
+                        // createtime:createtime
+                }
+                return requestAll.requset(baseUrl + '/api/seller/add_technology',data);
+        },
+        //题材
+        categorydata(id){
+                    let data={
+                            id:id
+                    }
+                    return requestAll.requset(baseUrl + '/api/seller/categorydata',data);
+            },
+        shopbq(uid,name,number,summarize,category_id,theme,images,fee,author,owner,is_exclusive,meanstype,region,affiliating,chronology,scope){
+                    let data={
+                            uid:uid,
+                            name:name, //名字
+                            number:number,//注册号
+                            summarize:summarize,//描述
+                            category_id:category_id,//分类
+                            theme:theme,//题材
+                            images:images,//图片
+                            fee:fee,//价格
+                            author:author,//作者
+                            owner:owner,//著作人
+                            is_exclusive:is_exclusive,//是否独家
+                            meanstype:meanstype,//交易方式
+                            region:region,//授权地区
+                            affiliating:affiliating,//所属地区
+                            chronology:chronology,//所属年代
+                            scope:scope//授权范围
+                    }
+                    return requestAll.requset(baseUrl + '/api/seller/add_copyright',data);
+            },
     //实名认证
     userauthentication(uid,realname,idnumber,idfront,idrear,idhand,bank,subbranch,province,city,cardnumber,type,email,mobile,captcha){
             let data={
@@ -686,11 +732,13 @@ const api = {
             }
          return requestAll.requset(baseUrl + '/api/user/changemobile',data);
     },
-    password(uid,password,code){
+    password(uid,mobile,password,newpassword,code){
             let data={
                     uid:uid,
+                    mobile:mobile,
                     password:password,
-                    code:code
+                    newpassword:newpassword,
+                    captcha:code
             }
             return requestAll.requset(baseUrl + '/api/user/resetpwd',data);
     },
@@ -705,6 +753,54 @@ const api = {
                     gender:gender
             }
             return requestAll.requset(baseUrl + '/api/user/saveuserinfo',data);
-    }
+    },
+    //我是卖家
+    // 卖家   商标订单
+    getuserTrademark(uid,status) {
+           let data={
+                    uid:uid,
+                    status:status
+           }
+        return requestAll.requset(baseUrl + '/api/seller/trademark_data',data);
+    },
+    // 卖家   专利订单
+    getuserPatents(uid,status) {
+            let data={
+                     uid:uid,
+                     status:status
+            }
+        return requestAll.requset(baseUrl + '/api/seller/patents_data',data);
+    },
+    // 卖家   版权订单
+    getuserCopyright(uid,status) {
+            let data={
+                     uid:uid,
+                     status:status
+            }
+        return requestAll.requset(baseUrl + '/api/seller/copyright_data',data);
+    },
+    //技术转移
+    getusertechnologydata(uid,status) {
+            let data={
+                     uid:uid,
+                     status:status
+            }
+        return requestAll.requset(baseUrl + '/api/seller/technology_data',data);
+    },
+        //添加收货地址
+        receadd(uid,recipients,mobile,province,city,area,address,is_default
+            ){
+            let data={
+                uid:uid,
+                recipients:recipients,
+                mobile:mobile,
+                province:province,
+                city:city,
+                area:area,
+                address:address,
+                is_default:is_default
+            }
+          return requestAll.requset(baseUrl + '/api/account/address',data);
+        },
 }
 export default api;

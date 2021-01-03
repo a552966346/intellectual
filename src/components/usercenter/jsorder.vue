@@ -6,171 +6,68 @@
                     <div class="s_search">搜索</div> -->
         </div>
         <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
-            
+
             <el-tab-pane label="全部技术" name="first">
-                <div class="allbq" v-if="jslist.length!= 0">
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">商品</li>
-                        <li class="s_con_b_item">出售信息</li>
-                        <li class="s_con_b_item">价格</li>
-                        <li class="s_con_b_item">发布时间</li>
-                        <li class="s_con_b_item">当前状态</li>
-                        <li class="s_con_b_item">商品操作</li>
-                    </ul>
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                    </ul>
-                </div>
-                <div class="none" v-else>
-                    <div class="s_content">
-                      <div class="s_content_c">
-                        <img src="../../../static/img/usercenter/nomessage.png" alt="">
-                        <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
-                      </div>    
-                    </div>
-                </div>
             </el-tab-pane>
             <el-tab-pane label="审核中的技术" name="second">
-                <div class="shbq" v-if="jslist.length!= 0">
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">商品</li>
-                        <li class="s_con_b_item">出售信息</li>
-                        <li class="s_con_b_item">价格</li>
-                        <li class="s_con_b_item">发布时间</li>
-                        <li class="s_con_b_item">当前状态</li>
-                        <li class="s_con_b_item">商品操作</li>
-                    </ul>
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                    </ul>
-                </div>
-                <div class="none" v-else>
-                    <div class="s_content">
-                      <div class="s_content_c">
-                        <img src="../../../static/img/usercenter/nomessage.png" alt="">
-                        <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
-                      </div>    
-                    </div>
-                </div>
             </el-tab-pane>
             <el-tab-pane label="在售中的技术" name="third">
-                <div class="zsbq" v-if="jslist.length!= 0">
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">商品</li>
-                        <li class="s_con_b_item">出售信息</li>
-                        <li class="s_con_b_item">价格</li>
-                        <li class="s_con_b_item">发布时间</li>
-                        <li class="s_con_b_item">当前状态</li>
-                        <li class="s_con_b_item">商品操作</li>
-                    </ul>
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                    </ul>
-                </div>
-                <div class="none" v-else>
-                    <div class="s_content">
-                      <div class="s_content_c">
-                        <img src="../../../static/img/usercenter/nomessage.png" alt="">
-                        <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
-                      </div>    
-                    </div>
-                </div>
             </el-tab-pane>
             <el-tab-pane label="交接中的技术" name="fourth">
-                <div class="jjbq" v-if="jslist.length!= 0">
-                    <ul class="s_con_b" >
-                        <li class="s_con_b_item">商品</li>
-                        <li class="s_con_b_item">出售信息</li>
-                        <li class="s_con_b_item">价格</li>
-                        <li class="s_con_b_item">发布时间</li>
-                        <li class="s_con_b_item">当前状态</li>
-                        <li class="s_con_b_item">商品操作</li>
-                    </ul>
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                    </ul>
-                </div>
-                <div class="none" v-else>
-                    <div class="s_content">
-                      <div class="s_content_c">
-                        <img src="../../../static/img/usercenter/nomessage.png" alt="">
-                        <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
-                      </div>    
-                    </div>
-                </div>
             </el-tab-pane>
             <el-tab-pane label="已完成的技术" name="fifth">
-                <div class="overbq" v-if="jslist.length!= 0">
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">商品</li>
-                        <li class="s_con_b_item">出售信息</li>
-                        <li class="s_con_b_item">价格</li>
-                        <li class="s_con_b_item">发布时间</li>
-                        <li class="s_con_b_item">当前状态</li>
-                        <li class="s_con_b_item">商品操作</li>
-                    </ul>
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                    </ul>
-                </div>
-                <div class="none" v-else>
-                    <div class="s_content">
-                      <div class="s_content_c">
-                        <img src="../../../static/img/usercenter/nomessage.png" alt="">
-                        <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
-                      </div>    
-                    </div>
-                </div>
             </el-tab-pane>
         </el-tabs>
-        
-    </div>    
-</div>   
+        <div v-if="copzy.length!=0">
+                <paytime  :uqdata="copzy"></paytime>
+        </div>
+        <div class="none" v-else>
+            <div class="s_content">
+              <div class="s_content_c">
+                <img src="../../../static/img/usercenter/nomessage.png" alt="">
+                <p>没有看到您的商品信息。</p>
+                <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
 </template>
 <script>
+         import paytime from '@/components/usercenter/serviceClass.vue'
 export default {
     data(){
         return{
             activeName: 'first',
-            jslist:[]
+            jslist:[],
+            copzy:[]
         }
+    },
+    components:{
+            paytime
+    },
+    mounted() {
+            this.getzy()
     },
     methods: {
       handleClick(tab, event) {
-        console.log(tab, event);
+              if(this.activeName=='first'){
+                      this.getzy()
+              }else if(this.activeName=="second"){
+                       this.getzy(0)
+              }else if(this.activeName=='third'){
+                      this.getzy(1)
+              }
       },
       sell(){
           this.$emit('sell')
+      },
+      getzy(type){
+              this.$api.getusertechnologydata(this.$store.state.user.id,type)
+              .then(res=>{
+                      this.copzy = res.data.data
+
+              })
       }
     }
 }
@@ -242,7 +139,7 @@ export default {
    font-size: 16px;
    color: #5f5f5f;
    line-height: 1.5;
-   
+
 }
 .s_content_c p:nth-of-type(2){
     font-size: 12px;

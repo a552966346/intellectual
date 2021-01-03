@@ -49,7 +49,6 @@
                 <div class="jszr_all" >
                     <v-jszr ></v-jszr>
                 </div>
-
               </el-tab-pane>
             </el-tabs>
         </div>
@@ -94,37 +93,24 @@ export default{
                         }else{
                                 this.activeName="fourth"
                         }
+
     	}
     },
     mounted() {
             // 卖家   商标订单
-            this.$api.getuserTrademarkOrder()
-            .then(res=>{
-                    this.traOrder = res.data
 
-
-            })
             // 卖家   专利订单
-            this.$api.getuserPatentsOrder()
-            .then(res=>{
-                    this.patOrder = res.data
 
-
-            })
             // 卖家   版权订单
-            this.$api.getuserCopyrightOrder()
-            .then(res=>{
-                    this.copOrder = res.data
 
-            })
     },
     methods: {
-      handleClick(tab, event) {
-        // console.log(tab, event);
+      handleClick(tab) {
+        console.log(tab);
       },
       sell(){
             this.show=!this.show
-      }
+      },
     },
     components:{
         "v-cszl": cszl,

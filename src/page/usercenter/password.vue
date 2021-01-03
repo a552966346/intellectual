@@ -18,7 +18,16 @@
             <div class="mobil_tctton">
                 <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
                     <el-form-item label="绑定手机" prop="phone">
-                                   <el-input v-model="ruleForm.phone" class="_input" @change="phones"></el-input>
+                                   <el-input v-model="ruleForm.phone" class="_input" ></el-input>
+                    </el-form-item>
+                    <el-form-item label="旧密码" prop="oldpas">
+                                   <el-input type="password" v-model="ruleForm.oldpas" class="_input" ></el-input>
+                    </el-form-item>
+                    <el-form-item label="新密码" prop="newpas">
+                                   <el-input type="password" v-model="ruleForm.newpas" class="_input"></el-input>
+                    </el-form-item>
+                    <el-form-item label="确认密码" prop="newpas_tow">
+                                   <el-input  type="password" v-model="ruleForm.newpas_tow" class="_input"></el-input>
                     </el-form-item>
                     <el-form-item label="验证码" prop="code">
                             <el-col :span="11">
@@ -51,14 +60,17 @@
 
 <script>
         import {
-                validatePhone,
+                validatePhone,validatePassword
         } from '@/util/rules.js'
     export default {
         data(){
             return{
                 ruleForm: {
-                    password: '',
-                    code: ''
+                    phone: '',
+                    code: '',
+                    oldpas:'',
+                    newpas:'',
+                    newpas_tow:''
                 },
                 rules: {
                     phone: [{
@@ -75,6 +87,40 @@
                             message: '请输入验证码',
                             trigger: 'blur'
                     }],
+                    oldpas:[{
+                            required: true,
+                            message: '请输入旧密码',
+                            trigger: 'blur'
+                    }, {
+                                    validator: validatePassword,
+                                    trigger: 'blur'
+                            }
+                    ],
+                    newpas:[{
+                            required: true,
+                                    message: '请输入新密码',
+                                    trigger: 'blur'
+                            }, {
+                                    validator: validatePassword,
+                                    trigger: 'blur'
+                    }],
+                    newpas_tow:[{
+                            required: true,
+                                    message: '请输入新密码',
+                                    trigger: 'blur'
+                    },{
+                            validator: (rule, value, callback) => {
+                                    if (value === '') {
+                                            callback(new Error('请再次输入密码'))
+                                    } else if (value !== this.ruleForm.newpas) {
+                                            callback(new Error('两次输入密码不一致'))
+                                    } else {
+                                            callback()
+                                            this.active=2
+                                    }
+                            },
+                            trigger: 'blur'
+                    }]
                 },
                 html:0,
                 active:0
@@ -89,19 +135,17 @@
             getVerification() {
                     this.html = Math.random();
             },
-            phones(){
-                    if(this.ruleForm.phone !=""){
-                            this.active=2
-                    }else{
-                            this.active=1
-                    }
-            },
             submitForm(fromName){
                     this.$refs[fromName].validate((valid) => {
                             if(valid){
-                                    this.$api.changemobile(this.ruleForm.phone,this.ruleForm.code,this.$store.state.user.id)
+                                    this.$api.password(this.$store.state.user.id,this.ruleForm.phone,this.ruleForm.oldpas,this.ruleForm.newpas,this.ruleForm.code)
                                     .then(res=>{
-                                            this.active = 3
+                                            if(res.code==1){
+                                                      this.active = 3
+
+                                            }
+                                         this.ruleForm = []
+                                            console.log(res)
                                            this.$message({
                                                      message:res.msg,
                                                      type: 'success'
@@ -171,7 +215,7 @@
         height: 15px;
         margin: 5px 0px 0px 15px;
     }
-    ._input{width: 150px;}
+    /* ._input{width: 150px;} */
     .mobil_top{width: 420px; margin: 0 auto; display: flex;justify-content: space-between;align-content: center; margin-bottom: 20px;flex-direction: column;}
     .mobil_tctton{display: flex;justify-content: center;align-items: center;}
     .mobil_tie{width: 100%;display: flex;justify-content: space-around;align-content: center;}
