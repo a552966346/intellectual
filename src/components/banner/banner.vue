@@ -15,7 +15,7 @@
                                                       </div>
                                                       <div class="baner_tradeitem_bottom">
                                                               <div class="baner_tradeitem_bottom1">
-                                                                   <div v-for="(item1,index1) in item.children" :class="{banimg:bgimg==index1}" v-if="index1<4">
+                                                                   <div v-for="(item1,index1) in item.children" :class="{banimg:bgimg[index]==index1}" v-if="index1<4" @mouseover="over(index,index1)" @mouseleave="leave">
                                                                         <router-link :to="item.keywords+'?id='+item1.id+'&name='+item1.name">{{item1.name}}></router-link>
                                                                    </div>
                                                               </div>
@@ -50,8 +50,6 @@
                                                                 </div>
                                                         </div>
                                               </div>
-
-
                                       </div>
                               </el-tab-pane>
                               <!-- 金融中心 -->
@@ -69,14 +67,14 @@
                               </el-tab-pane>
                       </el-tabs>
                       <!-- banner栏搜索 -->
-                       <div class="baner_search">
+                       <!-- <div class="baner_search">
                                <div class="searchbox">
                                        <input id="searchText" oninput="inputing()" onsubmit="return false;" type="text"
                                                class="text keyword" placeholder="请您输入关键字信息进行搜索如：天猫旗舰店     商标注册     包装设计     网站建设     企业店铺     淘宝/天猫代入驻">
                                        <a href="javascript:void(0)" class="btn searchbtn"><i></i></a>
                                        <div class="searched" style="display: none;"></div>
                                </div>
-                       </div>
+                       </div> -->
                 </div>
         </div>
 </template>
@@ -120,7 +118,7 @@
                                        }
 
                                 ],
-                                bgimg:1
+                                bgimg:[0,0,0]
                         }
                 },
                 mounted() {
@@ -133,6 +131,14 @@
                                 this.jinrongcenter = res.data[2];//金融中心
 
                         })
+                },
+                methods:{
+                        over(index,index1){
+                                this.$set(this.bgimg,index,index1)
+                        },
+                        leave(){
+                               this.bgimg
+                        }
                 }
         }
 </script>
@@ -170,8 +176,8 @@
        .baner_tradeitem_bottom{display: flex;flex-direction: column;padding-left: 15px;padding-top: 30px;}
        .baner_tradeitem_bottom a{color: #909399;font-size: 15px;}
        .baner_tradeitem_bottom1{display: flex;flex-wrap: wrap;width: 100%;}
-       .baner_tradeitem_bottom1>div{width: 50%;padding: 7px 0;padding-left: 15px;}
-       .banimg{background: url(../../../static/img/index/hover_jian.png)no-repeat 0 0; background-size: 100% 100%; }
+       .baner_tradeitem_bottom1>div{width: 48%;padding: 7px 0;padding-left: 15px;margin-right: 5px;}
+       .banimg{background: url(../../../static/img/index/hover_jian.png)no-repeat 0 0; background-size: 100% 100%; border-radius: 5px;}
        .banimg>a{color: #fff !important; font-size: 16px;}
        .baner_tradeitem_bottom2{width: 100%;padding-top: 5px;padding-bottom: 20px;}
 
