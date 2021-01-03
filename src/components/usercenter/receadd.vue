@@ -127,6 +127,7 @@ export default {
       cityFlag: false, // 避免重复请求的标志
       provinceFlag: false,
       areaFlag: false,
+      nub:false,
       form1: {
         name: "",
         phone: "",
@@ -186,17 +187,15 @@ export default {
       let user =JSON.parse(sessionStorage['user']);
       this.uid = user.id;
       this.$refs[fromname].validate((valid) => {
-        console.log(valid)
-        console.log(123456789)
-        console.log(this.uid)
         this.$api.receadd(this.uid,this.form1.name,this.form1.phone,this.form1.province,this.form1.city,this.form1.area,this.form1.add,0)
           .then((res) => {
             if (res.code == 1) {
+              this.nub = true;
               this.$message({
                 message: "提交成功",
                 type: "success",
               });
-              this.$emit("submit");
+              this.$emit("submit",this.nub);
             } else {
               this.$message.error({
                 message: "提交失败",
