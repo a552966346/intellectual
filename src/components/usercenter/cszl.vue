@@ -161,6 +161,9 @@ export default {
                         console.log(res)
                                 this.option = res.data
                 })
+                .catch(err =>{
+                        console.log(err)
+                })
     },
     methods:{
         beforeAvatarUpload(file, fileList) {
@@ -171,9 +174,13 @@ export default {
             this.dialogVisible = true;
         },
         fileChange(file, fileList) {
-                this.image2Base64(file.raw).then(res => {
+                this.image2Base64(file.raw)
+                .then(res => {
                         console.log(res)
                         this.zlform.dialogImageUrl = res
+                })
+                .catch(err =>{
+                        console.log(err)
                 });
         },
         image2Base64(file) {
@@ -209,6 +216,9 @@ export default {
                                             type: 'success',
                                             message: res.msg
                                           });
+                                    })
+                                    .catch(err =>{
+                                        console.log(err)
                                     })
                                 }
                         })

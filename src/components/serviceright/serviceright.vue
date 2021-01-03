@@ -59,6 +59,9 @@
                                 console.log(res)
                                this.advantage = res.data.advantage
                         })
+                        .catch(err => {
+                                                        console.log(err)
+                        })
                 },
                 methods:{
                         text_click(porp){

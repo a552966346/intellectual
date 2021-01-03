@@ -173,6 +173,9 @@ export default {
     this.$api.areadata().then((res) => {
       this.provinceList = res.data;
          res.data.forEach(function(item){
+      })
+      .catch(err =>{
+            console.log(err);
       });
     });
   },
@@ -202,6 +205,10 @@ export default {
                 type: "error",
               });
             }
+          
+          })
+          .catch(err =>{
+                  console.log(err);
           });
       });
     },
@@ -211,19 +218,28 @@ export default {
         this.$api.citydata(val).then((res) => {
           console.log(res.data,'省')
         this.cityList = res.data;
+      })
+      .catch(err =>{
+            console.log(err);
       });
     },
     changeCity(val){
-          this.$api.citydata(val).then((res) => {
+          this.$api.citydata(val)
+          .then((res) => {
               console.log(res.data,'区')
             this.areaList = res.data;
-        })
+          })
+          .catch(err =>{
+                  console.log(err);
+          })
     },
     changeArea(val){
       this.$api.citydata(val).then((res) => {
           console.log(res.data,'区')
         this.areaList = res.data;
-    })
+    }).catch(err =>{
+                  console.log(err);
+          })
     }
   },
   computed: {

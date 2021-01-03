@@ -57,6 +57,9 @@ export default {
           .then(res=>{
                  this.text = res.data
           })
+          .catch(err => {
+                  console.log(err)
+          })
   },
   methods:{
           run(id){

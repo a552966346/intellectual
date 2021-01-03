@@ -178,6 +178,9 @@
                                         console.log(res)
                                         this.option = res.data
                                 })
+                                .catch(err =>{
+                                        console.log(err);
+                                })
                 },
                 methods: {
                         beforeAvatarUpload(file, fileList) {
@@ -191,6 +194,9 @@
                                 this.image2Base64(file.raw).then(res => {
                                         console.log(res)
                                         this.jsform.dialogImageUrl = res
+                                })
+                                .catch(err =>{
+                                        console.log(err);
                                 });
                         },
                         image2Base64(file) {
@@ -236,6 +242,9 @@
                                                                                 message: res
                                                                                         .msg
                                                                         });
+                                                                })
+                                                                .catch(err =>{
+                                                                        console.log(err);
                                                                 })
                                                 }
                                         })

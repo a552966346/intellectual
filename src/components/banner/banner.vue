@@ -131,6 +131,9 @@
                                 this.jinrongcenter = res.data[2];//金融中心
 
                         })
+                        .catch(err => {
+                                console.log(err)
+                        })
                 },
                 methods:{
                         over(index,index1){

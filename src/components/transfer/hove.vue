@@ -69,6 +69,9 @@ export default {
                         console.log(res)
                         this.hot = res.data
                 })
+                .catch(err => {
+                    console.log(err)
+                })
 
             },
             methods:{
