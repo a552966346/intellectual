@@ -787,5 +787,20 @@ const api = {
             }
         return requestAll.requset(baseUrl + '/api/seller/technology_data',data);
     },
+        //添加收货地址
+        receadd(uid,recipients,mobile,province,city,area,address,is_default
+            ){
+            let data={
+                uid:uid,
+                recipients:recipients,
+                mobile:mobile,
+                province:province,
+                city:city,
+                area:area,
+                address:address,
+                is_default:is_default
+            }
+          return requestAll.requset(baseUrl + '/api/account/address',data);
+        },
 }
 export default api;
