@@ -6,171 +6,66 @@
                     <div class="s_search">搜索</div> -->
         </div>
         <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
-            
             <el-tab-pane label="全部商标" name="first">
-                <div class="allbq" v-if="sblist.length!= 0">
-                    <ul class="s_con_b" >
-                        <li class="s_con_b_item">商品</li>
-                        <li class="s_con_b_item">出售信息</li>
-                        <li class="s_con_b_item">价格</li>
-                        <li class="s_con_b_item">发布时间</li>
-                        <li class="s_con_b_item">当前状态</li>
-                        <li class="s_con_b_item">商品操作</li>
-                    </ul>
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                    </ul>
-                </div>
-                <div class="none" v-else>
-                    <div class="s_content">
-                      <div class="s_content_c">
-                        <img src="../../../static/img/usercenter/nomessage.png" alt="">
-                        <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
-                      </div>    
-                    </div>
-                </div>
             </el-tab-pane>
             <el-tab-pane label="审核中的商标" name="second">
-                <div class="shbq" v-if="sblist.length!= 0">
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">商品</li>
-                        <li class="s_con_b_item">出售信息</li>
-                        <li class="s_con_b_item">价格</li>
-                        <li class="s_con_b_item">发布时间</li>
-                        <li class="s_con_b_item">当前状态</li>
-                        <li class="s_con_b_item">商品操作</li>
-                    </ul>
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                    </ul>
-                </div>
-                <div class="none" v-else>
-                    <div class="s_content">
-                      <div class="s_content_c">
-                        <img src="../../../static/img/usercenter/nomessage.png" alt="">
-                        <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
-                      </div>    
-                    </div>
-                </div>
             </el-tab-pane>
             <el-tab-pane label="在售中的商标" name="third">
-                <div class="zsbq" v-if="sblist.length!= 0">
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">商品</li>
-                        <li class="s_con_b_item">出售信息</li>
-                        <li class="s_con_b_item">价格</li>
-                        <li class="s_con_b_item">发布时间</li>
-                        <li class="s_con_b_item">当前状态</li>
-                        <li class="s_con_b_item">商品操作</li>
-                    </ul>
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                    </ul>
-                </div>
-                <div class="none" v-else>
-                    <div class="s_content">
-                      <div class="s_content_c">
-                        <img src="../../../static/img/usercenter/nomessage.png" alt="">
-                        <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
-                      </div>    
-                    </div>
-                </div>
             </el-tab-pane>
             <el-tab-pane label="交接中的商标" name="fourth">
-                <div class="jjbq" v-if="sblist.length!= 0">
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">商品</li>
-                        <li class="s_con_b_item">出售信息</li>
-                        <li class="s_con_b_item">价格</li>
-                        <li class="s_con_b_item">发布时间</li>
-                        <li class="s_con_b_item">当前状态</li>
-                        <li class="s_con_b_item">商品操作</li>
-                    </ul>
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                    </ul>
-                </div>
-                <div class="none" v-else>
-                    <div class="s_content">
-                      <div class="s_content_c">
-                        <img src="../../../static/img/usercenter/nomessage.png" alt="">
-                        <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
-                      </div>    
-                    </div>
-                </div>
             </el-tab-pane>
             <el-tab-pane label="已完成的商标" name="fifth">
-                <div class="overbq" v-if="sblist.length!= 0">
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">商品</li>
-                        <li class="s_con_b_item">出售信息</li>
-                        <li class="s_con_b_item">价格</li>
-                        <li class="s_con_b_item">发布时间</li>
-                        <li class="s_con_b_item">当前状态</li>
-                        <li class="s_con_b_item">商品操作</li>
-                    </ul>
-                    <ul class="s_con_b">
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">3</li>
-                        <li class="s_con_b_item">2</li>
-                        <li class="s_con_b_item">1</li>
-                        <li class="s_con_b_item">2</li>
-                    </ul>
-                </div>
-                <div class="none" v-else>
-                    <div class="s_content">
-                      <div class="s_content_c">
-                        <img src="../../../static/img/usercenter/nomessage.png" alt="">
-                        <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
-                      </div>    
-                    </div>
-                </div>
             </el-tab-pane>
         </el-tabs>
+        <div v-if="traOrder.length!=0">
+                <paytime :uqdata="traOrder"></paytime>
+        </div>
+        <div class="none"  v-else>
+            <div class="s_content">
+              <div class="s_content_c">
+                <img src="../../../static/img/usercenter/nomessage.png" alt="">
+                <p>没有看到您的商品信息。</p>
+                <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
+              </div>
+            </div>
+
+        </div>
     </div>
-</div>   
+</div>
 </template>
 <script>
+        import paytime from '@/components/usercenter/serviceClass.vue'
 export default {
     data(){
         return{
             activeName: 'first',
-            sblist:[]
+            sblist:[],
+            traOrder:[]
         }
     },
+    components:{
+            paytime
+    },
     methods: {
-      handleClick(tab, event) {
-        console.log(tab, event);
+      handleClick() {
+              console.log(this.activeName)
+                if(this.activeName=='first'){
+                        this.getsb()
+                }else if(this.activeName=="second"){
+                         this.getsb(0)
+                }else if(this.activeName=='third'){
+                        this.getsb(1)
+                }
       },
       sell(){
           this.$emit('sell')
-      }
+      },
+      getsb(type){
+             this.$api.getuserTrademark(this.$store.state.user.id,type)
+             .then(res=>{
+                     this.traOrder = res.data.data
+             })
+      },
     }
 }
 </script>
@@ -221,7 +116,7 @@ export default {
 }
 
 .s_content{
-    height: 300px;
+    /* height: 300px; */
     margin-top: 15px;
     display: flex;
     text-align: center;
@@ -240,7 +135,7 @@ export default {
    font-size: 16px;
    color: #5f5f5f;
    line-height: 1.5;
-   
+
 }
 .s_content_c p:nth-of-type(2){
     font-size: 12px;
