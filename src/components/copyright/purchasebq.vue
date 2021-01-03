@@ -75,6 +75,9 @@
                                         this.data = res.data
                                         console.log(this.data, "版权分类")
                                 })
+				.catch(err=>{
+					console.log(err)
+				})
                 },
                 methods: {
                         closetc() {

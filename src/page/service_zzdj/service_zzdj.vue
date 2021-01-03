@@ -9,15 +9,15 @@
                                 <div class="consultation_all_text"><p>服务中心>软件著作权登记</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image" :isShow="true">
+                                        <v-servicet :qiye="title" :top_data = 'top_data' :question="question" :image="image" :isShow="true">
                                                <template v-slot:topall>
-                                                        <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
-                                                        <div class="slot_bord">
-                                                                <p v-for="(item,index) in top_work" :key="index" @click="xuanze(index)" >
-                                                                        <span >{{item.name}}</span><span :class="{color:color==index}">￥{{item.fee}}/件</span>
+                                                       <!-- <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
+                                                        <div class="slot_bord" v-if="question">
+                                                                <p v-for="(item,index) in question" :key="index" @click="xuanze(index)" >
+                                                                        <span >{{item.feetitle}}</span><span :class="{color:color==index}">￥{{item.fee_cost}}/件</span>
                                                                 </p>
                                                         </div>
-                                                        <div class="money">￥<h2>398</h2>元起</div>
+                                                        <div class="money">￥<h2>{{ nub(top_data.fee,question[color])}}</h2>元起</div> -->
                                                 </template>
                                         </v-servicet>
                                         <div class="consultation_center_cen">
@@ -63,7 +63,7 @@
 </template>
 
 <script>
-        import servicetop from '../../components/servicetop/servicetop.vue'
+        import servicetop from '../../components/servicetop/servicetopt.vue'
         import serviceleft from '../../components/serviceleft/serviceleft.vue'
         import serviceright from '../../components/serviceright/serviceright.vue'
         import applicationprocess from '../../components/copyright/applicationprocess.vue'//申请流程 2个图
@@ -140,7 +140,6 @@
                                     ]
 
                                 },
-                                color:0
                         }
                 },
                 components:{
@@ -171,10 +170,8 @@
                                         if(res.code){
                                                 console.log(res)
                                                 this.top_data = res.data.data
-                                                this.right_data = res.data.data.content.split(',')
-                                                this.toptext = res.data.data.contenttitle.split(',')
-                                                this.question = res.data.question
-                                                this.toptext.push("常见问题","典型案例")
+                                                this.question = res.data.data.basic_text
+                                                console.log(this.question)
                                                 this.image = res.data.data.images_text
                                         }else{
                                                 alert("暂无数据")
@@ -188,9 +185,7 @@
                                         this.iscolor = porp
                                        this.$el.querySelector('#text_'+porp).scrollIntoView()
                         },
-                        xuanze(index){
-                                this.color = index
-                        },
+
                 }
         }
 </script>
@@ -219,7 +214,4 @@
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;font-size: 14px;}
         .iscolor{color: #0184FE;}
-        .color{background-color: #0184FE !important;color: #fff !important;font-size: 14px;}
-        .zhiding{position: absolute;bottom: 100px;right: 100px;}
-        .zhiding>img{width: 50px;}
 </style>
