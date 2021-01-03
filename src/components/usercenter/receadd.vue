@@ -33,7 +33,7 @@
               style="width: 100%"
             ></el-input>
           </el-form-item>
-          <el-form-item label="收件地址" >
+          <el-form-item label="收件地址" required>
             <div id="addressHorizontalSelect">
               <el-row>
                 <el-col :span="span">
@@ -43,6 +43,7 @@
                     @change="changeProvince"
                     placeholder="省"
                     filterable
+                    prop="province"
                   >
                     <el-option
                       v-for="item in provinceList"
@@ -60,6 +61,7 @@
                     @change="changeCity"
                     placeholder="市"
                     filterable
+                    prop="city"
                   >
                     <el-option
                       v-for="item in cityList"
@@ -79,6 +81,7 @@
                     @change="changeArea"
                     placeholder="区 / 县"
                     filterable
+                    prop="area"
                   >
                     <el-option
                       v-for="item in areaList"
@@ -94,6 +97,7 @@
                 v-model="form1.add"
                 placeholder="请输入详细地址"
                 style="width: 70%"
+                prop="add"
               ></el-input>
             </div>
           </el-form-item>
@@ -140,6 +144,13 @@ export default {
       select: "",
       html: "",
       form_rul: {
+        name: [
+          {
+            required: true,
+            trigger: "blur",
+            message: "请输入姓名",
+          },
+        ],
         phone: [
           {
             required: true,
@@ -151,18 +162,10 @@ export default {
             trigger: "blur",
           },
         ],
-
-        name: [
-          {
-            required: true,
-            trigger: "blur",
-            message: "请输入姓名",
-          },
-        ],
         add: [
           {
             required: true,
-            trigger: "blur",
+            trigger: "",
             message: "请输入详细地址",
           },
         ],

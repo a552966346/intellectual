@@ -488,10 +488,11 @@
                         this.$api.attestation_data(this.$store.state.user.id)
                         .then(res=>{
                                 console.log(res)
-                                this.status = res.data.status
+                                
                                 if(res.code==0){
                                          this.msg = "未实名认证"
                                 }else{
+                                        this.status = res.data.status
                                         if(res.data.type==1){
                                                  this.msg2 = "未实名认证"
                                                 if(res.data.status==0){
