@@ -9,10 +9,10 @@
         </div>
         <div class="contract_con">
             <ul class="con_t">
-                <div class="searchc">搜索</div>
+                <!-- <div class="searchc">搜索</div>
                 <input type="text" placeholder="关键词：合同名称、合同编号、订单/商品编号">
                 <button type="danger" size="mini">查询</button>
-                <button type="primary" size="mini">清空</button>         
+                <button type="primary" size="mini">清空</button>          -->
             </ul>
             <ul class="con_b">
                 <li class="con_b_item">合同名称</li>

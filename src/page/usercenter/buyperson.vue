@@ -11,10 +11,10 @@
                                 <li class="con_t_item" v-for="(item, i) in nav" :key="i"  v-bind:class="{ active: item.id == num }"
                                                  @click="tab(i,item.id)"  >{{ item.name }}</li>
                                 <li class="con_t_search">
-                                        <div class="t_sea">
+                                        <!-- <div class="t_sea">
                                                 <input type="text" placeholder="请输入您要查找的订单号">
                                                 <div class="search">搜索</div>
-                                        </div>
+                                        </div> -->
 
                                 </li>
                         </ul>

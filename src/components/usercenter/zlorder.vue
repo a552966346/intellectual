@@ -2,8 +2,8 @@
 <div>
     <div class="zlorder_all">
         <div class="s_t_sea">
-                    <input type="s_text" placeholder="请输入您要查找的商品编号或注册号">
-                    <div class="s_search">搜索</div>
+                    <!-- <input type="s_text" placeholder="请输入您要查找的商品编号或注册号">
+                    <div class="s_search">搜索</div> -->
         </div>
         <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
             
@@ -40,7 +40,7 @@
                       <div class="s_content_c">
                         <img src="../../../static/img/usercenter/nomessage.png" alt="">
                         <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<a href="#">登记出售信息</a></p>
+                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
                       </div>    
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                       <div class="s_content_c">
                         <img src="../../../static/img/usercenter/nomessage.png" alt="">
                         <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<a href="#">登记出售信息</a></p>
+                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
                       </div>    
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                       <div class="s_content_c">
                         <img src="../../../static/img/usercenter/nomessage.png" alt="">
                         <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<a href="#">登记出售信息</a></p>
+                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
                       </div>    
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                       <div class="s_content_c">
                         <img src="../../../static/img/usercenter/nomessage.png" alt="">
                         <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<a href="#">登记出售信息</a></p>
+                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
                       </div>    
                     </div>
                 </div>
@@ -192,7 +192,7 @@
                       <div class="s_content_c">
                         <img src="../../../static/img/usercenter/nomessage.png" alt="">
                         <p>没有看到您的商品信息。</p>
-                        <p>如果您有商品，您可以去<a href="#">登记出售信息</a></p>
+                        <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
                       </div>    
                     </div>
                 </div>
@@ -213,6 +213,9 @@ export default {
     methods: {
       handleClick(tab, event) {
         console.log(tab, event);
+      },
+      sell(){
+          this.$emit('sell')
       }
     }
 }
@@ -292,8 +295,9 @@ export default {
     vertical-align:middle;
     margin-bottom: 10px;
 }
-.s_content_c a{
+.s_content_c span{
     color: #1c7fc3;
     text-decoration: none;
+    cursor: pointer;
 }
 </style>

@@ -11,23 +11,23 @@
         <!-- 订单 -->
         <div class="shop_order" v-show="!show" >
                 <div class="sborder_all" v-show="type==1" @click.self="showssb">
-                    <v-sborder ></v-sborder>
+                    <v-sborder @sell="sell"></v-sborder>
                 </div>
                 <div class="zlorder_all" v-show="type==2" @click.self="showszl" >
-                    <v-zlorder ></v-zlorder>
+                    <v-zlorder @sell="sell"></v-zlorder>
                 </div>
                 <div class="bqorder_all" v-show="type==3" @click.self="showsbq" >
-                    <v-bqorder ></v-bqorder>
+                    <v-bqorder @sell="sell"></v-bqorder>
                 </div>
                 <div class="jsorder_all" v-show="type==4" @click.self="showsjs" >
-                    <v-jsorder ></v-jsorder>
+                    <v-jsorder @sell="sell"></v-jsorder>
                 </div>
         </div>
         <!-- 出售 -->
         <div class="shop_con" v-show="show">
             <div class="s_t_sea">
-                    <input type="s_text" placeholder="请输入您要查找的商品编号或注册号">
-                    <div class="s_search">搜索</div>
+                    <!-- <input type="s_text" placeholder="请输入您要查找的商品编号或注册号">
+                    <div class="s_search">搜索</div> -->
             </div>
             <el-tabs v-model="activeName" type="card" @tab-click="handleClick" width="40px">
               <el-tab-pane label="出售商标" name="first" >
