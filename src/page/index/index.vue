@@ -689,31 +689,46 @@ export default {
       this.hot = res.data.hot;
       this.transaction = res.data.transaction;
       this.num1 = res.data.count;
-    });
+    })
+    .catch(res=>{
+            console.log(res)
+    })
     this.$api.getindexbrand().then((res) => {
       // console.log(res,'商标交易')
       this.trade = res.data.transaction;
       this.num2 = res.data.count;
-    });
+    })
+    .catch(res=>{
+            console.log(res)
+    })
     this.$api.getidnexsoft().then((res) => {
       // console.log(res,'软著交易')
       this.soft = res.data.transaction;
       this.num3 = res.data.count;
-    });
+    })
+    .catch(res=>{
+            console.log(res)
+    })
     this.$api.getindexnew().then((res) => {
       // console.log(res, "新闻中心");
       this.news = res.data;
       this.newnow = res.data[2];
       console.log(this.newnow, "新闻中心");
       // this.num3=res.data.count;
-    });
+    })
+    .catch(res=>{
+            console.log(res)
+    })
     this.$api.getydbrief().then((res) => {
       // console.log(res,'伊甸网')
       this.brief = res.data.brief;
       // console.log(res);
       this.introimage = res.data.images;
       // this.num3=res.data.count;
-    });
+    })
+    .catch(res=>{
+            console.log(res)
+    })
   },
   methods: {
     tab(index) {
@@ -752,7 +767,10 @@ export default {
                   type: "success",
                 });
               }
-            });
+            })
+            .catch(res=>{
+                    console.log(res)
+            })
         }
       });
     },

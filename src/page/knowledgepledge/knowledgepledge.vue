@@ -127,6 +127,9 @@ export default {
             console.log(res)
             this.konwlist = res.data
         })
+	.catch(res=>{
+	        console.log(res)
+	})
    },
    methods:{
        //客服弹框隐藏

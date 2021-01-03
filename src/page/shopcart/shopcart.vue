@@ -168,6 +168,9 @@
                              console.log(res)
                         this.zsdlist = res.data;
                      })
+                     .catch(res=>{
+                             console.log(res)
+                     })
                     },
                     handleCheckAllChange(val){
                             if(val){
@@ -212,6 +215,9 @@
                             this.ispost();
                             this.$forceUpdate();
                         })
+                        .catch(res=>{
+                                console.log(res)
+                        })
                     },
                     setment(uid){
                         let user =JSON.parse(sessionStorage['user']);
@@ -229,6 +235,9 @@
                         .then(res=>{
                             sessionStorage['data']=JSON.stringify(res.data);
                             this.$router.push({path: '/paydetial'});
+                        })
+                        .catch(res=>{
+                                console.log(res)
                         })
                     }
                 }

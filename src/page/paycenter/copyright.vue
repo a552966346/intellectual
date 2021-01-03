@@ -92,11 +92,17 @@ export default {
                     console.log(res)
                     this.$set(this.iscolor,0,this.$route.query.id)
             })
+            .catch(res=>{
+                    console.log(res)
+            })
             this.$api.getCopyrightvertisement()
             .then(res=>{
                     console.log(res)
                     this.banner = res.data.images
 
+            })
+            .catch(res=>{
+                    console.log(res)
             })
             this.ispost(this.id)
     },
@@ -180,6 +186,9 @@ export default {
                                 this.total=res.data.lists.total;
                                 this.currentPage=res.data.lists.current_page;
                                 this.pagesize=res.data.lists.per_page;
+                        })
+                        .catch(res=>{
+                                console.log(res)
                         })
                 },
                 delet(id){

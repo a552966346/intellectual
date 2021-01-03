@@ -151,6 +151,9 @@
                                                      type: 'success'
                                                    });
                                     })
+				    .catch(res=>{
+				            console.log(res)
+				    })
                             }
                     })
             }

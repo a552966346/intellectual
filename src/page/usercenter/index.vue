@@ -210,12 +210,18 @@ export default {
                             console.log(res)
                             this.user= res.data
                     })
+                    .catch(res=>{
+                            console.log(res)
+                    })
                     // 收藏
                     this.$nextTick(function(){
                             this.$api.getallCollection(this.$store.state.user.id)
                              .then(res=>{
                                      console.log(res)
                                      this.zsdlist = res.data.data
+                             })
+                             .catch(res=>{
+                                     console.log(res)
                              })
                             // 订单
                     this.$api.getuseindex(this.$store.state.user.id)
@@ -269,23 +275,26 @@ export default {
                                                     status:res.data.data[i].status,
                                                     type:res.data.data[i].type,
                                                     total_fee:res.data.data[i].total_fee
-                    
+
                                             })
                                     }
-                    
+
                             })
-                    
+                            .catch(res=>{
+                                    console.log(res)
+                            })
+
                     })
             })
-            
+
             //伊甸公告
             this.$api.getindexnew().then((res) => {
               this.news = res.data;
               this.newnow = res.data[2]
               // console.log(this.newnow, "新闻中心1")
             });
-           
-                    
+
+
 
 
     },
