@@ -297,21 +297,21 @@ export default {
     color: #d2d2d2;
 }
 
-  .avatar-uploader-icon {
-                font-size: 28px;
-                color: #8c939d;
-                width: 178px;
-                height: 178px;
-                line-height: 178px;
-                text-align: center;
-                background-color: #f5f5f5;
-        }
+.avatar-uploader-icon {
+        font-size: 28px;
+        color: #8c939d;
+        width: 178px;
+        height: 178px;
+        line-height: 178px;
+        text-align: center;
+        background-color: #f5f5f5;
+}
 
-        .avatar {
-                width: 178px;
-                height: 178px;
-                display: block;
-        }
+.avatar {
+        width: 178px;
+        height: 178px;
+        display: block;
+}
 
 .cssb_head_item{
     position: relative;

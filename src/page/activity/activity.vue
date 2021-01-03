@@ -33,7 +33,7 @@
        <div>
          <!-- <img src="" alt="">
          <img src="" alt=""> -->
-         <v-otherwords></v-otherwords>
+         <v-otherwords @shangchuan="shangchuan"></v-otherwords>
        </div>
        <div>
 
@@ -141,14 +141,19 @@
      </div>
    </div>
    <v-combotttom></v-combotttom>
+   <div class="tanchuang" v-show="isshow" @click.self="shows" >
+               <v-shangchuan @close="close" ></v-shangchuan>
+   </div>
  </div>
 </template>
 
 <script>
+import shangchuan from '../../components/activity/shangchuan.vue';
 import otherwords from '../../components/activity/otherwords.vue'
 export default {
   data(){
     return{
+      isshow:false,
       transaction_imglist:[
         '../../../static/img/activity/cy_icon.png',
         '../../../static/img/activity/dd_icon.png',
@@ -181,10 +186,17 @@ export default {
         var srt_url = '../../../static/img/activity/yy_icon_active.png'
       }
       this.$set(this.transaction_imglist,index,srt_url)
-    }
+    },
+    close(){
+       this.isshow = false
+    },
+    shangchuan(){
+      this.isshow = true
+    },
   },
   components:{
-    'v-otherwords':otherwords
+    'v-otherwords':otherwords,
+    'v-shangchuan':shangchuan,
   }
   
 }
