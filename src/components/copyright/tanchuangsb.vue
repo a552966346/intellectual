@@ -88,8 +88,7 @@
                                         authcode: '',
 
                                 },
-
-                                
+                                 signoutShow:'',
                                 select: '',
                                 data: [],
                                 html: '',
@@ -139,6 +138,8 @@
                                         this.data = res.data
                                         console.log(this.data, "商标分类")
                                 })
+                                this.signoutShow = sessionStorage.getItem('user');
+                                console.log(this.signoutShow,'存储的用户信息');
                 },
                 methods: {
                         close() {
@@ -153,26 +154,36 @@
                                 this.html = Math.random();
                         },
                         fabu(fromname) {
-                                this.$refs[fromname].validate((valid) => {
-                                        this.$api.getsellpost(this.select, this.form.minprice, this.form
-                                                        .phone, this.form.name, this.form.number, 1,
-                                                        this.form.authcode)
-                                                .then(res => {
-                                                        console.log(res)
-                                                        if (res.code == 1) {
-                                                                this.$message({
-                                                                        message: '添加成功',
-                                                                        type: 'success'
-                                                                });
-                                                                this.$emit("fabu")
-                                                        } else {
-                                                                this.$message.error({
-                                                                        message: '添加失败',
-                                                                        type: 'error'
-                                                                });
-                                                        }
-                                                })
-                                })
+                                if(this.signoutShow=='null'){
+                                        this.$message({
+                                                message: '您还没有登录，请先登录',
+                                                center: true,
+                                                type: 'error'
+                                        });
+                                        this.$router.push({ path: '/login' })
+                                }else{
+                                    this.$refs[fromname].validate((valid) => {
+                                            this.$api.getsellpost(this.select, this.form.minprice, this.form
+                                                            .phone, this.form.name, this.form.number, 1,
+                                                            this.form.authcode)
+                                                    .then(res => {
+                                                            console.log(res)
+                                                            if (res.code == 1) {
+                                                                    this.$message({
+                                                                            message: '添加成功',
+                                                                            type: 'success'
+                                                                    });
+                                                                    this.$emit("fabu")
+                                                            } else {
+                                                                    this.$message.error({
+                                                                            message: '添加失败',
+                                                                            type: 'error'
+                                                                    });
+                                                            }
+                                                    })
+                                    })
+                                }
+
                         }
                 },
         };

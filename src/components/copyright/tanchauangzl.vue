@@ -63,7 +63,7 @@
                         </div>
 
                 </div>
-                
+
         </div>
 </template>
 
@@ -85,6 +85,7 @@
                                 html: '', //验证码
                                 data: [], //分类数据
                                 select: '',
+                                signoutShow:'',//获取session值
                                 // 验证规则
                                 formrule: {
                                         name: [{
@@ -137,28 +138,37 @@
                         },
                         // 确认创建
                         fabu(fromname) {
-                                this.$refs[fromname].validate((valid) => {
-                                        this.$api.getrankingpost(this.form2.name, this.select, this.form2
-                                                        .num, this.form2.minprice, this.form2.tel, this
-                                                        .form2.authcode, 2)
-                                                .then(res => {
-                                                        console.log(res)
-                                                        if (res.code == 1) {
-                                                                this.$message({
-                                                                        message: '添加成功',
-                                                                        type: 'success'
-                                                                });
-                                                                this.$emit("fabu")
-                                                        } else {
-                                                                this.$message.error({
-                                                                        message: '添加失败',
-                                                                        type: 'error'
-                                                                });
-                                                        }
-                                                })
-                                })
+                                if(this.signoutShow=='null'){
+                                        this.$message({
+                                                message: '您还没有登录，请先登录',
+                                                center: true,
+                                                type: 'error'
+                                        });
+                                        this.$router.push({ path: '/login' })
+                                }else{
+                                      this.$refs[fromname].validate((valid) => {
+                                              this.$api.getrankingpost(this.form2.name, this.select, this.form2
+                                                              .num, this.form2.minprice, this.form2.tel, this
+                                                              .form2.authcode, 2)
+                                                      .then(res => {
+                                                              console.log(res)
+                                                              if (res.code == 1) {
+                                                                      this.$message({
+                                                                              message: '添加成功',
+                                                                              type: 'success'
+                                                                      });
+                                                                      this.$emit("fabu")
+                                                              } else {
+                                                                      this.$message.error({
+                                                                              message: '添加失败',
+                                                                              type: 'error'
+                                                                      });
+                                                              }
+                                                      })
+                                      })
+                                }
                         },
-                        
+
                 },
                 mounted() {
                         this.$api.getrankingdata()
@@ -167,6 +177,8 @@
                                         console.log(res, "专利分类")
                                         this.data = res.data
                                 })
+                                this.signoutShow = sessionStorage.getItem('user');
+                                console.log(this.signoutShow,'存储的用户信息');
                 },
                 components:{
                 }
