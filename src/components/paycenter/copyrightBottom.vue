@@ -41,7 +41,7 @@
                                                         <img src="../../../static/img/paycenter/copyright_right.png"
                                                                 alt="">
                                                 </div>
-                                                <div class="copyright_quick">立即议价</div>
+                                                <div class="copyright_quick" @click="kefu">立即议价</div>
                                                 </a>
                                         </div>
                                 </div>

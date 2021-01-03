@@ -21,7 +21,7 @@
                                                         <img src="../../../static/img/paycenter/copyright_right.png"
                                                                 alt="">
                                                 </div>
-                                                <div class="copyright_bargain">立即议价</div>
+                                                <div class="copyright_bargain" @click="kefu">立即议价</div>
                                                 </a>
                                         </div>
                                 </div>
@@ -39,6 +39,11 @@
                 },
                 props:{
                         iscent:''
+                },
+                methods:{
+                        kefu(){
+                                this.$emit("kefu")
+                        },
                 }
         }
 </script>

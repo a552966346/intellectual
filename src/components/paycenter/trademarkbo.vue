@@ -47,7 +47,7 @@
                                                 <span class="trademark_price" v-else><label>￥</label>{{item.fee}}元</span>
                                                 <img src="../../../static/img/paycenter/copyright_right.png" alt="">
                                         </p>
-                                        <div class="trademark_kefu" href="#">立即议价</div>
+                                        <div class="trademark_kefu" @click="kefu">立即议价</div>
                                         <!-- </router-link> -->
                                 </li>
                         </ul>
@@ -90,6 +90,9 @@
                         qiugou(){
                           this.$emit("qiugou")
                         },
+                        kefu(){
+                                this.$emit("kefu")
+                        }
                         
 
                 },
@@ -218,6 +221,7 @@
 
         .trademark_list li:hover .trademark_kefu {
                 display: block;
+                cursor: pointer;
         }
 
         .trademark_list li:hover .trademark_p2 {

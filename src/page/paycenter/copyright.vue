@@ -21,7 +21,7 @@
                                 </div>
                         </div> -->
         </div>
-        <copyrightOrdinary :iscent="iscent"></copyrightOrdinary>
+        <copyrightOrdinary :iscent="iscent" @kefu="kefu">></copyrightOrdinary>
         <div class="copyright_page">
            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page.sync="currentPage"
                    :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">

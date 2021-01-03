@@ -25,10 +25,10 @@
           </div>
         </div> -->
                         </div>
-                        <trademarkcon :iscent="iscent" @colorbtn="colorbtn"></trademarkcon>
+                        <trademarkcon :iscent="iscent" @kefu="kefu" @colorbtn="colorbtn"></trademarkcon>
                         <div class="copyright_page">
                                <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page.sync="currentPage"
-                                       :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">
+                                      :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">
                                </el-pagination>
                                 <!-- :current-page.sync="currentPage3" -->
                                 <!-- 当前业数 -->

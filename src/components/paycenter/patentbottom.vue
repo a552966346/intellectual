@@ -37,7 +37,7 @@
                             <span v-else>￥{{item.fee}}元</span>
                             <p>{{item.categoryid_text.name}}</p>
                         </div>
-                        <div class="patent_bargain">立即议价</div>
+                        <div class="patent_bargain" @click="kefu">立即议价</div>
                         </a>
                 </div>
              </div>

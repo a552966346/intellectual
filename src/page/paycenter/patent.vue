@@ -20,7 +20,7 @@
                                         </div>
                                 </div> -->
                         </div>
-                        <patentcon :iscent="iscent"></patentcon>
+                        <patentcon :iscent="iscent" @kefu="kefu"></patentcon>
                         <div class="copyright_page">
                           <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page.sync="currentPage"
                                   :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">
