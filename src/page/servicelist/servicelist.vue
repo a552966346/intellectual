@@ -85,6 +85,9 @@
 
 
                        })
+                       .catch(res=>{
+                               console.log(res)
+                       })
                        this.ispost(this.id)
                 },
                 methods:{
@@ -125,6 +128,9 @@
                                         //         this.listdata[i].bgcolor = this.bgcolor
                                         // }
                                         // console.log(this.iscent)
+                                })
+                                .catch(res=>{
+                                        console.log(res)
                                 })
                         },
                         // 分类筛选

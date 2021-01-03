@@ -179,6 +179,9 @@
                                       this.toptext.push("常见问题","典型案例")
                                       this.image = res.data.data.images_text
                                 })
+                                .catch(res=>{
+                                        console.log(res)
+                                })
                         },
                         text_click(porp){
                                         this.iscolor = porp

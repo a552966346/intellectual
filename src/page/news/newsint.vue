@@ -63,6 +63,9 @@
                                         console.log(res)
                                         this.newstwo = res.data
                                 })
+                                .catch(res=>{
+                                        console.log(res)
+                                })
                 },
                 methods:{
                         running(id){
@@ -70,6 +73,9 @@
                                 this.$api.getnews(id)
                                         .then(res => {
                                                 this.news = res.data
+                                        })
+                                        .catch(res=>{
+                                                console.log(res)
                                         })
                         }
                 }

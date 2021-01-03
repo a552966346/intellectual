@@ -62,6 +62,9 @@
                                         console.log(res.data)
                                         this.top_data = res.data
                                 })
+                                .catch(res=>{
+                                        console.log(res)
+                                })
                         })
                 },
                 methods:{

@@ -193,6 +193,9 @@
                                        this.top_data = res.data
                                        this.image = res.data.images_text
                                 })
+                                .catch(res=>{
+                                        console.log(res)
+                                })
                         },
                         text_click(porp){
                                         this.iscolor = porp

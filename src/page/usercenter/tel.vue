@@ -109,6 +109,9 @@ export default{
                                      }
                                    });
                     })
+		    .catch(res=>{
+		            console.log(res)
+		    })
             } else {
                 console.log('error submit!!');
                 return false;

@@ -172,6 +172,9 @@
                                         this.image = res.data.data.images_text
                                         this.name = res.data.data.categoryid_text
                                 })
+                                .catch(res=>{
+                                        console.log(res)
+                                })
                         },
                         text_click(porp){
                                         this.iscolor = porp

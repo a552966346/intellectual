@@ -357,17 +357,23 @@
                 },
                 mounted() {
                         this.$api.gettransfer().then((res) => {
-                                console.log(res, "技术转让");
+
                                 this.transfer = res.data;
                                 // this.transaction=res.data.transaction;
                                 // this.num1=res.data.count;
-                        });
+                        })
+                        .catch(res=>{
+                                console.log(res)
+                        })
                         this.$api.getnewneed().then((res) => {
-                                console.log(res, "最新需求");
+
                                 this.newneed = res.data;
                                 // this.transaction=res.data.transaction;
                                 // this.num1=res.data.count;
-                        });
+                        })
+                        .catch(res=>{
+                                console.log(res)
+                        })
                 },
         };
 </script>

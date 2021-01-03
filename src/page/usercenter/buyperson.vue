@@ -94,12 +94,18 @@
                                             this.zsdlist = res.data.data
                                             console.log(this.zsdlist)
                                     })
+				    .catch(res=>{
+				            console.log(res)
+				    })
                                     //我的专利
                                 }else if(style==1){
                                         this.$api.getuserPatentsOrder(this.data.id,index)
                                         .then(res=>{
                                                 console.log(res)
                                                 this.zsdlist = res.data.data
+                                        })
+                                        .catch(res=>{
+                                                console.log(res)
                                         })
                                         // 我的版权
                                 }else if(style==2){
@@ -108,12 +114,18 @@
                                                 console.log(res)
                                                 this.zsdlist = res.data.data
                                         })
+                                        .catch(res=>{
+                                                console.log(res)
+                                        })
                                         //技术转移
                                 }else if(style==3){
                                         this.$api.getusertechnology(this.data.id,index)
                                         .then(res=>{
                                                 console.log(res)
                                                 this.zsdlist = res.data.data
+                                        })
+                                        .catch(res=>{
+                                                console.log(res)
                                         })
                                         //服务中心
                                 }else if(style==4){
@@ -122,11 +134,17 @@
                                                 console.log(res)
                                                 this.zsdlist = res.data.data
                                         })
+                                        .catch(res=>{
+                                                console.log(res)
+                                        })
                                 }else{
                                         this.$api.getallCollection(this.data.id)
                                         .then(res=>{
                                                 console.log(res)
                                                 this.zsdlist = res.data.data
+                                        })
+                                        .catch(res=>{
+                                                console.log(res)
                                         })
                                 }
                                 this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭

@@ -89,11 +89,17 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                 this.ispost(this.id)
                                 // console.log(this.iscent)
                         })
+                        .catch(res=>{
+                                console.log(res)
+                        })
                         //banner图
                         this.$api.getPatentsadvertisement()
                         .then(res=>{
                                 console.log(res,'banner图')
                                 this.banner = res.data.images
+                        })
+                        .catch(res=>{
+                                console.log(res)
                         })
                 },
                 methods: {
@@ -167,6 +173,9 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                         this.total=res.data.lists.total;
                                         this.currentPage=res.data.lists.current_page;
                                         this.pagesize=res.data.lists.per_page;
+                                })
+                                .catch(res=>{
+                                        console.log(res)
                                 })
                         },
                         delet(id){
