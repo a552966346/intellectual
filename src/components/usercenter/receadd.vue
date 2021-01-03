@@ -33,7 +33,7 @@
               style="width: 100%"
             ></el-input>
           </el-form-item>
-          <el-form-item label="收件地址" >
+          <el-form-item label="收件地址" prop="province">
             <div id="addressHorizontalSelect">
               <el-row>
                 <el-col :span="span">
@@ -94,6 +94,7 @@
                 v-model="form1.add"
                 placeholder="请输入详细地址"
                 style="width: 70%"
+                prop="add"
               ></el-input>
             </div>
           </el-form-item>
@@ -140,6 +141,13 @@ export default {
       select: "",
       html: "",
       form_rul: {
+        name: [
+          {
+            required: true,
+            trigger: "blur",
+            message: "请输入姓名",
+          },
+        ],
         phone: [
           {
             required: true,
@@ -151,19 +159,11 @@ export default {
             trigger: "blur",
           },
         ],
-
-        name: [
+        province: [
           {
             required: true,
-            trigger: "blur",
-            message: "请输入姓名",
-          },
-        ],
-        add: [
-          {
-            required: true,
-            trigger: "blur",
-            message: "请输入详细地址",
+            trigger: "change",
+            message: "请输入省份-市级-区县-详细地址",
           },
         ],
       },
@@ -190,7 +190,8 @@ export default {
       let user =JSON.parse(sessionStorage['user']);
       this.uid = user.id;
       this.$refs[fromname].validate((valid) => {
-        this.$api.receadd(this.uid,this.form1.name,this.form1.phone,this.form1.province,this.form1.city,this.form1.area,this.form1.add,0)
+        if(valid){
+          this.$api.receadd(this.uid,this.form1.name,this.form1.phone,this.form1.province,this.form1.city,this.form1.area,this.form1.add,0)
           .then((res) => {
             if (res.code == 1) {
               this.nub = true;
@@ -205,11 +206,11 @@ export default {
                 type: "error",
               });
             }
-          
           })
           .catch(err =>{
                   console.log(err);
           });
+        }
       });
     },
     // 省份修改，拉取对应城市列表
