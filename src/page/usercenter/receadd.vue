@@ -8,11 +8,7 @@
             <img class="receadd_toimg" src="../../../static/img/usercenter/exclamationpoint.png" alt="">
             <span class="receadd_toft">完善收件地址信息，方可正常收取快递资料。</span>
         </div>
-        <div class="receadd_cent">
-            <span class="receadd_sapn">您已创建<span>{{numb}}</span>个收件地址，最多可创建10个</span>
-            <button class="receadd_btn" @click="create">新建收货地址</button>
             <div class="receadd_cent">
-            <span class="receadd_sapn">您已创建<span>{{numb}}</span>个收件地址，最多可创建10个</span>
             <span class="receadd_sapn">您已创建<span>{{numb}}</span>个收件地址!</span>
             <button class="receadd_btn" @click="create">新建收货地址</button>
             <el-table
@@ -50,7 +46,6 @@
                 label="详细地址">
                 </el-table-column>
             </el-table>
-        </div>
         </div>
         <div class="tanchuang" v-show="isshow" @click.self="shows">
             <v-receadd @close="close" @submit="submit" ></v-receadd>
