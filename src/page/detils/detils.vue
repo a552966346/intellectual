@@ -17,6 +17,8 @@
                         <div class="line"></div>
                         <p>装饰性艺术是人类古老的艺术展现手法之一，她与人类生活密切相关，在现代技术日益发展的今天，装饰性艺术日益丰富和流行，在人们生活、工作、娱乐的各个方面，无不体现着装饰性艺术的魅力，装饰性</p>
                         <div class="buy">
+                            <div class="price">售价：&nbsp;&nbsp;&nbsp;<span>￥2500</span> </div>  
+
                             <div class="buy1">
                                      立即购买
                             </div>
@@ -296,6 +298,17 @@ import {
   line-height: 25px;
   color: #676767;
   padding: 20px 0;
+}
+.price{
+  position: absolute;
+  bottom: 5px;
+  line-height: 30px;
+  height: 30px;
+  color: #676767;
+}
+.price>span{
+  color: red;
+  font-size: 20px;
 }
 .buy{
   position: relative;
