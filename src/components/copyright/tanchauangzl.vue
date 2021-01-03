@@ -147,7 +147,8 @@
                                         this.$router.push({ path: '/login' })
                                 }else{
                                       this.$refs[fromname].validate((valid) => {
-                                              this.$api.getrankingpost(this.form2.name, this.select, this.form2
+                                        if(valid){
+                                                this.$api.getrankingpost(this.form2.name, this.select, this.form2
                                                               .num, this.form2.minprice, this.form2.tel, this
                                                               .form2.authcode, 2)
                                                       .then(res => {
@@ -165,6 +166,8 @@
                                                                       });
                                                               }
                                                       })
+                                        }
+                                              
                                       })
                                 }
                         },

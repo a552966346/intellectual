@@ -163,7 +163,8 @@
                                         this.$router.push({ path: '/login' })
                                 }else{
                                     this.$refs[fromname].validate((valid) => {
-                                            this.$api.getsellpost(this.select, this.form.minprice, this.form
+                                        if(valid){
+                                                this.$api.getsellpost(this.select, this.form.minprice, this.form
                                                             .phone, this.form.name, this.form.number, 1,
                                                             this.form.authcode)
                                                     .then(res => {
@@ -181,6 +182,8 @@
                                                                     });
                                                             }
                                                     })
+                                        }
+                                            
                                     })
                                 }
 

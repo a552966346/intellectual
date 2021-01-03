@@ -194,6 +194,7 @@ export default {
     // },
     fabu(fromname) {
             this.$refs[fromname].validate((valid) => {
+              if(valid){
                     this.$api.getsellpost(this.select, '', this.form1
                                     .phone, this.form1.name, '', 3,
                                     this.form1.authcode)
@@ -212,6 +213,8 @@ export default {
                                             });
                                     }
                             })
+              }
+                    
             })
     }
   },

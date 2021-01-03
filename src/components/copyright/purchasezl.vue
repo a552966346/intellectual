@@ -90,7 +90,8 @@
                         },
                         fabu(fromname) {
                                 this.$refs[fromname].validate((valid) => {
-                                        this.$api.getsellpost( this.form.main, this.form.phone, 
+                                   if(valid){
+                                           this.$api.getsellpost( this.form.main, this.form.phone, 
                                         this.form.need, 1)
                                                 .then(res => {
                                                         console.log(res)
@@ -107,6 +108,8 @@
                                                                 });
                                                         }
                                                 })
+                                   }
+                                        
                                 })
                         }
                 },

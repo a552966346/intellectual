@@ -152,7 +152,8 @@ export default {
                     this.$router.push({ path: '/login' })
             }else{
                  this.$refs[fromname].validate((valid) => {
-                         this.$api.getsellpost(this.select, '', this.form1
+                    if(valid){
+                          this.$api.getsellpost(this.select, '', this.form1
                                          .phone, this.form1.name, '', 3,
                                          this.form1.authcode)
                                  .then(res => {
@@ -170,6 +171,8 @@ export default {
                                                  });
                                          }
                                  })
+                    }
+                         
                  })
                         
             }
