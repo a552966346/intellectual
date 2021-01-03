@@ -9,7 +9,7 @@
             <span class="receadd_toft">完善收件地址信息，方可正常收取快递资料。</span>
         </div>
         <div class="receadd_cent">
-            <span class="receadd_sapn">您已创建0个收件地址，最多可创建10个</span>
+            <span class="receadd_sapn">您已创建<span>{{numb}}</span>个收件地址，最多可创建10个</span>
             <button class="receadd_btn" @click="create">新建收货地址</button>
         </div>
         <div class="tanchuang" v-show="isshow" @click.self="shows">
@@ -24,7 +24,9 @@ import receadd from '@/components/usercenter/receadd.vue'//求购弹窗
     export default {
         data(){
             return{
-                isshow:false
+                isshow:false,
+                numb:0,
+                nub:false
             }
         },
         methods: {
@@ -38,6 +40,9 @@ import receadd from '@/components/usercenter/receadd.vue'//求购弹窗
                 this.isshow = false
             },
             submit(){
+                if(this.nub = true){
+                    this.numb++;
+                }
                 this.isshow = false
             },
         },
