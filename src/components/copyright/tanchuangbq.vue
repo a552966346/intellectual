@@ -128,6 +128,8 @@ export default {
                   console.log(res)
                   this.option = res.data
           })
+          this.signoutShow = sessionStorage.getItem('user');
+          console.log(this.signoutShow,'存储的用户信息');
   },
   methods:{
     close(){
@@ -141,26 +143,37 @@ export default {
             this.html = Math.random();
     },
     fabu(fromname) {
-            this.$refs[fromname].validate((valid) => {
-                    this.$api.getsellpost(this.select, '', this.form1
-                                    .phone, this.form1.name, '', 3,
-                                    this.form1.authcode)
-                            .then(res => {
-                                    console.log(res)
-                                    if (res.code == 1) {
-                                            this.$message({
-                                                    message: '发布成功',
-                                                    type: 'success'
-                                            });
-                                            this.$emit("fabu")
-                                    } else {
-                                            this.$message.error({
-                                                    message: '添加失败',
-                                                    type: 'error'
-                                            });
-                                    }
-                            })
-            })
+            if(this.signoutShow=='null'){
+                    this.$message({
+                            message: '您还没有登录，请先登录',
+                            center: true,
+                            type: 'error'
+                    });
+                    this.$router.push({ path: '/login' })
+            }else{
+                 this.$refs[fromname].validate((valid) => {
+                         this.$api.getsellpost(this.select, '', this.form1
+                                         .phone, this.form1.name, '', 3,
+                                         this.form1.authcode)
+                                 .then(res => {
+                                         console.log(res)
+                                         if (res.code == 1) {
+                                                 this.$message({
+                                                         message: '发布成功',
+                                                         type: 'success'
+                                                 });
+                                                 this.$emit("fabu")
+                                         } else {
+                                                 this.$message.error({
+                                                         message: '添加失败',
+                                                         type: 'error'
+                                                 });
+                                         }
+                                 })
+                 })
+                        
+            }
+          
     }
   },
 };
