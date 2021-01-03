@@ -138,6 +138,9 @@
                                         this.data = res.data
                                         console.log(this.data, "商标分类")
                                 })
+                                .catch(err =>{
+                                        console.log(err)
+                                })
                                 this.signoutShow = sessionStorage.getItem('user');
                                 console.log(this.signoutShow,'存储的用户信息');
                 },

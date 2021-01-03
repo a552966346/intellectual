@@ -170,6 +170,9 @@ export default {
                    this.image2Base64(file.raw).then(res => {
                            console.log(res)
                            this.form1.dialogImageUrl = res
+                   })
+                   .catch(err =>{
+                     console.log(err);
                    });
            },
            image2Base64(file) {
@@ -212,6 +215,9 @@ export default {
                                                     type: 'error'
                                             });
                                     }
+                            })
+                            .catch(err =>{
+                              console.log(err);
                             })
               }
                     
