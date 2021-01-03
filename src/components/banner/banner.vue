@@ -173,11 +173,11 @@
        .baner_tradecont_item{width: 31%;display: flex;justify-content: center;align-content: center;flex-direction: column;box-shadow: 0px 0px 5px 1px #c1dbf9;}
        .baner_tradeitem_top{width: 100%;height: 100px;}
        .baner_tradeitem_top>img{width: 100%;height: 100%;}
-       .baner_tradeitem_bottom{display: flex;flex-direction: column;padding-left: 15px;padding-top: 30px;}
+       .baner_tradeitem_bottom{display: flex;flex-direction: column;padding: 30px 15px 0 15px;}
        .baner_tradeitem_bottom a{color: #909399;font-size: 15px;}
        .baner_tradeitem_bottom1{display: flex;flex-wrap: wrap;width: 100%;}
-       .baner_tradeitem_bottom1>div{width: 48%;padding: 7px 0;padding-left: 15px;margin-right: 5px;}
-       .banimg{background: url(../../../static/img/index/hover_jian.png)no-repeat 0 0; background-size: 100% 100%; border-radius: 5px;}
+       .baner_tradeitem_bottom1>div{width: 50%;padding: 7px 0;padding-left: 15px;}
+       .banimg{background: url(../../../static/img/index/hover_jian.png)no-repeat 0 0; background-size: 100% 100%;border-radius: 5px;}
        .banimg>a{color: #fff !important; font-size: 16px;}
        .baner_tradeitem_bottom2{width: 100%;padding-top: 5px;padding-bottom: 20px;}
 
