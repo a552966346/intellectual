@@ -154,7 +154,7 @@
                                 this.html = Math.random();
                         },
                         fabu(fromname) {
-                                if(this.signoutShow=='null'){
+                                if(this.signoutShow=='null'||this.signoutShow==null){
                                         this.$message({
                                                 message: '您还没有登录，请先登录',
                                                 center: true,
