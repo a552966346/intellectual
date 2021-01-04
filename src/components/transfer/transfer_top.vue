@@ -42,7 +42,7 @@
                                                 </div>
                                         </div>
                                         <div class="center_lei_right" style="display: flex;padding-left: 15px;">
-                                               <input type="text" v-model="input"style="height: 35px;outline: none;border-top-left-radius: 5px;border-bottom-left-radius:5px;border: 1px solid #ccc;"><button @click="sousuo" style="background-color:#1A7FC3;color: #fff;padding: 0 10px;border-top-right-radius: 5px;border-bottom-right-radius:5px;">搜索</button>
+                                               <input type="text" v-model="input" style="height: 35px;outline: none;border-top-left-radius: 5px;border-bottom-left-radius:5px;border: 1px solid #ccc;"><button @click="sousuo" style="background-color:#1A7FC3;color: #fff;padding: 0 10px;border-top-right-radius: 5px;border-bottom-right-radius:5px;">搜索</button>
                                         </div>
                                 </div>
                         </div>

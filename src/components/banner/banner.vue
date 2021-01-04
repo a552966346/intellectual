@@ -67,14 +67,14 @@
                               </el-tab-pane>
                       </el-tabs>
                       <!-- banner栏搜索 -->
-                       <!-- <div class="baner_search">
+                       <div class="baner_search">
                                <div class="searchbox">
-                                       <input id="searchText" oninput="inputing()" onsubmit="return false;" type="text"
-                                               class="text keyword" placeholder="请您输入关键字信息进行搜索如：天猫旗舰店     商标注册     包装设计     网站建设     企业店铺     淘宝/天猫代入驻">
-                                       <a href="javascript:void(0)" class="btn searchbtn"><i></i></a>
+                                       <input id="searchText" v-model="text" oninput="inputing()" onsubmit="return false;" type="text"
+                                               class="text keyword" placeholder="请您输入关键字信息进行搜索">
+                                       <a href="javascript:void(0)" class="btn searchbtn" @click="running"><i></i></a>
                                        <div class="searched" style="display: none;"></div>
                                </div>
-                       </div> -->
+                       </div>
                 </div>
         </div>
 </template>
@@ -86,6 +86,7 @@
                                 severcenter:{},//服务中心
                                 jinrongcenter:{},//金融中心
                                 activeName: 'first',
+                                text:'',
                                 // 交易中心banner图
                                 banimg: [
                                         require('../../../static/img/index/banner_cteon.png'),
@@ -141,6 +142,27 @@
                         },
                         leave(){
                                this.bgimg
+                        },
+                        running(){
+                                if(this.activeName=="first"){
+                                        this.$router.push({
+                                                path:'/trademarks',
+                                                query:{
+                                                        name:this.text
+                                                }
+                                        })
+                                }else if(this.activeName=="second"){
+                                        this.$router.push({
+                                                path:'/servicelist',
+                                                query:{
+                                                        name:this.text
+                                                }
+                                        })
+                                }else{
+                                       this.$router.push({
+                                               path:'/financing',
+                                       }) 
+                                }
                         }
                 }
         }
