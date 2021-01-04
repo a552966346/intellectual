@@ -26,7 +26,7 @@
                 <p>没有看到您的商品信息。</p>
                 <p>如果您有商品，您可以去<span @click="sell">登记出售信息</span></p>
               </div>
-            </div>
+            
         </div>
     </div>
 </div>

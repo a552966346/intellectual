@@ -38,40 +38,9 @@
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
               </el-upload>
           </el-form-item>
-          <el-form-item label="产品工艺" prop="kind">
-            <select name="shangbiao" v-model="form1.craft" style="width: 100%;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: #555;padding-left: 15px;">
-                    <option value="">请选择产品工艺</option>
-                    <option v-for="item in options" :value="item.id" :key="item.id">{{item.name}}</option>
-            </select>
+          <el-form-item label="产品描述" prop="textarea">
+                <el-input type="textarea" :rows="5" resize="none" v-model="form1.textarea"></el-input>
           </el-form-item>
-          <el-form-item label="产地" prop="area">
-            <el-input v-model="form1.area"
-              placeholder="请输入产地"
-              style="width: 100%"
-            ></el-input>
-          </el-form-item>
-          <el-form-item label="适合场景" prop="scene">
-            <el-input v-model="form1.scene"
-              placeholder="请输入适合场景"
-              style="width: 100%"
-            ></el-input>
-          </el-form-item>
-          <el-form-item label="产品等级" prop="radio">
-              <el-radio-group v-model="form1.radio">
-                    <el-radio :label="1">一等品</el-radio>
-                    <el-radio :label="2">二等品</el-radio>
-                    <el-radio :label="3">三等品</el-radio>
-              </el-radio-group>
-          </el-form-item>
-          
-          <el-form-item label="产品材质" prop="texture">
-            <el-radio-group v-model="form1.texture">
-                    <el-radio :label="1">金卡亚麻油画布</el-radio>
-                    <el-radio :label="2">二等品</el-radio>
-                    <el-radio :label="3">三等品</el-radio>
-              </el-radio-group>
-          </el-form-item>
-          
           <el-form-item>
             <el-button type="primary"
               style="color: #fff; background: #2b3d63; width: 42%"
@@ -92,11 +61,8 @@ export default {
         dialogVisible: false,
         name:'',
         kind:'',
-        craft:'',
-        area:'',
-        texture:1,
-        scene:'',
-        radio: 1,
+        textarea:'',
+        
       },
       options:[],
       option:[
@@ -116,40 +82,15 @@ export default {
                            message: '请选择图片'
                    }
            ],  
-           scene:[{
+           textarea:[{
                required: true,
                trigger: 'blur',
-               message: '请输入适合场景'
-           }] ,
-           area:[{
-               required: true,
-               trigger: 'blur',
-               message: '请输入产地'
-           }] ,
-           radio:[{
-               required: true,
-               trigger: 'change',
-               message: '请输入产品等级'
+               message: '请输入产品描述'
            }] ,
            kind:[{
                    required: true,
                    trigger: 'change',
                    message: '请选择产品分类'
-           }],
-           craft:[{
-                   required: true,
-                   trigger: 'change',
-                   message: '请选择产品工艺'
-           }],
-           select:[{
-                   required: true,
-                   trigger: 'change',
-                   message: '请选择商标大类'
-           }],
-           select:[{
-                   required: true,
-                   trigger: 'change',
-                   message: '请选择商标大类'
            }],
       },
     };
@@ -230,14 +171,12 @@ export default {
 <style>
 .all {
   padding: 20px;
-  width: 48%;
+  width: 40%;
 }
 .tanchuang_all {
   border-radius: 10px;
-  overflow-y: scroll;
   background: #fff;
-  height: 700px;
-  
+  overflow: hidden;
 }
 .el-form-item__label{
         text-align: center !important;

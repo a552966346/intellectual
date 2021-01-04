@@ -9,7 +9,7 @@
                                 <div class="consultation_all_text"><p style="font-size: 13px; color: #666;"><router-link to="/servicecenter" style="color: #666;">服务中心</router-link>>发明专利</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :qiye="title" :top_data = 'top_data' :image="image" :nub="nub">
+                                        <v-servicet :qiye="title" :top_data = 'top_data' @tip="tip"  :image="image" :nub="nub">
                                                <!-- <template v-slot:topall>
                                                         <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
                                                         <div class="slot_bord">11111111</div>
@@ -67,6 +67,9 @@
                 <div class="consultation_bottom">
                   <img src="../../../static/img/index/cooperation_img.png" alt="">
                 </div >
+                <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
+                        <v-tip @showstwo="showstwo" @close="close"></v-tip>
+                </div>
                 <v-combotttom></v-combotttom>
 
         </div>
@@ -82,6 +85,8 @@
         import apply from '../../components/serviceon/apply.vue'//申请
         import benefit from '../../components/serviceon/benefit.vue'//好处
         import whychoose from '../../components/copyright/whychoose.vue'//选择伊甸城
+        import tip from '../../components/serviceon/tip.vue'//提示
+
         export default{
                 name:'service',
                 data(){
@@ -99,6 +104,7 @@
                                 txt:'text_',
                                 nub:'',
                                 iscolor:0,
+                                isshowtwo:false,
                                 //选择伊甸城 表格
                                 why:{
                                         ltitle:'服务清单',
@@ -253,6 +259,7 @@
                         'v-apply':apply,//申请
                         'v-benefit':benefit,//好处
                         'v-whychoose':whychoose,//选择伊甸城
+                        'v-tip':tip,
                 },
                 beforeMount() {
                         this.id = this.$route.query.id
@@ -286,6 +293,15 @@
                                 this.iscolor = porp;
                                 this.$el.querySelector('#text_'+porp).scrollIntoView()
                         },
+                        tip(){
+                                this.isshowtwo = true
+                        },
+                        showstwo(){
+                                this.isshowtwo = false
+                        },
+                        close(){
+                                this.isshowtwo = false
+                        }
 
                 }
         }

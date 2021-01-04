@@ -19,15 +19,15 @@
                                         </div>
                                 </div>
                                 <div class="rHeadercont">{{top_data.sketch}}</div>
-                                <div class="rServiceType">
+                                <!-- <div class="rServiceType">
                                         <span>服务类型：</span>
                                         <span :class="{rServiceTypeActive:nub1==index}" v-for="(item,index) in name" @click="qiehuan(index)" :key="index">{{item}}</span>
                                         <span class="rightCommon">?</span>
-                                </div>
+                                </div> -->
                                 <div class="costSlow">
                                         <span>费用减缓：</span>
                                         <span :class="{costLowActive:nub2==index}" v-for="(item,index) in fee" @click="qiehuan2(index)" :key="index">{{item}}</span>
-                                        <span class="rightCommon">?</span>
+                                        <span class="rightCommon" @click="tip">?</span>
                                 </div>
                                 <p class="complete">
                                         <span></span>
@@ -104,7 +104,7 @@
                                 img:require('../../../static/img/index/inde_sc_one.png'),
                                 img2:require('../../../static/img/index/inde_sc_two.png'),
                                 isimg:false,
-                                money:0
+                                money:0,
 			}
 		},
 		props:{
@@ -186,6 +186,9 @@
                                 }
 
                         },
+                        tip(){
+                                this.$emit("tip")
+                        },
                         tankuang(){
                                 this.isshow=true
                         },
@@ -226,7 +229,8 @@
                                                 })
                                       }
                                 }
-                        }
+                        },
+                        
                 },
                 components:{
                         'v-customer':customer
@@ -357,6 +361,7 @@
                 text-align: center;
                 line-height: 23px;
                 font-weight: 600;
+                cursor: pointer;
         }
 
         .costSlow>span:nth-child(1),
