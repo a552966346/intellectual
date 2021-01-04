@@ -79,7 +79,7 @@ export default {
       flag:true,
       option1: [{ name: "标准" }, { name: "授权保险" }],
       option2: [{ data: "减缓85%" }, { data: "减缓70%" }, { data: "无减缓" }],
-      imgages:[{img: require("")}]
+      imgages:[{img: ""}]
     };
   },
   methods: {
