@@ -62,7 +62,7 @@ export default {
         name:'',
         kind:'',
         textarea:'',
-        
+
       },
       options:[],
       option:[
@@ -81,7 +81,7 @@ export default {
                            trigger: 'change',
                            message: '请选择图片'
                    }
-           ],  
+           ],
            textarea:[{
                required: true,
                trigger: 'blur',
@@ -99,7 +99,7 @@ export default {
     close(){
       this.$emit("close")
     },
-      
+
       handleAvatarSuccess(file, fileList) {
                 console.log(file, fileList);
            },
@@ -132,7 +132,7 @@ export default {
                            };
                    });
            },
-    
+
     // getVerification() {
     //         this.html = Math.random();
     // },
@@ -161,17 +161,17 @@ export default {
                               console.log(err);
                             })
               }
-                    
+
             })
     }
   },
 };
 </script>
 
-<style>
+<style scoped>
 .all {
   padding: 20px;
-  width: 40%;
+  width: 35%;
 }
 .tanchuang_all {
   border-radius: 10px;
@@ -180,7 +180,7 @@ export default {
 }
 .el-form-item__label{
         text-align: center !important;
-        
+
 }
 .tanchuang_title_text {
   font-size: 15px;
