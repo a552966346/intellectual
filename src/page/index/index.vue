@@ -1234,6 +1234,7 @@ a:hover {
   display: flex;
   align-content: center;
   flex-direction: column;
+  justify-content: space-between;
 }
 .index_ulxwtr {
   width: 430px;
@@ -1274,7 +1275,6 @@ a:hover {
   justify-content: center;
   align-content: center;
   flex-direction: row;
-  margin-bottom: 15px;
 }
 .index_ulxwtwbklt {
   width: 50%;
