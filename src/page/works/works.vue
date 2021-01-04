@@ -303,7 +303,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 9px;
+  padding: 3px 9px;
 }
 
 .works_p3 > span {
