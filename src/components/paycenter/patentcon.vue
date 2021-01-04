@@ -99,6 +99,8 @@
                 border-radius: 5px;
                 text-align: center;
                 padding: 10px 0;
+                width: 90%;
+                margin: 0 auto;
         }
 
         .patent_img {

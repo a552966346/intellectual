@@ -294,7 +294,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 10px 9px;
+                padding: 4px 9px;
         }
 
         .trademark_p3>span {

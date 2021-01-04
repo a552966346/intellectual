@@ -194,7 +194,7 @@ export default {
 }
 .patent_bottom .patent_active:hover .patent_bargain{display: block;}
 .patent_bottom .patent_active:hover .patent_price{display: none;}
-.patent_bargain{display: none;background-color: #2b3d63;color: #fff;border-radius: 5px;text-align: center;padding: 10px 0;}
+.patent_bargain{display: none;background-color: #2b3d63;color: #fff;border-radius: 5px;text-align: center;padding: 8px 0;}
 .patent_active{text-decoration: none;color: #000;}
 .patent_img{
     height: 210px;
