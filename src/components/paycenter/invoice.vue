@@ -47,13 +47,13 @@
                     </el-radio-group>
                 </el-form-item>
                 <el-form-item label="单位名称" prop="unitname">
-                    <el-input v-model="ruleForm.unitname" class="el-input__inner"></el-input>
+                    <!-- <el-input v-model="ruleForm.unitname" class="el-input__inner"></el-input> -->
                 </el-form-item>
                 <el-form-item label="注册地址" prop="comaddress">
-                    <el-input v-model="ruleForm.comaddress" class="el-input__inner"></el-input>
+                    <!-- <el-input v-model="ruleForm.comaddress" class="el-input__inner"></el-input> -->
                 </el-form-item>
                 <el-form-item label="账号" prop="account">
-                    <el-input v-model="ruleForm.account" class="el-input__inner"></el-input>
+                    <!-- <el-input v-model="ruleForm.account" class="el-input__inner"></el-input> -->
                 </el-form-item>
                 <el-form-item label="收票人姓名" prop="tickname">
                     <el-input v-model="ruleForm.tickname" class="el-input__inner"></el-input>
@@ -192,8 +192,14 @@ export default {
           resource: [
             {required: true, message: '请选择发票信息', trigger: 'change'}
           ],
+        },
+        watch: {
+            dialogSequenceVisible: function (val,oldVla) {
+                if (this.$refs['form'] != undefined) {
+                    this.$refs["form"].resetFields();
+                }
+            }
         }
-
       };
     },
      methods: {

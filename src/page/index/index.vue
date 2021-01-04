@@ -121,7 +121,7 @@
                                 </div>
                         </div> -->
       <!-- 新闻中心 -->
-      <div>
+      <div class="newscenter">
         <v-comtitle
           :title="title_all[3]"
           :background_img_url="title_bg_url[3]"
@@ -231,7 +231,7 @@
         </div>
       </div>
       <!-- 合伙人 -->
-      <div>
+      <div class="partner">
         <v-comtitle
           :title="title_all[4]"
           :background_img_url="title_bg_url[4]"
@@ -1528,5 +1528,11 @@ a:hover {
 .newsrighttitle > img {
   width: 100%;
   height: 100%;
+}
+.newscenter{
+  padding-top: 30px;
+}
+.partner{
+  padding-top: 30px;
 }
 </style>
