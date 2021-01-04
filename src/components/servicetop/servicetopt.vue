@@ -86,8 +86,8 @@
                                 img2:require('../../../static/img/index/inde_sc_two.png'),
                                 isimg:false,
                                 color:0,
-
-                                text:''
+                                text:'',
+                                money:0
                         }
                 },
                 props: {
@@ -122,8 +122,8 @@
                                         let user =JSON.parse(sessionStorage['user']);
                                         uid = user.id;
                                         nub = this.nub;
-                                        console.log(this.text)
-                                        this.$api.getshop(id,1,nub,uid,this.text)
+                                        console.log(this.money)
+                                        this.$api.getshop(id,1,nub,uid,this.text,this.money)
                                         .then(res=>{
                                         if(res.code == 1){
                                                 this.$message({
@@ -151,6 +151,15 @@
                         },
                         shows(){
                                 this.isshow = false
+                        },
+                        isfee(fee,feels){
+                                let money = Number(fee)+Number(feels.fee_cost)
+                                this.text = feels.feetitle
+                                this.money = money;
+                                return money
+                        },
+                        xuanze(index){
+                                this.color = index
                         },
                         top_sc(id){
                                 if (this.$store.state.user == ''|| this.$store.state.user ==null || this.$store.state.user ==undefined) {
@@ -186,14 +195,6 @@
                                                 })
                                       }
                                 }
-                        },
-                        isfee(fee,feels){
-                                let money = Number(fee)+Number(feels.fee_cost)
-                                this.text = feels.feetitle
-                                return money
-                        },
-                        xuanze(index){
-                                this.color = index
                         },
 
                 },
