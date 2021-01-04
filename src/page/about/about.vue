@@ -84,6 +84,10 @@ import navcter from '@/components/navcter/navcter.vue'
                 // console.log(res);
                  this.right_data = res.data
             })
+	    .catch(err => {
+	        console.log(err)
+	    })
+	    
         }
     },
     components:{
