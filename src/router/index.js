@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/page/index/index' //主页 index @ 代表src 目录
 import login from '@/page/login/login'
+import works from '@/page/works/works'//作品列表
 import copyrightChanges from '@/page/copyrightChanges/copyrightChanges'
 import tradingCenter from '@/page/tradingCenter/tradingCenter'
 import service from '@/page/service/service'
@@ -95,6 +96,11 @@ export default new Router({
             path: '/login',
             name: 'login',
             component: login
+        },
+        {
+            path: '/works',
+            name: 'works',
+            component: works
         },
         {
             path: '/copyrightChanges',
