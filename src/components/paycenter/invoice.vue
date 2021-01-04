@@ -8,7 +8,7 @@
             <span v-bind:class="!isShow?'nav_active':''" v-on:click="handleTab(false)">单位</span>
         </div>
         <!-- 个人发票 -->
-        <div class="invoice_content" v-if="isShow">
+        <div class="invoice_content" v-show="isShow">
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
             <el-form-item label="发票信息" prop="resource">
                 <el-radio-group v-model="ruleForm.resource">
@@ -38,7 +38,7 @@
         </el-form>
         </div>
         <!-- 单位发票 -->
-        <div class="invoice_content" v-else>
+        <div class="invoice_content" v-show ='!isShow'>
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
                 <el-form-item label="发票信息" prop="resource">
                     <el-radio-group v-model="ruleForm.resource">
@@ -47,13 +47,13 @@
                     </el-radio-group>
                 </el-form-item>
                 <el-form-item label="单位名称" prop="unitname">
-                    <!-- <el-input v-model="ruleForm.unitname" class="el-input__inner"></el-input> -->
+                    <el-input v-model="ruleForm.unitname" class="el-input__inner"></el-input>
                 </el-form-item>
                 <el-form-item label="注册地址" prop="comaddress">
-                    <!-- <el-input v-model="ruleForm.comaddress" class="el-input__inner"></el-input> -->
+                    <el-input v-model="ruleForm.comaddress" class="el-input__inner"></el-input>
                 </el-form-item>
                 <el-form-item label="账号" prop="account">
-                    <!-- <el-input v-model="ruleForm.account" class="el-input__inner"></el-input> -->
+                    <el-input v-model="ruleForm.account" class="el-input__inner"></el-input>
                 </el-form-item>
                 <el-form-item label="收票人姓名" prop="tickname">
                     <el-input v-model="ruleForm.tickname" class="el-input__inner"></el-input>
@@ -197,6 +197,7 @@ export default {
             dialogSequenceVisible: function (val,oldVla) {
                 if (this.$refs['form'] != undefined) {
                     this.$refs["form"].resetFields();
+                    this.$refs["from"].clearValidate();
                 }
             }
         }
