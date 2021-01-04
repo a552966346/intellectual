@@ -136,27 +136,51 @@
                                          this.$router.push({path:'/login'});
                                 }else{
                                         let user =JSON.parse(sessionStorage['user']);
-                                       let uid = user.id;
-                                        this.$api.getshop(id,1,nub,uid)
-                                        .then(res=>{
-                                        if(res.code == 1){
-                                                this.$message({
-                                                          message: res.msg,
-                                                          type: 'success'
-                                                        });
-                                                this.$router.push({
-                                                path:'/shopcart',
-                                                query:{
-                                                        id:id
+                                        let uid = user.id;
+                                        if(this.top_data.basic_text){
+                                                this.$api.getshop(id,1,nub,uid,this.top_data.basic_text.feetitle)
+                                                .then(res=>{
+                                                if(res.code == 1){
+                                                        this.$message({
+                                                                message: res.msg,
+                                                                type: 'success'
+                                                                });
+                                                        this.$router.push({
+                                                        path:'/shopcart',
+                                                        query:{
+                                                                id:id
+                                                        }
+                                                })
+                                                }else{
+                                                        console.log(res.msg)
                                                 }
-                                        })
+                                                })
+                                                .catch(err => {
+                                                console.log(err)
+                                                })
                                         }else{
-                                                console.log(res.msg)
+                                                this.$api.getshop(id,1,nub,uid,'')
+                                                .then(res=>{
+                                                if(res.code == 1){
+                                                        this.$message({
+                                                                message: res.msg,
+                                                                type: 'success'
+                                                                });
+                                                        this.$router.push({
+                                                        path:'/shopcart',
+                                                        query:{
+                                                                id:id
+                                                        }
+                                                })
+                                                }else{
+                                                        console.log(res.msg)
+                                                }
+                                                })
+                                                .catch(err => {
+                                                console.log(err)
+                                                })
                                         }
-                                        })
-                                        .catch(err => {
-                                        console.log(err)
-                                        })
+                                        
                                 }
 
                         },

@@ -112,27 +112,55 @@
                                         let user =JSON.parse(sessionStorage['user']);
                                         uid = user.id;
                                         nub = this.nub;
-                                        console.log(this.text)
-                                        this.$api.getshop(id,1,nub,uid,this.text)
-                                        .then(res=>{
-                                        if(res.code == 1){
-                                                this.$message({
-                                                          message: res.msg,
-                                                          type: 'success'
-                                                        });
-                                                this.$router.push({
-                                                path:'/shopcart',
-                                                query:{
-                                                        id:id
+                                        if(this.top_data.basic_text){
+                                                let mustli =[]; let remake=''
+                                                mustli = this.top_data.basic_text;
+                                                mustli.forEach(function(item){
+                                                remake += item.feetitle+',';
+                                                });
+                                                this.$api.getshop(id,1,nub,uid,remake)
+                                                .then(res=>{
+                                                if(res.code == 1){
+                                                        this.$message({
+                                                                message: res.msg,
+                                                                type: 'success'
+                                                                });
+                                                        this.$router.push({
+                                                        path:'/shopcart',
+                                                        query:{
+                                                                id:id
+                                                        }
+                                                })
+                                                }else{
+                                                        console.log(res.msg)
                                                 }
-                                        })
+                                                })
+                                                .catch(err => {
+                                                console.log(err)
+                                                })
                                         }else{
-                                                console.log(res.msg)
+                                                this.$api.getshop(id,1,nub,uid,'')
+                                                .then(res=>{
+                                                if(res.code == 1){
+                                                        this.$message({
+                                                                message: res.msg,
+                                                                type: 'success'
+                                                                });
+                                                        this.$router.push({
+                                                        path:'/shopcart',
+                                                        query:{
+                                                                id:id
+                                                        }
+                                                })
+                                                }else{
+                                                        console.log(res.msg)
+                                                }
+                                                })
+                                                .catch(err => {
+                                                console.log(err)
+                                                })
                                         }
-                                        })
-                                        .catch(err => {
-                                        console.log(err)
-                                        })
+                                        
                                 }
 
                         },

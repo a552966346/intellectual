@@ -9,7 +9,7 @@
                                 <div class="consultation_all_text"><p>服务中心>软件著作权登记</p></div>
                                 <!-- 中间内容 -->
                                 <div class="consultation_center">
-                                        <v-servicet :qiye="title" :top_data = 'top_data' :question="question" :image="image" :isShow="true">
+                                        <v-servicet :qiye="title" :top_data ='top_data' :question="question" :image="image" :isShow="true">
                                                <template v-slot:topall>
                                                        <!-- <p>普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
                                                         <div class="slot_bord" v-if="question">

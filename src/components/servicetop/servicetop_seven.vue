@@ -36,7 +36,7 @@
                                                 <div>
                                                         <p>授权地区 </p>
                                                         <div>
-                                                                <p v-for="item in top_data.region">
+                                                                <p v-for="item in top_data.region" :key="item">
                                                                         <span v-if="item == 0">全球</span>
                                                                         <span v-else-if="item == 1">中国大陆</span>
                                                                         <span v-else-if="item==2">港澳台</span>
@@ -51,7 +51,7 @@
                                                 <div>
                                                         <p>所属地区</p>
                                                         <div>
-                                                                <p v-for="item in top_data.affiliating">
+                                                                <p v-for="item in top_data.affiliating" :key="item">
                                                                         <span v-if="item == 0">全球</span>
                                                                         <span v-else-if="item == 1">中国大陆</span>
                                                                         <span v-else-if="item==2">港澳台</span>
@@ -82,7 +82,7 @@
                                                 <div>
                                                         <p>交易方式 </p>
                                                         <div>
-                                                                <p v-for="item in top_data.meanstype">
+                                                                <p v-for="item in top_data.meanstype" :key="item">
                                                                         <span v-if="item ==1">转让</span>
                                                                         <span v-else-if="item == 2">授权</span>
                                                                         <span v-else-if="item==3">分账</span>
@@ -94,7 +94,7 @@
                                                 <div >
                                                         <p>授权范围：</p>
                                                         <div>
-                                                                <p v-for="item in top_data.scope">
+                                                                <p v-for="item in top_data.scope" :key="item">
                                                                         <span v-if="item == 1">全部版权</span>
                                                                         <span v-else-if="item==2">复制权</span>
                                                                         <span v-else-if="item == 3">发行权</span>
@@ -194,26 +194,50 @@
                                         let user =JSON.parse(sessionStorage['user']);
                                         uid = user.id;
                                         nub = this.nub;
-                                        this.$api.getshop(id,4,nub,uid)
-                                        .then(res=>{
-                                        if(res.code == 1){
-                                                this.$message({
-                                                          message: res.msg,
-                                                          type: 'success'
-                                                        });
-                                                this.$router.push({
-                                                path:'/shopcart',
-                                                query:{
-                                                        id:id
+                                        if(this.top_data.basic_text){
+                                                 this.$api.getshop(id,4,nub,uid,this.top_data.basic_text.feetitle)
+                                                .then(res=>{
+                                                if(res.code == 1){
+                                                        this.$message({
+                                                                message: res.msg,
+                                                                type: 'success'
+                                                                });
+                                                        this.$router.push({
+                                                        path:'/shopcart',
+                                                        query:{
+                                                                id:id
+                                                        }
+                                                })
+                                                }else{
+                                                        console.log(res.msg)
                                                 }
-                                        })
+                                                })
+                                                .catch(err => {
+                                                console.log(err)
+                                                })
                                         }else{
-                                                console.log(res.msg)
+                                                 this.$api.getshop(id,4,nub,uid,'')
+                                                .then(res=>{
+                                                if(res.code == 1){
+                                                        this.$message({
+                                                                message: res.msg,
+                                                                type: 'success'
+                                                                });
+                                                        this.$router.push({
+                                                        path:'/shopcart',
+                                                        query:{
+                                                                id:id
+                                                        }
+                                                })
+                                                }else{
+                                                        console.log(res.msg)
+                                                }
+                                                })
+                                                .catch(err => {
+                                                console.log(err)
+                                                })
                                         }
-                                        })
-                                        .catch(err => {
-                                        console.log(err)
-                                        })
+                                       
                                 }
 
                         },
