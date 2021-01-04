@@ -38,8 +38,13 @@
               <div class="other_works_item1">
                 <img src="../../../static/img/activity/other2-1.png" alt="">
               </div>
-              <div class="other_works_item2">
-                <img src="../../../static/img/activity/other2-2.png" alt="">
+              <div class="other_works_item2" @mouseenter="enter" @mouseleave="leave">
+                    <img src="../../../static/img/activity/other2-2.png" alt="">
+                    <div class="other_works_txt"  v-show="seen">
+                      <h2>油画展示作品</h2>
+                      <p>智创城NO.4——伊甸创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔</p>
+                      <span>￥1000元</span>
+                    </div>
               </div>
               <div class="other_works_item2">
                     <img src="../../../static/img/activity/other1-2.png" alt="">
@@ -68,6 +73,7 @@
 export default {
   data() {
     return {
+      seen: false,
       list:[
         {tet:'美术作品'},{tet:'摄影作品'},{tet:'雕塑'},{tet:'生活创意作品'},{tet:'影视作品'},{tet:'建筑作品'},{tet:'汉服设计'},{tet:'创意作品'},
       ],
@@ -79,6 +85,12 @@ export default {
     },
     kefu(){
         this.$emit("kefu")
+    },
+    enter(){
+        this.seen = true
+    },
+    leave(){
+        this.seen = false
     }
   }
 }
@@ -195,8 +207,37 @@ export default {
 }
 .other_works_item2{
   flex: 2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-
+.other_works_txt{
+  position: absolute;
+  top: 125px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.other_works_txt>h2{
+  color: #fff;
+  padding-bottom: 25px;
+  font-size: 25px;
+}
+.other_works_txt>p{
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  padding: 0 30px 45px 30px;
+}
+.other_works_txt span{
+  padding: 15px 50px;
+  text-align: center;
+  background-color: #fbad03;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
 
 </style>
