@@ -810,5 +810,12 @@ const api = {
         }
         return requestAll.requset(baseUrl + '/api/account/address_list',data);
     },
+    //修改收货地址获取数据
+    recelist(id){
+        let data={
+            id:id
+        }
+        return requestAll.requset(baseUrl + '/api/account/address_list',data);
+    },
 }
 export default api;

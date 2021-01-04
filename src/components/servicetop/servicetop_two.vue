@@ -282,7 +282,6 @@
                 width: 100%;
                 height: 40px;
                 font-size: 13px;
-                /* color: #8d8d8d; */
                 display: flex;
                 align-items: center;
         }
