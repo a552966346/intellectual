@@ -113,7 +113,7 @@
                </div>
              </div>
              <div>
-               <p>敬请期待...</p>               
+               <p>敬请期待...</p>
              </div>
              <p class="export"></p>
              <p>▬→</p>
@@ -155,35 +155,41 @@ export default {
     return{
       isshow:false,
       transaction_imglist:[
-        '../../../static/img/activity/cy_icon.png',
-        '../../../static/img/activity/dd_icon.png',
-        '../../../static/img/activity/qd_icon.png',
-        '../../../static/img/activity/yy_icon.png'
+              require('../../../static/img/activity/cy_icon.png'),
+              require( '../../../static/img/activity/dd_icon.png'),
+              require('../../../static/img/activity/qd_icon.png'),
+              require('../../../static/img/activity/yy_icon.png')
+      ],
+      image:[
+              require('../../../static/img/activity/cy_icon_active.png'),
+              require( '../../../static/img/activity/dd_icon_active.png'),
+              require('../../../static/img/activity/qd_icon_active.png'),
+              require('../../../static/img/activity/yy_icon_active.png')
       ]
     }
   },
   methods: {
     mouse_leave(index){
       if(index == 0){
-        var srt_url = '../../../static/img/activity/cy_icon.png'
+        var srt_url = this.transaction_imglist[0]
       }else if(index == 1){
-        var srt_url = '../../../static/img/activity/dd_icon.png'
+        var srt_url = this.transaction_imglist[1]
       }else if(index==2){
-        var srt_url = '../../../static/img/activity/qd_icon.png'
+        var srt_url = this.transaction_imglist[2]
       }else{
-        var srt_url = '../../../static/img/activity/yy_icon.png'
+        var srt_url =this.transaction_imglist[3]
       }
       this.$set(this.transaction_imglist,index,srt_url)
     },
     mouse_over(index){
       if(index == 0){
-        var srt_url = '../../../static/img/activity/cy_icon_active.png'
+        var srt_url = this.image[0]
       }else if(index == 1){
-        var srt_url = '../../../static/img/activity/dd_icon_active.png'
+        var srt_url = this.image[1]
       }else if(index==2){
-        var srt_url = '../../../static/img/activity/qd_icon_active.png'
+        var srt_url =this.image[2]
       }else{
-        var srt_url = '../../../static/img/activity/yy_icon_active.png'
+        var srt_url =this.image[3]
       }
       this.$set(this.transaction_imglist,index,srt_url)
     },
@@ -198,7 +204,7 @@ export default {
     'v-otherwords':otherwords,
     'v-shangchuan':shangchuan,
   }
-  
+
 }
 
 </script>
@@ -242,7 +248,7 @@ export default {
   padding: 5px 10px ;
   letter-spacing: 1px;
   border:1px solid #fff;
-  
+
 }
 .activity_recommend>div>a:hover,
 .activity_recommend>div>a:target{
@@ -417,7 +423,7 @@ export default {
 .activity_left_bottom>div>p{
   color: #676767;
   font-size: 20px;
-  
+
 }
 .activity_left_bottom>div:nth-child(3),.activity_left_bottom>div:nth-child(6){
   border-right: none;
@@ -436,13 +442,13 @@ export default {
     display: flex;
     flex-direction: column;
   }
-   
+
   .el-carousel__item:nth-child(2n) {
     background-color: #fff;
     border-radius: 10px;
     border: 1px solid #ccc;
   }
-  
+
   .el-carousel__item:nth-child(2n+1) {
     background-color: #fff;
     border-radius: 10px;
@@ -491,6 +497,6 @@ export default {
   .activity_zone_right_img img{
     width: 70%;
   }
-    
+
 
 </style>

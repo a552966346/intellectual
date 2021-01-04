@@ -111,34 +111,34 @@
                                 ], //所有的一级标题
                                 // 所有的一级标题的背景
                                 title_bg_url: [
-                                        "../../../static/img/technology/jishuzhuanyi.png",
-                                        "../../../static/img/technology/gaofujiazhi.png",
-                                        "../../../static/img/technology/zhuanli.png",
-                                        "../../../static/img/technology/xiangmuduijie.png",
+                                        require("../../../static/img/technology/jishuzhuanyi.png"),
+                                       require("../../../static/img/technology/gaofujiazhi.png") ,
+                                        require("../../../static/img/technology/zhuanli.png"),
+                                        require("../../../static/img/technology/xiangmuduijie.png"),
                                 ],
                                 //技术转移侧边栏图片
                                 payleft_img_url: [
-                                        "../../../static/img/technology/list1.png",
-                                        "../../../static/img/technology/list2.png",
+                                        require("../../../static/img/technology/list1.png"),
+                                        require("../../../static/img/technology/list2.png"),
                                 ],
                                 transfer: [], //技术转让右侧列表
                                 newneed: [], //最新需求右侧列表
                                 // 高附加值服务
                                 addall: [{
-                                                images: "../../../static/img/technology/tecservice1.png",
-                                                images1: "../../../static/img/technology/seveice.png",
+                                                images: require("../../../static/img/technology/tecservice1.png"),
+                                                images1: require("../../../static/img/technology/seveice.png"),
                                                 title: "专利服务",
                                                 cont: "专利服务其实是知BAI知产权里边的一个服DU之一，同时也是一个重要的服务之一。",
                                         },
                                         {
-                                                images: "../../../static/img/technology/tecservice2.png",
-                                                images1: "../../../static/img/technology/seveice.png",
+                                                images: require("../../../static/img/technology/tecservice2.png"),
+                                                images1:require( "../../../static/img/technology/seveice.png"),
                                                 title: "商标服务",
                                                 cont: "服务商标与商品商标具有相同的特征与特点。区别在与服务商标意识的是服务项目，商品商标标识的是有形商品。",
                                         },
                                         {
-                                                images: "../../../static/img/technology/tecservice3.png",
-                                                images1: "../../../static/img/technology/seveice.png",
+                                                images: require("../../../static/img/technology/tecservice3.png"),
+                                                images1: require("../../../static/img/technology/seveice.png"),
                                                 title: "金融服务",
                                                 cont: "金融服务是指金融机构运用货币交易手段融通有价物品，向金融活动参与者和顾客提供的共同受益、获得满足的活动。",
                                         },
@@ -147,9 +147,8 @@
                                 project: {
                                         cont: "伊甸城知识产权展示交易中心以服务高校科研院所及科创企业知识产权成果转移转化为核心，致力于建设知识产权登记、托管、挂牌、交易、转化、运营、融资、保护为一体的专业化、规范化的知识产权产业链生态平台，构建知识产权及知识产权运营及知识产权融资服务体系并探索知识产权产业化、资本化、国际化道路。",
                                         pic: [
-                                                "../../../static/img/index/index_intro_swiper.png",
-                                                "../../../static/img/index/index_intro_swiper.png",
-                                                "../../../static/img/index/index_intro_swiper.png",
+                                                require("../../../static/img/index/index_intro_swiper.png"),
+                                                require("../../../static/img/index/index_intro_swiper.png"),
                                         ],
                                 },
                                 // 联系方式
@@ -160,8 +159,8 @@
                                         address: "山西智创城NO.4-伊甸创新创业基地知识产权展示交易中心",
                                 },
                                 option: [{
-                                                titleimg: "../../../static/img/technology/toplist1.png",
-                                                titleimg1: "../../../static/img/technology/technologyHotrm.png",
+                                                titleimg: require("../../../static/img/technology/toplist1.png"),
+                                                // titleimg1: "../../../static/img/technology/technologyHotrm.png",
                                                 tit: "热门专利",
                                                 options: [{
                                                                 id: "1",
@@ -218,8 +217,8 @@
                                                 ],
                                         },
                                         {
-                                                titleimg: "../../../static/img/technology/toplist2.png",
-                                                titleimg1: "../../../static/img/technology/technologyHotzx.png",
+                                                titleimg: require("../../../static/img/technology/toplist2.png"),
+                                                // titleimg1: "../../../static/img/technology/technologyHotzx.png",
                                                 tit: "最新专利",
                                                 options: [{
                                                                 id: "1",
@@ -273,8 +272,8 @@
                                                 ],
                                         },
                                         {
-                                                titleimg: "../../../static/img/technology/toplist1.png",
-                                                titleimg1: "../../../static/img/technology/technologyHotqg.png",
+                                                titleimg: require("../../../static/img/technology/toplist1.png"),
+                                                // titleimg1: "../../../static/img/technology/technologyHotqg.png",
                                                 tit: "求购专利",
                                                 options: [{
                                                                 id: "1",

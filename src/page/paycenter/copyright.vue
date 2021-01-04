@@ -68,7 +68,7 @@ export default {
             listdata:[],        //猜你喜欢
             zlTop:[],           //筛��
             iscolor:[],
-            banner:'../../../static/img/paycenter/copyright_top.png',
+            banner:require('../../../static/img/paycenter/copyright_top.png'),
             category_one:'',
             isshow:false,
             name:'',

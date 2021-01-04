@@ -2,10 +2,10 @@
         <div id="login">
                 <div class="login_top">
                         <div>
-                                <el-image style="width: 300px;" src="../../../static/img/login/logo.png" fit="fill"></el-image>
+                                <img style="width: 300px;" src="../../../static/img/login/logo.png" fit="fill"></img>
                                 <div>
-                                        <el-image style="width: 20px;" src="../../../static/img/login/home_icon.png"
-                                                fit="fill"></el-image>
+                                        <img style="width: 20px;" src="../../../static/img/login/home_icon.png"
+                                                fit="fill"></img>
                                         <router-link to="/">返回伊甸城首页</router-link>
                                 </div>
                         </div>

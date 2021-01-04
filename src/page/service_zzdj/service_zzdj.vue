@@ -102,14 +102,14 @@
                                         ],
 
                                 lists:[
-                                        {src:'../../../static/img/service/service_chaone.png',text:'APP上架：应用宝、360等主流，应用市场上架必备'},
-                                        {src:'../../../static/img/service/service_chatwo.png',text:'项目投标：政府/商业项目，竞标资质条件'},
-                                        {src:'../../../static/img/service/service_chatre.png',text:'国家补贴：高企/双软申报，享受百万政府补贴'},
-                                        {src:'../../../static/img/service/service_chatfh.png',text:'无形资产：帮助企业增资，递延纳税优惠'},
+                                        {src:require('../../../static/img/service/service_chaone.png'),text:'APP上架：应用宝、360等主流，应用市场上架必备'},
+                                        {src:require('../../../static/img/service/service_chatwo.png'),text:'项目投标：政府/商业项目，竞标资质条件'},
+                                        {src:require('../../../static/img/service/service_chatre.png'),text:'国家补贴：高企/双软申报，享受百万政府补贴'},
+                                        {src:require('../../../static/img/service/service_chatfh.png'),text:'无形资产：帮助企业增资，递延纳税优惠'},
 
                                 ],
                                 app:{//申请流程 2个图   //申请流程 0个图
-                                        src:"../../../static/img/copyright/process.png" ,
+                                        src:require("../../../static/img/copyright/process.png") ,
                                         top_text:"著作权变更所需资料",
                                         top_r:"资深顾问审核资料，减少返回率，商业信息、公司信息严格保密",
                                         arrl:[

@@ -6,7 +6,7 @@
         <hr>
         <v-servicetw></v-servicetw>
         <v-servicetr></v-servicetr>
-        
+
         <v-servicefh></v-servicefh>
         <v-servicefv></v-servicefv>
         <v-servicesx></v-servicesx>
@@ -32,14 +32,14 @@ import servicetn from '../../components/serviceon/servicetn.vue'//选择伊甸�
         data(){
             return{
                 //常见问题
-                met:{ 
-                    mess:['../../../static/img/service/serviceright_jiantou.png','常见问题'],
+                met:{
+                    mess:[require('../../../static/img/service/serviceright_jiantou.png'),'常见问题'],
                     feli:[
-                        {id:1,ming:'../../../static/img/service/service_icon.png',mitt:'实用新型和发明专利的区别在哪里？',mitim:'../../../static/img/service/service_ictw.png',felida:[
+                        {id:1,ming:require('../../../static/img/service/service_icon.png'),mitt:'实用新型和发明专利的区别在哪里？',mitim:require('../../../static/img/service/service_ictw.png'),felida:[
                             {text:'第一，实用新型只限于具有一定形状的产品，不能是一种方法，也不能是没有固定形状的产品；而发明是方法，也可以是产品；'},
                             {text:'第二，实用新型对技术的要求低，授权时间短；发明对技术的创造性要求高，授权时间长。'}
                         ]},
-                        {id:2,ming:'../../../static/img/service/service_icon.png',mitt:'实用新型的授权条件',mitim:'../../../static/img/service/service_ictw.png',felida:[
+                        {id:2,ming:require('../../../static/img/service/service_icon.png'),mitt:'实用新型的授权条件',mitim:require('../../../static/img/service/service_ictw.png'),felida:[
                             {text:'第一，实用新型只限于具有一定形状的产品，不能是一种方法，也不能是没有固定形状的产品；而发明是方法，也可以是产品；'},
                             {text:'第二，实用新型对技术的要求低，授权时间短；发明对技术的创造性要求高，授权时间长。'},
                             {text:'第三，实用新型对技术的要求低，授权时间短；发明对技术的创造性要求高，授权时间长。'}
@@ -48,7 +48,7 @@ import servicetn from '../../components/serviceon/servicetn.vue'//选择伊甸�
                 },
                 //服务保障
                 nut:{
-                    nutimg:'../../../static/img/service/guarantee_one.png',
+                    nutimg:require('../../../static/img/service/guarantee_one.png'),
                     data:[
                         {tit:'信息安全',cet:'请您放心，您提供的资料我们都会对外保密。'},
                         {tit:'专属顾问',cet:'在案件服务过程中，有任何疑问。'}

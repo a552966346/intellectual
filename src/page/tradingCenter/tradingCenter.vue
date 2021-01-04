@@ -48,7 +48,7 @@
                                                 }
                                         ],
                                         patent: [{
-                                                        src: 'http://zjgqniu.jzhxwl.com/uploads/20201123/Fq4exNFF1hssRkCty125mSGQqFqv.jpg',
+                                                        src:'http://zjgqniu.jzhxwl.com/uploads/20201123/Fq4exNFF1hssRkCty125mSGQqFqv.jpg',
                                                         name: '门板涂漆装置',
                                                         money: '18800',
                                                 },

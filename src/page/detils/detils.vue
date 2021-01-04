@@ -17,7 +17,7 @@
                         <div class="line"></div>
                         <p>装饰性艺术是人类古老的艺术展现手法之一，她与人类生活密切相关，在现代技术日益发展的今天，装饰性艺术日益丰富和流行，在人们生活、工作、娱乐的各个方面，无不体现着装饰性艺术的魅力，装饰性</p>
                         <div class="buy">
-                            <div class="price">售价：&nbsp;&nbsp;&nbsp;<span>￥2500</span> </div>  
+                            <div class="price">售价：&nbsp;&nbsp;&nbsp;<span>￥2500</span> </div>
 
                             <div class="buy1">
                                      立即购买
@@ -45,7 +45,7 @@
                                     <p><img :src="item1.src1"><span>{{item1.tit1}}</span>{{item1.text1}}</p>
                                 </div>
                             </div>
-                            
+
                             <div class="l_it">{{proin.p}}</div>
                         </div>
                         <div class="pro_cen_r">
@@ -53,7 +53,7 @@
                             <div class="circle"><img :src="person.tou" alt=""> </div>
                             <p>{{person.tet}}</p>
                           </div>
-                          <div class="r_item" v-for="(items,index) in person.arr"  
+                          <div class="r_item" v-for="(items,index) in person.arr"
                           :key="index"><img :src="items.src"><p>{{items.text}}</p></div>
                         </div>
                       </div>
@@ -65,7 +65,7 @@
                         <p>产品详情</p>
                         <p>PRODUCE &nbsp;&nbsp; DETAILS</p>
                   </div>
-                
+
                   <div class="pd"></div>
                   <p class="pa">{{text[0]}}</p>
                 </div>
@@ -76,11 +76,11 @@
                         <p>细节效果</p>
                         <p>DETAILS &nbsp;&nbsp; EFFECT</p>
                     </div>
-                
+
                     <div class="de">
                       <div class="de_item" v-for="(item2,index) in de" :key="index">
                         <img :src="item2.src" alt="">
-                      </div> 
+                      </div>
                     </div>
                     <p class="pa">{{text[1]}}</p>
                 </div>
@@ -138,7 +138,7 @@
                 </div>
               </div>
           </div>
-      
+
     </div>
     <v-combotttom></v-combotttom>
 </div>
@@ -185,35 +185,35 @@ import {
                         trigger: 'blur',
                         message: '请输入企业名称'
                 }, ],
-                
+
         },
         html: '',
         proin:{
           p:'环境艺术发展至今，多元文化的特点尤为明显。设计理念必须要以人为本，针对客户年、职业、爱好、文化层次等特点，根据客户主观方面的个人喜好，“因人而异”。注:因边框大小不同，各款画芯大小有差别，以实际大小为准，另手绘画芯和装裱时均会产生误差，误差为正常，能接受再购买，见谅!',
-          arr1:[{src:'../../../static/img/fleadd/fleadd1.png',tit:'产品名称：',text:'莫奈（春天的花）',src1:'../../../static/img/fleadd/fleadd2.png',tit1:'风格：',text1:'现代简约',src2:'../../../static/img/fleadd/fleadd3.png',tit2:'人气：',text2:'319'},
-          {src:'../../../static/img/fleadd/fleadd4.png',tit:'产品工艺：',text:'手绘+手工装裱',src1:'../../../static/img/fleadd/fleadd5.png',tit1:'等级：',text1:'一等品',src2:'../../../static/img/fleadd/fleadd6.png',tit2:'产地：',text2:'山西'},],
+          arr1:[{src:require('../../../static/img/fleadd/fleadd1.png'),tit:'产品名称：',text:'莫奈（春天的花）',src1:require('../../../static/img/fleadd/fleadd2.png'),tit1:'风格：',text1:'现代简约',src2:require('../../../static/img/fleadd/fleadd3.png'),tit2:'人气：',text2:'319'},
+          {src:require('../../../static/img/fleadd/fleadd4.png'),tit:'产品工艺：',text:'手绘+手工装裱',src1:require('../../../static/img/fleadd/fleadd5.png'),tit1:'等级：',text1:'一等品',src2:require('../../../static/img/fleadd/fleadd6.png'),tit2:'产地：',text2:'山西'},],
           arr2:[
-          {src:'../../../static/img/fleadd/fleadd7.png',tit:'产品材质：',text:'金卡亚麻油画布',src1:'../../../static/img/fleadd/fleadd8.png',tit1:'适合场景：',text1:'家居装饰，酒店，玄关，会所，售楼处，企业文化'},]
+          {src:require('../../../static/img/fleadd/fleadd7.png'),tit:'产品材质：',text:'金卡亚麻油画布',src1:require('../../../static/img/fleadd/fleadd8.png'),tit1:'适合场景：',text1:'家居装饰，酒店，玄关，会所，售楼处，企业文化'},]
         },
         person:{
-          tou:'../../../static/img/fleadd/tou.png',tet:'设计师：张笑',
+          tou:require('../../../static/img/fleadd/tou.png'),tet:'设计师：张笑',
           arr:[
-          {src:'../../../static/img/fleadd/fleadd_email.png',text:'邮箱:12598784＠Q.OOM'},
-          {src:'../../../static/img/fleadd/fleadd_phone.png',text:'手机号:15885798585'},
-          {src:'../../../static/img/fleadd/fleadd_design.png',text:'受计理念:设计理念是设计师在空间品构思过程中所确立的主导思想，它斌予品文化内涵和风格特点。'},
+          {src:require('../../../static/img/fleadd/fleadd_email.png'),text:'邮箱:12598784＠Q.OOM'},
+          {src:require('../../../static/img/fleadd/fleadd_phone.png'),text:'手机号:15885798585'},
+          {src:require('../../../static/img/fleadd/fleadd_design.png'),text:'受计理念:设计理念是设计师在空间品构思过程中所确立的主导思想，它斌予品文化内涵和风格特点。'},
           ]
         },
         text:['文创是高附加值产品，是大众消裁与日俱増的消热点，也是门店多元经营的重要组成部分。“美学、精致、品味、体验”已成为年青一代生活中不可或缺的追求。为丰富书店经营品类，向读者提供多元化服务，提升门店格调从而动整体销售，文化用品中心从2017年底开始，加大文创产品的引进和推广。目前，已引进多家具有较强实力的供应商，涉及日常用品、文具、玩具茶具、餐具、家居装饰和小家电等国内外商品，可满足不同顾需求。创城NO.4伊甸创新创业基地位于山西转型综合改革示范区大学城产业园区内。项目占地面积200亩，总建筑面积30万平方米，总投25亿人民币。由全球最大的建筑设计事务所美国RTKL携手世界第一观设计事务所美国 AECOM领衔设计智创城NO.4一伊甸创',
         '文创是高附加值产品，是大众消残与日俱増的消热点，也是门店多元经营的重要组成部分。＂美学、精致、品味、体验”已成为年青一代生活中不可或缺的追求。为丰富书店经营品类，向读者提供多元化服务，提升门店格调从而带动整体销售，文化用品中心从2017年底开始，加大'
         ],
         de:[
-          {src:'../../../static/img/fleadd/detail1.png'},{src:'../../../static/img/fleadd/detail2.png'},{src:'../../../static/img/fleadd/detail3.png'}
+          {src:require('../../../static/img/fleadd/detail1.png')},{src:require('../../../static/img/fleadd/detail2.png')},{src:require('../../../static/img/fleadd/detail3.png')}
         ],
         ffl:[
-          {src:'../../../static/img/fleadd/fleadd_tel.png',text:'王先生',tet:'0234-2057888'},
-          {src:'../../../static/img/fleadd/fleadd_address.png',text:'联系地址',tet:'山西省晋中市定阳路1100号'},
+          {src:require('../../../static/img/fleadd/fleadd_tel.png'),text:'王先生',tet:'0234-2057888'},
+          {src:require('../../../static/img/fleadd/fleadd_address.png'),text:'联系地址',tet:'山西省晋中市定阳路1100号'},
         ]
-        
+
       }
     },
     methods:{
@@ -236,7 +236,7 @@ import {
 <style scoped>
 .fleadd_all{
   width: 100%;
-  
+
 }
 .pa{
   padding: 0 20px;
@@ -390,7 +390,7 @@ import {
 }
 .items>p:nth-of-type(2){
   width: 66.7%;
-  
+
 }
 .l_it{
   line-height: 2;
@@ -451,7 +451,7 @@ import {
   width: 100%;
   height: 410px;
   padding: 40px 0 30px;
-  
+
 }
 .ff_container{
   width: 1200px;

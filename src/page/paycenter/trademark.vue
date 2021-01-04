@@ -72,7 +72,7 @@
                                 data_two: [],
                                 bgcolor: 'rgb(230, 92, 92)',
                                 listdata: [],
-                                banner: '../../../static/img/paycenter/trademark_bg.png',
+                                banner: require('../../../static/img/paycenter/trademark_bg.png'),
                                 category_one: '',
                                 isshow:false,
                                 name:'',
