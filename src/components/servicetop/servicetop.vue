@@ -75,8 +75,8 @@
                                 // qiye: '企业知识产贯�,
                                 nub: 1,
                                 isshow:false,
-                                img:'../../../static/img/index/inde_sc_one.png',
-                                img2:'../../../static/img/index/inde_sc_two.png',
+                                img:require('../../../static/img/index/inde_sc_one.png'),
+                                img2:require('../../../static/img/index/inde_sc_two.png'),
                                 isimg:false
                         }
                 },

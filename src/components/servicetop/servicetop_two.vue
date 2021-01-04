@@ -101,8 +101,8 @@
                                 fee:['减缓85%','减缓70%','无减缓'],
                                 nub2:0,
                                 isshow:false,
-                                img:'../../../static/img/index/inde_sc_one.png',
-                                img2:'../../../static/img/index/inde_sc_two.png',
+                                img:require('../../../static/img/index/inde_sc_one.png'),
+                                img2:require('../../../static/img/index/inde_sc_two.png'),
                                 isimg:false
 			}
 		},
