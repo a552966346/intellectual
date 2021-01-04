@@ -49,7 +49,6 @@ export default {
 .serviceassurance_item_title{
     color: #1b7fc5;
     font-weight: 700;
-    /* font-size: 22px; */
 }
 .serviceassurance_item_text{
     margin-left: 9px;

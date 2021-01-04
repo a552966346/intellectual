@@ -39,10 +39,13 @@
                               <p><img :src="item.src1"><span>{{item.tit1}}</span>{{item.text1}}</p>
                               <p><img :src="item.src2"><span>{{item.tit2}}</span>{{item.text2}}</p>
                             </div>
-                            <div class="l_item items" v-for="(item1,index) in proin.arr2" :key="index">
-                              <p><img :src="item1.src"><span>{{item1.tit}}</span>{{item1.text}}</p>
-                              <p><img :src="item1.src1"><span>{{item1.tit1}}</span>{{item1.text1}}</p>
+                            <div class="">
+                                <div class="l_item items" v-for="(item1,index) in proin.arr2" :key="index">
+                                    <p><img :src="item1.src"><span>{{item1.tit}}</span>{{item1.text}}</p>
+                                    <p><img :src="item1.src1"><span>{{item1.tit1}}</span>{{item1.text1}}</p>
+                                </div>
                             </div>
+                            
                             <div class="l_it">{{proin.p}}</div>
                         </div>
                         <div class="pro_cen_r">
@@ -294,7 +297,6 @@ import {
 }
 .paint_example>div>p:nth-child(4){
   font-size: 15px;
-  /* margin-left:120px; */
   line-height: 25px;
   color: #676767;
   padding: 20px 0;
@@ -378,7 +380,6 @@ import {
   height: 50px;
   display: flex;
   border-bottom: 1px solid #dad4d4;
-  /* padding:0 20px; */
 }
 .l_item>p{
   color: #a7a7a7;

@@ -80,7 +80,6 @@ export default {
         .all{
                 width: 100%;
                 display: flex;
-                /* flex-direction: column; */
                 flex-wrap: wrap;
         }
         .all>div{
@@ -93,7 +92,6 @@ export default {
         .all p{
                 padding-left: 5px;
                 border-left: 2px solid #127CC4;
-                /* padding: 10px 5px; */
         }
         .time_content{
             display: flex;
@@ -109,7 +107,6 @@ export default {
         }
         .time_content>div>img{
             width: 100%;
-            /* height: 100%; */
         }
         .time_content>dl{
             padding: 15px 10px;

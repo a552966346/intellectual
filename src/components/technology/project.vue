@@ -62,7 +62,7 @@
 </script>
 <style scoped>
         *{margin: 0;padding: 0;box-sizing: border-box;}
-        #project{width: 1200px;margin: 20px auto;background: #fff;display: flex;padding: 0px 100px;/* border: 1px solid #3333;*/}
+        #project{width: 1200px;margin: 20px auto;background: #fff;display: flex;padding: 0px 100px;}
         .project_left{width: 60%;padding: 20px 120px 0 0;}
         .project_left>p{line-height: 40px;color: #959595;font-size: 16px;letter-spacing: 2px;}
         .project_left>span{display: block;width: 60px;height: 50px;border-top: 5px solid #187fc4;margin-top: 30px;}

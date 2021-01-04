@@ -442,7 +442,6 @@
                 height: 15%;
                 display: flex;
                 justify-content: center;
-                /* padding: 40px 15% 20px; */
         }
 
         .login_top>div {
@@ -467,7 +466,6 @@
 
         /* 中部 */
         .login_center {
-                /* height: 65%; */
                 flex: 1;
 
                 background-size: 100% auto;
@@ -533,7 +531,6 @@
         /* 注册 */
         .register_page {
                 border-top: 3px solid #338bec;
-                /* height: 300px; */
         }
 
         /* 返回登录 */

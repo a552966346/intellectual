@@ -118,7 +118,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* padding: 0 10px; */
     font-size: 13px;
     display: flex;
     color: #1a7fc5;

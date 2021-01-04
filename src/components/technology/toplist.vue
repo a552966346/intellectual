@@ -105,8 +105,8 @@
 </script>
 <style scoped>
         *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
-        #toplist{width: 1200px;margin: 20px auto;background: #fff;display: flex;/* border: 1px solid #3333;*/}
-        .item{width: 33.3%;/* border-radius: 5px;*//* box-shadow: 0 0px 5px 5px rgba(212,224,240,0.5);*//* margin-right: 3px;*//* padding: 30px;*/}
+        #toplist{width: 1200px;margin: 20px auto;background: #fff;display: flex;}
+        .item{width: 33.3%;}
         .itemall{padding: 30px 30px 10px 30px;}
         .item>img{width: 100%;}
         .item_list{margin-bottom: 30px;}

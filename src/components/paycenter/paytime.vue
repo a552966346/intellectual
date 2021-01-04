@@ -58,15 +58,13 @@ export default {
             font-size: 13px;
         }
         .pay_all{
-                width: 100%;
-            /* width: 1200px; */
+            width: 100%;
             background:#fff;
             margin: 20px auto;
             height: auto;
         }
         #paytime{
              width: 100%;
-            /* width: 1200px; */
             margin: 20px auto;
             padding-bottom: 30px;
             background:#fff;
@@ -95,9 +93,6 @@ export default {
             margin-bottom: 10px;
             background: #f9f9f9;
         }
-        .time_content>div{
-            /* width: 225px; */
-        }
         .time_content>div>img{
             height: 198px;
             width: 100%;
@@ -111,7 +106,6 @@ export default {
             font-weight: 600;
         }
         .time_content dd{
-            /* margin-bottom: 10px; */
             padding-bottom: 5px;
         }
         .time_content dd:last-child{

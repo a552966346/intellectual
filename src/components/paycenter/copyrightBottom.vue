@@ -7,10 +7,7 @@
                                         <a href="#"  @click="kefu">
                                                 <p>联系客服帮您找</p>
                                         </a>
-                                       <!-- <span>或</span>
-                                        <a href="#"  @click="qiugou">
-                                                <p style="background-color:#3c568f" >发布求购需求</p>
-                                        </a> -->
+                                   
                                 </div>
                                 <div class="copyright_dash">
                                         <p>猜中您喜欢的版权有点难度呢，马上联系客服为你推荐更多版权</p>

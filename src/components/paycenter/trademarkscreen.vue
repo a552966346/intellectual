@@ -261,10 +261,6 @@ export default {
                 font-size: 12px;
         }
 
-        /* .patenscree_leftcontent span:nth-child(1) {
-                color: #1881c5;
-                font-weight: bold;
-        } */
         .addclass{color: #1881c5 !important;}
         .patenscree_leftprice {
                 position: absolute;

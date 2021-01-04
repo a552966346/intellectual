@@ -159,8 +159,6 @@
 
         .technologyHot_content:hover {
                 box-shadow: 3px 3px 10px #ccc, -3px -3px 10px #ccc;
-                /* position: relative; */
-                /* top: -10%; */
                 top: -30px;
                 height: 570px;
         }

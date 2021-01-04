@@ -123,7 +123,6 @@ export default {
     height: 300px;
     margin-top: 15px;
     display: flex;
-    /* text-align: center; */
     vertical-align:middle;
     justify-content: center;
 }

@@ -185,11 +185,10 @@
        .baner_tradeitem_bottom2{width: 100%;padding-top: 5px;padding-bottom: 20px;}
 
         /* 服务中心内容 */
-       .baner_sever_cont{width: 100%;/* flex: 1; */padding: 0px 30px;display: flex;}
+       .baner_sever_cont{width: 100%;padding: 0px 30px;display: flex;}
        .baner_severcont_item{width: 25%;}
        .baner_severcont_topitem{width: 100%;display: flex;justify-content: center;align-items: center;padding-bottom: 30px;font-size: 20px;letter-spacing: 1px;}
-       .baner_severcont_botitem{width: 100%;display: flex;flex-wrap: wrap;/* align-items: center; */}
-       /* .baner_severcont_botitem{width: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column;} */
+       .baner_severcont_botitem{width: 100%;display: flex;flex-wrap: wrap;}
        .baner_botall_item{width: 33.3333%;padding-bottom: 30px;}
        .baner_botall_picitem{width: 100%;display: flex;justify-content: center;align-items: center;padding-bottom: 5px;}
        .baner_botall_picitem img{width: 34px;height: 34px;}

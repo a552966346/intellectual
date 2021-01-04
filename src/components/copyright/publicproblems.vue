@@ -60,9 +60,6 @@ export default {
 }
 .publicproblems_item_q_text{
     padding-top: 14px;
-    
-    
-
 }
 .publicproblems_item_a_text{
     width: 50%;

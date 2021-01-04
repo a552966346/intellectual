@@ -250,7 +250,6 @@
 
         .b_content {
                 width: 100%;
-                /* height: 300px; */
                 margin-top: 15px;
                 display: flex;
                 align-items: center;
@@ -267,7 +266,6 @@
                 width: 100%;
                 text-align: center;
                 vertical-align: middle;
-                /* padding: 26px; */
         }
 
         .b_content_c img {

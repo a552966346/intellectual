@@ -95,12 +95,6 @@ export default {
            text-decoration: none;
            color: black;
        }
-     /*  .transfer_pro:hover>.transfer_foo{
-           display: block;
-       }
-       .transfer_pro:hover>.transfer_jia{
-           display: none;
-       } */
        .transfer_cheng>p{
            color: #fff;
            display: flex;
@@ -143,7 +137,6 @@ export default {
            font-weight: bold;
        }
        .transfer_foo{
-           /* display: none; */
            height: 30px;
        }
        .transfer_ask {

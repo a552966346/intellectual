@@ -315,8 +315,4 @@ input:focus {
   font-size: 16px;
   color: #fff;
 }
-/* .triangle {
-  width: 5px;
-  height: 5px;
-} */
 </style>

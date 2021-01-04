@@ -300,7 +300,6 @@ export default{
         padding: 20px;
         display: flex;
         flex-wrap: wrap;
-        /* justify-content: space-around; */
 }
 .message_text{
         display: flex;
@@ -318,7 +317,6 @@ export default{
 }
 .message_text>h3{
         text-align: center;
-        /* width: 100%; */
 }
 .message_text>div{
         width: 100%;
@@ -329,8 +327,6 @@ export default{
         font-size: 15px;
         color: #555;
         width: 100%;
-        /* display: flex;
-        flex-wrap: wrap; */
         word-break:break-all
 }
 .title{
@@ -345,5 +341,4 @@ export default{
         color: #ccc;
         font-size: 13px;
 }
-/* .message_text */
 </style>

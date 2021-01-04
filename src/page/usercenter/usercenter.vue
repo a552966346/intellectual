@@ -305,7 +305,6 @@ a {
     left: 0;
     box-shadow: 2px 1px 1px rgba(0,0,0,0.16);
     font-size: 15px;
-    /* overflow: auto; */
 }
 .tac{
         width: 100%;
@@ -323,19 +322,16 @@ a {
     bottom: 0;
     left: 201px;
     overflow-y: auto;
-    /* overflow: hidden; */
 }
 .img_logo{
     background: url('../../../static/img/usercenter/logo.png') 0 0 no-repeat;
     background-position: center;
     height: 124px;
-    /* vertical-align:top; */
 }
 .user_left>ul {
     padding: auto;
 }
 .user_left>ul>li{
-    /* height: 54px; */
     border-bottom: 1px solid rgba(0,0,0,0.16);
     text-align: center;
     line-height: 54px;
@@ -382,14 +378,6 @@ a {
     transform: rotate(90deg);
     right: -30px;
 }
-/* .items>li{
-    max-height: 0;
-    opacity: 0;
-}
-.item:target {
-    max-height: auto;
-    opacity: 1;
-} */
 .imgs{
     position: relative;
     left:8px;
@@ -415,10 +403,4 @@ a {
     top: 5px;
     width: 13%;
 }
-
-
-
-
-
-
 </style>

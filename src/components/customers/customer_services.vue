@@ -68,7 +68,6 @@ export default {
         
 }
 .customer_service{
-    /* border: 1px solid #ccc; */
     height: 100%;
     background: url(../../../static/img/customer/customer_bg.jpg)
                 no-repeat;

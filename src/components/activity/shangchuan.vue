@@ -303,11 +303,7 @@ export default {
                 height: 178px;
                 display: block;
         }
-/* .el-radio-group {
-    display: inline-block;
-    line-height: 1!important;
-    vertical-align: middle;
-} */
+
 .el-radio-group {
     display: inline-block;
     width: 120%;

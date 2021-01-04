@@ -252,7 +252,6 @@ export default {
 }
 .activity_recommend>div>p:nth-child(1){
   font-size: 36px;
-  /* font-weight: bold; */
   letter-spacing: 1px;
   padding: 20px 0;
 }
@@ -363,7 +362,6 @@ export default {
 }
 .activity_zone_left>.activity_left_bottom{
   margin-top: 40px;
-  /* height: 60%; */
   width: 100%;
   background: #fff;
   border-radius: 15px;
@@ -438,13 +436,6 @@ export default {
     display: flex;
     flex-direction: column;
   }
- /* .el-carousel__item h3 {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 200px;
-    margin: 0; 
-  } */
    
   .el-carousel__item:nth-child(2n) {
     background-color: #fff;
@@ -490,7 +481,6 @@ export default {
     font-weight: 300;
     line-height: 300%;
     color: #557fe2;
-    /* margin-bottom: 10%; */
   }
   .activity_zone_right_img{
     flex: 1;

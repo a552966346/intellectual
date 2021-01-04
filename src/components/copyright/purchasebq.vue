@@ -124,7 +124,7 @@
 
 <style>
         .all{padding: 20px;width: 40%;}
-       .tanchuang_all{/* height: 550px;*/border-radius: 10px;overflow: hidden;background: #fff;}
+       .tanchuang_all{border-radius: 10px;overflow: hidden;background: #fff;}
        .tanchuang_title_text{font-size: 15px;height: 50px;display: flex;align-items: center;}
        .tanchuang_title{background: #29334c;color: white;display: flex;padding-left: 40px;display: flex;justify-content: space-between;align-items: center;}
        .tanchuang_title_img{display: flex;justify-content: center;align-items: center;height: 50px;margin-right: 8px;}

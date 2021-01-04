@@ -68,7 +68,6 @@ export default {
         #invoice_unit{
             width: 1200px;
             margin: 20px auto;
-            /* padding-bottom: 30px; */
             background: #fff;
             border-radius: 10px;
         }
@@ -86,7 +85,6 @@ export default {
         }
         .invoice_content{
             padding: 25px;
-            /* background: orange; */
         }
         .content_select{
             margin: 25px 0;

@@ -346,7 +346,6 @@
         }
 
         .left_xiang_right_title p {
-                /* line-height: 4; */
                 font-size: 12px;
                 color: #aaa;
                 margin-left: 10px;

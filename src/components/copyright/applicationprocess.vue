@@ -126,7 +126,6 @@ export default {
 .app_item_bottom_item_r{
     display: flex;
     width: 49.5%;
-    /* justify-content: space-between; */
 }
 .app_item_bottom_item_img{
     z-index: 5;

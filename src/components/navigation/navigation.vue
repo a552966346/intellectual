@@ -56,9 +56,6 @@
      	margin:0 auto;
      	width:1200px;
         display: flex;
-     	/* width:-moz-fit-content;
-     	width:-webkit-fit-content;
-     	width:fit-content; */
      }
      .menu > li:last-child{
              border: none;

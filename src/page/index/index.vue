@@ -879,9 +879,6 @@ a:hover {
   width: 100%;
   height: 100%;
 }
-/* .swiper-slide{width: 31.3333%;height: 100%;margin: 0% 1%;} */
-/* .swiper-slide img{width: 100%;height: 100%;} */
-/* .swiper-slide:nth-child(3n+3){margin-right: 0%!important;} */
 
 /* 企业服务*/
 .index_enterprise {
@@ -1338,7 +1335,6 @@ a:hover {
   padding-left: 20px;
   padding-right: 15px;
 }
-/* .index_ulxwasq{width: 100%;height: 30px;display: flex;justify-content: center;align-content: center;border-left: 1px solid #ccc;overflow: hidden;font-size: 12px;} */
 .idnex_ulxwtas {
   width: 100%;
   height: 60%;

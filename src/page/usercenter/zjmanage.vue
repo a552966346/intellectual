@@ -108,7 +108,6 @@ export default{
     display: flex;
     flex-direction: column;
     justify-content: center;
-   
     color: #fff;
 }
 .manage_item .title{
@@ -133,13 +132,6 @@ export default{
 .items{
     font-size: 15px;
 }
-
-
-
-
-
-
-
 .manage_con{
     background-color: #fff;
     font-size: 14px;
@@ -182,8 +174,6 @@ export default{
 .content_c{
    text-align: center;
    vertical-align:middle;
-  
-   /* padding: 26px; */
 }
 .content_c  img{
     vertical-align:middle;
