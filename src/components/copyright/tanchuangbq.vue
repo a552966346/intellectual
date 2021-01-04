@@ -177,17 +177,17 @@ export default {
                                                         console.log(err)
                                  })
                     }
-                         
+
                  })
-                        
+
             }
-          
+
     }
   },
 };
 </script>
 
-<style>
+<style scoped>
 .all {
   padding: 20px;
   width: 40%;

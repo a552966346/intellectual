@@ -1,10 +1,10 @@
 <template>
  <div id="components_topesarch">
-   <div class="topesarch" style="background-image: url(../../../static/img/common/searchtop_bg.png);">
-      <el-image
+   <div class="topesarch">
+      <img
         style="width: 300px; "
         src="../../../static/img/login/logo.png"
-        fit="fill"></el-image>
+        fit="fill"></img>
         <div class="search_input">
           <el-input placeholder="请输入内容" v-model="input3" class="input-with-select search_text">
             <el-select v-model="select" slot="prepend" placeholder="商标">
@@ -69,6 +69,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-image: url(../../../static/img/common/searchtop_bg.png);
   }
   .el-select{
     width: 120px;

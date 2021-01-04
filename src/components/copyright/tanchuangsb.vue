@@ -191,7 +191,7 @@
         };
 </script>
 
-<style>
+<style scoped>
         .all{padding: 20px;width: 40%;}
        .tanchuang_all{border-radius: 10px;overflow: hidden;background: #fff;}
        .tanchuang_title_text{font-size: 15px;height: 50px;display: flex;align-items: center;}

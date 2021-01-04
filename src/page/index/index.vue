@@ -345,7 +345,7 @@
                   type="primary"
                   :plain="true"
                   @click="submitForm('login_ruleForm')"
-                  style="width: 200px; height: 40px"
+                  style="width: 250px; height: 40px"
                   >立即申请</el-button
                 >
               </el-form-item>
@@ -588,7 +588,7 @@ export default {
       news: [],
       // tabtit: ["公司新闻", "行业新闻", "政策新闻"],
       tabmain: ["内容一", "内容二", "内容三"],
-      num: 0,
+      num: 1,
       selist: [
         {
           index: 1,
@@ -672,18 +672,19 @@ export default {
     };
   },
   mounted() {
-    new Swiper(".swiper-container", {
-      loop: true,
-      slidesPerView: 3,
-      observer: true,
-      spaceBetween: 30,
-      // 如果需要分页器
-      // pagination: '.swiper-pagination',
-      // 如果需要前进后退按钮
-      nextButton: ".swiper-button-next",
-      prevButton: ".swiper-button-prev",
-    });
-
+          this.$nextTick(function(){
+                  new Swiper(".swiper-container", {
+                    loop: true,
+                    slidesPerView: 3,
+                    observer: true,
+                    spaceBetween: 30,
+                    // 如果需要分页器
+                    // pagination: '.swiper-pagination',
+                    // 如果需要前进后退按钮
+                    nextButton: ".swiper-button-next",
+                    prevButton: ".swiper-button-prev",
+                  });
+          })
     this.$api.getidnexdeal().then((res) => {
       // console.log(res, "专利交易");
       this.hot = res.data.hot;
@@ -876,7 +877,7 @@ a:hover {
   padding: 20px 0px;
 }
 .swiper-wrapper {
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
 }
 
@@ -1446,13 +1447,20 @@ a:hover {
   align-items: center;
 }
 .layui_left {
-  width: 30%;
-  height: 30%;
+    width: 40%;
+    height: 35%;
   background-color: #fff;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
 }
 .layui_cent {
-  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   width: 70%;
   border-right: 1px solid #ccc;
 }
@@ -1467,6 +1475,7 @@ a:hover {
   width: 85px;
 }
 .layui_left_left {
+  flex: 1;
   display: flex;
 }
 .layui_left_rig {
