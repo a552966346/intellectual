@@ -1,5 +1,5 @@
 <template>
-  <div class="all">
+  <div class="tipall">
     <div class="tanchuang_all">
       <div class="tanchuang_title">
             <!-- left -->
@@ -15,7 +15,7 @@
             </div>
 
       </div>
-      <div class="tanchuang_body">
+      <div class="tanchuang_b">
           <div class="tanchuang_bt">
               温馨提示：专利最新费减政策如下，如有疑问，请 <span>咨询右侧顾问</span>  或拨打免费客服热线 <span> 0519-88238816</span>
           </div>
@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style>
-.all {
+.tipall {
   padding: 20px;
   width: 60%;
   color: #888888;
@@ -113,9 +113,8 @@ export default {
 .tanchuang_title_r img{
   height: 36px;
 }
-.tanchuang_body {
+.tanchuang_b{
   padding: 20px;
-    padding-bottom: 30px;
 
 }
 .tanchuang_bt {
