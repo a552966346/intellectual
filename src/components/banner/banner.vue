@@ -88,32 +88,32 @@
                                 activeName: 'first',
                                 // 交易中心banner图
                                 banimg: [
-                                        '../../../static/img/index/banner_cteon.png',
-                                        '../../../static/img/index/banner_ctetw.png',
-                                        '../../../static/img/index/banner_ctetr.png'
+                                        require('../../../static/img/index/banner_cteon.png'),
+                                        require('../../../static/img/index/banner_ctetw.png'),
+                                        require('../../../static/img/index/banner_ctetr.png')
                                 ],
                                 // 服务中心小图片
                                 bantwimg: [
-                                        '../../../static/img/index/bannertwon.png',
-                                        '../../../static/img/index/bannertwtw.png',
-                                        '../../../static/img/index/bannertwtr.png',
-                                        '../../../static/img/index/bannertwfh.png',
-                                        '../../../static/img/index/bannertwfv.png',
-                                        '../../../static/img/index/bannertwsx.png',
-                                        '../../../static/img/index/bannersctr.png',
-                                        '../../../static/img/index/bannertrtr.png',
-                                        '../../../static/img/index/bannerscni.png',
-                                        '../../../static/img/index/bannerscfv.png',
-                                        '../../../static/img/index/bannertrtw.png',
-                                        '../../../static/img/index/bannersctn.png'
+                                        require('../../../static/img/index/bannertwon.png'),
+                                        require('../../../static/img/index/bannertwtw.png'),
+                                        require('../../../static/img/index/bannertwtr.png'),
+                                        require('../../../static/img/index/bannertwfh.png'),
+                                        require('../../../static/img/index/bannertwfv.png'),
+                                        require('../../../static/img/index/bannertwsx.png'),
+                                        require('../../../static/img/index/bannersctr.png'),
+                                        require('../../../static/img/index/bannertrtr.png'),
+                                        require('../../../static/img/index/bannerscni.png'),
+                                        require('../../../static/img/index/bannerscfv.png'),
+                                        require('../../../static/img/index/bannertrtw.png'),
+                                        require('../../../static/img/index/bannersctn.png')
                                 ],
                                 msmin: ['￥800/元', '￥1600/元', '￥700/元', '￥700/元', '￥350/元', '￥350/元'],
                                 banotimg: [
-                                       {img: '../../../static/img/index/bannerobon.png',
+                                       {img: require('../../../static/img/index/bannerobon.png'),
                                        keywords:"financing"
                                        },
                                        {
-                                           img: '../../../static/img/index/bannerobtw.png' ,
+                                           img: require('../../../static/img/index/bannerobtw.png') ,
                                            keywords:"property"
                                        }
 

@@ -67,7 +67,7 @@
                 data() {
                         return {
                                 top_all_titlexiang: [{
-                                        img: '../../../static/img/transfer/transfer_zan.png',
+                                        img: require('../../../static/img/transfer/transfer_zan.png'),
                                         name: '满意度',
                                         nub: '99.6%'
                                 }, {
