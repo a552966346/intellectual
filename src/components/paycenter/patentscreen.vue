@@ -174,7 +174,7 @@
                 margin: 20px auto;
                 background-color: #f6f6f6;
                 display: flex;
-                justify-content: space-between;
+                /* justify-content: space-between; */
         }
 
         .patenscree_left {
