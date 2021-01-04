@@ -33,7 +33,7 @@
        <div>
          <!-- <img src="" alt="">
          <img src="" alt=""> -->
-         <v-otherwords @shangchuan="shangchuan" @kefu="kefu"></v-otherwords>
+         <v-otherwords @shangchuan="shangchuan" ></v-otherwords>
        </div>
        <div>
 
@@ -144,22 +144,16 @@
    <div class="tanchuang" v-show="isshow" @click.self="shows" >
                <v-shangchuan @close="close" ></v-shangchuan>
    </div>
-   <!-- 客服弹窗 -->
-                <div class="tanchuang" v-show="isshowtwo" @click.self="showstwo">
-                        <v-customer @shows="showstwo"></v-customer>
-                </div>
  </div>
 </template>
 
 <script>
 import shangchuan from '../../components/activity/shangchuan.vue';
 import otherwords from '../../components/activity/otherwords.vue'
-import customer from '@/components/customers/customer_services.vue'//客服弹窗
 export default {
   data(){
     return{
       isshow:false,
-      isshowtwo:false,//客服
       transaction_imglist:[
               require('../../../static/img/activity/cy_icon.png'),
               require( '../../../static/img/activity/dd_icon.png'),
@@ -205,18 +199,11 @@ export default {
     shangchuan(){
       this.isshow = true
     },
-    kefu(){//客服
-      this.isshowtwo = true
-    },
-    //客服弹框隐藏
-    showstwo(){
-            this.isshowtwo =false
-    },
+    
   },
   components:{
     'v-otherwords':otherwords,
     'v-shangchuan':shangchuan,
-    'v-customer':customer
 
   }
 
