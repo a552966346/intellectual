@@ -33,7 +33,7 @@
        <div>
          <!-- <img src="" alt="">
          <img src="" alt=""> -->
-         <v-otherwords @shangchuan="shangchuan"></v-otherwords>
+         <v-otherwords @shangchuan="shangchuan" ></v-otherwords>
        </div>
        <div>
 
@@ -199,10 +199,12 @@ export default {
     shangchuan(){
       this.isshow = true
     },
+    
   },
   components:{
     'v-otherwords':otherwords,
     'v-shangchuan':shangchuan,
+
   }
 
 }

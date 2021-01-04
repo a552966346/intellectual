@@ -21,6 +21,7 @@
               </div>
           </div>
        </div>
+                        
        <div class="show">
             <div class="other_works_item">
                   <div class="other_works_item1">
@@ -69,13 +70,15 @@ export default {
     return {
       list:[
         {tet:'美术作品'},{tet:'摄影作品'},{tet:'雕塑'},{tet:'生活创意作品'},{tet:'影视作品'},{tet:'建筑作品'},{tet:'汉服设计'},{tet:'创意作品'},
-      ]
-
-    };
+      ],
+    }
   },
   methods:{
     shangchuan(){
         this.$emit("shangchuan")
+    },
+    kefu(){
+        this.$emit("kefu")
     }
   }
 }
@@ -187,11 +190,13 @@ export default {
   width: 370px;
  
 }
-
 .other_works_item1{
   flex: 1;
 }
 .other_works_item2{
   flex: 2;
 }
+
+
+
 </style>
