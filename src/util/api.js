@@ -467,13 +467,14 @@ const api = {
             return requestAll.requset(baseUrl + '/api/index/search', data);
     },
      // 添加购物车
-     getshop(product_id,type,number,uid,remark){
+     getshop(product_id,type,number,uid,remark,money){
         let data = {
             product_id: product_id,
             type:type,
             number:number,
             uid:uid,
-            remark:remark
+            remark:remark,
+            money:money
         }
         return requestAll.requset(baseUrl + '/api/order/addcart', data);
     },

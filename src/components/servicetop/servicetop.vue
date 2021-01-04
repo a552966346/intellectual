@@ -77,7 +77,8 @@
                                 isshow:false,
                                 img:require('../../../static/img/index/inde_sc_one.png'),
                                 img2:require('../../../static/img/index/inde_sc_two.png'),
-                                isimg:false
+                                isimg:false,
+                                money:0
                         }
                 },
                 props: {
@@ -112,27 +113,56 @@
                                         let user =JSON.parse(sessionStorage['user']);
                                         uid = user.id;
                                         nub = this.nub;
-                                        console.log(this.text)
-                                        this.$api.getshop(id,1,nub,uid,this.text)
-                                        .then(res=>{
-                                        if(res.code == 1){
-                                                this.$message({
-                                                          message: res.msg,
-                                                          type: 'success'
-                                                        });
-                                                this.$router.push({
-                                                path:'/shopcart',
-                                                query:{
-                                                        id:id
+                                        this.money = this.top_data.fee;
+                                        if(this.top_data.basic_text){
+                                                let mustli =[]; let remake=''
+                                                mustli = this.top_data.basic_text;
+                                                mustli.forEach(function(item){
+                                                remake += item.feetitle+',';
+                                                });
+                                                this.$api.getshop(id,1,nub,uid,remake,this.money)
+                                                .then(res=>{
+                                                if(res.code == 1){
+                                                        this.$message({
+                                                                message: res.msg,
+                                                                type: 'success'
+                                                                });
+                                                        this.$router.push({
+                                                        path:'/shopcart',
+                                                        query:{
+                                                                id:id
+                                                        }
+                                                })
+                                                }else{
+                                                        console.log(res.msg)
                                                 }
-                                        })
+                                                })
+                                                .catch(err => {
+                                                console.log(err)
+                                                })
                                         }else{
-                                                console.log(res.msg)
+                                                this.$api.getshop(id,1,nub,uid,'',this.money)
+                                                .then(res=>{
+                                                if(res.code == 1){
+                                                        this.$message({
+                                                                message: res.msg,
+                                                                type: 'success'
+                                                                });
+                                                        this.$router.push({
+                                                        path:'/shopcart',
+                                                        query:{
+                                                                id:id
+                                                        }
+                                                })
+                                                }else{
+                                                        console.log(res.msg)
+                                                }
+                                                })
+                                                .catch(err => {
+                                                console.log(err)
+                                                })
                                         }
-                                        })
-                                        .catch(err => {
-                                        console.log(err)
-                                        })
+                                        
                                 }
 
                         },
