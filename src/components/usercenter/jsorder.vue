@@ -68,6 +68,9 @@ export default {
                       this.copzy = res.data.data
 
               })
+              .catch(err =>{
+                                        console.log(err)
+             })
       }
     }
 }

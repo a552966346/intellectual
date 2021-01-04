@@ -128,6 +128,9 @@ export default {
                   console.log(res)
                   this.option = res.data
           })
+          .catch(err =>{
+            console.log(err)
+          })
           this.signoutShow = sessionStorage.getItem('user');
           console.log(this.signoutShow,'存储的用户信息');
   },
@@ -143,7 +146,7 @@ export default {
             this.html = Math.random();
     },
     fabu(fromname) {
-            if(this.signoutShow=='null'){
+            if(this.signoutShow=='null'||this.signoutShow==null){
                     this.$message({
                             message: '您还没有登录，请先登录',
                             center: true,
@@ -152,7 +155,8 @@ export default {
                     this.$router.push({ path: '/login' })
             }else{
                  this.$refs[fromname].validate((valid) => {
-                         this.$api.getsellpost(this.select, '', this.form1
+                    if(valid){
+                          this.$api.getsellpost(this.select, '', this.form1
                                          .phone, this.form1.name, '', 3,
                                          this.form1.authcode)
                                  .then(res => {
@@ -170,6 +174,11 @@ export default {
                                                  });
                                          }
                                  })
+                                 .catch(err => {
+                                                        console.log(err)
+                                 })
+                    }
+                         
                  })
                         
             }

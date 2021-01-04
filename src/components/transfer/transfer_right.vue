@@ -49,6 +49,9 @@ export default {
                         this.hots = res.data
 
                 })
+                .catch(err => {
+                                console.log(err)
+                })
 
             },
             methods:{

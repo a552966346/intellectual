@@ -205,6 +205,9 @@
                                                 alert("暂无数据")
                                         }
                                 })
+                                .catch(res=>{
+                                        console.log(res)
+                                })
                         },
                         text_click(porp){
                                         this.iscolor = porp

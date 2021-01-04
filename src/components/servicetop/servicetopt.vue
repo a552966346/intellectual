@@ -22,14 +22,21 @@
                                 </div>
                                 <div class="topall_center">
                                         <div class="solt" style="display:flex;flex-direction: column;">
-                                                <slot name="topall">
+                                                 <p style="font-size: 13px;">普通担保31-35个工作日，成功率高可加急，版权顾问全程专业服务</p>
+                                                        <div class="slot_bord" v-if="question">
+                                                                <p v-for="(item,index) in question" :key="index" @click="xuanze(index)" >
+                                                                        <span >{{item.feetitle}}</span><span :class="{color:color==index}">￥{{item.fee_cost}}/件</span>
+                                                                </p>
+                                                        </div>
+                                                        <div class="money">￥<h2>{{ isfee(top_data.fee,question[color])}}</h2>元起</div>
+                                                <!-- <slot name="topall">
                                                         <div class="moren" style="display: flex;">
                                                                 <p style="margin-right:30px;">价格<span v-if="top_data.fee>=10000">￥{{(top_data.fee/10000)}}万元</span>
                                                                 <span v-else>￥{{top_data.fee}}</span></p>
                                                                 <span style="color:#ccc;font-size:12px;padding:6px;">官费200</span>
                                                         </div>
 
-                                                </slot>
+                                                </slot> -->
                                         </div>
                                         <!-- <div class="inp" v-show="!isShow">
                                                 <p>联系电话</p><input type="tel">
@@ -77,14 +84,17 @@
                                 isshow:false,
                                 img:'../../../static/img/index/inde_sc_one.png',
                                 img2:'../../../static/img/index/inde_sc_two.png',
-                                isimg:false
+                                isimg:false,
+                                color:0,
+
+                                text:''
                         }
                 },
                 props: {
                         image: '',
                         top_data: '',
                         isShow: false,
-                        text:''
+                        question:''
 
                 },
                 mounted() {
@@ -176,7 +186,15 @@
                                                 })
                                       }
                                 }
-                        }
+                        },
+                        isfee(fee,feels){
+                                let money = Number(fee)+Number(feels.fee_cost)
+                                this.text = feels.feetitle
+                                return money
+                        },
+                        xuanze(index){
+                                this.color = index
+                        },
 
                 },
                 components:{
@@ -405,4 +423,13 @@
         .bottom_right span {
                 padding: 5px;
         }
+        .iscolor{color: #0184FE;}
+        .color{background-color: #0184FE !important;color: #fff !important;font-size: 14px;}
+        .zhiding{position: absolute;bottom: 100px;right: 100px;}
+        .zhiding>img{width: 50px;}
+        .slot_bord{display: flex;padding: 10px 0;flex-wrap: wrap;}
+        .slot_bord>p{margin-right: 5px;margin-bottom: 10px;}
+        .slot_bord>p>span{background-color: #f5f5f5;color: #0184FE;font-size: 14px;padding: 5px;border: 1px solid #0184FE;font-size: 12px;}
+         .slot_bord>p>span:nth-child(1){border-right: none;background-color: #0184FE;color: #fff;}
+          .money{display: flex;align-items: center;color: #D30102;}
 </style>

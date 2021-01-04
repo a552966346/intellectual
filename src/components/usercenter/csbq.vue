@@ -259,6 +259,9 @@
                                         console.log(res)
                                         this.option = res.data
                                 })
+                                .catch(err =>{
+                                        console.log(err)
+                                })
                 },
                 props: {
                         isshowbq: false,
@@ -287,6 +290,9 @@
                                         .then(res => {
                                                 this.option2 = res.data
                                         })
+                                        .catch(err =>{
+                                                console.log(err)
+                                        })
                         },
                         beforeAvatarUpload(file, fileList) {
                                 console.log(file, fileList);
@@ -296,9 +302,13 @@
                                 this.dialogVisible = true;
                         },
                         fileChange(file, fileList) {
-                                this.image2Base64(file.raw).then(res => {
+                                this.image2Base64(file.raw)
+                                .then(res => {
                                         console.log(res)
                                         this.bqform.dialogImageUrl = res
+                                })
+                                .catch(err =>{
+                                        console.log(err)
                                 });
                         },
                         image2Base64(file) {
@@ -349,6 +359,9 @@
                                                                                 message: res
                                                                                         .msg
                                                                         });
+                                                                })
+                                                                .catch(err =>{
+                                                                        console.log(err);
                                                                 })
                                                 }
                                         })

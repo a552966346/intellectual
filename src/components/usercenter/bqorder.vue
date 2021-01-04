@@ -65,6 +65,9 @@ export default {
                       this.copOrder = res.data.data
 
               })
+              .catch(err =>{
+                  console.log(err)
+              })
       },
       sell(){
           this.$emit('sell')

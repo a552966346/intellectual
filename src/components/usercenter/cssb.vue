@@ -201,6 +201,9 @@ export default {
                     console.log(res)
                     this.sbclass = res.data
             })
+            .catch(err =>{
+                        console.log(err)
+            })
 
     },
     methods:{
@@ -212,9 +215,13 @@ export default {
                 this.dialogVisible = true;
            },
            fileChange(file, fileList) {
-                   this.image2Base64(file.raw).then(res => {
+                   this.image2Base64(file.raw)
+                   .then(res => {
                            console.log(res)
                            this.sbform.dialogImageUrl = res
+                   })
+                   .catch(err =>{
+                          console.log(err)
                    });
            },
            image2Base64(file) {
@@ -250,6 +257,9 @@ export default {
                                                         type: 'success',
                                                         message: res.msg
                                                       });
+                                                })
+                                                .catch(err =>{
+                                                        console.log(err)
                                                 })
                                             }
                                     })
@@ -297,21 +307,21 @@ export default {
     color: #d2d2d2;
 }
 
-  .avatar-uploader-icon {
-                font-size: 28px;
-                color: #8c939d;
-                width: 178px;
-                height: 178px;
-                line-height: 178px;
-                text-align: center;
-                background-color: #f5f5f5;
-        }
+.avatar-uploader-icon {
+        font-size: 28px;
+        color: #8c939d;
+        width: 178px;
+        height: 178px;
+        line-height: 178px;
+        text-align: center;
+        background-color: #f5f5f5;
+}
 
-        .avatar {
-                width: 178px;
-                height: 178px;
-                display: block;
-        }
+.avatar {
+        width: 178px;
+        height: 178px;
+        display: block;
+}
 
 .cssb_head_item{
     position: relative;

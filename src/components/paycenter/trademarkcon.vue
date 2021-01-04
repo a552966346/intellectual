@@ -16,7 +16,7 @@
                                         </div>
                                         <p class="trademark_p1">
                                                 <span>{{item.name}}</span>
-                                                <img src="../../../static/img/paycenter/copyright_like.png" alt="">
+                                                <!-- <img src="../../../static/img/paycenter/copyright_like.png" alt=""> -->
                                         </p>
                                         <p class="trademark_p2" v-if="item.categoryid_text">{{item.categoryid_text.name}}</p>
                                         <p class="trademark_p3">

@@ -75,6 +75,9 @@
                                         this.data = res.data
                                         console.log(this.data, "版权分类")
                                 })
+				.catch(err=>{
+					console.log(err)
+				})
                 },
                 methods: {
                         closetc() {
@@ -90,8 +93,9 @@
                         },
                         fabu(fromname) {
                                 this.$refs[fromname].validate((valid) => {
-                                        this.$api.getsellpost( this.form.main, this.form.phone, 
-                                        this.form.need, 1)
+                                      if(valid){
+                                                this.$api.getsellpost( this.form.main, this.form.phone, 
+                                                this.form.need, 1)
                                                 .then(res => {
                                                         console.log(res)
                                                         if (res.code == 1) {
@@ -107,7 +111,12 @@
                                                                 });
                                                         }
                                                 })
-                                })
+                                                .catch(err => {
+                                                        console.log(err)
+                                                })
+                                
+                                        }
+                                })        
                         }
                 },
         };

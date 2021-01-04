@@ -6,7 +6,7 @@
               <div class="line"></div>
          </div>
          <div class="top_r">
-           <div class="tr1">
+           <div class="tr1" @click="shangchuan">
             <span>+</span> 上传我的作品
            </div>
            <div class="tr2"></div>
@@ -73,7 +73,12 @@ export default {
 
     };
   },
-};
+  methods:{
+    shangchuan(){
+        this.$emit("shangchuan")
+    }
+  }
+}
 </script>
 <style scoped>
 .other_works_show{

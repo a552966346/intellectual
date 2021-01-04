@@ -66,6 +66,9 @@ export default {
               .then(res=>{
                       this.patOrder = res.data.data
               })
+              .catch(err =>{
+                  console.log(err);
+            })
       },
     }
 }

@@ -59,7 +59,7 @@
                         </div>
                 </div>
                 <div class="consultation_bottom">
-                        
+
                   <img src="../../../static/img/index/cooperation_img.png" alt="">
                 </div >
                 <v-combotttom></v-combotttom>
@@ -78,7 +78,7 @@
         import serviceassurance from '../../components/copyright/serviceassurance.vue'//服务保障  123样式
         import applicationprocesszero from '../../components/copyright/applicationprocesszero.vue'//申请流程 0个图
         import businessintroduction from '../../components/copyright/businessintroduction.vue'//业务流程
-        import condition from '../../components/copyright/condition.vue'//服务清单    
+        import condition from '../../components/copyright/condition.vue'//服务清单
         import servicefh from '../../components/serviceon/servicefh.vue'//服务标准
         import servicetw from '../../components/serviceon/servicetw.vue'//伊甸优势
 
@@ -123,7 +123,7 @@
                                                                        {n:'12',t:'指导企业认证准备及认证过程中协助调整'},
                                                                        {n:'13',t:'提供知识产权相关系列培训'},
                                                                        {n:'14',t:'上门或现场办公时间'},
-                                                                
+
                                                         ],
                                                         arr:[
                                                                 {t:'一级'},{t:'标准'},{t:'高级'},
@@ -202,7 +202,7 @@
                                 this.$api.severdetiles(id)
                                 .then(res=>{
                                         if(res.code){
-                                                console.log(res)
+                                                // console.log(res)
                                                 this.top_data = res.data.data
                                                 this.right_data = res.data.data.content.split(',')
                                                 this.toptext = res.data.data.contenttitle.split(',')
@@ -212,6 +212,9 @@
                                         }else{
                                                 alert("暂无数据")
                                         }
+                                })
+                                .catch(res=>{
+                                        console.log(res)
                                 })
                         },
                         text_click(porp){

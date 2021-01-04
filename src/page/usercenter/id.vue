@@ -435,10 +435,10 @@
                                                 required: true,
                                                 message: '请输入对应真实身份开户的银行卡号',
                                                 trigger: 'blur'
-                                        },{ 
-                                                min: 13, max: 19, 
+                                        },{
+                                                min: 13, max: 19,
                                                 message: "长度为 13 到 19 个字符",
-                                                trigger: "blur" 
+                                                trigger: "blur"
                                         }],
                                         desc: [{
                                                 required: true,
@@ -488,10 +488,11 @@
                         this.$api.attestation_data(this.$store.state.user.id)
                         .then(res=>{
                                 console.log(res)
-                                this.status = res.data.status
+                                
                                 if(res.code==0){
                                          this.msg = "未实名认证"
                                 }else{
+                                        this.status = res.data.status
                                         if(res.data.type==1){
                                                  this.msg2 = "未实名认证"
                                                 if(res.data.status==0){
@@ -541,6 +542,9 @@
                                         }
                                 }
                         })
+			.catch(res=>{
+			        console.log(res)
+			})
                         this.getVerification()
                         //省分类
                         this.$api.areadata()
@@ -578,18 +582,27 @@
                                 this.image2Base64(file.raw).then(res => {
                                         console.log(res)
                                         this.ruleForm.imageUrl = res
-                                });
+                                })
+                                .catch(res=>{
+                                        console.log(res)
+                                })
                         },
                         fileChange2(file, fileList) {
                                 this.image2Base64(file.raw).then(res => {
                                         console.log(res)
                                         this.ruleForm.imageUrl2 = res
-                                });
+                                })
+                                .catch(res=>{
+                                        console.log(res)
+                                })
                         },
                         fileChange3(file, fileList) {
                                 this.image2Base64(file.raw).then(res => {
                                         this.ruleForm.imageUrl3 = res
-                                });
+                                })
+                                .catch(res=>{
+                                        console.log(res)
+                                })
                         },
                         submitForm(form) {
                                 console.log(this.$refs[form].validate)
@@ -608,6 +621,9 @@
                                                                            type: 'success'
                                                                          });
                                                          })
+                                                         .catch(res=>{
+                                                                 console.log(res)
+                                                         })
                                                  }else{
                                                          this.$api.userauthentication(this.$store.state.user.id, this.ruleForm2.name2, this.ruleForm2
                                                                  .number2, this.ruleForm2.imageUrl2, this.ruleForm2.imageUrl22, this.ruleForm2.imageUrl32,
@@ -620,6 +636,9 @@
                                                                            message:res.msg,
                                                                            type: 'success'
                                                                          });
+                                                         })
+                                                         .catch(res=>{
+                                                                 console.log(res)
                                                          })
                                                  }
 
@@ -653,6 +672,9 @@
                                         .then(res => {
                                                 console.log(res)
                                                 this.city = res.data
+                                })
+                                .catch(res=>{
+                                        console.log(res)
                                 })
                         },
                         kefu(){

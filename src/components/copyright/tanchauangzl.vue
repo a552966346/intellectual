@@ -138,7 +138,7 @@
                         },
                         // 确认创建
                         fabu(fromname) {
-                                if(this.signoutShow=='null'){
+                                if(this.signoutShow=='null'||this.signoutShow==null){
                                         this.$message({
                                                 message: '您还没有登录，请先登录',
                                                 center: true,
@@ -147,7 +147,8 @@
                                         this.$router.push({ path: '/login' })
                                 }else{
                                       this.$refs[fromname].validate((valid) => {
-                                              this.$api.getrankingpost(this.form2.name, this.select, this.form2
+                                        if(valid){
+                                                this.$api.getrankingpost(this.form2.name, this.select, this.form2
                                                               .num, this.form2.minprice, this.form2.tel, this
                                                               .form2.authcode, 2)
                                                       .then(res => {
@@ -165,6 +166,11 @@
                                                                       });
                                                               }
                                                       })
+                                                      .catch(err => {
+                                                            console.log(err)
+                                                      })
+                                        }
+                                              
                                       })
                                 }
                         },
@@ -176,6 +182,9 @@
 
                                         console.log(res, "专利分类")
                                         this.data = res.data
+                                })
+                                .catch(err =>{
+                                        console.log(err)
                                 })
                                 this.signoutShow = sessionStorage.getItem('user');
                                 console.log(this.signoutShow,'存储的用户信息');

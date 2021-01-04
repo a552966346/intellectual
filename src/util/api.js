@@ -467,12 +467,13 @@ const api = {
             return requestAll.requset(baseUrl + '/api/index/search', data);
     },
      // 添加购物车
-     getshop(product_id,type,number,uid){
+     getshop(product_id,type,number,uid,remark){
         let data = {
             product_id: product_id,
             type:type,
             number:number,
-            uid:uid
+            uid:uid,
+            remark:remark
         }
         return requestAll.requset(baseUrl + '/api/order/addcart', data);
     },
@@ -787,20 +788,34 @@ const api = {
             }
         return requestAll.requset(baseUrl + '/api/seller/technology_data',data);
     },
-        //添加收货地址
-        receadd(uid,recipients,mobile,province,city,area,address,is_default
-            ){
-            let data={
-                uid:uid,
-                recipients:recipients,
-                mobile:mobile,
-                province:province,
-                city:city,
-                area:area,
-                address:address,
-                is_default:is_default
-            }
-          return requestAll.requset(baseUrl + '/api/account/address',data);
-        },
+    //添加收货地址
+    receadd(uid,recipients,mobile,province,city,area,address,is_default
+        ){
+        let data={
+            uid:uid,
+            recipients:recipients,
+            mobile:mobile,
+            province:province,
+            city:city,
+            area:area,
+            address:address,
+            is_default:is_default
+        }
+        return requestAll.requset(baseUrl + '/api/account/address',data);
+    },
+    //收货地址列表
+    recelist(uid){
+        let data={
+            uid:uid
+        }
+        return requestAll.requset(baseUrl + '/api/account/address_list',data);
+    },
+    //修改收货地址获取数据
+    recelist(id){
+        let data={
+            id:id
+        }
+        return requestAll.requset(baseUrl + '/api/account/address_list',data);
+    },
 }
 export default api;

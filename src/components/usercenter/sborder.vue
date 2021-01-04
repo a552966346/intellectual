@@ -65,6 +65,9 @@ export default {
              .then(res=>{
                      this.traOrder = res.data.data
              })
+             .catch(err =>{
+                  console.log(err);
+             })
       },
     }
 }

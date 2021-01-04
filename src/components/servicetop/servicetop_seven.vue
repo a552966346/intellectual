@@ -240,6 +240,9 @@
                                                            });
                                                         this.isimg = true
                                               })
+                                              .catch(err => {
+                                                        console.log(err)
+                                                })
                                       }else{
                                              this.$api.getdelCollection(id,this.$store.state.user.user_id)
                                              .then(res=>{
@@ -249,6 +252,9 @@
                                                              });
                                                           this.isimg = false
                                              })
+                                             .catch(err => {
+                                                        console.log(err)
+                                                })
                                       }
                                 }
                         }
@@ -343,7 +349,6 @@
         }
         .topBody_lei_two>div{
                 display: flex;
-                /* flex-direction: column; */
                 width: 100%;
         }
         .topBody_lei_two>div>p{

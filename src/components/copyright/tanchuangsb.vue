@@ -138,6 +138,9 @@
                                         this.data = res.data
                                         console.log(this.data, "商标分类")
                                 })
+                                .catch(err =>{
+                                        console.log(err)
+                                })
                                 this.signoutShow = sessionStorage.getItem('user');
                                 console.log(this.signoutShow,'存储的用户信息');
                 },
@@ -154,7 +157,7 @@
                                 this.html = Math.random();
                         },
                         fabu(fromname) {
-                                if(this.signoutShow=='null'){
+                                if(this.signoutShow=='null'||this.signoutShow==null){
                                         this.$message({
                                                 message: '您还没有登录，请先登录',
                                                 center: true,
@@ -163,7 +166,8 @@
                                         this.$router.push({ path: '/login' })
                                 }else{
                                     this.$refs[fromname].validate((valid) => {
-                                            this.$api.getsellpost(this.select, this.form.minprice, this.form
+                                        if(valid){
+                                                this.$api.getsellpost(this.select, this.form.minprice, this.form
                                                             .phone, this.form.name, this.form.number, 1,
                                                             this.form.authcode)
                                                     .then(res => {
@@ -181,6 +185,11 @@
                                                                     });
                                                             }
                                                     })
+                                                    .catch(err => {
+                                                        console.log(err)
+                                                    })
+                                        }
+                                            
                                     })
                                 }
 

@@ -332,12 +332,18 @@
                                                         this.bgimage = res.data.images
                                                 }
                                         })
+                                        .catch(res=>{
+                                                console.log(res)
+                                        })
                         },
                         //注册广告
                         isrightpost() {
                                 this.$api.userregistervertisement()
                                         .then(res => {
                                                 this.bgimage = res.data.images
+                                        })
+                                        .catch(res=>{
+                                                console.log(res)
                                         })
                         },
                         // 提交按钮表单验证
@@ -368,6 +374,9 @@
                                                                                 });
                                                                         }
                                                                 })
+                                                                .catch(res=>{
+                                                                        console.log(res)
+                                                                })
                                                 } else {
                                                         if (this.check) {
 
@@ -393,6 +402,9 @@
                                                                                         });
                                                                                         // this.getVerification()
                                                                                 }
+                                                                        })
+                                                                        .catch(res=>{
+                                                                                console.log(res)
                                                                         })
                                                         } else {
                                                                 this.$message({

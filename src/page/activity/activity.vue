@@ -33,7 +33,7 @@
        <div>
          <!-- <img src="" alt="">
          <img src="" alt=""> -->
-         <v-otherwords></v-otherwords>
+         <v-otherwords @shangchuan="shangchuan"></v-otherwords>
        </div>
        <div>
 
@@ -50,17 +50,17 @@
          <div @mouseleave='mouse_leave(0)' @mouseover="mouse_over(0)">
            <img :src="transaction_imglist[0]" alt="">
            <h3>查阅作品</h3>
-           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
+           <p>智创城NO.1——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
          </div>
          <div @mouseleave='mouse_leave(1)' @mouseover="mouse_over(1)">
            <img :src="transaction_imglist[1]" alt="">
            <h3>预约看样</h3>
-           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界。</p>
+           <p>智创城NO.2——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界。</p>
          </div>
          <div @mouseleave='mouse_leave(2)' @mouseover="mouse_over(2)">
            <img :src="transaction_imglist[2]" alt="">
            <h3>签订合同</h3>
-           <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手。</p>
+           <p>智创城NO.3——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手。</p>
          </div>
          <div @mouseleave='mouse_leave(3)' @mouseover="mouse_over(3)">
            <img :src="transaction_imglist[3]" alt="">
@@ -141,14 +141,19 @@
      </div>
    </div>
    <v-combotttom></v-combotttom>
+   <div class="tanchuang" v-show="isshow" @click.self="shows" >
+               <v-shangchuan @close="close" ></v-shangchuan>
+   </div>
  </div>
 </template>
 
 <script>
+import shangchuan from '../../components/activity/shangchuan.vue';
 import otherwords from '../../components/activity/otherwords.vue'
 export default {
   data(){
     return{
+      isshow:false,
       transaction_imglist:[
         '../../../static/img/activity/cy_icon.png',
         '../../../static/img/activity/dd_icon.png',
@@ -181,10 +186,17 @@ export default {
         var srt_url = '../../../static/img/activity/yy_icon_active.png'
       }
       this.$set(this.transaction_imglist,index,srt_url)
-    }
+    },
+    close(){
+       this.isshow = false
+    },
+    shangchuan(){
+      this.isshow = true
+    },
   },
   components:{
-    'v-otherwords':otherwords
+    'v-otherwords':otherwords,
+    'v-shangchuan':shangchuan,
   }
   
 }
