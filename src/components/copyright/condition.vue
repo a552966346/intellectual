@@ -20,9 +20,9 @@
                 
             </div>
             <div class="cobdition_table_item_c cr" v-for="(its,index) in cond.arrr" :key="index">
-                <div class="cobdition_table_item_c3" v-html="its.t"></div>
-                <div class="cobdition_table_item_c3" v-html="its.t2"></div>
-                <div class="cobdition_table_item_c3" v-html="its.t3"></div>
+                <div class="cobdition_table_item_c3" v-html="its.t"><img :src="its.t"></div>
+                <div class="cobdition_table_item_c3" v-html="its.t2"><img :src="its.t2"></div>
+                <div class="cobdition_table_item_c3" v-html="its.t3"><img :src="its.t3"></div>
                    
             </div>
         </div>

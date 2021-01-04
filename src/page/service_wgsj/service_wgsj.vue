@@ -307,7 +307,7 @@
         .zzdj_serviceright_top>p{padding: 10px;cursor: pointer;font-size: 15px;}
         .zzdj_serviceright_center{flex: 1;display: flex;flex-direction: column;}
         .zzdj_center_text{padding:10px 20px ;flex: 1;}
-        .center_text{padding:10px 20px ;flex: 1;}
+        .center_text{padding:10px 20px ;}
         .center_text>p,.center_text>div{padding-bottom: 10px;}
         .center_text>p>span{padding-left: 16px;font-size: 14px;}
         .iscolor{color: #0184FE;}

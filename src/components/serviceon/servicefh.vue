@@ -77,6 +77,6 @@
 </script>
 
 <style>
-.serviceon_all{width: 100%;height: 100%;}
+.serviceon_all{width: 100%;}
 .el-table td,.el-table th {text-align: center !important;color:#1a7fc3;}
 </style>
