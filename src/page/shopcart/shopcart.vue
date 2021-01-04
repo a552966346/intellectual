@@ -8,8 +8,8 @@
                         <div class="shopcart_all_Center">
                             <div class="shopcart_zsd">
                                 <div class="shopcart_zsdtop">
-                                    <input type="checkbox" name="" id="">
-                                    <div class="shopcart_zsall">专利交易</div>
+                                    <!-- <input type="checkbox" name="" id=""> -->
+                                    <!-- <div class="shopcart_zsall">专利交易</div> -->
                                 </div>
                                 <div class="shopcart_zsdcet" v-for="(item,index) in zsdlist" :key="index" v-if="item.product">
                                     <div class="shopcart_zsdcetlet">
@@ -32,6 +32,9 @@
                                         </div>
                                         <div class="shopcart_zsdcetretcet">
                                             {{item.product.sketch}}
+                                        </div>
+                                        <div v-if="item.remark !=''" style="font-size: 12px;color: #ccc;">
+                                                ({{item.remark}})
                                         </div>
                                     </div>
                                     <div class="shopcart_zsdceterrn">

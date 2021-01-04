@@ -437,9 +437,10 @@
                                          // }
 
                                  })
-                                .catch(res=>{
-                                        console.log(res)
-                                })
+                               
+                         })
+                         .catch(res=>{
+                                 console.log(res)
                          })
                          //商标极速
                          this.$api.seversellcategory()
@@ -549,7 +550,7 @@
                                                 .catch(res=>{
                                                         console.log(res)
                                                 })
-                                        }
+                                        }s
                                 })
                                  this.html = Math.random();
                         },
