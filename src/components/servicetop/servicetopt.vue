@@ -28,7 +28,7 @@
                                                                         <span >{{item.feetitle}}</span><span :class="{color:color==index}">￥{{item.fee_cost}}/件</span>
                                                                 </p>
                                                         </div>
-                                                        <div class="money">￥<h2>{{ isfee(top_data.fee,question[color])}}</h2>元起</div>
+                                                        <div class="money">￥<h2>{{ isfee(top_data.fee,question[color].fee_cost,question[color].feetitle)}}</h2>元起</div>
                                                 <!-- <slot name="topall">
                                                         <div class="moren" style="display: flex;">
                                                                 <p style="margin-right:30px;">价格<span v-if="top_data.fee>=10000">￥{{(top_data.fee/10000)}}万元</span>
@@ -152,9 +152,9 @@
                         shows(){
                                 this.isshow = false
                         },
-                        isfee(fee,feels){
-                                let money = Number(fee)+Number(feels.fee_cost)
-                                this.text = feels.feetitle
+                        isfee(fee,feels,text){
+                                let money = Number(fee)+Number(feels)
+                                this.text = text
                                 this.money = money;
                                 return money
                         },

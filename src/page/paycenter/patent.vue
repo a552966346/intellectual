@@ -225,7 +225,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
         *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
        .patent_pay{background: #f6f6f6;padding-bottom: 20px;}
        .patent_pay>img{cursor: pointer;}
-       .patent_sort{max-width: 1200px;margin: 0 auto;height: 50px;background-color: #fff;color: #666;font-size: 14px;display: flex;align-items: center;border: 1px solid #eceff6;margin-bottom: 20px;position: relative;}
+       .patent_sort{width: 1200px;margin: 0 auto;height: 50px;background-color: #fff;color: #666;font-size: 14px;display: flex;align-items: center;border: 1px solid #eceff6;margin-bottom: 20px;position: relative;}
        .patent_sort>span{width: 135px;text-align: center;cursor: pointer;height: 50px;line-height: 50px;border-right: 1px solid #f1f1f1;}
        .patent_sorticon{font-weight: bold;}
        .sortactive{color: #1580c4;}

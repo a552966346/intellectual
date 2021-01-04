@@ -170,7 +170,7 @@
 
 <style scoped>
         .patenscree_all {
-                max-width: 1200px;
+                width: 1200px;
                 margin: 20px auto;
                 background-color: #f6f6f6;
                 display: flex;

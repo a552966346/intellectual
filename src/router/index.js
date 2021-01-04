@@ -73,7 +73,7 @@ import newsint from '@/page/news/newsint' //新闻联系
 Vue.use(Router)
 
 export default new Router({
-    mode: 'history', //去掉地址栏中的#
+    // mode: 'history', //去掉地址栏中的#
     routes: [
         // 配置路由
         {

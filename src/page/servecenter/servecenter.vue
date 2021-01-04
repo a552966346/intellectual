@@ -4,7 +4,7 @@
                 <v-navigation></v-navigation>
                 <div id="servecneter">
                         <!-- 服务中心头部导航 -->
-                        <div class="servecenter_top" style="background-image: url(../../../static/img/service/servecenter_enterprises_bg.png);">
+                        <div class="servecenter_top" >
                                 <div class="servecenter_top_cen">
 
                                         <div class="top_cen_left">
@@ -583,6 +583,7 @@
                 background-repeat: no-repeat;
                 display: flex;
                 justify-content: center;
+                background-image: url(../../../static/img/service/servecenter_enterprises_bg.png);
         }
 
         .top_cen_left {
