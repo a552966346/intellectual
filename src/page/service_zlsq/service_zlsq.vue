@@ -97,14 +97,14 @@
                                 txt:'text_',
                                 iscolor:0,
                                 idenimg:{
-                                        src:'../../../static/img/service/severic_zlon.png'
+                                        src:require('../../../static/img/service/severic_zlon.png')
                                 },
                                 list:{//伊甸优势
                                         arr:[
-                                                            {src:'../../../static/img/service/service_ys.png',title:'官方自营',text:'伊甸自营专利申请服务'},
-                                                            {src:'../../../static/img/service/service_zy.png',title:'快速专业',text:'同比行业快50%，1对1服务'},
-                                                            {src:'../../../static/img/service/service_bz.png',title:'服务保障',text:'品牌保障，全程陪同护航'},
-                                                            {src:'../../../static/img/service/service_jy.png',title:'自营平台可交易',text:'无需东奔西跑，伊甸快速帮你完成'},
+                                                            {src:require('../../../static/img/service/service_ys.png'),title:'官方自营',text:'伊甸自营专利申请服务'},
+                                                            {src:require('../../../static/img/service/service_zy.png'),title:'快速专业',text:'同比行业快50%，1对1服务'},
+                                                            {src:require('../../../static/img/service/service_bz.png'),title:'服务保障',text:'品牌保障，全程陪同护航'},
+                                                            {src:require('../../../static/img/service/service_jy.png'),title:'自营平台可交易',text:'无需东奔西跑，伊甸快速帮你完成'},
                                         ],
                                 },
                                 pub:{//公共问题
@@ -125,7 +125,7 @@
 
                                 },
                                 app:{//申请流程 2个图   //申请流程 0个图
-                                        src:"../../../static/img/copyright/process.png" ,
+                                        src:require("../../../static/img/copyright/process.png") ,
                                         top_text:"国际专利申请所需资料",
                                         top_r:"资深顾问审核资料，减少返回率，商业信息、公司信息严格保密",
                                         arrl:[
@@ -145,16 +145,16 @@
                                 },
                                 //pc优势
                                 mulist:[{
-                                        src:'../../../static/img/service/service_sqon01.png',
+                                        src:require('../../../static/img/service/service_sqon01.png'),
                                         text:'享受政府支持：个地方政府均大力出台相应政策，对专利申请者进行奖励、补助或者其他支持，最高可享数十万。'
                                         },{
-                                        src:'../../../static/img/service/service_sqon02.png',
+                                        src:require('../../../static/img/service/service_sqon02.png'),
                                         text:'强效保护研发成果:防止侵权，保护核心技术，构筑核心竞争力。专利权保护具有严格的地域性。'
                                         },{
-                                        src:'../../../static/img/service/service_sqon03.png',
+                                        src:require('../../../static/img/service/service_sqon03.png'),
                                         text:'抢占海外市场:需出口产品应尽早进行海外专利布局，确保拥有自主知识产权，比竞争对手领先海外市场，保障国际参展。'
                                         },{
-                                        src:'../../../static/img/service/service_sqon04.png',
+                                        src:require('../../../static/img/service/service_sqon04.png'),
                                         text:'授信贷款贏取收益:无形资产，可通过授权许可等多种方式变现，最高可获得银行授信贷款500万。'
                                         }],
                                  //PCT申请

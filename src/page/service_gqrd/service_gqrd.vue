@@ -92,27 +92,27 @@
                                                 txt:'text_',
                                                 iscolor:0,
                                                 idenimg:{//认定图片
-                                                        src:'../../../static/img/service/iden_hc.png'
+                                                        src:require('../../../static/img/service/iden_hc.png')
                                                 },
                                                 appthree:{//申请流程 3个图
-                                                    src:"../../../static/img/copyright/process.png" ,
+                                                    src:require("../../../static/img/copyright/process.png" ),
                                                     top_text:"高企认定所需资料",
                                                     top_r:"资深顾问审核资料，减少返回率，商业信息、公司信息严格保密",
                                                     arr:[
-                                                            {src:"../../../static/img/copyright/company_financial.png" ,
+                                                            {src:require("../../../static/img/copyright/company_financial.png") ,
                                                             title:'企业基本资料',
                                                             children:[
                                                                 {text: '1、营业执照'},
                                                                 {text: '2、组织机构代码和税务登记证'},
                                                                 {text: '3、企业职工总体情况说明和科技人员名单'}
                                                             ]},
-                                                            {src:"../../../static/img/copyright/company_basic.png" ,
+                                                            {src:require("../../../static/img/copyright/company_basic.png") ,
                                                             title:'企业财务资料',
                                                             children:[
                                                                 {text: '1、近三个年度的财务会计报告和年度纳税申请表'},
                                                                 {text: '2、企业近三个会计年度的财务会计报告'},
                                                             ]},
-                                                            {src:"../../../static/img/copyright/company_manage.png" ,
+                                                            {src:require("../../../static/img/copyright/company_manage.png") ,
                                                             title:'知识产权及研发管理资料',
                                                             children:[
                                                                 {text: '1、高新技术企业认定申请书'},
@@ -124,21 +124,21 @@
                                                 },
                                                 iden:{//认定条件
                                                     arr:[
-                                                            {src:"../../../static/img/copyright/ser01.png" ,
+                                                            {src:require("../../../static/img/copyright/ser01.png") ,
                                                             text: '企业申请认定时须注册成立一年以上；'},
-                                                            {src:"../../../static/img/copyright/ser02.png" ,
+                                                            {src:require("../../../static/img/copyright/ser02.png") ,
                                                             text: '企业提供自主研发、受让、受赠、并购等方式，获得对其主要产品（服务）在技术上发挥核心支持作用的知识产权的所有权；'},
-                                                            {src:"../../../static/img/copyright/ser03.png" ,
+                                                            {src:require("../../../static/img/copyright/ser03.png") ,
                                                             text: '对企业主要产品（服务）发挥核心支持作用的技术属于《国家重点支持的高新技术领域》规定的范围；'},
-                                                            {src:"../../../static/img/copyright/ser04.png" ,
+                                                            {src:require("../../../static/img/copyright/ser04.png") ,
                                                             text: '企业从事研发和相关技术创新活动的科技人员占企业当年职工总数的比例不低于10%；'},
-                                                            {src:"../../../static/img/copyright/ser05.png" ,
+                                                            {src:require("../../../static/img/copyright/ser05.png") ,
                                                             text: '企业近三个会计年度（实际经营期不满三年的按实际经营时间计算，下同）的研究开发费用总额占同期销售收入总额的比例符合如下要求：<br/>a.最近一年销售收入小于5,000万元（含）的企业，比例不低于5%；<br/>b.最近一年销售收入在5,000万元至2亿元（含）的企业，比例不低于4%；<br/>c.最近一年销售收入在2亿元以上的企业，比例不低于3%；<br/>其中，企业在中国境内发生的研究开发费用总额占全部研究开发费用总额的比例不低于60%；'},
-                                                            {src:"../../../static/img/copyright/ser06.png" ,
+                                                            {src:require("../../../static/img/copyright/ser06.png") ,
                                                             text: '近一年高新技术产品（服务）收入占企业同期总收入的比例不低于60%；'},
-                                                            {src:"../../../static/img/copyright/ser07.png" ,
+                                                            {src:require("../../../static/img/copyright/ser07.png") ,
                                                             text: '企业创新能力评价应达到相应要求；'},
-                                                            {src:"../../../static/img/copyright/ser08.png" ,
+                                                            {src:require("../../../static/img/copyright/ser08.png" ),
                                                             text: '企业申请认定前一年内未发生重大安全、重大质量事故或严重环境违法行为。'},
 
                                                     ],

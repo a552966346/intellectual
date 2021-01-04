@@ -136,7 +136,7 @@
 
                                 },
                                 app:{//申请流程 2个图   //申请流程 0个图
-                                        src:"../../../static/img/copyright/process.png" ,
+                                        src:require("../../../static/img/copyright/process.png" ),
                                         top_text:"实用新型申请所需资料",
                                         top_r:"资深顾问审核资料，减少返回率，商业信息、公司信息严格保密",
                                         arrl:[
@@ -157,17 +157,17 @@
                                 ser:{//服务保障  123样式
                                     arr:[
                                       {
-                                            src:'../../../static/img/copyright/ser01.png',
+                                            src:require('../../../static/img/copyright/ser01.png'),
                                             title:'信息安全',
                                             text:'请您放心，您提供的资料我们都会对外保密，并且在您提供材料前，我们的专利顾问会与您签订一份保密协议，作为伊甸城的一种负责任的书面承诺，让您安心！当然，不管您是否与我们签有保密协议，我们都会对您提供过来的材料进行严格的保密处理，绝不例外！'
                                       },
                                       {
-                                            src:'../../../static/img/copyright/ser02.png',
+                                            src:require('../../../static/img/copyright/ser02.png'),
                                             title:'专属顾问',
                                             text:'在案件服务过程中，有任何疑问，可发送邮箱：info@edencity.cn，我们将安排专业人员在24小时之内及时处理，对于担保服务，可依据合同条款进行退款。'
                                       },
                                       {
-                                            src:'../../../static/img/copyright/ser03.png',
+                                            src:require('../../../static/img/copyright/ser03.png'),
                                             title:'投诉渠道',
                                             text:'邮件投诉：发送邮件至info@edencity.cn'
                                       },
@@ -175,13 +175,13 @@
                                 } ,
                                 //常见问题
                                 met:{
-                                mess:['../../../static/img/service/serviceright_jiantou.png','常见问题'],
+                                mess:[require('../../../static/img/service/serviceright_jiantou.png'),'常见问题'],
                                 feli:[
-                                        {id:1,ming:'../../../static/img/service/service_icon.png',mitt:'实用新型和发明专利的区别在哪里？',mitim:'../../../static/img/service/service_ictw.png',felida:[
+                                        {id:1,ming:require('../../../static/img/service/service_icon.png'),mitt:'实用新型和发明专利的区别在哪里？',mitim:require('../../../static/img/service/service_ictw.png'),felida:[
                                         {text:'第一，实用新型只限于具有一定形状的产品，不能是一种方法，也不能是没有固定形状的产品；而发明是方法，也可以是产品；'},
                                         {text:'第二，实用新型对技术的要求低，授权时间短；发明对技术的创造性要求高，授权时间长。'}
                                         ]},
-                                        {id:2,ming:'../../../static/img/service/service_icon.png',mitt:'实用新型的授权条件',mitim:'../../../static/img/service/service_ictw.png',felida:[
+                                        {id:2,ming:require('../../../static/img/service/service_icon.png'),mitt:'实用新型的授权条件',mitim:require('../../../static/img/service/service_ictw.png'),felida:[
                                         {text:'第一，实用新型只限于具有一定形状的产品，不能是一种方法，也不能是没有固定形状的产品；而发明是方法，也可以是产品；'},
                                         {text:'第二，实用新型对技术的要求低，授权时间短；发明对技术的创造性要求高，授权时间长。'},
                                         {text:'第三，实用新型对技术的要求低，授权时间短；发明对技术的创造性要求高，授权时间长。'}
@@ -189,56 +189,56 @@
                                 ],
                                 },
                                  //发明专利 图片
-                                idenimg:{src:"../../../static/img/service/severic_zlon.png"},
+                                idenimg:{src:require("../../../static/img/service/severic_zlon.png")},
                                 //申请发明
                                 nawqli:[{
                                 nawqtit:' 主要分为产品发明（如机器、仪器、设备和用具等）和方法发明（制造方法、工艺流程等）两大类。',
-                                nawqlist:[{cttimg:'../../../static/img/service/service_ys.png',ttle:'产品名称',cbct:'专利法上的产品，可以是一个独立、完整的产品，也可以是一个设备或仪器中的零部件。',cbctft:'举例：机器、设备以及各种用品材料，如化学物质、组合等具有新用途的产品'},
-                                                {cttimg:'../../../static/img/service/service_ys.png',ttle:'产品名称',cbct:'专利法上的产品，可以是一个独立、完整的产品，也可以是一个设备或仪器中的零部件。',cbctft:'举例：机器、设备以及各种用品材料，如化学物质、组合等具有新用途的产品'}
+                                nawqlist:[{cttimg:require('../../../static/img/service/service_ys.png'),ttle:'产品名称',cbct:'专利法上的产品，可以是一个独立、完整的产品，也可以是一个设备或仪器中的零部件。',cbctft:'举例：机器、设备以及各种用品材料，如化学物质、组合等具有新用途的产品'},
+                                                {cttimg:require('../../../static/img/service/service_ys.png'),ttle:'产品名称',cbct:'专利法上的产品，可以是一个独立、完整的产品，也可以是一个设备或仪器中的零部件。',cbctft:'举例：机器、设备以及各种用品材料，如化学物质、组合等具有新用途的产品'}
                                 ]
                                 }],
                                 //好处
                                 mrt:[{
-                                imga:'../../../static/img/service/benefit_ismg.png',
+                                imga:require('../../../static/img/service/benefit_ismg.png'),
                                 txt:'个人'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg2.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg2.jpg'),
                                 txt:'保护智慧结晶'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg3.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg3.jpg'),
                                 txt:'维权证明'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg4.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg4.jpg'),
                                 txt:'技术入股'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg5.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg5.jpg'),
                                 txt:'评职评优'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg6.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg6.jpg'),
                                 txt:'升学晋升'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg7.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg7.jpg'),
                                 txt:'落户加分'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg8.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg8.jpg'),
                                 txt:'企业'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg9.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg9.jpg'),
                                 txt:'保护核心技术'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg10.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg10.jpg'),
                                 txt:'抢占市场'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg11.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg11.jpg'),
                                 txt:'评定高企'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg12.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg12.jpg'),
                                 txt:'授权信贷'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg13.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg13.jpg'),
                                 txt:'税收减免'
                                 },{
-                                imga:'../../../static/img/service/benefit_ismg14.jpg',
+                                imga:require('../../../static/img/service/benefit_ismg14.jpg'),
                                 txt:'政策扶持'
                                 }],
 

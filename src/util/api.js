@@ -1,9 +1,9 @@
 import requestAll from './request.js'
 // console.log(requestAll)
 // 本地后台地址
-const baseUrl = '/dev-api';
+const baseUrl = 'http://intellectual.jzhxwl.com/';
 // 第三方地址 如：高德 腾讯 天气api等接口
-const webUrl = '/dsf-api';
+const webUrl = '/';
 // 存放所有请求
 const api = {
     /*

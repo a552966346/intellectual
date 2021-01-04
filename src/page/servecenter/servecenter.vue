@@ -298,24 +298,24 @@
                                 btm_xiang: [{
                                                 name: '服装鞋帽',
                                                 nub: '25',
-                                                img: '../../../static/img/service/servecenter_s1.png'
+                                                img:require('../../../static/img/service/servecenter_s1.png') 
                                         }, {
                                                 name: '日化用品',
                                                 nub: '03',
-                                                img: '../../../static/img/service/servecenter_s2.png'
+                                                img:require('../../../static/img/service/servecenter_s2.png') 
                                         }, {
                                                 name: '科学仪器',
                                                 nub: '09',
-                                                img: '../../../static/img/service/servecenter_s3.png'
+                                                img:require('../../../static/img/service/servecenter_s3.png') 
                                         }, {
                                                 name: '珠宝钟表',
                                                 nub: '14',
-                                                img: '../../../static/img/service/servecenter_s4.png'
+                                                img: require('../../../static/img/service/servecenter_s4.png')
                                         },
                                         {
                                                 name: '家具用品',
                                                 nub: '30',
-                                                img: '../../../static/img/service/servecenter_s5.png',
+                                                img:require('../../../static/img/service/servecenter_s5.png'),
                                         }
                                 ],
                                 o_cen_lie:[],
@@ -324,7 +324,7 @@
                                 fu_cen_right_lie:[],
                                 qy_right_lie: [
                                         {
-                                                img:'../../../static/img/service/sever_qi_one.jpg',
+                                                img:require('../../../static/img/service/sever_qi_one.jpg'),
                                                 eng:'INTELLECTUAL PROPERTY RIGHT',
                                                 name:'知识产权贯标',
                                                 istext:{
@@ -335,7 +335,7 @@
                                                 text:'享受政府资助最高30万',
                                         },
                                         {
-                                                img:'../../../static/img/service/sever_qi_two.jpg',
+                                                img:require('../../../static/img/service/sever_qi_two.jpg'),
                                                 eng:'HIGH TECH ENTERPRISES',
                                                 name:'国家高新企业认定',
                                                 istext:{
@@ -345,7 +345,7 @@
                                                 text:'奖励最高20万 减免40%所得税',
                                         },
                                         {
-                                                img:'../../../static/img/service/sever_qi_three.jpg',
+                                                img:require('../../../static/img/service/sever_qi_three.jpg'),
                                                 eng:'TECHNICAL PRODUCTS',
                                                 name:'高新技术产品认定套餐',
                                                 istext:{

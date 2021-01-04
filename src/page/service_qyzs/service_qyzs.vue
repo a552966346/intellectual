@@ -99,7 +99,7 @@
                                                 txt:'text_',
                                                 iscolor:0,
                                                 app:{//申请流程 2个图   //申请流程 0个图
-                                                        src:"../../../static/img/copyright/process.png" ,
+                                                        src:require("../../../static/img/copyright/process.png") ,
 
                                                 },
                                                 cond:{//服务清单
@@ -150,10 +150,10 @@
                                                 },
                                                 list:{//伊甸优势
                                                         arr:[
-                                                            {src:'../../../static/img/service/service_ys.png',title:'官方自营',text:'伊甸自营专利申请服务'},
-                                                            {src:'../../../static/img/service/service_zy.png',title:'快速专业',text:'同比行业快50%，1对1服务'},
-                                                            {src:'../../../static/img/service/service_bz.png',title:'服务保障',text:'品牌保障，全程陪同护航'},
-                                                            {src:'../../../static/img/service/service_jy.png',title:'自营平台可交易',text:'无需东奔西跑，伊甸快速帮你完成'},
+                                                            {src:require('../../../static/img/service/service_ys.png'),title:'官方自营',text:'伊甸自营专利申请服务'},
+                                                            {src:require('../../../static/img/service/service_zy.png'),title:'快速专业',text:'同比行业快50%，1对1服务'},
+                                                            {src:require('../../../static/img/service/service_bz.png'),title:'服务保障',text:'品牌保障，全程陪同护航'},
+                                                            {src:require('../../../static/img/service/service_jy.png'),title:'自营平台可交易',text:'无需东奔西跑，伊甸快速帮你完成'},
                                                         ],
                                                 },
                                                 bus:{//业务流程

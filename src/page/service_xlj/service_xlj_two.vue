@@ -99,32 +99,32 @@
                                 safe:{//安全保障
                                   arr:[
                                       {
-                                            src:'../../../static/img/copyright/safe_contract.png',
+                                            src:require('../../../static/img/copyright/safe_contract.png'),
                                             title:'签署交易合同',
                                             text:'Sign the transaction contract'
                                       },
                                       {
-                                            src:'../../../static/img/copyright/safe_confirm.png',
+                                            src:require('../../../static/img/copyright/safe_confirm.png'),
                                             title:'第三方担保交易',
                                             text:'Tripartite secured transactions'
                                       },
                                       {
-                                            src:'../../../static/img/copyright/safe_confirm.png',
+                                            src:require('../../../static/img/copyright/safe_confirm.png'),
                                             title:'提供资料证件',
                                             text:'Provide information and certificates'
                                       },
                                       {
-                                            src:'../../../static/img/copyright/safe_confirm.png',
+                                            src:require('../../../static/img/copyright/safe_confirm.png'),
                                             title:'极速退款',
                                             text:'Extreme refund'
                                       },
                                       {
-                                            src:'../../../static/img/copyright/safe_confirm.png',
+                                            src:require('../../../static/img/copyright/safe_confirm.png'),
                                             title:'支持线下',
                                             text:'Under the support line'
                                       },
                                       {
-                                            src:'../../../static/img/copyright/safe_confirm.png',
+                                            src:require('../../../static/img/copyright/safe_confirm.png'),
                                             title:'确认后放款',
                                             text:'loan after confirmation'
                                       }

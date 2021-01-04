@@ -96,14 +96,14 @@
                                 txt:'text_',
                                 iscolor:0,
                                 lists:[
-                                        {src:'../../../static/img/service/service_chaone.png',text:'APP上架：应用宝、360等主流，应用市场上架必备'},
-                                        {src:'../../../static/img/service/service_chatwo.png',text:'项目投标：政府/商业项目，竞标资质条件'},
-                                        {src:'../../../static/img/service/service_chatre.png',text:'国家补贴：高企/双软申报，享受百万政府补贴'},
-                                        {src:'../../../static/img/service/service_chatfh.png',text:'无形资产：帮助企业增资，递延纳税优惠'},
+                                        {src:require('../../../static/img/service/service_chaone.png'),text:'APP上架：应用宝、360等主流，应用市场上架必备'},
+                                        {src:require('../../../static/img/service/service_chatwo.png'),text:'项目投标：政府/商业项目，竞标资质条件'},
+                                        {src:require('../../../static/img/service/service_chatre.png'),text:'国家补贴：高企/双软申报，享受百万政府补贴'},
+                                        {src:require('../../../static/img/service/service_chatfh.png'),text:'无形资产：帮助企业增资，递延纳税优惠'},
 
                                 ],
                                 app:{//申请流程 2个图   //申请流程 0个图
-                                        src:"../../../static/img/copyright/process.png" ,
+                                        src:require("../../../static/img/copyright/process.png" ),
                                         top_text:"著作权变更所需资料",
                                         top_r:"资深顾问审核资料，减少返回率，商业信息、公司信息严格保密",
                                         arrl:[
@@ -124,17 +124,17 @@
                                 ser:{//服务保障  123样式
                                     arr:[
                                       {
-                                            src:'../../../static/img/copyright/ser01.png',
+                                            src:require('../../../static/img/copyright/ser01.png'),
                                             title:'信息安全',
                                             text:'请您放心，您提供的资料我们都会对外保密，并且在您提供材料前，我们的专利顾问会与您签订一份保密协议，作为伊甸城的一种负责任的书面承诺，让您安心！当然，不管您是否与我们签有保密协议，我们都会对您提供过来的材料进行严格的保密处理，绝不例外！'
                                       },
                                       {
-                                            src:'../../../static/img/copyright/ser02.png',
+                                            src:require('../../../static/img/copyright/ser02.png'),
                                             title:'专属顾问',
                                             text:'在案件服务过程中，有任何疑问，可发送邮箱：info@edencity.cn，我们将安排专业人员在24小时之内及时处理，对于担保服务，可依据合同条款进行退款。'
                                       },
                                       {
-                                            src:'../../../static/img/copyright/ser03.png',
+                                            src:require('../../../static/img/copyright/ser03.png'),
                                             title:'投诉渠道',
                                             text:'邮件投诉：发送邮件至info@edencity.cn'
                                       },

@@ -134,10 +134,11 @@ export default {
             title_color1:'#fff',
             title_all:["设立目的",'设立原则','我们的服务','我们的愿景'],
             title_text_all:[,,,,],
-            title_bg_url:['../../../static/img/knowledgefunds/purposeofestablishment.png',
-                          '../../../static/img/knowledgefunds/eatablishmentprinciple.png',
-                          '../../../static/img/knowledgefunds/ourservices.png',
-                          '../../../static/img/knowledgefunds/eatablishmentprinciple.png',
+            title_bg_url:[
+                          require('../../../static/img/knowledgefunds/purposeofestablishment.png'),
+                          require('../../../static/img/knowledgefunds/eatablishmentprinciple.png'),
+                          require('../../../static/img/knowledgefunds/ourservices.png'),
+                          require('../../../static/img/knowledgefunds/eatablishmentprinciple.png'),
                         ],
             msg:'这是测试内容'
               }

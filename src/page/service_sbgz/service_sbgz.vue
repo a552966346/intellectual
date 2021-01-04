@@ -97,7 +97,7 @@
                                                 txt:'text_',
                                                 iscolor:0,
                                                 app:{//申请流程 2个图   //申请流程 0个图
-                                                        src:"../../../static/img/copyright/process.png" ,
+                                                        src:require("../../../static/img/copyright/process.png") ,
                                                         top_text:"商标更正所需资料",
                                                         top_r:"资深顾问审核资料，减少返回率，商业信息、公司信息严格保密",
                                                         arrl:[
@@ -116,17 +116,17 @@
                                                 ser:{//服务保障  123样式
                                                     arr:[
                                                       {
-                                                            src:'../../../static/img/copyright/ser01.png',
+                                                            src:require('../../../static/img/copyright/ser01.png'),
                                                             title:'信息安全',
                                                             text:'请您放心，您提供的资料我们都会对外保密，并且在您提供材料前，我们的专利顾问会与您签订一份保密协议，作为伊甸城的一种负责任的书面承诺，让您安心！当然，不管您是否与我们签有保密协议，我们都会对您提供过来的材料进行严格的保密处理，绝不例外！'
                                                       },
                                                       {
-                                                            src:'../../../static/img/copyright/ser02.png',
+                                                            src:require('../../../static/img/copyright/ser02.png'),
                                                             title:'专属顾问',
                                                             text:'在案件服务过程中，有任何疑问，可发送邮箱：info@edencity.cn，我们将安排专业人员在24小时之内及时处理，对于担保服务，可依据合同条款进行退款。'
                                                       },
                                                       {
-                                                            src:'../../../static/img/copyright/ser03.png',
+                                                            src:require('../../../static/img/copyright/ser03.png'),
                                                             title:'投诉渠道',
                                                             text:'邮件投诉：发送邮件至info@edencity.cn'
                                                       },
@@ -149,39 +149,39 @@
                                                 //服务优势
                                                 yst:[{
                                                         ystid:1,
-                                                        ystimg:'../../../static/img/service/advantage_one.png',
+                                                        ystimg:require('../../../static/img/service/advantage_one.png'),
                                                         ysttit:'高通过率',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
                                                 },{
                                                         ystid:2,
-                                                        ystimg:'../../../static/img/service/advantage_two.png',
+                                                        ystimg:require('../../../static/img/service/advantage_two.png'),
                                                         ysttit:'加速申报无滞后',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
                                                 },{
                                                         ystid:3,
-                                                        ystimg:'../../../static/img/service/advantage_tre.png',
+                                                        ystimg:require('../../../static/img/service/advantage_tre.png'),
                                                         ysttit:'一站式办理',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
                                                 },{
                                                         ystid:4,
-                                                        ystimg:'../../../static/img/service/advantage_fhh.png',
+                                                        ystimg:require('../../../static/img/service/advantage_fhh.png'),
                                                         ysttit:'自费透明、价格品优',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
                                                 },{
                                                         ystid:5,
-                                                        ystimg:'../../../static/img/service/advantage_fvv.png',
+                                                        ystimg:require('../../../static/img/service/advantage_fvv.png'),
                                                         ysttit:'全程托管，进度可查',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
                                                 },{
                                                         ystid:6,
-                                                        ystimg:'../../../static/img/service/advantage_sxx.png',
+                                                        ystimg:require('../../../static/img/service/advantage_sxx.png'),
                                                         ysttit:'同等重视',
                                                         ystcet:'系统智能查询+专业顾问人工近似查询，帮您提高商标注册成功率'
                                                 },] ,
                                                 // 业务介绍
                                                 fvlist:[{
                                                         text:'商标续展是注册商标有效期为十年，期满需要继续使用的，应当在期满前六个月内申请。',
-                                                        img:'../../../static/img/service/sevice_fvion.png'
+                                                        img:require('../../../static/img/service/sevice_fvion.png')
                                                 }]
                                         }
                                 },

@@ -56,7 +56,7 @@
                 data() {
                         return {
                                 sortnumber: 0, //左侧边排序切换
-                                banner: '../../../static/img/paycenter/trademark_bg.png', //banner图
+                                banner:require('../../../static/img/paycenter/trademark_bg.png') , //banner图
                                 //一级分类
                                 // patenscree:[],
                                 iscolor:[],
