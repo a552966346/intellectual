@@ -349,7 +349,6 @@
         }
         .topBody_lei_two>div{
                 display: flex;
-                /* flex-direction: column; */
                 width: 100%;
         }
         .topBody_lei_two>div>p{

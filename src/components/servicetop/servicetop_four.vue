@@ -292,7 +292,6 @@
 
         .rfooter {
                 display: flex;
-                /* margin-bottom: 25px; */
         }
 
         .rfooter>.rfooterLeft {
