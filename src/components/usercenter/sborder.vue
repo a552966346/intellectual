@@ -119,7 +119,6 @@ export default {
 }
 
 .s_content{
-    /* height: 300px; */
     margin-top: 15px;
     display: flex;
     text-align: center;

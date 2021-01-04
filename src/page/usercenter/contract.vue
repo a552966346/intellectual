@@ -60,7 +60,6 @@ export default{
 .overview_title{
     height: 34px;
     width: 100%;
-    /* padding: 10px 20px; */
     margin-top: 10px;
 }
 .myoverview{

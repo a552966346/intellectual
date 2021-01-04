@@ -88,7 +88,6 @@
 
         #process {
                 width: 100%;
-                /* padding: 20px 10px; */
                 display: flex;
                 align-items: center;
                 flex-direction: column;

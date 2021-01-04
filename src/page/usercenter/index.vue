@@ -365,7 +365,6 @@ a {
 }
 .main{
     display: flex;
-    /* justify-content: space-between; */
     margin: 20px 3% 0;
     width: 93%;
 }
@@ -373,7 +372,6 @@ button{
         outline: none;
 }
 .main_r{
-    /* width: 355px; */
     flex: 0 0 34%;
     margin-left: 3%;
     max-width: 363px;
@@ -532,12 +530,10 @@ a{
 }
 /* .main_l */
 .r1_top{
-    /* height: 138px; */
     padding: 25px 15px;
     border: 1px solid rgba(0,0,0,0.16);
     border-radius: 8px;
     display: flex;
-    /* width: 806px; */
 }
 .left{
         width: 50%;
@@ -595,59 +591,6 @@ a{
 .r1_top_money span{
         padding: 5px 0;
 }
-/* .r1_top_tou {
-    width: 76px;
-    height: 76px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-.r1_top_tou img{
-    width: 100%;
-}
-.r1_top_name{
-    position: absolute;
-    left: 100px;
-    top: 48px;
-}
-.r1_top_name h4{
-    font-size: 20px;
-}
-.r1_top_name p{
-    color: #989898;
-    font-size: 14px;
-    line-height: 20px;
-}
-.r1_top_money{
-    position: absolute;
-    top: 40px;
-    margin-left: 20px;
-}
-.r1_top_money p{
-    color: #989898;
-    font-size: 16px;
-    line-height: 23px;
-}
-.r1_top_money span {
-    font-size: 14px;
-}
-.r1_top_money a{
-    color: #2878d8;
-    font-size: 12px;
-}
-.money1{
-    right: 170px;
-}
-.money1_button{
-    background-color: #fff;
-    padding: 2px 5px;
-    border: 1px solid rgba(0,0,0,0.16);
-}
-.money2{
-    right: 94px;
-}
-.money3{
-    right: 26px;
-}*/
 .r2_top{
     margin-top: 20px;
     height: 64px;
@@ -681,7 +624,6 @@ a{
     min-height: 136px;
     border-radius: 8px;
     border: 1px solid rgba(0,0,0,0.16);
-    /* width: 100%; */
 }
 .order_title{
     border-radius: 8px 8px 0 0 ;
@@ -708,7 +650,6 @@ a{
     color: #41a3fe;
 }
 .order_content{
-    /* height: 104px; */
     display: flex;
     align-items: center;
     text-align: center;
@@ -719,7 +660,6 @@ a{
    text-align: center;
    vertical-align:middle;
 
-   /* padding: 26px; */
 }
 .order_content_c  img{
     vertical-align:middle;
@@ -730,7 +670,6 @@ a{
 }
 .overview{
     height: 400px;
-    /* width: 100%; */
     margin-top: 20px;
 }
 .overview_title{

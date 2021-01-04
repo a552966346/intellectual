@@ -175,8 +175,7 @@
          *{padding: 0;margin: 0;text-decoration: none;box-sizing: border-box;}
          body,html{width: 100%;background-color: #f0f2f5;}
          .servicelist{background-color: #f0f2f5!important;}
-         .service_list{/* position: relative; */width: 100%;display: flex;justify-content: center;flex-direction: column;align-items: center;}
-         /* .service_site{position: absolute;top:0;} */
+         .service_list{width: 100%;display: flex;justify-content: center;flex-direction: column;align-items: center;}
          /* 筛选 */
         .service_choose{width: 1200px;background-color: #fff;margin: 0 auto;}
         .sortactive {color: #1580c4;}

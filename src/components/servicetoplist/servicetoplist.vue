@@ -76,7 +76,7 @@
          .list_item:hover{box-shadow: 1px 1px 10px 2px #ccc;}
         /* 上边内容 */
         .list_topitem{width: 100%;display: flex;}
-        .list_topitem_left{width: 55px;height: 61px;/* background-size: 100% 100%;font-size: 14px;color: #7B64F2;text-align: center;line-height: 54px;font-weight: bold;background-image: url(../../../static/img/service/icon32.png); */}
+        .list_topitem_left{width: 55px;height: 61px;}
         .list_topitem_left img{width: 100%;height: 100%;}
         .list_topitem_right{flex: 1;flex-direction: column;width: 0;padding-left: 10px;}
         .list_topitem_right p:nth-child(1){padding-top: 8px;color: #464646;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}

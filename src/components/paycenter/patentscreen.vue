@@ -211,7 +211,6 @@
         }
 
         .patenscree_leftcontent span {
-                /* width: 12.5%; */
                 color: #666;
                 padding: 5px 15px;
                 cursor: pointer;

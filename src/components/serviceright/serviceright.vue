@@ -43,7 +43,6 @@
                 data(){
                         return{
                                 advantage:'',
-                                // question:'',
                                 txt:'text_',
                                  iscolor:0,
                         }
@@ -93,18 +92,11 @@
                 font-size: 15px;
         }
         .center_text>div>p>img{
-                /* width: 100%; */
                 height: 350px;
         }
-        /* .center_text>p{display: flex;align-items: center;padding: 10px 20px;} */
-        /* .center_text>p>img{width: auto;} */
         .center_text>p>span{padding-left: 5px;font-size: 16px;margin: auto 0;width: 50%;font-weight: bold;}
         .center_text>div{width: 100%;border-radius: 10px;}
         .center_text img{width: 100%;}
         .iscolor{color: #1780C2!important;}
         .center_text img{width: auto;}
-        /* .center_text>p:nth-child(2) img{
-                width: 100%;
-                height: 350px;
-        } */
 </style>

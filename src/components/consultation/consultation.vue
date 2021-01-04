@@ -140,9 +140,7 @@
     background-color: #187FC4;
     text-align: center;
   }
-   /*.consultation_house div:nth-child(2){
-    padding: 0 10px;
-  } */
+   
   .consultation_lei{
     color:#a7a7a7;
     margin-top: 5px;

@@ -55,7 +55,6 @@
                         colorbtn(m, i, index) {
                                 this.$set(this.iscent[index], 'bgcolor', m);
                                 this.$forceUpdate();
-                                // this.iscent[index];
                                 this.$emit('colorbtn',m,index)
                         },
                         kefu(){

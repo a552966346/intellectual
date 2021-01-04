@@ -218,7 +218,6 @@
         height: 15px;
         margin: 5px 0px 0px 15px;
     }
-    /* ._input{width: 150px;} */
     .mobil_top{width: 420px; margin: 0 auto; display: flex;justify-content: space-between;align-content: center; margin-bottom: 20px;flex-direction: column;}
     .mobil_tctton{display: flex;justify-content: center;align-items: center;}
     .mobil_tie{width: 100%;display: flex;justify-content: space-around;align-content: center;}

@@ -297,7 +297,6 @@ import {
 }
 .paint_example>div>p:nth-child(4){
   font-size: 15px;
-  /* margin-left:120px; */
   line-height: 25px;
   color: #676767;
   padding: 20px 0;
@@ -381,7 +380,6 @@ import {
   height: 50px;
   display: flex;
   border-bottom: 1px solid #dad4d4;
-  /* padding:0 20px; */
 }
 .l_item>p{
   color: #a7a7a7;

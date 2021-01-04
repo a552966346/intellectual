@@ -815,7 +815,6 @@
                 border: none;
                 font-size: 14px;
                 color: #bbb;
-                /* width: 272px; */
                 border: 1px solid #f2f2f2;
                 border-radius: 5px;
         }
@@ -915,7 +914,6 @@
         }
 
         .phone {
-                /* text-indent: 2em; */
                 display: flex;
         }
 

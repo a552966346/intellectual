@@ -79,7 +79,6 @@
                                 // console.log(m)
                                 this.$set(this.listdata[index], 'bgcolor', m);
                                 this.$forceUpdate();
-                                // console.log(this.listdata[index])
                                 this.listdata[index];
                         },
                         kefu(){

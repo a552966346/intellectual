@@ -44,11 +44,9 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* height: 440px; */
 }
 .safetyguarantee_item{
     width: 33%;
-    /* height: 92px; */
     margin-top: 20px;
     background-color: #f5f6f8;
     display: flex;

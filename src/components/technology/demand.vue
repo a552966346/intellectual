@@ -87,7 +87,6 @@
         .indexpay_right_more a{color: #333;text-decoration: none;}
          /*查看列表*/
         .indexpay_right_list{display: flex;padding: 15px 0;flex: 1;flex-wrap: wrap;}
-         /* .indexpay_right_list{display: flex;padding: 15px 0;flex: 1;flex-wrap: wrap;align-content: space-between;} */
          /* 每一块内容 */
         .indexpay_right_item{width: 25%;height: 206px;border: 1px solid #EEEEEE;padding:0px 20px;border-top: none;letter-spacing: 1px;}
         .indexpay_right_contitem1{width: 100%;}
@@ -96,7 +95,7 @@
         .item_top>P{margin: 10px 0;display: flex;align-items: center;}
 
         .item_top>P:nth-child(1){font-size: 11px;color: #187fc4;display: flex;align-items: center;}
-        .item_top>P:nth-child(1)>span:nth-child(1){display: inline-block;width: 25px;height: 25px;border-radius: 50%;/* color: #95b3f7;*/background: #e8f3f9;}
+        .item_top>P:nth-child(1)>span:nth-child(1){display: inline-block;width: 25px;height: 25px;border-radius: 50%;background: #e8f3f9;}
         .item_top>P:nth-child(1)>span:nth-child(2){margin-left: -10px;}
         /* 标题 */
         .item_top .item_top_title{color: #333;font-weight: bold;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
@@ -106,9 +105,6 @@
         .item_bottom{padding: 20px 0px;}
         /* 每一块内容底部移入 */
         .item_bottom>span:nth-child(2){display: inline-block;color: #187fc4;font-size: 16px;}
-
-        /* .indexpay_right_list>div:nth-child(8)~div{border-bottom: none;} */
-
         /* 移入效果查看详情 */
         .indexpay_right_contitem2{display: flex;justify-content: center;align-items: center;padding: 20px 0px;}
         .indexpay_right_contitem2 a{text-decoration: none;color: #fff;font-size: 14px;}

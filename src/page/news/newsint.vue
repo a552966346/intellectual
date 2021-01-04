@@ -92,9 +92,6 @@
         .newsint_all {
                 width: 1200px;
                 margin: 0 auto;
-                /* padding: 25px 0; */
-                /* display: flex; */
-                /* background-color: #f5f5f5; */
         }
 
         .news_all {
@@ -108,13 +105,9 @@
         }
 
         .newsint_con {
-                /* width: 100%; */
                 display: flex;
                 width: 100%;
                 height: 100%;
-                /* padding: 90px 0 50px; */
-                /* background-color: #fff; */
-
         }
 
         .newsint_right {

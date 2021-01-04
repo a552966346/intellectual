@@ -139,7 +139,6 @@ export default {
       this.$emit("close")
     },
     kefu(){
-            // this.isshow=true
             this.$emit("kefu")
     },
     getVerification() {
@@ -194,7 +193,6 @@ export default {
   width: 40%;
 }
 .tanchuang_all {
-  /* height: 550px; */
   border-radius: 10px;
   overflow: hidden;
   background: #fff;

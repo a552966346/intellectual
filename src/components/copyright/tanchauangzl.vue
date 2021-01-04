@@ -201,7 +201,6 @@
         }
 
         .tanchuang_all {
-                /* height: 600px; */
                 border-radius: 10px;
                 overflow: hidden;
                 background: #fff;

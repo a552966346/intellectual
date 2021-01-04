@@ -135,8 +135,6 @@ export default {
            font-size: 14px;
        }
        .hover_jia{
-         /*  display: flex;
-           justify-content: space-between; */
            cursor: pointer;
            margin-bottom: 10px;
            border-bottom: 1px solid #f5f5f5;

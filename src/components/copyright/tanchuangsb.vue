@@ -22,9 +22,6 @@
                                                 <el-input v-model="form.number" placeholder="请输入您的注册商标号" style="width: 100%"></el-input>
                                         </el-form-item>
                                         <el-form-item label="商标类别">
-                                                <!-- <el-select v-model="form.select" placeholder="请选择商标类别（必填）"style="width: 100%">
-                      <el-option v-for="item in data" :key="item.id" :label="item.name" :value="item.id"></el-option>
-                </el-select> -->
                                                 <select name="shangbiao" v-model="select" style="width: 100%;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: #555;padding-left: 15px;">
                                                         <option value="">请选择商标类别</option>
                                                         <option v-for="item in data" :value="item.id">{{item.name}}</option>
@@ -66,14 +63,10 @@
                         </div>
 
                 </div>
-<!--                <div class="tanchuang" v-show="isshow" @click.self="shows">
-                        <v-customer @shows="shows"></v-customer>
-                </div> -->
         </div>
 </template>
 
 <script>
-        // import customer from '@/components/customers/customer_services.vue'
         import {
                 validatePhone
         } from '@/util/rules.js'
@@ -200,7 +193,7 @@
 
 <style>
         .all{padding: 20px;width: 40%;}
-       .tanchuang_all{/* height: 550px;*/border-radius: 10px;overflow: hidden;background: #fff;}
+       .tanchuang_all{border-radius: 10px;overflow: hidden;background: #fff;}
        .tanchuang_title_text{font-size: 15px;height: 50px;display: flex;align-items: center;}
        .tanchuang_title{background: #29334c;color: white;display: flex;padding-left: 40px;display: flex;justify-content: space-between;align-items: center;}
        .tanchuang_title_img{display: flex;justify-content: center;align-items: center;height: 50px;margin-right: 8px;}

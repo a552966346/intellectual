@@ -7,10 +7,7 @@
                 <a href="#"  @click="kefu">
                     <p>联系客服帮您找</p>
                 </a>
-                <!-- <span>或</span>
-                <a href="#" @click="qiugou">
-                    <p style="background-color:#3c568f">发布求购需求</p>
-                </a> -->
+              
             </div>
             <div class="patent_dash">
                 <p>猜中您喜欢的专利有点难度呢，马上联系客服为你推荐更多专利</p>
@@ -195,7 +192,6 @@ export default {
     margin-left: 10px;
     margin-bottom: 10px;
 }
-/* .patent_bottom>a{text-decoration: none;color: #000;display: inline-block;} */
 .patent_bottom .patent_active:hover .patent_bargain{display: block;}
 .patent_bottom .patent_active:hover .patent_price{display: none;}
 .patent_bargain{display: none;background-color: #2b3d63;color: #fff;border-radius: 5px;text-align: center;padding: 10px 0;}

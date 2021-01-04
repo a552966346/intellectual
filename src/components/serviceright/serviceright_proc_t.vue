@@ -35,7 +35,6 @@
                 display: flex;
                 justify-content: center;
                 padding: 10px;
-                /* align-items: center; */
         }
         .proc_t_left{
                 flex: 2;
