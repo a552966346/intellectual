@@ -247,7 +247,7 @@
        *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
       .copyright_pay{background: #f6f6f6;}
       .copyright_pay>img{cursor: pointer;}
-      .patent_sort{max-width: 1200px;margin: 0 auto;height: 50px;background-color: #fff;color: #666;font-size: 14px;display: flex;align-items: center;border: 1px solid #eceff6;margin-bottom: 20px;position: relative;}
+      .patent_sort{max-width: 1200px;width: 100%;margin:0 auto;height: 50px;background-color: #fff;color: #666;font-size: 14px;display: flex;align-items: center;border: 1px solid #eceff6;margin-bottom: 20px;position: relative;}
       .patent_sort>span{width: 135px;text-align: center;cursor: pointer;height: 50px;line-height: 50px;border-right: 1px solid #f1f1f1;}
       .patent_sorticon{font-weight: bold;}
       .sortactive{color: #1580c4;}
@@ -257,7 +257,7 @@
       .patent_sortpage div{width: 20px;height: 20px;border: 1px solid #eeeeee;text-align: center;cursor: pointer;}
       .patent_sortpage div:nth-child(1){margin-right: 5px;}
       /* 页数*/
-      .copyright_page{text-align: center;background: #fff;padding: 20px 30px;max-width: 1200px;margin: 10px auto 30px;line-height: 29px;font-size: 14px;color: #999;}
+      .copyright_page{text-align: center;background: #fff;padding: 20px 30px;max-width: 1200px;width: 100%;margin: 10px auto 30px;line-height: 29px;font-size: 14px;color: #999;}
       .copyright_page span{color: #666;font-size: 14px;padding-right: 8px;height: 31px;line-height: 31px;}
       .copyright_page button{color: #666;font-size: 14px;padding: 5px 10px;margin-right: 8px;background: #fff;border: 1px solid #f0f0f0;outline: none;}
       .copyright_page input{color: #666;font-size: 14px;width: 40px;height: 31px;line-height: 31px;border: 1px solid #f0f0f0;outline: none;padding: 0 5px;outline: none;}

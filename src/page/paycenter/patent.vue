@@ -234,7 +234,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
        .patent_sortpage{width: 100px;border-left: 1px solid #f1f1f1;display: flex;justify-content: center;align-items: center;}
        .patent_sortpage div{width: 20px;height: 20px;border: 1px solid #eeeeee;text-align: center;cursor: pointer;}
        .patent_sortpage div:nth-child(1){margin-right: 5px;}
-       /* 页数*/.copyright_page{background: #fff;padding: 20px 30px;text-align: left;max-width: 1200px;margin:10px auto 30px;line-height: 29px;font-size: 14px;color: #999;text-align: center;}
+       /* 页数*/.copyright_page{background: #fff;padding: 20px 30px;text-align: left;max-width: 1200px;width: 100%;margin:10px auto 30px;line-height: 29px;font-size: 14px;color: #999;text-align: center;}
        .copyright_page span{color: #666;font-size: 14px;padding-right: 8px;height: 31px;line-height: 31px;}
        .copyright_page button{color: #666;font-size: 14px;padding: 5px 10px;margin-right: 8px;background: #fff;border: 1px solid #f0f0f0;outline: none;}
        .copyright_page input{color: #666;font-size: 14px;width: 40px;height: 31px;line-height: 31px;border: 1px solid #f0f0f0;outline: none;padding: 0 5px;outline: none;}
