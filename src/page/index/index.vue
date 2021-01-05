@@ -812,6 +812,7 @@ a {
 a:hover {
   text-decoration: none;
 }
+
 /* 交易*/
 .index_pay {
   background: #f6f6f6;

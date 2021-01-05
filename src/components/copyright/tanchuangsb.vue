@@ -1,5 +1,5 @@
 <template>
-        <div class="all">
+        <div class="tc_all">
                 <div class="tanchuang_all">
                         <div class="tanchuang_title">
                                 <!-- left -->
@@ -192,7 +192,7 @@
 </script>
 
 <style scoped>
-        .all{padding: 20px;width: 40%;}
+        .tc_all{padding: 20px;width: 40%;}
        .tanchuang_all{border-radius: 10px;overflow: hidden;background: #fff;}
        .tanchuang_title_text{font-size: 15px;height: 50px;display: flex;align-items: center;}
        .tanchuang_title{background: #29334c;color: white;display: flex;padding-left: 40px;display: flex;justify-content: space-between;align-items: center;}

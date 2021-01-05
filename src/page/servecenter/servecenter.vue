@@ -114,7 +114,7 @@
                                                                 </div>
                                                         </div> -->
                                                         <div class="top_cen_right_cen_bottom">
-                                                                <img src="" alt="">
+                                                                <img :src="this.$store.state.user.avatar" alt="">
                                                                 <div>
                                                                         <p>你好欢迎来到伊甸网</p>
                                                                         <p>{{phone}}</p>
@@ -298,15 +298,15 @@
                                 btm_xiang: [{
                                                 name: '服装鞋帽',
                                                 nub: '25',
-                                                img:require('../../../static/img/service/servecenter_s1.png') 
+                                                img:require('../../../static/img/service/servecenter_s1.png')
                                         }, {
                                                 name: '日化用品',
                                                 nub: '03',
-                                                img:require('../../../static/img/service/servecenter_s2.png') 
+                                                img:require('../../../static/img/service/servecenter_s2.png')
                                         }, {
                                                 name: '科学仪器',
                                                 nub: '09',
-                                                img:require('../../../static/img/service/servecenter_s3.png') 
+                                                img:require('../../../static/img/service/servecenter_s3.png')
                                         }, {
                                                 name: '珠宝钟表',
                                                 nub: '14',
@@ -437,7 +437,7 @@
                                          // }
 
                                  })
-                               
+
                          })
                          .catch(res=>{
                                  console.log(res)
@@ -883,7 +883,7 @@
         .top_cen_right_cen_bottom {
                 height: 18%;
                 display: flex;
-                flex-direction: column;
+                /* flex-direction: column; */
                 justify-content: center;
                 align-items: center;
                 background-color: #D6ECFA;
@@ -891,7 +891,7 @@
         }
 
         .top_cen_right_cen_bottom>img {
-                width: 25px;
+                width: 50px;
                 border-radius: 50%;
         }
 

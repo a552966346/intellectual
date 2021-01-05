@@ -1,5 +1,5 @@
 <template>
-        <div class="all">
+        <div class="serviceall">
                 <div v-for="item in uqdata" :key="item.id" v-if="item !== null" >
                         <div>
                                 <p v-if="item.type==1">服务中心</p>
@@ -77,19 +77,19 @@ export default {
                 margin: 0;
                 box-sizing: border-box;
         }
-        .all{
+        .serviceall{
                 width: 100%;
                 display: flex;
                 flex-wrap: wrap;
         }
-        .all>div{
+        .serviceall>div{
                 width: 23%;
                 margin: 0 10px 10px 0;
         }
-        .all>div>div:nth-child(1){
+        .serviceall>div>div:nth-child(1){
                 padding: 10px 0;
         }
-        .all p{
+        .serviceall p{
                 padding-left: 5px;
                 border-left: 2px solid #127CC4;
         }

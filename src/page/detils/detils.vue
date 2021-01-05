@@ -57,7 +57,6 @@
                           :key="index"><img :src="items.src"><p>{{items.text}}</p></div>
                         </div>
                       </div>
-
                 </div>
                 <!-- 产品详情 -->
                 <div class="productdetails">
@@ -65,18 +64,15 @@
                         <p>产品详情</p>
                         <p>PRODUCE &nbsp;&nbsp; DETAILS</p>
                   </div>
-
                   <div class="pd"></div>
                   <p class="pa">{{text[0]}}</p>
                 </div>
-
                 <!-- 细节效果 -->
                 <div class="detaileffect">
                     <div class="pro_t">
                         <p>细节效果</p>
                         <p>DETAILS &nbsp;&nbsp; EFFECT</p>
                     </div>
-
                     <div class="de">
                       <div class="de_item" v-for="(item2,index) in de" :key="index">
                         <img :src="item2.src" alt="">
@@ -100,7 +96,6 @@
                           </div>
                         </div>
                 </div>
-
                 <div class="ffr">
                         <h4>免费获取解决方案</h4>
                         <el-form ref="form_rule" :model="form" label-width="100px" :rules="form_rul">
@@ -210,7 +205,7 @@ import {
           {src:require('../../../static/img/fleadd/detail1.png')},{src:require('../../../static/img/fleadd/detail2.png')},{src:require('../../../static/img/fleadd/detail3.png')}
         ],
         ffl:[
-          {src:require('../../../static/img/fleadd/fleadd_tel.png'),text:'王先生',tet:'0234-2057888'},
+          {src:require('../../../static/img/fleadd/fleadd_tel.png'),text:'王先生',tet:'18910769211'},
           {src:require('../../../static/img/fleadd/fleadd_address.png'),text:'联系地址',tet:'山西省晋中市定阳路1100号'},
         ]
 

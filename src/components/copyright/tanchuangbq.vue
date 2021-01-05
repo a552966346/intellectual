@@ -1,5 +1,5 @@
 <template>
-  <div class="all">
+  <div class="tc_all">
     <div class="tanchuang_all">
       <div class="tanchuang_title">
             <!-- left -->
@@ -188,7 +188,7 @@ export default {
 </script>
 
 <style scoped>
-.all {
+.tc_all {
   padding: 20px;
   width: 40%;
 }

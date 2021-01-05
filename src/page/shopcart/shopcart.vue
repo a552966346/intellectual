@@ -18,12 +18,12 @@
                                             <div class="shopcart_zsdcettopimg">
                                                 <img :src="item.product.images" alt="">
                                             </div>
-                                            <div class="shopcart_zsdcettopfot">
+                                            <!-- <div class="shopcart_zsdcettopfot">
                                                 <div class="shopcart_zsdcettopfotbox">
                                                      <img src="../../../static/img/shop/shop_qq.png" alt="">
                                                      联系客服
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="shopcart_zsdcetret">
@@ -53,7 +53,7 @@
                                     <div class="shopcart_zsdfotlet">
                                         <el-checkbox v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
                                         <div class="shopcart_zsall" @click="dele">删除</div>
-                                        <div class="shopcart_zsall">移入收藏夹</div>
+                                        <!-- <div class="shopcart_zsall">移入收藏夹</div> -->
                                     </div>
                                     <div class="shopcart_zsdfotret">
                                         <div>已选择<span>{{checkedNum}}</span>件</div>
@@ -272,7 +272,7 @@
         .shopcart_zsdcefviet{flex: 1;height: 100%;display: flex;justify-content: center;align-items: center;}
         .shopcart_zsdcefviet>div{color: #ff6600;font-weight: bold;}
         .shopcart_zsdfot{width: 100%;height: 80px;background-color: #e8e8ed;display: flex;justify-content: space-between;align-items: center;flex-direction: row;padding-left: 30px; font-size: 14px;}
-        .shopcart_zsdfotlet{width: 20%;height: 100%;display: flex;justify-content: space-between; align-items: center;}
+        .shopcart_zsdfotlet{width: 10%;height: 100%;display: flex;justify-content: space-between; align-items: center;font-size: 15px;}
         .shopcart_zsdfotret{width: 30%;height: 100%;display: flex;justify-content: space-between; align-items: center;}
         .shopcart_zsdfotretmt{height: 100%;width: 40%;background-color: red;display: flex;justify-content: center;align-items: center;}
         .shopcart_zsdfotretzf{color: #fff;font-size: 24px;font-weight: bold;}

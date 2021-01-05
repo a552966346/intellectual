@@ -39,7 +39,7 @@
     }
 </script>
 
-<style>
+<style >
 .apply_all{width: 100%;height: 450px;display: flex;justify-content: center;align-items: center;flex-direction: column;font-size: 14px;}
 .apply_top{width: 100%;height: 80px;display: flex;justify-content: center;align-items: center;border: 1px solid #dce7ff;}
 .apply_cet{flex: 1;width: 100%;display: flex;justify-content: space-between;align-items: center;flex-direction: row;margin-top: 20px;}

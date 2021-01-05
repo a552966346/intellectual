@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .about_cet p{
   font-size: 14px !important;
 }

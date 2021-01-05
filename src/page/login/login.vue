@@ -113,7 +113,7 @@
                                                 </el-form-item>
                                                 <el-form-item prop="authcode" class="login_form_item inline_st">
                                                         <el-row>
-                                                                <el-col :span="16">
+                                                                <el-col :span="15">
                                                                         <div class="grid-content">
                                                                                 <el-input type="text" v-model="register_ruleForm.authcode"
                                                                                         autocomplete="off" placeholder='输入验证码'>
@@ -430,7 +430,11 @@
                 padding: 0;
                 box-sizing: border-box;
         }
-
+        
+        .el-form-item{
+                margin: 0;
+        }
+        
         #login {
                 height: 100%;
                 display: flex;

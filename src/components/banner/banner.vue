@@ -49,10 +49,10 @@
                                                                         </router-link>
                                                                 </div>
                                                         </div>
-                                              </div>
+                                              </div>                              
+                                        <!-- 金融中心 -->
                                       </div>
                               </el-tab-pane>
-                              <!-- 金融中心 -->
                               <el-tab-pane :label="jinrongcenter.name+' '+jinrongcenter.keys" name="three" :key="'three'">
                                       <!-- 金融中心标题 -->
                                       <div class="baner_commontop">{{jinrongcenter.keys_tow}}</div>
@@ -161,7 +161,7 @@
                                 }else{
                                        this.$router.push({
                                                path:'/financing',
-                                       }) 
+                                       })
                                 }
                         }
                 }

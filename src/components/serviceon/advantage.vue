@@ -25,7 +25,7 @@
     }
 </script>
 
-<style>
+<style >
 .advantage_all{width: 100%;height: 330px;display: flex;justify-content: space-around;flex-wrap: wrap;align-items: center;}
 .advantage_blok{width: 248px;height: 110px;background-color: #fafafa;display: flex;justify-content: center;align-content: center;flex-direction: row;border: 1px solid #ccc;border-radius: 5px;}
 .advantage_lef{display: flex;justify-content: center;align-items: center; padding: 10px;}
