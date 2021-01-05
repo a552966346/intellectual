@@ -93,7 +93,7 @@
                         this.$set(this.id, 0, this.category_one)
                         this.$api.gettrademarkcondition()
                                 .then(res => {
-                                        // console.log(res,'商标转让筛选')
+                                        console.log(res.data,'商标转让筛选')
                                         this.patenscree=res.data.data_one;
                                         this.$set(this.iscolor, 0, this.$route.query.id)
                                         this.data_two = res.data.data_two
