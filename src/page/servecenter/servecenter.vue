@@ -517,7 +517,7 @@
                         tuichu(){
                                 this.phone =''
                                 this.$store.state.user = null
-                                sessionStorage['user'] = null
+                                this.$cookies.remove("user")
                         },
                         hose(name,id){
                                 console.log(id)

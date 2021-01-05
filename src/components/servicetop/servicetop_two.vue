@@ -136,7 +136,7 @@
                                                 });
                                          this.$router.push({path:'/login'});
                                 }else{
-                                        let user =JSON.parse(sessionStorage['user']);
+                                        let user =this.$cookies.get("user"); //获取cookies
                                         let uid = user.id;
                                         this.money = this.top_data.fee;
                                         if(this.top_data.basic_text){

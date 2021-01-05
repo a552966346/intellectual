@@ -64,13 +64,14 @@ import navcter from '@/components/navcter/navcter' //关于我们
 import transfer from '@/page/transfer/transfer'
 import technology from '@/page/technology/technology' //技术转移
 import detils from '@/page/detils/detils' //跳蚤市场详情页面
-import trys from '@/page/trys/trys' 
+import trys from '@/page/trys/trys'
 import paydetial from '@/page/paycenter/paydetial'//购买详情页
 import shopcart from '@/page/shopcart/shopcart' //购物车
 import newsint from '@/page/news/newsint' //新闻联系
 
 
 Vue.use(Router)
+
 
 export default new Router({
     // mode: 'history', //去掉地址栏中的#
@@ -91,7 +92,7 @@ export default new Router({
             name: 'activity',
             component: activity
         },
-        
+
         {
             path: '/login',
             name: 'login',

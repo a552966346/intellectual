@@ -266,7 +266,6 @@ export default {
    },
    methods:{
                 handleOpen(key, keyPath) {
-                   console.log(key, keyPath,"11111111");
                    if(key=="/usercenter/usermanage"){
                             this.$alert('功能正在开发中。。。请耐心等待', '正在开发', {
                                      confirmButtonText: '确定',

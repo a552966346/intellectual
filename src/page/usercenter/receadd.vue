@@ -71,7 +71,7 @@ import receadd from '@/components/usercenter/receadd.vue'//求购弹窗
         },
         methods: {
             credata(){
-                let user =JSON.parse(sessionStorage['user']);
+                let user =this.$cookies.get("user"); //获取cookies
                     this.uid = user.id;
                     this.$api.recelist(this.uid)
                     .then((res) => {

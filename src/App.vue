@@ -43,16 +43,21 @@ export default {
            return{
                    user:{},
                    isbg:'',
-                   isshow:false
+                   isshow:false,
            }
    },
+   beforeMount() {
+
+   },
         mounted(){
-                 this.$store.state.user =  JSON.parse(sessionStorage.getItem('user'))
-                 if(this.$store.state.user == ''|| this.$store.state.user==null || this.$store.state.user==undefined){
-                         this.$store.state.user =  JSON.parse(localStorage.getItem('user'))
-                 }
-                 document.getElementById("top").scrollIntoView()
-                 console.log(this.$store.state.user)
+
+                this.$nextTick(function(){
+                     document.getElementById("top").scrollIntoView()
+                     this.$store.state.user = this.$cookies.get("user")
+                     // if(this.$store.state.user == ''|| this.$store.state.user==null || this.$store.state.user==undefined){
+                     //         this.$store.state.user =  JSON.parse(localStorage.getItem('user'))
+                     // }
+                })
         },
         methods:{
                 one(){
@@ -75,11 +80,13 @@ export default {
                 },
                 down(){
                         this.$store.state.user = null
-                        sessionStorage['user'] = null
-                        this.$router.push({
-                                path:"/"
-                        })
-                }
+                        this.$cookies.remove("user")
+                        if(this.$router.path != "/"){
+                                this.$router.push({
+                                        path:"/"
+                                })
+                        }
+                },
         },
         components:{
               'v-customer':customer

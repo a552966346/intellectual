@@ -25,6 +25,10 @@ Vue.use(QuillEditor)
 // vuex
 import store from "./store/store"
 
+//VueCookies
+import VueCookies from 'vue-cookies'
+Vue.use(VueCookies);
+
 // element ui
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -45,5 +49,32 @@ new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  created() {
+          this.$nextTick(function(){
+                  window.localStorage.setItem("constant", Date.now().toString());
+                      window.addEventListener(
+                        "storage",
+                        function (event) {
+                          console.log(this);
+                          if (!event.newValue) {
+                            return;
+                          }
+                          console.log(event.key);
+                          if (event.key === "constant") {
+                            localStorage.setItem(
+                              "storeSessionData",
+                              sessionStorage.getItem("user")
+                            );
+                            // console.log('sessionStorage.getItem(constant):' + sessionStorage.getItem("userId"))
+                            localStorage.removeItem("storeSessionData");
+                          } else if (event.key === "storeSessionData") {
+                            // console.log('event.newValue:' + event.newValue)
+                            sessionStorage.setItem("user", event.newValue);
+                          }
+                        }
+                      );
+          })
+
+  }
 })

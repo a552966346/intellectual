@@ -357,9 +357,9 @@
                                                                 .then(res => {
                                                                         if (res.code == 1) {
                                                                                 if(that.automatic){
-                                                                                        localStorage['user']=JSON.stringify(res.data.userinfo)
+                                                                                       this.$cookies.set("user",JSON.stringify(res.data.userinfo),'7d');
                                                                                 }else{
-                                                                                        sessionStorage['user']=JSON.stringify(res.data.userinfo)
+                                                                                        this.$cookies.set("user",JSON.stringify(res.data.userinfo));
                                                                                 }
                                                                                  this.$store.state.user = res.data.userinfo       //token存储
                                                                                 this.$router.push({

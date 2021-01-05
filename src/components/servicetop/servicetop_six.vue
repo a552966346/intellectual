@@ -122,7 +122,7 @@
                                                 });
                                          this.$router.push({path:'/login'});
                                 }else{
-                                        let user =JSON.parse(sessionStorage['user']);
+                                        let user =this.$cookies.get("user"); //获取cookies
                                         uid = user.id;
                                         nub = this.nub;
                                         this.money = this.top_data.fee;

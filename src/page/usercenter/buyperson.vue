@@ -70,7 +70,7 @@
                 mounted() {
                          this.style = this.$route.query.style
                          console.log(this.style,1111111)
-                          this.data = JSON.parse(sessionStorage['user']);
+                          this.data = this.$cookies.get("user"); //获取cookies
                         this.ispost(this.style,this.num)
                 },
                 components:{

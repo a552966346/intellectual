@@ -38,7 +38,7 @@
                                      <div class="list_botitem_right">
                                              <div><img src="../../../static/img/service/icon26.png"></div>
                                              <div><img src="../../../static/img/service/icon27.png">联系客服</div>
-                                             <div><router-link to="">查看详情</router-link></div>
+                                             <div class="list_a"><router-link :to="item.categoryid_text.keywords+'?id='+item.category_id">查看详情</router-link></div>
                                      </div>
                              </div>
                      </div>
@@ -96,4 +96,6 @@
         .list_botitem_right div:nth-child(3){width: 98px;}
         .list_botitem_right div a{color: #9f9fa0;}
         .list_botitem_right img{display: inline-block;width: 17px;height: 14px;line-height: 30px;vertical-align: middle;margin-right: 5px;}
+        .list_a:hover{background-color: #0066CC;}
+        .list_a:hover a{color: #FFFFFF!important;}
 </style>

@@ -164,7 +164,7 @@
                             }
                     },
                     ispost(){
-                     let user =JSON.parse(sessionStorage['user']);
+                     let user =this.$cookies.get("user"); //获取cookies
                      this.uid = user.id;
                      this.$api.shopdata(this.uid)
                      .then(res=>{
@@ -204,7 +204,7 @@
 
                     },
                     dele(uid){
-                        let user =JSON.parse(sessionStorage['user']);
+                        let user =this.$cookies.get("user"); //获取cookies
                         uid = user.id;
                         let snlist = [];let ids ='';
                         snlist = this.zsdlist.filter(function(item){
@@ -223,7 +223,7 @@
                         })
                     },
                     setment(uid){
-                        let user =JSON.parse(sessionStorage['user']);
+                        let user =this.$cookies.get("user"); //获取cookies
                         uid = user.id;
                         let snlist = [];let ids ='';let tys =''; let numb='';
                         snlist = this.zsdlist.filter(function(item){
