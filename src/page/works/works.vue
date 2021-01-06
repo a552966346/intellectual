@@ -13,7 +13,7 @@
         </div>
         <v-workson :wks="wks" @kefu="kefu" ></v-workson>
         <div class="copyright_page">
-               <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page="currentPage"
+               <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page.sync="currentPage"
                       :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">
                </el-pagination>
         </div>
