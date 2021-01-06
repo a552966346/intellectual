@@ -43,7 +43,6 @@ export default {
         }
     },
     beforeMount() {
-            console.log(this.$route.path)
             if(this.$route.path=="/usercenter/userbuy"){
                 this.isshows = true
             }

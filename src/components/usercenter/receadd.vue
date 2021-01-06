@@ -177,7 +177,6 @@ export default {
       })
     })
     .catch(err =>{
-        console.log(err);
     });
   },
   methods: {
@@ -209,41 +208,33 @@ export default {
             }
           })
           .catch(err =>{
-                  console.log(err);
           });
         }
       });
     },
     // 省份修改，拉取对应城市列表
     changeProvince(val) {
-      console.log(val);
         this.$api.citydata(val)
         .then((res) => {
-            console.log(res.data,'省')
         this.cityList = res.data;
         })
         .catch(err =>{
-            console.log(err);
         });
     },
     changeCity(val){
           this.$api.citydata(val)
           .then((res) => {
-              console.log(res.data,'区')
             this.areaList = res.data;
           })
           .catch(err =>{
-                  console.log(err);
           })
     },
     changeArea(val){
       this.$api.citydata(val)
       .then((res) => {
-          console.log(res.data,'区')
         this.areaList = res.data;
       })
       .catch(err =>{
-          console.log(err);
       })
     }
   },

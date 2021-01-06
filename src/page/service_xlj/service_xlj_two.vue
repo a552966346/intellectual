@@ -183,18 +183,15 @@
                 },
                 methods:{
                         text_click(){
-                                console.log(111)
                         },
                         ispost(id){
                                 this.$api.gettechnologydetiles(id)
                                 .then(res=>{
-                                        console.log(res)
                                         this.content = res.data.content
                                        this.top_data = res.data
                                        this.image = res.data.images_text
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         },
                         text_click(porp){

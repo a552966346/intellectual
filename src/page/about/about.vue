@@ -54,9 +54,8 @@ import navcter from '@/components/navcter/navcter.vue'
             }
         })
         .catch(err => {
-            console.log(err)
         })
-
+   
 
     },
     mounted(){
@@ -66,10 +65,8 @@ import navcter from '@/components/navcter/navcter.vue'
     methods:{
         items(){},
         handleOpen(key, keyPath) {
-            // console.log(key, keyPath);
         },
         handleClose(key, keyPath) {
-            // console.log(key, keyPath);
         },
         goTo(path) {
             this.$router.go(path);
@@ -77,15 +74,12 @@ import navcter from '@/components/navcter/navcter.vue'
         // 请求列表
         ispost(id){
             this.id = id
-            // console.log(id);
             this.right_data = [];
             this.$api.getaboutdetiles(id)
             .then(res=>{
-                // console.log(res);
                  this.right_data = res.data
             })
 	    .catch(err => {
-	        console.log(err)
 	    })
 	    
         }

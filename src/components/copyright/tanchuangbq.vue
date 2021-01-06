@@ -125,14 +125,11 @@ export default {
   mounted() {
           this.$api.getbanquan()
           .then(res=>{
-                  console.log(res)
                   this.option = res.data
           })
           .catch(err =>{
-            console.log(err)
           })
           this.signoutShow = sessionStorage.getItem('user');
-          console.log(this.signoutShow,'存储的用户信息');
   },
   methods:{
     close(){
@@ -159,7 +156,6 @@ export default {
                                          .phone, this.form1.name, '', 3,
                                          this.form1.authcode)
                                  .then(res => {
-                                         console.log(res)
                                          if (res.code == 1) {
                                                  this.$message({
                                                          message: '发布成功',
@@ -174,7 +170,6 @@ export default {
                                          }
                                  })
                                  .catch(err => {
-                                                        console.log(err)
                                  })
                     }
 

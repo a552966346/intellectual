@@ -22,17 +22,14 @@
                 created(){
                         this.$api.getnavbar()
                                 .then(res => {
-                                        console.log(res)
                                         this.$store.state.navbarlist = res.data
                                 })
                                 .catch(err => {
-                                        console.log(err)
                                 })
                         },
                 methods: {
 
                          handleSelect(key,keyPath){
-                                console.log(key,keyPath);
                           }
 
                 }

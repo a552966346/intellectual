@@ -68,12 +68,10 @@ export default{
    watch:{
            $route(to, from){
            	this.num=this.$route.query.type
-                console.log(this.num)
                    this.news(this.num)
            }
    },
    mounted(){
-           console.log(this.num)
            this.$nextTick(function(){
                     this.news(this.num)
            })
@@ -91,7 +89,6 @@ export default{
                let loadingInstance = Loading.service(document.querySelector("#buy_con"));
                        this.$api.usermessage(this.$store.state.user.id)
                        .then(res=>{
-                               console.log(res)
                                if(type==0){
                                         this.isnew = res.data.data
                                }
@@ -113,26 +110,21 @@ export default{
                                }
                        })
                        .catch(res=>{
-                               console.log(res)
                        })
                        this.$nextTick(() => { // 以服务的方式调用的 Loading 需要异步关闭
                          loadingInstance.close();
                        });
        },
        read(id){
-               console.log(id)
                this.$api.usermessageread(this.$store.state.user.id,id)
                .then(res=>{
-                       console.log(res)
                })
                .catch(res=>{
-                       console.log(res)
                })
                this.news(this.num)
        },
        chexabout(id){
                this.ischex +=id+','
-               console.log(this.ischex)
        },
        delet(){
                this.chex = true

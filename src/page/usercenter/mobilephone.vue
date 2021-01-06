@@ -108,7 +108,6 @@
                                                    });
                                     })
                                     .catch(res=>{
-                                            console.log(res)
                                     })
                             }
                     })

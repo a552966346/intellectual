@@ -106,7 +106,6 @@ export default{
     },
     methods: {
       handleClick(tab) {
-        console.log(tab);
       },
       sell(){
             this.show=!this.show

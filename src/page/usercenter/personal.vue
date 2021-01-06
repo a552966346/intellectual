@@ -129,7 +129,7 @@
                         },
                         fileChange(file, fileList) {
                                 this.image2Base64(file.raw).then(res => {
-                                        console.log(res)
+                                        
                                         this.ruleForm.imageUrl = res
                                 });
                         },
@@ -151,14 +151,13 @@
                                                                         this.ruleForm.gender,
                                                                 )
                                                                 .then(res => {
-                                                                        console.log(res)
+                                                                        
                                                                         this.$message({
                                                                                 type: 'success',
                                                                                 message:res.msg
                                                                         });
                                                                 })
                                                 } else {
-                                                        console.log('error submit!!');
                                                         return false;
                                                 }
                                         });

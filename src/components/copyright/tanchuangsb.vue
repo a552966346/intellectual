@@ -129,13 +129,10 @@
                         this.$api.getselldata()
                                 .then(res => {
                                         this.data = res.data
-                                        console.log(this.data, "商标分类")
                                 })
                                 .catch(err =>{
-                                        console.log(err)
                                 })
                                 this.signoutShow = sessionStorage.getItem('user');
-                                console.log(this.signoutShow,'存储的用户信息');
                 },
                 methods: {
                         close() {
@@ -164,7 +161,6 @@
                                                             .phone, this.form.name, this.form.number, 1,
                                                             this.form.authcode)
                                                     .then(res => {
-                                                            console.log(res)
                                                             if (res.code == 1) {
                                                                     this.$message({
                                                                             message: '添加成功',
@@ -179,7 +175,6 @@
                                                             }
                                                     })
                                                     .catch(err => {
-                                                        console.log(err)
                                                     })
                                         }
                                             

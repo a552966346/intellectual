@@ -162,18 +162,15 @@
                 },
                 methods:{
                         text_click(){
-                                console.log(111)
                         },
                         ispost(id){
                                 this.$api.getPatentscondition(id)
                                 .then(res=>{
-                                        console.log(res)
                                         this.top_data = res.data.data
                                         this.image = res.data.data.images_text
                                         this.name = res.data.data.categoryid_text
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         },
                         text_click(porp){

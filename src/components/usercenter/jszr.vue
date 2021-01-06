@@ -175,16 +175,13 @@
                 mounted() {
                         this.$api.technology_c()
                                 .then(res => {
-                                        console.log(res)
                                         this.option = res.data
                                 })
                                 .catch(err =>{
-                                        console.log(err);
                                 })
                 },
                 methods: {
                         beforeAvatarUpload(file, fileList) {
-                                console.log(file, fileList);
                         },
                         handleAvatarSuccess(file) {
                                 this.jsform.dialogImageUrl = file.url;
@@ -192,11 +189,9 @@
                         },
                         fileChange(file, fileList) {
                                 this.image2Base64(file.raw).then(res => {
-                                        console.log(res)
                                         this.jsform.dialogImageUrl = res
                                 })
                                 .catch(err =>{
-                                        console.log(err);
                                 });
                         },
                         image2Base64(file) {
@@ -244,7 +239,6 @@
                                                                         });
                                                                 })
                                                                 .catch(err =>{
-                                                                        console.log(err);
                                                                 })
                                                 }
                                         })

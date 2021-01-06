@@ -89,20 +89,16 @@ export default {
             this.$api.getCopyrightcondition()
             .then(res=>{
                     this.zlTop = res.data
-                    console.log(res)
                     this.$set(this.iscolor,0,this.$route.query.id)
             })
             .catch(res=>{
-                    console.log(res)
             })
             this.$api.getCopyrightvertisement()
             .then(res=>{
-                    console.log(res)
                     this.banner = res.data.images
 
             })
             .catch(res=>{
-                    console.log(res)
             })
             this.ispost(this.id)
     },
@@ -188,7 +184,6 @@ export default {
                                 this.pagesize=res.data.lists.per_page;
                         })
                         .catch(res=>{
-                                console.log(res)
                         })
                 },
                 delet(id){
@@ -196,12 +191,10 @@ export default {
                 },
                // 分页
                 handleSizeChange(val) {
-                   console.log(`每页 ${val} 条`);
 
                 },
                 handleCurrentChange(val) {
                     // 输入页数
-                    console.log(`当前页: ${val}`);
                     this.id[12] = val
                     this.ispost(this.id)
                     document.getElementById("transfer").scrollIntoView()

@@ -76,7 +76,6 @@
                          * index----最外面数组 当前选中的下标
                          * */
                         colorbtn(m, i, index) {
-                                // console.log(m)
                                 this.$set(this.listdata[index], 'bgcolor', m);
                                 this.$forceUpdate();
                                 this.listdata[index];

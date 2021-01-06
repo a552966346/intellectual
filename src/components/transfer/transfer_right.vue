@@ -44,13 +44,10 @@ export default {
      mounted() {
         this.$api.hottui()
                 .then(res => {
-                        console.log(321)
-                        console.log(res)
                         this.hots = res.data
 
                 })
                 .catch(err => {
-                                console.log(err)
                 })
 
             },

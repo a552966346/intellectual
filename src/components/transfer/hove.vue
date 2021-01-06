@@ -63,14 +63,11 @@ export default {
     },
      mounted() {
         let id = this.$route.query.id
-        // console.log(id)
         this.$api.hotnews(id)
                 .then(res => {
-                        console.log(res)
                         this.hot = res.data
                 })
                 .catch(err => {
-                    console.log(err)
                 })
 
             },

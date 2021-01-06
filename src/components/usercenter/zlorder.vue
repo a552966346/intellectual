@@ -49,7 +49,6 @@ export default {
     },
     methods: {
       handleClick(tab, event) {
-        // console.log(tab, event);
         if(this.activeName=='first'){
                 this.getzl()
         }else if(this.activeName=="second"){
@@ -67,7 +66,6 @@ export default {
                       this.patOrder = res.data.data
               })
               .catch(err =>{
-                  console.log(err);
             })
       },
     }

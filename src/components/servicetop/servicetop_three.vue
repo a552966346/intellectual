@@ -153,11 +153,9 @@
                                                         }
                                                 })
                                                 }else{
-                                                        console.log(res.msg)
                                                 }
                                                 })
                                                 .catch(err => {
-                                                console.log(err)
                                                 })
                                        }else{
                                                this.$api.getshop(id,2,nub,uid,'',this.money)
@@ -174,11 +172,9 @@
                                                         }
                                                 })
                                                 }else{
-                                                        console.log(res.msg)
                                                 }
                                                 })
                                                 .catch(err => {
-                                                console.log(err)
                                                 })
                                        }
                                        
@@ -209,7 +205,6 @@
                                                         this.isimg = true
                                               })
                                               .catch(err => {
-                                                        console.log(err)
                                                 })
                                       }else{
                                              this.$api.getdelCollection(id,this.$store.state.user.user_id)
@@ -221,7 +216,6 @@
                                                           this.isimg = false
                                              })
                                              .catch(err => {
-                                                        console.log(err)
                                                 })
                                       }
                                 }

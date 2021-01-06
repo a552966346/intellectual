@@ -54,7 +54,6 @@
                 },
                 methods:{
                         text_click(){
-                                console.log(111)
                         }
                 }
         }

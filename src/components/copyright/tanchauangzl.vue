@@ -126,7 +126,6 @@
                 },
                 methods: {
                         close() {
-                                console.log(123)
                                 this.$emit("close")
                         },
                         kefu(){
@@ -152,7 +151,6 @@
                                                               .num, this.form2.minprice, this.form2.tel, this
                                                               .form2.authcode, 2)
                                                       .then(res => {
-                                                              console.log(res)
                                                               if (res.code == 1) {
                                                                       this.$message({
                                                                               message: '添加成功',
@@ -167,7 +165,6 @@
                                                               }
                                                       })
                                                       .catch(err => {
-                                                            console.log(err)
                                                       })
                                         }
 
@@ -179,15 +176,11 @@
                 mounted() {
                         this.$api.getrankingdata()
                                 .then(res => {
-
-                                        console.log(res, "专利分类")
                                         this.data = res.data
                                 })
                                 .catch(err =>{
-                                        console.log(err)
                                 })
                                 this.signoutShow = sessionStorage.getItem('user');
-                                console.log(this.signoutShow,'存储的用户信息');
                 },
                 components:{
                 }

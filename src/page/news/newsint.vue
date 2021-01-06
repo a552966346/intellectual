@@ -56,15 +56,12 @@
                 },
                 mounted() {
                         let id = this.$route.query.id
-                        console.log(id)
                         this.running(id)
                         this.$api.getnewsnew()
                                 .then(res => {
-                                        console.log(res)
                                         this.newstwo = res.data
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                 },
                 methods:{
@@ -75,7 +72,6 @@
                                                 this.news = res.data
                                         })
                                         .catch(res=>{
-                                                console.log(res)
                                         })
                         }
                 }

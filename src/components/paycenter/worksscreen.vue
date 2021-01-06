@@ -103,14 +103,12 @@ export default {
                         }else{
                        this.$set(this.screetext,index,name)
                         }
-                        console.log(this.screetext)
                         this.$set(this.id,index,nubs)
                         this.$emit('choosecon',this.id)
                 },
                 // 下拉框筛选
                 ischange(item,index){
 			let i = index+4
-			console.log(i)
                          this.$set(this.id,i,this.value[index])
                          this.$emit('ischange',this.id)
                 },
@@ -121,8 +119,6 @@ export default {
                         }else{
                             this.$set(this.id,3,this.text)
                         }
-
-                        console.log(this.id)
                          this.$emit('search',this.id)
                 },
                 // 清空筛选条件

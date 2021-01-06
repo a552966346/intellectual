@@ -207,21 +207,21 @@ export default {
             this.$nextTick(function(){
                     this.$api.getuserIndex(this.$store.state.user.id)
                     .then(res=>{
-                            console.log(res)
+                            
                             this.user= res.data
                     })
                     .catch(res=>{
-                            console.log(res)
+                            
                     })
                     // 收藏
                     this.$nextTick(function(){
                             this.$api.getallCollection(this.$store.state.user.id)
                              .then(res=>{
-                                     console.log(res)
+                                     
                                      this.zsdlist = res.data.data
                              })
                              .catch(res=>{
-                                     console.log(res)
+                                     
                              })
                             // 订单
                     this.$api.getuseindex(this.$store.state.user.id)
@@ -281,7 +281,7 @@ export default {
 
                             })
                             .catch(res=>{
-                                    console.log(res)
+                                    
                             })
 
                     })
@@ -291,7 +291,6 @@ export default {
             this.$api.getindexnew().then((res) => {
               this.news = res.data;
               this.newnow = res.data[2]
-              // console.log(this.newnow, "新闻中心1")
             });
 
 
@@ -300,7 +299,6 @@ export default {
     },
     methods:{
             banli(type,key,id,ids){
-                    console.log(type,key,id,ids)
                if(type==1){
                        this.$router.push({
                                path:key.keywords,

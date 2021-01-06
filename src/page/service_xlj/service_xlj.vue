@@ -166,12 +166,10 @@
                 },
                 methods:{
                         text_click(){
-                                console.log(111)
                         },
                         ispost(id){
                                 this.$api.gettrademarkdetiles(id)
                                 .then(res=>{
-                                        console.log(res)
                                       this.top_data = res.data.data
                                       this.right_data = res.data.data.content.split(',')
                                       this.toptext = res.data.data.contenttitle.split(',')
@@ -180,7 +178,6 @@
                                       this.image = res.data.data.images_text
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         },
                         text_click(porp){

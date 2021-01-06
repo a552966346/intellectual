@@ -83,23 +83,18 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         this.$set(this.id,11,this.name)
                         this.$api.getPatentsconditions()   //专利筛选
                         .then(res=>{
-                                console.log(res,'筛选')
                                 this.zlTop = res.data
                                  this.$set(this.iscolor,0,this.$route.query.id)
                                 this.ispost(this.id)
-                                // console.log(this.iscent)
                         })
                         .catch(res=>{
-                                console.log(res)
                         })
                         //banner图
                         this.$api.getPatentsadvertisement()
                         .then(res=>{
-                                console.log(res,'banner图')
                                 this.banner = res.data.images
                         })
                         .catch(res=>{
-                                console.log(res)
                         })
                 },
                 methods: {
@@ -151,7 +146,6 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         },
                         //筛选
                         choosecon(id){
-                                console.log(id)
                                 this.ispost(id)
                         },
                         //清空
@@ -163,7 +157,6 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         ispost(id){
                                 this.$api.getPatentslist(id)
                                 .then(res=>{
-                                        console.log(res,'列表')
                                         // 列表
                                         this.iscent = res.data.lists.data
                                         // 猜你喜欢
@@ -175,7 +168,6 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                         this.pagesize=res.data.lists.per_page;
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         },
                         delet(id){
@@ -183,11 +175,9 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         },
                        // 分页
                         handleSizeChange(val) {
-                           console.log(`每页 ${val} 条`);
                         },
                         handleCurrentChange(val) {
                             // 输入页数
-                            console.log(`当前页: ${val}`);
                             this.id[6] = val
                             this.ispost(this.id)
                             document.getElementById("transfer").scrollIntoView()

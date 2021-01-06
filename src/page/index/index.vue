@@ -686,49 +686,36 @@ export default {
                   });
           })
     this.$api.getidnexdeal().then((res) => {
-      // console.log(res, "专利交易");
       this.hot = res.data.hot;
       this.transaction = res.data.transaction;
       this.num1 = res.data.count;
     })
     .catch(res=>{
-            console.log(res)
     })
     this.$api.getindexbrand().then((res) => {
-      // console.log(res,'商标交易')
       this.trade = res.data.transaction;
       this.num2 = res.data.count;
     })
     .catch(res=>{
-            console.log(res)
     })
     this.$api.getidnexsoft().then((res) => {
-      // console.log(res,'软著交易')
       this.soft = res.data.transaction;
       this.num3 = res.data.count;
     })
     .catch(res=>{
-            console.log(res)
     })
     this.$api.getindexnew().then((res) => {
-      // console.log(res, "新闻中心");
       this.news = res.data;
       this.newnow = res.data[2];
-      console.log(this.newnow, "新闻中心");
       // this.num3=res.data.count;
     })
     .catch(res=>{
-            console.log(res)
     })
     this.$api.getydbrief().then((res) => {
-      // console.log(res,'伊甸网')
       this.brief = res.data.brief;
-      // console.log(res);
       this.introimage = res.data.images;
-      // this.num3=res.data.count;
     })
     .catch(res=>{
-            console.log(res)
     })
   },
   methods: {
@@ -737,7 +724,6 @@ export default {
     },
     enter(index) {
       if (index < 11) {
-        console.log(index);
         this.seen = index;
       }
     },
@@ -747,7 +733,6 @@ export default {
       }
     },
     open(index) {
-      console.log(index);
       this.isshow = true;
     },
     close() {
@@ -759,7 +744,6 @@ export default {
           this.$api
             .getindexpart(this.login_ruleForm.name, this.login_ruleForm.phone)
             .then((res) => {
-              console.log(res, "合伙人");
               if (res.code == 1) {
                 this.isshow = false;
                 this.$notify({
@@ -770,7 +754,6 @@ export default {
               }
             })
             .catch(res=>{
-                    console.log(res)
             })
         }
       });

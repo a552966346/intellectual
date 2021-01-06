@@ -161,7 +161,6 @@
                 },
                 methods:{
                         text_click(){
-                                console.log(111)
                         },
                         ispost(id){
                                 this.$api.getCopyrightconditions(id)
@@ -172,11 +171,9 @@
                                          res.data.data.meanstype = res.data.data.meanstype.split(',')
                                         this.top_data = res.data.data
                                         this.title = res.data.data.categoryid_text
-                                        console.log(this.top_data)
                                         this.image = res.data.data.images_text
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         },
                         text_click(porp){

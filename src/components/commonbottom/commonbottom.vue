@@ -57,12 +57,10 @@ export default {
                  this.text = res.data
           })
           .catch(err => {
-                  console.log(err)
           })
   },
   methods:{
           run(id){
-                  console.log(id)
                   this.$router.push({
                           path:'/aboutus',
                           query:{
