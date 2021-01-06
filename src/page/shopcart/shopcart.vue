@@ -125,17 +125,14 @@
                             // snlist.forEach(function(item){
                             //    prd = item.product.fee;
                             //    sole = prd /item.num;
-                            //    console.log(sole);
                             // });
                 },
                 methods:{
                     //单件商品总价
                     handleChange(fee,num,index,val){
-                            console.log(val)
                             if(val){
                                  let money = fee*num
                                     this.sole[index] = money
-                                    console.log(111)
                                     if(this.checkedNum!=0){
                                             this.checkedNum = 0
                                             this.cartTotalPrice = 0
@@ -168,11 +165,9 @@
                      this.uid = user.id;
                      this.$api.shopdata(this.uid)
                      .then(res=>{
-                             console.log(res)
                         this.zsdlist = res.data;
                      })
                      .catch(res=>{
-                             console.log(res)
                      })
                     },
                     handleCheckAllChange(val){
@@ -219,7 +214,6 @@
                             this.$forceUpdate();
                         })
                         .catch(res=>{
-                                console.log(res)
                         })
                     },
                     setment(uid){
@@ -240,7 +234,6 @@
                             this.$router.push({path: '/paydetial'});
                         })
                         .catch(res=>{
-                                console.log(res)
                         })
                     }
                 }

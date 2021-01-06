@@ -487,7 +487,6 @@
                 mounted() {
                         this.$api.attestation_data(this.$store.state.user.id)
                         .then(res=>{
-                                console.log(res)
                                 
                                 if(res.code==0){
                                          this.msg = "未实名认证"
@@ -543,13 +542,12 @@
                                 }
                         })
 			.catch(res=>{
-			        console.log(res)
 			})
                         this.getVerification()
                         //省分类
                         this.$api.areadata()
                                 .then(res => {
-                                        console.log(res)
+
                                         this.province = res.data
                                 })
 
@@ -564,10 +562,8 @@
                         },
                         handleAvatarSuccess(res, file) {
                                 this.ruleForm.imageUrl = URL.createObjectURL(file.raw);
-                                console.log(this.ruleForm.imageUrl, 111111)
                         },
                         beforeAvatarUpload(file) {
-                                console.log(file)
                                 const isJPG = file.type === 'image/jpeg';
                                 const isLt2M = file.size / 1024 / 1024 < 2;
                                 if (!isJPG) {
@@ -580,20 +576,20 @@
                         },
                         fileChange(file, fileList) {
                                 this.image2Base64(file.raw).then(res => {
-                                        console.log(res)
+
                                         this.ruleForm.imageUrl = res
                                 })
                                 .catch(res=>{
-                                        console.log(res)
+
                                 })
                         },
                         fileChange2(file, fileList) {
                                 this.image2Base64(file.raw).then(res => {
-                                        console.log(res)
+
                                         this.ruleForm.imageUrl2 = res
                                 })
                                 .catch(res=>{
-                                        console.log(res)
+
                                 })
                         },
                         fileChange3(file, fileList) {
@@ -601,11 +597,10 @@
                                         this.ruleForm.imageUrl3 = res
                                 })
                                 .catch(res=>{
-                                        console.log(res)
+
                                 })
                         },
                         submitForm(form) {
-                                console.log(this.$refs[form].validate)
                                  this.$refs[form].validate((valid) => {
                                          if(valid){
                                                  if(isshow==1){
@@ -622,7 +617,7 @@
                                                                          });
                                                          })
                                                          .catch(res=>{
-                                                                 console.log(res)
+                                
                                                          })
                                                  }else{
                                                          this.$api.userauthentication(this.$store.state.user.id, this.ruleForm2.name2, this.ruleForm2
@@ -638,7 +633,7 @@
                                                                          });
                                                          })
                                                          .catch(res=>{
-                                                                 console.log(res)
+                                
                                                          })
                                                  }
 
@@ -670,11 +665,11 @@
                                 this.ruleForm.select2 = '请选择市级单位'
                                 this.$api.citydata(this.ruleForm.select1)
                                         .then(res => {
-                                                console.log(res)
+        
                                                 this.city = res.data
                                 })
                                 .catch(res=>{
-                                        console.log(res)
+
                                 })
                         },
                         kefu(){

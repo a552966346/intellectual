@@ -123,11 +123,9 @@
                                                         }
                                                 })
                                                 }else{
-                                                        console.log(res.msg)
                                                 }
                                                 })
                                                 .catch(err => {
-                                                console.log(err)
                                                 })
                                         }else{
                                                 this.$api.getshop(id,1,nub,uid,'',this.money)
@@ -144,11 +142,9 @@
                                                         }
                                                 })
                                                 }else{
-                                                        console.log(res.msg)
                                                 }
                                                 })
                                                 .catch(err => {
-                                                console.log(err)
                                                 })
                                         }
                                         

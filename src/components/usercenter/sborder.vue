@@ -48,7 +48,6 @@ export default {
     },
     methods: {
       handleClick() {
-              console.log(this.activeName)
                 if(this.activeName=='first'){
                         this.getsb()
                 }else if(this.activeName=="second"){
@@ -66,7 +65,6 @@ export default {
                      this.traOrder = res.data.data
              })
              .catch(err =>{
-                  console.log(err);
              })
       },
     }

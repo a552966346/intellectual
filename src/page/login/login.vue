@@ -298,16 +298,13 @@
                         this.getVerification()
                 },
                 mounted() {
-                        // console.log(validatePhone)
                         this.isusepost()
 
                 },
                 methods: {
                         // 手机号登录和验证码登录切换
                         // handleClick(tab, event) {
-                        //   console.log(tab, event);
                         //    this.activeName = tab.name
-                        //       console.log( this.activeName);
                         // },
                         // 获取验证码
                         getVerification() {
@@ -326,14 +323,12 @@
                         isusepost() {
                                 this.$api.uservertisement()
                                         .then(res => {
-                                                console.log(res)
                                                 if (res.data.images != "" || res.data.images != undefined ||
                                                         res.data.images != null) {
                                                         this.bgimage = res.data.images
                                                 }
                                         })
                                         .catch(res=>{
-                                                console.log(res)
                                         })
                         },
                         //注册广告
@@ -343,7 +338,6 @@
                                                 this.bgimage = res.data.images
                                         })
                                         .catch(res=>{
-                                                console.log(res)
                                         })
                         },
                         // 提交按钮表单验证
@@ -375,7 +369,6 @@
                                                                         }
                                                                 })
                                                                 .catch(res=>{
-                                                                        console.log(res)
                                                                 })
                                                 } else {
                                                         if (this.check) {
@@ -385,7 +378,6 @@
                                                                                 .pass, this.register_ruleForm
                                                                                 .authcode)
                                                                         .then(res => {
-                                                                                console.log(res)
                                                                                 if (res.code ==1) {
                                                                                          sessionStorage['user']=JSON.stringify(res.data)
                                                                                          this.$store.state.user = res.data  //用户
@@ -404,7 +396,6 @@
                                                                                 }
                                                                         })
                                                                         .catch(res=>{
-                                                                                console.log(res)
                                                                         })
                                                         } else {
                                                                 this.$message({
@@ -414,7 +405,6 @@
                                                         }
                                                 }
                                         } else {
-                                                console.log('error submit!!');
                                                 return false;
                                         }
                                 });

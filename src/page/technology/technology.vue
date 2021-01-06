@@ -362,7 +362,6 @@
                                 // this.num1=res.data.count;
                         })
                         .catch(res=>{
-                                console.log(res)
                         })
                         this.$api.getnewneed().then((res) => {
 
@@ -371,7 +370,6 @@
                                 // this.num1=res.data.count;
                         })
                         .catch(res=>{
-                                console.log(res)
                         })
                 },
         };

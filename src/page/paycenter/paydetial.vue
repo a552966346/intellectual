@@ -38,7 +38,6 @@ export default {
          },
          beforeMount(uqdata){
               this.uqdata =JSON.parse(sessionStorage['data']);
-              console.log(this.uqdata);
          },
          components:{
             copyrightOrdinary,

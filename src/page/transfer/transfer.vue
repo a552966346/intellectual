@@ -55,17 +55,14 @@
                          this.id[8] = this.$route.query.name
                         this.$api.gettechnologycondition()
                         .then(res=>{
-                                console.log(res)
                                 this.top_data = res.data
                         })
 			.catch(res=>{
-			        console.log(res)
 			})
                          this.ispost(this.id)
                 },
                 methods:{
                         shaixuan(index){
-                                console.log(index)
                                 if(index == 1){
                                         this.$set(this.id,6,"desc")
                                         this.$set(this.id,7,"")
@@ -80,7 +77,6 @@
                         },
                         xuanze(id){
                                 this.id = id
-                                console.log(id)
                                 this.ispost(this.id)
                         },
                         //搜索
@@ -91,7 +87,6 @@
                         ispost(id){
                                 this.$api.gettechnologylist(id)
                                 .then(res=>{
-                                        console.log(res)
                                         this.left_data = res.data.lists.data
                                         this.botm_data = res.data.youlike
                                         this.nub = res.data.lists.data.length
@@ -101,7 +96,6 @@
                                         this.pagesize=res.data.lists.per_page;
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         },
                         qinchu(){

@@ -182,7 +182,6 @@
                                 this.$api.severdetiles(id)
                                 .then(res=>{
                                         if(res.code){
-                                                console.log(res)
                                                 this.top_data = res.data.data
                                                 this.right_data = res.data.data.content.split(',')
                                                 this.toptext = res.data.data.contenttitle.split(',')
@@ -194,7 +193,6 @@
                                         }
                                 })
 				.catch(res=>{
-				        console.log(res)
 				})
                         },
                         text_click(porp){

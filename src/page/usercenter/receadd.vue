@@ -75,7 +75,6 @@ import receadd from '@/components/usercenter/receadd.vue'//求购弹窗
                     this.uid = user.id;
                     this.$api.recelist(this.uid)
                     .then((res) => {
-                        console.log(res)
                         if(res.data == null){
                             this.numb = 0;
                         }else{
@@ -84,7 +83,6 @@ import receadd from '@/components/usercenter/receadd.vue'//求购弹窗
                         }
                     })
                     .catch((res) => {
-                        console.log(res)
                     })
             },
             create(){

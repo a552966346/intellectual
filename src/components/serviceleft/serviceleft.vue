@@ -41,7 +41,6 @@
                                 this.leftdata = res.data
                         })
                         .catch(err => {
-                                console.log(err)
                         })
                 },
                 methods:{

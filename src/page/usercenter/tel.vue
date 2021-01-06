@@ -91,14 +91,12 @@ export default{
        submitForm(formName) {
         this.$refs[formName].validate((valid) => {
             if (valid) {
-                console.log(this.desc,this.name,this.name,this.telephone,this.resource);
                 let opinions = this.desc;
                 let appellation =this.name;
                 let mobile = this.telephone;
                 let status = this.resource;
                 this.$api.complaint(opinions,appellation,mobile,status)
                     .then(res=>{
-                            console.log(res)
                            this.$alert(res.msg, '提交成功', {
                                      confirmButtonText: '确定',
                                      callback: action => {
@@ -110,10 +108,8 @@ export default{
                                    });
                     })
 		    .catch(res=>{
-		            console.log(res)
 		    })
             } else {
-                console.log('error submit!!');
                 return false;
             }
         });

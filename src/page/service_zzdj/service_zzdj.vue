@@ -168,17 +168,14 @@
                                 this.$api.severdetiles(id)
                                 .then(res=>{
                                         if(res.code){
-                                                console.log(res)
                                                 this.top_data = res.data.data
                                                 this.question = res.data.data.basic_text
-                                                console.log(this.question)
                                                 this.image = res.data.data.images_text
                                         }else{
                                                 alert("暂无数据")
                                         }
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         },
                         text_click(porp){

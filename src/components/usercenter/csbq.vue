@@ -256,11 +256,9 @@
                 mounted() {
                         this.$api.bqclass()
                                 .then(res => {
-                                        console.log(res)
                                         this.option = res.data
                                 })
                                 .catch(err =>{
-                                        console.log(err)
                                 })
                 },
                 props: {
@@ -270,7 +268,6 @@
                         //授权范围
                         ischeckList2(index) {
                                 this.bqform.checkList2 += index + ','
-                                console.log(this.bqform.checkList2)
                         },
                         //交易方式
                         ischecksone(index) {
@@ -291,11 +288,9 @@
                                                 this.option2 = res.data
                                         })
                                         .catch(err =>{
-                                                console.log(err)
                                         })
                         },
                         beforeAvatarUpload(file, fileList) {
-                                console.log(file, fileList);
                         },
                         handleAvatarSuccess(file) {
                                 this.bqform.dialogImageUrl = file.url;
@@ -304,11 +299,9 @@
                         fileChange(file, fileList) {
                                 this.image2Base64(file.raw)
                                 .then(res => {
-                                        console.log(res)
                                         this.bqform.dialogImageUrl = res
                                 })
                                 .catch(err =>{
-                                        console.log(err)
                                 });
                         },
                         image2Base64(file) {
@@ -361,7 +354,6 @@
                                                                         });
                                                                 })
                                                                 .catch(err =>{
-                                                                        console.log(err);
                                                                 })
                                                 }
                                         })

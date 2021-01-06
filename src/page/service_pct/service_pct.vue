@@ -59,17 +59,14 @@
                                 this.$api.severcategory()
                                 this.$api.severdetiles(id)
                                 .then(res=>{
-                                        console.log(res.data)
                                         this.top_data = res.data
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         })
                 },
                 methods:{
                         text_click(){
-                                console.log(111)
                         }
                 }
         }

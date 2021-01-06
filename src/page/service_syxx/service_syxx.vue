@@ -275,17 +275,14 @@
                                 this.$api.severdetiles(id)
                                 .then(res=>{
                                         if(res.code){
-                                                console.log(res)
                                                 this.top_data = res.data.data
                                                  this.nub =Number(res.data.data.fee) +Number(res.data.data.know_fee) + Number(res.data.data.serve_fee)
                                                 this.image = res.data.data.images_text
-                                                console.log(this.image)
                                         }else{
                                                 alert("暂无数据")
                                         }
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         },
                         text_click(porp){

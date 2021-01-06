@@ -252,7 +252,6 @@
 
                 },
                 beforeMount() {
-                        console.log(111111)
                         this.id = this.$route.query.id
                         this.$nextTick(function(){
                              this.isgets(this.id)
@@ -269,7 +268,6 @@
                                 this.$api.severdetiles(id)
                                 .then(res=>{
                                         if(res.code){
-                                                console.log(res)
                                                 this.top_data = res.data.data
                                                 this.image = res.data.data.images_text
                                         }else{
@@ -277,7 +275,6 @@
                                         }
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         },
                         text_click(porp){

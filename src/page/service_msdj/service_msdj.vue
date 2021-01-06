@@ -182,7 +182,6 @@
                                 this.$api.severdetiles(id)
                                 .then(res=>{
                                         if(res.code){
-                                                console.log(res)
                                                 this.top_data = res.data.data
 
                                                 this.image = res.data.data.images_text
@@ -191,7 +190,6 @@
                                         }
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         },
                         text_click(porp){

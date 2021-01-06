@@ -122,7 +122,6 @@
                                         let user =this.$cookies.get("user"); //获取cookies
                                         uid = user.id;
                                         nub = this.nub;
-                                        console.log(this.money)
                                         this.$api.getshop(id,1,nub,uid,this.text,this.money)
                                         .then(res=>{
                                         if(res.code == 1){
@@ -137,11 +136,9 @@
                                                 }
                                         })
                                         }else{
-                                                console.log(res.msg)
                                         }
                                         })
                                         .catch(err => {
-                                        console.log(err)
                                         })
                                 }
 
@@ -179,7 +176,6 @@
                                                         this.isimg = true
                                               })
                                               .catch(err => {
-                                                        console.log(err)
                                                 })
                                       }else{
                                              this.$api.getdelCollection(id,this.$store.state.user.user_id)
@@ -191,7 +187,6 @@
                                                           this.isimg = false
                                              })
                                              .catch(err => {
-                                                        console.log(err)
                                                 })
                                       }
                                 }

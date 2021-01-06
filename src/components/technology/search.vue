@@ -61,7 +61,6 @@
                 },
                 methods: {
                      enter(id,index){
-                             console.log(id)
                              this.$set(this.see,index,true)
                      },
                      leave(index){

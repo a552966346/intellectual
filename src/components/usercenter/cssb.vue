@@ -198,17 +198,14 @@ export default {
     mounted() {
             this.$api.shopsbclass()
             .then(res=>{
-                    console.log(res)
                     this.sbclass = res.data
             })
             .catch(err =>{
-                        console.log(err)
             })
 
     },
     methods:{
            handleAvatarSuccess(file, fileList) {
-                console.log(file, fileList);
            },
            beforeAvatarUpload(file) {
                 this.dialogImageUrl = file.url;
@@ -217,11 +214,9 @@ export default {
            fileChange(file, fileList) {
                    this.image2Base64(file.raw)
                    .then(res => {
-                           console.log(res)
                            this.sbform.dialogImageUrl = res
                    })
                    .catch(err =>{
-                          console.log(err)
                    });
            },
            image2Base64(file) {
@@ -259,7 +254,6 @@ export default {
                                                       });
                                                 })
                                                 .catch(err =>{
-                                                        console.log(err)
                                                 })
                                             }
                                     })

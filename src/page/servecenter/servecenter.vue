@@ -412,13 +412,11 @@
 
                         })
                         .catch(res=>{
-                                console.log(res)
                         })
                        this.$api.severindex()  //服务中心
                          .then(res=>{
                                  this.$nextTick(function(){
                                          this.o_cen_lie = res.data.hot_server    //热门服务
-                                        // console.log(res)
                                          this.sb_right_lie = res.data.server_data39      //商标服务
                                          if(res.data.server_data39.length != 0){
                                                  this.sb_right_lie_o = res.data.server_data39[0]
@@ -440,16 +438,13 @@
 
                          })
                          .catch(res=>{
-                                 console.log(res)
                          })
                          //商标极速
                          this.$api.seversellcategory()
                          .then(res=>{
-                                 console.log(res)
                                  this.option = res.data
                          })
                          .catch(res=>{
-                                 console.log(res)
                          })
                          this.getVerification()
                 },
@@ -470,7 +465,6 @@
                                 this.isbtn
                         },
                         mouseOver(e) {
-                                console.log(1111)
                                 this.active = e
 
                         },
@@ -520,7 +514,6 @@
                                 this.$cookies.remove("user")
                         },
                         hose(name,id){
-                                console.log(id)
                                 this.$router.push({
                                         path:name,
                                         query:{
@@ -529,13 +522,11 @@
                                 })
                         },
                         submitForm(formName){
-                                console.log(this.$refs)
                                 let that = this
                                 this.$refs[formName].validate((valid) => {
                                         if(valid){
                                                 that.$api.severfastdatas(this.value1,this.value2,this.formInline.phones,this.formInline.authcode)
                                                 .then(res=>{
-                                                        console.log(res)
                                                         if(res.code==1){
                                                                 this.$message({
                                                                           message: '提交成功，请耐心等待客服人员与您联系',
@@ -548,7 +539,6 @@
                                                         this.formInline.authcode=''
                                                 })
                                                 .catch(res=>{
-                                                        console.log(res)
                                                 })
                                         }s
                                 })

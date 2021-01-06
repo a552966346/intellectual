@@ -145,14 +145,14 @@
 
                                             }
                                          this.ruleForm = []
-                                            console.log(res)
+                                          
                                            this.$message({
                                                      message:res.msg,
                                                      type: 'success'
                                                    });
                                     })
 				    .catch(res=>{
-				            console.log(res)
+				          
 				    })
                             }
                     })

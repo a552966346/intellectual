@@ -125,11 +125,9 @@ export default {
        this.konwlist = [];
         this.$api.getfinancialdetiles(1)
         .then(res=>{
-            console.log(res)
             this.konwlist = res.data
         })
 	.catch(res=>{
-	        console.log(res)
 	})
    },
    methods:{

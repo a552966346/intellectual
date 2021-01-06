@@ -101,7 +101,6 @@ export default {
     },
 
       handleAvatarSuccess(file, fileList) {
-                console.log(file, fileList);
            },
            beforeAvatarUpload(file) {
                 this.form1.dialogImageUrl = file.url;
@@ -109,11 +108,9 @@ export default {
            },
            fileChange(file, fileList) {
                    this.image2Base64(file.raw).then(res => {
-                           console.log(res)
                            this.form1.dialogImageUrl = res
                    })
                    .catch(err =>{
-                     console.log(err);
                    });
            },
            image2Base64(file) {
@@ -143,7 +140,6 @@ export default {
                                     .phone, this.form1.name, '', 3,
                                     this.form1.authcode)
                             .then(res => {
-                                    console.log(res)
                                     if (res.code == 1) {
                                             this.$message({
                                                     message: '发布成功',
@@ -158,7 +154,6 @@ export default {
                                     }
                             })
                             .catch(err =>{
-                              console.log(err);
                             })
               }
 

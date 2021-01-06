@@ -73,10 +73,8 @@
                         this.$api.getbanquan()
                                 .then(res => {
                                         this.data = res.data
-                                        console.log(this.data, "版权分类")
                                 })
 				.catch(err=>{
-					console.log(err)
 				})
                 },
                 methods: {
@@ -97,7 +95,6 @@
                                                 this.$api.getsellpost( this.form.main, this.form.phone, 
                                                 this.form.need, 1)
                                                 .then(res => {
-                                                        console.log(res)
                                                         if (res.code == 1) {
                                                                 this.$message({
                                                                         message: '发布成功',
@@ -112,7 +109,6 @@
                                                         }
                                                 })
                                                 .catch(err => {
-                                                        console.log(err)
                                                 })
                                 
                                         }

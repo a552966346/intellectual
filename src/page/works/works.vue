@@ -169,7 +169,6 @@ export default {
     // ispost(id) {
     //         this.$api.getlist(id)
     //                 .then(res => {
-    //                         // console.log(res,'商标转让列表')
     //                         this.iscent = res.data.lists.data
     //                         this.listdata = res.data.youlike
     //                         // 分页
@@ -179,7 +178,6 @@ export default {
                             
     //                 })
     //                 .catch(res=>{
-    //                         console.log(res)
     //                 })
     // },
     //清空筛选
@@ -196,11 +194,9 @@ export default {
    
     // 分页
     handleSizeChange(val) {
-       console.log(`每页 ${val} 条`)
     },
     handleCurrentChange(val) {
         // 输入页数
-        console.log(`当前页: ${val}`);
         this.id[12] = val
         this.ispost(this.id)
         document.getElementById("transfer").scrollIntoView()

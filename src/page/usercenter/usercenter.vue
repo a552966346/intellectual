@@ -278,7 +278,6 @@ export default {
                    }
                  },
                  handleClose(key, keyPath) {
-                   console.log(key, keyPath,"2222222222");
                  },
                  select(index,path){
                  }

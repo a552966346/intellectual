@@ -92,9 +92,7 @@
                 },
                 methods: {
                         // enter(index,index1){
-                        //         console.log(index1)
                         //         this.$set(this.num,index,index1);
-                        //         console.log(this.num)
                         // }
                         con1(index,index1){
                                 this.$set(this.con1s,index,index1)

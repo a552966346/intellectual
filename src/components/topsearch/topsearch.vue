@@ -31,7 +31,6 @@ export default {
   },
   methods:{
           search(){
-                  console.log(this.$route.path)
                   if(this.$route.path!='/'+this.select){
                          this.$router.push({
                          			  path:this.select,

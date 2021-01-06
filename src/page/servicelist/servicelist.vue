@@ -79,14 +79,11 @@
                         // 筛选条件
                         this.$api.severcondition()
                        .then(res => {
-                                console.log(res)
-                                console.log(res.data)
                                this.severcondition=res.data;
 
 
                        })
                        .catch(res=>{
-                               console.log(res)
                        })
                        this.ispost(this.id)
                 },
@@ -112,8 +109,6 @@
                                 // 列表数据
                                 this.$api.severlist(id)
                                 .then(res => {
-
-                                        console.log(res)
                                         // this.iscent = res.data.lists.data
                                         this.listdata = res.data.data;
                                         this.total=res.data.total;
@@ -127,10 +122,8 @@
                                         // for (let i = 0; i < res.data.youlike.length; i++) {
                                         //         this.listdata[i].bgcolor = this.bgcolor
                                         // }
-                                        // console.log(this.iscent)
                                 })
                                 .catch(res=>{
-                                        console.log(res)
                                 })
                         },
                         // 分类筛选
@@ -141,7 +134,6 @@
                         //搜索
                         search(id) {
                                 this.id = id
-                                console.log(this.id)
                                 this.ispost(id)
                         },
                         //清空筛选
@@ -157,12 +149,10 @@
                         },
                         // 分页
                          handleSizeChange(val) {
-                            console.log(`每页 ${val} 条`);
 
                          },
                          handleCurrentChange(val) {
                              // 输入页数
-                             console.log(`当前页: ${val}`);
                              this.id[6] = val
                              this.ispost(this.id)
                          }
