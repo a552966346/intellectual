@@ -32,7 +32,7 @@
                                 <el-form-item label="出生日期:" prop="birthday">
                                         <el-date-picker type="date" placeholder="选择出生日期" v-model="ruleForm.birthday"></el-date-picker>
                                 </el-form-item>
-                                <el-form-item label="邮箱:" prop="name">
+                                <el-form-item label="邮箱:" prop="emile">
                                         <el-input v-model="ruleForm.emile"></el-input>
                                 </el-form-item>
                                 <el-form-item>
@@ -95,7 +95,7 @@
                                                 message: '请选择选择出生日期',
                                                 trigger: 'change'
                                         }],
-                                        emile: [{
+                                        emile: [{       
                                                 required: true,
                                                 message: '请输入您的邮箱',
                                                 trigger: 'blur'

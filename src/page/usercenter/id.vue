@@ -187,7 +187,7 @@
                         </div>
                         <div class="center_b">
                                 <el-form :model="ruleForm2" :rules="rules" ref="ruleForm2" label-width="130px" class="demo-ruleForm">
-                                        <el-form-item label="真实姓名" prop="name">
+                                        <el-form-item label="公司名称" prop="name">
                                                 <el-input v-model="ruleForm2.name2"></el-input>
                                         </el-form-item>
                                         <el-form-item label="营业执照号" prop="number2">

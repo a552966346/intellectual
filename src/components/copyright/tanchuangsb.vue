@@ -131,8 +131,9 @@
                                         this.data = res.data
                                 })
                                 .catch(err =>{
+                                        console.log(err)
                                 })
-                                this.signoutShow = sessionStorage.getItem('user');
+                                this.signoutShow = this.$cookies.get("user");
                 },
                 methods: {
                         close() {
@@ -175,6 +176,7 @@
                                                             }
                                                     })
                                                     .catch(err => {
+                                                        console.log(err)
                                                     })
                                         }
                                             

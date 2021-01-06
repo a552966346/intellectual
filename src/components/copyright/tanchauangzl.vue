@@ -24,7 +24,7 @@
 
                                         <el-form-item label="专利类型">
                                                 <select name="shangbiao" v-model="select" style="width: 100%;height: 40px; border: 1px solid #ccc; outline: none;border-radius: 5px; color: #555;padding-left: 15px;">
-                                                        <option value="">请选择专利类型（必填)</option>
+                                                        <option value="">请选择专利类型（必选)</option>
                                                         <option v-for="item in data" :value="item.id">{{item.name}}</option>
                                                 </select>
                                         </el-form-item>
@@ -32,10 +32,10 @@
                                                 <el-input v-model="form2.num" placeholder="请输入专利号（必填）" style="width: 100%"></el-input>
                                         </el-form-item>
                                         <el-form-item label="出售底价" prop="minprice">
-                                                <el-input v-model="form2.minprice" placeholder="请输入出售底价（必填）" style="width: 100%"></el-input>
+                                                <el-input v-model="form2.minprice" placeholder="请输入出售底价（必填)" style="width: 100%"></el-input>
                                         </el-form-item>
                                         <el-form-item label="联系方式" prop="tel">
-                                                <el-input v-model="form2.tel" placeholder="请输入您的联系方式（必填）" style="width: 100%"></el-input>
+                                                <el-input v-model="form2.tel" placeholder="请输入您的联系方式（必填)" style="width: 100%"></el-input>
                                         </el-form-item>
                                         <el-form-item label="验证号码" prop="authcode">
                                                 <el-row>
@@ -77,15 +77,15 @@
                                 form2: {
                                         name: '', //名称
                                         // select: '',
-                                        num: '', //专利号
+                                        num: '', //专利数
                                         minprice: '', //售价
                                         tel: '', //电话
                                         authcode: '' //验证码
                                 },
-                                html: '', //验证码
+                                html: '',
                                 data: [], //分类数据
                                 select: '',
-                                signoutShow:'',//获取session值
+                                signoutShow:'',//获取session
                                 // 验证规则
                                 formrule: {
                                         name: [{
@@ -126,7 +126,7 @@
                 },
                 methods: {
                         close() {
-                                this.$emit("close")
+                                 this.$emit("close")
                         },
                         kefu(){
                                 this.$emit("kefu")
@@ -165,6 +165,7 @@
                                                               }
                                                       })
                                                       .catch(err => {
+                                                            console.log(err)
                                                       })
                                         }
 
@@ -179,8 +180,9 @@
                                         this.data = res.data
                                 })
                                 .catch(err =>{
+                                        console.log(err)
                                 })
-                                this.signoutShow = sessionStorage.getItem('user');
+                                this.signoutShow = this.$cookies.get("user");
                 },
                 components:{
                 }
