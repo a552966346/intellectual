@@ -80,7 +80,7 @@ export default {
                 },
                 down(){
                         this.$store.state.user = null
-                        this.$cookies.remove("user")
+                        // this.$cookies.remove("user")
                         if(this.$router.path != "/"){
                                 this.$router.push({
                                         path:"/"

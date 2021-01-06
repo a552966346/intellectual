@@ -131,7 +131,7 @@ export default {
           .catch(err =>{
             console.log(err)
           })
-          this.signoutShow = sessionStorage.getItem('user');
+          this.signoutShow = this.$cookies.get("user");
           console.log(this.signoutShow,'存储的用户信息');
   },
   methods:{

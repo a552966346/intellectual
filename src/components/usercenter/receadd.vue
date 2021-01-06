@@ -33,6 +33,12 @@
               style="width: 100%"
             ></el-input>
           </el-form-item>
+          <el-form-item label="是否默认" prop="resource">
+              <el-radio-group v-model="form1.resource">
+                <el-radio :label="1">默认</el-radio>
+                <el-radio :label="0">非默认</el-radio>
+              </el-radio-group>
+            </el-form-item>
           <el-form-item label="收件地址" prop="province">
             <div id="addressHorizontalSelect">
               <el-row>
@@ -135,7 +141,8 @@ export default {
         province:'',
         city:'',
         area:'',
-        add:''
+        add:'',
+        resource:1
       },
       isshow: false,
       select: "",
@@ -166,6 +173,13 @@ export default {
             message: "请输入省份-市级-区县-详细地址",
           },
         ],
+        resource:[
+                {
+                  required: true,
+                  trigger: "change",
+                  message: "是否默认",
+                },
+        ]
       },
     };
   },
@@ -188,11 +202,11 @@ export default {
       this.html = Math.random();
     },
     submit(fromname) {
-      let user =JSON.parse(sessionStorage['user']);
+      let user =this.$cookies.get("user");
       this.uid = user.id;
       this.$refs[fromname].validate((valid) => {
         if(valid){
-          this.$api.receadd(this.uid,this.form1.name,this.form1.phone,this.form1.province,this.form1.city,this.form1.area,this.form1.add,0)
+          this.$api.receadd(this.uid,this.form1.name,this.form1.phone,this.form1.province,this.form1.city,this.form1.area,this.form1.add,this.form1.resource)
           .then((res) => {
             if (res.code == 1) {
               this.nub = true;

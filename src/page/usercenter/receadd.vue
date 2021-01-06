@@ -51,7 +51,7 @@
             <v-receadd @close="close" @submit="submit" ></v-receadd>
         </div>
     </div>
-    
+
 </template>
 
 <script>

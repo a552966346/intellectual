@@ -194,7 +194,7 @@ export default {
             cancel:0//已取消
         }
     },
-    mounted(){
+    beforeMount(){
             if(this.$store.state.user){
                      this.userIn =   this.$store.state.user
                      this.berl = true

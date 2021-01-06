@@ -357,9 +357,9 @@
                                                                 .then(res => {
                                                                         if (res.code == 1) {
                                                                                 if(that.automatic){
-                                                                                       this.$cookies.set("user",JSON.stringify(res.data.userinfo),'7d');
+                                                                                       this.$cookies.set("user",JSON.stringify(res.data.userinfo),'30d');
                                                                                 }else{
-                                                                                        this.$cookies.set("user",JSON.stringify(res.data.userinfo));
+                                                                                        this.$cookies.set("user",JSON.stringify(res.data.userinfo),"0");
                                                                                 }
                                                                                  this.$store.state.user = res.data.userinfo       //token存储
                                                                                 this.$router.push({
@@ -430,11 +430,11 @@
                 padding: 0;
                 box-sizing: border-box;
         }
-        
+
         .el-form-item{
                 margin: 0;
         }
-        
+
         #login {
                 height: 100%;
                 display: flex;
