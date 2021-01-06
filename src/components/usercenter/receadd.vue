@@ -1,18 +1,18 @@
 <template>
-  <div class="all">
-    <div class="tanchuang_all">
-      <div class="tanchuang_title">
+  <div class="receadd_all">
+    <div class="receadd_tanchuang_all">
+      <div class="receadd_tanchuang_title">
         <!-- left -->
-        <div class="tanchuang_title_l">
-          <div class="tanchuang_title_text">添加收件地址</div>
+        <div class="receadd_tanchuang_title_l">
+          <div class="receadd_tanchuang_title_text">添加收件地址</div>
         </div>
         <!-- right -->
-        <div class="tanchuang_title_r" @click="close">
+        <div class="receadd_tanchuang_title_r" @click="close">
           <img src="../../../static/img/copyright/close.png" alt="" />
         </div>
       </div>
-      <div class="tanchuang_body">
-        <div class="tanchuang_bodytit"></div>
+      <div class="receadd_tanchuang_body">
+        <div class="receadd_tanchuang_bodytit"></div>
         <el-form
           ref="form_rul"
           :model="form1"
@@ -269,11 +269,11 @@ export default {
 </script>
 
 <style>
-.all {
+.receadd_all {
   padding: 20px;
   width: 40%;
 }
-.tanchuang_all {
+.receadd_tanchuang_all {
   border-radius: 10px;
   overflow: hidden;
   background: #fff;
@@ -281,13 +281,13 @@ export default {
 .el-form-item__label {
   text-align: center !important;
 }
-.tanchuang_title_text {
+.receadd_tanchuang_title_text {
   font-size: 15px;
   height: 50px;
   display: flex;
   align-items: center;
 }
-.tanchuang_title {
+.receadd_tanchuang_title {
   background: #29334c;
   color: white;
   display: flex;
@@ -297,22 +297,22 @@ export default {
   align-items: center;
 }
 
-.tanchuang_title_l {
+.receadd_tanchuang_title_l {
   display: flex;
 }
-.tanchuang_title_r {
+.receadd_tanchuang_title_r {
   margin-right: 5px;
   height: 50px;
   display: flex;
   align-items: center;
 }
-.tanchuang_title_r img {
+.receadd_tanchuang_title_r img {
   height: 36px;
 }
-.tanchuang_bodytit {
+.receadd_tanchuang_bodytit {
   padding: 25px;
 }
-.tanchuang_body {
+.receadd_tanchuang_body {
   width: 400px;
   margin: 0 auto;
 }
