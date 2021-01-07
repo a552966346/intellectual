@@ -114,31 +114,31 @@
                                         uid = user.id;
                                         nub = this.nub;
                                         this.money = this.top_data.fee;
-                                        if(this.top_data.basic_text){
-                                                let mustli =[]; let remake=''
-                                                mustli = this.top_data.basic_text;
-                                                mustli.forEach(function(item){
-                                                remake += item.feetitle+',';
-                                                });
-                                                this.$api.getshop(id,1,nub,uid,remake,this.money)
-                                                .then(res=>{
-                                                if(res.code == 1){
-                                                        this.$message({
-                                                                message: res.msg,
-                                                                type: 'success'
-                                                                });
-                                                        this.$router.push({
-                                                        path:'/shopcart',
-                                                        query:{
-                                                                id:id
-                                                        }
-                                                })
-                                                }else{
-                                                }
-                                                })
-                                                .catch(err => {
-                                                })
-                                        }else{
+                                        // if(this.top_data.basic_text){
+                                        //         let mustli =[]; let remake=''
+                                        //         mustli = this.top_data.basic_text;
+                                        //         mustli.forEach(function(item){
+                                        //         remake += item.feetitle+',';
+                                        //         });
+                                        //         this.$api.getshop(id,1,nub,uid,remake,this.money)
+                                        //         .then(res=>{
+                                        //         if(res.code == 1){
+                                        //                 this.$message({
+                                        //                         message: res.msg,
+                                        //                         type: 'success'
+                                        //                         });
+                                        //                 this.$router.push({
+                                        //                 path:'/shopcart',
+                                        //                 query:{
+                                        //                         id:id
+                                        //                 }
+                                        //         })
+                                        //         }else{
+                                        //         }
+                                        //         })
+                                        //         .catch(err => {
+                                        //         })
+                                        // }else{
                                                 this.$api.getshop(id,1,nub,uid,'',this.money)
                                                 .then(res=>{
                                                 if(res.code == 1){
@@ -157,8 +157,8 @@
                                                 })
                                                 .catch(err => {
                                                 })
-                                        }
-                                        
+                                        // }
+
                                 }
 
                         },
@@ -210,11 +210,6 @@
 </script>
 
 <style scoped>
-        * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-        }
 
         #servicetop {
                 width: 1200px;

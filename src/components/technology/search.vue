@@ -72,7 +72,6 @@
 
 
 <style scoped>
-        *{margin: 0;padding: 0;box-sizing: border-box;}
         /* 技术转让 */
         #indexpay_item{width: 1200px;margin: 0px auto;background: #fff;border-radius: 10px;display: flex;}
         .indexpay_right{flex: 1;padding: 15px 10px;display: flex;flex-direction: column;box-shadow: 1px 0px 5px 3px rgba(212, 224, 240, 0.16);box-shadow: 0px 0px 5px 1px #c1dbf9;}

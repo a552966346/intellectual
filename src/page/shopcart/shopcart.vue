@@ -38,7 +38,7 @@
                                         </div>
                                     </div>
                                     <div class="shopcart_zsdceterrn">
-                                        <div v-if="item.product.fee>=10000">￥{{(item.product.fee/10000)}}万元</div>
+                                        <div v-if="item.fee>=10000">￥{{(item.product.fee/10000)}}万元</div>
                                         <div v-else>￥{{item.product.fee}}</div>
                                     </div>
                                     <div class="shopcart_zsdcefhtea">
@@ -165,6 +165,7 @@
                      this.uid = user.id;
                      this.$api.shopdata(this.uid)
                      .then(res=>{
+                             console.log(res)
                         this.zsdlist = res.data;
                      })
                      .catch(res=>{
@@ -219,16 +220,19 @@
                     setment(uid){
                         let user =this.$cookies.get("user"); //获取cookies
                         uid = user.id;
-                        let snlist = [];let ids ='';let tys =''; let numb='';
+                        let that =this
+                        let snlist = [];let ids ='';let tys =''; let numb='', money='',remark='';
                         snlist = this.zsdlist.filter(function(item){
                             return item.checkModel == true;
                         });
-                        snlist.forEach(function(item){
+                        snlist.forEach(function(item,index){
                             ids += item.product.id+',';
                             tys += item.type+',';
                             numb += item.num+',';
+                            money +=that.sole[index]+','
+                            remark += item.remark+'/'
                         });
-                        this.$api.createorder(ids,tys,numb,uid)
+                        this.$api.createorder(ids,tys,numb,uid,money,remark)
                         .then(res=>{
                             sessionStorage['data']=JSON.stringify(res.data);
                             this.$router.push({path: '/paydetial'});
@@ -241,7 +245,7 @@
 </script>
 
 <style scoped>
-        * {margin:0;padding:0;box-sizing:border-box;}
+
         .shopcart_all_text {width:100%;padding:10px 0;}
         .shopcart_all {width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;background-color:#f5f5f5;}
         .shopcart_all_Center {width:1200px;background-color:#f5f5f5;padding: 30px 0;}

@@ -28,7 +28,6 @@
         }
 </script>
 <style scoped>
-        *{margin: 0;padding: 0;box-sizing: border-box;}
        #commontitle{background-size: auto 45%;background-repeat: no-repeat;background-position: bottom;padding: 10px 0px 30px;}
        /* 字体为蓝色的 */
        .commontitle{display: flex;justify-content: center;align-items: center;font-size: 30px;color: #1a81c6;}

@@ -162,7 +162,7 @@
 </script>
 
 <style scoped>
-         *{padding: 0;margin: 0;text-decoration: none;box-sizing: border-box;}
+         *{text-decoration: none;}
          body,html{width: 100%;background-color: #f0f2f5;}
          .servicelist{background-color: #f0f2f5!important;}
          .service_list{width: 100%;display: flex;justify-content: center;flex-direction: column;align-items: center;}

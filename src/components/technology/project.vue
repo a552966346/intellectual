@@ -61,7 +61,6 @@
         }
 </script>
 <style scoped>
-        *{margin: 0;padding: 0;box-sizing: border-box;}
         #project{width: 1200px;margin: 20px auto;background: #fff;display: flex;padding: 0px 100px;}
         .project_left{width: 60%;padding: 20px 120px 0 0;}
         .project_left>p{line-height: 40px;color: #959595;font-size: 16px;letter-spacing: 2px;}

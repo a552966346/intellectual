@@ -94,10 +94,7 @@ export default {
 </script>
 <style scoped>
 * {
-  margin: 0;
-  padding: 0;
   text-decoration: none;
-  box-sizing: border-box;
 }
 .aa{
         display: none;

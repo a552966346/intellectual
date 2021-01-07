@@ -784,9 +784,6 @@ export default {
 <style scoped>
 /* scoped 样式隔离*/
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   text-decoration: none;
 }
 a {

@@ -25,11 +25,7 @@
 </script>
 
 <style>
-        *{
-                padding: 0;
-                margin: 0;
-                box-sizing: border-box;
-        }
+       
         .all{
                 display: flex;
                 flex-direction: column;

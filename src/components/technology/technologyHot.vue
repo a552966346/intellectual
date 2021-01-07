@@ -114,10 +114,6 @@
 </script>
 
 <style>
-        * {
-                margin: 0;
-                padding: 0;
-        }
 
         .technologyHot_all {
                 display: flex;
