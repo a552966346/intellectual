@@ -80,7 +80,6 @@ export default {
 </script>
 
 <style scoped>
-        *{padding: 0;margin: 0;box-sizing: border-box;}
         #hover_right{width: 100%;}
        .hover_cheng{
            background-color:#1a7fc3;

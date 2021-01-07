@@ -113,7 +113,7 @@
                                                 </el-form-item>
                                                 <el-form-item prop="authcode" class="login_form_item inline_st">
                                                         <el-row>
-                                                                <el-col :span="15">
+                                                                <el-col :span="13">
                                                                         <div class="grid-content">
                                                                                 <el-input type="text" v-model="register_ruleForm.authcode"
                                                                                         autocomplete="off" placeholder='输入验证码'>
@@ -121,7 +121,7 @@
                                                                                 </el-input>
                                                                         </div>
                                                                 </el-col>
-                                                                <el-col :span="8">
+                                                                <el-col :span="9">
                                                                         <div class="grid-content">
                                                                                 <div><img :src="'http://intellectual.jzhxwl.com/captcha.html?r='+html"
                                                                                                 alt="" @click="getVerification"></div>
@@ -415,11 +415,7 @@
 
 
 <style scoped>
-        * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-        }
+
 
         .el-form-item{
                 margin: 0;

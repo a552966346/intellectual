@@ -196,26 +196,26 @@
                                         uid = user.id;
                                         nub = this.nub;
                                         this.money = this.top_data.fee;
-                                        if(this.top_data.basic_text){
-                                                 this.$api.getshop(id,4,nub,uid,this.top_data.basic_text.feetitle,this.money)
-                                                .then(res=>{
-                                                if(res.code == 1){
-                                                        this.$message({
-                                                                message: res.msg,
-                                                                type: 'success'
-                                                                });
-                                                        this.$router.push({
-                                                        path:'/shopcart',
-                                                        query:{
-                                                                id:id
-                                                        }
-                                                })
-                                                }else{
-                                                }
-                                                })
-                                                .catch(err => {
-                                                })
-                                        }else{
+                                        // if(this.top_data.basic_text){
+                                        //          this.$api.getshop(id,4,nub,uid,this.top_data.basic_text.feetitle,this.money)
+                                        //         .then(res=>{
+                                        //         if(res.code == 1){
+                                        //                 this.$message({
+                                        //                         message: res.msg,
+                                        //                         type: 'success'
+                                        //                         });
+                                        //                 this.$router.push({
+                                        //                 path:'/shopcart',
+                                        //                 query:{
+                                        //                         id:id
+                                        //                 }
+                                        //         })
+                                        //         }else{
+                                        //         }
+                                        //         })
+                                        //         .catch(err => {
+                                        //         })
+                                        // }else{
                                                  this.$api.getshop(id,4,nub,uid,'',this.money)
                                                 .then(res=>{
                                                 if(res.code == 1){
@@ -234,8 +234,8 @@
                                                 })
                                                 .catch(err => {
                                                 })
-                                        }
-                                       
+                                        // }
+
                                 }
 
                         },
@@ -285,11 +285,7 @@
         }
 </script>
 <style>
-        * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-        }
+
 
         #topAll {
                 width: 100%;

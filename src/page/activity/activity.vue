@@ -218,11 +218,7 @@ export default {
 
 </script>
 <style>
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 .activity_all{
   background: #f4f4f4;
   display: flex;

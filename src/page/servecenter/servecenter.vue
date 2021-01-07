@@ -114,7 +114,7 @@
                                                                 </div>
                                                         </div> -->
                                                         <div class="top_cen_right_cen_bottom">
-                                                                <img :src="this.$store.state.user.avatar" alt="">
+                                                                <!-- <img :src="this.$store.state.user.avatar" alt=""> -->
                                                                 <div>
                                                                         <p>你好欢迎来到伊甸网</p>
                                                                         <p>{{phone}}</p>
@@ -552,11 +552,7 @@
         }
 </script>
 <style scoped>
-        * {
-                padding: 0;
-                margin: 0;
-                box-sizing: border-box;
-        }
+
 
         #servecneter {
                 width: 100%;
@@ -1526,5 +1522,8 @@
         }
         .el-form-item__error{
                 position: relative !important;
+        }
+        .el-form-item{
+                margin: 0;
         }
 </style>

@@ -77,7 +77,7 @@
 
 
 <style scoped>
-        *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
+        *{text-decoration: none;}
         /* 最新需求 */
         #indexpay_item{width: 1200px;margin: 20px auto;background: #fff;border-radius: 10px;display: flex;}
         /* 右侧内容 */

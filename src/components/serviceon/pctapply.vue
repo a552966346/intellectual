@@ -12,7 +12,7 @@
 export default {
     data(){
         return{
-            
+
         }
     },
     props:{
@@ -22,11 +22,6 @@ export default {
 </script>
 
 <style  scoped>
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 .pctapply_all{
     width: 100%;
     padding: 0 8px;

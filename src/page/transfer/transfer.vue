@@ -123,7 +123,7 @@
 </script>
 
 <style>
-        *{padding: 0;margin: 0;box-sizing: border-box;}
+       
         #transfer{width: 100%;display: flex;flex-direction: column;align-items: center;background-color: #F5F5F5;}
         .transfer_all{width: 1200px;background-color: #fff;}
         .transfer_cen{width: 100%;display: flex;border-top: 20px solid #f5f5f5;border-bottom: 20px solid #f5f5f5;}

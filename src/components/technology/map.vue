@@ -45,7 +45,6 @@ export default {
 }
 </script>
 <style scoped>
-    *{margin: 0;padding: 0;box-sizing: border-box;}
    #map{width: 1200px;margin: 40px auto;background: #fff;display: flex;padding-left:80px;}
    .map_left{width: 51%;height: 360px;margin-top: 20px;display: flex;justify-content: center;align-items: center;padding: 20px;box-shadow: 0px 0px 5px 1px #c1dbf9;}
    .map_left img{width: 100%;height: 100%;}

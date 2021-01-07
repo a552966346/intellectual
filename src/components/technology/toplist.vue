@@ -102,7 +102,7 @@
         }
 </script>
 <style scoped>
-        *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
+        *{text-decoration: none;}
         #toplist{width: 1200px;margin: 20px auto;background: #fff;display: flex;}
         .item{width: 33.3%;}
         .itemall{padding: 30px 30px 10px 30px;}

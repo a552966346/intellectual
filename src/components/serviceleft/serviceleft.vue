@@ -52,7 +52,7 @@
 </script>
 
 <style scoped>
-        *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;list-style: none;}
+        *{text-decoration: none;list-style: none;}
         #serviceleft{width: 100%;background-color: #fff;box-shadow: 1px 1px 10px 2px #ccc;}
         .serviceleft_title{background-color: #1a7fc3;height: 50px;color: white;display: flex;align-items: center;padding: 0px 15px;font-size: 16px;}
         .serviceleft_cont{background-color: #fff;padding: 0px 15px;padding-top:30px;}

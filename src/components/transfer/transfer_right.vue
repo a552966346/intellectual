@@ -73,7 +73,6 @@ export default {
 </script>
 
 <style>
-        *{padding: 0;margin: 0;box-sizing: border-box;}
         #transfer_right{width: 100%;}
        .transfer_cheng{
            background-color:#1a7fc3;

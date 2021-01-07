@@ -53,7 +53,7 @@
         }
 </script>
 <style scoped>
-        *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
+        *{text-decoration: none;}
        #addition{width: 1200px;margin: 20px auto;background: #fff;display: flex;}
        /* 每一块内容 */
        .item{width: 33%;border-radius: 5px;margin-right: 10px;}

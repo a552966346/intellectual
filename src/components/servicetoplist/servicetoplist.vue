@@ -68,7 +68,7 @@
 </script>
 
 <style scoped>
-        *{padding: 0;margin: 0;text-decoration: none;box-sizing: border-box;}
+        *{text-decoration: none;}
         /* 整体列表 */
         .list{width: 1200px;margin: 0 auto;padding-bottom: 5px;}
         /* 一条内容 */

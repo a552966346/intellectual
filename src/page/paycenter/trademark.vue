@@ -236,7 +236,7 @@
 </script>
 
 <style scoped>
-       *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
+       *{text-decoration: none;}
       .copyright_pay{background: #f6f6f6;}
       .copyright_pay>img{cursor: pointer;}
       .patent_sort{max-width: 1200px;width: 100%;margin:0 auto;height: 50px;background-color: #fff;color: #666;font-size: 14px;display: flex;align-items: center;border: 1px solid #eceff6;margin-bottom: 20px;position: relative;}

@@ -26,7 +26,7 @@
                                 </div> -->
                                 <div class="costSlow">
                                         <span>费用减缓：</span>
-                                        <span :class="{costLowActive:nub2==index}" v-for="(item,index) in fee" @click="qiehuan2(index)" :key="index">{{item}}</span>
+                                        <span :class="{costLowActive:nub2==index}" v-for="(item,index) in top_data.basic_text" @click="qiehuan2(index)" :key="index">{{item.intro}}</span>
                                         <span class="rightCommon" @click="tip">?</span>
                                 </div>
                                 <p class="complete">
@@ -36,20 +36,20 @@
                                 </p>
                                 <div class="rBottom">
                                         <div class="bottom">
-                                                <div class="bottomLeft">
+                                                <div class="bottomLeft" v-for="(item,index) in top_data.basic_text" v-if="nub2==index">
                                                         <div>
                                                                 <span>服务费用：</span>
-                                                                <span>￥{{top_data.serve_fee}}</span>
+                                                                <span>￥{{item.original_fee}}元</span>
                                                         </div>
                                                         <div>
                                                                 <span>国知局费用：</span>
-                                                                <span>￥{{top_data.know_fee}}</span>
-                                                                <span>（{{top_data.know_fee_remark}}）</span>
+                                                                <span>￥{{item.know_fee}}元</span>
+                                                                <!-- <span>（{{top_data.know_fee_remark}}）</span> -->
                                                         </div>
                                                         <div>
                                                                 <span>费用合计：</span>
-                                                                <span v-if="top_data.fee>=10000">{{(top_data.fee/10000)}}万元</span>
-                                                                <span v-else>{{top_data.fee}}元</span>
+                                                                <span v-if="item.fee_cost>=10000">{{(item.fee_cost/10000)}}万元</span>
+                                                                <span v-else>{{item.fee_cost}}元</span>
                                                         </div>
                                                 </div>
                                                 <div class="bottomRight">
@@ -105,6 +105,8 @@
                                 img2:require('../../../static/img/index/inde_sc_two.png'),
                                 isimg:false,
                                 money:0,
+                                server:'',
+
 			}
 		},
 		props:{
@@ -126,7 +128,6 @@
                         },
                         but1() {
                                         this.isnub++
-
                         },
                         shop(id,nub){
                                 if (this.$store.state.user == ''|| this.$store.state.user ==null || this.$store.state.user ==undefined) {
@@ -138,9 +139,10 @@
                                 }else{
                                         let user =this.$cookies.get("user"); //获取cookies
                                         let uid = user.id;
-                                        this.money = this.top_data.fee;
+                                        let text = this.top_data.basic_text[this.nub2]
+                                        let remark= text.intro+','+text.original_fee+','+text.know_fee
                                         if(this.top_data.basic_text){
-                                                this.$api.getshop(id,1,nub,uid,this.top_data.basic_text.feetitle,this.money)
+                                                this.$api.getshop(id,1,nub,uid,remark,text.fee_cost)
                                                 .then(res=>{
                                                 if(res.code == 1){
                                                         this.$message({
@@ -178,7 +180,7 @@
                                                 .catch(err => {
                                                 })
                                         }
-                                        
+
                                 }
 
                         },
@@ -224,7 +226,7 @@
                                       }
                                 }
                         },
-                        
+
                 },
                 components:{
                         'v-customer':customer
@@ -233,11 +235,7 @@
 </script>
 
 <style>
-        * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-        }
+
 
         #serviceTop {
                 width: 1200px;

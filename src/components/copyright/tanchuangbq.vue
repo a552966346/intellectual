@@ -125,14 +125,12 @@ export default {
   mounted() {
           this.$api.getbanquan()
           .then(res=>{
-                  console.log(res)
                   this.option = res.data
           })
           .catch(err =>{
             console.log(err)
           })
           this.signoutShow = this.$cookies.get("user");
-          console.log(this.signoutShow,'存储的用户信息');
   },
   methods:{
     close(){

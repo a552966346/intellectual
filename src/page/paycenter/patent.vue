@@ -212,7 +212,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
 </script>
 
 <style scoped>
-        *{margin: 0;padding: 0;box-sizing: border-box;text-decoration: none;}
+        *{text-decoration: none;}
        .patent_pay{background: #f6f6f6;padding-bottom: 20px;}
        .patent_pay>img{cursor: pointer;}
        .patent_sort{width: 1200px;margin: 0 auto;height: 50px;background-color: #fff;color: #666;font-size: 14px;display: flex;align-items: center;border: 1px solid #eceff6;margin-bottom: 20px;position: relative;}
