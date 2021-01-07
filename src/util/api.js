@@ -835,6 +835,11 @@ const api = {
                 }
                 return requestAll.requset(baseUrl + '/api/account/address_list', data);
         },
-
+        fleaclass(){
+                return requestAll.requset(baseUrl + '/api/flea/category_data');
+        },
+        fleadata(){
+                return requestAll.requset(baseUrl + '/api/flea/flea_data');
+        }
 }
 export default api;

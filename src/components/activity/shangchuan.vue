@@ -30,6 +30,13 @@
                     <option v-for="item in option" :value="item.id" :key="item.id">{{item.name}}</option>
             </select>
           </el-form-item>
+          <el-form-item label="产品价格" prop="money">
+            <el-input v-model="form1.money"
+            type="number"
+              placeholder="请输入产品价格"
+              style="width: 100%"
+            ></el-input>
+          </el-form-item>
           <el-form-item label="产品图样" prop="dialogImageUrl">
               <el-upload class="avatar-uploader" action="aaaa" :show-file-list="false"
                         :on-success="handleAvatarSuccess" :on-change="fileChange" :auto-upload="false"
@@ -62,11 +69,11 @@ export default {
         name:'',
         kind:'',
         textarea:'',
-
+        money:''
       },
       options:[],
       option:[
-          {name:'美术作品'},{name:'摄影作品'},{name:'雕塑'},{name:'生活创意作品'},{name:'影视作品'},{name:'建筑作品'},{name:'汉服设计'},{name:'创意作品'},
+          // {name:'美术作品'},{name:'摄影作品'},{name:'雕塑'},{name:'生活创意作品'},{name:'影视作品'},{name:'建筑作品'},{name:'汉服设计'},{name:'创意作品'},
      ],
       html:'',
       form_rul: {
@@ -92,8 +99,24 @@ export default {
                    trigger: 'change',
                    message: '请选择产品分类'
            }],
+           money:[{
+                   required: true,
+                   trigger: 'blur',
+                   message: '请输入产品价格'
+           }]
       },
     };
+  },
+  mounted() {
+          this.$api.fleaclass()
+          .then(res=>{
+                  console.log(res)
+                  this.option = res.data
+          })
+          .catch(err=>{
+                  console.log(err)
+          })
+         
   },
   methods:{
     close(){
@@ -136,15 +159,20 @@ export default {
     fabu(fromname) {
             this.$refs[fromname].validate((valid) => {
               if(valid){
-                    this.$api.getsellpost(this.select, '', this.form1
-                                    .phone, this.form1.name, '', 3,
-                                    this.form1.authcode)
+                    this.$api.addflea(this.$store.state.user.id,  this.form1.name,this.form1
+                                    .textarea,this.form1.kind,this.form1.dialogImageUrl,this.form1.money)
                             .then(res => {
                                     if (res.code == 1) {
                                             this.$message({
                                                     message: '发布成功',
                                                     type: 'success'
                                             });
+                                            this.close()
+                                            this.form1.name = ''
+                                            this.form1.textarea=''
+                                            this.form1.kind = ''
+                                            this.form1.dialogImageUrl= ''
+                                            this.form1.money = ''
                                             this.$emit("fabu")
                                     } else {
                                             this.$message.error({

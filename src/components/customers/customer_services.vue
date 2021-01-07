@@ -57,11 +57,6 @@ export default {
 </script>
 
 <style scoped>
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 #all{
         width: 40%;
         height: 50%;

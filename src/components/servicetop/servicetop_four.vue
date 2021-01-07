@@ -128,7 +128,7 @@
                                         //         .catch(err => {
                                         //         })
                                         // }else{
-                                                this.$api.getshop(id,1,nub,uid,this.money)
+                                                this.$api.getshop(id,1,nub,uid,'',this.money)
                                                 .then(res=>{
                                                 if(res.code == 1){
                                                         this.$message({

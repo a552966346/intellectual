@@ -11,73 +11,47 @@
            </div>
            <div class="tr2"></div>
          </div>
-         
+
        </div>
-       <div class="show_cen">
-          <div class="lists" v-for="(item,index) in list" :key="index">
-              <div class="list">{{item.tet}}</div>
-              <div class="list_img">
-                <img src="../../../static/img/activity/arrow.png" alt="">
-              </div>
-          </div>
-       </div>
-                        
-       <div class="show">
-            <div class="other_works_item">
-                  <div class="other_works_item1">
-                    <img src="../../../static/img/activity/other1-1.png" alt="">
-                  </div>
-                  <div class="other_works_item2">
-                    <img src="../../../static/img/activity/other1-2.png" alt="">
-                  </div>
-                  <div class="other_works_item1">
-                    <img src="../../../static/img/activity/other1-1.png" alt="">
-                  </div>
-            </div>
-            <div class="other_works_item item2">
-              <div class="other_works_item1">
-                <img src="../../../static/img/activity/other2-1.png" alt="">
-              </div>
-              <div class="other_works_item2" @mouseenter="enter" @mouseleave="leave">
-                    <img src="../../../static/img/activity/other2-2.png" alt="">
-                    <div class="other_works_txt"  v-show="seen">
-                      <h2>油画展示作品</h2>
-                      <p>智创城NO.4——伊甸创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔</p>
-                      <span>￥1000元</span>
+       <div >
+               <div class="show_cen">
+                       <div class="lists" v-for="(item,index) in list" :key="index">
+                           <div class="list"  @click="istype(index)">{{item.name}}</div>
+                           <div class="list_img">
+                             <img src="../../../static/img/activity/arrow.png" alt="">
+                           </div>
+                       </div>
                     </div>
-              </div>
-              <div class="other_works_item2">
-                    <img src="../../../static/img/activity/other1-2.png" alt="">
-              </div>
-            </div>
-            <div class="other_works_item">
-              <div class="other_works_item1">
-                <img src="../../../static/img/activity/other3-1.png" alt="">
-              </div>
-              <div class="other_works_item1 kong">
-                
-              </div>
-              
-              <div class="other_works_item1 kong1">
-                <img src="../../../static/img/activity/other3-1.png" alt="">
-              </div>
-              <div class="other_works_item1">
-                <img src="../../../static/img/activity/other3-1.png" alt="">
-              </div>
-            </div>
+                    <div class="imgall">
+                            <div class="show" v-for="(item,index) in list" :key="index" v-show="cshow ==index">
+                                        <img :src="item1.images" v-for="(item1,index) in item.flea" alt=""  @click="running(item1.id)" @mouseenter="enter(index)" @mouseleave="leave">
+                                        <!-- <div class="other_works_txt" v-for="(item1,index) in item.flea" v-show="seen==index">
+                                                <h4>{{item1.name}}</h4>
+                                                <p>{{item1.summarize}}</p>
+                                                <span>{{item1.fee}}</span>
+                                        </div> -->
+                            </div>
+                    </div>
+
        </div>
-        
+
+
     </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      seen: false,
-      list:[
-        {tet:'美术作品'},{tet:'摄影作品'},{tet:'雕塑'},{tet:'生活创意作品'},{tet:'影视作品'},{tet:'建筑作品'},{tet:'汉服设计'},{tet:'创意作品'},
-      ],
+      seen: null,
+      cshow:0,
+      flea:[]
     }
+  },
+  props:{
+    list:''
+  },
+  mounted() {
+
   },
   methods:{
     shangchuan(){
@@ -86,17 +60,29 @@ export default {
     kefu(){
         this.$emit("kefu")
     },
-    enter(){
-        this.seen = true
+    enter(index){
+        this.seen = index
+
     },
     leave(){
-        this.seen = false
+        this.seen = null
+    },
+    istype(index){
+            this.cshow= index
+    },
+    running(id){
+            this.$router.push({
+                    path:'/detils',
+                    query:{
+                            id:id
+                    }
+            })
     }
   }
 }
 </script>
 <style scoped>
-.other_works_show{
+.mother_works_show{
   margin-bottom: 60px;
 }
 .show_top{
@@ -142,10 +128,13 @@ export default {
   font-size: 18px;
   margin-top: 20px ;
   display: flex;
-  
+}
+.imgall{
+        width: 100%;
+        /* overflow-x: hidden; */
 }
 .lists{
-  cursor: default; 
+  cursor: default;
 }
 .lists:hover .list{
   color: #000;
@@ -169,75 +158,71 @@ export default {
 .list_img img{
   width: 15%;
 }
-
 .show{
-    margin-top: 12px;
-    display: flex;
-    justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
+        /* align-content:center; */
+        padding: 15px;
 }
-.other_works_item{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    
+
+.show>img{
+        flex: 1 1 auto;
+        margin: 0 10px 10px 0;
+        box-shadow: 2px 2px 5px #ccc;
+        /* width: 100%; */
+        height: 300px;
 }
-.other_works_item div:nth-of-type(2),
-.kong1{
-  margin: 29px 0;
+.show>img:last-child{
+        /* width: auto; */
 }
-.item3{
-  margin-top: 462px;
-}
-.item2{
-  margin: 0 42px;
-}
-.item2 div:nth-of-type(2){
-  width: 211%;
-}
-.show img{
-  width: 100%;
-}
-.kong{
-  width: 370px;
- 
-}
-.other_works_item1{
-  flex: 1;
+.show>div{
+        flex: 1 1 auto;
+        height: 100px;
+        font-display: flex;
 }
 .other_works_item2{
-  flex: 2;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+        /* position: fixed; */
+        max-width: 30%;
+        height: 100%;
+       display: flex;
+       padding: 5px;
+       flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+.other_works_item2 img{
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        height:  100%;
+         box-shadow: 2px 2px 5px #ccc;
 }
 .other_works_txt{
-  position: absolute;
-  top: 125px;
-  left: 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+        position: relative;
+        z-index: 9;
+        height: 80px;
+        top: -80px;
+        background: rgba(0,0,0,0.5);
+        width: 100%;
+        padding: 5px 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 }
-.other_works_txt>h2{
-  color: #fff;
-  padding-bottom: 25px;
-  font-size: 25px;
+.other_works_txt>h4{
+      color: #eee;
 }
-.other_works_txt>p{
-  color: #fff;
-  font-size: 13px;
-  text-align: center;
-  padding: 0 30px 45px 30px;
+.other_works_txt>p:nth-child(2){
+        width: 90%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: block;
+        color: #ddd;
+        font-size: 15px;
 }
-.other_works_txt span{
-  padding: 15px 50px;
-  text-align: center;
-  background-color: #fbad03;
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
+.other_works_txt>span:nth-child(3){
+        color: #EB3941;
+        font-size: 13px;
 }
-
 </style>

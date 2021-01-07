@@ -33,7 +33,7 @@
        <div>
          <!-- <img src="" alt="">
          <img src="" alt=""> -->
-         <v-otherwords @shangchuan="shangchuan" ></v-otherwords>
+         <v-otherwords :list="list" @shangchuan="shangchuan" ></v-otherwords>
        </div>
        <div>
 
@@ -142,7 +142,7 @@
    </div>
    <v-combotttom></v-combotttom>
    <div class="tanchuang" v-show="isshow" @click.self="shows" >
-               <v-shangchuan @close="close" ></v-shangchuan>
+               <v-shangchuan @close="close" @fabu="fabu"></v-shangchuan>
    </div>
  </div>
 </template>
@@ -165,8 +165,12 @@ export default {
               require( '../../../static/img/activity/dd_icon_active.png'),
               require('../../../static/img/activity/qd_icon_active.png'),
               require('../../../static/img/activity/yy_icon_active.png')
-      ]
+      ],
+      list:[]
     }
+  },
+  mounted() {
+        this.ispost()
   },
   methods: {
     mouse_leave(index){
@@ -199,7 +203,20 @@ export default {
     shangchuan(){
       this.isshow = true
     },
-    
+    fabu(){
+            this.ispost()
+    },
+    ispost(){
+            this.$api.fleadata()
+            .then(res=>{
+                    console.log(res)
+                    this.list = res.data
+                    console.log(this.list)
+            })
+            .catch(err=>{
+                    console.log(err)
+            })
+    }
   },
   components:{
     'v-otherwords':otherwords,
@@ -213,7 +230,7 @@ export default {
 <style>
 
 .activity_all{
-  background: #f4f4f4;
+  background: #f5f5f5;
   display: flex;
   flex-direction: column;
   align-items: center;
