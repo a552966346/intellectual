@@ -1,22 +1,22 @@
 <template>
-  <div class="all">
-    <div class="tanchuang_all">
-      <div class="tanchuang_title">
+  <div class="shangchuan_all">
+    <div class="shangchuan_tanchuang_all">
+      <div class="shangchuan_tanchuang_title">
             <!-- left -->
-            <div class="tanchuang_title_l">
-                <div class="tanchuang_title_img">
+            <div class="shangchuan_tanchuang_title_l">
+                <div class="shangchuan_tanchuang_title_img">
                     <img src="../../../static/img/copyright/tc_z.png" alt="" >
                 </div>
-                <div class="tanchuang_title_text">上传我的作品</div>
+                <div class="shangchuan_tanchuang_title_text">上传我的作品</div>
             </div>
             <!-- right -->
-            <div class="tanchuang_title_r" @click="close">
+            <div class="shangchuan_tanchuang_title_r" @click="close">
                 <img src="../../../static/img/copyright/close.png" alt="" >
             </div>
 
       </div>
-      <div class="tanchuang_body">
-        <div class="tanchuang_bodytit">填写详情</div>
+      <div class="shangchuan_tanchuang_body">
+        <div class="shangchuan_tanchuang_bodytit">填写详情</div>
         <el-form ref="form_rul" :model="form1" label-width="100px" :rules="form_rul">
           <el-form-item label="产品名称" prop="name">
             <el-input v-model="form1.name"
@@ -164,11 +164,11 @@ export default {
 </script>
 
 <style scoped>
-.all {
+.shangchuan_all {
   padding: 20px;
-  width: 35%;
+  width: 40%;
 }
-.tanchuang_all {
+.shangchuan_tanchuang_all {
   border-radius: 10px;
   background: #fff;
   overflow: hidden;
@@ -177,13 +177,13 @@ export default {
         text-align: center !important;
 
 }
-.tanchuang_title_text {
+.shangchuan_tanchuang_title_text {
   font-size: 15px;
   height: 50px;
   display: flex;
   align-items: center;
 }
-.tanchuang_title {
+.shangchuan_tanchuang_title {
   background: #29334c;
   color: white;
   display: flex;
@@ -192,32 +192,32 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
-.tanchuang_title_img{
+.shangchuan_tanchuang_title_img{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
   margin-right: 8px;
 }
-.tanchuang_title_l{
+.shangchuan_tanchuang_title_l{
   display: flex;
 }
-.tanchuang_title_r{
+.shangchuan_tanchuang_title_r{
   margin-right: 5px;
   height: 50px;
   display: flex;
   align-items: center;
 }
-.tanchuang_title_r img{
+.shangchuan_tanchuang_title_r img{
   height: 36px;
 }
-.tanchuang_bodytit {
+.shangchuan_tanchuang_bodytit {
   font-size: 16px;
   text-align: center;
   padding: 30px;
   color: #484848;
 }
-.tanchuang_body {
+.shangchuan_tanchuang_body {
   width: 400px;
   margin: 0 auto;
 

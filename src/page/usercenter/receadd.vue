@@ -12,38 +12,41 @@
             <span class="receadd_sapn">您已创建<span>{{numb}}</span>个收件地址!</span>
             <button class="receadd_btn" @click="create">新建收货地址</button>
             <el-table
-                :data="recedalist"
-                height="250"
+                :data="recedalist" 
+                height="250px"
                 border
-                style="width: 100%">
+                style="width: 80%;"
+                :header-cell-style="{'text-align':'center'}"
+                :cell-style="{'text-align':'center'}">
                 <el-table-column
                 prop="recipients"
                 label="姓名"
-                width="80">
+                width="100">
                 </el-table-column>
                 <el-table-column
                 prop="mobile"
                 label="手机号"
-                width="120">
+                width="180">
                 </el-table-column>
                 <el-table-column
                 prop="province_text"
                 label="省份"
-                width="80">
+                width="100">
                 </el-table-column>
                 <el-table-column
                 prop="city_text"
                 label="市"
-                width="80">
+                width="100">
                 </el-table-column>
                 <el-table-column
                 prop="area_text"
                 label="区"
-                width="80">
+                width="100">
                 </el-table-column>
                 <el-table-column
                 prop="address"
-                label="详细地址">
+                label="详细地址"
+                >
                 </el-table-column>
             </el-table>
         </div>
@@ -163,7 +166,7 @@ import receadd from '@/components/usercenter/receadd.vue'//求购弹窗
         height: 15px;
         margin: 5px 0px 0px 15px;
     }
-    .receadd_btn{width: 150px;height: 40px; color: white;background-color: red;border: none;font-size: 16px;margin-top: 10px;}
+    .receadd_btn{width: 150px;height: 40px; color: white;background-color: red;border: none;font-size: 16px;margin-top: 10px;margin-bottom: 20px;}
     .receadd_sapn{
         font-size: 14px;
     }

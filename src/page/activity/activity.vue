@@ -40,13 +40,13 @@
        </div>
      </div>
      <!-- 交易流程 -->
-     <div class="transaction_flow">
+     <div class="flex_transaction_flow">
        <p>交易流程</p>
-       <div class="transaction_flow_title">
+       <div class="flex_transaction_flow_title">
          <p>OTHER CASES</p>
          <div class="line"></div>
        </div>
-       <div class="transaction_flow_content">
+       <div class="flex_transaction_flow_content">
          <div @mouseleave='mouse_leave(0)' @mouseover="mouse_over(0)">
            <img :src="transaction_imglist[0]" alt="">
            <h3>查阅作品</h3>
@@ -303,38 +303,40 @@ export default {
   font-size: 34px;
 }
 /* 交易流程 */
-.transaction_flow{
+.flex_transaction_flow{
   width: 1200px;
 }
-.transaction_flow>p{
+.flex_transaction_flow>p{
   font-size: 34px;
 }
-.transaction_flow_title{
+.flex_transaction_flow_title{
   font-size: 26px;
 }
-.transaction_flow_title>p{
+.flex_transaction_flow_title>p{
   padding: 20px 0;
 }
-.transaction_flow_content{
+.flex_transaction_flow_content{
   display:flex;
   align-items: center;
   padding: 30px 0;
 }
-.transaction_flow_content>div{
+.flex_transaction_flow_content>div{
   flex: 1;
   margin:0 1%;
   padding:30px 25px 60px;
   font-size: 14px;
+  height: 384px;
+  background-color:#fff;
 }
-.transaction_flow_content>div:hover{
+.flex_transaction_flow_content>div:hover{
   background: #187fc4;
   color:#fff
 }
-.transaction_flow_content>div>img{
+.flex_transaction_flow_content>div>img{
   width: 60px;
   padding:30px 0 ;
 }
-.transaction_flow_content>div>h3{
+.flex_transaction_flow_content>div>h3{
   font-size: 25px;
   font-weight: normal;
   padding: 20px 0;
@@ -435,19 +437,19 @@ export default {
 }
 
 /* 轮播图 */
-  .el-carousel__item{
+  .activity_zone_right .el-carousel__item{
     padding: 5%;
     display: flex;
     flex-direction: column;
   }
 
-  .el-carousel__item:nth-child(2n) {
+  .activity_zone_right .el-carousel__item:nth-child(2n) {
     background-color: #fff;
     border-radius: 10px;
     border: 1px solid #ccc;
   }
 
-  .el-carousel__item:nth-child(2n+1) {
+  .activity_zone_right .el-carousel__item:nth-child(2n+1) {
     background-color: #fff;
     border-radius: 10px;
     border: 1px solid #ccc;

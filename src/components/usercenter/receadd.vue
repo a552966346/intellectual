@@ -1,18 +1,18 @@
 <template>
-  <div class="all">
-    <div class="tanchuang_all">
-      <div class="tanchuang_title">
+  <div class="receadds_all">
+    <div class="receadds_tanchuang_all">
+      <div class="receadds_tanchuang_title">
         <!-- left -->
-        <div class="tanchuang_title_l">
-          <div class="tanchuang_title_text">添加收件地址</div>
+        <div class="receadds_tanchuang_title_l">
+          <div class="receadds_tanchuang_title_text">添加收件地址</div>
         </div>
         <!-- right -->
-        <div class="tanchuang_title_r" @click="close">
+        <div class="receadds_tanchuang_title_r" @click="close">
           <img src="../../../static/img/copyright/close.png" alt="" />
         </div>
       </div>
-      <div class="tanchuang_body">
-        <div class="tanchuang_bodytit"></div>
+      <div class="receadds_tanchuang_body">
+        <div class="receadds_tanchuang_bodytit"></div>
         <el-form
           ref="form_rul"
           :model="form1"
@@ -283,11 +283,11 @@ export default {
 </script>
 
 <style>
-.all {
+.receadds_all {
   padding: 20px;
   width: 40%;
 }
-.tanchuang_all {
+.receadds_tanchuang_all {
   border-radius: 10px;
   overflow: hidden;
   background: #fff;
@@ -295,13 +295,13 @@ export default {
 .el-form-item__label {
   text-align: center !important;
 }
-.tanchuang_title_text {
+.receadds_tanchuang_title_text {
   font-size: 15px;
   height: 50px;
   display: flex;
   align-items: center;
 }
-.tanchuang_title {
+.receadds_tanchuang_title {
   background: #29334c;
   color: white;
   display: flex;
@@ -311,22 +311,22 @@ export default {
   align-items: center;
 }
 
-.tanchuang_title_l {
+.receadds_tanchuang_title_l {
   display: flex;
 }
-.tanchuang_title_r {
+.receadds_tanchuang_title_r {
   margin-right: 5px;
   height: 50px;
   display: flex;
   align-items: center;
 }
-.tanchuang_title_r img {
+.receadds_tanchuang_title_r img {
   height: 36px;
 }
-.tanchuang_bodytit {
+.receadds_tanchuang_bodytit {
   padding: 25px;
 }
-.tanchuang_body {
+.receadds_tanchuang_body {
   width: 400px;
   margin: 0 auto;
 }
