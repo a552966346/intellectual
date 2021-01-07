@@ -47,23 +47,27 @@
          <div class="line"></div>
        </div>
        <div class="flex_transaction_flow_content">
-         <div @mouseleave='mouse_leave(0)' @mouseover="mouse_over(0)">
-           <img :src="transaction_imglist[0]" alt="">
+         <div @mouseout='mouse_out' @mouseover="mouse_over">
+               <img :src="transaction_imglist[0]" v-show="!imgshow">
+               <img :src="image[0]" v-show="imgshow">
            <h3>查阅作品</h3>
            <p>智创城NO.1——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界第一景观设计事务所美国AECOM领衔。</p>
          </div>
-         <div @mouseleave='mouse_leave(1)' @mouseover="mouse_over(1)">
-           <img :src="transaction_imglist[1]" alt="">
+         <div @mouseout='mouse_out1' @mouseover="mouse_over1">
+           <img :src="transaction_imglist[1]" v-show="!imgshow1">
+           <img :src="image[1]" v-show="imgshow1">
            <h3>预约看样</h3>
            <p>智创城NO.2——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手世界。</p>
          </div>
-         <div @mouseleave='mouse_leave(2)' @mouseover="mouse_over(2)">
-           <img :src="transaction_imglist[2]" alt="">
+         <div @mouseout='mouse_out2' @mouseover="mouse_over2">
+           <img :src="transaction_imglist[2]" v-show="!imgshow2">
+           <img :src="image[2]" v-show="imgshow2">
            <h3>签订合同</h3>
            <p>智创城NO.3——伊甸城创新创业基地位于山西转型综合改革示范区大学城产的建筑设计事务所美国RTKL携手。</p>
          </div>
-         <div @mouseleave='mouse_leave(3)' @mouseover="mouse_over(3)">
-           <img :src="transaction_imglist[3]" alt="">
+         <div @mouseout='mouse_out3' @mouseover="mouse_over3">
+           <img :src="transaction_imglist[3]" v-show="!imgshow3">
+           <img :src="image[3]" v-show="imgshow3">
            <h3>交易完成</h3>
            <p>智创城NO.4——伊甸城创新创业基地位于山西转型综合改革示范区大学。</p>
          </div>
@@ -154,15 +158,19 @@ export default {
   data(){
     return{
       isshow:false,
+      imgshow:false,
+      imgshow1:false,
+      imgshow2:false,
+      imgshow3:false,
       transaction_imglist:[
               require('../../../static/img/activity/cy_icon.png'),
-              require( '../../../static/img/activity/dd_icon.png'),
+              require('../../../static/img/activity/dd_icon.png'),
               require('../../../static/img/activity/qd_icon.png'),
               require('../../../static/img/activity/yy_icon.png')
       ],
       image:[
               require('../../../static/img/activity/cy_icon_active.png'),
-              require( '../../../static/img/activity/dd_icon_active.png'),
+              require('../../../static/img/activity/dd_icon_active.png'),
               require('../../../static/img/activity/qd_icon_active.png'),
               require('../../../static/img/activity/yy_icon_active.png')
       ],
@@ -173,29 +181,29 @@ export default {
         this.ispost()
   },
   methods: {
-    mouse_leave(index){
-      if(index == 0){
-        var srt_url = this.transaction_imglist[0]
-      }else if(index == 1){
-        var srt_url = this.transaction_imglist[1]
-      }else if(index==2){
-        var srt_url = this.transaction_imglist[2]
-      }else{
-        var srt_url =this.transaction_imglist[3]
-      }
-      this.$set(this.transaction_imglist,index,srt_url)
+    mouse_out(){//移出
+      this.imgshow= false
     },
-    mouse_over(index){
-      if(index == 0){
-        var srt_url = this.image[0]
-      }else if(index == 1){
-        var srt_url = this.image[1]
-      }else if(index==2){
-        var srt_url =this.image[2]
-      }else{
-        var srt_url =this.image[3]
-      }
-      this.$set(this.transaction_imglist,index,srt_url)
+    mouse_over(){//移入
+      this.imgshow= true
+    },
+    mouse_out1(){//移出
+      this.imgshow1= false
+    },
+    mouse_over1(){//移入
+      this.imgshow1= true
+    },
+    mouse_out2(){//移出
+      this.imgshow2= false
+    },
+    mouse_over2(){//移入
+      this.imgshow2= true
+    },
+    mouse_out3(){//移出
+      this.imgshow3= false
+    },
+    mouse_over3(){//移入
+      this.imgshow3= true
     },
     close(){
        this.isshow = false
@@ -409,7 +417,7 @@ export default {
   left: 0;
 }
 .activity_left_bottom_none img{
-  width: 100%;
+  width: 101%;
   height: 140px;
 
 }
