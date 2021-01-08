@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="works_title" @scroll="scroll">
     <v-topsearch></v-topsearch>
     <v-navigation></v-navigation>
     <div class="works_all">
@@ -12,16 +12,11 @@
               <span :class="{ sortactive: this.sortnumber == 2 }" @click="comsort(2)">价格排序<i class="el-icon-bottom patent_sorticon"></i></span>
         </div>
         <v-workson :wks="wks" @kefu="kefu" ></v-workson>
-        <div class="copyright_page">
-               <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page.sync="currentPage"
-                      :page-size="pagesize" layout="prev, pager, next, jumper" :total="total">
-               </el-pagination>
-        </div>
         <div class="worksbottom">
             <v-worksbottom :listdata="listdata" @kefu="kefu"></v-worksbottom>
         </div>
       </div>
-      
+
     </div>
     <v-combotttom ></v-combotttom>
     <!-- 客服弹窗 -->
@@ -93,42 +88,11 @@ export default {
           fee: "59000",
         },
       ],
-      listdata:[
-        {
-          images_text: "../../../static/img/activity/other1-1.png",
-          name: "美少女",
-          fee: "59000",
-        },
-        {
-          images_text: "../../../static/img/activity/other2-1.png",
-          name: "名字",
-          fee: "59000",
-        },
-        {
-          images_text: "../../../static/img/activity/other3-1.png",
-          name: "名字",
-          fee: "5900",
-        },
-        {
-          images_text: "../../../static/img/activity/other2-1.png",
-          name: "名字",
-          fee: "59000",
-        },
-        {
-          images_text: "../../../static/img/activity/other1-1.png",
-          name: "美少女",
-          fee: "59000",
-        },
-      ],
+      listdata:[], //图片
       sortnumber: 0, //左侧边排序切换
-      // 分页
-      currentPage: 1,
-      pagesize: 1,
-      total:1,
-      val:1
     };
   },
- 
+
   methods: {
     kefu() {
       this.isshowtwo = true;
@@ -165,21 +129,6 @@ export default {
             this.id = id
             // this.ispost(id)
     },
-    // // 请求列表id
-    // ispost(id) {
-    //         this.$api.getlist(id)
-    //                 .then(res => {
-    //                         this.iscent = res.data.lists.data
-    //                         this.listdata = res.data.youlike
-    //                         // 分页
-    //                         this.total=res.data.lists.total;
-                            // this.currentPage=res.data.lists.current_page;
-    //                         this.pagesize=res.data.lists.per_page;
-                            
-    //                 })
-    //                 .catch(res=>{
-    //                 })
-    // },
     //清空筛选
     choosenull() {
             this.iscolor = []
@@ -191,15 +140,10 @@ export default {
     delet(id){
             // this.ispost(id)
     },
-   
-    // 分页
-    handleSizeChange(val) {
-    },
-    handleCurrentChange(val) {
-        // 输入页数
-        this.id[12] = val
-        this.ispost(this.id)
-        document.getElementById("transfer").scrollIntoView()
+    scroll(event){
+            
+             let scrollBottom =event.target.scrollHeight -event.target.scrollTop -event.target.clientHeight;
+             console.log(scrollBottom)
     }
   },
   components: {
@@ -211,6 +155,7 @@ export default {
 };
 </script>
 <style scoped>
+      .works_title{height: 95%; overflow-y: scroll;}
       .tanchuang {position: fixed;z-index: 9999;background: rgba(0, 0, 0, 0.2);width: 100%; height: 100%;top: 0;right: 0;left: 0;bottom: 0;display: flex;justify-content: center;align-items: center;}
       .works_all {display: flex;flex-direction: column;align-items: center;}
       .works {width: 1200px;}
@@ -226,4 +171,3 @@ export default {
       .copyright_page input{color: #666;font-size: 14px;width: 40px;height: 31px;line-height: 31px;border: 1px solid #f0f0f0;outline: none;padding: 0 5px;outline: none;}
       .copyright_page button:hover{background-color: #3b5791;color: #fff;outline: none;}
 </style>
-                        

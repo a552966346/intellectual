@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="active">
    <v-topsearch></v-topsearch>
    <v-navigation></v-navigation>
   <!-- 活动专区 -->
@@ -174,10 +174,9 @@ export default {
               require('../../../static/img/activity/qd_icon_active.png'),
               require('../../../static/img/activity/yy_icon_active.png')
       ],
+      scroll:''
       // list:[]
     }
-  },
-  mounted() {
   },
   methods: {
     mouse_out(){//移出
@@ -212,17 +211,7 @@ export default {
     },
     fabu(){
     },
-    // ispost(){
-    //         this.$api.fleadata()
-    //         .then(res=>{
-    //                 console.log(res)
-    //                 this.list = res.data
-    //                 console.log(this.list)
-    //         })
-    //         .catch(err=>{
-    //                 console.log(err)
-    //         })
-    // }
+
   },
   components:{
     'v-otherwords':otherwords,
@@ -234,12 +223,12 @@ export default {
 
 </script>
 <style>
-
 .activity_all{
   background: #f5f5f5;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 .line{
   width:120px;
