@@ -33,7 +33,7 @@
        <div>
          <!-- <img src="" alt="">
          <img src="" alt=""> -->
-         <v-otherwords :list="list" @shangchuan="shangchuan" ></v-otherwords>
+         <v-otherwords  @shangchuan="shangchuan" ></v-otherwords>
        </div>
        <div>
 
@@ -174,11 +174,10 @@ export default {
               require('../../../static/img/activity/qd_icon_active.png'),
               require('../../../static/img/activity/yy_icon_active.png')
       ],
-      list:[]
+      // list:[]
     }
   },
   mounted() {
-        this.ispost()
   },
   methods: {
     mouse_out(){//移出
@@ -212,19 +211,18 @@ export default {
       this.isshow = true
     },
     fabu(){
-            this.ispost()
     },
-    ispost(){
-            this.$api.fleadata()
-            .then(res=>{
-                    console.log(res)
-                    this.list = res.data
-                    console.log(this.list)
-            })
-            .catch(err=>{
-                    console.log(err)
-            })
-    }
+    // ispost(){
+    //         this.$api.fleadata()
+    //         .then(res=>{
+    //                 console.log(res)
+    //                 this.list = res.data
+    //                 console.log(this.list)
+    //         })
+    //         .catch(err=>{
+    //                 console.log(err)
+    //         })
+    // }
   },
   components:{
     'v-otherwords':otherwords,

@@ -16,23 +16,25 @@
        <div >
                <div class="show_cen">
                        <div class="lists" v-for="(item,index) in list" :key="index">
-                           <div class="list"  @click="istype(index)">{{item.name}}</div>
+                           <div class="list"  @click="istype(item.id,index)">{{item.name}}</div>
                            <div class="list_img">
                              <img src="../../../static/img/activity/arrow.png" alt="">
                            </div>
                        </div>
                     </div>
                     <div class="imgall">
-                            <div class="show" v-for="(item,index) in images" :key="index" v-show="cshow ==index">
-                                        <div class="waterFall-box" ref="box">
-                                            <div class="img-box" v-for="(item1, index) in item.flea" :key="index" ref="img">
+                            <div class="show">
+                                        <div class="waterFall-box" ref="box" >
+                                            <div class="img-box" v-for="(item1, index) in images" :key="index" ref="img" @mouseover="enter(index)" @mouseleave="leave">
                                               <img :src="item1.images" alt="">
+                                              <div class="other_works_txt" v-show="seen==index">
+                                                      <h4>{{item1.name}}</h4>
+                                                      <p>{{item1.summarize}}</p>
+                                                      <span>{{item1.fee}}</span>
+                                              </div>
                                             </div>
-                                            <footer v-if="isLoad == false"
-                                                    :style="{position: 'absolute', top: Math.max(...heightArray)+'px', color: 'red', left: '50%', transform: 'translateX(-50%)'}">
-                                              没有图片加载了...
-                                            </footer>
                                           </div>
+                                          <router-link to="/works">查看更多>></router-link>
                             </div>
                     </div>
 
@@ -49,58 +51,27 @@ export default {
       cshow:0,
       flea:[],
        images: [], //存储图片资源
-      imgWidth: 220, //图片的宽度
+      imgWidth: 300, //图片的宽度
       heightArray: [],  //存储高度数组，用于判断最小高度的图片位置
       isLoad: true,  //是否继续加载图片
       surplusW: 0, //是否存在剩余宽度
       offsetP: 0,
-      count: 0
+      count: 0,
+       list:[]
     }
   },
   props:{
-    list:''
+
   },
   created() {
-          this.$api.fleadata()
-          .then(res=>{
-                  console.log(res)
-                  this.images  = res.data
-                   this.loadImgHeight()
-          })
-          .catch(err=>{
-                  console.log(err)
-          })
+       this.$api.fleaclass()
+       .then(res=>{
+               console.log(res)
+               this.list = res.data
+               this.ispost(res.data[0].id)
+       })
   },
   mounted() {
-        const _this = this
-              //监听滚动条滚动，实现懒加载图片
-              window.addEventListener('scroll', function () {
-                //得到可滚动距离
-                const scrollDistance = document.documentElement.scrollHeight - document.documentElement.clientHeight
-                //滚动到顶部的距离
-                const scroll = document.documentElement.scrollTop
-                if (scrollDistance == scroll) {
-                  _this.$api.fleadata()
-                  .then(res=>{
-                    if (res.data.code == 200) {
-                      _this.count += 1
-                      if(_this.count == 4) {
-                        _this.isLoad = false
-                      }
-                      if(_this.isLoad) {
-                        const start = _this.images.length
-                        for (let item of res.data.data) {
-                          _this.images.push(item)
-                        }
-                        //滑到底部继续加载图片，this.$nextTick()异步加载，待资源虚拟DOM加载完毕
-                        _this.$nextTick(() => {
-                          _this.positionImg(start)
-                        })
-                      }
-                    }
-                  })
-                }
-              })
   },
   methods:{
     shangchuan(){
@@ -113,11 +84,24 @@ export default {
         this.seen = index
 
     },
+    ispost(id){
+            this.$api.fleadata(id)
+            .then(res=>{
+                    console.log(res)
+                    this.heightArray = []
+                    this.images  = res.data
+                     this.loadImgHeight()
+            })
+            .catch(err=>{
+                    console.log(err)
+            })
+    },
     leave(){
         this.seen = null
     },
-    istype(index){
+    istype(id,index){
             this.cshow= index
+            this.ispost(id)
     },
     running(id){
             this.$router.push({
@@ -134,9 +118,8 @@ export default {
             let count = 0 //计数变量 判断是否预加载图片是否完成
             this.images.forEach((item) => {
               //使用image类预加载图片
-              item.flea.forEach((item1)=>{
                       let image = new Image()
-                      image.src = item1.img
+                      image.src = item.images
                       image.onload = image.onerror = event => {
                         count++
                         if(count == this.images.length) {
@@ -146,7 +129,6 @@ export default {
                           })
                         }
                       }
-              })
             })
           },
           /**
@@ -156,9 +138,10 @@ export default {
            * */
           init() {
             //得到页面的宽度
-            const pageWidth_padding = this.$refs.box[0].clientWidth
+            const pageWidth_padding = this.$refs.box.clientWidth
             //页面的padding像素
-            this.offsetP = this.$refs.box[0].style.paddingLeft.replace(/[^0-9]/ig, "")
+            this.offsetP = this.$refs.box.style.paddingLeft.replace(/[^0-9]/ig, "")
+
             //获得页面的真实宽度（除去padding、margin、border...）
             const pageWidth = pageWidth_padding - (this.offsetP * 2)
             //计算出当前页面可展示多少列图片
@@ -166,7 +149,7 @@ export default {
             //偏移像素值
             this.surplusW = pageWidth - (column * this.imgWidth)
             //初始化存储高度数组
-            for (let i = 0; i < column; i++) {
+            for (let i = 0; i <column; i++) {
               this.heightArray.push(0)
             }
           },
@@ -179,22 +162,25 @@ export default {
           positionImg(start) {
             //获得img标签的父容器的DOM
             let parentDom = this.$refs.img
-            for (let i = start; i < this.images[0].flea.length; i++) {
+
+            for (let i = start; i < this.images.length; i++) {
               //获得最小高度
               const minHeight = Math.min(...this.heightArray)
               //获得最小高度索引
               const index = this.heightArray.indexOf(minHeight)
               //获得当前图片的高度
               const currHeight = parentDom[i].clientHeight
+
               //定位
-              parentDom[i].style.transform = '50px'
+              parentDom[i].style.transform = '10px'
               parentDom[i].style.position = 'absolute'
               parentDom[i].style.top = minHeight + 'px'
+              // console.log(parentDom[i].style.top)
               parentDom[i].style.left = this.imgWidth * index + + ((Math.floor((this.surplusW / 2)) + 30)) +  'px'
               this.heightArray[index] += currHeight
             }
             //对父容器赋值当前heightArray数组的最大高度
-            this.$refs.box[0].style.height = Math.max(...this.heightArray) + 50 + 'px'
+            this.$refs.box.style.height = Math.min(...this.heightArray) + 20 + 'px'
           }
   }
 }
@@ -279,55 +265,28 @@ export default {
 }
 .show{
         display: flex;
+        text-align: center;
         /* flex-wrap: wrap; */
         flex-direction: column;
         /* align-content:center; */
-        padding: 15px;
+        padding: 15px 0;
 }
-
-/* .show>img{
-        flex: 1 1 auto;
-        margin: 0 10px 10px 0;
-        box-shadow: 2px 2px 5px #ccc;
-
-        height: 300px;
-} */
-.show-hang{
-        display: flex;
-        height: 200px;
-        overflow: hidden;
-}
-.show-img{
-        height: 100%;
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-}
-.show-img>div{
-       width: 100%;
-}
-.show-img>div>img{
-        width: 100%;
-}
-.other_works_item2 img{
-        width: 100%;
-        display: flex;
-        justify-content: start;
-        height:  100%;
-         box-shadow: 2px 2px 5px #ccc;
+a{
+        padding: 10px 0;
+        color: #555;
+        font-size: 20px;
 }
 .other_works_txt{
-        position: relative;
-        z-index: 9;
+        position: absolute;
+        z-index: 99;
         height: 80px;
-        top: -80px;
+        bottom: 0px;
         background: rgba(0,0,0,0.5);
         width: 100%;
         padding: 5px 8px;
-        display: flex;
+        /* display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: center; */
 }
 .other_works_txt>h4{
       color: #eee;
@@ -350,12 +309,13 @@ export default {
 
  .waterFall-box {
             position: relative;
-            text-align: center;
+            /* text-align: center; */
             overflow-y: hidden;
+            overflow-x: hidden;
           }
 
           .waterFall-box .img-box {
-            width: 210px;
+            width: 290px;
             vertical-align: top;
             display: block;
             float: left;

@@ -838,8 +838,11 @@ const api = {
         fleaclass(){
                 return requestAll.requset(baseUrl + '/api/flea/category_data');
         },
-        fleadata(){
-                return requestAll.requset(baseUrl + '/api/flea/flea_data');
+        fleadata(category_id){
+                let data = {
+                        category_id:category_id
+                }
+                return requestAll.requset(baseUrl + '/api/flea/flea_data',data);
         }
 }
 export default api;
