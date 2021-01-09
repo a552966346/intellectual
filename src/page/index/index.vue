@@ -381,6 +381,8 @@
 </template>
 
 <script>
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.min.css';
 import indexpayitem from "@/components/indexpayitem/indexpayitem.vue";
 import navigation from "@/components/navigation/navigation.vue";
 import banner from "@/components/banner/banner.vue";
@@ -672,19 +674,6 @@ export default {
     };
   },
   mounted() {
-          this.$nextTick(function(){
-                  new Swiper(".swiper-container", {
-                    loop: true,
-                    slidesPerView: 3,
-                    observer: true,
-                    spaceBetween: 30,
-                    // 如果需要分页器
-                    // pagination: '.swiper-pagination',
-                    // 如果需要前进后退按钮
-                    nextButton: ".swiper-button-next",
-                    prevButton: ".swiper-button-prev",
-                  });
-          })
     this.$api.getidnexdeal().then((res) => {
       this.hot = res.data.hot;
       this.transaction = res.data.transaction;
@@ -714,6 +703,9 @@ export default {
     this.$api.getydbrief().then((res) => {
       this.brief = res.data.brief;
       this.introimage = res.data.images;
+       this.$nextTick(function() {
+              this.swper()
+      })
     })
     .catch(res=>{
     })
@@ -735,6 +727,21 @@ export default {
     open(index) {
       this.isshow = true;
     },
+     swper() {
+
+    new Swiper('.swiper-container', {
+            slidesPerView: 3, // 每页展示几个
+            slidesPerGroup: 1, // 每屏滚动几个
+            // spaceBetween: 30,
+            // 如果需要前进后退按钮
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            observer: true, // 动态检查器,自动初始化swiper,默认为false
+            observerParents: true, //将observe应用于Swiper的父元素.当Swiper的父元素变化时,Swiper更新.如window.resize.
+            loop:true,
+    })
+
+},
     close() {
       this.isshow = false;
     },
@@ -853,13 +860,25 @@ a:hover {
 }
 /* 伊甸网简介轮播图 */
 .swiper-container {
-  flex: 1;
-  height: 0;
-  padding: 20px 0px;
+        flex: 1;
+        height: 0;
+        width: 100%;
+        padding: 20px 0px;
 }
+
 .swiper-wrapper {
-  /* width: 100%; */
-  height: 100%;
+        /* width: 100%; */
+        height: 100%;
+}
+
+.swiper-slide {
+        height: 100%;
+        /* width: 100%; */
+}
+
+.swiper-slide>img {
+        /* width: 100%; */
+        height: 100%;
 }
 
 /* 企业服务*/

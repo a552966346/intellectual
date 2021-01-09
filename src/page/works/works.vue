@@ -142,7 +142,8 @@ export default {
     // 分类筛选
     choosecon(id) {
             this.id = id
-            this.ispost(1,this.id)
+             this.page = 1
+            this.ispost( this.page,this.id)
     },
     enter(index){
         this.seen =index
@@ -152,7 +153,8 @@ export default {
     },
     search(id){
             this.id = id
-            this.ispost(1,id)
+              this.page = 1
+            this.ispost( this.page,id)
     },
     //清空筛选
     choosenull() {
@@ -160,11 +162,12 @@ export default {
             this.screetext = []
             this.id = {}
             this.page = 1
-            // this.ispost()
+             this.ispost(1,this.id)
     },
     //删除条件
     delet(id){
-            this.ispost(1,id)
+            this.page = 1
+            this.ispost(this.page,id)
     },
     scroll(e){
             const _this = this
