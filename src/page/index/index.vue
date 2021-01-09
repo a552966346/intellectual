@@ -1295,14 +1295,13 @@ a:hover {
   display: flex;
   align-content: center;
   border-left: 1px solid #ccc;
-  overflow: hidden;
   font-size: 12px;
   color: #666;
   padding-left: 20px;
   padding-right: 15px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   overflow: hidden;
   text-align: justify;
 }

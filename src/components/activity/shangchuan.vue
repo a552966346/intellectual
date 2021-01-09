@@ -72,6 +72,7 @@ export default {
         money:''
       },
       options:[],
+      signoutShows:'',
       option:[
           // {name:'美术作品'},{name:'摄影作品'},{name:'雕塑'},{name:'生活创意作品'},{name:'影视作品'},{name:'建筑作品'},{name:'汉服设计'},{name:'创意作品'},
      ],
@@ -110,13 +111,11 @@ export default {
   mounted() {
           this.$api.fleaclass()
           .then(res=>{
-                  console.log(res)
                   this.option = res.data
           })
           .catch(err=>{
-                  console.log(err)
           })
-         
+         this.signoutShows = this.$cookies.get("user");
   },
   methods:{
     close(){
@@ -157,6 +156,14 @@ export default {
     //         this.html = Math.random();
     // },
     fabu(fromname) {
+        if(this.signoutShows=='null'||this.signoutShows==null){
+              this.$message({
+                      message: '您还没有登录，请先登录',
+                      center: true,
+                      type: 'error'
+              });
+              this.$router.push({ path: '/login' })
+        }else{
             this.$refs[fromname].validate((valid) => {
               if(valid){
                     this.$api.addflea(this.$store.state.user.id,  this.form1.name,this.form1
@@ -186,6 +193,7 @@ export default {
               }
 
             })
+        }
     }
   },
 };

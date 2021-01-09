@@ -30,7 +30,7 @@
                                         <span class="rightCommon" @click="tip">?</span>
                                 </div>
                                 <p class="complete">
-                                        <span></span>
+                                        <span><img src="../../../static/img/service/bulb.png" alt=""></span>
                                         <span>完善更多专利信息，可尽快安排技术专家重新撰写</span>
                                         <span>点击完善</span>
                                 </p>
@@ -388,8 +388,11 @@
         .complete>span:nth-child(1) {
                 width: 15px;
                 height: 21px;
-                background: cornsilk;
                 margin-right: 7px;
+                margin-top: 7px;
+        }
+        .complete>span:nth-child(1)>img{
+                width: 100%;
         }
 
         .complete>span:nth-child(2) {

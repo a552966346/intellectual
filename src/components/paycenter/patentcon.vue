@@ -51,7 +51,7 @@
 
 <style scoped>
         .patent_product {
-                max-width: 1200px;
+                width: 1200px;
                 margin: 0 auto;
                 overflow: hidden;
         }

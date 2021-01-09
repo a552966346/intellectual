@@ -110,7 +110,7 @@ export default {
     box-sizing: border-box;
 }
 .patent_bottms{
-    max-width: 1200px;
+    width: 1200px;
     width: 100%;
     margin: 0 auto;
     background-color: #f6f6f6;
@@ -246,7 +246,7 @@ export default {
     margin: 0;
 }
 .patent_like{
-    max-width: 1200px;
+    width: 1200px;
     background-color: #fff;
     padding: 30px 0 0;
 }

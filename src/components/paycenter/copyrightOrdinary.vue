@@ -51,7 +51,7 @@
 <style scoped>
         /* 心仪版权 */
         .copyright_product {
-                max-width: 1200px;
+                width: 1200px;
                 margin: 0 auto;
                 overflow: hidden;
         }

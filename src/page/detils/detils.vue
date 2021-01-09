@@ -5,7 +5,7 @@
     <div class="fleadd_all">
           <div class="fleadd_banner"></div>
           <div class="fleadd_container">
-                <p>跳蚤市场>商品详情</p>
+                <div class="fleadd_container_text"><p style="font-size: 16px; color: #666;"><router-link to="/flea" style="color: #666;">跳蚤市场</router-link>>商品详情</p></div>
                 <div class="paint_example">
                   <div>
                     <div class="shadow"></div>
@@ -251,9 +251,7 @@ import {
     margin: auto;
     font-size: 16px;
 }
-.fleadd_container>p{
-  margin-top: 40px;
-}
+.fleadd_container_text {width:100%;padding:14px 0;font-size: 15px;}
 .line{
   width:120px;
   border-bottom: 2px solid #000;
@@ -261,8 +259,9 @@ import {
 .paint_example{
   margin: auto;
   display: flex;
-  padding: 40px 0;
+  padding: 10px 0;
   align-items: flex-end;
+  margin-bottom: 40px;
 }
 .paint_example>div:first-of-type{
   padding-right:80px;

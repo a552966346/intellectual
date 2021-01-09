@@ -76,7 +76,7 @@
 
 <style scoped>
         .copyright_bottms {
-                max-width: 1200px;
+                width: 1200px;
                 margin: 0 auto;
                 background-color: #f6f6f6;
                 padding-bottom: 20px;
@@ -261,7 +261,7 @@
         }
 
         .copyright_like {
-                max-width: 1200px;
+                width: 1200px;
                 background-color: #fff;
                 padding: 30px 0 0;
         }
