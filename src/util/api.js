@@ -126,7 +126,9 @@ const api = {
                                 is_exclusive: id[4],
                                 combination: id[5],
                                 strlenlength: id[6],
-                                keyword: id[7]
+                                keyword: id[7],
+                                creatime: id[8],
+                                feeorder: id[9],
                         }
                 }
                 return requestAll.requset(baseUrl + '/api/trademark/trademark_list', data);
@@ -851,7 +853,10 @@ const api = {
                let data = {
                        page:page,
                        category_id:id[0],
-                       fee:id[1]
+                       fee:id[1],
+                       creatime:id[2],
+                       feeorder:id[3],
+                       keyword:id[4]
                }
                 return requestAll.requset(baseUrl + '/api/flea/flealist_data',data);
         }

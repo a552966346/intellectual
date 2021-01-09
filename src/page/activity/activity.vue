@@ -454,7 +454,10 @@ export default {
     display: flex;
     flex-direction: column;
   }
-
+  .el-carousel, .el-carousel__item{
+          width: auto;
+          height: inherit;
+  }
   .activity_zone_right .el-carousel__item:nth-child(2n) {
     background-color: #fff;
     border-radius: 10px;
