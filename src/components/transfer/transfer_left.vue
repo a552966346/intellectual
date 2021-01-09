@@ -71,10 +71,10 @@
                                                 <p>发布时间：{{item.creatime_text}}</p>
                                         </div>
                                         <div class="text_leixin_right">
-                                                <div><img src="../../../static/img/transfer/transfer_xin.png"
+                                              <!--  <div><img src="../../../static/img/transfer/transfer_xin.png"
                                                                 alt=""></div>
                                                 <div><img src="../../../static/img/transfer/transfer_zhuanf.png"
-                                                                alt=""></div>
+                                                                alt=""></div> -->
                                                 <button @click="tankuang">
                                                         <img src="../../../static/img/transfer/transfer_kefu.png"
                                                                 alt="">

@@ -30,7 +30,7 @@
                                               <div class="other_works_txt" v-show="seen==index">
                                                       <h4>{{item1.name}}</h4>
                                                       <p>{{item1.summarize}}</p>
-                                                      <span>{{item1.fee}}</span>
+                                                      <span>￥{{item1.fee}}元</span>
                                               </div>
                                             </div>
                                           </div>
@@ -327,7 +327,7 @@ a{
           }
 
           .waterFall-box .img-box img:hover {
-            transform: translateY(-3px);
+            transform: translateY(-10px);
             transition: transform .5s ease-in-out;
             box-shadow: 0 20px 20px 2px #737373;
           }

@@ -8,27 +8,16 @@
                                         <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[3]" @click="choosecon(index,nubs,item[1],second)" :key="nubs" v-if="second !=''">{{second}}</span>
                                 </div>
                         </div>
-                        <!-- <div class="worksscree_leftrow">
-                                <div class="worksscree_lefthead">其他条件</div>
-                                <div class="worksscree_leftother">
-                                        <div class="worksscree_leftdrop" v-for="(item,index) in  data_two">
-                                                 <el-select v-model="value[index]" :placeholder="item[0]" @change="ischange(item[1],index)">
-                                                        <el-option
-                                                        v-for="(isitem,nubs) in item[2]"
-                                                        :key="nubs"
-                                                        v-if="isitem != 0"
-                                                        :label="isitem"
-                                                        :value="nubs"
-                                                        style="padding-left:10px;">
-                                                        </el-option>
-                                                    </el-select>
-                                        </div>
-                                        <div class="worksscree_leftdrop">
-                                            <input type="text" value="输入名称搜索商标" v-model="text" >
-                                            <span class="workstscreen_search"  @click="search">搜索</span>
-                                        </div>
-                                </div>
-                        </div> -->
+                       <!-- 其他条件 -->
+                       <div class="worksscree_leftrow">
+                               <div class="worksscree_lefthead">其他条件</div>
+                               <div class="worksscree_leftother">
+                                       <div class="worksscree_leftdrop">
+                                           <input type="text" value="输入作品名称" v-model="text" >
+                                           <span class="workstscreen_search"  @click="search">搜索</span>
+                                       </div>
+                               </div>
+                       </div>
                         <div class="worksscree_leftrow">
                                 <div class="worksscree_lefthead">筛选条件</div>
                                 <div class="worksscree_leftcontent">
@@ -39,35 +28,7 @@
                         </div>
                 </div>
 
-                <div class="worksscree_left" v-if="!type">
-                        <div class="worksscree_leftrow" v-for="(item,index) in servicelist" :key="index">
-                                <div class="worksscree_lefthead">{{item[0]}}</div>
-                                <div class="worksscree_leftcontent">
-                                        <span  :class="{color:iscolor[index] == null}" @click="choosecon(index,null,item[1],null)">不限</span>
-                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]" @click="choosecon(index,nubs,item[1],second)" :key="nubs" v-if="second !=''">{{second}}</span>
-                                </div>
-                        </div>
-                        <!-- 其他条件 -->
-                        <!-- <div class="worksscree_leftrow">
-                                <div class="worksscree_lefthead">其他条件</div>
-                                <div class="worksscree_leftother">
-                                        <div class="worksscree_leftdrop">
-                                            <input type="text" value="输入名称搜索商标" v-model="text" >
-                                            <span class="workstscreen_search"  @click="search">搜索</span>
-                                        </div>
-                                </div>
-                        </div> -->
-                        <!-- 筛选条件 -->
-                        <div class="worksscree_leftrow">
-                                <div class="worksscree_lefthead">筛选条件</div>
-                                <div class="worksscree_leftcontent">
-                                        <p @click="choosenull">清空筛选条件</p>
-                                        <span v-for="(item,index) in screetext" :key="index"  v-if="item != null || item != undefined" @click="delet(index)">{{item}}</span>
 
-                                </div>
-                        </div>
-                </div>
-                
         </div>
 </template>
 
@@ -75,12 +36,10 @@
 export default {
         data() {
                 return {
-                screetext: [],          //筛选条件
                 animate: false,
-                
-                        value:[],       //下拉框值
                         id:{},           //筛选参数
-                        text:''
+                        text:'',
+                        screetext:[]
                 }
         },
         props:{
@@ -92,9 +51,9 @@ export default {
         created: function() {
                 setInterval(this.showMarquee, 2000)
         },
-        
+
         methods: {
-                
+
                 //选择条件
                 choosecon(index,nubs,item,name) {
                         this.iscolor[index] = nubs
@@ -114,11 +73,7 @@ export default {
                 },
                 //文本框搜索
                 search(){
-                        if(this.type){
-                            this.$set(this.id,7,this.text)
-                        }else{
-                            this.$set(this.id,3,this.text)
-                        }
+                            this.$set(this.id,4,this.text)
                          this.$emit('search',this.id)
                 },
                 // 清空筛选条件
@@ -240,7 +195,7 @@ export default {
                 cursor: pointer;
         }
 
-        
+
 
         .copyright_active>img {
                 width: 240px;

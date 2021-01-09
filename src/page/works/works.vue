@@ -4,13 +4,13 @@
     <v-navigation></v-navigation>
     <div class="works_all">
       <div class="works">
-        <worksscreen :type='true' @choosecon="choosecon"   @choosenull="choosenull"
+        <worksscreen :type='true' @choosecon="choosecon"  @search="search"  @choosenull="choosenull"
                             :worksscree="worksscree"   :iscolor="iscolor" @delet="delet"></worksscreen>
-        <div class="patent_sort">
+      <!--  <div class="patent_sort">
               <span :class="{ sortactive: this.sortnumber == 0 }" @click="comsort(0)">综合排序<i class="el-icon-bottom patent_sorticon"></i></span>
               <span :class="{ sortactive: this.sortnumber == 1 }" @click="comsort(1)">发布时间<i class="el-icon-bottom patent_sorticon"></i></span>
               <span :class="{ sortactive: this.sortnumber == 2 }" @click="comsort(2)">价格排序<i class="el-icon-bottom patent_sorticon"></i></span>
-        </div>
+        </div> -->
         <div class="show">
                     <div class="waterFall-box" ref="box" >
                         <div class="img-box" v-for="(item1, index) in images" :key="index" ref="img" @mouseover="enter(index)" @mouseleave="leave">
@@ -18,7 +18,7 @@
                           <div class="other_works_txt" v-show="seen==index">
                                   <h4>{{item1.name}}</h4>
                                   <p>{{item1.summarize}}</p>
-                                  <span>{{item1.fee}}</span>
+                                  <span>￥{{item1.fee}}元</span>
                           </div>
                         </div>
                         <footer v-if="isLoad == false"
@@ -125,20 +125,20 @@ export default {
     showstwo() {
       this.isshowtwo = false;
     },
-    comsort(index) {
-            this.sortnumber = index
-            if (index == 1) {
-                    this.$set(this.id, 8, "desc")
-                    this.$set(this.id, 9, "")
-                    // this.ispost(this.id)
-            } else if (index == 2) {
-                    this.$set(this.id, 9, "desc")
-                    this.$set(this.id, 8, "")
-                    // this.ispost(this.id)
-            } else {
-                    // this.ispost()
-            }
-    },
+    // comsort(index) {
+    //         this.sortnumber = index
+    //         if(index == 1){
+    //                 this.$set(this.id,2,"desc")
+    //                 this.$set(this.id,3,"")
+    //                 this.ispost(1,this.id)
+    //         }else if(index == 2){
+    //                 this.$set(this.id,3,"desc")
+    //                 this.$set(this.id,2,"")
+    //                 this.ispost(1,this.id)
+    //         }else{
+    //                  this.ispost()
+    //         }
+    // },
     // 分类筛选
     choosecon(id) {
             this.id = id
@@ -150,7 +150,10 @@ export default {
     leave(){
         this.seen =null
     },
-
+    search(id){
+            this.id = id
+            this.ispost(1,id)
+    },
     //清空筛选
     choosenull() {
             this.iscolor = []

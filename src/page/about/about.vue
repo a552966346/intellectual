@@ -44,8 +44,14 @@ import navcter from '@/components/navcter/navcter.vue'
         this.$api.getaboutcat()
         .then(res=>{
             if(res.code==1){
+                    console.log(res)
                 this.list_data = res.data
-                this.ispost(router_path);
+                if(router_path){
+                     this.ispost(router_path);
+                }else{
+                    this.ispost(res.data[0].children[0].id);
+                }
+
             }else{
                 this.$message({
                 showClose: true,
@@ -55,7 +61,7 @@ import navcter from '@/components/navcter/navcter.vue'
         })
         .catch(err => {
         })
-   
+
 
     },
     mounted(){
@@ -78,10 +84,11 @@ import navcter from '@/components/navcter/navcter.vue'
             this.$api.getaboutdetiles(id)
             .then(res=>{
                  this.right_data = res.data
+                 console.log(res)
             })
 	    .catch(err => {
 	    })
-	    
+
         }
     },
     components:{
