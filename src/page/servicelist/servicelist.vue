@@ -22,7 +22,7 @@
                                 <!-- 条目 -->
                                 <div  class="service_all">
                                         <!-- 数据 -->
-                                        <servicetoplist :listdata="listdata"></servicetoplist>
+                                        <servicetoplist :listdata="listdata" @kefu="kefu"></servicetoplist>
                                         <!-- 分页 -->
                                         <div class="copyright_page">
                                                 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"  :current-page.sync="currentPage"
@@ -34,7 +34,9 @@
 
                 </div>
                 <!-- 底部 -->
-                <v-combotttom></v-combotttom>
+                <div class="tanchuang" v-show="isshow" @click.self="shows">
+                              <v-customer @shows="shows"></v-customer>
+                </div>
         </div>
 
 </template>
@@ -43,6 +45,7 @@
         // import copyrightOrdinary from '@/components/paycenter/copyrightOrdinary.vue'
         import trademarkscreen from '@/components/paycenter/trademarkscreen.vue'
         import servicetoplist from '@/components/servicetoplist/servicetoplist.vue'
+         import customer from '@/components/customers/customer_services.vue'
         // import trademarkcon from '@/components/paycenter/trademarkcon.vue'
         // import trademarkbo from '@/components/paycenter/trademarkbo.vue'
         export default {
@@ -50,6 +53,7 @@
                         // copyrightOrdinary,
                         trademarkscreen,
                         servicetoplist,
+                        'v-customer':customer
                         // trademarkcon,
                         // trademarkbo
                 },
@@ -70,7 +74,8 @@
                                 // 分页
                                 currentPage: 1,
                                 pagesize: 0,
-                                total:0
+                                total:0,
+                                isshow:false
                         }
                },
                 mounted(){
@@ -103,6 +108,12 @@
                                         this.ispost()
                                 }
 
+                        },
+                        kefu(){
+                                this.isshow = true
+                        },
+                        shows(){
+                                this.isshow = false
                         },
                         // 请求列表id
                         ispost(id) {
@@ -156,7 +167,8 @@
                              this.id[6] = val
                              this.ispost(this.id)
                          }
-                }
+                },
+
 
         }
 </script>
