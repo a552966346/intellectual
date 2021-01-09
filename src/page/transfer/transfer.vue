@@ -55,6 +55,7 @@
                          this.id[8] = this.$route.query.name
                         this.$api.gettechnologycondition()
                         .then(res=>{
+                                console.log(res)
                                 this.top_data = res.data
                         })
 			.catch(res=>{

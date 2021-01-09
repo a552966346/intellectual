@@ -843,6 +843,17 @@ const api = {
                         category_id:category_id
                 }
                 return requestAll.requset(baseUrl + '/api/flea/flea_data',data);
+        },
+        worksclass(){
+                return requestAll.requset(baseUrl + '/api/flea/flea_condition');
+        },
+        workspost(page,id){
+               let data = {
+                       page:page,
+                       category_id:id[0],
+                       fee:id[1]
+               }
+                return requestAll.requset(baseUrl + '/api/flea/flealist_data',data);
         }
 }
 export default api;

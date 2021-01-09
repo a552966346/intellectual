@@ -5,7 +5,7 @@
                                 <div class="worksscree_lefthead">{{item[0]}}</div>
                                 <div class="worksscree_leftcontent">
                                         <span  :class="{color:iscolor[index] == null}" @click="choosecon(index,null,item[1],null)">不限</span>
-                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[2]" @click="choosecon(index,nubs,item[1],second)" :key="nubs" v-if="second !=''">{{second}}</span>
+                                        <span  :class="{color:iscolor[index] == nubs}" v-for="(second, nubs) in item[3]" @click="choosecon(index,nubs,item[1],second)" :key="nubs" v-if="second !=''">{{second}}</span>
                                 </div>
                         </div>
                         <!-- <div class="worksscree_leftrow">
