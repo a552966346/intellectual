@@ -1,5 +1,4 @@
 import requestAll from './request.js'
-// console.log(requestAll)
 // 本地后台地址
 const baseUrl = 'http://intellectual.jzhxwl.com/';
 // 第三方地址 如：高德 腾讯 天气api等接口
@@ -116,7 +115,6 @@ const api = {
          */
         gettrademarklist(id) {
                 let data
-                console.log(id)
                 if (id) {
                         data = {
                                 category_one: id[0],
@@ -341,7 +339,6 @@ const api = {
         // 服务列表筛选列表
         severlist(id, page) {
                 let data
-                console.log(id)
                 if (id) {
                         // 服务分类。。行业分页。。。服务价格。。。关键字搜索。。。时间排序。。。价格排序
                         data = {
