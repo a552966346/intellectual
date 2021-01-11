@@ -85,8 +85,6 @@
                         this.$api.severcondition()
                        .then(res => {
                                this.severcondition=res.data;
-
-
                        })
                        .catch(res=>{
                        })
