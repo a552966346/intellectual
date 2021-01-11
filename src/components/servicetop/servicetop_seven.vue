@@ -389,15 +389,11 @@
                 font-size: 14px;
         }
         .topBody_lei>div {
-                width: 10%;
+                width: 14%;
                 border-right: 1px solid #ddd;
                 margin-right: 15px;
                 margin-bottom: 10px;
         }
-        .topBody_lei>div:nth-of-type(7){
-                width: 14%;
-        }
-
         .topBody_lei>div:last-child {
                 border: none;
         }
