@@ -365,6 +365,10 @@
                 color: #aaa;
                 font-size: 14px;
         }
+	.topBody_lei span{
+		color: #aaa;
+		font-size: 13px;
+	}
         .topBody_lei_two>div{
                 display: flex;
                 /* width: 100%; */

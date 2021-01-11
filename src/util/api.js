@@ -202,10 +202,11 @@ const api = {
                                 scope: id[6],
                                 condition: id[7],
                                 sell: id[8],
-                                creatime: id[9],
-                                feeorder: id[10],
+                                fee:id[9],
+                                creatime: id[10],
+                                feeorder: id[12],
                                 keyword: id[11],
-                                page: id[12]
+                                page: id[13]
                         }
                 }
                 return requestAll.requset(baseUrl + '/api/Copyright/copyright_list', data);

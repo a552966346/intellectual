@@ -106,12 +106,12 @@ export default {
                 comsort(index){
                         this.sortnumber=index
                         if(index == 1){
-                                this.$set(this.id,9,"desc")
-                                this.$set(this.id,10,"")
+                                this.$set(this.id,10,"desc")
+                                this.$set(this.id,12,"")
                                 this.ispost(this.id)
                         }else if(index == 2){
-                                this.$set(this.id,10,"desc")
-                                this.$set(this.id,9,"")
+                                this.$set(this.id,12,"desc")
+                                this.$set(this.id,10,"")
                                 this.ispost(this.id)
                         }else{
                                  this.ispost()
