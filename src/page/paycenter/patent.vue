@@ -138,6 +138,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         },
                         //搜索
                         search(id){
+                                this.id = id
                                 this.ispost(id)
                         },
 
@@ -146,6 +147,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                         },
                         //筛选
                         choosecon(id){
+                                this.id = id
                                 this.ispost(id)
                         },
                         //清空
@@ -171,6 +173,7 @@ import patentcon from '@/components/paycenter/patentcon.vue';
                                 })
                         },
                         delet(id){
+                                this.id = id
                                 this.ispost(id)
                         },
                        // 分页

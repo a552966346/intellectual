@@ -111,7 +111,7 @@ export default {
 }
 .patent_bottms{
     width: 1200px;
-    width: 100%;
+    /* width: 100%; */
     margin: 0 auto;
     background-color: #f6f6f6;
     padding-bottom: 20px;
